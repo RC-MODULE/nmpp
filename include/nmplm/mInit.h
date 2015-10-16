@@ -1,0 +1,329 @@
+//------------------------------------------------------------------------
+//
+//  $Workfile:: mInit.h  $
+//
+//  Векторно-матричная библиотека
+//
+//  Copyright (c) RC Module Inc.
+//
+//  $Revision: 1.1 $      $Date: 2005/01/12 14:03:24 $
+//
+//! \if file_doc
+//!
+//! \file   mtrInit.h
+//! \author Сергей Мушкаев
+//! \brief  Определение функций для инициализации и копирования.
+//!
+//! \endif
+//!
+//------------------------------------------------------------------------
+#ifndef _MINIT_H_INCLUDED_
+#define _MINIT_H_INCLUDED_
+
+//*****************************************************************************
+
+    //--------------------------------------------------------------------
+    //! \ru
+    //!     \defgroup mInit Инициализация и копирование
+    //! \en
+    //!     \defgroup mInit Initialization and copy
+    //! \~
+    //! \ingroup MTR_Group
+    //--------------------------------------------------------------------
+
+//*****************************************************************************
+
+    /**
+    \defgroup MTR_Copyua MTR_Copyua
+    \ingroup mInit
+    \brief
+        \ru Копирование подматрицы с невыровненной по границам 64- разрядного слова
+			позиции в выровненную. 
+        \en Copying a submatrix from an unaligned to 64 bit word position to an alighed one. 
+
+		\~
+		\~
+    \param	pSrcMtr			
+        \ru Исходная матрица. 
+        \en Source mtr. 
+		\~
+    \param	nSrcStride	
+        \ru Ширина исходной матрицы в элементах. 
+        \en Source mtr width in elements. 
+		\~
+    \param	nSrcOffset			
+        \ru Смещение в элементах от начала матрицы-источника. 
+        \en nShift in elements from the source mtr origin. 
+		\~
+    \param	nDstStride	
+        \ru Ширина результирующей матрицы в элементах. 
+        \en Result mtr width in elements. 
+		\~
+    \param	nHeight		
+        \ru Число строк подматрицы. 
+        \en Row count in submatrix. 
+		\~
+    \param	nWidth		
+        \ru Число столбцов подматрицы. 
+        \en Column count in submatrix. 
+
+		\~
+    \retval	pDstMtr			
+        \ru Результирующая матрица. 
+        \en The result mtr. 
+
+		\~
+    \return \e void
+    
+    \restr 
+        \ru 
+			- Входная и выходная матрицы не должны перекрываться в памяти
+            - Число столбцов копируемой подматрицы nWidth должна быть кратно числу 
+			  элементов в 64-х разрядном слове. 
+        \en 
+			- The input and output matrixes should not overlap in memory.
+            - nWidth should be divisible by element count in 64-bit word. 
+    
+        
+		\~
+    \par
+    \xmlonly
+        <testperf> 
+             <param> pSrcMtr </param> <values> L G </values>
+             <param> pDstMtr </param> <values> L G </values>
+             <param> nDstStride </param> <values> nSrcStride/2 </values>
+             <param> nSrcOffset </param> <values> 8 </values>
+             <param> nHeight </param> <values> 8 </values>
+             <param> nWidth </param> <values> nSrcStride/4 </values>
+             <param> nSrcStride </param> <values>  256 </values>
+             <size>  nHeight* nWidth </size>
+        </testperf>
+        <testperf> 
+             <param> pSrcMtr </param> <values> L </values>
+             <param> pDstMtr </param> <values> G </values>
+             <param> nDstStride </param> <values> nSrcStride/2 </values>
+             <param> nSrcOffset </param> <values> 8 </values>
+             <param> nHeight </param> <values> 8 </values>
+             <param> nWidth </param> <values> nSrcStride/4 </values>
+             <param> nSrcStride </param> <values> 32 128 256 </values>
+             <size>  nHeight* nWidth </size>
+        </testperf>
+    \endxmlonly
+    */
+    //! \{
+void MTR_Copyua(  nm8s* pSrcMtr, int nSrcStride, int nSrcOffset, nm8s* pDstMtr,  int nDstStride,int nHeight, int nWidth);
+void MTR_Copyua( nm16s* pSrcMtr, int nSrcStride, int nSrcOffset, nm16s* pDstMtr, int nDstStride,int nHeight, int nWidth);
+void MTR_Copyua( nm32s* pSrcMtr, int nSrcStride, int nSrcOffset, nm32s* pDstMtr, int nDstStride,int nHeight, int nWidth);
+    //! \}
+
+
+//*****************************************************************************
+
+    /**
+    \defgroup MTR_Copyau MTR_Copyau
+    \ingroup mInit
+    \brief
+        \ru Копирование подматрицы с выровненной по границе 64-х разрядных слов
+			позиции в невыровненную позицию.
+        \en Copying a submatrix from an aligned to 64 bit word position to an unalighed one. 
+		\~
+    \param	pSrcMtr			
+        \ru Исходная матрица. 
+        \en Source mtr. 
+		\~
+    \param	nSrcStride	
+        \ru Ширина исходной матрицы в элементах. 
+        \en Source mtr width in elements. 
+		\~
+    \retval	pDstMtr			
+        \ru Результирующая матрица. 
+        \en The result mtr. 
+		\~
+    \param	nDstStride	
+        \ru Ширина результирующей матрицы в элементах. 
+        \en Result mtr width in elements. 
+		\~
+    \param	nDstOffset			
+        \ru Индекс столбца (в элементах) куда производится вставка. 
+        \en nShift in elements from the source mtr origin. 
+		\~
+    \param	nHeight		
+        \ru Число строк подматрицы. 
+        \en Row count in submatrix. 
+		\~
+    \param	nWidth		
+        \ru Число столбцов подматрицы. 
+        \en Column count in submatrix. 
+		\~
+    \return \e void
+    
+    \restr 
+        \ru
+            - Входная и выходная матрицы не должны перекрываться в памяти
+            - Число столбцов копируемой подматрицы nWidth должна быть кратной 64-битам. 
+        \en 
+            - The input and output matrixes should not overlap in memory.
+            - The Column count of the copied submatrix nWidth should be divisible by 64 bits.
+    
+		\~
+    \par
+    \xmlonly
+        <testperf> 
+             <param> pSrcMtr </param> <values> L G </values>
+             <param> pDstMtr </param> <values> L G </values>
+             <param> nDstStride </param> <values> nSrcStride*2 </values>
+             <param> nDstOffset </param> <values> nSrcStride/2 </values>
+             <param> nHeight </param> <values> 8 </values>
+             <param> nWidth </param> <values> nSrcStride/4 </values>
+             <param> nSrcStride </param> <values> 128 </values>
+             <size>  nHeight* nWidth </size>
+        </testperf>
+        <testperf> 
+             <param> pSrcMtr </param> <values> L </values>
+             <param> pDstMtr </param> <values> G </values>
+             <param> nDstStride </param> <values> nSrcStride*2 </values>
+             <param> nDstOffset </param> <values> nSrcStride/2 </values>
+             <param> nHeight </param> <values> 8 </values>
+             <param> nWidth </param> <values> nSrcStride/4 </values>
+             <param> nSrcStride </param> <values> 32 64 128 </values>
+             <size>  nHeight* nWidth </size>
+        </testperf>
+    \endxmlonly
+     
+    */
+    //! \{
+void MTR_Copyau(  nm8s* pSrcMtr, int nSrcStride, nm8s* pDstMtr,  int nDstStride, int nDstOffset,int nHeight, int nWidth);
+void MTR_Copyau( nm16s* pSrcMtr, int nSrcStride, nm16s* pDstMtr, int nDstStride, int nDstOffset,int nHeight, int nWidth);
+void MTR_Copyau( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nDstOffset,int nHeight, int nWidth);
+    //! \}
+
+
+//*****************************************************************************
+
+    /**
+    \defgroup MTR_Copy MTR_Copy
+    \ingroup mInit
+    \brief
+        \ru Функции копирования прямоугольных областей памяти между двумерными массивами. 
+        \en Functions of copying rectangular memory areas between two-dimensional arrays. 
+		\~
+    \param	pSrcMtr			
+        \ru Исходная матрица. 
+        \en Source mtr. 
+		\~
+    \param	nSrcStride	
+        \ru Ширина исходной матрицы в элементах. 
+        \en Source mtr width in elements. 
+		\~
+    \param	nDstStride	
+        \ru Ширина результирующей матрицы в элементах. 
+        \en Result mtr width in elements. 
+		\~
+    \param	nHeight		
+        \ru Число строк подматрицы. 
+        \en Row count in submatrix. 
+		\~
+    \param	nWidth		
+        \ru Число столбцов подматрицы. 
+        \en Column count in submatrix. 
+		\~
+    \retval	pDstMtr			
+        \ru Результирующая матрица. 
+        \en The result mtr. 
+		\~
+    \return \e void
+    
+    \restr 
+        \ru Выходная матрица не может быть перезаписана (т.е. помещена непосредственно 
+            на место входной) 
+        \en The output mtr cannot be rewritten (i.e. placed directly to the 
+            input mtr location). 
+    
+		\~
+    \par
+    \xmlonly
+        <testperf> 
+             <param> pSrcMtr </param> <values> L G </values>
+             <param> pDstMtr </param> <values> L G </values>
+             <param> nDstStride </param> <values> nSrcStride </values>
+             <param> nHeight </param> <values> 128 </values>
+             <param> nWidth </param> <values> nSrcStride </values>
+             <param> nSrcStride </param> <values> 256 </values>
+             <size> nHeight*nWidth </size>
+        </testperf>
+        <testperf> 
+             <param> pSrcMtr </param> <values> L </values>
+             <param> pDstMtr </param> <values> G </values>
+             <param> nDstStride </param> <values> nSrcStride </values>
+             <param> nHeight </param> <values> 128 </values>
+             <param> nWidth </param> <values> nSrcStride </values>
+             <param> nSrcStride </param> <values> 8 128 256 </values>
+             <size> nHeight*nWidth </size>
+        </testperf>
+    \endxmlonly
+       
+    */
+    //! \{
+void MTR_Copy(  nm8s* pSrcMtr, int nSrcStride,  nm8s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+void MTR_Copy( nm16s* pSrcMtr, int nSrcStride, nm16s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+void MTR_Copy( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+void MTR_Copy( nm64s* pSrcMtr, int nSrcStride, nm64s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+    //! \}
+
+
+//*****************************************************************************
+
+
+	/**
+	\internal
+	\defgroup MTR_Fill MTR_Fill 
+	\ingroup mInit
+	\brief
+		\ru Функция инициализации подматрицы постоянным значением. 
+		\en Function of submatrix initialization with a ant value.  
+
+		\~
+	\~
+	\param pMtr
+        \ru Результирующая подматрица. 
+        \en The result submatrix. 
+		\~
+	\param nVal
+        \ru Константа. 
+        \en A ant. 
+		\~
+	\param nMtrStride
+		\ru Ширина всей матрицы \n
+			(измеряется в 32-х разрядных словах). 
+         \en Width of whole mtr \n
+            (measured in 32-bit words). 
+	\param nMtrHeight
+        \ru Высота подматрицы. 
+        \en Submatrix height. 
+		\~
+	\param nMtrWidth
+		\ru Ширина подмартрицы в элементах
+		\en Submatrix width in elements
+
+		\~
+    \par
+    \xmlonly
+        <testperf> 
+             <param> pMtr </param> <values> L G </values>
+             <param> nVal </param> <values> n </values>
+             <param> nMtrStride </param> <values> nMtrWidth/2 </values>
+             <param> nMtrHeight </param> <values> 8 </values>
+             <param> nMtrWidth </param> <values> 8 32 128 </values>
+             <size>  nMtrHeight*nMtrWidth </size>
+        </testperf>
+    \endxmlonly
+
+	*/
+    //! \{
+void MTR_Fill(nm8s* pMtr,  int8b nVal, int nMtrStride, int nMtrHeight, int nMtrWidth);
+    //! \}
+    
+
+    
+
+#endif // _MINIT_H_INCLUDED_

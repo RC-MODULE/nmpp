@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{42D1F973-A2F8-4044-B1EC-0ECD841FA764}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>nmpp_vs13</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>;../../../include;../../../include/nmpls</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+	 <Lib>
+      <OutputFile>../../../lib/nmpp_vs13d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+	  <AdditionalIncludeDirectories>;../../../include;../../../include/nmpls</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+	<Lib>
+      <OutputFile>../../../lib/nmpp_vs13.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+ 	<ClCompile Include="../../../src/nmplc/arithmetic/common/SCL_DivC__nm64sc_nm64sc.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplc/init/common/InitRand.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Arithmetics/pc/IMG_Halfsum__nm16s_nm16s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Arithmetics/pc/IMG_WAdd2I__RGB32_nm10s_RGB32_nm10s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Convert/common/IMG_RGB32ToGray__RGB32_nm10s_nm08s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Convert/pc/IMG_GrayToRGB24__nm08u_RGB24_nm8u.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Convert/pc/IMG_RGB24ToGray__RGB24_nm8u_nm08u.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Convert/pc/IMG_RGB32ToGray__RGB32_nm8u_nm32s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Convert/pc/IMG_Rsh2__RGB32_nm10u_RGB32_nm10u.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/common/IMG_CreateFilter_16s16s__int.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/common/IMG_CreateFilter_16s32s__int.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/common/IMG_CreateFilter_32s32s__int.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/common/IMG_CreateFilter_8s16s__int.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/common/IMG_CreateFilter_8s32s__int.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/common/IMG_CreateFilter_8s8s__int.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/common/IMG_ReleaseObject__nm64s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm08s_nm08s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm08s_nm16s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm08s_nm32s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm16s_nm16s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm16s_nm32s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm32s_nm32s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter1x9__nm16s_nm16s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter3x3__nm16s_nm16s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Median3x3__nm8s7b_nm8s7b.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_SetFilter1x9_16s16s__nm08s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Floodfill/common/FFill32b.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Init/common/CreateComplexTexture__char.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Reodering/pc/DeinterlaceBlend.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Reodering/pc/DeinterlaceSplit.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Reodering/pc/IMG_MergeFromBlocks8x8__nm8s_nm8s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Reodering/pc/IMG_SplitInto2x2Blocks8x8__nm8u_nm8u.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Reodering/pc/IMG_SplitInto2x2Blocks8x8xor__nm8u_nm8u.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Reodering/pc/IMG_SplitIntoBlocks8x8__nm8s_nm8s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Resample/common/IMG_ResampleDown2XY__nm16u15b_nm16u15b.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Resample/common/SetVResample3div2.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Resample/pc/IMG_ResampleDown2Y__nm8u7b_nm8u7b.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Resample/pc/IMG_ResampleUp3Down2__nm08u_nm08u.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Select/pc/IMG_CompareGtC__nm16s_nm16s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Support/common/IMG_Release__void.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplm/Init/pc/MTR_Copy.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplm/Init/pc/MTR_Fill.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplm/Inverse/common/mtrResolve.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplm/MatrixVector/pc/MTR_MulC_AddVsVc__int.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplm/MatrixVector/pc/MTR_ProdM.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplm/MatrixVector/pc/MTR_ProdUnitV.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplm/MatrixVector/pc/MTR_ProdV.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplm/Support/common/mtrSetMatrix.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplm/Support/pc/MTR_GetCol.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Correlation/pc/SIG_XCorr.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0256/pc/pcFFT256.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0256/pc/W256Tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0512/pc/pcFFT512.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0512/pc/W512tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT1024/pc/pcFFT1024.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT1024/pc/W1024Tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT2048/pc/pcFFT2048.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT2048/pc/W2048Tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT4096/pc/pcFFT4096.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT8192/pc/pcFFT8192.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT0256/pc/iW256Tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT0256/pc/pcIFFT256.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT0512/pc/iW512tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT0512/pc/pcIFFT512.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT1024/pc/iW1024Tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT1024/pc/pcIFFT1024.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT2048/pc/iW2048Tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT2048/pc/pcIFFT2048.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT4096/pc/pcIFFT4096.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT8192/pc/pcIFFT8192.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_Filter__nm08sc_nm32sc.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_SetFilter_16s16s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_SetFilter_16s32s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_SetFilter_32s32s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filter/common/sig_setfilter_8s16s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_SetFilter_8s32s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_SetFilter_8s8s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filtration/pc/SIG_Filter.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filtration/pc/SIG_MedainV3.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filtration/pc/SIG_MedainV9.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Resample/common/SIG_CreateResampleDown2_16u16u.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Resample/common/SIG_CreateResampleDown2_8u8u.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Resample/common/SIG_CreateResampleUp3Down2_8s16s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Resample/common/SIG_ResizeDown2__nm08u_nm16u.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Resample/pc/SIG_Decimate16.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Resample/pc/SIG_Resample.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/Resample/pc/SIG_ResizeDown2.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/common/VEC_DivC__nm64sc_nm64sc.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/DivTable_1_145_18.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/DivTable_1_145_19.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/Quant.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Abs.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Abs1.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Add.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_DivC.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Dot.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_MulC.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_MulV.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Neg.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Sub.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Sum.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Wadd2V.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Bitwise/pc/Shift.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Bitwise/pc/VecAnd4V.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Bitwise/pc/VecAndNV.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Bitwise/pc/VecLogic.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Bitwise/pc/VecOr3V.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Bitwise/pc/VecOr4V.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Bitwise/pc/VecOrNV.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Init/common/Rand.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Init/common/VEC_Ramp.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Init/common/VEC_Rand_nm32u.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Init/pc/VEC_Cnv.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Init/pc/VEC_Copy.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Init/pc/VEC_Fill.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Init/pc/VEC_Swap.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/nmtl_spec/pc/tcmplx_spec.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_LastNonZeroPos.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_LastZeroPos.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MaxPos_nm16s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MaxPos_nm32s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MaxPos_nm8s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MinPos_nm16s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MinPos_nm32s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MinPos_nm8s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_Clip_Arsh_Cnv_AddC_Ext.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_ClipCnv_AddC.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_ClipPowArshCnvAddC.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_ClipPowC.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/vec_clippowcarshcnv_addc.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_CmpEq0.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_CmpEqC.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_CmpEqV.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_CmpLt0.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_CmpMinMaxV.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_CmpNeC.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_CmpNeV.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_FirstNonZeroPos.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_FirstZeroPos.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MaxV.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MaxVal.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MinCmpLtV.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/vec_minnv.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MinPos1024.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MinPos16.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MinPos25.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MinPos256.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MinPos9.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MinV.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MinVal.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Stat/pc/32Ini.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Stat/pc/CRC32_Table.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Stat/pc/VEC_Crc.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Stat/pc/VEC_SadV16.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_Addr.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_GetVal.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_Malloc64s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_SetVal.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Support/common/malloc32.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Transform/common/VEC_Remap_nm8u.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Transform/pc/VEC_QSort.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Transform/pc/VEC_Remap.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Transform/pc/VEC_Split.cpp" /> 
+   </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
+

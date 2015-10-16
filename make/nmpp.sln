@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nmpp_vs80", "pc\vs80\nmpp_vs80.vcproj", "{502FEC7E-393D-4397-8F70-5014080F458C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nmpp_gcc", "pc\gcc\nmpp_gcc.vcproj", "{D16B06DE-BB5E-478F-8904-3C61312607C5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nmpp_nmc3", "nmc3\nmpp_nmc3.vcproj", "{D979E765-1DDA-4536-8F56-CAB81C32F5CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{502FEC7E-393D-4397-8F70-5014080F458C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{502FEC7E-393D-4397-8F70-5014080F458C}.Debug|Win32.Build.0 = Debug|Win32
+		{502FEC7E-393D-4397-8F70-5014080F458C}.Release|Win32.ActiveCfg = Release|Win32
+		{502FEC7E-393D-4397-8F70-5014080F458C}.Release|Win32.Build.0 = Release|Win32
+		{D16B06DE-BB5E-478F-8904-3C61312607C5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D16B06DE-BB5E-478F-8904-3C61312607C5}.Debug|Win32.Build.0 = Debug|Win32
+		{D16B06DE-BB5E-478F-8904-3C61312607C5}.Release|Win32.ActiveCfg = Release|Win32
+		{D16B06DE-BB5E-478F-8904-3C61312607C5}.Release|Win32.Build.0 = Release|Win32
+		{D979E765-1DDA-4536-8F56-CAB81C32F5CF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D979E765-1DDA-4536-8F56-CAB81C32F5CF}.Debug|Win32.Build.0 = Debug|Win32
+		{D979E765-1DDA-4536-8F56-CAB81C32F5CF}.Release|Win32.ActiveCfg = Release|Win32
+		{D979E765-1DDA-4536-8F56-CAB81C32F5CF}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

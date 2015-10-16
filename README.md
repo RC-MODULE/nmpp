@@ -1,3 +1,5 @@
+Documentation at http://rc-module.github.io/nmpp/
+
 DESCRIPTION:
   NMPP is "Neuro Matrix Performance Primitives" library 
   which consists of scalar, vector-matrix  , signal and 

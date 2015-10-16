@@ -13,3 +13,14 @@ pdf: chm
 
 clean: 
 	rm -f -r html latex *.chm *.pdf 
+
+	
+github: 
+	-rm -Rfv html
+	doxygen
+	cd html &&\
+	git init . && git checkout --orphan gh-pages &&\
+	git add * &&\
+	git commit -m "documentation-for-gh-pages" &&\
+	git remote add origin https://github.com/RC-MODULE/nmpp.git  &&\
+	git push -u -f origin gh-pages	

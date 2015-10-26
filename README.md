@@ -1,9 +1,9 @@
 Documentation at http://rc-module.github.io/nmpp/
 
 DOCUMENTATION:
-HTML: http://rc-module.github.io/nmpp/
-CHM: http://rc-module.github.io/nmpp/nmpp.chm
-PDF: http://rc-module.github.io/nmpp/nmpp.pdf
+  HTML: http://rc-module.github.io/nmpp/
+  CHM: http://rc-module.github.io/nmpp/nmpp.chm
+  PDF: http://rc-module.github.io/nmpp/nmpp.pdf
 
 DESCRIPTION:
   NMPP is "Neuro Matrix Performance Primitives" library 

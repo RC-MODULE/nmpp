@@ -1,3 +1,5 @@
+include ../../setenv.mk
+SHELL := cmd
 
 all: pdf
 
@@ -12,12 +14,15 @@ pdf: chm
 	copy .\latex\refman.pdf .\nmpp.pdf
 
 clean: 
-	rm -f -r html latex *.chm *.pdf 
-
+	-rm -f -r -v html latex nmpp.chm nmpp.pdf 
 	
-github: 
-	-rm -Rfv html
-	doxygen
+open:
+	www.bat
+	
+	#http://rc-module.github.io/nmpp
+	
+github: clean chm pdf
+	cp ./latex/refman.pdf ./html/nmpp.pdf
 	cd html &&\
 	git init . && git checkout --orphan gh-pages &&\
 	git add * &&\

@@ -1,5 +1,3 @@
-Documentation at http://rc-module.github.io/nmpp/
-
 DOCUMENTATION:  
   HTML: http://rc-module.github.io/nmpp/  
   CHM: http://rc-module.github.io/nmpp/nmpp.chm  

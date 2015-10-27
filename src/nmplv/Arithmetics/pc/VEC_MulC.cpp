@@ -199,7 +199,7 @@ void VEC_MulC_AddC(
 	VEC_MulC(pSrcVec,MulN,pDstVec,nSize);
 	VEC_AddC(pDstVec,AddN,pDstVec,nSize);
 }
-
+/*
 void VEC_MulC_AddC(int32x2* dataSparseSrc,  int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst)
 {
 	int32x2* pSrc=dataSparseSrc;
@@ -222,7 +222,7 @@ void VEC_ArshC_MulC_AddC(int32x2* dataSparseSrc,  int32x2& preshiftArg, int32x2&
 		pSrc+=stepSparseSrc;
 		pDst+=stepSparseDst;
 	}
-}
+}*/
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 32-bit buffer elements by scalar value with vec and constant addition

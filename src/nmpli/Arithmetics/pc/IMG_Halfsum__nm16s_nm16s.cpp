@@ -7,7 +7,7 @@ void IMG_AddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStr
 	int i, j;
 	for(j=0; j<nHeight; j++)
 		for(i=0; i<nWidth; i++)
-			((nm16s*)pSrcDstImg)[dstep*j+i]+=((nm16s*)pSrcImg)[sstep*j+i];
+			((short*)pSrcDstImg)[dstep*j+i]+=((short*)pSrcImg)[sstep*j+i];
 
 }
 
@@ -19,9 +19,9 @@ void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStri
 	for(j=0; j<nHeight; j++)
 		for(i=0; i<nWidth; i++)
 		{
-			int p1=(int)((nm16s*)pSrcDstImg)[dstep*j+i];
-			int p2=(int)((nm16s*)pSrcImg)[sstep*j+i];
-			((nm16s*)pSrcDstImg)[dstep*j+i]=(short)(p1-p2);
+			int p1=(int)((short*)pSrcDstImg)[dstep*j+i];
+			int p2=(int)((short*)pSrcImg)[sstep*j+i];
+			((short*)pSrcDstImg)[dstep*j+i]=(short)(p1-p2);
 		}
 }
 
@@ -32,7 +32,7 @@ void IMG_AddCnvArshI(nm16s* pSrcDstImg,  int nSrcDstStride,  nm32s* pSrcImg, int
 	int i, j;
 	for(j=0; j<nHeight; j++)
 		for(i=0; i<nWidth; i++)
-			((nm16s*)pSrcDstImg)[dstep*j+i]+=((nm16s)(pSrcImg[sstep*j+i]>>nShift));
+			((short*)pSrcDstImg)[dstep*j+i]+=((short)(pSrcImg[sstep*j+i]>>nShift));
 }
 
 void IMG_SubCnvArshI(nm16s * pSrcDstImg,  int nSrcDstStride, nm32s * pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight)
@@ -42,7 +42,7 @@ void IMG_SubCnvArshI(nm16s * pSrcDstImg,  int nSrcDstStride, nm32s * pSrcImg, in
 	int i, j;
 	for(j=0; j<nHeight; j++)
 		for(i=0; i<nWidth; i++)
-			((nm16s*)pSrcDstImg)[dstep*j+i]-=((nm16s)(pSrcImg[sstep*j+i]>>nShift));
+			((short*)pSrcDstImg)[dstep*j+i]-=((short)(pSrcImg[sstep*j+i]>>nShift));
 }
 
 void IMG_Halfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2, 

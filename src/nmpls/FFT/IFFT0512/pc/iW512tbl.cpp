@@ -34,7 +34,7 @@ void IReSortW1_512(	vec<nmint64s > &WRe,
 	size_t idx=0;
 	size_t re_idx=0;
 	size_t im_idx=0;
-	int i;
+	size_t i;
 	for (i=0;i<32;i+=2)
 	{
 		Dst[i+0]		=WRe[re_idx++];	// 0,1,..7
@@ -67,9 +67,9 @@ void IReSortW2_512(
 	size_t idx=0;
 	size_t re_idx=0;
 	size_t im_idx=0;
-	for(int j=0;re_idx<16*16*16*2/8;j+=128)
+	for(size_t j=0;re_idx<16*16*16*2/8;j+=128)
 	{
-		int i;
+		size_t i;
 		for (i=0;i<32;i+=2)
 		{
 			Dst[j+i+0]	=WRe[re_idx++];// 0,1,..7

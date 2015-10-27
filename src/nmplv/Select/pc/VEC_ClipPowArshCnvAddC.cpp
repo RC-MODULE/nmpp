@@ -1,5 +1,6 @@
 #include "nmplv.h"
 //#include "crtdbg.h"
+/*
 void VEC_ClipArshCnv_AddC_Ext(v16nm16s* pSrcVec, v16nm32s* pnClipFactor, v16nm32s* pnShift,v16nm4s* pnAdd, v16nm4s* pDstVec,int nSize)
 {
 	nm16s pClipPos[16];
@@ -29,4 +30,4 @@ void VEC_ClipArshCnv_AddC_Ext(v16nm16s* pSrcVec, v16nm32s* pnClipFactor, v16nm32
 			VEC_SetVal(pDstVec->data,k,nSrc);
 		}
 	}
-}
+}*/

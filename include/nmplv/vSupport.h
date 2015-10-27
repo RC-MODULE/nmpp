@@ -269,6 +269,23 @@ void			VEC_GetVal(nm8u*  pVec, int nIndex, uint8b &nVal);
 void			VEC_GetVal(nm16u* pVec, int nIndex, uint16b &nVal);
 inline  void	VEC_GetVal(nm32u* pVec, int nIndex, uint32b&  nVal) { nVal=pVec[nIndex];}
 inline  void	VEC_GetVal(nm64u* pVec, int nIndex, uint64b&  nVal) { nVal=pVec[nIndex];}
+
+void			nmppsGetVal_1  (nm1*   pVec, int nIndex, int1b &nVal);
+void			nmppsGetVal_2s (nm2s*  pVec, int nIndex, int2b &nVal);
+void			nmppsGetVal_4s (nm4s*  pVec, int nIndex, int4b &nVal);
+void			nmppsGetVal_8s (nm8s*  pVec, int nIndex, int8b &nVal);
+void			nmppsGetVal_16s(nm16s* pVec, int nIndex, int16b &nVal);
+inline  void	nmppsGetVal_32s(nm32s* pVec, int nIndex, int32b& nVal) { nVal=pVec[nIndex];}
+inline  void	nmppsGetVal_64s(nm64s* pVec, int nIndex, int64b& nVal) { nVal=pVec[nIndex];}
+                
+void			nmppsGetVal_1  (nm1*   pVec, int nIndex, uint1b &nVal);
+void			nmppsGetVal_2s (nm2u*  pVec, int nIndex, uint2b &nVal);
+void			nmppsGetVal_4s (nm4u*  pVec, int nIndex, uint4b &nVal);
+void			nmppsGetVal_8s (nm8u*  pVec, int nIndex, uint8b &nVal);
+void			nmppsGetVal_16s(nm16u* pVec, int nIndex, uint16b &nVal);
+inline  void	nmppsGetVal_32s(nm32u* pVec, int nIndex, uint32b&  nVal) { nVal=pVec[nIndex];}
+inline  void	nmppsGetVal_64s(nm64u* pVec, int nIndex, uint64b&  nVal) { nVal=pVec[nIndex];}
+
     //! \}
 
 //*****************************************************************************

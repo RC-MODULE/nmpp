@@ -36,8 +36,7 @@ It also have emulation libraries for x86:
   /lib/nmpp_vs13d.lib - (Debug)  
 
 ###BUILDING LIBRARY:  
-  Run command 'make' to build all (nmc3, gcc , vs80 and vs13 ) libraries from ./make folder. \
-  Or run command 'make' from folder with corresponding platform 
+  Run command 'make' to build all (nmc3, gcc , vs80 and vs13 ) libraries from ./make folder.  Or run command 'make' from folder with corresponding platform 
  
 ###INSTALLATION:  
   All you need to use library after building is to set NMPP enviroment variable. It is automaticly set by installer or 
@@ -63,7 +62,7 @@ It also have emulation libraries for x86:
 make download 
 make install
 ```
-**NOTE!** If enviroment variables like **NEURO, MC5103 , MB7707** defined by **?=** in **setenv.mk** then system value would be used , othewise (by **=**) they will be overrided by local pathes!  
+**NOTE!** If enviroment variables like **NEURO, MC5103 , MB7707** defined by **?=** in **setenv.mk** then system value would be used (if exist), othewise (by **=**) they will be overrided by local pathes!  
 By swithcing between **?=** and **=** you can select what SDK installaition to use (system or local).
 
  
@@ -207,7 +206,7 @@ L---src                           - Sources
           
 
 
-FEEDBACK:  
+###FEEDBACK:  
 Please send comments, suggestions, and bug reports to Sergey Mushkaev<mushkaev@module.ru>
 
 

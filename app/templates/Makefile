@@ -1,4 +1,3 @@
-ROOT=../../..
 
 ####################################################
 #
@@ -10,19 +9,14 @@ ROOT=../../..
 ####################################################
 
 include $(ROOT)/setenv.mk
+# get list of all sub-foldfers
+SUB_DIRS=$(subst /,,$(wildcard */))
 ifeq ($(wildcard config.mk),config.mk)
 include config.mk
 endif
 
-# prevents call of embedded 'find.exe' in Windows and GNU make becomes callable
-PATH:= $(subst $(SystemRoot),,$(PATH))	
-
-# get list of all sub-foldfers
-SUB_DIRS=$(subst /,,$(wildcard */))
-$(info DIRS=$(SUB_DIRS))
 # get list of all sub-foldfers with makefile inside
 SUB_MAKEFILES=$(wildcard */Makefile)
-$(info MAKEFILES=$(SUB_MAKEFILES))
 
 # for each sub-folder try to start Makefile with (build/test/run/clean targets) 
 build test run clean: 

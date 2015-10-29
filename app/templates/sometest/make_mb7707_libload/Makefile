@@ -15,23 +15,6 @@ ifndef NMPP
 $(error *** ERROR: 'NMPP' environment variable is not defined!  )
 endif 
 
-ifeq ($(wildcard ./config.mk),)
-ifeq ($(wildcard ./../config.mk),)
-ifeq ($(wildcard ./../../config.mk),)
-ifeq ($(wildcard ./../../../config.mk),)
-include  ../../../../config.mk
-else 
-include  ../../../config.mk
-endif
-else 
-include  ../../config.mk	
-endif
-else
-include ../config.mk
-endif
-else 
-include ./config.mk	
-endif
 
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MB7707)/nm/include"
@@ -66,7 +49,6 @@ endif
 clean:
 	-rm -f *.abs *.elf .*
 
-skip:
-	@echo Compilation is skipped!
+
 	
 

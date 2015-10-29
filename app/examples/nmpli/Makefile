@@ -1,3 +1,5 @@
+ROOT=../../..
+
 ####################################################
 #
 # Recursive make in subfulders
@@ -7,53 +9,45 @@
 #
 ####################################################
 
-ifndef TEMPLATES
-ifeq ($(wildcard ./config.mk),)
-ifeq ($(wildcard ./../config.mk),)
-ifeq ($(wildcard ./../../config.mk),)
-include ../../../config.mk
-else 
-include ./../../config.mk	
-endif
-else
-include ./../config.mk
-endif
-else 
-include ./config.mk	
-endif
-endif
-
-
-# 'dirs.mk' specifies list of dirs for recursive make in subfolders . 
-# If 'dir.mk' doesn't exists then all subfolders will be used
-ifeq ($(wildcard dirs.mk),)
-DIRS=$(subst /,,$(wildcard */))
-else 
-include dirs.mk
+include $(ROOT)/setenv.mk
+ifeq ($(wildcard config.mk),config.mk)
+include config.mk
 endif
 
 # prevents call of embedded 'find.exe' in Windows and GNU make becomes callable
 PATH:= $(subst $(SystemRoot),,$(PATH))	
 
-	
-test configure run clean: $(addsuffix /Makefile,$(DIRS))
-	$(foreach dir,$(DIRS), $(MAKE) -C ./$(dir) $(MAKECMDGOALS) 				$(newline))
+# get list of all sub-foldfers
+SUB_DIRS=$(subst /,,$(wildcard */))
+$(info DIRS=$(SUB_DIRS))
+# get list of all sub-foldfers with makefile inside
+SUB_MAKEFILES=$(wildcard */Makefile)
+$(info MAKEFILES=$(SUB_MAKEFILES))
 
-kill: $(addsuffix /Makefile,$(DIRS))
-	$(foreach dir,$(DIRS), $(MAKE) -C ./$(dir) kill			 				$(newline))
-	$(foreach dir,$(DIRS), -rm   ./$(dir)/Makefile 	.toolchecked.mk			$(newline))
+# for each sub-folder try to start Makefile with (build/test/run/clean targets) 
+build test run clean: 
+	echo ***** build *************
+	$(foreach mk,$(SUB_MAKEFILES), $(MAKE) -C $(dir $(mk)) $(MAKECMDGOALS) 	$(newline))
+	
+# for each sub-folder try to create Makefile
+configure: $(addsuffix /Makefile,$(SUB_DIRS))
+	echo ***** configure **********
+	$(foreach dir,$(SUB_DIRS), $(MAKE) -C ./$(dir) $(MAKECMDGOALS) 			$(newline))
+	
+#recursive delete all sub-makefiles
+kill: 
+	$(foreach mk,$(SUB_MAKEFILES), $(MAKE) -C $(dir $(mk)) kill				$(newline))
+	$(foreach mk,$(SUB_MAKEFILES), -rm   $(mk) 								$(newline))
 	
 	
-.DEFAULT: 
-	$(foreach dir,$(DIRS), $(MAKE) -C ./$(dir) $(MAKECMDGOALS) 				$(newline))
 	
-define cp_makefile
+define configure_makefile
 $(1)/Makefile:
-	-find $(1)/*.cpp && cp "$(TEMPLATES)/sometest/Makefile" $(1)
-	-find $(1)/*.cpp || cp "$(TEMPLATES)/Makefile" $(1)
+	-find $(1)/*.cpp && echo ROOT=../$(ROOT)| cat - "$(ROOT)/app/templates/sometest/Makefile" > $(1)/Makefile
+	-find $(1)/*.cpp || echo ROOT=../$(ROOT)| cat - "$(ROOT)/app/templates/Makefile" > $(1)/Makefile
 endef
 	
-$(foreach dir,$(DIRS), $(eval $(call cp_makefile,$(dir))) )	
+$(foreach dir,$(SUB_DIRS), $(eval $(call configure_makefile,$(dir))) )	
 
 
 define newline

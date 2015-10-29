@@ -47,7 +47,6 @@ endif
 clean:
 	-rm -f *.abs *.elf .*
 
-skip:
-	@echo Compilation is skipped!
+
 	
 

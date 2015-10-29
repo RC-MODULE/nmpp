@@ -1,3 +1,5 @@
+ROOT=../../../..
+include $(ROOT)/setenv.mk
 # TEST-MAKEFILE
 # This Makefile is for testing purpose
 # It builds and runs two applications built from common cpp-source but for different platforms and compares their exit codes
@@ -14,23 +16,8 @@
 # TEMPLATES :points to automake template folder 
 # PLATFORMS :set of available platforms: win32 mc5103 mb7707 emu ...
 
-.SUFFIXES:
-TARGET1=gcc
-TARGET2=emu6405
-ifndef TEMPLATES
-ifeq ($(wildcard ./config.mk),)
-ifeq ($(wildcard ./../config.mk),)
-ifeq ($(wildcard ./../../config.mk),)
-include  ../../../config.mk
-else 
-include ./../../config.mk	
-endif
-else
-include ./../config.mk
-endif
-else 
-include ./config.mk	
-endif
+ifeq ($(wildcard config.mk),config.mk)
+include config.mk
 endif
 
 
@@ -43,13 +30,13 @@ configure: $(addsuffix /Makefile,$(addprefix make_,$(PLATFORMS)))
 	
 clean:
 	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) clean 			$(newline))
-	-rm -f -r .toolcheked.mk
+
 
 run:	all
 	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) run 				$(newline))
 
 kill: 
-	-rm -f -r make_* .toolchecked.mk
+	-rm -f -r make_* 
 	
 
 test: make_$(TARGET1)/Makefile make_$(TARGET2)/Makefile
@@ -72,7 +59,9 @@ define automake_platform
 $(1):make_$(1)/Makefile
 
 make_$(1)/Makefile: make_$(1)
-	cp "$$(TEMPLATES)/sometest/make_$(1)" ./ -r
+	echo ROOT=../$(ROOT)| cat - "$(ROOT)/app/templates/sometest/make_$(1)/Makefile" > make_$(1)/Makefile
+	-cp "$(ROOT)/app/templates/sometest/make_$(1)/*.cfg" make_$(1)
+	
 
 make_$(1): 
 	mkdir make_$(1)

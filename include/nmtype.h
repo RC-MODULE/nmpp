@@ -127,7 +127,7 @@ struct nm2s{ int nVal;};
 		\~
 	\~	\f$[-2^3,\ldots,+2^3-1]=[-8,\ldots,+7]\f$  
 */
-typedef struct s_nm4s {
+typedef struct nm4s {
 	unsigned long long vec;
 } nm4s;
 //-----------------------------------------------------------------------------
@@ -1305,21 +1305,21 @@ struct nm64sc
 };
 //
 ///*
-//inline int NM_CAPACITY(nm1*)  {return 64;}
-//
-//inline int NM_CAPACITY(nm2s*)  {return 32;}
-//inline int NM_CAPACITY(nm4s*)  {return 16;}
-//inline int NM_CAPACITY(nm8s*)  {return 8;}
-//inline int NM_CAPACITY(nm16s*) {return 4;}
-//inline int NM_CAPACITY(nm32s*) {return 2;}
-//inline int NM_CAPACITY(nm64s*) {return 1;}
-//
-//inline int NM_CAPACITY(nm2u*)  {return 32;}
-//inline int NM_CAPACITY(nm4u*)  {return 16;}
-//inline int NM_CAPACITY(nm8u*)  {return 8;}
-//inline int NM_CAPACITY(nm16u*) {return 4;}
-//inline int NM_CAPACITY(nm32u*) {return 2;}
-//inline int NM_CAPACITY(nm64u*) {return 1;}
+inline int NM_CAPACITY(nm1*)  {return 64;}
+
+inline int NM_CAPACITY(nm2s*)  {return 32;}
+inline int NM_CAPACITY(nm4s*)  {return 16;}
+inline int NM_CAPACITY(nm8s*)  {return 8;}
+inline int NM_CAPACITY(nm16s*) {return 4;}
+inline int NM_CAPACITY(nm32s*) {return 2;}
+inline int NM_CAPACITY(nm64s*) {return 1;}
+
+inline int NM_CAPACITY(nm2u*)  {return 32;}
+inline int NM_CAPACITY(nm4u*)  {return 16;}
+inline int NM_CAPACITY(nm8u*)  {return 8;}
+inline int NM_CAPACITY(nm16u*) {return 4;}
+inline int NM_CAPACITY(nm32u*) {return 2;}
+inline int NM_CAPACITY(nm64u*) {return 1;}
 //*/
 //#define CAPACITY_nm64s 1
 //#define CAPACITY_nm32s 2

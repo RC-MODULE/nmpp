@@ -387,7 +387,7 @@ void nmppsAbsDiff(
 		)
 {
 	nmppsSub(pSrcVec1,pSrcVec2,pDstVec,nSize);
-	nmppsAbs(pDstVec,pDstVec,nSize);
+	nmppsAbs_8s(pDstVec,pDstVec,nSize);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -401,7 +401,7 @@ void nmppsAbsDiff(
 		)
 {
 	nmppsSub(pSrcVec1,pSrcVec2,pDstVec,nSize);
-	nmppsAbs(pDstVec,pDstVec,nSize);
+	nmppsAbs_16s(pDstVec,pDstVec,nSize);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -415,7 +415,7 @@ void nmppsAbsDiff(
 		)
 {
 	nmppsSub(pSrcVec1,pSrcVec2,pDstVec,nSize);
-	nmppsAbs(pDstVec,pDstVec,nSize);
+	nmppsAbs_32s(pDstVec,pDstVec,nSize);
 }
 
 
@@ -430,7 +430,7 @@ void nmppsAbsDiff(
 		)
 {
 	nmppsSub(pSrcVec1,pSrcVec2,pDstVec,nSize);
-	nmppsAbs(pDstVec,pDstVec,nSize);
+	nmppsAbs_64s(pDstVec,pDstVec,nSize);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////

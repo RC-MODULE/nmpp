@@ -164,7 +164,6 @@
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\DivTable_1_145_18.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\DivTable_1_145_19.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\Quant.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\VEC_Abs.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\VEC_Abs1.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\VEC_Add.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\VEC_DivC.cpp" > </File> 
@@ -242,6 +241,7 @@
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_FixDiv32__int.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_FixMul32__int.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\scl_fixsqrt32__int.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\VEC_Abs.c" > </File> 
  		</Filter> 
  		<Filter
 			Name="Header Files"

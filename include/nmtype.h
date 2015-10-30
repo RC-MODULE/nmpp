@@ -99,7 +99,7 @@ struct nmreg { int nVal; };
 		\~
 	\~	\f$[-1,0]\f$
 	*/
-struct nm1{ int nVal;};
+typedef struct s_nm1{ int nVal;} nm1;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
@@ -114,7 +114,7 @@ struct nm1{ int nVal;};
 	
 	
 	*/
-struct nm2s{ int nVal;};
+typedef struct s_nm2s{ int nVal;} nm2s;
 //-----------------------------------------------------------------------------    
     /**
 	\ingroup nmvectype
@@ -127,7 +127,7 @@ struct nm2s{ int nVal;};
 		\~
 	\~	\f$[-2^3,\ldots,+2^3-1]=[-8,\ldots,+7]\f$  
 */
-typedef struct nm4s {
+typedef struct s_nm4s {
 	unsigned long long vec;
 } nm4s;
 //-----------------------------------------------------------------------------
@@ -981,9 +981,9 @@ struct v8nm8s {
     \en Type of vec structure consisting of 16 8-bit sigened words.
 	*/
 //struct v16nm8s {VEC_NM8S(16)};
-struct v16nm8s {
+typedef struct s_v16nm8s {
 	unsigned long long vec[2];
-};
+} v16nm8s;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -992,9 +992,9 @@ struct v16nm8s {
     \en Type of vec structure consisting of 4 16-bit sigened words.
 	*/
 //struct  v4nm16s {VEC_NM16S(4)};
-struct  v4nm16s {
+typedef struct  s_v4nm16s {
 	unsigned long long vec[1];
-};
+} v4nm16s;
 
 
 //-----------------------------------------------------------------------------
@@ -1088,9 +1088,9 @@ typedef v16nm8s v16nm8s7b;
     \en Type of {VECtor structure consisting of 16 4-bit unsigened words.
 	*/
 //struct v16nm4u {VEC_NM4U(16)	};
-struct v16nm4u {
+typedef struct s_v16nm4u {
 	unsigned long long vec[1];
-};
+} v16nm4u;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1099,9 +1099,9 @@ struct v16nm4u {
     \en Type of {VECtor structure consisting of 4 8-bit unsigened words.
 	*/
 //struct v4nm8u {VEC_NM8U(4)		};
-struct v4nm8u {
+typedef struct s_v4nm8u {
 	unsigned long long vec[1];
-};
+} v4nm8u;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1110,9 +1110,9 @@ struct v4nm8u {
     \en Type of {VECtor structure consisting of 8 8-bit unsigened words.
 	*/
 //struct v8nm8u {VEC_NM8U(8)		};
-struct v8nm8u {
+typedef struct s_v8nm8u {
 	unsigned long long vec[1];
-};
+}v8nm8u;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1121,9 +1121,9 @@ struct v8nm8u {
     \en Type of {VECtor structure consisting of 16 8-bit unsigened words.
 	*/
 //struct v16nm8u {VEC_NM8U(16)	};
-struct v16nm8u {
+typedef struct s_v16nm8u {
 	unsigned long long vec[2];
-};
+} v16nm8u;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1132,9 +1132,9 @@ struct v16nm8u {
     \en Type of {VECtor structure consisting of 4 16-bit unsigened words.
 	*/
 //struct v4nm16u {VEC_NM16U(4)	};
-struct v4nm16u {
+typedef struct s_v4nm16u {
 	unsigned long long vec[1];
-};
+} v4nm16u;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1143,9 +1143,9 @@ struct v4nm16u {
     \en Type of {VECtor structure consisting of 8 16-bit unsigened words.
 	*/
 //struct v8nm16u {VEC_NM16U(8)	};
-struct v8nm16u {
+typedef struct s_v8nm16u {
 	unsigned long long vec[2];
-};
+} v8nm16u;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1154,9 +1154,9 @@ struct v8nm16u {
     \en Type of {VECtor structure consisting of 16 16-bit unsigened words.
 	*/
 //struct v16nm16u {VEC_NM16U(16)	};
-struct v16nm16u {
+typedef struct s_v16nm16u {
 	unsigned long long vec[4];
-};
+}v16nm16u;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1165,9 +1165,9 @@ struct v16nm16u {
     \en Type of {VECtor structure consisting of 2 32-bit unsigened words.
 	*/
 //struct v2nm32u {VEC_NM32U(2)	};
-struct v2nm32u {
+typedef struct s_v2nm32u {
 	unsigned long long vec[1];
-};
+}v2nm32u ;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1176,9 +1176,9 @@ struct v2nm32u {
     \en Type of {VECtor structure consisting of 4 32-bit unsigened words.
 	*/
 //struct v4nm32u {VEC_NM32U(4)	};
-struct v4nm32u {
+typedef struct s_v4nm32u {
 	unsigned long long vec[2];
-};
+}v4nm32u;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1187,9 +1187,9 @@ struct v4nm32u {
     \en Type of {VECtor structure consisting of 8 32-bit unsigened words.
 	*/
 //struct v8nm32u {VEC_NM32U(8)	};
-struct v8nm32u {
+typedef struct s_v8nm32u {
 	unsigned long long vec[4];
-};
+} v8nm32u;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1198,9 +1198,9 @@ struct v8nm32u {
     \en Type of {VECtor structure consisting of 16 32-bit unsigened words.
 	*/
 //struct v16nm32u {VEC_NM32U(16)	};
-struct v16nm32u {
+typedef struct s_v16nm32u {
 	unsigned long long vec[8];
-};
+} v16nm32u;
 //-----------------------------------------------------------------------------
 
     /**
@@ -1256,15 +1256,15 @@ struct nm16sc
 		\~
 	\~	\f$[-2^{31},\ldots,^+2^{31}-1]\f$
 	*/
-struct nm32sc
+typedef struct s_nm32sc
 {
 
 	nm32s re;
 	nm32s im;
 	
-	nm32sc() : re(0), im(0) {}
-	nm32sc(nm32s b) : re(b), im(0) {}
-};
+	//nm32sc() : re(0), im(0) {}
+	//nm32sc(nm32s b) : re(b), im(0) {}
+}nm32sc;
 
 //-----------------------------------------------------------------------------
 
@@ -1305,21 +1305,21 @@ struct nm64sc
 };
 //
 ///*
-inline int NM_CAPACITY(nm1*)  {return 64;}
-
-inline int NM_CAPACITY(nm2s*)  {return 32;}
-inline int NM_CAPACITY(nm4s*)  {return 16;}
-inline int NM_CAPACITY(nm8s*)  {return 8;}
-inline int NM_CAPACITY(nm16s*) {return 4;}
-inline int NM_CAPACITY(nm32s*) {return 2;}
-inline int NM_CAPACITY(nm64s*) {return 1;}
-
-inline int NM_CAPACITY(nm2u*)  {return 32;}
-inline int NM_CAPACITY(nm4u*)  {return 16;}
-inline int NM_CAPACITY(nm8u*)  {return 8;}
-inline int NM_CAPACITY(nm16u*) {return 4;}
-inline int NM_CAPACITY(nm32u*) {return 2;}
-inline int NM_CAPACITY(nm64u*) {return 1;}
+//inline int NM_CAPACITY(nm1*)  {return 64;}
+//
+//inline int NM_CAPACITY(nm2s*)  {return 32;}
+//inline int NM_CAPACITY(nm4s*)  {return 16;}
+//inline int NM_CAPACITY(nm8s*)  {return 8;}
+//inline int NM_CAPACITY(nm16s*) {return 4;}
+//inline int NM_CAPACITY(nm32s*) {return 2;}
+//inline int NM_CAPACITY(nm64s*) {return 1;}
+//
+//inline int NM_CAPACITY(nm2u*)  {return 32;}
+//inline int NM_CAPACITY(nm4u*)  {return 16;}
+//inline int NM_CAPACITY(nm8u*)  {return 8;}
+//inline int NM_CAPACITY(nm16u*) {return 4;}
+//inline int NM_CAPACITY(nm32u*) {return 2;}
+//inline int NM_CAPACITY(nm64u*) {return 1;}
 //*/
 //#define CAPACITY_nm64s 1
 //#define CAPACITY_nm32s 2

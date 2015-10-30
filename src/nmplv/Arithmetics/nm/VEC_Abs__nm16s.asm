@@ -25,13 +25,13 @@ extern vec_Abs:label;
 begin ".text_nmplv"
 
 
-//! \fn void nmppsAbs (nm16s *pSrcVec, nm16s *pDstVec, int nSize) 
+//! \fn void nmppsAbs_16s(nm16s *pSrcVec, nm16s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsAbs__FPSsPSsi.html
+//! \perfinclude _nmppsAbs_16s.html
 
-global _nmppsAbs__FPSsPSsi:label;
+global _nmppsAbs_16s:label;
 global _void._.8.8nmppsAbs.1short._.0.9._short._.0.9._int.2 :label;
-<_nmppsAbs__FPSsPSsi>
+<_nmppsAbs_16s>
 <_void._.8.8nmppsAbs.1short._.0.9._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=gr5;

@@ -82,13 +82,14 @@
     
     */
     //! \{
+extern "C"	{
 void nmppsAbs_8s(nm8s* pSrcVec, nm8s* pDstVec, int nSize);
 void nmppsAbs_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 void nmppsAbs_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
 void nmppsAbs_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
-void nmppsAbs(nm4s* pSrcVec, nm4s* pDstVec, int nSize);
-
+void nmppsAbs_4s(nm4s* pSrcVec, nm4s* pDstVec, int nSize);
+	};
 
  /**
     \defgroup nmppsAbs1 nmppsAbs1

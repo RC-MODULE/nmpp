@@ -60,12 +60,12 @@
 #
 #============== PROJECT & BUILD CONFIGURATION ==========
 #
-include .toolchecked.mk
-
-ifndef HAVE_gcc
-$(waring *** ERROR : $(CROSS_COMPILE)gcc compiler not found GCC (mingw32) might not have installed correctly. )
-.DEFAULT_GOAL := skip
-endif
+#include .toolchecked.mk
+#
+#ifndef HAVE_gcc
+#$(waring *** ERROR : $(CROSS_COMPILE)gcc compiler not found GCC (mingw32) might not have installed correctly. )
+#.DEFAULT_GOAL := skip
+#endif
 
 
 
@@ -148,7 +148,7 @@ AS_FLAGS         =
 AS_FLAGS_C2ASM   =
 LIBS             =
 CC               =gcc
-CC_FLAGS         =-c
+CC_FLAGS         =-std=c99 -c
 BUILDER          =ar
 BUILDER_FLAGS    =rcs $(TARGET)
 #--------------  Visual Studio config (for vs8.mk)--
@@ -219,15 +219,15 @@ $(OUT_DIR):
 	-mkdir "$(@)"
 	
 $(TMP_DIR)/%.o: %.cpp 
-	$(PREPROCESS_CPP_DEP)
+#$(PREPROCESS_CPP_DEP)
 	$(CC) $(CC_FLAGS) $(<) -o $(@) $(INC_DIRS) 
 
 $(TMP_DIR)/%.o: %.c
-	$(PREPROCESS_CPP_DEP)
+#$(PREPROCESS_CPP_DEP)
 	$(CC) $(CC_FLAGS) $(<) -o $(@) $(INC_DIRS) 
 
 clean:
-	-rm -f -r *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk
+	-rm -f -r *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb 
 	-rm -f -r Release Debug
  
 cleanall:

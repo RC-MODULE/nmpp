@@ -18,7 +18,7 @@
 //!
 //------------------------------------------------------------------------
 
-extern	_VEC_TmpBuffer64_G: long;
+extern	_nmppsTmpBuffer64_G_: long;
 //********** Global ********************
 data ".data_nmplv_G"
 	GTmpLong1:  long;
@@ -30,14 +30,14 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_MinCmpLtV (nm16s15b *pSrcVec1, nm16s15b *pSrcVec2, nm16s15b *pDstMin, nm16s15b *pDstSignMask, int nSize) 
+//! \fn void nmppsMinCmpLtV_16s(nm16s15b *pSrcVec1, nm16s15b *pSrcVec2, nm16s15b *pDstMin, nm16s15b *pDstSignMask, int nSize) 
 //!		
-//! \perfinclude _VEC_MinCmpLtV__FPSsPSsPSsPSsi.html
+//! \perfinclude _nmppsMinCmpLtV__FPSsPSsPSsPSsi_.html
 
-global _VEC_MinCmpLtV__FPSsPSsPSsPSsi :label; 
-global _void._.8.8VEC_MinCmpLtV.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2:label;
- <_VEC_MinCmpLtV__FPSsPSsPSsPSsi> 
- <_void._.8.8VEC_MinCmpLtV.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2> 
+global _nmppsMinCmpLtV__FPSsPSsPSsPSsi_ :label; 
+global _void._.8.8nmppsMinCmpLtV_.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2:label;
+ <_nmppsMinCmpLtV__FPSsPSsPSsPSsi_> 
+ <_void._.8.8nmppsMinCmpLtV_.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2> 
  .branch; ar5=sp-2; push ar0,gr0	with gr0=false; push ar1,gr1	with 
  gr0++; push ar4,gr4	with gr0++; push ar5,gr5	with gr1=gr0; push ar6,gr6	
  with gr4=gr0;

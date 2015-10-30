@@ -23,8 +23,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 64-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
-void VEC_CmpLt0(
-	nm64s*	pSrcVec,		// Input Buffer
+void nmppsCmpLt0_64s(nm64s*	pSrcVec,		// Input Buffer
 	nm64s*	pDstVec,		// Output Buffer
 	int			nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
@@ -39,8 +38,7 @@ void VEC_CmpLt0(
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 32-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
-void VEC_CmpLt0(
-	nm32s*		pSrcVec,		// Input Buffer
+void nmppsCmpLt0_32s(nm32s*		pSrcVec,		// Input Buffer
 	nm32s*		pDstVec,		// Output Buffer
 	int			nSize		// size of input buffer in 32 bit elements. nSize={2,4,..,n*2}
 	)
@@ -55,8 +53,7 @@ void VEC_CmpLt0(
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 16-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
-void VEC_CmpLt0(
-	nm16s*		pSrcVec,		// Input Buffer
+void nmppsCmpLt0_16s(nm16s*		pSrcVec,		// Input Buffer
 	nm16s*		pDstVec,		// Output Buffer
 	int			nSize		// size of input buffer in 16 bit elements. nSize={4,8,..,n*4}
 	)
@@ -71,8 +68,7 @@ void VEC_CmpLt0(
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 8-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
-void VEC_CmpLt0(
-	nm8s*		pSrcVec,		// Input Buffer
+void nmppsCmpLt0_8s(nm8s*		pSrcVec,		// Input Buffer
 	nm8s*		pDstVec,		// Output Buffer
 	int			nSize		// size of input buffer in 8 bit elements. nSize={8,16,..,n*8}
 	)

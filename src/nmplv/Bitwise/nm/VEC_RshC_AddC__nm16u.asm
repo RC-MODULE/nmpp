@@ -33,13 +33,13 @@ begin ".text_nmplv"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_RshC_AddC (nm16u *pSrcVec,  int nShift, uint16b nAddVal,  nm16u *pDstVec, int nSize);
+//! \fn void nmppsRshC_AddC_16u(nm16u *pSrcVec,  int nShift, uint16b nAddVal,  nm16u *pDstVec, int nSize);
 //!
-//! \perfinclude _VEC_RshC_AddC__FPUsiUiPUsi.html
-global _VEC_RshC_AddC__FPUsiUiPUsi:label;
-global _void._.8.8VEC_RshC_AddC.1unsigned._short._.0.9._int.9._unsigned._int.9._unsigned._short._.0.9._int.2 :label;
-<_VEC_RshC_AddC__FPUsiUiPUsi>
-<_void._.8.8VEC_RshC_AddC.1unsigned._short._.0.9._int.9._unsigned._int.9._unsigned._short._.0.9._int.2>
+//! \perfinclude _nmppsRshC_AddC__FPUsiUiPUsi_.html
+global _nmppsRshC_AddC__FPUsiUiPUsi_:label;
+global _void._.8.8nmppsRshC_AddC_.1unsigned._short._.0.9._int.9._unsigned._int.9._unsigned._short._.0.9._int.2 :label;
+<_nmppsRshC_AddC__FPUsiUiPUsi_>
+<_void._.8.8nmppsRshC_AddC_.1unsigned._short._.0.9._int.9._unsigned._int.9._unsigned._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 2;
 	push ar0,gr0;

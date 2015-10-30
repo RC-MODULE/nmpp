@@ -32,14 +32,14 @@ extern vec_Mask:label;
 begin ".text_nmplv"
 ///////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_MaskV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pDstVec, int nSize);
+//! \fn void nmppsMaskV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pDstVec, int nSize);
 //!
-//! \perfinclude _VEC_MaskV__FPUlPUlPUlPUli.html
+//! \perfinclude _nmppsMaskV__FPUlPUlPUlPUli_.html
 
-global _VEC_MaskV__FPUlPUlPUlPUli :label;
-global _void._.8.8VEC_MaskV.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
-<_VEC_MaskV__FPUlPUlPUlPUli>
-<_void._.8.8VEC_MaskV.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
+global _nmppsMaskV__FPUlPUlPUlPUli_ :label;
+global _void._.8.8nmppsMaskV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
+<_nmppsMaskV__FPUlPUlPUlPUli_>
+<_void._.8.8nmppsMaskV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0	with gr0=false;

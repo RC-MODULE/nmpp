@@ -20,16 +20,16 @@
 #ifndef __IMALLOC_H
 #define __IMALLOC_H
 
-inline int VEC_SizeOf(nm8s*, int nCount){
+inline int nmppsSizeOf_8s(nm8s*, int nCount){
 	return nCount>>2;
 }
-inline int VEC_SizeOf(nm8u*, int nCount){
+inline int nmppsSizeOf_8u(nm8u*, int nCount){
 	return nCount>>2;
 }
-inline int VEC_SizeOf(nm32s*, int nCount){
+inline int nmppsSizeOf_32s(nm32s*, int nCount){
 	return nCount;
 }
-inline int VEC_SizeOf(nm32u*, int nCount){
+inline int nmppsSizeOf_32u(nm32u*, int nCount){
 	return nCount;
 }
 
@@ -52,9 +52,9 @@ public:
 		m_nBorder=nBorder;
 		m_nStride=nStride;
 		m_nSize=m_nStride*m_nHeight;
-		m_pContainer=(T*)allocator32(VEC_SizeOf(m_pData,m_nStride*(m_nHeight+2*m_nBorder)));
-		//VEC_Malloc(&m_pContainer, m_nStride*(m_nHeight+2*m_nBorder), nHint);
-		m_pData=VEC_Addr(m_pContainer,m_nStride*m_nBorder);
+		m_pContainer=(T*)allocator32(nmppsSizeOf_(m_pData,m_nStride*(m_nHeight+2*m_nBorder)));
+		//nmppsMalloc_(&m_pContainer, m_nStride*(m_nHeight+2*m_nBorder), nHint);
+		m_pData=nmppsAddr_(m_pContainer,m_nStride*m_nBorder);
 	}
 	C_Img(T* pData, int nWidth,int nHeight, int nStride, int nBorder)
 	{
@@ -70,11 +70,11 @@ public:
 	~C_Img()
 	{
 		if (m_pContainer)
-			VEC_Free(m_pContainer);
+			nmppsFree_(m_pContainer);
 	}
 	void Fill(T color)
 	{
-		VEC_Fill(m_pContainer,color,m_nSize+2*m_nBorder*m_nStride);
+		nmppsSet_(m_pContainer,color,m_nSize+2*m_nBorder*m_nStride);
 	}
 };
 

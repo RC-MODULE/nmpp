@@ -19,7 +19,7 @@ void MTR_Copy(
 #else
 	for(int i=0;i<nHeight;i++)
 	{
-		VEC_Copy(SrcMtr,DstMtr,nWidth);
+		nmppsCopy_16s(SrcMtr,DstMtr,nWidth);
 		SrcMtr+=nSrcStride;
 		DstMtr+=nDstStride;
 	}
@@ -41,7 +41,7 @@ void MTR_Copy(
 {
 	for(int i=0;i<nHeight;i++)
 	{
-		VEC_Copy(SrcMtr,DstMtr,nWidth);
+		nmppsCopy_8s(SrcMtr,DstMtr,nWidth);
 		SrcMtr+=nSrcStride;
 		DstMtr+=nDstStride;
 	}
@@ -65,7 +65,7 @@ void MTR_Copy(
 {
 	for(int i=0;i<nHeight;i++)
 	{
-		VEC_Copy(SrcMtr,DstMtr,nWidth);
+		nmppsCopy_32s(SrcMtr,DstMtr,nWidth);
 		SrcMtr+=nSrcStride;
 		DstMtr+=nDstStride;
 	}
@@ -84,7 +84,7 @@ void MTR_Copy(
 {
 	for(int i=0;i<nHeight;i++)
 	{
-		VEC_Copy(SrcMtr,DstMtr,nWidth);
+		nmppsCopy_64s(SrcMtr,DstMtr,nWidth);
 		SrcMtr+=nSrcStride;
 		DstMtr+=nDstStride;
 	}
@@ -104,7 +104,7 @@ void MTR_Copyua(
 {
 	for(int i=0;i<nHeight;i++)
 	{
-		VEC_Copy(SrcMtr+SrcDsp,DstMtr,nWidth);
+		nmppsCopy_8s(SrcMtr+SrcDsp,DstMtr,nWidth);
 		SrcMtr+=nSrcStride;
 		DstMtr+=nDstStride;
 	}
@@ -124,7 +124,7 @@ void MTR_Copyua(
 {
 	for(int i=0;i<nHeight;i++)
 	{
-		VEC_Copy(SrcMtr+SrcDsp,DstMtr,nWidth);
+		nmppsCopy_16s(SrcMtr+SrcDsp,DstMtr,nWidth);
 		SrcMtr+=nSrcStride;
 		DstMtr+=nDstStride;
 	}
@@ -145,7 +145,7 @@ void MTR_Copyua(
 {
 	for(int i=0;i<nHeight;i++)
 	{
-		VEC_Copy(SrcMtr+SrcDsp,DstMtr,nWidth);
+		nmppsCopy_32s(SrcMtr+SrcDsp,DstMtr,nWidth);
 		SrcMtr+=nSrcStride;
 		DstMtr+=nDstStride;
 	}
@@ -171,7 +171,7 @@ void MTR_Copyau(
 {
 	for(int i=0;i<nHeight;i++)
 	{
-		VEC_Copy(SrcMtr,DstMtr+DstDsp,nWidth);
+		nmppsCopy_8s(SrcMtr,DstMtr+DstDsp,nWidth);
 		SrcMtr+=nSrcStride;
 		DstMtr+=nDstStride;
 	}
@@ -191,7 +191,7 @@ void MTR_Copyau(
 {
 	for(int i=0;i<nHeight;i++)
 	{
-		VEC_Copy(SrcMtr,DstMtr+DstDsp,nWidth);
+		nmppsCopy_16s(SrcMtr,DstMtr+DstDsp,nWidth);
 		SrcMtr+=nSrcStride;
 		DstMtr+=nDstStride;
 	}
@@ -212,7 +212,7 @@ void MTR_Copyau(
 {
 	for(int i=0;i<nHeight;i++)
 	{
-		VEC_Copy(SrcMtr,DstMtr+DstDsp,nWidth);
+		nmppsCopy_32s(SrcMtr,DstMtr+DstDsp,nWidth);
 		SrcMtr+=nSrcStride;
 		DstMtr+=nDstStride;
 	}

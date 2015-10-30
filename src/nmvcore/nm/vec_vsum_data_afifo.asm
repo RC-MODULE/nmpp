@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 
 
-extern	_VEC_TmpBuffer64_G:long;
+extern	_nmppsTmpBuffer64_G_:long;
 extern vec_data_add_afifo:label;
 
 begin ".text_nmvcore"
@@ -45,7 +45,7 @@ global vec_vsum_data_afifo:label;
 	push ar5,gr5 with gr5>>=5;	
 	push ar4,gr4 with gr4=false noflags;
 	
-	ar5 = _VEC_TmpBuffer64_G;
+	ar5 = _nmppsTmpBuffer64_G_;
 	if =0 delayed goto AccMul_repN with gr2>>=25;
 		ar2 = AccMul_rep0  with gr5--;
 	
@@ -106,7 +106,7 @@ global vec_vsum_data_afifo:label;
 	pop  ar4,gr4;
 	push ar0,gr0;
 	delayed call vec_data_add_afifo with gr0=gr2+1;
-		ar0=_VEC_TmpBuffer64_G;
+		ar0=_nmppsTmpBuffer64_G_;
 	pop ar0,gr0;
 	pop ar5,gr5;
 	pop ar2,gr2;

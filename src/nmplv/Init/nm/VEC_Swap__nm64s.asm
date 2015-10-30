@@ -24,13 +24,13 @@ extern vec_Swap:label;
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_Swap (nm64s *pSrcVec1, nm64s *pSrcVec2, int nSize) 
+//! \fn void nmppsSwap_64s(nm64s *pSrcVec1, nm64s *pSrcVec2, int nSize) 
 //!
-//! \perfinclude _VEC_Swap__FPlPli.html
+//! \perfinclude _nmppsSwap__FPlPli_.html
 
 
-global _void._.8.8VEC_Swap.1long._.0.9._long._.0.9._int.2 :label;
-<_void._.8.8VEC_Swap.1long._.0.9._long._.0.9._int.2>
+global _void._.8.8nmppsSwap_.1long._.0.9._long._.0.9._int.2 :label;
+<_void._.8.8nmppsSwap_.1long._.0.9._long._.0.9._int.2>
 
 .branch;
 

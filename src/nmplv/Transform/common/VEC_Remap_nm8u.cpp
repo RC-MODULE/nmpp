@@ -21,16 +21,16 @@
 #include "nmplv.h"
 
 //!
-//! \perfinclude _VEC_Remap__FPUcPUcPiiiPvPv.html
+//! \perfinclude _nmppsRemap__FPUcPUcPiiiPvPv_.html
 //! 
 
 
-void VEC_Remap(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVecSize, int nDstVecSize, void* pTmpBuf1, void* pTmpBuf2)
+void nmppsRemap_8u(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVecSize, int nDstVecSize, void* pTmpBuf1, void* pTmpBuf2)
 
 
 {
-	VEC_Cnv((nm8u*)pSrcVec,(nm32u*)pTmpBuf1,nSrcVecSize);
-	VEC_Remap  ((nm32u*)pTmpBuf1,(nm32u*)pTmpBuf2,pRemapTable,nDstVecSize);
-	VEC_Cnv((nm32s*)pTmpBuf2,(nm8s*)pDstVec,nDstVecSize);
+	nmppsCnv_8u32u((nm8u*)pSrcVec,(nm32u*)pTmpBuf1,nSrcVecSize);
+	nmppsRemap_32u((nm32u*)pTmpBuf1,(nm32u*)pTmpBuf2,pRemapTable,nDstVecSize);
+	nmppsCnv_32s8s((nm32s*)pTmpBuf2,(nm8s*)pDstVec,nDstVecSize);
 }
 

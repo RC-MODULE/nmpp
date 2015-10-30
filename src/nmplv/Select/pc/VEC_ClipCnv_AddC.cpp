@@ -1,5 +1,5 @@
 #include "nmplv.h"
-void VEC_ClipCnv_AddC(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s* pDstVec, int nSize, nm64u* weights)
+void nmppsClipCnv_AddC_16s(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s* pDstVec, int nSize, nm64u* weights)
 {
 	int	ClipPos=(1<<nClipFactor)-1;	
 	int ClipNeg=-ClipPos-1;

@@ -20,7 +20,7 @@
 
 extern vec_SubAbs:label;
 extern _VEC_TBL_MinusOne_G:long;
-extern _VEC_TmpBuffer16_G:long;
+extern _nmppsTmpBuffer16_G_:long;
 begin ".text_nmplv"
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ global _void._.8.8nmppsAbsDiff.1long._.0.9._long._.0.9._long._.0.9._int.2 :label
 	f1crh = 80000000h;
 	f1crl = 00000000h;
 
-	ar4 = _VEC_TmpBuffer16_G;
+	ar4 = _nmppsTmpBuffer16_G_;
 	delayed call vec_SubAbs;
 		nul;
 		wtw;

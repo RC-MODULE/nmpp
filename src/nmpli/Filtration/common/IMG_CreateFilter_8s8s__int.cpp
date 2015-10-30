@@ -17,12 +17,12 @@ int IMG_SetFilter_8s8s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWid
 #ifdef __NM__
 	int		nNumberOfArrays=Sig_GetNumberOfArrays_Filter_8s8s(nKerWidth);
 	int		nDisp=-(nImgWidth>>2)*(nKerHeight>>1)-((nNumberOfArrays>>1)<<1);
-	int*	pDisp=VEC_Addr((nm32s*)pKernel,2);
-	nm64s*	pMatrix=(nm64s*)VEC_Addr(pDisp,nNumberOfArrays*nKerHeight+1);
+	int*	pDisp=(nm32s*)nmppsAddr_32s((nm32s*)pKernel,2);
+	nm64s*	pMatrix=(nm64s*)nmppsAddr_32s(pDisp,nNumberOfArrays*nKerHeight+1);
 
-	VEC_SetVal((nm32s*)pKernel,0,nNumberOfArrays*nKerHeight);
-	VEC_SetVal((nm32s*)pKernel,1,2+nNumberOfArrays*nKerHeight+1);
-	VEC_SetVal((nm32s*)pKernel,2+nNumberOfArrays*nKerHeight,0x600DBEEF);
+	nmppsSetInt_32s((nm32s*)pKernel,0,nNumberOfArrays*nKerHeight);
+	nmppsSetInt_32s((nm32s*)pKernel,1,2+nNumberOfArrays*nKerHeight+1);
+	nmppsSetInt_32s((nm32s*)pKernel,2+nNumberOfArrays*nKerHeight,0x600DBEEF);
 	
 	for(int y=0; y<nKerHeight; y++){
 		Sig_SetDisp_Filter_8s8s( nNumberOfArrays, nDisp,pDisp);
@@ -53,9 +53,9 @@ void IMG_CreateFilter_8s8s(int* pWeights, int nKerWidth, int nKerHeight, int nIm
 {
 	int	nNumberOfArrays=Sig_GetNumberOfArrays_Filter_8s8s(nKerWidth);
 	int AllocSize=2+(nNumberOfArrays*nKerHeight*17)+1;
-	VEC_Malloc((nm32s**)pKernel,AllocSize, nHint);
+	nmppsMalloc_32s((nm32s**)pKernel,AllocSize, nHint);
 	if (*pKernel==0) return;
-	//VEC_Fill((nm32s*)*pKernel, 5, 2+(nNumberOfArrays*nKerHeight*17)+1);
+	//nmppsSet_32s((nm32s*)*pKernel, 5, 2+(nNumberOfArrays*nKerHeight*17)+1);
 	IMG_SetFilter_8s8s(pWeights, nKerWidth, nKerHeight, nImgWidth, *pKernel);
 }
 */

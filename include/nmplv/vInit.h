@@ -22,7 +22,7 @@
 
 
     /**
-    \defgroup VEC_Fill VEC_Fill
+    \defgroup nmppsSet nmppsSet
     \ingroup vInit
     \brief
         \ru Функция инициализации элементов массива постоянным значением. 
@@ -68,24 +68,24 @@
     \endxmlonly
     */
     //! \{
-void VEC_Fill(nm8s* pVec,  int8b nVal, int nSize);
-void VEC_Fill(nm16s* pVec, int16b nVal, int nSize);
-void VEC_Fill(nm32s* pVec, int32b nVal, int nSize);
-void VEC_Fill(nm64s* pVec, int64b* nVal, int nSize); 
-inline void VEC_Fill(nm64s* pVec, int64b  nVal, int nSize)  {VEC_Fill((nm64s*) pVec, (int64b*)&nVal, nSize);}
+void nmppsSet_8s(nm8s* pVec,  int8b nVal, int nSize);
+void nmppsSet_16s(nm16s* pVec, int16b nVal, int nSize);
+void nmppsSet_32s(nm32s* pVec, int32b nVal, int nSize);
+void nmppsSet_64sp(nm64s* pVec, int64b* nVal, int nSize); 
+inline void nmppsSet_64s(nm64s* pVec, int64b  nVal, int nSize)  {nmppsSet_64sp((nm64s*) pVec, (int64b*)&nVal, nSize);}
 
-inline void VEC_Fill(nm8u* pVec,  uint8b nVal, int nSize)	{VEC_Fill((nm8s*) pVec,  (int8b)nVal, nSize);}
-inline void VEC_Fill(nm16u* pVec, uint16b nVal, int nSize)	{VEC_Fill((nm16s*) pVec, (int16b)nVal, nSize);}
-inline void VEC_Fill(nm32u* pVec, uint32b nVal, int nSize)	{VEC_Fill((nm32s*) pVec, (int32b)nVal, nSize);}
-inline void VEC_Fill(nm64u* pVec, uint64b  nVal, int nSize)	{VEC_Fill((nm64s*) pVec, (int64b)nVal, nSize);}
-inline void VEC_Fill(nm64u* pVec, uint64b* nVal, int nSize)	{VEC_Fill((nm64s*) pVec, (int64b*)nVal, nSize);}
+inline void nmppsSet_8u(nm8u* pVec,  uint8b nVal, int nSize)	{nmppsSet_8s((nm8s*) pVec,  (int8b)nVal, nSize);}
+inline void nmppsSet_16u(nm16u* pVec, uint16b nVal, int nSize)	{nmppsSet_16s((nm16s*) pVec, (int16b)nVal, nSize);}
+inline void nmppsSet_32u(nm32u* pVec, uint32b nVal, int nSize)	{nmppsSet_32s((nm32s*) pVec, (int32b)nVal, nSize);}
+inline void nmppsSet_64u(nm64u* pVec, uint64b  nVal, int nSize)	{nmppsSet_64s((nm64s*) pVec, (int64b)nVal, nSize);}
+inline void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize)	{nmppsSet_64sp((nm64s*) pVec, (int64b*)nVal, nSize);}
     //! \}
 
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Rand VEC_Rand
+    \defgroup nmppsRand_ nmppsRand_
     \ingroup vInit
     \brief
         \ru Инициализация массива случайными числами. 
@@ -127,14 +127,14 @@ inline void VEC_Fill(nm64u* pVec, uint64b* nVal, int nSize)	{VEC_Fill((nm64s*) p
 	/en Random initialization of 32-bit buffer
 	/~
 */
-void VEC_Rand(nm32u* pDstVec, int nSize, unsigned nRandomize = 1);
-inline void VEC_Rand(nm8s* pDstVec,  int nSize, unsigned nRandomize = 1) {VEC_Rand((nm32u*)pDstVec,  nSize>>2, nRandomize);}
-inline void VEC_Rand(nm16s* pDstVec, int nSize, unsigned nRandomize = 1) {VEC_Rand((nm32u*)pDstVec,  nSize>>1, nRandomize);}
-inline void VEC_Rand(nm32s* pDstVec, int nSize, unsigned nRandomize = 1) {VEC_Rand((nm32u*)pDstVec,  nSize, nRandomize);}
-//inline void VEC_Rand(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {VEC_Rand((nm32u*)pDstVec,  nSize<<1, nRandomize);}
-inline void VEC_Rand(nm8u* pDstVec,  int nSize, unsigned nRandomize = 1) {VEC_Rand((nm32u*)pDstVec,  nSize>>2, nRandomize);}
-inline void VEC_Rand(nm16u* pDstVec, int nSize, unsigned nRandomize = 1) {VEC_Rand((nm32u*)pDstVec,  nSize>>1, nRandomize);}
-inline void VEC_Rand(nm64u* pDstVec, int nSize, unsigned nRandomize = 1) {VEC_Rand((nm32u*)pDstVec,  nSize<<1, nRandomize);}
+void nmppsRand_32u(nm32u* pDstVec, int nSize, unsigned nRandomize );
+inline void nmppsRand_8s(nm8s* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>2, nRandomize);}
+inline void nmppsRand_16s(nm16s* pDstVec, int nSize, unsigned nRandomize) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>1, nRandomize);}
+inline void nmppsRand_32s(nm32s* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize, nRandomize);}
+//inline void nmppsRand_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRand_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
+inline void nmppsRand_8u(nm8u* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>2, nRandomize);}
+inline void nmppsRand_16u(nm16u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>1, nRandomize);}
+inline void nmppsRand_64u(nm64u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
 
 
 /**
@@ -143,7 +143,7 @@ inline void VEC_Rand(nm64u* pDstVec, int nSize, unsigned nRandomize = 1) {VEC_Ra
 	/~
 
 */
-void VEC_Rand(nm64s* pDstVec, int nSize, int nRandomize = 1);
+void nmppsRand_64s(nm64s* pDstVec, int nSize, int nRandomize );
     //! \}
 
 	
@@ -151,7 +151,7 @@ void VEC_Rand(nm64s* pDstVec, int nSize, int nRandomize = 1);
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Rand VEC_Rand
+    \defgroup nmppsRand_ nmppsRand_
     \ingroup vInit
     \brief 
         \ru Генерация случайного числа с равномерным раcпределением.
@@ -202,16 +202,17 @@ void VEC_Rand(nm64s* pDstVec, int nSize, int nRandomize = 1);
     \endxmlonly
     */
     //! \{
-int VEC_Rand(int nMin, int nMax, int nDivisible);
-int VEC_Rand(int nMin, int nMax);
-int VEC_Rand();
+int nmppsRand2_32s(int nMin, int nMax, int nDivisible);
+int nmppsRand3_32s(int nMin, int nMax);
+int nmppsRand();
+
     //! \}
 
 	
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Ramp VEC_Ramp
+    \defgroup nmppsRamp_ nmppsRamp_
     \ingroup vInit
     \brief
         \ru Инициализация массива элементами арифметической прогрессии. 
@@ -276,16 +277,16 @@ int VEC_Rand();
     \endxmlonly
     */
     //! \{
-void VEC_Ramp(nm8s* pVec,  int8b nOffset,  int8b nSlope, int nSize);
-void VEC_Ramp(nm16s* pVec, int16b nOffset, int16b nSlope, int nSize);
-void VEC_Ramp(nm32s* pVec, int32b nOffset, int32b nSlope, int nSize);
-void VEC_Ramp(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
+void nmppsRamp_8s(nm8s* pVec,  int8b nOffset,  int8b nSlope, int nSize);
+void nmppsRamp_16s(nm16s* pVec, int16b nOffset, int16b nSlope, int nSize);
+void nmppsRamp_32s(nm32s* pVec, int32b nOffset, int32b nSlope, int nSize);
+void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Cnv VEC_Cnv
+    \defgroup nmppsCnv nmppsCnv
     \ingroup vInit
     \brief
         \ru Изменение разрядности элементов вектора. 
@@ -337,42 +338,42 @@ void VEC_Ramp(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
 
 
     */
-	//todo Impelenment NM versin of void VEC_Cnv(nm32s *pSrcVec, nm4s *pDstVec, int nSize);
+	//todo Impelenment NM versin of void nmppsCnv_32s(nm32s *pSrcVec, nm4s *pDstVec, int nSize);
     //! \{
 
 /**
  \restr nSize =[32*64,32*64*2,32*64*3,....]
 */
-void VEC_Cnv(nm1* pSrcVec, nm2s* pDstVec, int nSize);
+void nmppsCnv_1s2s (nm1* pSrcVec, nm2s* pDstVec, int nSize);
 /**
  \restr nSize =[32*64,32*64*2,32*64*3,....]
 */
-void VEC_Cnv(nm1* pSrcVec, nm2u* pDstVec, int nSize);
+void nmppsCnv_1u2u (nm1* pSrcVec, nm2u* pDstVec, int nSize);
 
-void VEC_Cnv(nm8s* pSrcVec, nm4s*  pDstVec, int nSize);
-void VEC_Cnv(nm8s* pSrcVec, nm16s* pDstVec, int nSize);
-void VEC_Cnv(nm8s* pSrcVec, nm32s* pDstVec, int nSize);
-void VEC_Cnv(nm8s* pSrcVec, nm64s* pDstVec, int nSize);
-void VEC_Cnv(nm8u* pSrcVec, nm16u* pDstVec, int nSize);
-void VEC_Cnv(nm8u* pSrcVec, nm32u* pDstVec, int nSize);
-void VEC_Cnv(nm8u* pSrcVec, nm64u* pDstVec, int nSize);
+void nmppsCnv_8s4s (nm8s* pSrcVec, nm4s*  pDstVec, int nSize);
+void nmppsCnv_8s16s(nm8s* pSrcVec, nm16s* pDstVec, int nSize);
+void nmppsCnv_8s32s(nm8s* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsCnv_8s64s(nm8s* pSrcVec, nm64s* pDstVec, int nSize);
+void nmppsCnv_8u16u(nm8u* pSrcVec, nm16u* pDstVec, int nSize);
+void nmppsCnv_8u32u(nm8u* pSrcVec, nm32u* pDstVec, int nSize);
+void nmppsCnv_8u64u(nm8u* pSrcVec, nm64u* pDstVec, int nSize);
 
-void VEC_Cnv(nm16s* pSrcVec, nm4s* pDstVec, int nSize);
-void VEC_Cnv(nm16s* pSrcVec, nm8s* pDstVec, int nSize);
-void VEC_Cnv(nm16s* pSrcVec, nm32s* pDstVec, int nSize);
-void VEC_Cnv(nm16s* pSrcVec, nm64s* pDstVec, int nSize);
-void VEC_Cnv(nm16u* pSrcVec, nm32u* pDstVec, int nSize);
-void VEC_Cnv(nm16u* pSrcVec, nm64u* pDstVec, int nSize);
+void nmppsCnv_16s4s (nm16s* pSrcVec, nm4s* pDstVec, int nSize);
+void nmppsCnv_16s8s (nm16s* pSrcVec, nm8s* pDstVec, int nSize);
+void nmppsCnv_16s32s(nm16s* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsCnv_16s64s(nm16s* pSrcVec, nm64s* pDstVec, int nSize);
+void nmppsCnv_16u32u(nm16u* pSrcVec, nm32u* pDstVec, int nSize);
+void nmppsCnv_16u64u(nm16u* pSrcVec, nm64u* pDstVec, int nSize);
 
-void VEC_Cnv(nm32s* pSrcVec, nm8s* pDstVec, int nSize);
-void VEC_Cnv(nm32s* pSrcVec, nm16s* pDstVec, int nSize);
-void VEC_Cnv(nm32s* pSrcVec, nm64s* pDstVec, int nSize);
-void VEC_Cnv(nm32u* pSrcVec, nm64u* pDstVec, int nSize);
-
-void VEC_Cnv(nm64s* pSrcVec, nm32s* pDstVec, int nSize);
-void VEC_Cnv(nm64s* pSrcVec, nm16s* pDstVec, int nSize);
+void nmppsCnv_32s8s (nm32s* pSrcVec, nm8s* pDstVec, int nSize);
+void nmppsCnv_32s16s(nm32s* pSrcVec, nm16s* pDstVec, int nSize);
+void nmppsCnv_32s64s(nm32s* pSrcVec, nm64s* pDstVec, int nSize);
+void nmppsCnv_32u64u(nm32u* pSrcVec, nm64u* pDstVec, int nSize);
+				 
+void nmppsCnv_64s32s(nm64s* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsCnv_64s16s(nm64s* pSrcVec, nm16s* pDstVec, int nSize);
     //! \}
-//void VEC_Cnv(nm32s *pSrcVec, nm4s *pDstVec, int nSize);
+//void nmppsCnv_32s(nm32s *pSrcVec, nm4s *pDstVec, int nSize);
 
 
 
@@ -381,7 +382,7 @@ void VEC_Cnv(nm64s* pSrcVec, nm16s* pDstVec, int nSize);
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Copy VEC_Copy
+    \defgroup nmppsCopy_ nmppsCopy_
     \ingroup vInit
     \brief
         \ru Копирование вектора. 
@@ -427,15 +428,15 @@ void VEC_Cnv(nm64s* pSrcVec, nm16s* pDstVec, int nSize);
     
         */
     //! \{
-void VEC_Copy( nm8s*  pSrcVec, nm8s*  pDstVec, int nSize);
-void VEC_Copy( nm16s* pSrcVec, nm16s* pDstVec, int nSize);
-void VEC_Copy( nm32s* pSrcVec, nm32s* pDstVec, int nSize);
-void VEC_Copy( nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+void nmppsCopy_8s (nm8s*  pSrcVec, nm8s*  pDstVec, int nSize);
+void nmppsCopy_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+void nmppsCopy_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsCopy_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 
-inline void VEC_Copy( nm8u*  pSrcVec, nm8u*  pDstVec, int nSize) { VEC_Copy(( nm8s*)  pSrcVec, (nm8s*)  pDstVec,  nSize);}
-inline void VEC_Copy( nm16u* pSrcVec, nm16u* pDstVec, int nSize) { VEC_Copy(( nm16s*) pSrcVec, (nm16s*) pDstVec,  nSize);}
-inline void VEC_Copy( nm32u* pSrcVec, nm32u* pDstVec, int nSize) { VEC_Copy(( nm32s*) pSrcVec, (nm32s*) pDstVec,  nSize);}
-inline void VEC_Copy( nm64u* pSrcVec, nm64u* pDstVec, int nSize) { VEC_Copy(( nm64s*) pSrcVec, (nm64s*) pDstVec,  nSize);}
+inline void nmppsCopy_8u(nm8u*  pSrcVec, nm8u*  pDstVec, int nSize)  { nmppsCopy_8s (( nm8s*)  pSrcVec, (nm8s*)  pDstVec,  nSize);}
+inline void nmppsCopy_16u(nm16u* pSrcVec, nm16u* pDstVec, int nSize) { nmppsCopy_16s(( nm16s*) pSrcVec, (nm16s*) pDstVec,  nSize);}
+inline void nmppsCopy_32u(nm32u* pSrcVec, nm32u* pDstVec, int nSize) { nmppsCopy_32s(( nm32s*) pSrcVec, (nm32s*) pDstVec,  nSize);}
+inline void nmppsCopy_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize) { nmppsCopy_64s(( nm64s*) pSrcVec, (nm64s*) pDstVec,  nSize);}
 
     //! \}
 
@@ -444,7 +445,7 @@ inline void VEC_Copy( nm64u* pSrcVec, nm64u* pDstVec, int nSize) { VEC_Copy(( nm
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Copyua VEC_Copyua
+    \defgroup nmppsCopyua_ nmppsCopyua_
     \ingroup vInit
     \brief
         \ru Копирование вектора с невыровненной байтовой позиции в выровненную. 
@@ -507,13 +508,13 @@ inline void VEC_Copy( nm64u* pSrcVec, nm64u* pDstVec, int nSize) { VEC_Copy(( nm
 
     */
     //! \{
-void VEC_Copyua(nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSize);
+void nmppsCopyua_8s(nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Swap VEC_Swap
+    \defgroup nmppsSwap_ nmppsSwap_
     \ingroup vInit
     \brief
         \ru Перестановка двух векторов. 
@@ -552,7 +553,7 @@ void VEC_Copyua(nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSize);
     
     */
     //! \{
-void VEC_Swap(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize);
+void nmppsSwap_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize);
     //! \}
 
 #endif // _INIT_H_INCLUDED_

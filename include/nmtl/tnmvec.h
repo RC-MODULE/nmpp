@@ -67,8 +67,8 @@ public:
 		m_container=new T[size+2*m_border];
 		m_data=m_container+m_border;
 		//tmalloc(m_container,size+2*m_border);
-//		VEC_Malloc(&m_container,size+2*m_border);
-//		m_data=VEC_Addr(m_container,m_border);
+//		nmppsMalloc_(&m_container,size+2*m_border);
+//		m_data=nmppsAddr_(m_container,m_border);
 	}
 
 	nmvec(const nmvec<T> &vec)
@@ -78,9 +78,9 @@ public:
 		m_container=new T[size+2*m_border];
 		m_data=m_container+m_border;
 		memcpy(m_data,vec.m_data,size*sizeof(T));
-//		VEC_Malloc(&m_container,size+2*m_border);
-//		m_data=VEC_Addr(m_container,m_border);
-//		VEC_Copy(vec.m_data,m_data,size);
+//		nmppsMalloc_(&m_container,size+2*m_border);
+//		m_data=nmppsAddr_(m_container,m_border);
+//		nmppsCopy_(vec.m_data,m_data,size);
 	};
 
 
@@ -88,7 +88,7 @@ public:
 	{
 		if (m_container)
 			//delete []m_container;
-//			VEC_Free(m_container);
+//			nmppsFree_(m_container);
 		m_container=0;
 	
 
@@ -98,7 +98,7 @@ public:
 	{
 		ASSERTE(vec.size==size);
 		memcpy(m_data,vec.m_data,size*sizeof(T));
-//		VEC_Copy(vec.m_data,m_data,size);
+//		nmppsCopy_(vec.m_data,m_data,size);
 		return *this;
 	}	 
 
@@ -402,7 +402,7 @@ public:
 //	}
 	void set(const T& val)
 	{
-		VEC_Fill(m_data,val,size);
+		nmppsSet_(m_data,val,size);
 	}
 
 	void reset()

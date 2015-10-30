@@ -22,9 +22,9 @@
 
 begin ".text_nmplv"
 
-//! \fn void VEC_GetVal (nm4s *pVec, int nIndex, int4b& nVal) 
+//! \fn void nmppsGet_4s(nm4s *pVec, int nIndex, int4b& nVal) 
 //!
-//! \perfinclude _VEC_GetVal__F4nm4sPiRi.html
+//! \perfinclude _nmppsGetVal__F4nm4sPiRi_.html
 
 macro EXTRACT(n)
 	delayed return with	gr7<<=n;
@@ -33,10 +33,10 @@ macro EXTRACT(n)
 		nul;
 end EXTRACT;
 
-global _VEC_GetVal__F4nm4sPiRi:	label;
-global _void._.8.8VEC_GetVal.1class._nm4s._.0.9._int.9._int._.6.2:label;
-<_VEC_GetVal__F4nm4sPiRi>
-<_void._.8.8VEC_GetVal.1class._nm4s._.0.9._int.9._int._.6.2>
+global _nmppsGetVal__F4nm4sPiRi_:	label;
+global _void._.8.8nmppsGetVal_.1class._nm4s._.0.9._int.9._int._.6.2:label;
+<_nmppsGetVal__F4nm4sPiRi_>
+<_void._.8.8nmppsGetVal_.1class._nm4s._.0.9._int.9._int._.6.2>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0;

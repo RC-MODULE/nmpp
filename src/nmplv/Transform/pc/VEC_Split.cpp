@@ -1,5 +1,5 @@
 #include "nmplv.h"
-void VEC_Split(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize)
+void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize)
 {
 	for(int i=0; i<nSize; i++){
 		((short*)pDst4Vec[0])[i]=((short*)(pSrcVec+i))[0];

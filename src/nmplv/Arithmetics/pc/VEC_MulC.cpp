@@ -212,7 +212,7 @@ void nmppsMulC_AddC(int32x2* dataSparseSrc,  int32x2& mulArg, int32x2& addArg, i
 	}
 }
 
-void VEC_ArshC_MulC_AddC(int32x2* dataSparseSrc,  int32x2& preshiftArg, int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst)
+void nmppsArshC_MulC_AddC_(int32x2* dataSparseSrc,  int32x2& preshiftArg, int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst)
 {
 	int32x2* pSrc=dataSparseSrc;
 	int32x2* pDst=dataSparseDst;

@@ -23,28 +23,28 @@
 
 ////////////////////////////////////////////////////////////////////////////
 //  Random initalization of 32-bit buffer
-unsigned VEC_Randomize=1;
+unsigned nmppsRandomize_=1;
 
 //! 
-//! \perfinclude _VEC_Rand__Fiii.html
+//! \perfinclude _nmppsRand__Fiii_.html
 //! 
 
-int VEC_Rand(
+int nmppsRand_(
 		int Min,
 		int Max)
 {
-	unsigned int R=VEC_Rand();
+	unsigned int R=nmppsRand();
 	R%=unsigned(Max-Min+1);
 	int X=int(R)+Min;
 	return X;
 }
 
-int VEC_Rand(
+int nmppsRand_(
 		int Min,
 		int Max,
 		int	Divisible)
 {
-	unsigned int R=VEC_Rand();
+	unsigned int R=nmppsRand();
 	R%=unsigned(Max-Min+1);
 	int X=int(R)+Min;
 	X/=Divisible;
@@ -56,15 +56,15 @@ int VEC_Rand(
 //  Random initalization of 32-bit buffer
 
 //! 
-//! \perfinclude _VEC_Rand__Fv.html
+//! \perfinclude _nmppsRand__Fv_.html
 //! 
 
-int VEC_Rand()
+int nmppsRand_()
 {
 
-	VEC_Randomize=1664525L*VEC_Randomize+1013904223L;
-	unsigned int R=VEC_Randomize>>16;
-	VEC_Randomize=1664525L*VEC_Randomize+1013904223L;
-	R|=(VEC_Randomize&0xFFFF0000);
+	nmppsRandomize_=1664525L*nmppsRandomize_+1013904223L;
+	unsigned int R=nmppsRandomize_>>16;
+	nmppsRandomize_=1664525L*nmppsRandomize_+1013904223L;
+	R|=(nmppsRandomize_&0xFFFF0000);
 	return R;
 }

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: VEC_FirstZeroPos.cpp             $
+//  $Workfile:: nmppsFirstZeroPos_.cpp             $
 //
 //  <Название библиотеки>
 //
@@ -10,14 +10,14 @@
 //
 //! \if file_doc
 //!
-//! \file   VEC_FirstZeroPos.cpp
+//! \file   nmppsFirstZeroPos_.cpp
 //! \author S. Mushkaev
 //! \brief  <Краткое описание>
 //!
 //! \endif
 //!
 //------------------------------------------------------------------------
-int VEC_FirstZeroPos(int* pSrcVec, int nSize)
+int nmppsFirstZeroPos_(int* pSrcVec, int nSize)
 {
 	for(int i=0;i<nSize;i++){
 		if (pSrcVec[i]==0)

@@ -24,14 +24,14 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////
 
-//! \fn int16b VEC_GetVal (nm16s *pVec, int nIndex) 
+//! \fn int16b nmppsGet_16s(nm16s *pVec, int nIndex) 
 //!
-//! \perfinclude _VEC_GetVal__FPSsi.html
+//! \perfinclude _nmppsGetVal__FPSsi_.html
 
-global _VEC_GetVal__FPSsi:	label;
-global _int._.8.8VEC_GetVal.1short._.0.9._int.2 :label;
-<_VEC_GetVal__FPSsi>
-<_int._.8.8VEC_GetVal.1short._.0.9._int.2>
+global _nmppsGetVal__FPSsi_:	label;
+global _int._.8.8nmppsGetVal_.1short._.0.9._int.2 :label;
+<_nmppsGetVal__FPSsi_>
+<_int._.8.8nmppsGetVal_.1short._.0.9._int.2>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0;

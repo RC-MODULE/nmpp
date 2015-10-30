@@ -52,7 +52,7 @@
 /*
 void SIG_CreateResampleUp3Down2_8s16s(nm64s** pKernel, int nHint)
 {
-	VEC_Malloc((nm16s**)pKernel,16*3*4,nHint);
+	nmppsMalloc_16s((nm16s**)pKernel,16*3*4,nHint);
 	SIG_SetResampleUp3Down2_8s16s(*pKernel);
 
 }

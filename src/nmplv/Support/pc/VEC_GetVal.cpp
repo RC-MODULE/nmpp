@@ -19,8 +19,8 @@
 //------------------------------------------------------------------------
 #include "nmplv.h"
 
-//================= VEC_GetVal ===========================================    
-int2b	VEC_GetVal(nm2s*  pVec, int nIndex)
+//================= nmppsGetVal_ ===========================================    
+int2b	nmppsGet_2s(nm2s*  pVec, int nIndex)
 {
 	nm32u nBase=(nm32u(nIndex))/16;
 	nm32u nDisp=(nm32u(nIndex))%16;
@@ -31,7 +31,7 @@ int2b	VEC_GetVal(nm2s*  pVec, int nIndex)
 	return nVal;
 }
 
-int4b			VEC_GetVal(nm4s*  pVec, int nIndex)
+int4b			nmppsGet_4s(nm4s*  pVec, int nIndex)
 {
 	nm32u nBase=(nm32u(nIndex))/8;
 	nm32u nDisp=(nm32u(nIndex))%8;
@@ -42,18 +42,18 @@ int4b			VEC_GetVal(nm4s*  pVec, int nIndex)
 	return nVal;
 }
 
-int8b	VEC_GetVal(nm8s*  pVec, int nIndex)
+int8b	nmppsGet_8s(nm8s*  pVec, int nIndex)
 {
 	return pVec[nIndex];
 }
 
-int16b	VEC_GetVal(nm16s* pVec, int nIndex)
+int16b	nmppsGet_16s(nm16s* pVec, int nIndex)
 {
 	return pVec[nIndex];
 }
 
 //---------------- uint ------------------------------------ 
-uint1b	VEC_GetVal(nm1*   pVec, int nIndex)
+uint1b	nmppsGetVal_1 (nm1*   pVec, int nIndex)
 {
 	nm32u nBase=(nm32u(nIndex))/32;
 	nm32u nDisp=(nm32u(nIndex))%32;
@@ -62,7 +62,7 @@ uint1b	VEC_GetVal(nm1*   pVec, int nIndex)
 	nVal&=1;
 	return nVal;
 }
-uint2b	VEC_GetVal(nm2u*  pVec, int nIndex)
+uint2b	nmppsGet_2u(nm2u*  pVec, int nIndex)
 {
 	nm32u nBase=(nm32u(nIndex))/16;
 	nm32u nDisp=(nm32u(nIndex))%16;
@@ -73,7 +73,7 @@ uint2b	VEC_GetVal(nm2u*  pVec, int nIndex)
 }
 
 
-uint4b	VEC_GetVal(nm4u*  pVec, int nIndex)
+uint4b	nmppsGet_4u(nm4u*  pVec, int nIndex)
 {
 	nm32u nBase=(nm32u(nIndex))/8;
 	nm32u nDisp=(nm32u(nIndex))%8;
@@ -83,64 +83,64 @@ uint4b	VEC_GetVal(nm4u*  pVec, int nIndex)
 	return nVal;
 }
 
-uint8b	VEC_GetVal(nm8u*  pVec, int nIndex)
+uint8b	nmppsGet_8u(nm8u*  pVec, int nIndex)
 {
 	return pVec[nIndex];
 }
 
-uint16b	VEC_GetVal(nm16u* pVec, int nIndex)
+uint16b	nmppsGet_16u(nm16u* pVec, int nIndex)
 {
 	return pVec[nIndex];
 }
 
 //---------------- uint ------------------------------------ 
-void VEC_GetVal(nm1*  pArray, int Index, int1b &nVal)
+void nmppsGetVal_1(nm1*  pArray, int Index, int1b &nVal)
 {
-	nVal=VEC_GetVal(pArray,Index);
+	nVal=nmppsGetVal_1(pArray,Index);
 	nVal<<=31;
 	nVal>>=31;
 }
 
-void VEC_GetVal(nm2s*  pArray, int Index, int2b &nVal)
+void nmppsGetVal_2s(nm2s*  pArray, int Index, int2b &nVal)
 {
-	nVal=VEC_GetVal(pArray,Index);
+	nVal=nmppsGet_2s(pArray,Index);
 }
-void VEC_GetVal(nm4s* pArray, int Index, int4b &nVal)
+void nmppsGetVal_4s(nm4s* pArray, int Index, int4b &nVal)
 {
-	nVal=VEC_GetVal(pArray,Index);
+	nVal=nmppsGet_4s(pArray,Index);
 }
 
-void VEC_GetVal(nm8s*  pArray, int Index, int8b &nVal)
+void nmppsGet_8s(nm8s*  pArray, int Index, int8b &nVal)
 {
 	nVal=pArray[Index];
 }
-void VEC_GetVal(nm16s* pArray, int Index, int16b &nVal)
+void nmppsGet_16s(nm16s* pArray, int Index, int16b &nVal)
 {
 	nVal=pArray[Index];
 }
 
 //---------------- int ------------------------------------ 
-
-void VEC_GetVal(nm1*  pArray, int Index, uint1b &nVal)
+/*
+void nmppsGetVal_1_1*(nm1*  pArray, int Index, uint1b &nVal)
 {
-	nVal=VEC_GetVal(pArray,Index);
+	nVal=nmppsGetVal_(pArray,Index);
+}*/
+
+void nmppsGetVal_2u(nm2u*  pArray, int Index, uint2b &nVal)
+{
+	nVal=nmppsGet_2u(pArray,Index);
 }
 
-void VEC_GetVal(nm2u*  pArray, int Index, uint2b &nVal)
+void nmppsGetVal_4u(nm4u* pArray, int Index, uint4b &nVal)
 {
-	nVal=VEC_GetVal(pArray,Index);
+	nVal=nmppsGet_4u(pArray,Index);
 }
 
-void VEC_GetVal(nm4u* pArray, int Index, uint4b &nVal)
-{
-	nVal=VEC_GetVal(pArray,Index);
-}
-
-void VEC_GetVal(nm8u*  pArray, int Index, uint8b &nVal)
+void nmppsGet_8u(nm8u*  pArray, int Index, uint8b &nVal)
 {
 	nVal=pArray[Index];
 }
-void VEC_GetVal(nm16u* pArray, int Index, uint16b &nVal)
+void nmppsGet_16u(nm16u* pArray, int Index, uint16b &nVal)
 {
 	nVal=pArray[Index];
 }

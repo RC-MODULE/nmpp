@@ -305,14 +305,14 @@ end ".data_nmplv_G";
 
 begin ".text_nmplv"
 
-    //! \fn void VEC_Copyua (nm8s *pSrcVec, int nOffset, nm8s *pDstVec, int nSize) 
+    //! \fn void nmppsCopyua_8s(nm8s *pSrcVec, int nOffset, nm8s *pDstVec, int nSize) 
     //!
-    //! \perfinclude _VEC_Copyua__FPciPci.html
+    //! \perfinclude _nmppsCopyua__FPciPci_.html
 
-global _VEC_Copyua__FPciPci:label;
-global _void._.8.8VEC_Copyua.1char._.0.9._int.9._char._.0.9._int.2 :label;
-<_VEC_Copyua__FPciPci>
-<_void._.8.8VEC_Copyua.1char._.0.9._int.9._char._.0.9._int.2>
+global _nmppsCopyua__FPciPci_:label;
+global _void._.8.8nmppsCopyua_.1char._.0.9._int.9._char._.0.9._int.2 :label;
+<_nmppsCopyua__FPciPci_>
+<_void._.8.8nmppsCopyua_.1char._.0.9._int.9._char._.0.9._int.2>
 .branch;
 	ar5 = sp-2		with gr7=false;	
 	push ar0,gr0;

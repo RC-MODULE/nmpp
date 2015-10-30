@@ -37,8 +37,8 @@ int main()
 	if (malloc32error) 
 		return -1;
 	
-	VEC_Rand(imSrc.pWarp,imSrc.nWarpSize);
-	VEC_RshC(imSrc.pWarp,1,imSrc.pWarp,imSrc.nWarpSize);
+	nmppsRand_(imSrc.pWarp,imSrc.nWarpSize);
+	nmppsRshC_(imSrc.pWarp,1,imSrc.pWarp,imSrc.nWarpSize);
 
 	
 	IMG_Median3x3(
@@ -50,7 +50,7 @@ int main()
 				imTmp2.pImg);
 
 	unsigned nCrc=0;
-	VEC_Crc(imDst.pImg,imDst.nImgSize,nCrc);	
+	nmppsCrc_(imDst.pImg,imDst.nImgSize,nCrc);	
 	
 	return nCrc;
 }

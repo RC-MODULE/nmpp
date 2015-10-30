@@ -20,7 +20,7 @@
 
 //#include "vArithm.h"
 
-extern _VEC_TmpBuffer16_G:long;
+extern _nmppsTmpBuffer16_G_:long;
 extern _VEC_TBL_One_G:long;
 data ".data_nmplv_G"
 //	GTmpLong:long;
@@ -31,10 +31,10 @@ data ".data_nmplv_G"
 //	pTmpBuf:word;
 end ".data_nmplv_G";
 
-const GTmpLong =_VEC_TmpBuffer16_G;
-const GTmpLong2=_VEC_TmpBuffer16_G+2;
-const pSrcVec  =_VEC_TmpBuffer16_G+6;
-const pTmpBuf  =_VEC_TmpBuffer16_G+8;
+const GTmpLong =_nmppsTmpBuffer16_G_;
+const GTmpLong2=_nmppsTmpBuffer16_G_+2;
+const pSrcVec  =_nmppsTmpBuffer16_G_+6;
+const pTmpBuf  =_nmppsTmpBuffer16_G_+8;
 
 extern vec_vsum_data_afifo:label;
 extern vec_vsum_shift_data_afifo:label;

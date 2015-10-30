@@ -1,17 +1,17 @@
     //--------------------------------------------------------------------
-extern VEC_DupValueInVector16: label;
-extern VEC_BuildDiagWeights16: label;
-extern VEC_DataXorRamV_ActivateAfifoVr: label;
-extern _VEC_TmpBuffer64_L: word;
+extern nmppsDupValueInVector16_: label;
+extern nmppsBuildDiagWeights16_: label;
+extern nmppsDataXorRamV_ActivateAfifoVr_: label;
+extern _nmppsTmpBuffer64_L_: word;
 
 begin ".text_nmplv"
-	//! \fn void VEC_CmpEqV(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int nSize, int16b shTrueFlag);
+	//! \fn void nmppsCmpEqV_16u(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int nSize, int16b shTrueFlag);
 	//!
-	//! \perfinclude _VEC_CmpEqV__FPUsPUsPSsii.html
-global _VEC_CmpEqV__FPUsPUsPSsii: label;
-global _void._.8.8VEC_CmpEqV.1unsigned._short._.0.9._unsigned._short._.0.9._short._.0.9._int.9._int.2 :label;
-<_VEC_CmpEqV__FPUsPUsPSsii>
-<_void._.8.8VEC_CmpEqV.1unsigned._short._.0.9._unsigned._short._.0.9._short._.0.9._int.9._int.2>
+	//! \perfinclude _nmppsCmpEqV__FPUsPUsPSsii_.html
+global _nmppsCmpEqV__FPUsPUsPSsii_: label;
+global _void._.8.8nmppsCmpEqV_.1unsigned._short._.0.9._unsigned._short._.0.9._short._.0.9._int.9._int.2 :label;
+<_nmppsCmpEqV__FPUsPUsPSsii_>
+<_void._.8.8nmppsCmpEqV_.1unsigned._short._.0.9._unsigned._short._.0.9._short._.0.9._int.9._int.2>
 .branch;    
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;
@@ -26,19 +26,19 @@ global _void._.8.8VEC_CmpEqV.1unsigned._short._.0.9._unsigned._short._.0.9._shor
 
         //--------------------------------
         // Заполнение матрицы и векторов.
-    ar1 = _VEC_TmpBuffer64_L;
-    call VEC_BuildDiagWeights16;
-    call VEC_DupValueInVector16;
+    ar1 = _nmppsTmpBuffer64_L_;
+    call nmppsBuildDiagWeights16_;
+    call nmppsDupValueInVector16_;
         //--------------------------------
     
-    ar1 = _VEC_TmpBuffer64_L;
+    ar1 = _nmppsTmpBuffer64_L_;
     nb1 = 0FFFFFFFFh;
 	sb = 020002h;
 	rep 4 wfifo = [ar1++], ftw, wtw;
     vr = [ar1++];
     ar1 = gr7;
 
-    delayed call VEC_DataXorRamV_ActivateAfifoVr;
+    delayed call nmppsDataXorRamV_ActivateAfifoVr_;
         f1cr = 0FFFEFFFEh with gr1 = gr0;
     
     pop ar6, gr6;

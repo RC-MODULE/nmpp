@@ -90,7 +90,7 @@ void SIG_XCorr(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Faltung calculation
 // pDstVec[i]=pSrcVec1[i]*pSrcVec2[i]+pSrcVec1[i+1]*pSrcVec2[i%8+1]+...+pSrcVec1[i+7]*pSrcVec2[i%8+7]
-//void VEC_Faltung(
+//void nmppsFaltung_(
 //		nm32s*			pSrcVec1,		// input buffer		:long Local	[Size/8]
 //		nm32s*			pSrcVec2,		// input buffer		:long Any   [2]
 //		nm32s*			pDstVec,		// output buffer	:long Global[Size/4]

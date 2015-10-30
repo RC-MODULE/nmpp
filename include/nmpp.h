@@ -5,7 +5,7 @@
 
 	/**
     *
-    *     \defgroup VEC_Group Векторные функции 
+    *     \defgroup nmppsGroup_ Векторные функции 
     */
 #include "./nmplv/nmplv.h"	
 	/**

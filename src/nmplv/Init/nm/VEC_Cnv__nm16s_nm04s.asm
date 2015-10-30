@@ -23,13 +23,13 @@ extern _VEC_TBL_Diagonal_1h_L:long[16];
 
 begin ".text_nmplv"
 
-//! \fn void VEC_Cnv(nm16s* pSrcVec, nm4s* pDstVec, int nSize);
+//! \fn void nmppsCnv_16s(nm16s* pSrcVec, nm4s* pDstVec, int nSize);
 //!
-//! \perfinclude _VEC_Cnv__FPiPci.html
+//! \perfinclude _nmppsCnv__FPiPci_.html
 
 
-global _void._.8.8VEC_Cnv.1short._.0.9._class._nm4s._.0.9._int.2 :label;
-<_void._.8.8VEC_Cnv.1short._.0.9._class._nm4s._.0.9._int.2>
+global _void._.8.8nmppsCnv_.1short._.0.9._class._nm4s._.0.9._int.2 :label;
+<_void._.8.8nmppsCnv_.1short._.0.9._class._nm4s._.0.9._int.2>
 .branch;
     ar5 = sp - 2 with gr7 = false;
 	push ar0,gr0 with gr7++;

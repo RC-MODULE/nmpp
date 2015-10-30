@@ -25,9 +25,9 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_SetVal (nm2s *pVec, int nIndex, int2b Val) 
+//! \fn void nmppsSetInt_2s(nm2s *pVec, int nIndex, int2b Val) 
 //!
-//! \perfinclude _VEC_SetVal__F4nm2sPii.html
+//! \perfinclude _nmppsSetVal__F4nm2sPii_.html
 
 macro SETVAL0()
 	gr6 = not(03h<<0);
@@ -49,10 +49,10 @@ macro SETVAL(sh)
 		nul;
 end SETVAL;
 
-global _VEC_SetVal__F4nm2sPii:	label;
-global _void._.8.8VEC_SetVal.1class._nm2s._.0.9._int.9._int.2 :label;
-<_VEC_SetVal__F4nm2sPii> 
-<_void._.8.8VEC_SetVal.1class._nm2s._.0.9._int.9._int.2>
+global _nmppsSetVal__F4nm2sPii_:	label;
+global _void._.8.8nmppsSetVal_.1class._nm2s._.0.9._int.9._int.2 :label;
+<_nmppsSetVal__F4nm2sPii_> 
+<_void._.8.8nmppsSetVal_.1class._nm2s._.0.9._int.9._int.2>
 .branch;
 	ar5 = ar7 - 5;
 	push ar1,gr1;

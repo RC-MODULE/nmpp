@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: VEC_Wadd2V_exe32.asm             $
+//  $Workfile:: nmppsWadd2V_exe32_.asm             $
 //
 //  <nmplv>
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   VEC_Wadd2V_exe32.asm 
+//! \file   nmppsWadd2V_exe32_.asm 
 //! \author Сергей Свечников
 //! \brief  <Взвешенная сумма двух векторов типа nm32s>
 //!

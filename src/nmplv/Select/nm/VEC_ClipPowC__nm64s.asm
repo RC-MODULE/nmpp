@@ -29,12 +29,12 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////
 
 
-//! \fn void VEC_ClipPowC (nm64s *pSrcVec, int nClipFactor, nm64s *pDstVec, int nSize) 
+//! \fn void nmppsClipPowC_64s(nm64s *pSrcVec, int nClipFactor, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_ClipPowC__FPiiPii.html
+//! \perfinclude _nmppsClipPowC__FPiiPii_.html
 
-global _void._.8.8VEC_ClipPowC.1long._.0.9._int.9._long._.0.9._int.2 :label;
-<_void._.8.8VEC_ClipPowC.1long._.0.9._int.9._long._.0.9._int.2>
+global _void._.8.8nmppsClipPowC_.1long._.0.9._int.9._long._.0.9._int.2 :label;
+<_void._.8.8nmppsClipPowC_.1long._.0.9._int.9._long._.0.9._int.2>
 .branch;
 
 	ar5=ar7-2;

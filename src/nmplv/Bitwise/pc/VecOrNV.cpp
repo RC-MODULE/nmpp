@@ -19,11 +19,10 @@
 //------------------------------------------------------------------------
 
 #include "nmplv.h"
-//void VEC_OrNV(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
+//void nmppsOrNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
 ///////////////////////////////////////////////////////////
 // pDstVec[i] = !pSrcVec[i]; 
-void VEC_OrNV(
-	nm64u**	pSrcVecs,		// Input Buffer
+void nmppsOrNV_64u(nm64u**	pSrcVecs,		// Input Buffer
 	int numVecs,        //Number of  input buffers, numVecs > 2
 	nm64u*	pDstVec,		// Output Buffer
 	int		nSize		// Size of input buffer in 64 bit elements. nSize={1,2,..,n}

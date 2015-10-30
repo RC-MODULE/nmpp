@@ -37,12 +37,12 @@ void MTR_SetM(
 			int		nDstOffset			// =[0,8,16,24.]
 			)
 {
-	pDstMtr=ADDR(pDstMtr,nDstStride*nDstRowIndex+nDstOffset);
+	pDstMtr=nmppsAddr_8s(pDstMtr,nDstStride*nDstRowIndex+nDstOffset);
 	for(int col=0;col<nSrcRows;col++)
 	{
-		VEC_Copy(pSrcMtr,pDstMtr,nSrcStride);
-		pSrcMtr=ADDR(pSrcMtr,nSrcStride);
-		pDstMtr=ADDR(pDstMtr,nDstStride);
+		nmppsCopy_8s(pSrcMtr,pDstMtr,nSrcStride);
+		pSrcMtr=nmppsAddr_8s(pSrcMtr,nSrcStride);
+		pDstMtr=nmppsAddr_8s(pDstMtr,nDstStride);
 	}
 }
 

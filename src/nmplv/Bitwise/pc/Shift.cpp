@@ -23,8 +23,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Arithmetic right shift under 64-bit signed elements of input array
-void VEC_ArshC(
-	nm64s*			pSrcVec,	// input buffer		:long Local [Size/2]
+void nmppsArshC_64s(nm64s*			pSrcVec,	// input buffer		:long Local [Size/2]
 	int				Shift,		// specifies on how many positions the input values should be right-shifted :[0,1,2,3..31]
 	nm64s*			pDstVec,	// output buffer	:long Global[Size/2]
 	int				Size		// size of input buffer in 32 bit elements. Size=[2,4,6...]
@@ -37,8 +36,7 @@ void VEC_ArshC(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Arithmetic right shift under 32-bit signed elements of input array
-void VEC_ArshC(
-	nm32s*			pSrcVec,	// input buffer		:long Local [Size/2]
+void nmppsArshC_32s(nm32s*			pSrcVec,	// input buffer		:long Local [Size/2]
 	int				Shift,		// specifies on how many positions the input values should be right-shifted :[0,1,2,3..31]
 	nm32s*			pDstVec,	// output buffer	:long Global[Size/2]
 	int				nSize		// size of input buffer in 32 bit elements. Size=[2,4,6...]
@@ -57,8 +55,7 @@ void VEC_ArshC(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Arithmetic right shift under 16-bit signed elements of input array
-void VEC_ArshC(
-	nm16s*			pSrcVec,	// input buffer		:long Local [Size/2]
+void nmppsArshC_16s(nm16s*			pSrcVec,	// input buffer		:long Local [Size/2]
 	int				Shift,		// specifies on how many positions the input values should be right-shifted :[0,1,2,3..31]
 	nm16s*			pDstVec,	// output buffer	:long Global[Size/2]
 	int				nSize		// size of input buffer in 32 bit elements. Size=[2,4,6...]
@@ -77,8 +74,7 @@ void VEC_ArshC(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Arithmetic right shift under 8-bit signed elements of input array
-void VEC_ArshC(
-	nm8s*			pSrcVec,	// input buffer		:long Local [Size/2]
+void nmppsArshC_8s(nm8s*			pSrcVec,	// input buffer		:long Local [Size/2]
 	int				Shift,		// specifies on how many positions the input values should be right-shifted :[0,1,2,3..31]
 	nm8s*			pDstVec,	// output buffer	:long Global[Size/2]
 	int				Size		// size of input buffer in 32 bit elements. Size=[2,4,6...]
@@ -91,8 +87,7 @@ void VEC_ArshC(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Right shift under 8-bit unsigned elements of input array
-void VEC_RshC(
-	nm8u*	pSrcVec,	//Input buffer		:long Local [Size/8].
+void nmppsRshC_8u(nm8u*	pSrcVec,	//Input buffer		:long Local [Size/8].
 	int		Shift,		//Specifies on how many positions the input values should be right-shifted :[0, 1, 2, .., 7].
 	nm8u*	pDstVec,	//Output buffer		:long Global[Size/8].
 	int		nSize		//Size of input buffer in 8 bit elements. Size=[256, 512, .., n*256].
@@ -111,8 +106,7 @@ void VEC_RshC(
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Performs shift to right on 16-bit unsigned elements of input array
-void VEC_RshC(
-	nm16u*	pSrcVec,		//Input buffer		:long Local [Size/4].
+void nmppsRshC_16u(nm16u*	pSrcVec,		//Input buffer		:long Local [Size/4].
 	int		Shift,		//Specifies on how many positions the input values should be right-shifted :[0, 1, 2, .., 15].
 	nm16u*	pDstVec,		//Output buffer		:long Global[Size/4].
 	int		nSize		//Size of input buffer in 8 bit elements. Size=[0,4,8,12...].
@@ -131,8 +125,7 @@ void VEC_RshC(
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Performs shift to right on 32-bit unsigned elements of input array
-void VEC_RshC(
-	nm32u*	SrcVec,		//Input buffer		:long Local [Size/4].
+void nmppsRshC_32u(nm32u*	SrcVec,		//Input buffer		:long Local [Size/4].
 	int		Shift,		//Specifies on how many positions the input values should be right-shifted :[0, 1, 2, .., 15].
 	nm32u*	DstVec,		//Output buffer		:long Global[Size/4].
 	int		Size		//Size of input buffer in 8 bit elements. Size=[0,4,8,12...].
@@ -145,8 +138,7 @@ void VEC_RshC(
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Performs shift to right on 64-bit unsigned elements of input array
-void VEC_RshC(
-	nm64u*	SrcVec,		//Input buffer		:long Local [Size/4].
+void nmppsRshC_64u(nm64u*	SrcVec,		//Input buffer		:long Local [Size/4].
 	int		Shift,		//Specifies on how many positions the input values should be right-shifted :[0, 1, 2, .., 15].
 	nm64u*	DstVec,		//Output buffer		:long Global[Size/4].
 	int		Size		//Size of input buffer in 8 bit elements. Size=[0,4,8,12...].
@@ -170,7 +162,7 @@ void VEC_RshC(
 //						Dst=[07060504030201AB][0F0E0D0C0B0A0908]....... (last 8 bits of Src will be lost)
 // If you point pBits to the last 64-bit word of Src buffer you will get the cyclical bit shift
 
-void VEC_DisplaceBits(
+void nmppsDisplaceBits_(
 	const   nm64u*	pSrcVec,		//Input buffer					:long Local [Size/8].
 			nm64u*	pDstVec,		//Output buffer					:long Global[Size/8].
 			nm64u*	pnBits,		//Being pushed bits				:long Variable
@@ -194,7 +186,7 @@ void VEC_DisplaceBits(
 
 
 //////////////////////////////////////////////////////////////////////////////////////
-void VEC_RshC_AddC(nm8u *pSrcVec,   int nShift,uint8b nAddVal, nm8u *pDstVec, int nSize)
+void nmppsRshC_AddC_8u(nm8u *pSrcVec,   int nShift,uint8b nAddVal, nm8u *pDstVec, int nSize)
 {
 	nm8u nMask=0xFF;
 	nMask>>=nShift;
@@ -202,7 +194,7 @@ void VEC_RshC_AddC(nm8u *pSrcVec,   int nShift,uint8b nAddVal, nm8u *pDstVec, in
 		pDstVec[i] = ((pSrcVec[i] >> nShift) + nAddVal)&nMask;
 }
 
-void VEC_RshC_AddC(nm16u *pSrcVec,  int nShift, uint16b nAddVal, nm16u *pDstVec, int nSize)
+void nmppsRshC_AddC_16u(nm16u *pSrcVec,  int nShift, uint16b nAddVal, nm16u *pDstVec, int nSize)
 {
 	nm16u nMask=0xFFFF;
 	nMask>>=nShift;
@@ -210,7 +202,7 @@ void VEC_RshC_AddC(nm16u *pSrcVec,  int nShift, uint16b nAddVal, nm16u *pDstVec,
 		pDstVec[i] = ((pSrcVec[i] >> nShift) + nAddVal)&nMask;
 }
 
-void VEC_RshC_AddC(nm32u *pSrcVec,   int nShift, uint32b nAddVal,nm32u *pDstVec, int nSize)
+void nmppsRshC_AddC_32u(nm32u *pSrcVec,   int nShift, uint32b nAddVal,nm32u *pDstVec, int nSize)
 {
 	nm32u nMask=0xFFFFFFFF;
 	nMask>>=nShift;

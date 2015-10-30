@@ -124,7 +124,7 @@ void MTR_fpResolve_PivotGauss(
 		MajorString=pSrcMtrAB+row*Length;
 		Piv=SearchPivot(pSrcMtrAB,row,Length);
 		if (Piv!=row)
-			VEC_Swap((nm64s*)(pSrcMtrAB+Piv*Length),(nm64s*)MajorString,Length);
+			nmppsSwap_64s((nm64s*)(pSrcMtrAB+Piv*Length),(nm64s*)MajorString,Length);
 		Major=MajorString[row];
 		for(int r=row+1;r<nSize;r++)
 		{

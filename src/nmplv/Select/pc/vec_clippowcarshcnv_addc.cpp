@@ -1,6 +1,6 @@
 #include "nmplv.h"
 //
-void VEC_ClipArshCnv_AddC( nm32s* pSrcVec, int nClipFactor,
+void nmppsClipArshCnv_AddC_32s(nm32s* pSrcVec, int nClipFactor,
     int nShift, int8b nAddValue,nm8s* pDstVec, int nSize)
 {  
 	int	ClipPos=(1<<nClipFactor)-1;	

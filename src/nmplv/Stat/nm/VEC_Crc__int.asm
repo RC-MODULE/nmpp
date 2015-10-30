@@ -101,14 +101,14 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_Crc(unsigned int* pSrcVec, int nSize, unsigned int& nCrc);
+//! \fn void nmppsCrc_(unsigned int* pSrcVec, int nSize, unsigned int& nCrc);
 //!
-//! \perfinclude _VEC_Crc__FPUiiRUi.html
+//! \perfinclude _nmppsCrc__FPUiiRUi_.html
 
-global _VEC_Crc__FPUiiRUi :label;
-global _void._.8.8VEC_Crc.1unsigned._int._.0.9._int.9._unsigned._int._.6.2 :label;
-<_VEC_Crc__FPUiiRUi>
-<_void._.8.8VEC_Crc.1unsigned._int._.0.9._int.9._unsigned._int._.6.2>
+global _nmppsCrc__FPUiiRUi_ :label;
+global _void._.8.8nmppsCrc_.1unsigned._int._.0.9._int.9._unsigned._int._.6.2 :label;
+<_nmppsCrc__FPUiiRUi_>
+<_void._.8.8nmppsCrc_.1unsigned._int._.0.9._int.9._unsigned._int._.6.2>
  
 
 .branch;

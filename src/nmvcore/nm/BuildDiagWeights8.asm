@@ -24,8 +24,8 @@ begin ".text_nmvcore"
     //      gr1 - значение (8 бит).
     // Изменяет регистры: ar1.
     //--------------------------------------------------------------------
-global VEC_BuildDiagWeights8: label;
-<VEC_BuildDiagWeights8>
+global nmppsBuildDiagWeights8_: label;
+<nmppsBuildDiagWeights8_>
     push ar0, gr0 with gr0 = false;
     ar0 = gr0 with gr1 <<= 24;
     gr0 = gr1 >> 24;

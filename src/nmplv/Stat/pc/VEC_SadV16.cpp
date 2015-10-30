@@ -1,5 +1,5 @@
 #include "nmplv.h"
-int VEC_SadV16(nm8s* pVec1,nm8s* pVec2)
+int nmppsSadV16_8s(nm8s* pVec1,nm8s* pVec2)
 {
 	int nSad=0;
 	for(int i=0;i<16;i++)
@@ -8,7 +8,7 @@ int VEC_SadV16(nm8s* pVec1,nm8s* pVec2)
 }
 
 
-int VEC_SadV16(nm16s* pVec1,nm16s* pVec2)
+int nmppsSadV16_16s(nm16s* pVec1,nm16s* pVec2)
 {
 	int nSad=0;
 	for(int i=0;i<16;i++)

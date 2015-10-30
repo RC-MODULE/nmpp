@@ -48,8 +48,8 @@ public:
 		m_border=Border;
 		//m_container=new T[(m_height+2*m_border)*m_width];
 		//m_data=m_container+m_width*m_border;
-		VEC_Malloc(&m_container,(m_height+2*m_border)*m_width);
-		m_data=VEC_Addr(m_container,m_border*m_width);
+		nmppsMalloc_(&m_container,(m_height+2*m_border)*m_width);
+		m_data=nmppsAddr_(m_container,m_border*m_width);
 		m_size=m_width*m_height;
 		m_stride=m_width;
 		_ASSERTE(m_data!=NULL);
@@ -68,7 +68,7 @@ public:
 	{
 		_ASSERTE(y>=-m_border);
 		_ASSERTE(y<m_height+m_border);
-		return nmvecpack<T>(VEC_Addr(m_data,y*m_stride),m_width);
+		return nmvecpack<T>(nmppsAddr_(m_data,y*m_stride),m_width);
 	}
 //#endif
 	
@@ -80,14 +80,14 @@ public:
 		m_size  =mtr.m_size;
 		//m_container=new T[(m_height+2*m_border)*m_width];
 		//m_data=m_container+m_width*m_border;
-		VEC_Malloc(&m_container,(m_height+2*m_border)*m_width);
-		m_data=VEC_Addr(m_container,m_border*m_width);
+		nmppsMalloc_(&m_container,(m_height+2*m_border)*m_width);
+		m_data=nmppsAddr_(m_container,m_border*m_width);
 		
 		m_flag_new=true;
 		m_stride=m_width;
 		for(int y=0; y<m_height; y++)
 			//memcpy(m_data+y*m_stride,mtr.m_data+y*mtr.m_stride,m_width*sizeof(T));
-			//VEC_Copy(VEC_Addr(mtr.m_data),y*mtr.m_stride)
+			//nmppsCopy_(nmppsAddr_(mtr.m_data),y*mtr.m_stride)
 			(*this)[y]=mtr[y];
 
 	};
@@ -111,7 +111,7 @@ public:
 	{ 	
 		if (m_flag_new)
 			//delete m_container;	
-			VEC_Free(m_container);
+			nmppsFree_(m_container);
 	}
 
 	nmmtrpack<T>& operator= (const nmmtrpack<T>& mtr)

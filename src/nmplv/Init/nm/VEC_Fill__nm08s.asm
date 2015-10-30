@@ -22,21 +22,21 @@
 
 extern vec_ram:label;
 
-extern _VEC_TmpBuffer16_G:long;
+extern _nmppsTmpBuffer16_G_:long;
 
 begin ".text_nmplv"
 
 		
 ////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_Fill (nm8s *pVec, int8b nVal, int nSize)
+//! \fn void nmppsFill_8s(nm8s *pVec, int8b nVal, int nSize)
 //!
-//! \perfinclude _VEC_Fill__FPcii.html
+//! \perfinclude _nmppsFill__FPcii_.html
 
-global _VEC_Fill__FPcii:label;
-global _void._.8.8VEC_Fill.1char._.0.9._int.9._int.2 :label;
-<_VEC_Fill__FPcii>
-<_void._.8.8VEC_Fill.1char._.0.9._int.9._int.2>
+global _nmppsFill__FPcii_:label;
+global _void._.8.8nmppsFill_.1char._.0.9._int.9._int.2 :label;
+<_nmppsFill__FPcii_>
+<_void._.8.8nmppsFill_.1char._.0.9._int.9._int.2>
 .branch;
     ar5 = sp - 2	with gr7=false;
     push ar0,gr0	with gr7++;
@@ -46,7 +46,7 @@ global _void._.8.8VEC_Fill.1char._.0.9._int.9._int.2 :label;
     ar6 = [--ar5];			// Buffer
 	gr0 = [--ar5];			// Init value
     gr5 = [--ar5];			// nSize
-	ar0 = _VEC_TmpBuffer16_G+2 with 
+	ar0 = _nmppsTmpBuffer16_G_+2 with 
 	gr7 = gr0 << 24;
 	gr0 = gr7 >> 8;
 	gr0 = gr7 or gr0;

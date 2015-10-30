@@ -22,9 +22,9 @@
 
 begin ".text_nmplv"
 
-//! \fn int2b VEC_GetVal (nm2s *pVec, int nIndex) 
+//! \fn int2b nmppsGet_2s(nm2s *pVec, int nIndex) 
 //!
-//! \perfinclude _VEC_GetVal__F4nm2sPi.html
+//! \perfinclude _nmppsGetVal__F4nm2sPi_.html
 
 macro EXTRACT(n)
 	delayed return with	gr7<<=n;
@@ -33,10 +33,10 @@ macro EXTRACT(n)
 		nul;
 end EXTRACT;
 
-global _VEC_GetVal__F4nm2uPi:	label;
-global _int._.8.8VEC_GetVal.1class._nm2s._.0.9._int.2:label;
-<_VEC_GetVal__F4nm2sPi>
-<_int._.8.8VEC_GetVal.1class._nm2s._.0.9._int.2>
+global _nmppsGetVal__F4nm2uPi_:	label;
+global _int._.8.8nmppsGetVal_.1class._nm2s._.0.9._int.2:label;
+<_nmppsGetVal__F4nm2sPi_>
+<_int._.8.8nmppsGetVal_.1class._nm2s._.0.9._int.2>
 
 .branch;
 	ar5 = ar7 - 2;

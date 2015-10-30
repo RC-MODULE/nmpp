@@ -9,8 +9,8 @@ struct S_Clip_Arsh_Cnv_AddC_Ext
     long plWeight[16];
 };
 
-void VEC_ClipArshCnv_AddC_Ext_Set(int *pnClip, int *pnShift, nm8s *pchC,  S_Clip_Arsh_Cnv_AddC_Ext *pParams);
-void VEC_ClipArshCnv_AddC_Ext_Exe(nm16s *pshSrc, S_Clip_Arsh_Cnv_AddC_Ext *pParams, nm8s *pchDst, int nSrcSize);
+void nmppsClipArshCnv_AddC_Ext_Set_(int *pnClip, int *pnShift, nm8s *pchC,  S_Clip_Arsh_Cnv_AddC_Ext *pParams);
+void nmppsClipArshCnv_AddC_Ext_Exe_16s(nm16s *pshSrc, S_Clip_Arsh_Cnv_AddC_Ext *pParams, nm8s *pchDst, int nSrcSize);
 
 
 //------------------------------------------------------------------------
@@ -38,7 +38,7 @@ static unsigned __int64 WeightTable[8] =
     0x0100000000000000
 };
 //------------------------------------------------------------------------
-void VEC_ClipArshCnv_AddC_Ext(v8nm16s *pSrc, v8nm32s *pnClip, v8nm32s *pnShift,    v8nm32s *pnAdd, v8nm8s *pDst, int nSrcSize)
+void nmppsClipArshCnv_AddC_Ext_(v8nm16s *pSrc, v8nm32s *pnClip, v8nm32s *pnShift,    v8nm32s *pnAdd, v8nm8s *pDst, int nSrcSize)
 {
 	
     int i, i8;
@@ -47,34 +47,34 @@ void VEC_ClipArshCnv_AddC_Ext(v8nm16s *pSrc, v8nm32s *pnClip, v8nm32s *pnShift, 
     for(i=0; i<nSrcSize*8; i++)
     {
         i8 = i & 0x7;
-        shSrc = VEC_GetVal((nm16s*)pSrc,i);
-        shClipSign = shSrc >> VEC_GetVal((nm32s*)pnClip,i8);
+        shSrc = nmppsGet_16s((nm16s*)pSrc,i);
+        shClipSign = shSrc >> nmppsGet_32s((nm32s*)pnClip,i8);
         if((shSrc > 0) && shClipSign)
         {
-            shSrc = ~((short)0xFFFF << VEC_GetVal((nm32s*)pnClip,i8));
+            shSrc = ~((short)0xFFFF << nmppsGet_32s((nm32s*)pnClip,i8));
         }
         else if((shSrc < 0) && (shClipSign != -1))
         {
-            shSrc = (short)0xFFFF << VEC_GetVal((nm32s*)pnClip,i8);
+            shSrc = (short)0xFFFF << nmppsGet_32s((nm32s*)pnClip,i8);
         }
-        //VEC_SetVal((nm8s*)pDst,i, (char)(shSrc >> VEC_GetVal((nm32s*)pnShift,i8)) + VEC_GetVal((nm32s*)pnAdd,i8));
-		VEC_SetVal((nm8s*)pDst,i, (char)(shSrc >> VEC_GetVal((nm32s*)pnShift,i8)) + VEC_GetVal((nm32s*)pnAdd,i8));
+        //nmppsSetInt_8s((nm8s*)pDst,i, (char)(shSrc >> nmppsGet_32s((nm32s*)pnShift,i8)) + nmppsGetVal_32s((nm32s*)pnAdd,i8));
+		nmppsSetInt_8s((nm8s*)pDst,i, (char)(shSrc >> nmppsGet_32s((nm32s*)pnShift,i8)) + nmppsGet_32s((nm32s*)pnAdd,i8));
     }
 }
 //------------------------------------------------------------------------
-void VEC_ClipArshCnv_AddC_Ext_Set(int *pnClip, int *pnShift, nm8s *pchC, 
+void nmppsClipArshCnv_AddC_Ext_Set_(int *pnClip, int *pnShift, nm8s *pchC, 
         S_Clip_Arsh_Cnv_AddC_Ext *pParams)
 {
         
 }
 //------------------------------------------------------------------------
-void VEC_ClipArshCnv_AddC_Ext_Aux(nm16s *pshSrc, S_Clip_Arsh_Cnv_AddC_Ext *pParams, 
+void nmppsClipArshCnv_AddC_Ext_Aux_16s(nm16s *pshSrc, S_Clip_Arsh_Cnv_AddC_Ext *pParams, 
         nm8s *pchDst, int nSrcSize)
 {
 
 }
 //------------------------------------------------------------------------
-void VEC_ClipArshCnv_AddC_Ext(nm16u *pnSrc, int *pnClip, int *pnShift, 
+void nmppsClipArshCnv_AddC_Ext_16u(nm16u *pnSrc, int *pnClip, int *pnShift, 
         nm4s *pnAdd, nm4s *pnDst, int nSrcSize)
 {
     int i, i16;

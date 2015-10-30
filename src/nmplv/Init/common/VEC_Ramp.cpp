@@ -20,41 +20,41 @@
 #include "nmtype.h"
 #include "nmplv.h"
 //!
-//! \perfinclude _VEC_Ramp__FPciii.html
+//! \perfinclude _nmppsRamp__FPciii_.html
 //!
 
 
-void VEC_Ramp(nm8s* pVec, int8b nOffset, int8b nSlope, int nSize)
+void nmppsRamp_8s(nm8s* pVec, int8b nOffset, int8b nSlope, int nSize)
 {
 	for(int i=0; i<nSize; i++, nOffset+=nSlope)
-		VEC_SetVal(pVec, i, nOffset); 
+		nmppsSetInt_8s(pVec, i, nOffset); 
 }
 
 //!
-//! \perfinclude _VEC_Ramp__FPSsiii.html
+//! \perfinclude _nmppsRamp__FPSsiii_.html
 //!
 
-void VEC_Ramp(nm16s* pVec, int16b nOffset, int16b nSlope, int nSize)
+void nmppsRamp_16s(nm16s* pVec, int16b nOffset, int16b nSlope, int nSize)
 {
 	for(int i=0; i<nSize; i++, nOffset+=nSlope)
-		VEC_SetVal(pVec, i, nOffset); 
+		nmppsSetInt_16s(pVec, i, nOffset); 
 }
 
 //!
-//! \perfinclude _VEC_Ramp__FPiiii.html
+//! \perfinclude _nmppsRamp__FPiiii_.html
 //!
 
-void VEC_Ramp(nm32s* pVec, int32b nOffset, int32b nSlope, int nSize)
+void nmppsRamp_32s(nm32s* pVec, int32b nOffset, int32b nSlope, int nSize)
 {
 	for(int i=0; i<nSize; i++, pVec++, nOffset+=nSlope)
 		*pVec=nOffset;
 }
 
 //!
-//! \perfinclude _VEC_Ramp__FPllli.html
+//! \perfinclude _nmppsRamp__FPllli_.html
 //!
 
-void VEC_Ramp(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize)
+void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize)
 {
 	for(int i=0; i<nSize; i++, pVec++, nOffset+=nSlope)
 		*pVec=nOffset;

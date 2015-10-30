@@ -11,7 +11,7 @@
 //
 //! \if file_doc
 //!
-//! \file   VEC_MinNV.cpp
+//! \file   nmppsMinNV_.cpp
 //! \author Сергей Мушкаев
 //! \brief  Функции сравнения.
 //!
@@ -20,14 +20,14 @@
 //------------------------------------------------------------------------
 #include "nmplv.h"
 
-/*void VEC_MinNV(nm8s7b**   pSrcVecs, int numVecs, nm8s7b*   pDstMinVec, int nSize);
-void VEC_MinNV(nm16s15b** pSrcVecs, int numVecs, nm16s15b* pDstMinVec, int nSize);
-void VEC_MinNV(nm32s31b** pSrcVecs, int numVecs, nm32s31b* pDstMinVec, int nSize);
-void VEC_MinNV(nm64s63b** pSrcVecs, int numVecs, nm64s63b* pDstMinVec, int nSize);*/
+/*void nmppsMinNV_8s(nm8s7b**   pSrcVecs, int numVecs, nm8s7b*   pDstMinVec, int nSize);
+void nmppsMinNV_16s(nm16s15b** pSrcVecs, int numVecs, nm16s15b* pDstMinVec, int nSize);
+void nmppsMinNV_32s(nm32s31b** pSrcVecs, int numVecs, nm32s31b* pDstMinVec, int nSize);
+void nmppsMinNV_64s(nm64s63b** pSrcVecs, int numVecs, nm64s63b* pDstMinVec, int nSize);*/
 
 
 
-void VEC_MinNV(nm8s7b**  pSrcVecs, int numVecs,  nm8s7b*  pDstMinVec, int nSize)
+void nmppsMinNV_8s(nm8s7b**  pSrcVecs, int numVecs,  nm8s7b*  pDstMinVec, int nSize)
 {
 	int s1,s2,mask;
 	nm8s * pVec0=pSrcVecs[0];
@@ -52,7 +52,7 @@ void VEC_MinNV(nm8s7b**  pSrcVecs, int numVecs,  nm8s7b*  pDstMinVec, int nSize)
 	
 }
 // test2test s1<=>s2
-void VEC_MinNV(nm16s15b**  pSrcVecs, int numVecs,  nm16s15b*  pDstMinVec, int nSize)
+void nmppsMinNV_16s(nm16s15b**  pSrcVecs, int numVecs,  nm16s15b*  pDstMinVec, int nSize)
 {
 	int s1,s2,mask;
 	nm16s * pVec0=pSrcVecs[0];
@@ -76,7 +76,7 @@ void VEC_MinNV(nm16s15b**  pSrcVecs, int numVecs,  nm16s15b*  pDstMinVec, int nS
 	}
 	
 }
-void VEC_MinNV(nm32s31b**  pSrcVecs, int numVecs,  nm32s31b*  pDstMinVec, int nSize)
+void nmppsMinNV_32s(nm32s31b**  pSrcVecs, int numVecs,  nm32s31b*  pDstMinVec, int nSize)
 {
 	int s1,s2,mask;
 	nm32s * pVec0=pSrcVecs[0];
@@ -100,7 +100,7 @@ void VEC_MinNV(nm32s31b**  pSrcVecs, int numVecs,  nm32s31b*  pDstMinVec, int nS
 	}
 	
 }
-void VEC_MinNV(nm64s63b**  pSrcVecs, int numVecs,  nm64s63b*  pDstMinVec, int nSize)
+void nmppsMinNV_64s(nm64s63b**  pSrcVecs, int numVecs,  nm64s63b*  pDstMinVec, int nSize)
 {
 	nm64s s1,s2,mask;
 	nm64s * pVec0=pSrcVecs[0];

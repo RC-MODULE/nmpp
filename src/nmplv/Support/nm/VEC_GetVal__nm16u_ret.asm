@@ -24,14 +24,14 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////
 
-//! \fn uint16u VEC_GetVal (nm16u *pVec, int nIndex) 
+//! \fn uint16u nmppsGet_16u(nm16u *pVec, int nIndex) 
 //!
-//! \perfinclude _VEC_GetVal__FPUsi.html
+//! \perfinclude _nmppsGetVal__FPUsi_.html
 
-global _VEC_GetVal__FPUsi:	label;
-global _unsigned._int._.8.8VEC_GetVal.1unsigned._short._.0.9._int.2 :label;
-<_VEC_GetVal__FPUsi>
-<_unsigned._int._.8.8VEC_GetVal.1unsigned._short._.0.9._int.2>
+global _nmppsGetVal__FPUsi_:	label;
+global _unsigned._int._.8.8nmppsGetVal_.1unsigned._short._.0.9._int.2 :label;
+<_nmppsGetVal__FPUsi_>
+<_unsigned._int._.8.8nmppsGetVal_.1unsigned._short._.0.9._int.2>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0;

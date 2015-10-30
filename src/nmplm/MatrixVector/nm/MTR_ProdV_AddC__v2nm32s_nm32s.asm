@@ -20,8 +20,8 @@
 
 begin ".text_nmplm"
 extern vec_Mul2D2W2_AddVr:label;
-extern _VEC_TmpBuffer64_G:long;
-extern _VEC_TmpBuffer64_L:long;
+extern _nmppsTmpBuffer64_G_:long;
+extern _nmppsTmpBuffer64_L_:long;
 
 //--------------------------------------------------------------------
 //! \fn void MTR_ProdV_AddC(v2nm32s* pSrcMtr, v2nm32s* pSrcVec2, int nAddVal, nm32s* pDstVec, int nHeight);
@@ -56,8 +56,8 @@ global _void._.8.8MTR_ProdV_AddC.1class._v2nm32s._.0.9._class._v2nm32s._.0.9._in
     gr0 = ar0;
     with gr0;
     if < delayed goto L0;
-        ar4=_VEC_TmpBuffer64_L;
-    ar4=_VEC_TmpBuffer64_G;
+        ar4=_nmppsTmpBuffer64_L_;
+    ar4=_nmppsTmpBuffer64_G_;
     <L0>
 
     ar3,gr3 = [ar2++];

@@ -48,8 +48,8 @@ public:
 		m_border=Border;
 		m_container=new T[(m_height+2*m_border)*m_width];
 		m_data=m_container+m_width*m_border;
-		//VEC_Malloc(&m_container,(m_height+2*m_border)*m_width);
-		//m_data=VEC_Addr(m_container,m_border*m_width);
+		//nmppsMalloc_(&m_container,(m_height+2*m_border)*m_width);
+		//m_data=nmppsAddr_(m_container,m_border*m_width);
 		m_size=m_width*m_height;
 		m_stride=m_width;
 		ASSERTE(m_data!=NULL);

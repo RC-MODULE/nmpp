@@ -20,23 +20,23 @@
 
 //#include "vMinMax.h"
 import from macros.mlb;
-extern	_VEC_TmpBuffer64_G: long;
-extern	_VEC_TmpBuffer16_G: long;
+extern	_nmppsTmpBuffer64_G_: long;
+extern	_nmppsTmpBuffer16_G_: long;
 extern vec_MaxVal_v8nm8s:label;
 extern vec_MaxVal:label;
 
 
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_MaxVal (nm8s *pSrcVec, int nSize, int8b &nMaxValue) 
+//! \fn void nmppsMaxVal_8s(nm8s *pSrcVec, int nSize, int8b &nMaxValue) 
 //!
-//! \perfinclude _VEC_MaxVal__FPciRi.html
+//! \perfinclude _nmppsMaxVal__FPciRi_.html
 
 
-global _VEC_MaxVal__FPciRi :label;
-global _void._.8.8VEC_MaxVal.1char._.0.9._int.9._int._.6.2 :label;
-<_VEC_MaxVal__FPciRi>
-<_void._.8.8VEC_MaxVal.1char._.0.9._int.9._int._.6.2>
+global _nmppsMaxVal__FPciRi_ :label;
+global _void._.8.8nmppsMaxVal_.1char._.0.9._int.9._int._.6.2 :label;
+<_nmppsMaxVal__FPciRi_>
+<_void._.8.8nmppsMaxVal_.1char._.0.9._int.9._int._.6.2>
 .branch;
 	ar5=sp-2;
 	PUSH_REGS();
@@ -50,9 +50,9 @@ global _void._.8.8VEC_MaxVal.1char._.0.9._int.9._int._.6.2 :label;
 	f1cr=gr4;
 	wtw;
 	
-	ar4 = _VEC_TmpBuffer64_G;
+	ar4 = _nmppsTmpBuffer64_G_;
 	delayed call vec_MaxVal;
-		ar6=_VEC_TmpBuffer16_G;
+		ar6=_nmppsTmpBuffer16_G_;
 	
 	delayed call vec_MaxVal_v8nm8s;
 		ar0=ar6;

@@ -29,14 +29,14 @@ extern _mask_table:			word;
 import from macros.mlb;
 begin ".text_nmplv"
 
-//! \fn void  VEC_CmpEq0 (nm32u31b *pSrcVec, nm1 *pDstVec, int nSize, int nTrueFlag);
+//! \fn void  nmppsCmpEq0_32u(nm32u31b *pSrcVec, nm1 *pDstVec, int nSize, int nTrueFlag);
 //!
-//! \perfinclude _VEC_CmpEq0__FPUi3nm1Pii.html
+//! \perfinclude _nmppsCmpEq0__FPUi3nm1Pii_.html
 
-global _VEC_CmpEq0__FPUi3nm1Pii:	label;
-global _void._.8.8VEC_CmpEq0.1unsigned._int._.0.9._class._nm1._.0.9._int.9._int.2 :label;
-<_VEC_CmpEq0__FPUi3nm1Pii>
-<_void._.8.8VEC_CmpEq0.1unsigned._int._.0.9._class._nm1._.0.9._int.9._int.2>
+global _nmppsCmpEq0__FPUi3nm1Pii_:	label;
+global _void._.8.8nmppsCmpEq0_.1unsigned._int._.0.9._class._nm1._.0.9._int.9._int.2 :label;
+<_nmppsCmpEq0__FPUi3nm1Pii_>
+<_void._.8.8nmppsCmpEq0_.1unsigned._int._.0.9._class._nm1._.0.9._int.9._int.2>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0 with gr0 = false;

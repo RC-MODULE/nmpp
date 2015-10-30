@@ -1,4 +1,4 @@
-int VEC_MinPosV1024(int* pSrcVec,int nStride,int& nPos)
+int nmppsMinPosV1024_(int* pSrcVec,int nStride,int& nPos)
 {
 	int Min=pSrcVec[0];
 	nPos=0;

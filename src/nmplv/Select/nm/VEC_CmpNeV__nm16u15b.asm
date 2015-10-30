@@ -1,16 +1,16 @@
     //--------------------------------------------------------------------
-extern VEC_BuildDiagWeights16: label;
-extern VEC_DataXorRamV_ActivateAfifoVr: label;
-extern _VEC_TmpBuffer64_L: word;
+extern nmppsBuildDiagWeights16_: label;
+extern nmppsDataXorRamV_ActivateAfifoVr_: label;
+extern _nmppsTmpBuffer64_L_: word;
 
 begin ".text_nmplv"
-	//! \fn void VEC_CmpNeV(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int nSize, int16b shTrueFlag);
+	//! \fn void nmppsCmpNeV_16u(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int nSize, int16b shTrueFlag);
 	//!
-	//! \perfinclude _VEC_CmpNeV__FPUsPUsPSsii.html
-global _VEC_CmpNeV__FPUsPUsPSsii: label;
-global _void._.8.8VEC_CmpNeV.1unsigned._short._.0.9._unsigned._short._.0.9._short._.0.9._int.9._int.2 :label;
-<_VEC_CmpNeV__FPUsPUsPSsii>
-<_void._.8.8VEC_CmpNeV.1unsigned._short._.0.9._unsigned._short._.0.9._short._.0.9._int.9._int.2>
+	//! \perfinclude _nmppsCmpNeV__FPUsPUsPSsii_.html
+global _nmppsCmpNeV__FPUsPUsPSsii_: label;
+global _void._.8.8nmppsCmpNeV_.1unsigned._short._.0.9._unsigned._short._.0.9._short._.0.9._int.9._int.2 :label;
+<_nmppsCmpNeV__FPUsPUsPSsii_>
+<_void._.8.8nmppsCmpNeV_.1unsigned._short._.0.9._unsigned._short._.0.9._short._.0.9._int.9._int.2>
 .branch;    
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;
@@ -27,17 +27,17 @@ global _void._.8.8VEC_CmpNeV.1unsigned._short._.0.9._unsigned._short._.0.9._shor
 
         //--------------------------------
         // Заполнение матрицы и векторов.
-    ar1 = _VEC_TmpBuffer64_L;
-    call VEC_BuildDiagWeights16;
+    ar1 = _nmppsTmpBuffer64_L_;
+    call nmppsBuildDiagWeights16_;
         //--------------------------------
     
-    ar1 = _VEC_TmpBuffer64_L;
+    ar1 = _nmppsTmpBuffer64_L_;
     nb1 = 0FFFFFFFFh;
 	sb = 020002h;
 	rep 4 wfifo = [ar1++], ftw, wtw;
     ar1 = gr7;
 
-    delayed call VEC_DataXorRamV_ActivateAfifoVr;
+    delayed call nmppsDataXorRamV_ActivateAfifoVr_;
         f1cr = 0FFFEFFFEh with gr1 = gr0;
     
     pop ar6, gr6;

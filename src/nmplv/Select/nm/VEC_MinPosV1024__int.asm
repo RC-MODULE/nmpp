@@ -1,14 +1,14 @@
 begin ".text_nmplv"
 
 //--------------------------------------------------------------------
-//! \fn int VEC_MinPosV1024(int* pSrcVec,int nStride,int& nPos);
+//! \fn int nmppsMinPosV1024_(int* pSrcVec,int nStride,int& nPos);
 //!
-//! \perfinclude _VEC_MinPosV1024__FPiiRi.html
+//! \perfinclude _nmppsMinPosV1024__FPiiRi_.html
 //--------------------------------------------------------------------
 
 
-global _int._.8.8VEC_MinPosV1024.1int._.0.9._int.9._int._.6.2 :label;
-<_int._.8.8VEC_MinPosV1024.1int._.0.9._int.9._int._.6.2>
+global _int._.8.8nmppsMinPosV1024_.1int._.0.9._int.9._int._.6.2 :label;
+<_int._.8.8nmppsMinPosV1024_.1int._.0.9._int.9._int._.6.2>
 .branch;
 
 	ar5=ar7-2;

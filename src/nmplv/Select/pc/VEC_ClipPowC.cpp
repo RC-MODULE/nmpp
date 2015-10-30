@@ -35,7 +35,7 @@
 // ...
 // 16           -0..0xFFFF
 // 31         
-void VEC_ClipPowC(nm64s*pSrcVec, int ClipEdgeIndx, nm64s*pDstVec, int nSize)
+void nmppsClipPowC_64s(nm64s*pSrcVec, int ClipEdgeIndx, nm64s*pDstVec, int nSize)
 {
 	ASSERTE(0<ClipEdgeIndx&&ClipEdgeIndx<64);
 	__int64  MaxValue,MinValue,Tmp;
@@ -71,7 +71,7 @@ void VEC_ClipPowC(nm64s*pSrcVec, int ClipEdgeIndx, nm64s*pDstVec, int nSize)
 // ...
 // 16           -0..0xFFFF
 // 31         
-void VEC_ClipPowC(nm32s*pSrcVec, int ClipEdgeIndx, nm32s*pDstVec, int nSize)
+void nmppsClipPowC_32s(nm32s*pSrcVec, int ClipEdgeIndx, nm32s*pDstVec, int nSize)
 {
 	ASSERTE(0<ClipEdgeIndx&&ClipEdgeIndx<32);
 	int  MaxValue,MinValue,Tmp;
@@ -106,7 +106,7 @@ void VEC_ClipPowC(nm32s*pSrcVec, int ClipEdgeIndx, nm32s*pDstVec, int nSize)
 // 11			0..2047	
 // ...
 // 16           0..0xFFFF
-void VEC_ClipPowC(nm32s*pSrcVec, int ClipEdgeIndx, nm32u* pDstVec,  int nSize)
+void nmppsClipPowC_32s(nm32s*pSrcVec, int ClipEdgeIndx, nm32u* pDstVec,  int nSize)
 {
 	ASSERTE(0<ClipEdgeIndx&&ClipEdgeIndx<32);
 	unsigned int  Mask;
@@ -143,7 +143,7 @@ void VEC_ClipPowC(nm32s*pSrcVec, int ClipEdgeIndx, nm32u* pDstVec,  int nSize)
 // ...
 // 15           -32767..32767
    
-void VEC_ClipPowC(nm16s*pSrcVec, int ClipEdgeIndx, nm16s*pDstVec, int nSize)
+void nmppsClipPowC_16s(nm16s*pSrcVec, int ClipEdgeIndx, nm16s*pDstVec, int nSize)
 {
 	ASSERTE(0<ClipEdgeIndx&&ClipEdgeIndx<16);
 	short  MaxValue,MinValue,Tmp;
@@ -177,7 +177,7 @@ void VEC_ClipPowC(nm16s*pSrcVec, int ClipEdgeIndx, nm16s*pDstVec, int nSize)
 // 11			0..2047	
 // ...
 // 15			0..32767
-void VEC_ClipPowC(nm16s*pSrcVec, int ClipEdgeIndx, nm16u*pDstVec,  int nSize)
+void nmppsClipPowC_16s(nm16s*pSrcVec, int ClipEdgeIndx, nm16u*pDstVec,  int nSize)
 {
 	ASSERTE(0<ClipEdgeIndx&&ClipEdgeIndx<16);
 	unsigned short  Mask;
@@ -207,8 +207,7 @@ void VEC_ClipPowC(nm16s*pSrcVec, int ClipEdgeIndx, nm16u*pDstVec,  int nSize)
 // 5			-32..31
 // 6			-64..63
 // 7			-128..127
-void VEC_ClipPowC(							
-			nm8s*		pSrcVec,		// Input Buffer								:long Local [Size/8]
+void nmppsClipPowC_8s(nm8s*		pSrcVec,		// Input Buffer								:long Local [Size/8]
 			int			ClipEdgeIndx, // Index of the clippig edges				:ClipEdgeIndx=[1,2,...7]
 			nm8s*		pDstVec,		// Output Buffer							:long Global[Size/8]
 			int			nSize		// size of input buffer in 32 bit elements.	:nSize=[8,16,24,...]
@@ -241,7 +240,7 @@ void VEC_ClipPowC(
 // 5			0..31
 // 6			0..63
 // 7			0..127
-void VEC_ClipPowC(nm8s*pSrcVec, int ClipEdgeIndx, nm8u*pDstVec,  int nSize)
+void nmppsClipPowC_8s(nm8s*pSrcVec, int ClipEdgeIndx, nm8u*pDstVec,  int nSize)
 {
 	ASSERTE(0<ClipEdgeIndx&&ClipEdgeIndx<8);
 	unsigned char  Mask;
@@ -265,8 +264,7 @@ void VEC_ClipPowC(nm8s*pSrcVec, int ClipEdgeIndx, nm8u*pDstVec,  int nSize)
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Extended clippig of 32 bit signed integer values to the range [NegThreshold...PosThrehold]
-void VEC_ClipCC(							
-			nm32s*	pSrcVec,			// Input vec			:long Global[Size/2]
+void nmppsClipCC_32s(nm32s*	pSrcVec,			// Input vec			:long Global[Size/2]
 			int		NegThreshold,	// Upper threshold		:=[0...2^16-1]
 			int		PosThreshold,	// Lower threshold		:=[-2^16....0]
 			nm32s*	pDstVec,			// Output vec		:long Local[Size/2]
@@ -289,11 +287,11 @@ void VEC_ClipCC(
 
 /////////////////////////////////////////////////////////////////////
 
-void VEC_ClipArshCnv_AddC(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize)
+void nmppsClipArshCnv_AddC_16s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize)
 {
 	nm16s* pTmp=new nm16s[nSize];
-    VEC_ClipPowC(pSrcVec, nClipFactor, pTmp, nSize);
-    VEC_ArshC(pTmp, nShift, pTmp, nSize);
+    nmppsClipPowC_16s(pSrcVec, nClipFactor, pTmp, nSize);
+    nmppsArshC_16s(pTmp, nShift, pTmp, nSize);
 
     for (int i=0; i <nSize; i++)
     {

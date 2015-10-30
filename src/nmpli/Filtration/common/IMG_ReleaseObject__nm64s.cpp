@@ -10,5 +10,5 @@
 
 void IMG_ReleaseObject(nm64s* kernel)
 {
-	VEC_Free(kernel);
+	nmppsFree(kernel);
 }

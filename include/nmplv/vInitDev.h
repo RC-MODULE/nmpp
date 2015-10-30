@@ -14,10 +14,10 @@
 	
 	/**
 	\internal
-	\addtogroup VEC_Copy
+	\addtogroup nmppsCopy_
 	*/
 	//! \{
-void VEC_Copy(const nm64sc *pSrcVec, nm64sc *pDstVec, int nSize);
+void nmppsCopy_(const nm64sc *pSrcVec, nm64sc *pDstVec, int nSize);
 	//! \}
 
 #endif

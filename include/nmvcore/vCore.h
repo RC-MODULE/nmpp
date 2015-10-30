@@ -134,8 +134,8 @@
 		\~
     \defgroup vec_activate_data
     \ingroup vCore
-        \ru Ядро функции VEC_CmpLt0(). 
-        \en VEC_CmpLt0() function core. 
+        \ru Ядро функции nmppsCmpLt0_(). 
+        \en nmppsCmpLt0_() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -186,8 +186,8 @@
         \en The function executes arithmetic activation. 
     
 		\~
-        \ru Ядро функции VEC_ClipPowC(). 
-        \en VEC_ClipPowC() function core. 
+        \ru Ядро функции nmppsClipPowC_(). 
+        \en nmppsClipPowC_() function core. 
 		\~
     \ru Действие функции эквивалентныо следующим псевдоинструкциям: 
     \en The function operation is equivalent to the following pseudoinstructions: 
@@ -457,8 +457,8 @@
     \defgroup vec_data
     \ingroup vCore
    
-        \ru Ядро функции VEC_Copy(). 
-        \en Core of VEC_Copy() function. 
+        \ru Ядро функции nmppsCopy_(). 
+        \en Core of nmppsCopy_() function. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -607,8 +607,8 @@
      \defgroup vec_data_and_ram
    \ingroup vCore
    
-        \ru Ядро функции VEC_AndC(). 
-        \en Core of VEC_AndC() function. 
+        \ru Ядро функции nmppsAndC_(). 
+        \en Core of nmppsAndC_() function. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -657,8 +657,8 @@
      \defgroup vec_data_or_ram
    \ingroup vCore
    
-        \ru Ядро функции VEC_OrC(). 
-        \en Core of VEC_OrC() function. 
+        \ru Ядро функции nmppsOrC_(). 
+        \en Core of nmppsOrC_() function. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -761,8 +761,8 @@
     \defgroup vec_data_xor_ram
     \ingroup vCore
    
-        \ru Ядро функции VEC_XorC(). 
-        \en Core of VEC_XorC() function. 
+        \ru Ядро функции nmppsXorC_(). 
+        \en Core of nmppsXorC_() function. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -857,8 +857,8 @@
     \defgroup vec_And
     \ingroup vCore
    
-        \ru Ядро функции VEC_AndV(). 
-        \en VEC_AndV() function core. 
+        \ru Ядро функции nmppsAndV_(). 
+        \en nmppsAndV_() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -912,8 +912,8 @@
       \defgroup vec_Mask
   \ingroup vCore
    
-        \ru Ядро функции VEC_MaskV(). 
-        \en VEC_MaskV() function core. 
+        \ru Ядро функции nmppsMaskV_(). 
+        \en nmppsMaskV_() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -974,8 +974,8 @@
     \defgroup vec_Or
     \ingroup vCore
    
-        \ru Ядро функции VEC_OrV(). 
-        \en VEC_OrV() function core. 
+        \ru Ядро функции nmppsOrV_(). 
+        \en nmppsOrV_() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1029,8 +1029,8 @@
      \defgroup vec_Xor
    \ingroup vCore
    
-        \ru Ядро функции VEC_XorV(). 
-        \en VEC_XorV() function core. 
+        \ru Ядро функции nmppsXorV_(). 
+        \en nmppsXorV_() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1204,8 +1204,8 @@
      \defgroup vec_ClipExt
    \ingroup vcomplex
    
-        \ru Ядро функции VEC_ClipCC(). 
-        \en VEC_ClipCC() function core. 
+        \ru Ядро функции nmppsClipCC_(). 
+        \en nmppsClipCC_() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1263,7 +1263,7 @@
         \ru При выходе из функции изменяется содержимое регистров: ar0,ar6. 
         \en On exiting the function the contents of registers changes: ar0,ar6. 
 		\~
-    \link VEC_ClipCC
+    \link nmppsClipCC_
     */
 //! \{ 
  void vec_ClipExt(nmreg nb1, nmreg f1cr, nmreg ar0, nmreg gr0, nmreg ar1, nmreg ar2, nmreg ar3, nmreg gr5, nmreg ar6, nmreg gr6); 
@@ -1279,8 +1279,8 @@
         \en Weighted multiplication of two arrays with accumulation and activation 
     
 		\~
-        \ru Ядро функции VEC_ClipPowC_Arsh_Cnv_AddС(). 
-        \en VEC_ClipPowC_Arsh_Cnv_AddС() function core. 
+        \ru Ядро функции nmppsClipPowC_Arsh_Cnv_AddС_(). 
+        \en nmppsClipPowC_Arsh_Cnv_AddС_() function core. 
 		\~
     \ru Действие функции эквивалентно следующим псевдоинструкциям: 
     \en The function operation is equivalent to the following pseudoinstructions:   
@@ -1361,7 +1361,7 @@
     
 		\~
         \ru Ядро функции SIG_Filter(). 
-        \en VEC_Filter() function core. 
+        \en nmppsFilter_() function core. 
 		\~
     \ru Действие функции эквивалентно следующим псевдоинструкциям: 
     \en The function operation is equivalent to the following pseudoinstructions:   
@@ -1460,7 +1460,7 @@
     
 		\~
         \ru Ядро функции SIG_Filter(). 
-        \en VEC_Filter() function core. 
+        \en nmppsFilter_() function core. 
 		\~
     \ru Действие функции эквивалентно следующим псевдоинструкциям: 
     \en The function operation is equivalent to the following pseudoinstructions:   
@@ -1559,7 +1559,7 @@
     
 		\~
         \ru Ядро функции SIG_Filter(). 
-        \en VEC_Filter() function core. 
+        \en nmppsFilter_() function core. 
 		\~
     \ru Действие функции эквивалентно следующим псевдоинструкциям: 
     \en The function operation is equivalent to the following pseudoinstructions:   
@@ -1705,8 +1705,8 @@
      \defgroup vec_Mul2D2W1_AddVr
    \ingroup vsum
    
-        \ru Ядро функции VEC_Cnv(nm64s* ,nm32s* ,int ). 
-        \en VEC_Cnv(nm64s* ,nm32s* ,int ) function core. 
+        \ru Ядро функции nmppsCnv_64s(nm64s* ,nm32s* ,int ). 
+        \en nmppsCnv_64s(nm64s* ,nm32s* ,int ) function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1779,8 +1779,8 @@
     \defgroup vec_Mul2D2W2_AddVr
     \ingroup vsum
    
-        \ru Ядро функции VEC_Cnv(nm32s* ,nm16s* ,int ). 
-        \en VEC_Cnv(nm32s* ,nm16s* ,int ) function core. 
+        \ru Ядро функции nmppsCnv_32s(nm32s* ,nm16s* ,int ). 
+        \en nmppsCnv_32s(nm32s* ,nm16s* ,int ) function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1853,8 +1853,8 @@
      \defgroup vec_Mul2D2W4_AddVr
    \ingroup vsum
    
-        \ru Ядро функции VEC_Cnv(nm16s* pSrcVec, nm8s* pDstVec, int nSize). 
-        \en VEC_Cnv(nm16s* pSrcVec, nm8s* pDstVec, int nSize) function core. 
+        \ru Ядро функции nmppsCnv_16s(nm16s* pSrcVec, nm8s* pDstVec, int nSize). 
+        \en nmppsCnv_16s(nm16s* pSrcVec, nm8s* pDstVec, int nSize) function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -2167,8 +2167,8 @@
      \defgroup vec_Mul4D4W2_AddVr
    \ingroup vsum
    
-        \ru Ядро функции VEC_Cnv(nm32s* pSrcVec, nm8s* pDstVec, int nSize). 
-        \en VEC_Cnv(nm32s* pSrcVec, nm8s* pDstVec, int nSize) function core. 
+        \ru Ядро функции nmppsCnv_32s(nm32s* pSrcVec, nm8s* pDstVec, int nSize). 
+        \en nmppsCnv_32s(nm32s* pSrcVec, nm8s* pDstVec, int nSize) function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -2749,8 +2749,8 @@
     \defgroup vec_not_data
     \ingroup vCore
    
-        \ru Ядро функции VEC_Not( ). 
-        \en VEC_Not( ) function core. 
+        \ru Ядро функции nmppsNot_( ). 
+        \en nmppsNot_( ) function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -2794,8 +2794,8 @@
      \defgroup vec_ram
    \ingroup vCore
    
-        \ru Ядро функции VEC_Fill(). 
-        \en VEC_Fill() function core. 
+        \ru Ядро функции nmppsSet_(). 
+        \en nmppsSet_() function core. 
     
 		\~
         \ru Функция служит для заполнения массива константой. 

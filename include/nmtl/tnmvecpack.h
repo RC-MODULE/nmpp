@@ -39,13 +39,13 @@ public:
 	nmintpack<T>&	operator=	(const nmintpack<T>& val)
 	{
 		int n=val;
-		VEC_SetVal((T*)m_container,m_disp,n);
+		nmppsSetInt_((T*)m_container,m_disp,n);
 		return (*this);
 	}
 
 	nmintpack<T>&	operator=	(const int& val)
 	{
-		VEC_SetVal((T*)m_container,m_disp,val);
+		nmppsSetInt_((T*)m_container,m_disp,val);
 		return (*this);
 	}
 
@@ -53,7 +53,7 @@ public:
 	{
 
 		int n;
-		n=VEC_GetVal((T*)m_container,m_disp);
+		n=nmppsGetVal_((T*)m_container,m_disp);
 		return n;//get();
 	}
 	
@@ -152,9 +152,9 @@ public:
 		//m_container=new T[m_size+2*m_border];
 		//m_data=m_container+m_border;
 		//tmalloc(m_container,m_size+2*m_border);
-		VEC_Malloc((T**)&m_container,m_size+2*m_border);
+		nmppsMalloc_((T**)&m_container,m_size+2*m_border);
 		nmintpack<T> first(m_container,m_border);
-		m_data=first.m_container;// ERROR here VEC_Addr((T*)m_container,m_border);
+		m_data=first.m_container;// ERROR here nmppsAddr_((T*)m_container,m_border);
 		reset();
 
 	}
@@ -166,9 +166,9 @@ public:
 		//m_container=new T[m_size+2*m_border];
 		//m_data=m_container+m_border;
 		//memcpy(m_data,vec.m_data,m_size*sizeof(T));
-		VEC_Malloc(&m_container,m_size+2*m_border);
-		m_data=VEC_Addr(m_container,m_border);
-		VEC_Copy(vec.m_data,m_data,m_size);
+		nmppsMalloc_(&m_container,m_size+2*m_border);
+		m_data=nmppsAddr_(m_container,m_border);
+		nmppsCopy_(vec.m_data,m_data,m_size);
 	};
 
 
@@ -176,7 +176,7 @@ public:
 	{
 		if (m_container)
 			//delete []m_container;
-			VEC_Free(m_container);
+			nmppsFree_(m_container);
 		m_container=0;
 	}
 
@@ -184,7 +184,7 @@ public:
 	{
 		_ASSERTE(vec.m_size==m_size);
 		//memcpy(m_data,vec.m_data,m_size*sizeof(T));
-		VEC_Copy(vec.m_data,m_data,m_size);
+		nmppsCopy_(vec.m_data,m_data,m_size);
 		return *this;
 	}	 
 

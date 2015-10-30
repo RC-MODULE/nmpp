@@ -94,7 +94,7 @@ void IMG_SetFilter13x5_16s32s(  nm32s * pWeights, nm64s ** pKernel)
 
 void IMG_SetFilter1x9_16s16s( nm8s * pWeights, nm8s * pKernel)
 {
-	//VEC_Cnv(pWeights,(nm16s*)*pKernel,9);
-	VEC_Copy(pWeights,pKernel,16);
+	//nmppsCnv_(pWeights,(nm16s*)*pKernel,9);
+	nmppsCopy_8s(pWeights,pKernel,16);
 }
 

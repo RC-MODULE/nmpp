@@ -23,8 +23,7 @@
 #include "nmplv.h"
 
 
-void VEC_Remap(
-	nm32u*	pSrcVec,		
+void nmppsRemap_32u(nm32u*	pSrcVec,		
 	nm32u*	pDstVec,
 	nm32s*			pRemapTable,
 	int				nDstVecSize

@@ -19,9 +19,9 @@
 //------------------------------------------------------------------------
 #include "nmplv.h"
 //!
-//! \perfinclude _VEC_MinPos__FPciRiRiPvPvi.html
+//! \perfinclude _nmppsMinPos__FPciRiRiPvPvi_.html
 //! 
-void VEC_MinPos (nm8s7b   *pSrcVec, int nSize, int& nIndex, int8b &nMinValue, void *pLTmpBuff,void *pGTmpBuff, int nSearchDir)
+void nmppsMinPos_8s(nm8s7b   *pSrcVec, int nSize, int& nIndex, int8b &nMinValue, void *pLTmpBuff,void *pGTmpBuff, int nSearchDir)
 {
 	int nPos;
 	void* pTmp1;
@@ -36,12 +36,12 @@ void VEC_MinPos (nm8s7b   *pSrcVec, int nSize, int& nIndex, int8b &nMinValue, vo
 	//	pTmp2=pGTmpBuff;
 	//}
 
-	VEC_MinVal(pSrcVec, nSize, nMinValue);
-	nmppsSubC(pSrcVec,nMinValue,(nm8s*)pTmp1,nSize);
-	VEC_CmpEq0((nm8u7b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create min bitmap
+	nmppsMinVal_8s(pSrcVec, nSize, nMinValue);
+	nmppsSubC_8s(pSrcVec,nMinValue,(nm8s*)pTmp1,nSize);
+	nmppsCmpEq0_8u((nm8u7b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create min bitmap
 
 	if(nSearchDir > 0){
-		nPos  =VEC_FirstNonZeroPos((int*)pTmp2,nSize>>5);
+		nPos  =nmppsFirstNonZeroPos_((int*)pTmp2,nSize>>5);
 		int n=((int*)pTmp2)[nPos];	
 		for(nIndex=0; nIndex<32; nIndex++){
 			if (n&1)
@@ -49,7 +49,7 @@ void VEC_MinPos (nm8s7b   *pSrcVec, int nSize, int& nIndex, int8b &nMinValue, vo
 			n>>=1;
 		}
 	} else {
-		nPos  =VEC_LastNonZeroPos((int*)pTmp2,nSize>>5); 
+		nPos  =nmppsLastNonZeroPos_((int*)pTmp2,nSize>>5); 
 		int n=((int*)pTmp2)[nPos];	
 		for(nIndex=31; nIndex>=0; nIndex--){
 			if (n&0x80000000)

@@ -16,7 +16,7 @@
 #define __VSUPPORT_H
 #include <stdlib.h>
     /**
-    \defgroup VEC_Malloc VEC_Malloc
+    \defgroup nmppsMalloc nmppsMalloc
     \ingroup vSupport
     \brief
         \ru Распределение памяти для векторов библиотеки. 
@@ -33,32 +33,32 @@
                     are MEM_LOCAL, MEM_GLOBAL. 
 		\~
     \note 
-		\ru Память, распределенная с помощью функций VEC_Malloc должна
-              освобождаться с помощью функции VEC_Free(). 
-        \en Memory allocated with function VEC_Malloc should be 
-              freed with function VEC_Free()
+		\ru Память, распределенная с помощью функций nmppsMalloc_ должна
+              освобождаться с помощью функции nmppsFree_(). 
+        \en Memory allocated with function nmppsMalloc_ should be 
+              freed with function nmppsFree_()
 		\~
     */
     //! \{
-void VEC_Malloc(nm64s** pptr, int nSize, int hint = MEM_LOCAL);
-inline void VEC_Malloc(nm1**   pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, (nSize>>6) +1, hint);}
-inline void VEC_Malloc(nm2s**  pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, (nSize>>5) +1, hint);}
-inline void VEC_Malloc(nm2u**  pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, (nSize>>5) +1, hint);}
-inline void VEC_Malloc(nm4s**  pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, (nSize>>4) +1, hint);}
-inline void VEC_Malloc(nm4u**  pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, (nSize>>4) +1, hint);}
-inline void VEC_Malloc(nm8u**  pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, (nSize>>3) +1, hint);}
-inline void VEC_Malloc(nm8s**  pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, (nSize>>3) +1, hint);}
-inline void VEC_Malloc(nm16u** pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, (nSize>>2) +1, hint);}
-inline void VEC_Malloc(nm16s** pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, (nSize>>2) +1, hint);}
-inline void VEC_Malloc(nm32u** pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, (nSize>>1) +1, hint);}
-inline void VEC_Malloc(nm32s** pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, (nSize>>1) +1, hint);}
-inline void VEC_Malloc(nm64u** pptr, int nSize, int hint = MEM_LOCAL) { VEC_Malloc((nm64s**)pptr, nSize, hint);}
+void nmppsMalloc_64s(nm64s** pptr, int nSize, int hint );
+inline void nmppsMalloc_1 (nm1**   pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>6) +1, hint);}
+inline void nmppsMalloc_2s(nm2s**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>5) +1, hint);}
+inline void nmppsMalloc_2u(nm2u**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>5) +1, hint);}
+inline void nmppsMalloc_4s(nm4s**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>4) +1, hint);}
+inline void nmppsMalloc_4u(nm4u**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>4) +1, hint);}
+inline void nmppsMalloc_8u(nm8u**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>3) +1, hint);}
+inline void nmppsMalloc_8s(nm8s**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>3) +1, hint);}
+inline void nmppsMalloc_16u(nm16u** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>2) +1, hint);}
+inline void nmppsMalloc_16s(nm16s** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>2) +1, hint);}
+inline void nmppsMalloc_32u(nm32u** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>1) +1, hint);}
+inline void nmppsMalloc_32s(nm32s** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>1) +1, hint);}
+inline void nmppsMalloc_64u(nm64u** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, nSize, hint);}
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Free VEC_Free
+    \defgroup nmppsFree_ nmppsFree_
     \ingroup vSupport
     \brief
         \ru Освобождение памяти для векторов. 
@@ -67,21 +67,21 @@ inline void VEC_Malloc(nm64u** pptr, int nSize, int hint = MEM_LOCAL) { VEC_Mall
     \note 
 		  \ru Данная функция должна вызываться только для
               векторов, распределенных с помощью функций 
-              VEC_Malloc.
+              nmppsMalloc_.
           \en This function should be called only for matrixis
-              allocated by VEC_Malloc functions. 
+              allocated by nmppsMalloc_ functions. 
 		\~
     */
     //! \{
 
 
-inline void VEC_Free(void* ptr) {free((void*)ptr);}
+ inline void nmppsFree(void* ptr) {free((void*)ptr);}
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Addr VEC_Addr
+    \defgroup nmppsAddr_ nmppsAddr_
     \ingroup vSupport
     \brief
         \ru Возвращает адрес ячейки памяти, содержащей указанный элемент. 
@@ -111,7 +111,7 @@ inline void VEC_Free(void* ptr) {free((void*)ptr);}
     \note 
         \ru Для ускорения работы на PC возможно использование макроса
             ADDR(ptr, index), который раскрывается на PC как 
-            (ptr+index), а на NM как вызов функции VEC_Addr. 
+            (ptr+index), а на NM как вызов функции nmppsAddr_. 
         \en To increase perfomance on PC it's possible to use macros
             ADDR(ptr, index) that equivalent to (ptr+index) expression. 
 
@@ -126,38 +126,53 @@ inline void VEC_Free(void* ptr) {free((void*)ptr);}
     \endxmlonly
     */
     //! \{
-inline nm1* VEC_Addr(nm1*  pVec, int nIndex){	return (nm1*)((int*)pVec+(nIndex>>5));}
-inline nm2s* VEC_Addr(nm2s*  pVec, int nIndex){	return (nm2s*)((int*)pVec+(nIndex>>4));}
-inline nm4s* VEC_Addr(nm4s*  pVec, int nIndex){	return (nm4s*)((int*)pVec+(nIndex>>3));}
+/*		
+inline nm1* nmppsAddr_1*(nm1*  pVec, int nIndex){	return (nm1*)((int*)pVec+(nIndex>>5));}
+inline nm2s* nmppsAddr_2s(nm2s*  pVec, int nIndex){	return (nm2s*)((int*)pVec+(nIndex>>4));}
+inline nm4s* nmppsAddr_4s(nm4s*  pVec, int nIndex){	return (nm4s*)((int*)pVec+(nIndex>>3));}
 
-nm8s*  VEC_Addr(const nm8s*  pVec, int nIndex);
-nm16s* VEC_Addr(nm16s* pVec, int nIndex);
-nm32s* VEC_Addr(nm32s* pVec, int nIndex);
+nm8s*  nmppsAddr_(const nm8s*  pVec, int nIndex);
+nm16s* nmppsAddr_16s(nm16s* pVec, int nIndex);
+nm32s* nmppsAddr_32s(nm32s* pVec, int nIndex);
 
-inline nm64s* VEC_Addr(nm64s* pVec, int nIndex) {return pVec+nIndex;}
+inline nm64s* nmppsAddr_64s(nm64s* pVec, int nIndex) {return pVec+nIndex;}
 #ifdef __NM__
-inline nm8u*  VEC_Addr(const nm8u*  pVec, int nIndex) {return (nm8u*)VEC_Addr((nm8s*)  pVec, nIndex);}
-inline nm16u* VEC_Addr(nm16u* pVec, int nIndex) {return (nm16u*)VEC_Addr((nm16s*)  pVec, nIndex);}
+inline nm8u*  nmppsAddr_(const nm8u*  pVec, int nIndex) {return (nm8u*)nmppsAddr_8s((nm8s*)  pVec, nIndex);}
+inline nm16u* nmppsAddr_16u(nm16u* pVec, int nIndex) {return (nm16u*)nmppsAddr_16s((nm16s*)  pVec, nIndex);}
 #else 
-inline nm8u*  VEC_Addr(const nm8u*  pVec, int nIndex) {return (nm8u*)pVec+nIndex;}
-inline nm16u* VEC_Addr(nm16u* pVec, int nIndex) {return pVec+nIndex;}
+inline nm8u*  nmppsAddr_(const nm8u*  pVec, int nIndex) {return (nm8u*)pVec+nIndex;}
+inline nm16u* nmppsAddr_16u(nm16u* pVec, int nIndex) {return pVec+nIndex;}
 #endif
-inline nm32u* VEC_Addr(nm32u* pVec, int nIndex) {return pVec+nIndex;}
-inline nm64u* VEC_Addr(nm64u* pVec, int nIndex) {return pVec+nIndex;}
+inline nm32u* nmppsAddr_32u(nm32u* pVec, int nIndex) {return pVec+nIndex;}
+inline nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return pVec+nIndex;}
+*/
+/*
+inline nm64u* nmppsAddr_1 (nm1*   pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>6);}
+inline nm64u* nmppsAddr_2s(nm2s*  pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>5);}
+inline nm64u* nmppsAddr_4s(nm4s*  pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>4);}
+inline nm64u* nmppsAddr_8s(nm8s*  pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>3);}
+inline nm64u* nmppsAddr_16s(nm16s* pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>2);}
+inline nm64u* nmppsAddr_32s(nm32s* pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>1);}
+inline nm64u* nmppsAddr_64s(nm64s* pVec, int nIndex) {return (nm64u*)pVec+nIndex;}
 
+inline nm64u* nmppsAddr_8u(nm8u*  pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>3);}
+inline nm64u* nmppsAddr_16u(nm16u* pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>2);}
+inline nm64u* nmppsAddr_32u(nm32u* pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>1);}
+inline nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nIndex;}
+*/
 
-inline nm64u* VEC_Addr64(nm1*   pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>6);}
-inline nm64u* VEC_Addr64(nm2s*  pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>5);}
-inline nm64u* VEC_Addr64(nm4s*  pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>4);}
-inline nm64u* VEC_Addr64(nm8s*  pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>3);}
-inline nm64u* VEC_Addr64(nm16s* pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>2);}
-inline nm64u* VEC_Addr64(nm32s* pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>1);}
-inline nm64u* VEC_Addr64(nm64s* pVec, int nIndex) {return (nm64u*)pVec+nIndex;}
-
-inline nm64u* VEC_Addr64(nm8u*  pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>3);}
-inline nm64u* VEC_Addr64(nm16u* pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>2);}
-inline nm64u* VEC_Addr64(nm32u* pVec, int nIndex) {return (nm64u*)pVec+(nIndex>>1);}
-inline nm64u* VEC_Addr64(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nIndex;}
+ inline nm1  * nmppsAddr_1  (nm1*   pVec, int nIndex) {return (nm1*  )((nm64u*)pVec+(nIndex>>6));}
+ inline nm2s * nmppsAddr_2s (nm2s*  pVec, int nIndex) {return (nm2s* )((nm64u*)pVec+(nIndex>>5));}
+ inline nm4s * nmppsAddr_4s (nm4s*  pVec, int nIndex) {return (nm4s* )((nm64u*)pVec+(nIndex>>4));}
+ inline nm8s * nmppsAddr_8s (nm8s*  pVec, int nIndex) {return (nm8s* )((nm64u*)pVec+(nIndex>>3));}
+ inline nm16s* nmppsAddr_16s(nm16s* pVec, int nIndex) {return (nm16s*)((nm64u*)pVec+(nIndex>>2));}
+ inline nm32s* nmppsAddr_32s(nm32s* pVec, int nIndex) {return (nm32s*)((nm64u*)pVec+(nIndex>>1));}
+ inline nm64s* nmppsAddr_64s(nm64s* pVec, int nIndex) {return (nm64s*)((nm64u*)pVec+nIndex)     ;}
+                                                       
+ inline nm8u * nmppsAddr_8u (nm8u*  pVec, int nIndex) {return (nm8u* )((nm64u*)pVec+(nIndex>>3));}
+ inline nm16u* nmppsAddr_16u(nm16u* pVec, int nIndex) {return (nm16u*)((nm64u*)pVec+(nIndex>>2));}
+ inline nm32u* nmppsAddr_32u(nm32u* pVec, int nIndex) {return (nm32u*)((nm64u*)pVec+(nIndex>>1));}
+ inline nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)((nm64u*)pVec+nIndex     );}
 
 
     //! \}
@@ -165,7 +180,7 @@ inline nm64u* VEC_Addr64(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nIndex;}
 //*****************************************************************************
 
     /**
-    \defgroup VEC_SetVal VEC_SetVal
+    \defgroup nmppsSetVal_ nmppsSetVal_
     \ingroup vSupport
     \brief
         \ru Модификация элемента вектора. 
@@ -202,20 +217,20 @@ inline nm64u* VEC_Addr64(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nIndex;}
     */
     //! \{
 
-void		VEC_SetVal(nm1*  pVec,  int nIndex,  int1b  nVal);
-void		VEC_SetVal(nm2s* pVec,  int nIndex,  int2b  nVal);
-void		VEC_SetVal(nm4s* pVec,  int nIndex,  int4b  nVal);
-void		VEC_SetVal(nm8s* pVec,  int nIndex,  int8b  nVal);
-void		VEC_SetVal(nm16s* pVec, int nIndex,  int16b nVal);
-inline void VEC_SetVal(nm32s* pVec, int nIndex,  int32b nVal)	{pVec[nIndex]=nVal;}
-inline void VEC_SetVal(nm64s* pVec, int nIndex,  int64b nVal)	{pVec[nIndex]=nVal;}
+void		nmppsSetInt_1 (nm1*  pVec,  int nIndex,  int1b  nVal);
+void		nmppsSetInt_2s(nm2s* pVec,  int nIndex,  int2b  nVal);
+void		nmppsSetInt_4s(nm4s* pVec,  int nIndex,  int4b  nVal);
+void		nmppsSetInt_8s(nm8s* pVec,  int nIndex,  int8b  nVal);
+void		nmppsSetInt_16s(nm16s* pVec, int nIndex,  int16b nVal);
+inline void nmppsSetInt_32s(nm32s* pVec, int nIndex,  int32b nVal)	{pVec[nIndex]=nVal;}
+inline void nmppsSetInt_64s(nm64s* pVec, int nIndex,  int64b nVal)	{pVec[nIndex]=nVal;}
 
-inline void	VEC_SetVal(nm2u* pVec,  int nIndex, uint2b  nVal)   {VEC_SetVal((nm2s*)pVec,nIndex,(int2b)nVal);}
-inline void	VEC_SetVal(nm4u* pVec,  int nIndex, uint4b  nVal)   {VEC_SetVal((nm4s*)pVec,nIndex,(int4b)nVal);}
-inline void	VEC_SetVal(nm8u* pVec,  int nIndex, uint8b nVal)	{VEC_SetVal((nm8s*)pVec,nIndex,(int8b)nVal);}
-inline void	VEC_SetVal(nm16u* pVec, int nIndex, uint16b nVal)   {VEC_SetVal((nm16s*)pVec,nIndex,(int16b)nVal);}
-inline void VEC_SetVal(nm32u* pVec, int nIndex, uint32b nVal)	{pVec[nIndex]=nVal;}
-inline void VEC_SetVal(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex]=nVal;}
+inline void	nmppsSetInt_2u(nm2u* pVec,  int nIndex, uint2b  nVal)   	{nmppsSetInt_2s((nm2s*)pVec,nIndex,(int2b)nVal);}
+inline void	nmppsSetInt_4u(nm4u* pVec,  int nIndex, uint4b  nVal)   	{nmppsSetInt_4s((nm4s*)pVec,nIndex,(int4b)nVal);}
+inline void	nmppsSetInt_8u(nm8u* pVec,  int nIndex, uint8b nVal)		{nmppsSetInt_8s((nm8s*)pVec,nIndex,(int8b)nVal);}
+inline void	nmppsSetInt_16u(nm16u* pVec, int nIndex, uint16b nVal)   	{nmppsSetInt_16s((nm16s*)pVec,nIndex,(int16b)nVal);}
+inline void nmppsSetInt_32u(nm32u* pVec, int nIndex, uint32b nVal)	{pVec[nIndex]=nVal;}
+inline void nmppsSetInt_64u(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex]=nVal;}
 
     
     //! \}
@@ -223,7 +238,7 @@ inline void VEC_SetVal(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex]=nVal
 //*****************************************************************************
 
     /**
-    \defgroup VEC_GetVal VEC_GetVal
+    \defgroup nmppsGetVal_ nmppsGetVal_
     \ingroup vSupport
     \brief
         \ru Извлекает значение элемента вектора. 
@@ -254,44 +269,29 @@ inline void VEC_SetVal(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex]=nVal
     
     */
     //! \{
-void			VEC_GetVal(nm1*   pVec, int nIndex, int1b &nVal);
-void			VEC_GetVal(nm2s*  pVec, int nIndex, int2b &nVal);
-void			VEC_GetVal(nm4s*  pVec, int nIndex, int4b &nVal);
-void			VEC_GetVal(nm8s*  pVec, int nIndex, int8b &nVal);
-void			VEC_GetVal(nm16s* pVec, int nIndex, int16b &nVal);
-inline  void	VEC_GetVal(nm32s* pVec, int nIndex, int32b& nVal) { nVal=pVec[nIndex];}
-inline  void	VEC_GetVal(nm64s* pVec, int nIndex, int64b& nVal) { nVal=pVec[nIndex];}
-
-void			VEC_GetVal(nm1*   pVec, int nIndex, uint1b &nVal);
-void			VEC_GetVal(nm2u*  pVec, int nIndex, uint2b &nVal);
-void			VEC_GetVal(nm4u*  pVec, int nIndex, uint4b &nVal);
-void			VEC_GetVal(nm8u*  pVec, int nIndex, uint8b &nVal);
-void			VEC_GetVal(nm16u* pVec, int nIndex, uint16b &nVal);
-inline  void	VEC_GetVal(nm32u* pVec, int nIndex, uint32b&  nVal) { nVal=pVec[nIndex];}
-inline  void	VEC_GetVal(nm64u* pVec, int nIndex, uint64b&  nVal) { nVal=pVec[nIndex];}
-
-void			nmppsGetVal_1  (nm1*   pVec, int nIndex, int1b &nVal);
-void			nmppsGetVal_2s (nm2s*  pVec, int nIndex, int2b &nVal);
-void			nmppsGetVal_4s (nm4s*  pVec, int nIndex, int4b &nVal);
-void			nmppsGetVal_8s (nm8s*  pVec, int nIndex, int8b &nVal);
-void			nmppsGetVal_16s(nm16s* pVec, int nIndex, int16b &nVal);
-inline  void	nmppsGetVal_32s(nm32s* pVec, int nIndex, int32b& nVal) { nVal=pVec[nIndex];}
-inline  void	nmppsGetVal_64s(nm64s* pVec, int nIndex, int64b& nVal) { nVal=pVec[nIndex];}
+		
+void			nmppsGetVal_1  (nm1*   pVec, int nIndex, int1b *nVal);
+void			nmppsGetVal_2s (nm2s*  pVec, int nIndex, int2b *nVal);
+void			nmppsGetVal_4s (nm4s*  pVec, int nIndex, int4b *nVal);
+void			nmppsGetVal_8s (nm8s*  pVec, int nIndex, int8b *nVal);
+void			nmppsGetVal_16s(nm16s* pVec, int nIndex, int16b *nVal);
+inline void		nmppsGetVal_32s(nm32s* pVec, int nIndex, int32b* nVal) { *nVal=pVec[nIndex];}
+inline void		nmppsGetVal_64s(nm64s* pVec, int nIndex, int64b* nVal) { *nVal=pVec[nIndex];}
                 
-void			nmppsGetVal_1  (nm1*   pVec, int nIndex, uint1b &nVal);
-void			nmppsGetVal_2s (nm2u*  pVec, int nIndex, uint2b &nVal);
-void			nmppsGetVal_4s (nm4u*  pVec, int nIndex, uint4b &nVal);
-void			nmppsGetVal_8s (nm8u*  pVec, int nIndex, uint8b &nVal);
-void			nmppsGetVal_16s(nm16u* pVec, int nIndex, uint16b &nVal);
-inline  void	nmppsGetVal_32s(nm32u* pVec, int nIndex, uint32b&  nVal) { nVal=pVec[nIndex];}
-inline  void	nmppsGetVal_64s(nm64u* pVec, int nIndex, uint64b&  nVal) { nVal=pVec[nIndex];}
+
+void			nmppsGetVal_2u (nm2u*  pVec, int nIndex, uint2b *nVal);
+void			nmppsGetVal_4u (nm4u*  pVec, int nIndex, uint4b *nVal);
+void			nmppsGetVal_8u (nm8u*  pVec, int nIndex, uint8b *nVal);
+void			nmppsGetVal_16u(nm16u* pVec, int nIndex, uint16b *nVal);
+inline  void	nmppsGetVal_32u(nm32u* pVec, int nIndex, uint32b*  nVal) { *nVal=pVec[nIndex];}
+inline  void	nmppsGetVal_64u(nm64u* pVec, int nIndex, uint64b*  nVal) { *nVal=pVec[nIndex];}
 
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_GetVal_ret VEC_GetVal(return)
+    \defgroup nmppsGetVal_ret_ nmppsGetVal_(return)
     \ingroup vSupport
     \brief
         \ru Извлекает значение элемента вектора. 
@@ -320,31 +320,31 @@ inline  void	nmppsGetVal_64s(nm64u* pVec, int nIndex, uint64b&  nVal) { nVal=pVe
     
     */
     //! \{
-int2b			VEC_GetVal(nm2s*  pVec, int nIndex);
-int4b			VEC_GetVal(nm4s*  pVec, int nIndex);
-int8b			VEC_GetVal(nm8s*  pVec, int nIndex);
-int16b			VEC_GetVal(nm16s* pVec, int nIndex);
-inline  int32b	VEC_GetVal(nm32s* pVec, int nIndex) {return pVec[nIndex];}
+int2b			nmppsGet_2s(nm2s*  pVec, int nIndex);
+int4b			nmppsGet_4s(nm4s*  pVec, int nIndex);
+int8b			nmppsGet_8s(nm8s*  pVec, int nIndex);
+int16b			nmppsGet_16s(nm16s* pVec, int nIndex);
+inline int32b	nmppsGet_32s(nm32s* pVec, int nIndex) {return pVec[nIndex];}
 
-uint1b			VEC_GetVal(nm1*   pVec, int nIndex);
-uint2b			VEC_GetVal(nm2u*  pVec, int nIndex);
-uint4b			VEC_GetVal(nm4u*  pVec, int nIndex);
-uint8b			VEC_GetVal(nm8u*  pVec, int nIndex);
-uint16b			VEC_GetVal(nm16u* pVec, int nIndex);
-inline  uint32b	VEC_GetVal(nm32u* pVec, int nIndex) {return pVec[nIndex];}
+uint1b			nmppsGet_1(nm1*   pVec, int nIndex);
+uint2b			nmppsGet_2u(nm2u*  pVec, int nIndex);
+uint4b			nmppsGet_4u(nm4u*  pVec, int nIndex);
+uint8b			nmppsGet_8u(nm8u*  pVec, int nIndex);
+uint16b			nmppsGet_16u(nm16u* pVec, int nIndex);
+inline uint32b	nmppsGet_32u(nm32u* pVec, int nIndex) {return pVec[nIndex];}
     //! \}
 
+/*
+	inline unsigned nmppsSize32_8s(nm8s*  ,unsigned size) {return size/4;}
+	inline unsigned nmppsSize32_16s(nm16s* ,unsigned size) {return size/2;}
+	inline unsigned nmppsSize32_32s(nm32s* ,unsigned size) {return size;  }
+	inline unsigned nmppsSize32_64s(nm64s* ,unsigned size) {return size*2;}
 
-	inline unsigned VEC_Size32(nm8s*  ,unsigned size) {return size/4;}
-	inline unsigned VEC_Size32(nm16s* ,unsigned size) {return size/2;}
-	inline unsigned VEC_Size32(nm32s* ,unsigned size) {return size;  }
-	inline unsigned VEC_Size32(nm64s* ,unsigned size) {return size*2;}
-
-	inline unsigned VEC_Size32(nm8u*  ,unsigned size) {return size/4;}
-	inline unsigned VEC_Size32(nm16u* ,unsigned size) {return size/2;}
-	inline unsigned VEC_Size32(nm32u* ,unsigned size) {return size;  }
-	inline unsigned VEC_Size32(nm64u* ,unsigned size) {return size*2;}
-
+	inline unsigned nmppsSize32_8u(nm8u*  ,unsigned size) {return size/4;}
+	inline unsigned nmppsSize32_16u(nm16u* ,unsigned size) {return size/2;}
+	inline unsigned nmppsSize32_32u(nm32u* ,unsigned size) {return size;  }
+	inline unsigned nmppsSize32_64u(nm64u* ,unsigned size) {return size*2;}
+*/
 #endif
 
 

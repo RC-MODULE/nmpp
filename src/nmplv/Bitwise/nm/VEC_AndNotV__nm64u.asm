@@ -24,12 +24,12 @@ begin ".text_nmplv"
 
 ///////////////////////////////////////////////////////////
 
-//! \fn void VEC_AndNotV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+//! \fn void nmppsAndNotV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
 
 
 
-global _void._.8.8VEC_AndNotV.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
-<_void._.8.8VEC_AndNotV.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
+global _void._.8.8nmppsAndNotV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
+<_void._.8.8nmppsAndNotV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0,gr0	with gr7++;
 	push ar1,gr1	with gr7++;

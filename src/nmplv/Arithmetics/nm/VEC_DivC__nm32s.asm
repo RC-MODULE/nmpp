@@ -91,12 +91,12 @@ global _void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._voi
 
 
 
-	extern _void._.8.8VEC_ArshC.1int._.0.9._int.9._int._.0.9._int.2:label;
+	extern _void._.8.8nmppsArshC_.1int._.0.9._int.9._int._.0.9._int.2:label;
 	ar5 = ar7;
 	ar7 += 4;
 	[ ar5++ ] = gr5;			// int nSize
 	[ ar5++ ] = gr1;			// nm32s* pDstVec
-	delayed call _void._.8.8VEC_ArshC.1int._.0.9._int.9._int._.0.9._int.2;
+	delayed call _void._.8.8nmppsArshC_.1int._.0.9._int.9._int._.0.9._int.2;
 		[ ar5++ ] = gr7;		// int nShift
 		[ ar5++ ] = ar1;		// nm32s* pSrcVec
 	nul;
@@ -120,7 +120,7 @@ global _void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._voi
 
 
 /////////////////////////////////////////////////////////////////////////////////
-// void VEC_Div_By2Int(
+// void nmppsDiv_By2Int_(
 //			nm32s*	pSrcVec,			// Input array 					:long Global[NumbersOfPairs*SrcPairReadStep/2]
 //			nm32s*	pDstVec,			// Output qunatized array		:long Local [NumbersOfPairs*DstPairWriteStep/2]
 //			nm32s*	PairOfDivisors,		// pArray of two Divisors		:long Local [2/2]; PairOfDivisors[0,1]=[1,2,3...128]
@@ -188,10 +188,10 @@ global _void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._voi
 //		Note that the using same buffer pointers can reduce function performance.
 
 
-global _VEC_Div_By2Int__FPiPiPiiPvPvii :label;
-global _void._.8.8VEC_Div_By2Int.1int._.0.9._int._.0.9._int._.0.9._int.9._void._.0.9._void._.0.9._int.9._int.2 :label;
-<_VEC_Div_By2Int__FPiPiPiiPvPvii>
-<_void._.8.8VEC_Div_By2Int.1int._.0.9._int._.0.9._int._.0.9._int.9._void._.0.9._void._.0.9._int.9._int.2>
+global _nmppsDiv_By2Int__FPiPiPiiPvPvii_ :label;
+global _void._.8.8nmppsDiv_By2Int_.1int._.0.9._int._.0.9._int._.0.9._int.9._void._.0.9._void._.0.9._int.9._int.2 :label;
+<_nmppsDiv_By2Int__FPiPiPiiPvPvii_>
+<_void._.8.8nmppsDiv_By2Int_.1int._.0.9._int._.0.9._int._.0.9._int.9._void._.0.9._void._.0.9._int.9._int.2>
  
 
 .branch;

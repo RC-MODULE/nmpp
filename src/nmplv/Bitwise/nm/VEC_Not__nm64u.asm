@@ -22,14 +22,14 @@
 extern vec_not_data:label;
 begin ".text_nmplv"
 ///////////////////////////////////////////////////////////
-//! \fn void VEC_Not(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
+//! \fn void nmppsNot_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
 //!
-//! \perfinclude _VEC_Not__FPUlPUli.html
+//! \perfinclude _nmppsNot__FPUlPUli_.html
 
-global _VEC_Not__FPUlPUli:	label;
-global _void._.8.8VEC_Not.1unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
-<_VEC_Not__FPUlPUli>
-<_void._.8.8VEC_Not.1unsigned._long._.0.9._unsigned._long._.0.9._int.2>
+global _nmppsNot__FPUlPUli_:	label;
+global _void._.8.8nmppsNot_.1unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
+<_nmppsNot__FPUlPUli_>
+<_void._.8.8nmppsNot_.1unsigned._long._.0.9._unsigned._long._.0.9._int.2>
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0,gr0	with gr7++;
 	push ar5,gr5	with gr0=gr7+1;

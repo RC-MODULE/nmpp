@@ -19,9 +19,9 @@
 //------------------------------------------------------------------------
 #include "nmplv.h"
 
-//================= VEC_SetVal ===========================================    
+//================= nmppsSetVal_ ===========================================    
 
-void VEC_SetVal(nm1*  pVec,  int nIndex, int1b nVal)
+void nmppsSetInt_1(nm1*  pVec,  int nIndex, int1b nVal)
 {
 	nm32u nBase=(nm32u(nIndex))/32;
 	nm32u nDisp=(nm32u(nIndex))%32;
@@ -33,7 +33,7 @@ void VEC_SetVal(nm1*  pVec,  int nIndex, int1b nVal)
 	*pSrc=nSrc;
 }
 
-void VEC_SetVal(nm2s* pVec,  int nIndex, int2b nVal)
+void nmppsSetInt_2s(nm2s* pVec,  int nIndex, int2b nVal)
 {
 	nm32u nBase=(nm32u(nIndex))/16;
 	nm32u nDisp=(nm32u(nIndex))%16;
@@ -46,7 +46,7 @@ void VEC_SetVal(nm2s* pVec,  int nIndex, int2b nVal)
 	*pSrc=nSrc;
 }
 
-void VEC_SetVal(nm4s* pVec,  int nIndex, int4b nVal)
+void nmppsSetInt_4s(nm4s* pVec,  int nIndex, int4b nVal)
 {
 	nm32u nBase=(nm32u(nIndex))/8;
 	nm32u nDisp=(nm32u(nIndex))%8;
@@ -59,12 +59,12 @@ void VEC_SetVal(nm4s* pVec,  int nIndex, int4b nVal)
 	*pSrc=nSrc;
 }
 
-void VEC_SetVal(nm8s* pArray,  int Index, int8b Val)
+void nmppsSetInt_8s(nm8s* pArray,  int Index, int8b Val)
 {
 	pArray[Index]=Val;
 }
 
-void VEC_SetVal(nm16s* pArray, int Index, int16b Val)
+void nmppsSetInt_16s(nm16s* pArray, int Index, int16b Val)
 {
 	pArray[Index]=Val;
 }

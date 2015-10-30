@@ -38,12 +38,12 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////
 //
-//! \fn void  VEC_ClipCC (nm32s30b *pSrcVec, int30b nNegThresh, int30b nPosThresh, nm32s30b *pDstVec, int nSize) 
+//! \fn void  nmppsClipCC_32s(nm32s30b *pSrcVec, int30b nNegThresh, int30b nPosThresh, nm32s30b *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_ClipCC__FPiiiPii.html
+//! \perfinclude _nmppsClipCC__FPiiiPii_.html
 
-global _void._.8.8VEC_ClipCC.1int._.0.9._int.9._int.9._int._.0.9._int.2 :label;
-<_void._.8.8VEC_ClipCC.1int._.0.9._int.9._int.9._int._.0.9._int.2>
+global _void._.8.8nmppsClipCC_.1int._.0.9._int.9._int.9._int._.0.9._int.2 :label;
+<_void._.8.8nmppsClipCC_.1int._.0.9._int.9._int.9._int._.0.9._int.2>
 .branch;
 
 

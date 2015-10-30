@@ -29,22 +29,22 @@
 
 
 /*
-#define CHECK_OVERFLOW_ON()  _putenv("VEC_CheckOverflow=On")
-#define CHECK_OVERFLOW_OFF() _putenv("VEC_CheckOverflow=")
-#define ENABLE_CHECK_OVERFLOW() _putenv("VEC_CheckOverflow=On")
-#define DISABLE_CHECK_OVERFLOW() _putenv("VEC_CheckOverflow=")
+#define CHECK_OVERFLOW_ON()  _putenv("nmppsCheckOverflow_=On")
+#define CHECK_OVERFLOW_OFF() _putenv("nmppsCheckOverflow_=")
+#define ENABLE_CHECK_OVERFLOW() _putenv("nmppsCheckOverflow_=On")
+#define DISABLE_CHECK_OVERFLOW() _putenv("nmppsCheckOverflow_=")
 */
 /*
-extern int VEC_CheckOverflow;
-#define CHECK_OVERFLOW_ON()  VEC_CheckOverflow=1
-#define CHECK_OVERFLOW_OFF() VEC_CheckOverflow=0
-#define ENABLE_CHECK_OVERFLOW()  VEC_CheckOverflow=1
-#define DISABLE_CHECK_OVERFLOW() VEC_CheckOverflow=0
+extern int nmppsCheckOverflow_;
+#define CHECK_OVERFLOW_ON()  nmppsCheckOverflow_=1
+#define CHECK_OVERFLOW_OFF() nmppsCheckOverflow_=0
+#define ENABLE_CHECK_OVERFLOW()  nmppsCheckOverflow_=1
+#define DISABLE_CHECK_OVERFLOW() nmppsCheckOverflow_=0
 
-#define CHECK_OVERFLOW() (VEC_CheckOverflow==1)	//Getting check overflow status
+#define CHECK_OVERFLOW() (nmppsCheckOverflow_==1)	//Getting check overflow status
 */
 
-//extern int VEC_CheckOverflow;
+//extern int nmppsCheckOverflow_;
 #define CHECK_OVERFLOW_ON() 
 #define CHECK_OVERFLOW_OFF()
 #define ENABLE_CHECK_OVERFLOW() 

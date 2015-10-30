@@ -20,7 +20,7 @@
 
 //#include "vConvert.h"
 
-    // \addtogroup VEC_CmpZero
+    // \addtogroup nmppsCmpZero_
     // \brief Сравнивает элементы массива с нулевым значением. 
 	//
 	//\f[
@@ -136,15 +136,15 @@ begin ".text_nmplv"
 
 
 //--------------------------------------------------------------------
-//! \fn void VEC_CmpEq0(nm8u7b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
+//! \fn void nmppsCmpEq0_8u(nm8u7b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
 //!
-//! \perfinclude _VEC_CmpEq0__FUcP3nm1Pii.html
+//! \perfinclude _nmppsCmpEq0__FUcP3nm1Pii_.html
 //--------------------------------------------------------------------
 
-    global _VEC_CmpEq0__FPUc3nm1Pii:	label;
-global _void._.8.8VEC_CmpEq0.1unsigned._char._.0.9._class._nm1._.0.9._int.9._int.2 :label;
-<_VEC_CmpEq0__FPUc3nm1Pii>
-<_void._.8.8VEC_CmpEq0.1unsigned._char._.0.9._class._nm1._.0.9._int.9._int.2>
+    global _nmppsCmpEq0__FPUc3nm1Pii_:	label;
+global _void._.8.8nmppsCmpEq0_.1unsigned._char._.0.9._class._nm1._.0.9._int.9._int.2 :label;
+<_nmppsCmpEq0__FPUc3nm1Pii_>
+<_void._.8.8nmppsCmpEq0_.1unsigned._char._.0.9._class._nm1._.0.9._int.9._int.2>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0 with gr0 = false;

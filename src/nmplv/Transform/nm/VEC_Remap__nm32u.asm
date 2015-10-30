@@ -36,14 +36,14 @@ begin ".text_nmplv"
 
 
 /////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_Remap(nm32u* pSrcVec, nm32u* pDstVec, nm32s* pRemapTable, int nSize);
+//! \fn void nmppsRemap_32u(nm32u* pSrcVec, nm32u* pDstVec, nm32s* pRemapTable, int nSize);
 //!
-//! \perfinclude _VEC_Remap__FPUiPUiPii.html
+//! \perfinclude _nmppsRemap__FPUiPUiPii_.html
 
-global _VEC_Remap__FPUiPUiPii:label;
-global _void._.8.8VEC_Remap.1unsigned._int._.0.9._unsigned._int._.0.9._int._.0.9._int.2 :label;
-<_VEC_Remap__FPUiPUiPii>
-<_void._.8.8VEC_Remap.1unsigned._int._.0.9._unsigned._int._.0.9._int._.0.9._int.2>
+global _nmppsRemap__FPUiPUiPii_:label;
+global _void._.8.8nmppsRemap_.1unsigned._int._.0.9._unsigned._int._.0.9._int._.0.9._int.2 :label;
+<_nmppsRemap__FPUiPUiPii_>
+<_void._.8.8nmppsRemap_.1unsigned._int._.0.9._unsigned._int._.0.9._int._.0.9._int.2>
 .branch;
     ar5 = ar7 - 2;
     PUSH_REGS();

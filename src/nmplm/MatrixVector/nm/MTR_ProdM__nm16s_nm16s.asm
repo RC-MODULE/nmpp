@@ -28,8 +28,8 @@ begin ".text_nmplm"
 //--------------------------------------------------------------------
 	
 extern rep_n_Mul_M16V64:label;
-extern _VEC_TmpBuffer64_G: long[64];
-const LongColumns=_VEC_TmpBuffer64_G;
+extern _nmppsTmpBuffer64_G_: long[64];
+const LongColumns=_nmppsTmpBuffer64_G_;
 
 global _MTR_ProdM__FPSsiiPSsPSsi:label;
 global _void._.8.8MTR_ProdM.1short._.0.9._int.9._int.9._short._.0.9._short._.0.9._int.2 :label;

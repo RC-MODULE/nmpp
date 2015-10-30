@@ -24,8 +24,8 @@ begin ".text_nmvcore"
     //      gr1 - значение (16 бит).
     // Изменяет регистры: ar1.
     //--------------------------------------------------------------------
-global VEC_BuildDiagWeights16: label;
-<VEC_BuildDiagWeights16>
+global nmppsBuildDiagWeights16_: label;
+<nmppsBuildDiagWeights16_>
     push ar0, gr0 with gr0 = false;
     ar0 = gr0 with gr1 <<= 16;
     gr0 = gr1 >> 16;

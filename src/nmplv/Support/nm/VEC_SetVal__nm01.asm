@@ -44,17 +44,17 @@ end SETVAL;
 
 /////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_SetVal (nm1 *pVec, int nIndex, int1b Val) 
+//! \fn void nmppsSetInt_1 (nm1 *pVec, int nIndex, int1b Val) 
 //!
-//! \perfinclude _VEC_SetVal__F3nm1Pii.html
+//! \perfinclude _nmppsSetVal__F3nm1Pii_.html
 
 
 
 
-global _VEC_SetVal__F3nm1Pii:	label;
-global _void._.8.8VEC_SetVal.1class._nm1._.0.9._int.9._int.2 :label;
-<_VEC_SetVal__F3nm1Pii> 
-<_void._.8.8VEC_SetVal.1class._nm1._.0.9._int.9._int.2>
+global _nmppsSetVal__F3nm1Pii_:	label;
+global _void._.8.8nmppsSetVal_.1class._nm1._.0.9._int.9._int.2 :label;
+<_nmppsSetVal__F3nm1Pii_> 
+<_void._.8.8nmppsSetVal_.1class._nm1._.0.9._int.9._int.2>
 .branch;
 	ar5 = ar7 - 5;
 	push ar1,gr1;

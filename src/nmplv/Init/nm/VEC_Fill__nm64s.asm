@@ -26,15 +26,15 @@ extern vec_ram:label;
 begin ".text_nmplv"
 
     //--------------------------------------------------------------------
-    //! \fn void VEC_Fill (nm64s *pVec, int64b *nVal, int nSize) 
+    //! \fn void nmppsFill_64s(nm64s *pVec, int64b *nVal, int nSize) 
 	//!
-	//! \perfinclude _VEC_Fill__FPlPli.html
+	//! \perfinclude _nmppsFill__FPlPli_.html
     //--------------------------------------------------------------------
 
-global _VEC_Fill__FPlPli:label;
-global _void._.8.8VEC_Fill.1long._.0.9._long._.0.9._int.2 :label;
-<_VEC_Fill__FPlPli>
-<_void._.8.8VEC_Fill.1long._.0.9._long._.0.9._int.2>
+global _nmppsFill__FPlPli_:label;
+global _void._.8.8nmppsFill_.1long._.0.9._long._.0.9._int.2 :label;
+<_nmppsFill__FPlPli_>
+<_void._.8.8nmppsFill_.1long._.0.9._long._.0.9._int.2>
 .branch;
     ar5 = sp - 2	with gr7=false;
     push ar0,gr0	with gr7++;

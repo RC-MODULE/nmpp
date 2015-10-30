@@ -78,19 +78,19 @@ int SIG_SetFilter_32s32s(int* pWeights, int nSize, nm64s* pKernel)
 	nm32s* pDispArray	=((nm32s*)pKernel)+2;
 	nm32s* pWeightMatrix=((nm32s*)pDispArray)+nNumberOfArrays+1;	
 	
-	VEC_SetVal(((nm32s*)pKernel),0,nNumberOfArrays);
-	VEC_SetVal(((nm32s*)pKernel),1,(int)pWeightMatrix);
+	nmppsSetInt_32s(((nm32s*)pKernel),0,nNumberOfArrays);
+	nmppsSetInt_32s(((nm32s*)pKernel),1,(int)pWeightMatrix);
 	
 	for(int i=0;i< nNumberOfArrays; i++){
 		pDispArray[i]=(i<<1)-((nNumberOfArrays>>1)<<1);
 	}
 
-	VEC_Fill(pWeightMatrix,0,4*nNumberOfArrays);
+	nmppsSet_32s(pWeightMatrix,0,4*nNumberOfArrays);
 
 	int disp=GetDisp(nSize);
 	for(int i=0; i<nSize;i++){
-		VEC_SetVal(pWeightMatrix,i*2+disp*2  ,pWeights[i]);
-		VEC_SetVal(pWeightMatrix,i*2+disp*2+3,pWeights[i]);
+		nmppsSetInt_32s(pWeightMatrix,i*2+disp*2  ,pWeights[i]);
+		nmppsSetInt_32s(pWeightMatrix,i*2+disp*2+3,pWeights[i]);
 	}
 //	return 2+(nSize/2+2)+(nSize/2+2)*4;
 	int AllocSize=2+nNumberOfArrays+1+nNumberOfArrays*4;
@@ -109,7 +109,7 @@ void SIG_CreateFilter_32s32s(int* pWeights, int nSize, nm64s** pKernel, int hint
 {
 	int nNumberOfArrays=GetMatrixCount(nSize);
 	int AllocSize=2+nNumberOfArrays+1+nNumberOfArrays*4;
-	VEC_Malloc((nm32s**)pKernel,AllocSize,hint);
+	nmppsMalloc_32s((nm32s**)pKernel,AllocSize,hint);
 	SIG_SetFilter_32s32s(pWeights, nSize, *pKernel);
 }
 

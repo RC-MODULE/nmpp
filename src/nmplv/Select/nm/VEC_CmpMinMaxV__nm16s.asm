@@ -23,14 +23,14 @@ begin ".text_nmplv"
 extern vec_CompareMinMax:label;
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void  VEC_CmpMinMaxV (nm16s *pSrcVec1, nm16s *pSrcVec2, nm16s *pDstMin, nm16s *pDstMax, int nSize)
+//! \fn void  nmppsCmpMinMaxV_16s(nm16s *pSrcVec1, nm16s *pSrcVec2, nm16s *pDstMin, nm16s *pDstMax, int nSize)
 //!
-//! \perfinclude _VEC_CmpMinMaxV__FPSsPSsPSsPSsi.html
+//! \perfinclude _nmppsCmpMinMaxV__FPSsPSsPSsPSsi_.html
 
-global _VEC_CmpMinMaxV__FPSsPSsPSsPSsi :label;
-global _void._.8.8VEC_CmpMinMaxV.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2 :label;
-<_VEC_CmpMinMaxV__FPSsPSsPSsPSsi>
-<_void._.8.8VEC_CmpMinMaxV.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2>
+global _nmppsCmpMinMaxV__FPSsPSsPSsPSsi_ :label;
+global _void._.8.8nmppsCmpMinMaxV_.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2 :label;
+<_nmppsCmpMinMaxV__FPSsPSsPSsPSsi_>
+<_void._.8.8nmppsCmpMinMaxV_.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0 with gr0=false;

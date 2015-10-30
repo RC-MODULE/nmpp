@@ -24,8 +24,7 @@
 //	setting of resulting bit to "1" if corresponding 32-bit input element is positive 
 //  and to "0" for each zero element and vice versa if nTrueFlag =-1
 //	For negative numbers result is not defined.
-void VEC_CmpEq0(
-			nm32u31b*	pSrcVec,				//Input buffer.	:Local[size].
+void nmppsCmpEq0_32u(nm32u31b*	pSrcVec,				//Input buffer.	:Local[size].
 			nm1*	pDstVec,				//Bit vectors.	:Global[size/32].
 			int		nSize,					//Input buffer size in 32-bit elements. nSize = 2..nSize*2.
 			int		nTrueFlag				//if invFlab == -1 (0xffffffff) then result is invert.
@@ -70,8 +69,7 @@ void VEC_CmpEq0(
 //	setting of resulting bit to "1" if corresponding 32-bit input element is positive 
 //  and to "0" for each zero element and vice versa if nTrueFlag =-1
 //	For negative numbers result is not defined.
-void VEC_CmpEq0(
-			nm16u15b*	pSrcVec,				//Input buffer.	:Local[size].
+void nmppsCmpEq0_16u(nm16u15b*	pSrcVec,				//Input buffer.	:Local[size].
 			nm1*	pDstVec,				//Bit vectors.	:Global[size/32].
 			int		nSize,					//Input buffer size in 16-bit elements. nSize = 4..nSize*4.
 			int		nTrueFlag				//if invFlab == -1 (0xffffffff) then result is invert.
@@ -115,8 +113,7 @@ void VEC_CmpEq0(
 //	setting of resulting bit to "1" if corresponding 32-bit input element is positive 
 //  and to "0" for each zero element and vice versa if nTrueFlag =-1
 //	For negative numbers result is not defined.
-void VEC_CmpEq0(
-			nm8u7b*	pSrcVec,				//Input buffer.	:Local[size].
+void nmppsCmpEq0_8u(nm8u7b*	pSrcVec,				//Input buffer.	:Local[size].
 			nm1*	pDstVec,				//Bit vectors.	:Global[size/32].
 			int		nSize,					//Input buffer size in 8-bit elements. nSize = 8..nSize*8.
 			int		nTrueFlag				//if invFlab == -1 (0xffffffff) then result is invert.

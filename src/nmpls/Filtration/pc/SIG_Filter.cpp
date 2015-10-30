@@ -67,37 +67,37 @@ int SIG_SetFilter_8s8s(int* pWeights, int nSize, nm64s* pKernel)
 
 void SIG_CreateFilter_32s32s(int* pWeights, int nSize, nm64s** pKernel, int hint)
 {
-	VEC_Malloc(pKernel,nSize,hint);
+	nmppsMalloc_(pKernel,nSize,hint);
 	SIG_SetFilter_32s32s(pWeights, nSize, *pKernel);
 }
 
 void SIG_CreateFilter_16s16s(int* pWeights, int nSize, nm64s** pKernel, int hint)
 {
-	VEC_Malloc(pKernel,nSize,hint);
+	nmppsMalloc_(pKernel,nSize,hint);
 	SIG_SetFilter_16s16s(pWeights, nSize, *pKernel);
 }
 
 void SIG_CreateFilter_16s32s(int* pWeights, int nSize, nm64s** pKernel, int hint)
 {
-	VEC_Malloc(pKernel,nSize,hint);
+	nmppsMalloc_(pKernel,nSize,hint);
 	SIG_SetFilter_16s32s(pWeights, nSize, *pKernel);
 }
 
 void SIG_CreateFilter_8s32s(int* pWeights, int nSize, nm64s** pKernel, int hint)
 {
-	VEC_Malloc(pKernel,nSize,hint);
+	nmppsMalloc_(pKernel,nSize,hint);
 	SIG_SetFilter_8s32s(pWeights, nSize, *pKernel);
 }
 
 void SIG_CreateFilter_8s16s(int* pWeights, int nSize, nm64s** pKernel, int hint)
 {
-	VEC_Malloc(pKernel,nSize,hint);
+	nmppsMalloc_(pKernel,nSize,hint);
 	SIG_SetFilter_8s16s(pWeights, nSize, *pKernel);
 }
 
 void SIG_CreateFilter_8s8s(int* pWeights, int nSize, nm64s** pKernel, int hint)
 {
-	VEC_Malloc(pKernel,nSize,hint);
+	nmppsMalloc_(pKernel,nSize,hint);
 	SIG_SetFilter_8s8s(pWeights, nSize, *pKernel);
 }
 */

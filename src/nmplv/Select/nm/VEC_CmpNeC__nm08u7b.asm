@@ -1,18 +1,18 @@
     //--------------------------------------------------------------------
-extern VEC_DupValueInVector8: label;
-extern VEC_BuildDiagWeights8: label;
-extern VEC_DataXorRamN_ActivateAfifoVr: label;
-extern _VEC_TmpBuffer64_L: word;
+extern nmppsDupValueInVector8_: label;
+extern nmppsBuildDiagWeights8_: label;
+extern nmppsDataXorRamN_ActivateAfifoVr_: label;
+extern _nmppsTmpBuffer64_L_: word;
 
 begin ".text_nmplv"
-	//! \fn void VEC_CmpNeC(nm8u7b* pSrcVec,  uint7b chCmpVal,  nm8s* pDstVec, int nSize, int8b chTrueFlag);
+	//! \fn void nmppsCmpNeC_8u(nm8u7b* pSrcVec,  uint7b chCmpVal,  nm8s* pDstVec, int nSize, int8b chTrueFlag);
 	//!
-	//! \perfinclude _VEC_CmpNeC__FPUcUiPcii.html
-global _VEC_CmpNeC__FPUcUiPcii: label;
-global _void._.8.8VEC_CmpNeC.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2 :label;
+	//! \perfinclude _nmppsCmpNeC__FPUcUiPcii_.html
+global _nmppsCmpNeC__FPUcUiPcii_: label;
+global _void._.8.8nmppsCmpNeC_.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2 :label;
        
-<_VEC_CmpNeC__FPUcUiPcii>
-<_void._.8.8VEC_CmpNeC.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2>
+<_nmppsCmpNeC__FPUcUiPcii_>
+<_void._.8.8nmppsCmpNeC_.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2>
 .branch;    
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;
@@ -29,17 +29,17 @@ global _void._.8.8VEC_CmpNeC.1unsigned._char._.0.9._unsigned._int.9._char._.0.9.
 
         //--------------------------------
         // Заполнение матрицы и векторов.
-    ar1 = _VEC_TmpBuffer64_L;
-    call VEC_BuildDiagWeights8;
-    call VEC_DupValueInVector8 with gr1 = gr7;
+    ar1 = _nmppsTmpBuffer64_L_;
+    call nmppsBuildDiagWeights8_;
+    call nmppsDupValueInVector8_ with gr1 = gr7;
         //--------------------------------
     
-    ar1 = _VEC_TmpBuffer64_L;
+    ar1 = _nmppsTmpBuffer64_L_;
     nb1 = 0FFFFFFFFh;
 	sb = 02020202h;
 	rep 8 wfifo = [ar1++], ftw, wtw;
 
-    delayed call VEC_DataXorRamN_ActivateAfifoVr;
+    delayed call nmppsDataXorRamN_ActivateAfifoVr_;
         f1cr = 0FEFEFEFEh;
     
     pop ar6, gr6;

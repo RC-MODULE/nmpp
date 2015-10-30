@@ -31,27 +31,27 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
-//! \fn void VEC_Cnv( nm32s* pSrcVec, nm64s* pDstVec, int nSize)
+//! \fn void nmppsCnv_32s(nm32s* pSrcVec, nm64s* pDstVec, int nSize)
 //!
-//! \perfinclude _VEC_Cnv__FPiPli.html
+//! \perfinclude _nmppsCnv__FPiPli_.html
 
 
-global _void._.8.8VEC_Cnv.1int._.0.9._long._.0.9._int.2 :label;
+global _void._.8.8nmppsCnv_.1int._.0.9._long._.0.9._int.2 :label;
 
-<_void._.8.8VEC_Cnv.1int._.0.9._long._.0.9._int.2>
+<_void._.8.8nmppsCnv_.1int._.0.9._long._.0.9._int.2>
 .branch;
 	delayed goto JumpFromSigned;
 		nb1 = 00000000h;
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_Cnv( nm32u* pSrcVec, nm64u* pDstVec, int nSize)
+//! \fn void nmppsCnv_32u(nm32u* pSrcVec, nm64u* pDstVec, int nSize)
 //!
-//! \perfinclude _VEC_Cnv__FPUiPUli.html
+//! \perfinclude _nmppsCnv__FPUiPUli_.html
 
 
-global _void._.8.8VEC_Cnv.1unsigned._int._.0.9._unsigned._long._.0.9._int.2 :label;
-<_void._.8.8VEC_Cnv.1unsigned._int._.0.9._unsigned._long._.0.9._int.2>
+global _void._.8.8nmppsCnv_.1unsigned._int._.0.9._unsigned._long._.0.9._int.2 :label;
+<_void._.8.8nmppsCnv_.1unsigned._int._.0.9._unsigned._long._.0.9._int.2>
 .branch;
 	nb1 = 80000000h;
 	<JumpFromSigned>

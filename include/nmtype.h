@@ -356,9 +356,9 @@ typedef nm64s nm64s63b;
 		\~
 	\~	\f$[0,\ldots,+2^2-1]=[0,\ldots,3]\f$
 	*/
-struct nm2u{
+typedef struct s_nm2u{
 	int nVal;
-};
+} nm2u;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
@@ -371,7 +371,8 @@ struct nm2u{
 		\~
 	\~	\f$[0,\ldots,+2^4-1]=[0,\ldots,15]\f$
 	*/
-struct nm4u{ int nVal;};
+typedef struct s_nm4u{ unsigned long long int vec;} nm4u;
+
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype

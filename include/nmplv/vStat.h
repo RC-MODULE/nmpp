@@ -23,7 +23,7 @@
 #define _VSTAT_H_INCLUDED_
     /**
 	\internal
-    \defgroup VEC_Crc VEC_Crc
+    \defgroup nmppsCrc_ nmppsCrc_
     \ingroup vStat
 		\brief 
 		    \ru Подсчет циклического кода.
@@ -61,14 +61,14 @@
     \endxmlonly
     */
     //! \{
-void VEC_Crc(unsigned int* pSrcVec, int nSize, unsigned int& nCrc);
-inline void VEC_Crc(nm64s* pSrcVec, int nSize, unsigned int& nCrc) { return VEC_Crc((unsigned*)pSrcVec, nSize<<1, nCrc); }
-inline void VEC_Crc(nm32s* pSrcVec, int nSize, unsigned int& nCrc) { return VEC_Crc((unsigned*)pSrcVec, nSize, nCrc); }
-inline void VEC_Crc(nm16s* pSrcVec, int nSize, unsigned int& nCrc) { return VEC_Crc((unsigned*)pSrcVec, nSize>>1, nCrc); }
-inline void VEC_Crc(nm8s*  pSrcVec, int nSize, unsigned int& nCrc) { return VEC_Crc((unsigned*)pSrcVec, nSize>>2, nCrc); }
-inline void VEC_Crc(nm64u* pSrcVec, int nSize, unsigned int& nCrc) { return VEC_Crc((unsigned*)pSrcVec, nSize<<1, nCrc); }
-inline void VEC_Crc(nm16u* pSrcVec, int nSize, unsigned int& nCrc) { return VEC_Crc((unsigned*)pSrcVec, nSize>>1, nCrc); }
-inline void VEC_Crc(nm8u*  pSrcVec, int nSize, unsigned int& nCrc) { return VEC_Crc((unsigned*)pSrcVec, nSize>>2, nCrc); }
+void nmppsCrc_(unsigned int* pSrcVec, int nSize, unsigned int& nCrc);
+inline void nmppsCrc_64s(nm64s* pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize<<1, nCrc); }
+inline void nmppsCrc_32s(nm32s* pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize, nCrc); }
+inline void nmppsCrc_16s(nm16s* pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize>>1, nCrc); }
+inline void nmppsCrc_8s(nm8s*  pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize>>2, nCrc); }
+inline void nmppsCrc_64u(nm64u* pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize<<1, nCrc); }
+inline void nmppsCrc_16u(nm16u* pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize>>1, nCrc); }
+inline void nmppsCrc_8u(nm8u*  pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize>>2, nCrc); }
 
 
     //! \}
@@ -78,7 +78,7 @@ inline void VEC_Crc(nm8u*  pSrcVec, int nSize, unsigned int& nCrc) { return VEC_
 //*****************************************************************************
 	/**
 	\internal
-    \defgroup VEC_SadV16 VEC_SadV16
+    \defgroup nmppsSadV16_ nmppsSadV16_
     \ingroup vStat
 	\brief 
 		\ru Сумма абсолютных разностей двух массивов (SAD) размером в 16 элементов 
@@ -109,8 +109,8 @@ inline void VEC_Crc(nm8u*  pSrcVec, int nSize, unsigned int& nCrc) { return VEC_
     */
 
     //! \{
-int VEC_SadV16(nm16s* pSrc1,nm16s* pSrc2);
-int VEC_SadV16(nm8s*  pSrc1,nm8s*  pSrc2);
+int nmppsSadV16_16s(nm16s* pSrc1,nm16s* pSrc2);
+int nmppsSadV16_8s(nm8s*  pSrc1,nm8s*  pSrc2);
     //! \}
 
 

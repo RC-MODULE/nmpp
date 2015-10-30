@@ -31,12 +31,12 @@ int main()
 	if (SrcImg.pWarp==0 || DstImg.pWarp==0)
 		return -1;
 
-	VEC_Rand(SrcImg.pWarp, SrcImg.nWarpSize);
+	nmppsRand_(SrcImg.pWarp, SrcImg.nWarpSize);
 	CIMG_FIR<nm32s,nm32s> FIR(wker,hker,malloc32,free32);
 	if (FIR.SetWeights(pFiterWindow,SrcImg.nWidth)==0)	return -1;
 	FIR.Filter(SrcImg.pImg,DstImg.pImg,SrcImg.nWidth,SrcImg.nHeight);
 	
-	VEC_Crc((nm32u*)DstImg.pImg,DstImg.nImgSize/2,crc);						// crc 
+	nmppsCrc_32u((nm32u*)DstImg.pImg,DstImg.nImgSize/2,crc);						// crc 
 
 	return crc;
 

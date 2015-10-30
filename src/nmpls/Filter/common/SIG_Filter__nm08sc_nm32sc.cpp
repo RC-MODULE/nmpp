@@ -30,9 +30,9 @@ void SIG_CreateFilter_8s32s(nm32sc* pWeights, int nSize, nm64s** pKernel, int hi
 	int nKerSize=13+(16+nSize)*5/2;
 	nKerSize+=1;
 	nKerSize&=~1;
-	VEC_Malloc((nm32s**)pKernel,2*nKerSize+2,hint);
-	VEC_Malloc(&pWeightsRe, nSize, MEM_GLOBAL);
-	VEC_Malloc(&pWeightsIm, nSize, MEM_GLOBAL);
+	nmppsMalloc_32s((nm32s**)pKernel,2*nKerSize+2,hint);
+	nmppsMalloc_(&pWeightsRe, nSize, MEM_GLOBAL);
+	nmppsMalloc_(&pWeightsIm, nSize, MEM_GLOBAL);
 	for(int i=0; i<nSize; i++){
 		pWeightsRe[i]=pWeights[i].re;
 		pWeightsIm[i]=pWeights[i].im;
@@ -44,7 +44,7 @@ void SIG_CreateFilter_8s32s(nm32sc* pWeights, int nSize, nm64s** pKernel, int hi
 	pKer[1]=(int)pKernelIm;
 	SIG_SetFilter_8s32s(pWeightsRe, nSize, pKernelRe);
 	SIG_SetFilter_8s32s(pWeightsIm, nSize, pKernelIm);
-	VEC_Free(pWeightsIm);
-	VEC_Free(pWeightsRe);
+	nmppsFree_(pWeightsIm);
+	nmppsFree_(pWeightsRe);
 }
 */

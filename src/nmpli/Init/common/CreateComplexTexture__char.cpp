@@ -75,7 +75,7 @@ int PointInRectangle(RPoint& p, RPoint *borders)
 
 void IMG_CreateCellTexture(unsigned char *texture_img, int width, int height)
 {
-	VEC_Fill(texture_img, 0, width*height);
+	nmppsSet_8u(texture_img, 0, width*height);
 
 	for(int j=0; j<height; j+=50)
 		for(int i=0; i<width; i+=50)
@@ -83,7 +83,7 @@ void IMG_CreateCellTexture(unsigned char *texture_img, int width, int height)
 				for(int k=0; k<50; k++) {
 					int m1 = (j+l < height-1)? j+l : height-1;
 					int m2 = (i+k < width-1)? i+k : width-1;
-					VEC_SetVal(texture_img,width*m1+m2,(i+j)%256);
+					nmppsSetInt_8u(texture_img,width*m1+m2,(i+j)%256);
 				}
 
 }
@@ -95,7 +95,7 @@ void IMG_CreateCellTexture(unsigned char *texture_img, int width, int height)
 
 void IMG_CreateRandomCellTexture(unsigned char *texture_img, int width, int height)
 {
-	VEC_Fill(texture_img, 0, width*height);
+	nmppsSet_8u(texture_img, 0, width*height);
 	//sSCL_Rand((unsigned)time( NULL ) );
 	//time=VEC_SCL_Rand()
 
@@ -112,7 +112,7 @@ void IMG_CreateRandomCellTexture(unsigned char *texture_img, int width, int heig
 				for(int k=0; k<di; k++) {
 					int m1 = (j+l < height-1)? j+l : height-1;
 					int m2 = (i+k < width-1)? i+k : width-1;
-					VEC_SetVal(texture_img,width*m1+m2,color);
+					nmppsSetInt_8u(texture_img,width*m1+m2,color);
 				}
 			i+=di;
 		}
@@ -129,7 +129,7 @@ void IMG_CreateRandomCellTexture(unsigned char *texture_img, int width, int heig
 
 void IMG_CreateComplexTexture(unsigned char *texture_img, int width, int height)
 {
-	VEC_Fill(texture_img, 0, width*height);
+	nmppsSet_8u(texture_img, 0, width*height);
 //	sSCL_Rand((unsigned)time( NULL ) );
 
 	int side=width>>2;
@@ -155,7 +155,7 @@ void IMG_CreateComplexTexture(unsigned char *texture_img, int width, int height)
 					{
 						int m1 = (j+l < height-1)? j+l : height-1;
 						int m2 = (i+k < width-1)? i+k : width-1;
-						VEC_SetVal(texture_img,width*m1+m2,color);
+						nmppsSetInt_8u(texture_img,width*m1+m2,color);
 					}
 
 				}

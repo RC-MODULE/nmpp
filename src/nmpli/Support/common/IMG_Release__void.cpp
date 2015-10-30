@@ -24,12 +24,12 @@
 
 void IMG_Free(void* ptr) {
    
-   	 VEC_Free(ptr);
+   	 nmppsFree(ptr);
 }
 
 
 
 void IMG_Release(void* ptr) {
    
-   	 VEC_Free(ptr);
+   	 nmppsFree(ptr);
 }

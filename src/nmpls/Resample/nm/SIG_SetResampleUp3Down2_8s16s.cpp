@@ -59,29 +59,29 @@ int SIG_SetResampleUp3Down2_8s16s(nm64s* Kernel)
 	b[7]=floor(pFilter[22]*K+0.5);
 	
 	
-	VEC_Fill(pKernel,((short)0),3*16*4);
+	nmppsSet_16s(pKernel,((short)0),3*16*4);
 	int i;
 	for(i=0;i<8;i++)
 	{
-		VEC_SetVal(pKernel,(5+i)*4+1,b[i]);
-		VEC_SetVal(pKernel,(6+i)*4+2,a[i]);
+		nmppsSetInt_16s(pKernel,(5+i)*4+1,b[i]);
+		nmppsSetInt_16s(pKernel,(6+i)*4+2,a[i]);
 
-		VEC_SetVal(pKernel,(16+i)*4+1,a[i]);
-		VEC_SetVal(pKernel,(17+i)*4+3,b[i]);
+		nmppsSetInt_16s(pKernel,(16+i)*4+1,a[i]);
+		nmppsSetInt_16s(pKernel,(17+i)*4+3,b[i]);
 
-		VEC_SetVal(pKernel,(34+i)*4+0,a[i]);
-		VEC_SetVal(pKernel,(35+i)*4+2,b[i]);
-		VEC_SetVal(pKernel,(36+i)*4+3,a[i]);
+		nmppsSetInt_16s(pKernel,(34+i)*4+0,a[i]);
+		nmppsSetInt_16s(pKernel,(35+i)*4+2,b[i]);
+		nmppsSetInt_16s(pKernel,(36+i)*4+3,a[i]);
 	}
 
 	for(i=0;i<6;i++)
 	{
-		VEC_SetVal(pKernel,(16+i)*4+0,b[i+1]);
+		nmppsSetInt_16s(pKernel,(16+i)*4+0,b[i+1]);
 	}
 
-	VEC_SetVal(pKernel,8*4+0,(short)K);
-	VEC_SetVal(pKernel,10*4+3,(short)K);
-	VEC_SetVal(pKernel,20*4+2,(short)K);
-	VEC_SetVal(pKernel,38*4+1,(short)K);
+	nmppsSetInt_16s(pKernel,8*4+0,(short)K);
+	nmppsSetInt_16s(pKernel,10*4+3,(short)K);
+	nmppsSetInt_16s(pKernel,20*4+2,(short)K);
+	nmppsSetInt_16s(pKernel,38*4+1,(short)K);
 	return 16*3*4>>1;
 }

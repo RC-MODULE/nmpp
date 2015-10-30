@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: VEC_Wadd2V_set8.asm             $
+//  $Workfile:: nmppsWadd2V_set8_.asm             $
 //
 //  <nmplv>
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   VEC_Wadd2V_set8.asm
+//! \file   nmppsWadd2V_set8_.asm
 //! \author Сергей Свечников
 //! \brief  <Установка двух к-тов для nmppsWeightedSum_Exe(nm8s...>
 //!

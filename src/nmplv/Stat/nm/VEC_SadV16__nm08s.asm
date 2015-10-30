@@ -17,23 +17,23 @@
 //----------------------------------------------------------------------------
 import from macros.mlb;
 
-extern	_VEC_TmpBuffer64_G:long;
+extern	_nmppsTmpBuffer64_G_:long;
 extern _VEC_TBL_One_G:long;
 begin ".text_nmplv"
 
 
 
 //-----------------------------------------------------------------------------------
-//! \fn int VEC_SadV16(nm8s* pSrc1,nm8s* pSrc2);
+//! \fn int nmppsSadV16_8s(nm8s* pSrc1,nm8s* pSrc2);
 //!
-//! \perfinclude _VEC_SadV16__FPcPc.html
+//! \perfinclude _nmppsSadV16__FPcPc_.html
 //--------------------------------------------------------------------
 
 
-global _VEC_SadV16__FPcPc:label;
-global _int._.8.8VEC_SadV16.1char._.0.9._char._.0.2 :label;
-<_VEC_SadV16__FPcPc>
-<_int._.8.8VEC_SadV16.1char._.0.9._char._.0.2>
+global _nmppsSadV16__FPcPc_:label;
+global _int._.8.8nmppsSadV16_.1char._.0.9._char._.0.2 :label;
+<_nmppsSadV16__FPcPc_>
+<_int._.8.8nmppsSadV16_.1char._.0.9._char._.0.2>
 .branch;
 	ar5 = _VEC_TBL_One_G;
 	rep 8 wfifo=[ar5];
@@ -48,7 +48,7 @@ global _int._.8.8VEC_SadV16.1char._.0.9._char._.0.2 :label;
 	nb1 = 080808080h;
 	sb  = 002020202h; 
 	f1cr= 080808080h;
-	ar5 = _VEC_TmpBuffer64_G;
+	ar5 = _nmppsTmpBuffer64_G_;
 	wtw;
 	ar6 = ar5 with gr7=false;
 	rep 2 data =[ar0++]		with data;

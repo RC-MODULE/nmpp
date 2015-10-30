@@ -23,8 +23,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of maximum value in 8-bit buffer
-void VEC_MaxVal(
-				nm8s*		pSrcVec,	// input buffer					:long Local [Size/8]
+void nmppsMaxVal_8s(nm8s*		pSrcVec,	// input buffer					:long Local [Size/8]
 				int			nSize,		// buffer size in 8-bit words	:nSize=[512,768,1024.....]
 				int8b&		MaxValue)	// Maximum
 {
@@ -44,8 +43,7 @@ void VEC_MaxVal(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of maximum value in 16-bit buffer
-void VEC_MaxVal(
-				nm16s*		pSrcVec,	// input buffer					:long Local [Size/4]
+void nmppsMaxVal_16s(nm16s*		pSrcVec,	// input buffer					:long Local [Size/4]
 				int			nSize,		// buffer size in 16-bit words	:nSize=[256,384,512...]
 				int16b&		MaxValue)	// Maximum
 {
@@ -64,8 +62,7 @@ void VEC_MaxVal(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of maximum value in 32-bit buffer
-void VEC_MaxVal(
-				nm32s*		pSrcVec,	// input buffer					:long Local [Size/2]
+void nmppsMaxVal_32s(nm32s*		pSrcVec,	// input buffer					:long Local [Size/2]
 				int			nSize,		// buffer size in 32-bit words	:nSize=[128,192,256..]
 				int&		MaxValue)	// Maximum
 {
@@ -83,8 +80,7 @@ void VEC_MaxVal(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of maximum value in 64-bit buffer
-void VEC_MaxVal(
-				nm64s63b*		pSrcVec,	// input buffer					:long Local [Size/2]
+void nmppsMaxVal_64s(nm64s63b*		pSrcVec,	// input buffer					:long Local [Size/2]
 				int			nSize,		// buffer size in 32-bit words	:nSize=[128,192,256..]
 				int64b&		MaxValue)	// Maximum
 {
@@ -105,7 +101,7 @@ void VEC_MaxVal(
 // Function searches Maximum of array,
 // returns Index of Maximum where it placed in the input array,
 // and creates BitMap of Maximum precence in the input array for custom search of Maximum.
-//void VEC_MaxPos(
+//void nmppsMaxPos_(
 //		nm16s*			SrcBuff,	// input buffer		:long Local [Size/4]
 //		nm1*			MaxBitMap,	// output buffer	:long Global[Size/64] 
 //		int				nSize,		// size of input buffer in 16-bit elements. nSize=[16,32...]
@@ -125,7 +121,7 @@ void VEC_MaxVal(
 //	nm16s*cur = (nm16s*)MaxBitMap;
 //
 //	//Find maximum value.	
-//	VEC_MaxVal(SrcBuff, nSize, Maximum);
+//	nmppsMaxVal_(SrcBuff, nSize, Maximum);
 //
 //	//Create MaxBitMap. 
 //	for(i=0; i<nSize/16; i++)

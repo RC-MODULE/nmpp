@@ -20,8 +20,8 @@
 //------------------------------------------------------------------------
 //#include "vArithm.h"
 extern mtr_Acc4MulMV8:label;
-extern _VEC_TmpBuffer64_G:long[64];
-extern _VEC_TmpBuffer64_L:long[64];
+extern _nmppsTmpBuffer64_G_:long[64];
+extern _nmppsTmpBuffer64_L_:long[64];
 
 
 data ".data_nmplm_G"
@@ -100,8 +100,8 @@ global _void._.8.8MTR_ProdV.1class._v8nm8s._.0.9._class._v8nm16s._.0.9._short._.
 	gr7 = ar0;
 	with gr7;
 	if < delayed skip 4;
-		ar3 = _VEC_TmpBuffer64_L;
-	ar3 = _VEC_TmpBuffer64_G;
+		ar3 = _nmppsTmpBuffer64_L_;
+	ar3 = _nmppsTmpBuffer64_G_;
 	ar5 = ar3;	
 	gr0 = [ar1++] with gr6 = true;
 	gr1 = [ar1++] with gr6>>=16;		// gr6= 0x0000FFFF

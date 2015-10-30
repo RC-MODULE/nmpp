@@ -26,14 +26,14 @@ extern vec_activate_data:label;
 begin ".text_nmplv"
 ///////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_CmpLt0(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+//! \fn void nmppsCmpLt0_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 //!
-//! \perfinclude _VEC_CmpLt0__FPlPli.html
+//! \perfinclude _nmppsCmpLt0__FPlPli_.html
 
-global _VEC_CmpLt0__FPlPli:	label;
-global _void._.8.8VEC_CmpLt0.1long._.0.9._long._.0.9._int.2 :label;
-<_VEC_CmpLt0__FPlPli>
-<_void._.8.8VEC_CmpLt0.1long._.0.9._long._.0.9._int.2>
+global _nmppsCmpLt0__FPlPli_:	label;
+global _void._.8.8nmppsCmpLt0_.1long._.0.9._long._.0.9._int.2 :label;
+<_nmppsCmpLt0__FPlPli_>
+<_void._.8.8nmppsCmpLt0_.1long._.0.9._long._.0.9._int.2>
 	ar5 = ar7 - 2	with gr7 = false;
 	push ar0,gr0	with gr7++;
 	push ar5,gr5	with gr7++;

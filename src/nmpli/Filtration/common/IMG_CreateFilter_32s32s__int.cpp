@@ -86,8 +86,8 @@ int IMG_SetFilter_32s32s(int* pWeights, int nKerWidth, int nKerHeight, int nImgW
 	nm32s* pWeightMatrix=((nm32s*)pDispArray)+nKerHeight*nNumberOfArrays+1;	
 	
 	//------------- Init header -------------------------------------
-	VEC_SetVal(((nm32s*)pKernel),0,(int)nNumberOfArrays*nKerHeight);
-	VEC_SetVal(((nm32s*)pKernel),1,(int)pWeightMatrix);
+	nmppsSetInt_32s(((nm32s*)pKernel),0,(int)nNumberOfArrays*nKerHeight);
+	nmppsSetInt_32s(((nm32s*)pKernel),1,(int)pWeightMatrix);
 	//------------- Init array of displacements ----------------------
 	int disp=-nImgWidth*(nKerHeight>>1);
 	for(int j=0;j< nKerHeight; j++){
@@ -99,14 +99,14 @@ int IMG_SetFilter_32s32s(int* pWeights, int nKerWidth, int nKerHeight, int nImgW
 	}
 
 	//------------- Init weight matrices -----------------------------
-	VEC_Fill(pWeightMatrix,0,4*nNumberOfArrays*nKerHeight);
+	nmppsSet_32s(pWeightMatrix,0,4*nNumberOfArrays*nKerHeight);
 	disp=GetDisp(nKerWidth);
 	for(int j=0,k=0; j<nKerHeight;j++){
 		for(int i=0; i<nKerWidth;i++,k++){
-			VEC_SetVal(pWeightMatrix,i*2+disp*2  ,pWeights[k]);
-			VEC_SetVal(pWeightMatrix,i*2+disp*2+3,pWeights[k]);
+			nmppsSetInt_32s(pWeightMatrix,i*2+disp*2  ,pWeights[k]);
+			nmppsSetInt_32s(pWeightMatrix,i*2+disp*2+3,pWeights[k]);
 		}
-		pWeightMatrix=VEC_Addr(pWeightMatrix,4*nNumberOfArrays);
+		pWeightMatrix=nmppsAddr_32s(pWeightMatrix,4*nNumberOfArrays);
 	}
 	
 	int AllocSize=4+nNumberOfArrays*nKerHeight+1+nNumberOfArrays*4*nKerHeight;
@@ -125,7 +125,7 @@ void IMG_CreateFilter_32s32s(int* pWeights, int nKerWidth, int nKerHeight, int n
 {
 	int nNumberOfArrays=GetMatrixCount(nKerWidth);
 	int AllocSize=2+nNumberOfArrays*nKerHeight+1+nNumberOfArrays*4*nKerHeight;
-	VEC_Malloc((nm32s**)pKernel,AllocSize,nHint);
+	nmppsMalloc_32s((nm32s**)pKernel,AllocSize,nHint);
 	if (*pKernel==0) return;
 	IMG_SetFilter_32s32s(pWeights, nKerWidth, nKerHeight, nImgWidth, *pKernel);
 }*/

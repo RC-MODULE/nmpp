@@ -23,14 +23,14 @@ extern vec_Or:label;
 
 begin ".text_nmplv"
 ///////////////////////////////////////////////////////////
-//! \fn void VEC_OrV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+//! \fn void nmppsOrV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
 //!
-//! \perfinclude _VEC_OrV__FPUlPUlPUli.html
+//! \perfinclude _nmppsOrV__FPUlPUlPUli_.html
 
-global _VEC_OrV__FPUlPUlPUli:	label;
-global _void._.8.8VEC_OrV.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
-<_VEC_OrV__FPUlPUlPUli>
-<_void._.8.8VEC_OrV.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
+global _nmppsOrV__FPUlPUlPUli_:	label;
+global _void._.8.8nmppsOrV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
+<_nmppsOrV__FPUlPUlPUli_>
+<_void._.8.8nmppsOrV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0,gr0	with gr7++;
 	push ar1,gr1	with gr7++;

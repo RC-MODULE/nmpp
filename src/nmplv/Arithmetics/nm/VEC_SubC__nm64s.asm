@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 
 extern vec_data_sub_ram:label;
-extern _VEC_TmpBuffer16_G:long;
+extern _nmppsTmpBuffer16_G_:long;
 
 begin ".text_nmplv"
 

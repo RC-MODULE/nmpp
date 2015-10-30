@@ -27,16 +27,16 @@ begin ".text_nmplv"
   
 
     //--------------------------------------------------------------------
-    //! \fn nm16s * VEC_Addr (nm16s *pVec, int nIndex) 
+    //! \fn nm16s * nmppsAddr_16s(nm16s *pVec, int nIndex) 
 	//!
-	//! \perfinclude _VEC_Addr__FPSsi.html
+	//! \perfinclude _nmppsAddr__FPSsi_.html
     //--------------------------------------------------------------------
     
 
-global _VEC_Addr__FPSsi:label;
-global _short._.0.8.8VEC_Addr.1short._.0.9._int.2 :label;
-<_VEC_Addr__FPSsi>
-<_short._.0.8.8VEC_Addr.1short._.0.9._int.2>
+global _nmppsAddr__FPSsi_:label;
+global _short._.0.8.8nmppsAddr_.1short._.0.9._int.2 :label;
+<_nmppsAddr__FPSsi_>
+<_short._.0.8.8nmppsAddr_.1short._.0.9._int.2>
 .branch;
 	ar5 = sp-4 with gr7=gr5;	
 	gr5 = [ar5++];

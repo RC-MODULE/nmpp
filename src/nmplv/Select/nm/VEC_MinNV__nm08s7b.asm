@@ -23,12 +23,12 @@ begin ".text_nmplv"
 extern vec_CompareMinNV:label;
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_MinNV(nm8s7b**  pSrcVec1, nm8s7b* pSrcVec2, int numVecs, nm8s7b*  pDstMin, int nSize);
+//! \fn void nmppsMinNV_8s(nm8s7b**  pSrcVec1, nm8s7b* pSrcVec2, int numVecs, nm8s7b*  pDstMin, int nSize);
 //!
-//! \perfinclude _VEC_MinV__FPcPcPci.html
+//! \perfinclude _nmppsMinV__FPcPcPci_.html
 
-global _void._.8.8VEC_MinNV.1char._.0.0.9._int.9._char._.0.9._int.2 :label;
-<_void._.8.8VEC_MinNV.1char._.0.0.9._int.9._char._.0.9._int.2>
+global _void._.8.8nmppsMinNV_.1char._.0.0.9._int.9._char._.0.9._int.2 :label;
+<_void._.8.8nmppsMinNV_.1char._.0.0.9._int.9._char._.0.9._int.2>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0	with gr0=false;

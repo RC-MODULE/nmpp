@@ -19,10 +19,10 @@
 //------------------------------------------------------------------------
 import from macros.mlb;
 
-extern _VEC_TmpBuffer64_G: long;
-extern _VEC_TmpBuffer64_L: long;
-const GTmpLong1=_VEC_TmpBuffer64_G;
-const LTmpLong1=_VEC_TmpBuffer64_L;
+extern _nmppsTmpBuffer64_G_: long;
+extern _nmppsTmpBuffer64_L_: long;
+const GTmpLong1=_nmppsTmpBuffer64_G_;
+const LTmpLong1=_nmppsTmpBuffer64_L_;
  	
 
 

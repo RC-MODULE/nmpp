@@ -1,7 +1,7 @@
     //--------------------------------------------------------------------
 #include "nmplv.h"
     //--------------------------------------------------------------------
-void VEC_CmpNeV(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int nSize, int16b shTrueFlag)
+void nmppsCmpNeV_16u(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int nSize, int16b shTrueFlag)
 {
     for(int i=0; i<nSize; i++)
     {
@@ -18,7 +18,7 @@ void VEC_CmpNeV(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int nSiz
     //-------------------------------------------------------------------
     
 
-void VEC_CmpNeV(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b chTrueFlag)
+void nmppsCmpNeV_8u(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b chTrueFlag)
 {
     for(int i=0; i<nSize; i++)
     {

@@ -29,14 +29,14 @@ begin ".text_nmplv"
 
 ///////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_CmpLt0(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+//! \fn void nmppsCmpLt0_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 //!
-//! \perfinclude _VEC_CmpLt0__FPSsPSsi.html
+//! \perfinclude _nmppsCmpLt0__FPSsPSsi_.html
 
-global _VEC_CmpLt0__FPSsPSsi:	label;
-global _void._.8.8VEC_CmpLt0.1short._.0.9._short._.0.9._int.2 :label;
-<_VEC_CmpLt0__FPSsPSsi>
-<_void._.8.8VEC_CmpLt0.1short._.0.9._short._.0.9._int.2>
+global _nmppsCmpLt0__FPSsPSsi_:	label;
+global _void._.8.8nmppsCmpLt0_.1short._.0.9._short._.0.9._int.2 :label;
+<_nmppsCmpLt0__FPSsPSsi_>
+<_void._.8.8nmppsCmpLt0_.1short._.0.9._short._.0.9._int.2>
 	ar5 = ar7 - 2	with gr7 = false;
 	push ar0,gr0	with gr7++;
 	push ar5,gr5	with gr7++;

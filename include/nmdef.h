@@ -18,18 +18,18 @@
 #ifndef NULL
 	#define NULL 0
 #endif
-
+/*
 #ifndef ADDR
 	#ifdef __NM__
 		#define ADDR(base,disp)  \
-		(	sizeof(*(base)) == 1 ? VEC_Addr((base),(disp)):	\
+		(	sizeof(*(base)) == 1 ? nmppsAddr_((base),(disp)):	\
 			((base)+(disp))								\
 		)
 	#else  
 		#define ADDR(base,disp) ((base)+(disp))
 	#endif //NMDEF
 #endif //ADDR
-
+*/
 #ifndef MIN
 #define MIN(a,b)  ((a) > (b) ? (b) : (a))
 #endif
@@ -47,10 +47,10 @@
 #endif
 
 #ifdef __NM__
-#define GET_CHAR(pArray,Index,val)			(VEC_GetVal((pArray),(Index),(val)))
-#define GET_SHORT(pArray,Index,val)			(VEC_GetVal((pArray),(Index),(val)))
-#define SET_CHAR(pArray,Index,Char)		(VEC_SetVal((pArray),(Index),(Char)))
-#define SET_SHORT(pArray,Index,Short)	(VEC_SetVal((pArray),(Index),(Short)))
+#define GET_CHAR(pArray,Index,val)			(nmppsGetVal_((pArray),(Index),(val)))
+#define GET_SHORT(pArray,Index,val)			(nmppsGetVal_((pArray),(Index),(val)))
+#define SET_CHAR(pArray,Index,Char)		(nmppsSetInt_((pArray),(Index),(Char)))
+#define SET_SHORT(pArray,Index,Short)	(nmppsSetInt_((pArray),(Index),(Short)))
 #else
 #define GET_CHAR(pArray,Index,val)			((val)=(pArray)[(Index)])
 #define GET_SHORT(pArray,Index,val)			((val)=(pArray)[(Index)])

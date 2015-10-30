@@ -23,14 +23,14 @@
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_SetVal (nm8s *pVec, int nIndex, int8b Val) 
+//! \fn void nmppsSetInt_8s(nm8s *pVec, int nIndex, int8b Val) 
 //!
-//! \perfinclude _VEC_SetVal__FPcii.html
+//! \perfinclude _nmppsSetVal__FPcii_.html
 
-global _VEC_SetVal__FPcii:	label;
-global _void._.8.8VEC_SetVal.1char._.0.9._int.9._int.2 :label;
-<_VEC_SetVal__FPcii> 
-<_void._.8.8VEC_SetVal.1char._.0.9._int.9._int.2>
+global _nmppsSetVal__FPcii_:	label;
+global _void._.8.8nmppsSetVal_.1char._.0.9._int.9._int.2 :label;
+<_nmppsSetVal__FPcii_> 
+<_void._.8.8nmppsSetVal_.1char._.0.9._int.9._int.2>
 .branch;
 	ar5 = ar7 - 5;
 	push ar1,gr1;

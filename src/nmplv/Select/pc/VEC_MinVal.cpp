@@ -21,8 +21,7 @@
 #include "nmtl.h"
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of minimum value in 8-bit buffer
-void VEC_MinVal(
-				nm8s*		pSrcVec,	// input buffer					:long Global [Size/8]
+void nmppsMinVal_8s(nm8s*		pSrcVec,	// input buffer					:long Global [Size/8]
 				int			nSize,		// buffer size in 8-bit words	:nSize=[8,16,24.....]
 				int8b&		MinValue)	// Minimum
 {
@@ -42,8 +41,7 @@ void VEC_MinVal(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of minimum value in 16-bit buffer
-void VEC_MinVal(
-				nm16s*		pSrcVec,	// input buffer					:long Global [Size/4]
+void nmppsMinVal_16s(nm16s*		pSrcVec,	// input buffer					:long Global [Size/4]
 				int			nSize,		// buffer size in 16-bit words	:nSize=[4,8,12....]
 				int16b&		MinValue)	// Minimum
 {
@@ -78,8 +76,7 @@ void VEC_MinVal(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of minimum value in 32-bit buffer
-void VEC_MinVal(
-				nm32s*		pSrcVec,	// input buffer					:long Global [Size/2]
+void nmppsMinVal_32s(nm32s*		pSrcVec,	// input buffer					:long Global [Size/2]
 				int			nSize,		// buffer size in 32-bit words	:nSize=[2,4,6....]
 				int&		MinValue)	// Minimum
 {
@@ -100,7 +97,7 @@ void VEC_MinVal(
 // Function searches Minimum of array,
 // returns Index of Minimum where it placed in the input array,
 // and creates BitMap of Minimum precence in the input array for custom search of Maximum.
-//void VEC_MinPos(
+//void nmppsMinPos_(
 //		nm16s*			SrcBuff,	// input buffer		:long Local [Size/4]
 //		nm1*			MinBitMap,	// output buffer	:long Global[Size/64] 
 //		int				nSize,		// size of input buffer in 16-bit elements. nSize=[16,32...]
@@ -120,7 +117,7 @@ void VEC_MinVal(
 //	nm16s*cur = (nm16s*)MinBitMap;
 //
 //	//Find maximum value.	
-//	VEC_MinVal(SrcBuff, nSize, Minimum);
+//	nmppsMinVal_(SrcBuff, nSize, Minimum);
 //
 //	//Create MaxBitMap. 
 //	for(i=0; i<nSize/16; i++)

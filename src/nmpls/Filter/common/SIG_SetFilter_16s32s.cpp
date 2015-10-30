@@ -180,11 +180,11 @@ int SIG_SetFilter_16s32s(int* pWeights, int nSize, nm64s* pKernel)
 
 
 	nm32s* pDispArray	=((nm32s*)pKernel)+6;
-	nm32s* pWeightMatrix =VEC_Addr((nm32s*)pDispArray,nDispArraySize);	
-	nm32s* pWeightMatrix0=VEC_Addr((nm32s*)pWeightMatrix,nDisp0*2);	
-	nm32s* pWeightMatrix1=VEC_Addr((nm32s*)pWeightMatrix,nDisp1*2);	
-	VEC_SetVal(((nm32s*)pKernel),2,(int)pWeightMatrix0);	// weights for first array
-	VEC_SetVal(((nm32s*)pKernel),5,(int)pWeightMatrix1);	// weights for first array
+	nm32s* pWeightMatrix =nmppsAddr_32s((nm32s*)pDispArray,nDispArraySize);	
+	nm32s* pWeightMatrix0=nmppsAddr_32s((nm32s*)pWeightMatrix,nDisp0*2);	
+	nm32s* pWeightMatrix1=nmppsAddr_32s((nm32s*)pWeightMatrix,nDisp1*2);	
+	nmppsSetInt_32s(((nm32s*)pKernel),2,(int)pWeightMatrix0);	// weights for first array
+	nmppsSetInt_32s(((nm32s*)pKernel),5,(int)pWeightMatrix1);	// weights for first array
 
 	int nSrcDisp0=(((nSize/2)-0)+3)/4;
 	int nSrcDisp1=(((nSize/2)-2)+3)/4;
@@ -192,25 +192,25 @@ int SIG_SetFilter_16s32s(int* pWeights, int nSize, nm64s* pKernel)
 	nSrcDisp0*=-2;
 	nSrcDisp1*=-2;
 
-	VEC_SetVal(((nm32s*)pKernel),0,(int)nNumberOfArrays0);		// Number of arrays
-	VEC_SetVal(((nm32s*)pKernel),1,(int)pDispArray);			// ar0 displacement for first array
+	nmppsSetInt_32s(((nm32s*)pKernel),0,(int)nNumberOfArrays0);		// Number of arrays
+	nmppsSetInt_32s(((nm32s*)pKernel),1,(int)pDispArray);			// ar0 displacement for first array
 	for(int i=0;i< nNumberOfArrays0; i++){
 		*pDispArray=(i<<1)+nSrcDisp0;
 		pDispArray++;
 	}
 
-	VEC_SetVal(((nm32s*)pKernel),3,(int)nNumberOfArrays1);		// Number of arrays
-	VEC_SetVal(((nm32s*)pKernel),4,(int)pDispArray);			// ar0 displacement for first array
+	nmppsSetInt_32s(((nm32s*)pKernel),3,(int)nNumberOfArrays1);		// Number of arrays
+	nmppsSetInt_32s(((nm32s*)pKernel),4,(int)pDispArray);			// ar0 displacement for first array
 	for(int i=0; i< nNumberOfArrays1; i++){
 		*pDispArray=(i<<1)+nSrcDisp1;
 		pDispArray++;
 	}
 	
-	VEC_Fill((nm32s*)pWeightMatrix,0,nWeightsSize);
+	nmppsSet_32s((nm32s*)pWeightMatrix,0,nWeightsSize);
 
 	for(int i=0; i<nSize; i++){
-		VEC_SetVal(pWeightMatrix,4*2+i*2 , pWeights[i]);
-		VEC_SetVal(pWeightMatrix,4*2+i*2+3,pWeights[i]);
+		nmppsSetInt_32s(pWeightMatrix,4*2+i*2 , pWeights[i]);
+		nmppsSetInt_32s(pWeightMatrix,4*2+i*2+3,pWeights[i]);
 	}
 
 	// Total size = 6+(8+nSize)*2/4+1+(8+nSize)*2=
@@ -248,11 +248,11 @@ void SIG_CreateFilter_16s32s(int* pWeights, int nSize, nm64s** pKernel, int hint
 	nDispArraySize+=nDispArraySize&1;
 
 	//nm32s* pDispArray	=((nm32s*)pKernel)+6;
-	//nm32s* pWeightMatrix =VEC_Addr((nm32s*)pDispArray,nDispArraySize);	
-	//VEC_Fill((nm32s*)pWeightMatrix,0,nWeightsSize);
+	//nm32s* pWeightMatrix =nmppsAddr_32s((nm32s*)pDispArray,nDispArraySize);	
+	//nmppsSet_32s((nm32s*)pWeightMatrix,0,nWeightsSize);
 
 	int AllocSize=6+nDispArraySize+nWeightsSize;
-	VEC_Malloc((nm32s**)pKernel,AllocSize,hint);
+	nmppsMalloc_32s((nm32s**)pKernel,AllocSize,hint);
 	if (*pKernel==0) return;
 	SIG_SetFilter_16s32s(pWeights, nSize, *pKernel);
 }

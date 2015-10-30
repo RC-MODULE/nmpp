@@ -455,10 +455,10 @@ void nmppsAdd_AddC(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVec, i
     \endxmlonly
     */
     //! \{
-void nmppsSubC(nm8s* pSrcVec,  int8b nVal,    nm8s*  pDstVec,  int nSize);
-void nmppsSubC(nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSize);
-void nmppsSubC(nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
-void nmppsSubC(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
+void nmppsSubC_8s(nm8s* pSrcVec,  int8b nVal,    nm8s*  pDstVec,  int nSize);
+void nmppsSubC_16s(nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSize);
+void nmppsSubC_32s(nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
+void nmppsSubC_64s(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -583,10 +583,10 @@ void nmppsSubCRev(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsSub(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
-void nmppsSub(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
-void nmppsSub(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
-void nmppsSub(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+void nmppsSub_8s (nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
+void nmppsSub_16s(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
+void nmppsSub_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
+void nmppsSub_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
     //! \}
 
 
@@ -957,7 +957,7 @@ void nmppsMulC_AddC(int32x2* dataSparseSrc,  int32x2& mulArg, int32x2& addArg, i
 
 
 /**
- *  \defgroup VEC_ArshC_MulC_AddC VEC_ArshC_MulC_AddC
+ *  \defgroup nmppsArshC_MulC_AddC_ nmppsArshC_MulC_AddC_
  *  \ingroup vArithmetics
  *
  *  Sparse vector by constant multiplication with addition of constant. 
@@ -982,7 +982,7 @@ void nmppsMulC_AddC(int32x2* dataSparseSrc,  int32x2& mulArg, int32x2& addArg, i
  *  \details 
  */
 //! \{
-void VEC_ArshC_MulC_AddC(int32x2* dataSparseSrc,  int32x2& preshiftArg, int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc=1, int stepSparseDst=1);
+void nmppsArshC_MulC_AddC_(int32x2* dataSparseSrc,  int32x2& preshiftArg, int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc=1, int stepSparseDst=1);
 //! \}
 	
 
@@ -1190,8 +1190,8 @@ void nmppsSum4(
     	    pTmpBuf2		=> pDstVec		(2cpl:L<=>G)		- Result correction	(in-place is supported)\n\n
     	\ru Примеры использования in-place параметров:\n
     	\en Examples of in-place parameters use: \n
-        \~  VEC_Div(L0,G0,10240,3,G0,L0);\n
-    	    VEC_Div(L0,L0,10240,3,L0,L0);\n
+        \~  nmppsDiv_(L0,G0,10240,3,G0,L0);\n
+    	    nmppsDiv_(L0,L0,10240,3,L0,L0);\n
     
          
     \par

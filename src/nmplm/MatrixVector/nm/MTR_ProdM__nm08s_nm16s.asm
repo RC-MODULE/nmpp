@@ -26,8 +26,8 @@ begin ".text_nmplm"
 //! \perfinclude _MTR_ProdM__FPciiPSsPSsi.html
 //--------------------------------------------------------------------
 extern rep_n_Mul_M8V64:label;
-extern _VEC_TmpBuffer64_G: long[64];
-const LongColumns=_VEC_TmpBuffer64_G;
+extern _nmppsTmpBuffer64_G_: long[64];
+const LongColumns=_nmppsTmpBuffer64_G_;
 
 
 global _MTR_ProdM__FPciiPSsPSsi:label;

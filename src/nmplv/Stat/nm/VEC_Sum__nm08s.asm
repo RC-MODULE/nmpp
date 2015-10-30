@@ -20,7 +20,7 @@
 
 //#include "vArithm.h"
 
-extern _VEC_TmpBuffer16_G:long;
+extern _nmppsTmpBuffer16_G_:long;
 extern _VEC_TBL_One_G:long;
 
 
@@ -49,13 +49,13 @@ global _void._.8.8nmppsSum.1char._.0.9._int.9._int._.0.2 :label;
 	push ar6,gr6 with gr0++;		// gr0=2 
 	ar0 = [--ar5];					// pSrcVec
 	gr5 = [--ar5];					// nSize in 8-bit elements
-	ar6 = _VEC_TmpBuffer16_G with gr5>>=3;	// nSize in 64-bit words
+	ar6 = _nmppsTmpBuffer16_G_ with gr5>>=3;	// nSize in 64-bit words
 
 	delayed call vec_vsum_data_afifo;
 		nul;
 		wtw;						
 
-	gr7=[_VEC_TmpBuffer16_G];
+	gr7=[_nmppsTmpBuffer16_G_];
 	ar6=[--ar5];
 	[ar6]=gr7;
 

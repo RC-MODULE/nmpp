@@ -20,8 +20,8 @@
 
 //#include "vMinMax.h"
 import from macros.mlb;
-extern	_VEC_TmpBuffer64_G: long;
-extern	_VEC_TmpBuffer16_G: long;
+extern	_nmppsTmpBuffer64_G_: long;
+extern	_nmppsTmpBuffer16_G_: long;
 extern vec_MinVal:label;
 
 macro FAST_MIN(r0,r1,rMin)
@@ -39,14 +39,14 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
-//! \fn void VEC_MinVal (nm32s *pSrcVec, int nSize, int &nMinValue) 
+//! \fn void nmppsMinVal_32s(nm32s *pSrcVec, int nSize, int &nMinValue) 
 //!
-//! \perfinclude _VEC_MinVal__FPiiRi.html
+//! \perfinclude _nmppsMinVal__FPiiRi_.html
 
-global _VEC_MinVal__FPiiRi :label;
-global _void._.8.8VEC_MinVal.1int._.0.9._int.9._int._.6.2 :label;
-<_VEC_MinVal__FPiiRi>
-<_void._.8.8VEC_MinVal.1int._.0.9._int.9._int._.6.2>
+global _nmppsMinVal__FPiiRi_ :label;
+global _void._.8.8nmppsMinVal_.1int._.0.9._int.9._int._.6.2 :label;
+<_nmppsMinVal__FPiiRi_>
+<_void._.8.8nmppsMinVal_.1int._.0.9._int.9._int._.6.2>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0;
@@ -64,9 +64,9 @@ global _void._.8.8VEC_MinVal.1int._.0.9._int.9._int._.6.2 :label;
 	f1cr= gr4;
 	wtw;
 	
-	ar4= _VEC_TmpBuffer64_G;
+	ar4= _nmppsTmpBuffer64_G_;
 	delayed call vec_MinVal;
-		ar6=_VEC_TmpBuffer16_G;								// 2xMinimum
+		ar6=_nmppsTmpBuffer16_G_;								// 2xMinimum
 
 	gr0=[ar6++];
 	gr4=[ar6++];

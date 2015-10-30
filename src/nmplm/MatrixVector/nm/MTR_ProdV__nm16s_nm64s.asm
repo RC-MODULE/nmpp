@@ -28,7 +28,7 @@ begin ".text_nmplm"
 //! \perfinclude _MTR_ProdV__FPSsPlPlii.html
 //--------------------------------------------------------------------
 extern rep_n_Mul_M16V64:label;
-extern _VEC_TmpBuffer64_G: long[64];
+extern _nmppsTmpBuffer64_G_: long[64];
 
 
 global _MTR_ProdV__FPSsPlPlii:label;

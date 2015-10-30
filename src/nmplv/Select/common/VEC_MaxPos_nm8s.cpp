@@ -19,9 +19,9 @@
 //------------------------------------------------------------------------
 #include "nmplv.h"
 //!
-//! \perfinclude _VEC_MaxPos__FPciRiRiPvPvi.html
+//! \perfinclude _nmppsMaxPos__FPciRiRiPvPvi_.html
 //!				 
-void VEC_MaxPos (nm8s7b  *pSrcVec, int nSize, int& nIndex, int8b &nMaxValue, void *pLTmpBuff,void *pGTmpBuff, int nSearchDir)
+void nmppsMaxPos_8s(nm8s7b  *pSrcVec, int nSize, int& nIndex, int8b &nMaxValue, void *pLTmpBuff,void *pGTmpBuff, int nSearchDir)
 {
 	int nPos;
 	void* pTmp1;
@@ -36,12 +36,12 @@ void VEC_MaxPos (nm8s7b  *pSrcVec, int nSize, int& nIndex, int8b &nMaxValue, voi
 	//	pTmp2=pGTmpBuff;
 	//}
 
-	VEC_MaxVal(pSrcVec, nSize, nMaxValue);
+	nmppsMaxVal_8s(pSrcVec, nSize, nMaxValue);
 	nmppsSubCRev(pSrcVec,nMaxValue,(nm8s*)pTmp1,nSize);
-	VEC_CmpEq0((nm8u7b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create Max bitmap
+	nmppsCmpEq0_8u((nm8u7b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create Max bitmap
 
 		if(nSearchDir > 0){
-		nPos  =VEC_FirstNonZeroPos((int*)pTmp2,nSize>>5);
+		nPos  =nmppsFirstNonZeroPos_((int*)pTmp2,nSize>>5);
 		int n=((int*)pTmp2)[nPos];	
 		for(nIndex=0; nIndex<32; nIndex++){
 			if (n&1)
@@ -49,7 +49,7 @@ void VEC_MaxPos (nm8s7b  *pSrcVec, int nSize, int& nIndex, int8b &nMaxValue, voi
 			n>>=1;
 		}
 	} else {
-		nPos  =VEC_LastNonZeroPos((int*)pTmp2,nSize>>5); 
+		nPos  =nmppsLastNonZeroPos_((int*)pTmp2,nSize>>5); 
 		int n=((int*)pTmp2)[nPos];	
 		for(nIndex=31; nIndex>=0; nIndex--){
 			if (n&0x80000000)

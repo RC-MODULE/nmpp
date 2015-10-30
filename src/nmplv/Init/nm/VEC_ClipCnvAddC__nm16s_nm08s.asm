@@ -54,13 +54,13 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_Cnv(nm16s* pSrcVec, nm8s* pDstVec, int nSize)
+//! \fn void nmppsCnv_16s(nm16s* pSrcVec, nm8s* pDstVec, int nSize)
 //!
-//! \perfinclude _VEC_Cnv__FPSsPci.html
+//! \perfinclude _nmppsCnv__FPSsPci_.html
 
 
-global _void._.8.8VEC_ClipCnv_AddC.1short._.0.9._int.9._int.9._char._.0.9._int.9._unsigned._long._.0.2 :label;
-<      _void._.8.8VEC_ClipCnv_AddC.1short._.0.9._int.9._int.9._char._.0.9._int.9._unsigned._long._.0.2>
+global _void._.8.8nmppsClipCnv_AddC_.1short._.0.9._int.9._int.9._char._.0.9._int.9._unsigned._long._.0.2 :label;
+<      _void._.8.8nmppsClipCnv_AddC_.1short._.0.9._int.9._int.9._char._.0.9._int.9._unsigned._long._.0.2>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	f1cr = gr7;

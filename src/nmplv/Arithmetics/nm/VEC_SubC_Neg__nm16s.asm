@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 
 extern vec_ram_sub_data:label;
-extern  _VEC_TmpBuffer16_G:long;
+extern  _nmppsTmpBuffer16_G_:long;
 
 begin ".text_nmplv"
 
@@ -44,7 +44,7 @@ global _void._.8.8nmppsSubCRev.1short._.0.9._int.9._short._.0.9._int.2 :label;
 	ar6 = [--ar5]	with gr7 = gr1<<16;	// pDstVec
 	gr5 = [--ar5]	with gr1 = gr7>>16;		// nSize
 	
-	ar1 = _VEC_TmpBuffer16_G+2	with gr1 = gr1 or gr7;
+	ar1 = _nmppsTmpBuffer16_G_+2	with gr1 = gr1 or gr7;
 	nb1 = 80008000h;
 	wtw;
 	delayed call vec_ram_sub_data 	with gr5>>=2;		// nSize in 64-bit longs

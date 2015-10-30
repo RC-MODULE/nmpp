@@ -182,20 +182,20 @@ void IMG_ResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDs
 	nm8s*  pSrc8s;
 	nm16s* pHResample16s;
 	nm16s* pVResample16s;
-	VEC_Malloc(&pSrc8s,nSrcSize+100);
-	VEC_Malloc(&pHResample16s,nSrcSize*3/2+nSrcWidth*100);
-	VEC_Malloc(&pVResample16s,nSrcSize*3*3/2/2+nSrcWidth*100);
+	nmppsMalloc_8s(&pSrc8s,nSrcSize+100,0);
+	nmppsMalloc_16s(&pHResample16s,nSrcSize*3/2+nSrcWidth*100,0);
+	nmppsMalloc_16s(&pVResample16s,nSrcSize*3*3/2/2+nSrcWidth*100,0);
 
-	nmppsSubC((nm8s*)pSrcImg,char(128),(nm8s*)pSrc8s,nSrcSize);
+	nmppsSubC_8s((nm8s*)pSrcImg,char(128),(nm8s*)pSrc8s,nSrcSize);
 	SIG_ResampleUp3Down2((nm8s*)pSrc8s,pHResample16s+nSrcWidth*50,nSrcSize,pKernel);
-	VEC_ArshC(pHResample16s+nSrcWidth*50,6,pHResample16s+nSrcWidth*50,nSrcSize*3/2);
+	nmppsArshC_16s(pHResample16s+nSrcWidth*50,6,pHResample16s+nSrcWidth*50,nSrcSize*3/2);
 	IMG_VResample3div2_Arsh0(pHResample16s+nSrcWidth*50,nSrcWidth*3/2,nSrcHeight,pVResample16s+nSrcWidth*50);
-	VEC_ClipArshCnv_AddC(pVResample16s+nSrcWidth*50, 6+7,6,128,(nm8s*)pDstImg, nSrcSize*3*3/2/2);
+	nmppsClipArshCnv_AddC_16s(pVResample16s+nSrcWidth*50, 6+7,6,128,(nm8s*)pDstImg, nSrcSize*3*3/2/2);
 	
-	VEC_Free(pKernel);
-	VEC_Free(pVResample16s);
-	VEC_Free(pHResample16s);
-	VEC_Free(pSrc8s);
+	nmppsFree(pKernel);
+	nmppsFree(pVResample16s);
+	nmppsFree(pHResample16s);
+	nmppsFree(pSrc8s);
 	
 }
 
@@ -248,18 +248,18 @@ void IMG_ResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDs
 //	nm8s*  pSrc8s;
 //	nm16s* pHResample16s;
 //	nm16s* pVResample16s;
-//	VEC_Malloc(&pSrc8s,nSrcSize+100);
-//	VEC_Malloc(&pHResample16s,nSrcSize*5/4+nSrcWidth*100);
-//	VEC_Malloc(&pVResample16s,nSrcSize*5*5/4/4+nSrcWidth*100);
+//	nmppsMalloc_(&pSrc8s,nSrcSize+100);
+//	nmppsMalloc_(&pHResample16s,nSrcSize*5/4+nSrcWidth*100);
+//	nmppsMalloc_(&pVResample16s,nSrcSize*5*5/4/4+nSrcWidth*100);
 //
-//	nmppsSubC((nm8s*)pSrcImg,char(128),(nm8s*)pSrc8s,nSrcSize);
+//	nmppsSubC_8s((nm8s*)pSrcImg,char(128),(nm8s*)pSrc8s,nSrcSize);
 //	SIG_Resample5div4_Arsh0((nm8s*)pSrc8s,nSrcSize,pHResample16s+nSrcWidth*50);
-//	VEC_ArshC(pHResample16s+nSrcWidth*50,6,pHResample16s+nSrcWidth*50,nSrcSize*5/4);
+//	nmppsArshC_(pHResample16s+nSrcWidth*50,6,pHResample16s+nSrcWidth*50,nSrcSize*5/4);
 //	IMG_VResample5div4_Arsh0(pHResample16s+nSrcWidth*50,nSrcWidth*5/4,nSrcHeight,pVResample16s+nSrcWidth*50);
-//	VEC_ClipPowCArshCnv_AddC(pVResample16s+nSrcWidth*50, 6+7,6,128,(nm8s*)pDstImg, nSrcSize*5*5/4/4);
+//	nmppsClipPowCArshCnv_AddC_(pVResample16s+nSrcWidth*50, 6+7,6,128,(nm8s*)pDstImg, nSrcSize*5*5/4/4);
 //	
-//	VEC_Free(pVResample16s);
-//	VEC_Free(pHResample16s);
-//	VEC_Free(pSrc8s);
+//	nmppsFree_(pVResample16s);
+//	nmppsFree_(pHResample16s);
+//	nmppsFree_(pSrc8s);
 //	
 //}

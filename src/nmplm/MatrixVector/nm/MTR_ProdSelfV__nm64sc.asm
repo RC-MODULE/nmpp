@@ -18,7 +18,7 @@ begin ".text_nmplm"
 //global _MTR_ProdSelfV__F6nm64scPC6nm64scPi:label;
 //      <_MTR_ProdSelfV__F6nm64scPC6nm64scPi>
 global _void._.8.8MTR_ProdSelfV.1class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._void._.0.2 :label;
-extern _VEC_TmpBuffer256_G: long; 
+extern _nmppsTmpBuffer256_G_: long; 
 <_void._.8.8MTR_ProdSelfV.1class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._void._.0.2>
 
     ar5=ar7-2 with gr7=false; // gr7 for nb1
@@ -34,11 +34,11 @@ extern _VEC_TmpBuffer256_G: long;
     ar6=[--ar5];  // dst = MTR complex
     gr5=[--ar5];  // L=Length
 ar4=[--ar5]; // pTmp
-[_VEC_TmpBuffer256_G]=ar4;
+[_nmppsTmpBuffer256_G_]=ar4;
 //=====================================================
    nb1=gr7 with gr4=gr3<<1;  // gr4=2*L кол-во 64р чисел 
    sb=gr7 with  gr0=gr7-1;   // gr0=-1;
-   ar4=[_VEC_TmpBuffer256_G] with gr0--;  // gr0=-2  
+   ar4=[_nmppsTmpBuffer256_G_] with gr0--;  // gr0=-2  
 .branch;
 // Почленное умножение эл-тов вектора:
 // На i-й эл-т вектора множатся все эл-ты .
@@ -81,7 +81,7 @@ ar4=[--ar5]; // pTmp
 //------------------------------
 // Сборка "бабочки"
    gr1=4;   
-   ar0=[_VEC_TmpBuffer256_G] with gr0=gr2+1;//ar0=Буфер почленных продуктов,gr0=L+1
+   ar0=[_nmppsTmpBuffer256_G_] with gr0=gr2+1;//ar0=Буфер почленных продуктов,gr0=L+1
    with gr0<<=2; // gr0=4(L+1)
    ar1=ar0+gr0 with gr6=gr2<<2; //gr6=4L, ar1=ar0+4(L+1) вторая половина строки
    ar4=ar6+gr6 with gr4=gr6-1;
@@ -134,6 +134,6 @@ ar5=ar6+80;
 	pop ar0,gr0;
  
  delayed return;
-// gr7=[_VEC_TmpBuffer256_G+2];
+// gr7=[_nmppsTmpBuffer256_G_+2];
  nul;
 end ".text_nmplm";

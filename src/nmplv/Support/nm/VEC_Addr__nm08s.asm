@@ -25,13 +25,13 @@
 begin ".text_nmplv"
 
     //--------------------------------------------------------------------
-    //! \fn nm8s * VEC_Addr (nm8s *pVec, int nIndex) 
+    //! \fn nm8s * nmppsAddr_8s(nm8s *pVec, int nIndex) 
 	//!
-	//! \perfinclude _VEC_Addr__FPci.html
+	//! \perfinclude _nmppsAddr__FPci_.html
     //--------------------------------------------------------------------
 	   
-global _char._.0.8.8VEC_Addr.1char._const._.0.9._int.2 :label;
-<_char._.0.8.8VEC_Addr.1char._const._.0.9._int.2>
+global _char._.0.8.8nmppsAddr_.1char._const._.0.9._int.2 :label;
+<_char._.0.8.8nmppsAddr_.1char._const._.0.9._int.2>
 .branch;
 	ar5 = sp-4 with gr7=gr5;	
 	gr5 = [ar5++];

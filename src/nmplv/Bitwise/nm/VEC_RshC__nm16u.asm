@@ -84,14 +84,14 @@ begin ".text_nmplv"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_RshC (nm16u *pSrcVec, int nShift, nm16u *pDstVec, int nSize) 
+//! \fn void nmppsRshC_16u(nm16u *pSrcVec, int nShift, nm16u *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_RshC__FPUsiPUsi.html
+//! \perfinclude _nmppsRshC__FPUsiPUsi_.html
 
-global _VEC_RshC__FPUsiPUsi:label;
-global _void._.8.8VEC_RshC.1unsigned._short._.0.9._int.9._unsigned._short._.0.9._int.2 :label;
-<_VEC_RshC__FPUsiPUsi>
-<_void._.8.8VEC_RshC.1unsigned._short._.0.9._int.9._unsigned._short._.0.9._int.2>
+global _nmppsRshC__FPUsiPUsi_:label;
+global _void._.8.8nmppsRshC_.1unsigned._short._.0.9._int.9._unsigned._short._.0.9._int.2 :label;
+<_nmppsRshC__FPUsiPUsi_>
+<_void._.8.8nmppsRshC_.1unsigned._short._.0.9._int.9._unsigned._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 4;
 	push ar0,gr0;

@@ -128,23 +128,23 @@ int SIG_SetFilter_16s16s(int* pWeights, int nWeights, nm64s* pKernel)
 
 
 	nm32s* pDispArray	=((nm32s*)pKernel)+2;
-	nm16s* pWeightMatrix=(nm16s*)VEC_Addr((nm32s*)pKernel,nNumberOfArrays+3);	
+	nm16s* pWeightMatrix=(nm16s*)nmppsAddr_32s((nm32s*)pKernel,nNumberOfArrays+3);	
 
-	VEC_SetVal(((nm32s*)pKernel),0,(int)nNumberOfArrays);
-	VEC_SetVal(((nm32s*)pKernel),1,(int)pWeightMatrix);
+	nmppsSetInt_32s(((nm32s*)pKernel),0,(int)nNumberOfArrays);
+	nmppsSetInt_32s(((nm32s*)pKernel),1,(int)pWeightMatrix);
 
 	for(int i=0;i< nNumberOfArrays; i++){
 		pDispArray[i]=(i<<1)-((nNumberOfArrays>>1)<<1);
 	}
 
-	VEC_Fill(pWeightMatrix,0,16*nNumberOfArrays);
+	nmppsSet_16s(pWeightMatrix,0,16*nNumberOfArrays);
 
 	int disp=GetDisp(nWeights);
 	for(int i=0; i<nWeights;i++){
-		VEC_SetVal(pWeightMatrix,(i+disp)*4+5*0,pWeights[i]);
-		VEC_SetVal(pWeightMatrix,(i+disp)*4+5*1,pWeights[i]);
-		VEC_SetVal(pWeightMatrix,(i+disp)*4+5*2,pWeights[i]);
-		VEC_SetVal(pWeightMatrix,(i+disp)*4+5*3,pWeights[i]);
+		nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*0,pWeights[i]);
+		nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*1,pWeights[i]);
+		nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*2,pWeights[i]);
+		nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*3,pWeights[i]);
 	}
 	int AllocSize=2+nNumberOfArrays+3+nNumberOfArrays*16/2;
 #else 

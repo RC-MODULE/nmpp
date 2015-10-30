@@ -2,11 +2,11 @@
 
 
 //!
-//! \perfinclude _VEC_Malloc__FPPlii.html
+//! \perfinclude _nmppsMalloc__FPPlii_.html
 //!
 
-void VEC_Malloc(nm64s** pptr, int nSize, int hint)
-//nm64s* VEC_Malloc_nm64s(int nSize, int hint) 
+void nmppsMalloc_64s(nm64s** pptr, int nSize, int hint)
+//nm64s* nmppsMalloc_nm64s_(int nSize, int hint) 
 {
     //if (hint == MEM_GLOBAL)
     //    *pptr = (nm64s*)malloc2(nSize<<1);

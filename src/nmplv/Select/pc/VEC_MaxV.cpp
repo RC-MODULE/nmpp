@@ -20,7 +20,7 @@
 #include "nmplv.h"
 
 
-void VEC_MaxV(nm8s7b*  pSrcVec1, nm8s7b* pSrcVec2,  nm8s7b*  pDstMax, int nSize)
+void nmppsMaxV_8s(nm8s7b*  pSrcVec1, nm8s7b* pSrcVec2,  nm8s7b*  pDstMax, int nSize)
 {
 	nm8s s1,s2,mask;
 	for(int i=0;i<nSize;i++)
@@ -31,7 +31,7 @@ void VEC_MaxV(nm8s7b*  pSrcVec1, nm8s7b* pSrcVec2,  nm8s7b*  pDstMax, int nSize)
 		pDstMax[i]=(s1&mask)|(s2&(~mask));
 	}
 }
-void VEC_MaxV(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMax, int nSize)
+void nmppsMaxV_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMax, int nSize)
 {
 	nm16s s1,s2,mask;
 	for(int i=0;i<nSize;i++)
@@ -43,7 +43,7 @@ void VEC_MaxV(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMax, int nSi
 	}
 }
 
-void VEC_MaxV(nm32s31b* pSrcVec1, nm32s31b* pSrcVec2, nm32s31b* pDstMax, int nSize)
+void nmppsMaxV_32s(nm32s31b* pSrcVec1, nm32s31b* pSrcVec2, nm32s31b* pDstMax, int nSize)
 {
 	nm32s s1,s2,mask;
 	for(int i=0;i<nSize;i++)
@@ -55,7 +55,7 @@ void VEC_MaxV(nm32s31b* pSrcVec1, nm32s31b* pSrcVec2, nm32s31b* pDstMax, int nSi
 	}
 }
 
-void VEC_MaxV(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMax, int nSize)
+void nmppsMaxV_64s(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMax, int nSize)
 {
 	nm64s s1,s2,mask;
 	for(int i=0;i<nSize;i++)

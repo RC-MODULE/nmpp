@@ -22,10 +22,10 @@ public:
 		nWarpSize=width*warpHeight;
 		pImg=0;
 		isAllocated=false;
-		pWarp=(T*)malloc32(VEC_Size32(pWarp,nWarpSize));
+		pWarp=(T*)malloc32(nmppsSize32_(pWarp,nWarpSize));
 		pfFree32=free32;
 		if (pWarp){
-			pImg=VEC_Addr(pWarp,border*width);
+			pImg=nmppsAddr_(pWarp,border*width);
 			isAllocated=true;
 		}
 	}
@@ -40,19 +40,19 @@ public:
 		isAllocated=false;
 		if (mode==WARP_AT_BUFFER){
 			pWarp=(T*)buffer;
-			pImg=VEC_Addr(pWarp,border*width);
+			pImg=nmppsAddr_(pWarp,border*width);
 		}
 		if (mode==IMG_AT_BUFFER){
 			pImg =(T*)buffer;
-			pWarp=(T*)VEC_Addr(pImg,-border*width);
+			pWarp=(T*)nmppsAddr_(pImg,-border*width);
 		}
 	}
 	
 	T* addr(int x, int y){
-		return VEC_Addr(pImg,y*nWidth+x);
+		return nmppsAddr_(pImg,y*nWidth+x);
 	}
 	T* end(){
-		return VEC_Addr(pWarp,nWarpSize);
+		return nmppsAddr_(pWarp,nWarpSize);
 	}
 
 	~C_WarpImg(){

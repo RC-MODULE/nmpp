@@ -19,10 +19,10 @@
 //------------------------------------------------------------------------
 
 #include "nmplv.h"
-//void VEC_Or3V(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
+//void nmppsOr3V_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
 ///////////////////////////////////////////////////////////
 // pDstVec[i] = !pSrcVec[i]; 
-void VEC_Or3V(	nm64u* pVec0, 
+void nmppsOr3V_64u(nm64u* pVec0, 
 				nm64u* pVec1, 
 				nm64u* pVec2, 
 				nm64u* pDstVec, 

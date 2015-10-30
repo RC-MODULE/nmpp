@@ -22,7 +22,7 @@
 //#include "Vector.h"
 
     /**
-    \defgroup VEC_Not VEC_Not
+    \defgroup nmppsNot_ nmppsNot_
     \ingroup vBitwise
     \brief
         \ru Функция логического "НЕ". 
@@ -75,13 +75,13 @@
     \endxmlonly
     */
     //! \{
-void VEC_Not(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
+void nmppsNot_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_AndC VEC_AndC
+    \defgroup nmppsAndC_ nmppsAndC_
     \ingroup vBitwise
     \brief
         \ru Функция логического "И" между вектором и константой. 
@@ -135,13 +135,13 @@ void VEC_Not(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_AndC(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
+void nmppsAndC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_AndV VEC_AndV
+    \defgroup nmppsAndV_ nmppsAndV_
     \ingroup vBitwise
     \brief
         \ru Функция логического "И" между двумя векторами. 
@@ -191,11 +191,11 @@ void VEC_AndC(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_AndV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+void nmppsAndV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 	
 /**
-    \defgroup VEC_And4V VEC_And4V
+    \defgroup nmppsAnd4V_ nmppsAnd4V_
     \ingroup vBitwise
     \brief
         \ru Функция логического "И" между четырьмя векторами. 
@@ -253,15 +253,15 @@ void VEC_AndV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_And4V(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pSrcVec4, nm64u* pDstVec, int nSize);
+void nmppsAnd4V_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pSrcVec4, nm64u* pDstVec, int nSize);
     //! \}
 	
 	// numVecs>2
-void VEC_AndNV(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);	
+void nmppsAndNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);	
 //*****************************************************************************
 
     /**
-    \defgroup VEC_AndNotV VEC_AndNotV
+    \defgroup nmppsAndNotV_ nmppsAndNotV_
     \ingroup vBitwise
     \brief
         \ru Функция логического "И-НЕ" между двумя векторами. 
@@ -311,13 +311,13 @@ void VEC_AndNV(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_AndNotV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+void nmppsAndNotV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_OrC VEC_OrC
+    \defgroup nmppsOrC_ nmppsOrC_
     \ingroup vBitwise
     \brief
         \ru Функция логического "ИЛИ" между вектором и константой. 
@@ -371,13 +371,13 @@ void VEC_AndNotV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_OrC(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
+void nmppsOrC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_OrV VEC_OrV
+    \defgroup nmppsOrV_ nmppsOrV_
     \ingroup vBitwise
     \brief
         \ru Функция логического "ИЛИ" между двумя векторами. 
@@ -427,11 +427,11 @@ void VEC_OrC(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_OrV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+void nmppsOrV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 	
 /**
-    \defgroup VEC_Or3V VEC_Or3V
+    \defgroup nmppsOr3V_ nmppsOr3V_
     \ingroup vBitwise
     \brief
         \ru Функция логического "ИЛИ" между четырьмя векторами. 
@@ -485,11 +485,11 @@ void VEC_OrV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_Or3V(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pDstVec, int nSize);
+void nmppsOr3V_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pDstVec, int nSize);
     //! \}	
 	
 /**
-    \defgroup VEC_Or4V VEC_Or4V
+    \defgroup nmppsOr4V_ nmppsOr4V_
     \ingroup vBitwise
     \brief
         \ru Функция логического "ИЛИ" между четырьмя векторами. 
@@ -547,16 +547,16 @@ void VEC_Or3V(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pDstVec,
     \endxmlonly
     */
     //! \{
-void VEC_Or4V(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pSrcVec4, nm64u* pDstVec, int nSize);
+void nmppsOr4V_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pSrcVec4, nm64u* pDstVec, int nSize);
     //! \}
 
 	// numVecs>2
-void VEC_OrNV(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
+void nmppsOrNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
 	
 //*****************************************************************************
 
     /**
-    \defgroup VEC_XorC VEC_XorC
+    \defgroup nmppsXorC_ nmppsXorC_
     \ingroup vBitwise
     \brief
         \ru Функция логического "Исключающего ИЛИ" между вектором и константой. 
@@ -611,13 +611,13 @@ void VEC_OrNV(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
     */
     //--------------------------------------------------------------------
     //! \{
-void VEC_XorC(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
+void nmppsXorC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_XorV VEC_XorV
+    \defgroup nmppsXorV_ nmppsXorV_
     \ingroup vBitwise
     \brief
         \ru Функция логического "Исключающего ИЛИ" между двумя векторами. 
@@ -667,13 +667,13 @@ void VEC_XorC(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_XorV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+void nmppsXorV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_MaskV VEC_MaskV
+    \defgroup nmppsMaskV_ nmppsMaskV_
     \ingroup vBitwise
     \brief
         \ru Функция логического ИЛИ с предварительным маскированием двух векторов. 
@@ -730,13 +730,13 @@ void VEC_XorV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_MaskV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pMaskVec, nm64u* pDstVec, int nSize);
+void nmppsMaskV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pMaskVec, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_ArshC VEC_ArshC
+    \defgroup nmppsArshC_ nmppsArshC_
     \ingroup vBitwise
     \brief
         \ru Операция арифметического сдвига вправо. 
@@ -806,16 +806,16 @@ void VEC_MaskV(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pMaskVec, nm64u* pDstVec
     \endxmlonly
     */
     //! \{
-void VEC_ArshC( nm8s* pSrcVec, int nShift,  nm8s* pDstVec, int nSize);
-void VEC_ArshC(nm16s* pSrcVec, int nShift, nm16s* pDstVec, int nSize);
-void VEC_ArshC(nm32s* pSrcVec, int nShift, nm32s* pDstVec, int nSize);
-void VEC_ArshC(nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSize);
+void nmppsArshC_8s(nm8s* pSrcVec, int nShift,  nm8s* pDstVec, int nSize);
+void nmppsArshC_16s(nm16s* pSrcVec, int nShift, nm16s* pDstVec, int nSize);
+void nmppsArshC_32s(nm32s* pSrcVec, int nShift, nm32s* pDstVec, int nSize);
+void nmppsArshC_64s(nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_RshC VEC_RshC
+    \defgroup nmppsRshC_ nmppsRshC_
     \ingroup vBitwise
     \brief
         \ru Операция логического сдвига. 
@@ -882,16 +882,16 @@ void VEC_ArshC(nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void  VEC_RshC( nm8u* pSrcVec, int nShift,  nm8u* pDstVec, int nSize);
-void  VEC_RshC(nm16u* pSrcVec, int nShift, nm16u* pDstVec, int nSize);
-void  VEC_RshC(nm32u* pSrcVec, int nShift, nm32u* pDstVec, int nSize);
-void  VEC_RshC(nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSize);
+void  nmppsRshC_8u(nm8u* pSrcVec, int nShift,  nm8u* pDstVec, int nSize);
+void  nmppsRshC_16u(nm16u* pSrcVec, int nShift, nm16u* pDstVec, int nSize);
+void  nmppsRshC_32u(nm32u* pSrcVec, int nShift, nm32u* pDstVec, int nSize);
+void  nmppsRshC_64u(nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSize);
     //! \}
 
 
 
     /**
-    \defgroup VEC_RshC_AddC VEC_RshC_AddC
+    \defgroup nmppsRshC_AddC_ nmppsRshC_AddC_
     \ingroup vBitwise
     \brief
         \ru Операция логического сдвига. 
@@ -965,15 +965,15 @@ void  VEC_RshC(nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_RshC_AddC (nm16u *pSrcVec,  int nShift, uint16b nAddVal,  nm16u *pDstVec, int nSize);
+void nmppsRshC_AddC_16u(nm16u *pSrcVec,  int nShift, uint16b nAddVal,  nm16u *pDstVec, int nSize);
     //! \}
-void VEC_RshC_AddC (nm8u *pSrcVec,   int nShift, uint8b nAddVal,  nm8u  *pDstVec, int nSize);
-void VEC_RshC_AddC (nm32u *pSrcVec,  int nShift, uint32b nAddVal,  nm32u *pDstVec, int nSize);
+void nmppsRshC_AddC_8u(nm8u *pSrcVec,   int nShift, uint8b nAddVal,  nm8u  *pDstVec, int nSize);
+void nmppsRshC_AddC_32u(nm32u *pSrcVec,  int nShift, uint32b nAddVal,  nm32u *pDstVec, int nSize);
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_DisplaceBits VEC_DisplaceBits
+    \defgroup nmppsDisplaceBits_ nmppsDisplaceBits_
     \ingroup vBitwise
     \brief
 		\ru Нерпрерывное смещение битов внутри бинарного массива в сторону конца массива
@@ -1050,7 +1050,7 @@ void VEC_RshC_AddC (nm32u *pSrcVec,  int nShift, uint32b nAddVal,  nm32u *pDstVe
     \endxmlonly
     */
     //! \{
-void VEC_DisplaceBits(const nm64u* pSrcVec, nm64u* pDstVec, nm64u* pnBits, int nBits, int nSize);
+void nmppsDisplaceBits_(const nm64u* pSrcVec, nm64u* pDstVec, nm64u* pnBits, int nBits, int nSize);
     //! \}
 
 #endif // _VBITWISE_H_INCLUDED_

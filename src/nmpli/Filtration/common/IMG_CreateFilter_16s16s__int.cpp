@@ -143,10 +143,10 @@ int IMG_SetFilter_16s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgW
 	
 	
 	nm32s* pDispArray	=((nm32s*)pKernel)+2;
-	nm16s* pWeightMatrix=(nm16s*)VEC_Addr((nm32s*)pDispArray,nKerHeight*nNumberOfArrays+1);	
+	nm16s* pWeightMatrix=(nm16s*)nmppsAddr_32s((nm32s*)pDispArray,nKerHeight*nNumberOfArrays+1);	
 	
-	VEC_SetVal(((nm32s*)pKernel),0,(int)nNumberOfArrays*nKerHeight);
-	VEC_SetVal(((nm32s*)pKernel),1,(int)pWeightMatrix);
+	nmppsSetInt_32s(((nm32s*)pKernel),0,(int)nNumberOfArrays*nKerHeight);
+	nmppsSetInt_32s(((nm32s*)pKernel),1,(int)pWeightMatrix);
 	
 	int disp=-(nImgWidth>>1)*(nKerHeight>>1);
 	for(int j=0; j<nKerHeight; j++){
@@ -157,17 +157,17 @@ int IMG_SetFilter_16s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgW
 		disp+=(nImgWidth>>1);
 	}
 	
-	VEC_Fill(pWeightMatrix,0,16*nNumberOfArrays*nKerHeight);
+	nmppsSet_16s(pWeightMatrix,0,16*nNumberOfArrays*nKerHeight);
 	
 	disp=GetDisp(nKerWidth);
 	for(int j=0,k=0; j<nKerHeight; j++){
 		for(int i=0; i<nKerWidth; i++,k++){
-			VEC_SetVal(pWeightMatrix,(i+disp)*4+5*0,pWeights[k]);
-			VEC_SetVal(pWeightMatrix,(i+disp)*4+5*1,pWeights[k]);
-			VEC_SetVal(pWeightMatrix,(i+disp)*4+5*2,pWeights[k]);
-			VEC_SetVal(pWeightMatrix,(i+disp)*4+5*3,pWeights[k]);
+			nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*0,pWeights[k]);
+			nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*1,pWeights[k]);
+			nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*2,pWeights[k]);
+			nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*3,pWeights[k]);
 		}
-		pWeightMatrix=VEC_Addr(pWeightMatrix,nNumberOfArrays*16);
+		pWeightMatrix=nmppsAddr_16s(pWeightMatrix,nNumberOfArrays*16);
 	}
 
 	//return 2+nKerHeight*nNumberOfArrays+1+nKerHeight*nNumberOfArrays*8;
@@ -181,7 +181,7 @@ void IMG_CreateFilter_16s16s(int* pWeights, int nKerWidth, int nKerHeight, int n
 {
 	int nNumberOfArrays=GetMatrixCount(nKerWidth);
 	int AllocSize=2+nKerHeight*nNumberOfArrays+1+nKerHeight*nNumberOfArrays*8;
-	VEC_Malloc((nm32s**)pKernel,AllocSize,nHint);
+	nmppsMalloc_32s((nm32s**)pKernel,AllocSize,nHint);
 	if (*pKernel==0) return;
 	IMG_SetFilter_16s16s(pWeights, nKerWidth, nKerHeight, nImgWidth, *pKernel);
 }*/

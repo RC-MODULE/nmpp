@@ -22,8 +22,8 @@ begin ".text_nmvcore"
     // Изменяет регистры: ar0, ar6.
     //--------------------------------------------------------------------
 local lab_rep0: label;
-global VEC_DataXorRamN_ActivateAfifoVr: label;
-<VEC_DataXorRamN_ActivateAfifoVr>
+global nmppsDataXorRamN_ActivateAfifoVr_: label;
+<nmppsDataXorRamN_ActivateAfifoVr_>
 .branch;
     push ar2,gr2 with gr2 = gr5 << 27;
     push ar5,gr5 with gr5 >>= 5;

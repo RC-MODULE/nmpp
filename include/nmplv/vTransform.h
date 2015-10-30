@@ -53,18 +53,18 @@
     \xmlonly
         <testperf> 
 			<init> 	
-				VEC_Rand((nm32u*)L,1024);
-				VEC_ArshC((nm32s*)L, 1, (nm32s*)L, 1024);
-				VEC_Rand((nm32u*)G,1024);
-				VEC_ArshC((nm32s*)G, 1, (nm32s*)G, 1024);
+				nmppsRand_32u((nm32u*)L,1024);
+				nmppsArshC_32s((nm32s*)L, 1, (nm32s*)L, 1024);
+				nmppsRand_32u((nm32u*)G,1024);
+				nmppsArshC_32s((nm32s*)G, 1, (nm32s*)G, 1024);
              </init>
              <param> pSrcDstVec </param> <values> L G 	  	</values>
              <param> nSize </param> <values> 256 	</values>
         </testperf>
         <testperf> 
 			<init> 
-				VEC_Rand((nm32u*)G,1024);
-				VEC_ArshC((nm32s*)G, 1, (nm32s*)G, 1024);
+				nmppsRand_32u((nm32u*)G,1024);
+				nmppsArshC_32s((nm32s*)G, 1, (nm32s*)G, 1024);
              </init>
              <param> pSrcDstVec </param> <values> G </values>
              <param> nSize </param> <values> 8 128 256 </values>
@@ -73,13 +73,13 @@
 
     */
     //! \{
-void VEC_QSort(nm32s* pSrcDstVec, int nSize);
+void nmppsQSort_32s(nm32s* pSrcDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Remap VEC_Remap
+    \defgroup nmppsRemap_ nmppsRemap_
     \ingroup vTransform
     \brief
         \ru Переупорядочивание элементов вектора по таблице. 
@@ -124,11 +124,11 @@ void VEC_QSort(nm32s* pSrcDstVec, int nSize);
     
 	\code 
 		// Функция 
-		// void VEC_Remap(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVecSize, int nDstVecSize, void* pTmpBuf1, void* pTmpBuf2);
+		// void nmppsRemap_8u(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVecSize, int nDstVecSize, void* pTmpBuf1, void* pTmpBuf2);
 		// выполняет следющие действия: 
-	    VEC_Cnv((nm8u*) pSrcVec, (nm32u*)pTmpBuf1,nSrcVecSize);
-	    VEC_Remap  ((nm32u*)pTmpBuf1,(nm32u*)pTmpBuf2,RemapTable,DstVecSize);
-	    VEC_Cnv((nm32s*)pTmpBuf2,(nm8s*) pDstVec, DstVecSize);
+	    nmppsCnv_8u((nm8u*) pSrcVec, (nm32u*)pTmpBuf1,nSrcVecSize);
+	    nmppsRemap_32u((nm32u*)pTmpBuf1,(nm32u*)pTmpBuf2,RemapTable,DstVecSize);
+	    nmppsCnv_32s((nm32s*)pTmpBuf2,(nm8s*) pDstVec, DstVecSize);
 	\endcode
 	
 	\note
@@ -162,8 +162,8 @@ void VEC_QSort(nm32s* pSrcDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_Remap(nm32u* pSrcVec, nm32u* pDstVec, nm32s* pRemapTable, int nDstVecSize);
-void VEC_Remap(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVecSize, int nDstVecSize, void* pTmpBuf1, void* pTmpBuf2);
+void nmppsRemap_32u(nm32u* pSrcVec, nm32u* pDstVec, nm32s* pRemapTable, int nDstVecSize);
+void nmppsRemap_8u(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVecSize, int nDstVecSize, void* pTmpBuf1, void* pTmpBuf2);
     //! \}
 
 
@@ -203,11 +203,11 @@ void VEC_Remap(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVecSize
 		</testperf>
 	\endxmlonly
 	
-	\todo 	Impelenment NM versin of VEC_Split(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
+	\todo 	Impelenment NM versin of nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 
 	*/
 	//! \{
-void VEC_Split(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
+void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	//! \}
 
 #endif //_VTRANSFORM_H_INCLUDED_

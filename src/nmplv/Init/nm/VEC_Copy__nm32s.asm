@@ -26,12 +26,12 @@ extern vec_data:label;
 begin ".text_nmplv"
   
 
-//! \fn void VEC_Copy( nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+//! \fn void nmppsCopy_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
 //!
-//! \perfinclude _VEC_Copy__FPiPii.html
+//! \perfinclude _nmppsCopy__FPiPii_.html
    
-global _void._.8.8VEC_Copy.1int._.0.9._int._.0.9._int.2 :label;
-<_void._.8.8VEC_Copy.1int._.0.9._int._.0.9._int.2>
+global _void._.8.8nmppsCopy_.1int._.0.9._int._.0.9._int.2 :label;
+<_void._.8.8nmppsCopy_.1int._.0.9._int._.0.9._int.2>
 .branch;
     ar5 = sp - 2	with gr7=gr5;
 	push ar0,gr0	with gr0=false;

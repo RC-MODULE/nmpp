@@ -311,12 +311,12 @@ begin ".text_nmplv"
 ///////////////////////////////////////////////////////////////////////////////////////
 // 
 //
-//! \fn void VEC_ArshC (nm16s *pSrcVec, int nShift, nm16s *pDstVec, int nSize) 
+//! \fn void nmppsArshC_16s(nm16s *pSrcVec, int nShift, nm16s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_ArshC__FPSsiPSsi.html
+//! \perfinclude _nmppsArshC__FPSsiPSsi_.html
 
-global _void._.8.8VEC_ArshC.1short._.0.9._int.9._short._.0.9._int.2 :label;
-<_void._.8.8VEC_ArshC.1short._.0.9._int.9._short._.0.9._int.2>
+global _void._.8.8nmppsArshC_.1short._.0.9._int.9._short._.0.9._int.2 :label;
+<_void._.8.8nmppsArshC_.1short._.0.9._int.9._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 4;
 	push ar0,gr0;

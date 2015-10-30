@@ -19,7 +19,8 @@
 //------------------------------------------------------------------------
 #include "nmplv.h"
 
-
-nm8s*  VEC_Addr(const nm8s*  pBase, int Disp) { return (nm8s*)pBase+Disp; }
-nm16s* VEC_Addr(nm16s* pBase, int Disp) { return pBase+Disp; }
-nm32s* VEC_Addr(nm32s* pBase, int Disp) { return pBase+Disp; }
+/*
+nm8s*  nmppsAddr_8s(const nm8s*  pBase, int Disp) { return (nm8s*)pBase+Disp; }
+nm16s* nmppsAddr_16s(nm16s* pBase, int Disp) { return pBase+Disp; }
+nm32s* nmppsAddr_32s(nm32s* pBase, int Disp) { return pBase+Disp; }
+*/

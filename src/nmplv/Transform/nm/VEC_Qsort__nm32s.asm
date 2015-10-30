@@ -21,7 +21,7 @@
 
 begin ".text_nmplv"
 ////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_QSort (nm32s *pSrcDstVec, int nSize) 
+//! \fn void nmppsQSort_32s(nm32s *pSrcDstVec, int nSize) 
 //!
 //! \perfinclude _VEC_QSort__FPii.html
 

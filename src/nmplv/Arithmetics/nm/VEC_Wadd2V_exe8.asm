@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: VEC_Wadd2V_set8.asm             $
+//  $Workfile:: nmppsWadd2V_set8_.asm             $
 //
 //  <nmplv>
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   VEC_Wadd2V_exe8.asm
+//! \file   nmppsWadd2V_exe8_.asm
 //! \author Сергей Свечников
 //! \brief  <Взвешенная сумма двух векторов типа nm8s>
 //!

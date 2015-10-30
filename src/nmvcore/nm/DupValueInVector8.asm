@@ -24,8 +24,8 @@ begin ".text_nmvcore"
     //      gr1 - значение (8 бит).
     // Изменяет регистры: ar1, gr1.
     //--------------------------------------------------------------------
-global VEC_DupValueInVector8: label;
-<VEC_DupValueInVector8>
+global nmppsDupValueInVector8_: label;
+<nmppsDupValueInVector8_>
     push ar0, gr0 with gr0 = gr1 << 24;
     gr1 = gr0 with gr0 >>= 8;
     gr1 = gr0 or gr1;

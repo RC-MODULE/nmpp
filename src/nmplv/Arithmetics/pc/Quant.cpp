@@ -21,8 +21,7 @@
 #include "nmplv.h"
 /////////////////////////////////////////////////////////////////////////////////
 //	Quantization in pairs of 32-bit signed words
-void VEC_Quant_By2Int(
-			nm32s*	pSrcVec,			// Input array 					:long Global[Count/2*SrcReadStep/2]
+void nmppsQuant_By2Int_32s(nm32s*	pSrcVec,			// Input array 					:long Global[Count/2*SrcReadStep/2]
 			nm32s*	DstBuffer,			// Output qunatized array		:long Global[Count/2*DstWriteStep/2]
 			nm32s*	Quantizers,			// pArray of two quantizers		:long Any	[2/2]; Quantizers[0,1]=[1,2,3...128]
 			int		Count,				// Number of 32-bit elements to be quantized	:=[0,1,2,3...]
@@ -58,8 +57,7 @@ void VEC_Quant_By2Int(
 	}
 }
 /////////////////////////////////////////////////////////////////////////////////////////
-void VEC_Dequant_By2Int(
-			nm32s*	pSrcVec,			// Input array 					:long Global[NumbersOfPairs*SrcPairReadStep/2]
+void nmppsDequant_By2Int_32s(nm32s*	pSrcVec,			// Input array 					:long Global[NumbersOfPairs*SrcPairReadStep/2]
 			nm32s*	pDstVec,			// Output qunatized array		:long Local [NumbersOfPairs*DstPairWriteStep/2]
 			nm32s*	PairOfQuantizers,	// pArray of two quantizers		:long Local [2/2]
 			int		NumbersOfPairs,		// Numbers of input pairs should be quantized: =[1,2,3...]

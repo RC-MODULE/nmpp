@@ -21,8 +21,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////
 //  Swap of two vectors
-void VEC_Swap(
-		nm64s*		pSrcVec1,		// input buffer		:long Long[...]
+void nmppsSwap_64s(nm64s*		pSrcVec1,		// input buffer		:long Long[...]
 		nm64s*		pSrcVec2,		// output buffer	:long Long[DstVecSize>>3]	
 		int				nSize	// buffer size in 8-bit elemetns	:[0,8,16,24...]
 		)

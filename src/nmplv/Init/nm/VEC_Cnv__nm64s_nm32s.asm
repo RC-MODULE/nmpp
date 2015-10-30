@@ -28,13 +28,13 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_Cnv(nm64s* pSrcVec, nm32s* pDstVec, int nSize)
+//! \fn void nmppsCnv_64s(nm64s* pSrcVec, nm32s* pDstVec, int nSize)
 //!
-//! \perfinclude _VEC_Cnv__FPlPii.html
+//! \perfinclude _nmppsCnv__FPlPii_.html
 
 
-global _void._.8.8VEC_Cnv.1long._.0.9._int._.0.9._int.2 :label;
-<_void._.8.8VEC_Cnv.1long._.0.9._int._.0.9._int.2>
+global _void._.8.8nmppsCnv_.1long._.0.9._int._.0.9._int.2 :label;
+<_void._.8.8nmppsCnv_.1long._.0.9._int._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

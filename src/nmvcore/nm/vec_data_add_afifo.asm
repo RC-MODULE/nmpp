@@ -18,7 +18,7 @@
 //!
 //------------------------------------------------------------------------
 
-extern _VEC_TmpBuffer64_G:long;
+extern _nmppsTmpBuffer64_G_:long;
 
 begin ".text_nmvcore"
 
@@ -40,7 +40,7 @@ global vec_data_add_afifo:label;
 	with gr5--;
 	rep 32 data=[ar0++gr0] with data;
 	if =0 delayed goto end_Sum_rep32 with gr5--;
-		ar2 = _VEC_TmpBuffer64_G;
+		ar2 = _nmppsTmpBuffer64_G_;
 	
 	<next_Sum_rep32>
 	if <>0 delayed goto next_Sum_rep32 with gr5--;

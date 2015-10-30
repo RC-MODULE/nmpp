@@ -20,7 +20,7 @@
 //#include "vConvert.h"
 //-----------------------------------------------------------------------------
 data ".data_nmplv_L"
-	w_VEC_Cnv_L: long[128] = (
+	w_nmppsCnv_L_: long[128] = (
 		3hl, 30hl, 300hl, 3000hl, 30000hl, 300000hl, 3000000hl, 30000000hl,
 		300000000hl, 3000000000hl, 30000000000hl, 300000000000hl,
 		3000000000000hl, 30000000000000hl, 300000000000000hl, 3000000000000000hl,
@@ -38,20 +38,20 @@ data ".data_nmplv_L"
 		0C000000000000hl, 0C0000000000000hl, 0C00000000000000hl, 0C000000000000000hl);
 end ".data_nmplv_L";
 data ".data_nmplv_G"
-	w_VEC_Cnv_G: long[32];
+	w_nmppsCnv_G_: long[32];
 end ".data_nmplv_G";
 //-----------------------------------------------------------------------------
 import from macros.mlb;
 //-----------------------------------------------------------------------------
 begin ".text_nmplv"
 
-//! \fn void VEC_Cnv( nm1* pSrcVec, nm2s* pDstVec, int nSize)
+//! \fn void nmppsCnv_1*(nm1* pSrcVec, nm2s* pDstVec, int nSize)
 //!
-//! \perfinclude _VEC_Cnv__F3nm1P4nm2sPi.html
+//! \perfinclude _nmppsCnv__F3nm1P4nm2sPi_.html
 
 
-global _void._.8.8VEC_Cnv.1class._nm1._.0.9._class._nm2s._.0.9._int.2 :label;
-<_void._.8.8VEC_Cnv.1class._nm1._.0.9._class._nm2s._.0.9._int.2>
+global _void._.8.8nmppsCnv_.1class._nm1._.0.9._class._nm2s._.0.9._int.2 :label;
+<_void._.8.8nmppsCnv_.1class._nm1._.0.9._class._nm2s._.0.9._int.2>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0;
@@ -71,15 +71,15 @@ global _void._.8.8VEC_Cnv.1class._nm1._.0.9._class._nm2s._.0.9._int.2 :label;
 
 	nb1 = gr4 with gr7 >>= 11;
 	sb  = 0aaaaaaaahl;
-	ar5 = w_VEC_Cnv_L ;
+	ar5 = w_nmppsCnv_L_ ;
 	gr5 = ar5 with gr7--;
 	rep 32 wfifo = [ar5++], ftw;
 	WTW_REG(gr4);
-	if =0 delayed goto lab_VEC_Cnv_2 with gr7--;
+	if =0 delayed goto lab_nmppsCnv_2_ with gr7--;
 		rep 32 wfifo = [ar5++], ftw;
 		nul;
 
-<lab_VEC_Cnv_1>
+<lab_nmppsCnv_1_>
 	rep 32 data,ram = [ar0++] with vsum, data, 0;
 	WTW_REG(gr4);
 	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;
@@ -90,11 +90,11 @@ global _void._.8.8VEC_Cnv.1class._nm1._.0.9._class._nm2s._.0.9._int.2 :label;
 	ar5 = gr5;
 	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;
 	WTW_REG(gr4);
-	if > delayed goto lab_VEC_Cnv_1 with gr7--;	
+	if > delayed goto lab_nmppsCnv_1_ with gr7--;	
 		rep 32 [ar2++gr2] = afifo;
 		rep 32 wfifo = [ar5++], ftw;
 
-<lab_VEC_Cnv_2>
+<lab_nmppsCnv_2_>
 	rep 32 ram = [ar0++] with vsum, data, 0;
 	WTW_REG(gr4);
 	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;

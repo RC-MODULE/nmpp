@@ -20,15 +20,15 @@
 
 //#include "vConvert.h"
 
-//! \fn int8b VEC_GetVal (nm8s *pVec, int nIndex) 
+//! \fn int8b nmppsGet_8s(nm8s *pVec, int nIndex) 
 //!
-//! \perfinclude _VEC_GetVal__FPci.html
+//! \perfinclude _nmppsGetVal__FPci_.html
 
 begin ".text_nmplv"
-global _VEC_GetVal__FPci:	label;
-global _int._.8.8VEC_GetVal.1char._.0.9._int.2 :label;
-<_VEC_GetVal__FPci>
-<_int._.8.8VEC_GetVal.1char._.0.9._int.2>
+global _nmppsGetVal__FPci_:	label;
+global _int._.8.8nmppsGetVal_.1char._.0.9._int.2 :label;
+<_nmppsGetVal__FPci_>
+<_int._.8.8nmppsGetVal_.1char._.0.9._int.2>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0;

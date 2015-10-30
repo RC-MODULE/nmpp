@@ -67,7 +67,7 @@ void IMG_ResampleDown2X(
                       )
 {
     int len = nSrcHeight*nSrcWidth;
-    VEC_Cnv((nm8s*)pSrcImg,(nm16s*)pTmpBuf,len);
+    nmppsCnv_8s16s((nm8s*)pSrcImg,(nm16s*)pTmpBuf,len);
     SIG_ResampleDown2((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,len,pKernel);
 }
 
@@ -89,7 +89,7 @@ void IMG_ResampleDown2Y(
 		)
 {
 
-    VEC_Cnv((nm8s*)pSrcImg,(nm16s*)pTmpBuf,nSrcHeight*nSrcWidth);
+    nmppsCnv_8s16s((nm8s*)pSrcImg,(nm16s*)pTmpBuf,nSrcHeight*nSrcWidth);
     IMG_ResampleDown2Y((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,nSrcWidth);
 }
 
@@ -110,7 +110,7 @@ void IMG_ResampleDown2XY(
                        void*			pTmpBuf	// output buffer	:long Global[h*w/4]	
                        )
 {
-    VEC_Cnv((nm8s*)pSrcImg,(nm16s*)pTmpBuf,nSrcHeight*nSrcWidth);
+    nmppsCnv_8s16s((nm8s*)pSrcImg,(nm16s*)pTmpBuf,nSrcHeight*nSrcWidth);
     SIG_ResampleDown2((nm16u15b*)pTmpBuf,(nm16u15b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
     IMG_ResampleDown2Y((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,(nSrcWidth/2));
 }

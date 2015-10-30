@@ -213,7 +213,7 @@ void IMG_Cnv(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize);
             полезные данные занимают младшие 24 бита. ƒл€ получени€
             восьмибитовых пикселей неоходимо вырезать биты 16..23,
             например, с помощью 
-           VEC_ClipArshCnv_Add( nm32s* pSrcVec, int nClipFactor,int nShift, nm64u* nAddValue,nm8s* pDstVec, int nSize);
+           nmppsClipArshCnv_Add_32s(nm32s* pSrcVec, int nClipFactor,int nShift, nm64u* nAddValue,nm8s* pDstVec, int nSize);
            с параметрами nClipFactor=24,  nShift=16.
 		\en
 	\param nSize 

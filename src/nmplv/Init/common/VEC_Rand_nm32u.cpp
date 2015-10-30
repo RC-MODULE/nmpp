@@ -23,12 +23,11 @@
 
  
 //! 
-//! \perfinclude _VEC_Rand__FPUiiUi.html
+//! \perfinclude _nmppsRand__FPUiiUi_.html
 //! 
 
 
-void VEC_Rand(					
-		nm32u*	pDstVec,		// array									:int Global [SizeInt]
+void nmppsRand_32u(nm32u*	pDstVec,		// array									:int Global [SizeInt]
 		int				nSize,		// nSize of Source array in 32-bit elements	:nSize=    [0,1,2,3,4...]
 		unsigned nRandomize
 		)
@@ -44,8 +43,7 @@ void VEC_Rand(
 #ifndef __NM__
 ////////////////////////////////////////////////////////////////////////////
 //  Random initialization of 64-bit Buffer
-  void VEC_Rand(					
-	  nm64s*			pDstVec,		// array									:int Global [SizeInt]
+  void nmppsRand_64s(nm64s*			pDstVec,		// array									:int Global [SizeInt]
 		int				nSize,		// nSize of Source array in 64-bit elements	:nSize=    [0,1,2,3,4...]
 		int				Randomize
 		)

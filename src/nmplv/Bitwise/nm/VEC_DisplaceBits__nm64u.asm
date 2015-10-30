@@ -52,7 +52,7 @@ begin ".text_nmplv"
 //						pDstVec=[07060504030201AB][0F0E0D0C0B0A0908]....... (last 8 bits of pSrcVec will be lost)
 // If you point pBits to the last 64-bit word of pSrcVec buffer you will get the cyclical bit shift
 //
-// void VEC_PushBits(
+// void nmppsPushBits_(
 //	const   nm1*	pSrcVec,		//Input buffer					:long Local [Size/8].
 //			nm1*	pDstVec,		//Output buffer					:long Global[Size/8].
 //			nm1*	pBits,		//Being pushed bits				:long Variable
@@ -65,10 +65,10 @@ begin ".text_nmplv"
 //
 //  PERFORMANCE:
 //
-//	VEC_PushBits((nm1*)L0,(nm1*)L0,(nm1*)L0,8,352*288/8);//56061 (temu) 0.553 clocks per pixel
-//	VEC_PushBits((nm1*)L0,(nm1*)G0,(nm1*)L0,8,352*288/8);//55263 (temu)
-//	VEC_PushBits((nm1*)G0,(nm1*)L0,(nm1*)L0,8,352*288/8);//56457 (temu)
-//	VEC_PushBits((nm1*)G0,(nm1*)G0,(nm1*)L0,8,352*288/8);//56055 (temu)
+//	nmppsPushBits_1*((nm1*)L0,(nm1*)L0,(nm1*)L0,8,352*288/8);//56061 (temu) 0.553 clocks per pixel
+//	nmppsPushBits_1*((nm1*)L0,(nm1*)G0,(nm1*)L0,8,352*288/8);//55263 (temu)
+//	nmppsPushBits_1*((nm1*)G0,(nm1*)L0,(nm1*)L0,8,352*288/8);//56457 (temu)
+//	nmppsPushBits_1*((nm1*)G0,(nm1*)G0,(nm1*)L0,8,352*288/8);//56055 (temu)
 // 	
 //		The function performance  depends on memory allocation for  
 //		input and output buffers.
@@ -94,16 +94,16 @@ begin ".text_nmplv"
 //	Optimization:
 
 ///////////////////////////////////////////////////////////
-//! \fn void VEC_DisplaceBits(const nm64u* pSrcVec, nm64u* pDstVec, nm64u* pnBits, int nBits, int nSize)
+//! \fn void nmppsDisplaceBits_(const nm64u* pSrcVec, nm64u* pDstVec, nm64u* pnBits, int nBits, int nSize)
 //!
-//! \perfinclude _VEC_DisplaceBits__FPCUlPUlPUlii.html
+//! \perfinclude _nmppsDisplaceBits__FPCUlPUlPUlii_.html
 //! \todo Needs in optimization
 
 
-global _VEC_DisplaceBits__FPCUlPUlPUlii:label;
-global _void._.8.8VEC_DisplaceBits.1unsigned._long._const._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.9._int.2 :label;
-<_VEC_DisplaceBits__FPCUlPUlPUlii>
-<_void._.8.8VEC_DisplaceBits.1unsigned._long._const._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.9._int.2>
+global _nmppsDisplaceBits__FPCUlPUlPUlii_:label;
+global _void._.8.8nmppsDisplaceBits_.1unsigned._long._const._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.9._int.2 :label;
+<_nmppsDisplaceBits__FPCUlPUlPUlii_>
+<_void._.8.8nmppsDisplaceBits_.1unsigned._long._const._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.9._int.2>
 .branch;
 	ar5 = sp - 2;
 

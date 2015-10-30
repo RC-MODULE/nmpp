@@ -85,13 +85,13 @@ end ".data_nmplv_G";
 begin ".text_nmplv"
     
     //--------------------------------------------------------------------
-    //! \fn void VEC_ClipArshCnv_AddC(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
+    //! \fn void nmppsClipArshCnv_AddC_16s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
 	//!
-	//! \perfinclude _VEC_ClipArshCnv_AddC__FPSsiiiPci.html
+	//! \perfinclude _nmppsClipArshCnv_AddC__FPSsiiiPci_.html
     //--------------------------------------------------------------------
 
-global _void._.8.8VEC_ClipArshCnv_AddC.1short._.0.9._int.9._int.9._int.9._char._.0.9._int.2 :label;
-<_void._.8.8VEC_ClipArshCnv_AddC.1short._.0.9._int.9._int.9._int.9._char._.0.9._int.2>
+global _void._.8.8nmppsClipArshCnv_AddC_.1short._.0.9._int.9._int.9._int.9._char._.0.9._int.2 :label;
+<_void._.8.8nmppsClipArshCnv_AddC_.1short._.0.9._int.9._int.9._int.9._char._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

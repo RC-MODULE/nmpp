@@ -21,8 +21,7 @@
 #include "nmplv.h"
 ///////////////////////////////////////////////////////////
 // pDstVec[i] = !pSrcVec[i]; 
-void VEC_Not(
-	nm64u*	pSrcVec,		// Input Buffer
+void nmppsNot_64u(nm64u*	pSrcVec,		// Input Buffer
 	nm64u*	pDstVec,		// Output Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
@@ -32,8 +31,7 @@ void VEC_Not(
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = Src1[i] & Src2[i];
-void VEC_AndV(
-	nm64u*	Src1,		// Input Buffer
+void nmppsAndV_64u(nm64u*	Src1,		// Input Buffer
 	nm64u*	Src2,		// Input Buffer
 	nm64u*	pDstVec,		// Output Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
@@ -44,8 +42,7 @@ void VEC_AndV(
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = Src1[i] & Src2[i];
-void VEC_AndNotV(
-	nm64u*	Src1,		// Input Buffer
+void nmppsAndNotV_64u(nm64u*	Src1,		// Input Buffer
 	nm64u*	Src2,		// Input Buffer
 	nm64u*	pDstVec,	// Output Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
@@ -57,8 +54,7 @@ void VEC_AndNotV(
 
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = pSrcVec[i] & Mask 
-void VEC_AndC(
-	nm64u*	Src1,		// Input Buffer
+void nmppsAndC_64u(nm64u*	Src1,		// Input Buffer
 	nm64u*	Mask,		// Input mask
 	nm64u*	pDstVec,		// Output Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
@@ -69,8 +65,7 @@ void VEC_AndC(
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = Src1[i] | Src2[i];
-void VEC_OrV(
-	nm64u*	Src1,		// Input Buffer
+void nmppsOrV_64u(nm64u*	Src1,		// Input Buffer
 	nm64u*	Src2,		// Input Buffer
 	nm64u*	pDstVec,		// Output Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
@@ -81,8 +76,7 @@ void VEC_OrV(
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = pSrcVec[i] | Mask 
-void VEC_OrC(
-	nm64u*	Src1,		// Input Buffer
+void nmppsOrC_64u(nm64u*	Src1,		// Input Buffer
 	nm64u*	Mask,		// Input mask
 	nm64u*	pDstVec,		// Output Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
@@ -94,8 +88,7 @@ void VEC_OrC(
 ///////////////////////////////////////////////////////////////////////////////
 //	Bitwise XOR operation 
 //	pDstVec[i] = pSrcVec1[i] ^ pSrcVec2[i];
-void VEC_XorV(
-			nm64u*		pSrcVec1,	// Input Buffer					:long Local[nSize]
+void nmppsXorV_64u(nm64u*		pSrcVec1,	// Input Buffer					:long Local[nSize]
 			nm64u*		pSrcVec2,	// Input Buffer					:long Local[nSize]
 			nm64u*		pDstVec,		// Output Buffer				:long Global[nSize]
 			int			nSize		// Vector size in 64-bit words	:nSize=[0,1,2,..,n]
@@ -106,8 +99,7 @@ void VEC_XorV(
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = pSrcVec[i] ^ Mask 
-void VEC_XorC(
-	nm64u*	Src1,		// Input Buffer
+void nmppsXorC_64u(nm64u*	Src1,		// Input Buffer
 	nm64u*	Mask,		// Input mask
 	nm64u*	pDstVec,		// Output Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
@@ -120,8 +112,7 @@ void VEC_XorC(
 ///////////////////////////////////////////////////////////////////////////////
 //	Mask logic operation 
 //  pDstVec[i]=(pSrcVec1[i] AND SrcVec3[i]) OR (pSrcVec2[i] AND NOT SrcVec3[i])
-void VEC_MaskV(
-		nm64u*		pSrcVec1,	// Input Buffer								: long Global[nSize]
+void nmppsMaskV_64u(nm64u*		pSrcVec1,	// Input Buffer								: long Global[nSize]
 		nm64u*		pSrcVec2,	// Input Buffer								: long Global[nSize]
  		nm64u*		pSrcVec3,	// Input Buffer	(Mask)						: long Local [nSize]
 		nm64u*		pDstVec,		// Output Buffe								: long Global[nSize]

@@ -39,15 +39,15 @@ begin ".text_nmplv"
 ////////////////////////////////////////////////////////////////////////////
 
 //--------------------------------------------------------------------
-//! \fn void VEC_Rand (nm64s *pDstVec, int nSize, int nRandomize=1) 
+//! \fn void nmppsRand_64s(nm64s *pDstVec, int nSize, int nRandomize=1) 
 //!
-//! \perfinclude _VEC_Rand__FPlii.html
+//! \perfinclude _nmppsRand__FPlii_.html
 //--------------------------------------------------------------------
     
-global _VEC_Rand__FPlii:label;
-global _void._.8.8VEC_Rand.1long._.0.9._int.9._int.2 :label;
-<_VEC_Rand__FPlii>
-<_void._.8.8VEC_Rand.1long._.0.9._int.9._int.2>
+global _nmppsRand__FPlii_:label;
+global _void._.8.8nmppsRand_.1long._.0.9._int.9._int.2 :label;
+<_nmppsRand__FPlii_>
+<_void._.8.8nmppsRand_.1long._.0.9._int.9._int.2>
 .branch;
     
 	gr7 = false;

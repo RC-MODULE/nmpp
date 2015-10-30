@@ -20,14 +20,14 @@
 
 begin ".text_nmplv"
  
-//! \fn int VEC_FirstNonZeroPos(int* pSrcVec, int nSize)
+//! \fn int nmppsFirstNonZeroPos_(int* pSrcVec, int nSize)
 //!
-//! \perfinclude _VEC_FirstNonZeroPos__FPii.html 
+//! \perfinclude _nmppsFirstNonZeroPos__FPii_.html 
 
-global _VEC_FirstNonZeroPos__FPii:label;
-global _int._.8.8VEC_FirstNonZeroPos.1int._.0.9._int.2 :label;
-<_VEC_FirstNonZeroPos__FPii>	
-<_int._.8.8VEC_FirstNonZeroPos.1int._.0.9._int.2>
+global _nmppsFirstNonZeroPos__FPii_:label;
+global _int._.8.8nmppsFirstNonZeroPos_.1int._.0.9._int.2 :label;
+<_nmppsFirstNonZeroPos__FPii_>	
+<_int._.8.8nmppsFirstNonZeroPos_.1int._.0.9._int.2>
  
  	ar5=ar7-2;
  	push ar0,gr0 	with gr0=false;

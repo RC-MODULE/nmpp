@@ -20,15 +20,15 @@
 
 //#include "vConvert.h"
 
-//! \fn void VEC_GetVal(nm8u*  pVec, int nIndex, uint8b &nVal)
+//! \fn void nmppsGet_8u(nm8u*  pVec, int nIndex, uint8b &nVal)
 //!
-//! \perfinclude _VEC_GetVal__FPUciRUi.html
+//! \perfinclude _nmppsGetVal__FPUciRUi_.html
 
 begin ".text_nmplv"
-global _VEC_GetVal__FPUciRUi:	label;
-global _void._.8.8VEC_GetVal.1unsigned._char._.0.9._int.9._unsigned._int._.6.2 :label;
-<_VEC_GetVal__FPUciRUi>
-<_void._.8.8VEC_GetVal.1unsigned._char._.0.9._int.9._unsigned._int._.6.2>
+global _nmppsGetVal__FPUciRUi_:	label;
+global _void._.8.8nmppsGetVal_.1unsigned._char._.0.9._int.9._unsigned._int._.6.2 :label;
+<_nmppsGetVal__FPUciRUi_>
+<_void._.8.8nmppsGetVal_.1unsigned._char._.0.9._int.9._unsigned._int._.6.2>
  
 .branch;
 	ar5 = ar7 - 2;

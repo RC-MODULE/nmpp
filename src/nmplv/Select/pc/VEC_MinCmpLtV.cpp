@@ -19,11 +19,11 @@
 //------------------------------------------------------------------------
 #include "nmplv.h"
 
-void VEC_MinCmpLtV (nm16s15b *pSrcVec1, nm16s15b *pSrcVec2, nm16s15b *pDstMin, nm16s15b *pDstSignMask, int nSize)
+void nmppsMinCmpLtV_16s(nm16s15b *pSrcVec1, nm16s15b *pSrcVec2, nm16s15b *pDstMin, nm16s15b *pDstSignMask, int nSize)
 {
-	nmppsSub(pSrcVec1, pSrcVec2, pDstSignMask, nSize);
-	VEC_CmpLt0(pDstSignMask, pDstSignMask, nSize);
-	VEC_MaskV((nm64u*)pSrcVec1,(nm64u*)pSrcVec2,(nm64u*)pDstSignMask,(nm64u*)pDstMin,nSize>>2);
+	nmppsSub_16s(pSrcVec1, pSrcVec2, pDstSignMask, nSize);
+	nmppsCmpLt0_16s(pDstSignMask, pDstSignMask, nSize);
+	nmppsMaskV_64u((nm64u*)pSrcVec1,(nm64u*)pSrcVec2,(nm64u*)pDstSignMask,(nm64u*)pDstMin,nSize>>2);
 }
 
 

@@ -22,7 +22,7 @@ import from macros.mlb;
 extern vec_vsum_data_0	:label;
 extern vec_vsum_data_vr	:label;
 extern vec_MulVN_AddVN	:label;
-extern _VEC_TmpBuffer16_G:long[16];
+extern _nmppsTmpBuffer16_G_:long[16];
 
 begin ".text_nmplv"
 
@@ -53,7 +53,7 @@ global _void._.8.8nmppsMulC_AddV_AddC.1int._.0.9._int.9._int._.0.9._int.9._int._
 	gr5 = [--ar5];			// MulN 
 	gr7 = false;
 	//-- WFIFO init ---------------------------
-	ar6 = _VEC_TmpBuffer16_G;
+	ar6 = _nmppsTmpBuffer16_G_;
 	[ar6++] = gr5;
 	[ar6++] = gr7;
 	[ar6++] = gr7;

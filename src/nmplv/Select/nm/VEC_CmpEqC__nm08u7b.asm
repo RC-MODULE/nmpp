@@ -1,8 +1,8 @@
     //--------------------------------------------------------------------
-extern VEC_DupValueInVector8: label;
-extern VEC_BuildDiagWeights8: label;
-extern VEC_DataXorRamN_ActivateAfifoVr: label;
-extern _VEC_TmpBuffer64_L: word;
+extern nmppsDupValueInVector8_: label;
+extern nmppsBuildDiagWeights8_: label;
+extern nmppsDataXorRamN_ActivateAfifoVr_: label;
+extern _nmppsTmpBuffer64_L_: word;
 
     //--------------------------------------------------------------------
 data ".data_nmplv_L"
@@ -13,14 +13,14 @@ end ".data_nmplv_G";
     //--------------------------------------------------------------------
 begin ".text_nmplv"
 
-	//! \fn void VEC_CmpEqC(nm8u7b* pSrcVec,  uint7b chCmpVal,  nm8s* pDstVec, int nSize, int8b chTrueFlag);
+	//! \fn void nmppsCmpEqC_8u(nm8u7b* pSrcVec,  uint7b chCmpVal,  nm8s* pDstVec, int nSize, int8b chTrueFlag);
 	//!
-	//! \perfinclude _VEC_CmpEqC__FPUcUiPcii.html
+	//! \perfinclude _nmppsCmpEqC__FPUcUiPcii_.html
 
-global _VEC_CmpEqC__FPUcUiPcii: label;
-global _void._.8.8VEC_CmpEqC.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2 :label;
-<_VEC_CmpEqC__FPUcUiPcii>
- <_void._.8.8VEC_CmpEqC.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2>
+global _nmppsCmpEqC__FPUcUiPcii_: label;
+global _void._.8.8nmppsCmpEqC_.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2 :label;
+<_nmppsCmpEqC__FPUcUiPcii_>
+ <_void._.8.8nmppsCmpEqC_.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2>
 .branch;    
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;
@@ -35,19 +35,19 @@ global _void._.8.8VEC_CmpEqC.1unsigned._char._.0.9._unsigned._int.9._char._.0.9.
 
         //--------------------------------
         // Заполнение матрицы и векторов.
-    ar1 = _VEC_TmpBuffer64_L;
-    call VEC_BuildDiagWeights8;
-    call VEC_DupValueInVector8;
-    call VEC_DupValueInVector8 with gr1 = gr7;
+    ar1 = _nmppsTmpBuffer64_L_;
+    call nmppsBuildDiagWeights8_;
+    call nmppsDupValueInVector8_;
+    call nmppsDupValueInVector8_ with gr1 = gr7;
         //--------------------------------
     
-    ar1 = _VEC_TmpBuffer64_L;
+    ar1 = _nmppsTmpBuffer64_L_;
     nb1 = 0FFFFFFFFh;
 	sb = 02020202h;
 	rep 8 wfifo = [ar1++], ftw, wtw;
     vr = [ar1++];
 
-    delayed call VEC_DataXorRamN_ActivateAfifoVr;
+    delayed call nmppsDataXorRamN_ActivateAfifoVr_;
         f1cr = 0FEFEFEFEh;
     
     pop ar6, gr6;

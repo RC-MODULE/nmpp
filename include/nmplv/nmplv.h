@@ -17,7 +17,7 @@
 	\en 
 	\page intro Introduction
 	\~
-	\ingroup VEC_Group	
+	\ingroup nmppsGroup_	
 	\ru 
 Назначением данной библиотеки является предоставление базовых операций по обработке одномерных массивов (векторов) для процессоров NM6405,NM6406, систем на кристале с ядром NMC. 
 
@@ -115,7 +115,7 @@ For convenience of application programs development the library has implementati
     * \en
     *   \defgroup vSupport Support functions 
 	* \~
-    * \ingroup VEC_Group	
+    * \ingroup nmppsGroup_	
 	*/
 
 #include "vSupport.h"
@@ -129,7 +129,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup vInit Initialization and copy
     * \~
-    * \ingroup VEC_Group
+    * \ingroup nmppsGroup_
 	*/
 
 #include "vInit.h"
@@ -145,7 +145,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup vArithmetics Arithmetic functions
     * \~
-    * \ingroup VEC_Group
+    * \ingroup nmppsGroup_
 	*/
 
 #include "vArithmetics.h"
@@ -161,7 +161,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup vBitwise Logical and binary operations
     * \~
-    * \ingroup VEC_Group
+    * \ingroup nmppsGroup_
 	*/
 
 
@@ -176,7 +176,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup vSelect Comparision operations
     * \~
-    * \ingroup VEC_Group
+    * \ingroup nmppsGroup_
 	*/
 
 #include "vSelect.h"
@@ -191,7 +191,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup vStat Statistical functions
     * \~
-	* \ingroup VEC_Group
+	* \ingroup nmppsGroup_
 	*/
 
 #include "vStat.h"
@@ -205,7 +205,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup vTransform Sort and transformation
     * \~
-    *  \ingroup VEC_Group
+    *  \ingroup nmppsGroup_
 	*/
 
 #include "vTransform.h"

@@ -23,14 +23,14 @@ begin ".text_nmplv"
 extern vec_CompareMin:label;
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_MinV(nm8s7b*  pSrcVec1, nm8s7b* pSrcVec2,  nm8s7b*  pDstMin, int nSize);
+//! \fn void nmppsMinV_8s(nm8s7b*  pSrcVec1, nm8s7b* pSrcVec2,  nm8s7b*  pDstMin, int nSize);
 //!
-//! \perfinclude _VEC_MinV__FPcPcPci.html
+//! \perfinclude _nmppsMinV__FPcPcPci_.html
 
-global _VEC_MinV__FPcPcPci :label;
-global _void._.8.8VEC_MinV.1char._.0.9._char._.0.9._char._.0.9._int.2 :label;
-<_VEC_MinV__FPcPcPci>
-<_void._.8.8VEC_MinV.1char._.0.9._char._.0.9._char._.0.9._int.2>
+global _nmppsMinV__FPcPcPci_ :label;
+global _void._.8.8nmppsMinV_.1char._.0.9._char._.0.9._char._.0.9._int.2 :label;
+<_nmppsMinV__FPcPcPci_>
+<_void._.8.8nmppsMinV_.1char._.0.9._char._.0.9._char._.0.9._int.2>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0	with gr0=false;

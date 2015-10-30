@@ -24,7 +24,7 @@
 //extern _VEC_TBL_Diagonal_FFh_G:long;
 //extern _VEC_TBL_Diagonal_FFFFh_G:long;
 //extern _VEC_TBL_Diagonal_FFFFFFFFh_G:long;
-extern _VEC_TmpBuffer64_G:long;
+extern _nmppsTmpBuffer64_G_:long;
 
 
 begin ".text_nmvcore"
@@ -53,7 +53,7 @@ global vec_SubVN_Abs:label;
 	push ar2,gr2 with gr2=gr5<<26;	// %64
 	push ar5,gr5 with gr5>>=6;		// /64
 
-	ar5=_VEC_TmpBuffer64_G;
+	ar5=_nmppsTmpBuffer64_G_;
 	if =0 delayed goto SubVN_Abs_rep32 with gr2>>=26;	//%64
 		ar2 = ar5 with gr5--;
 		nul;

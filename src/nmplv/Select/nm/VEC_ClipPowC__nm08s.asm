@@ -28,14 +28,14 @@ begin ".text_nmplv"
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_ClipPowC (nm8s *pSrcVec, int nClipFactor, nm8s *pDstVec, int nSize) 
+//! \fn void nmppsClipPowC_8s(nm8s *pSrcVec, int nClipFactor, nm8s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_ClipPowC__FPciPci.html
+//! \perfinclude _nmppsClipPowC__FPciPci_.html
 
-global _VEC_ClipPowC__FPciPci:label;
-global _void._.8.8VEC_ClipPowC.1char._.0.9._int.9._char._.0.9._int.2 :label;
-<_VEC_ClipPowC__FPciPci>
-<_void._.8.8VEC_ClipPowC.1char._.0.9._int.9._char._.0.9._int.2>
+global _nmppsClipPowC__FPciPci_:label;
+global _void._.8.8nmppsClipPowC_.1char._.0.9._int.9._char._.0.9._int.2 :label;
+<_nmppsClipPowC__FPciPci_>
+<_void._.8.8nmppsClipPowC_.1char._.0.9._int.9._char._.0.9._int.2>
 .branch;
 	ar5=ar7-2;
 	push ar0,gr0	with gr7=false;

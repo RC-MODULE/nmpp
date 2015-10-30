@@ -663,12 +663,12 @@ public:
 		
 	
 	T* Addr(int idx){
-		return VEC_Addr(pData,idx);
+		return nmppsAddr_(pData,idx);
 	}
 
 	int Assign (T*	Data, int SizeData, int SizeBorder=0){
 		pData	=Data;
-		pBox  	=VEC_Addr(pData,-SizeBorder);
+		pBox  	=nmppsAddr_(pData,-SizeBorder);
 		sizeData=SizeData;
 		sizeBox =SizeData+2*SizeBorder;
 	}
@@ -682,10 +682,10 @@ public:
 		pHeap=&MultiHeap;
 		pData=0;
 		sizeBox =sizeData+2*nBorder;
-		int sizeBox32=(int)VEC_Addr((T*)0,sizeBox)/sizeof(int);
+		int sizeBox32=(int)nmppsAddr_((T*)0,sizeBox)/sizeof(int);
 		pBox =(T*)MultiHeap.Allocate(sizeBox32);
 		if (pBox){
-			pData=VEC_Addr(pBox,(sizeBox-sizeData)/2);
+			pData=nmppsAddr_(pBox,(sizeBox-sizeData)/2);
 		}
 		return pData;
 	}
@@ -705,7 +705,7 @@ public:
 				pHeap->Release(pBox);
 	}
 	//inline T& operator [] (int idx){
-	//	return *VEC_Addr(pData,idx);
+	//	return *nmppsAddr_(pData,idx);
 	//}
 };
 
@@ -761,10 +761,10 @@ public:
 		if (FillMode==BOX_IMG_FILL_NONE)
 			return;
 		if (FillMode==BOX_IMG_FILL_RAND){
-			VEC_Rand(pBox,sizeBox);
+			nmppsRand_(pBox,sizeBox);
 			return;
 		}
-		VEC_Fill(pBox,FillMode,sizeBox);
+		nmppsSet_(pBox,FillMode,sizeBox);
 	}
 
 	C_BoxImg(T*	Data, int Width, int Height, int BorderHeight=0){
@@ -773,7 +773,7 @@ public:
 		nWidth  =Width;
 		nHeight =Height;
 		nBorder =BorderHeight;
-		pBox    =VEC_Addr(pData,-nBorder*nWidth);
+		pBox    =nmppsAddr_(pData,-nBorder*nWidth);
 		sizeData=nWidth*nHeight;
 		sizeBox =sizeData+2*nBorder*nWidth;
 	}
@@ -783,12 +783,12 @@ public:
 		nWidth  =Width;
 		nHeight =Height;
 		nBorder =BorderHeight;
-		pBox    =VEC_Addr(pData,-nBorder*nWidth);
+		pBox    =nmppsAddr_(pData,-nBorder*nWidth);
 		sizeData=nWidth*nHeight;
 		sizeBox =sizeData+2*nBorder*nWidth;
 	}
 	T* Addr(int y, int x){
-		return VEC_Addr(pData,y*nWidth+x);
+		return nmppsAddr_(pData,y*nWidth+x);
 	}
 
 	T* Allocate(C_MultiHeap& MultiHeap, int Width, int Height, int BorderHeight=0){
@@ -806,10 +806,10 @@ public:
 		pData   =0;
 		sizeData=nWidth*nHeight;
 		sizeBox =sizeData+2*nBorder*nWidth;
-		int sizeBox32=(int)VEC_Addr((T*)0,sizeBox)/sizeof(int);
+		int sizeBox32=(int)nmppsAddr_((T*)0,sizeBox)/sizeof(int);
 		pBox=(T*)MultiHeap.Allocate(sizeBox32);
 		if (pBox)
-			pData=VEC_Addr(pBox,(sizeBox-sizeData)/2);
+			pData=nmppsAddr_(pBox,(sizeBox-sizeData)/2);
 		return pData;
 	}
 	int Release(){
@@ -824,7 +824,7 @@ public:
 		return 1;
 	}
 	inline T* operator [] (int idx){
-		return VEC_Addr(pData,idx);
+		return nmppsAddr_(pData,idx);
 	}
 	~C_BoxImg() {
 		if (pHeap)

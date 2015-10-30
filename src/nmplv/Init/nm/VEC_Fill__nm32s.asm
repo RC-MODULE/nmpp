@@ -29,12 +29,12 @@ begin ".text_nmplv"
    //--------------------------------------------------------------------
     //! \fn void nmppsFill_32s(nm32s *pVec, int32b nVal, int nSize) 
 	//!
-	//! \perfinclude _nmppsFill__FPiii_.html
+	//! \perfinclude _nmppsFill_32s.html
     //--------------------------------------------------------------------
 
-global _nmppsFill__FPiii_:label;
+global _nmppsFill_32s:label;
 global _void._.8.8nmppsFill_.1int._.0.9._int.9._int.2 :label;
-<_nmppsFill__FPiii_>
+<_nmppsFill_32s>
 <_void._.8.8nmppsFill_.1int._.0.9._int.9._int.2>
 .branch;
     ar5 = sp - 2	with gr7=false;

@@ -3,7 +3,7 @@ begin ".text_nmplv"
 //--------------------------------------------------------------------
 //! \fn int nmppsMinPosV1024_(int* pSrcVec,int nStride,int& nPos);
 //!
-//! \perfinclude _nmppsMinPosV1024__FPiiRi_.html
+//! \perfinclude _nmppsMinPosV1024_32s.html
 //--------------------------------------------------------------------
 
 

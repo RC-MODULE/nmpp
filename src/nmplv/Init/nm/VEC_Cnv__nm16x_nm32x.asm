@@ -31,7 +31,7 @@ begin ".text_nmplv"
 
 //! \fn void nmppsCnv_16s(nm16s* pSrcVec, nm32s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv__FPSsPii_.html
+//! \perfinclude _nmppsCnv_16s.html
 
 global _void._.8.8nmppsCnv_.1short._.0.9._int._.0.9._int.2 :label;
 <_void._.8.8nmppsCnv_.1short._.0.9._int._.0.9._int.2>
@@ -43,7 +43,7 @@ global _void._.8.8nmppsCnv_.1short._.0.9._int._.0.9._int.2 :label;
 
 //! \fn void nmppsCnv_16u(nm16u* pSrcVec, nm32u* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv__FPUsPUii_.html
+//! \perfinclude _nmppsCnv_16u.html
 
 global _void._.8.8nmppsCnv_.1unsigned._short._.0.9._unsigned._int._.0.9._int.2 :label;
 <_void._.8.8nmppsCnv_.1unsigned._short._.0.9._unsigned._int._.0.9._int.2>

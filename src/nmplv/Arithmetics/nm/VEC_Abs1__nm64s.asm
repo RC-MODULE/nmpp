@@ -27,12 +27,12 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsAbs1 (nm64s *pSrcVec, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsAbs1__FPlPli.html
+//! \perfinclude _nmppsAbs1_64s.html
 
-global _nmppsAbs1__FPlPli:label;
+global _nmppsAbs1_64s:label;
 global _void._.8.8nmppsAbs1.1long._.0.9._long._.0.9._int.2 :label;
 
-<_nmppsAbs1__FPlPli>
+<_nmppsAbs1_64s>
 <_void._.8.8nmppsAbs1.1long._.0.9._long._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=gr5;

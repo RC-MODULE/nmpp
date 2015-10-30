@@ -33,7 +33,7 @@ begin ".text_nmplv"
 
 //! \fn void nmppsCnv_8s(nm8s* pSrcVec, nm16s* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCnv__FPcPSsi_.html
+//! \perfinclude _nmppsCnv_8s.html
 
 global _void._.8.8nmppsCnv_.1char._.0.9._short._.0.9._int.2 :label;
 <_void._.8.8nmppsCnv_.1char._.0.9._short._.0.9._int.2>
@@ -45,11 +45,11 @@ global _void._.8.8nmppsCnv_.1char._.0.9._short._.0.9._int.2 :label;
 
 //! \fn void nmppsCnv_8u(nm8u* pSrcVec, nm16u* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCnv__FPUcPUsi_.html
+//! \perfinclude _nmppsCnv_8u.html
 
-global _nmppsCnv__FPUcPUsi_:label;
+global _nmppsCnv_8u:label;
 global _void._.8.8nmppsCnv_.1unsigned._char._.0.9._unsigned._short._.0.9._int.2 :label;
-<_nmppsCnv__FPUcPUsi_>
+<_nmppsCnv_8u>
 <_void._.8.8nmppsCnv_.1unsigned._char._.0.9._unsigned._short._.0.9._int.2>
 .branch;
 

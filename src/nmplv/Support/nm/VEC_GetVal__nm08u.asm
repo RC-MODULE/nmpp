@@ -22,12 +22,12 @@
 
 //! \fn void nmppsGet_8u(nm8u*  pVec, int nIndex, uint8b &nVal)
 //!
-//! \perfinclude _nmppsGetVal__FPUciRUi_.html
+//! \perfinclude _nmppsGetVal_8u.html
 
 begin ".text_nmplv"
-global _nmppsGetVal__FPUciRUi_:	label;
+global _nmppsGetVal_8u:	label;
 global _void._.8.8nmppsGetVal_.1unsigned._char._.0.9._int.9._unsigned._int._.6.2 :label;
-<_nmppsGetVal__FPUciRUi_>
+<_nmppsGetVal_8u>
 <_void._.8.8nmppsGetVal_.1unsigned._char._.0.9._int.9._unsigned._int._.6.2>
  
 .branch;

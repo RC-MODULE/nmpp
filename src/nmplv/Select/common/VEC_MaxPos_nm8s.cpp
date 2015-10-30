@@ -36,12 +36,12 @@ void nmppsMaxPos_8s(nm8s7b  *pSrcVec, int nSize, int& nIndex, int8b &nMaxValue, 
 	//	pTmp2=pGTmpBuff;
 	//}
 
-	nmppsMaxVal_8s(pSrcVec, nSize, nMaxValue);
-	nmppsSubCRev(pSrcVec,nMaxValue,(nm8s*)pTmp1,nSize);
+	nmppsMaxVal_8s(pSrcVec, nSize, &nMaxValue);
+	nmppsSubCRev_8s(pSrcVec,nMaxValue,(nm8s*)pTmp1,nSize);
 	nmppsCmpEq0_8u((nm8u7b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create Max bitmap
 
 		if(nSearchDir > 0){
-		nPos  =nmppsFirstNonZeroPos_((int*)pTmp2,nSize>>5);
+		nPos  =nmppsFirstNonZeroPos_32s((int*)pTmp2,nSize>>5);
 		int n=((int*)pTmp2)[nPos];	
 		for(nIndex=0; nIndex<32; nIndex++){
 			if (n&1)
@@ -49,7 +49,7 @@ void nmppsMaxPos_8s(nm8s7b  *pSrcVec, int nSize, int& nIndex, int8b &nMaxValue, 
 			n>>=1;
 		}
 	} else {
-		nPos  =nmppsLastNonZeroPos_((int*)pTmp2,nSize>>5); 
+		nPos  =nmppsLastNonZeroPos_32s((int*)pTmp2,nSize>>5); 
 		int n=((int*)pTmp2)[nPos];	
 		for(nIndex=31; nIndex>=0; nIndex--){
 			if (n&0x80000000)

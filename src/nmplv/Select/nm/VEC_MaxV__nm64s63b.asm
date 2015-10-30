@@ -25,11 +25,11 @@ extern vec_CompareMax:label;
 
 //! \fn void nmppsMaxV_64s(nm64s63b*  pSrcVec1, nm64s63b* pSrcVec2,  nm64s63b*  pDstMax, int nSize);
 //!
-//! \perfinclude _nmppsMaxV__FPlPlPli_.html
+//! \perfinclude _nmppsMaxV_64s.html
 
 global _nmppsMaxV__FPlPlPli_ :label;
 global _void._.8.8nmppsMaxV_.1long._.0.9._long._.0.9._long._.0.9._int.2 :label;
-<_nmppsMaxV__FPlPlPli_>
+<_nmppsMaxV_64s>
 <_void._.8.8nmppsMaxV_.1long._.0.9._long._.0.9._long._.0.9._int.2>
 .branch;
 	ar5=sp-2;

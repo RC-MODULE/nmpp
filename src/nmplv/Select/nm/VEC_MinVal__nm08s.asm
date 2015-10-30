@@ -32,12 +32,12 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsMinVal_8s(nm8s *pSrcVec, int nSize, int8b &nMinValue) 
 //!
-//! \perfinclude _nmppsMinVal__FPciRi_.html
+//! \perfinclude _nmppsMinVal_8s.html
 
 
 global _nmppsMinVal__FPciRi_ :label;
 global _void._.8.8nmppsMinVal_.1char._.0.9._int.9._int._.6.2 :label;
-<_nmppsMinVal__FPciRi_>
+<_nmppsMinVal_8s>
 <_void._.8.8nmppsMinVal_.1char._.0.9._int.9._int._.6.2>
 .branch;
 	ar5=sp-2;

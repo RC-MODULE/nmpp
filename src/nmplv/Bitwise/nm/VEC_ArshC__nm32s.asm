@@ -587,7 +587,7 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsArshC_32s(nm32s *pSrcVec, int nShift, nm32s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsArshC__FPiiPii_.html
+//! \perfinclude _nmppsArshC_32s.html
 global _void._.8.8nmppsArshC_.1int._.0.9._int.9._int._.0.9._int.2 :label;
 <_void._.8.8nmppsArshC_.1int._.0.9._int.9._int._.0.9._int.2>
 .branch;

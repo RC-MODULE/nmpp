@@ -16,7 +16,7 @@
 	// f(23)=7
 	// f(25)=7
 
-inline int GetMatrixCount(int nSize)
+__INLINE__ int GetMatrixCount(int nSize)
 {
 	return ((nSize+5)/8)*2+1;	
 }
@@ -31,7 +31,7 @@ inline int GetMatrixCount(int nSize)
 	// f(15)=1
 	// f(17)=0
 
-inline int GetDisp(int nSize)
+__INLINE__ int GetDisp(int nSize)
 {
 	return (3-((nSize-3)/2)%4);
 }

@@ -3,12 +3,12 @@ begin ".text_nmplv"
 //--------------------------------------------------------------------
 //! \fn int nmppsMinPosV25_(int* pSrcVec,int nStride,int& nPos);
 //!
-//! \perfinclude _nmppsMinPosV25__FPiiRi_.html
+//! \perfinclude _nmppsMinPosV25_32s.html
 //--------------------------------------------------------------------
 
-global _nmppsMinPosV25__FPiiRi_:label;
+global _nmppsMinPosV25_32s:label;
 global _int._.8.8nmppsMinPosV25_.1int._.0.9._int.9._int._.6.2 :label;
-<_nmppsMinPosV25__FPiiRi_>
+<_nmppsMinPosV25_32s>
 <_int._.8.8nmppsMinPosV25_.1int._.0.9._int.9._int._.6.2>
 .branch;
 

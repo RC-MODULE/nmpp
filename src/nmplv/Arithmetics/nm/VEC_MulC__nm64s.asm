@@ -28,11 +28,11 @@ extern vec_vsum_data_0:label;
 
 //! \fn void nmppsMulC (nm64s *pSrcVec, int64b nVal, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsMulC__FPllPli.html
+//! \perfinclude _nmppsMulC_64s.html
 
-global _nmppsMulC__FPllPli:label;
+global _nmppsMulC_64s:label;
 global _void._.8.8nmppsMulC.1long._.0.9._long.9._long._.0.9._int.2 :label;
-<_nmppsMulC__FPllPli>
+<_nmppsMulC_64s>
 <_void._.8.8nmppsMulC.1long._.0.9._long.9._long._.0.9._int.2>
 .branch;
 

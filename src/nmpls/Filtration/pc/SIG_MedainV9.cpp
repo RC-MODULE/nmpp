@@ -1,6 +1,6 @@
 #include "nmpls.h"
 
-template<class T> static inline void CompareSwap(T& a,T& b)
+template<class T> static __INLINE__ void CompareSwap(T& a,T& b)
 {
 	if (a>b)
 	{
@@ -10,7 +10,7 @@ template<class T> static inline void CompareSwap(T& a,T& b)
 	}
 }
 
-template<class T> static inline void Max(T& a,T &b)
+template<class T> static __INLINE__ void Max(T& a,T &b)
 {
 	if (a<b)
 	{
@@ -18,7 +18,7 @@ template<class T> static inline void Max(T& a,T &b)
 	}
 }
 
-template<class T> static inline void Min(T& a,T &b)
+template<class T> static __INLINE__ void Min(T& a,T &b)
 {
 	if (a>b)
 	{
@@ -26,7 +26,7 @@ template<class T> static inline void Min(T& a,T &b)
 	}
 }
 
-template<class T> static inline T Median9(T* pVec)
+template<class T> static __INLINE__ T Median9(T* pVec)
 {
 	CompareSwap(pVec[0],pVec[1]);
 	CompareSwap(pVec[3],pVec[4]);

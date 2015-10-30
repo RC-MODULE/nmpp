@@ -31,11 +31,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsFill_8s(nm8s *pVec, int8b nVal, int nSize)
 //!
-//! \perfinclude _nmppsFill__FPcii_.html
+//! \perfinclude _nmppsFill_8s.html
 
-global _nmppsFill__FPcii_:label;
+global _nmppsFill_8s:label;
 global _void._.8.8nmppsFill_.1char._.0.9._int.9._int.2 :label;
-<_nmppsFill__FPcii_>
+<_nmppsFill_8s>
 <_void._.8.8nmppsFill_.1char._.0.9._int.9._int.2>
 .branch;
     ar5 = sp - 2	with gr7=false;

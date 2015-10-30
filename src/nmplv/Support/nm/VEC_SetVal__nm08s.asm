@@ -25,11 +25,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsSetInt_8s(nm8s *pVec, int nIndex, int8b Val) 
 //!
-//! \perfinclude _nmppsSetVal__FPcii_.html
+//! \perfinclude _nmppsSetVal_8s.html
 
-global _nmppsSetVal__FPcii_:	label;
+global _nmppsSetVal_8s:	label;
 global _void._.8.8nmppsSetVal_.1char._.0.9._int.9._int.2 :label;
-<_nmppsSetVal__FPcii_> 
+<_nmppsSetVal_8s> 
 <_void._.8.8nmppsSetVal_.1char._.0.9._int.9._int.2>
 .branch;
 	ar5 = ar7 - 5;

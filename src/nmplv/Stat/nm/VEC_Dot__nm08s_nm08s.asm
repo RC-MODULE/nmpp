@@ -45,11 +45,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsDotProd (nm8s *pSrcVec1, nm8s *pSrcVec2, int nSize, int64b *pnRes, void* pTmpBuff) 
 //!
-//! \perfinclude _nmppsDotProd__FPcPciPlPv.html
+//! \perfinclude _nmppsDotProd_8s.html
 				 
-global _nmppsDotProd__FPcPciPlPv:label;
+global _nmppsDotProd_8s:label;
 global _void._.8.8nmppsDotProd.1char._.0.9._char._.0.9._int.9._long._.0.9._void._.0.2 :label;
-<_nmppsDotProd__FPcPciPlPv>
+<_nmppsDotProd_8s>
 <_void._.8.8nmppsDotProd.1char._.0.9._char._.0.9._int.9._long._.0.9._void._.0.2>
 	ar5 = sp - 2;
 

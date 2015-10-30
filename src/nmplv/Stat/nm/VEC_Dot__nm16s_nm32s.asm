@@ -35,11 +35,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsDotProd (nm16s *pSrcVec1, nm32s *pSrcVec2, int nSize, int64b *pnRes, void* pTmpBuff) 
 //!
-//! \perfinclude _nmppsDotProd__FPSsPiiPlPv.html
+//! \perfinclude _nmppsDotProd_16s.html
 
-global _nmppsDotProd__FPSsPiiPlPv:label;
+global _nmppsDotProd_16s:label;
 global _void._.8.8nmppsDotProd.1short._.0.9._int._.0.9._int.9._long._.0.9._void._.0.2 :label;
-<_nmppsDotProd__FPSsPiiPlPv>
+<_nmppsDotProd_16s>
 <_void._.8.8nmppsDotProd.1short._.0.9._int._.0.9._int.9._long._.0.9._void._.0.2>
 	ar5 = sp - 2;
 

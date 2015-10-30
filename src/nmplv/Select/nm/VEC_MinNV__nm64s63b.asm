@@ -25,7 +25,7 @@ extern vec_CompareMinNV:label;
 
 //! \fn void nmppsMinNV_64s(nm64s63b** pSrcVec1, int numVecs, nm64s63b* pDstMax, int nSize);
 //!
-//! \perfinclude _nmppsMinNV__FPlPlPli_.html
+//! \perfinclude _nmppsMinNV_64s.html
 
 global _void._.8.8nmppsMinNV_.1long._.0.0.9._int.9._long._.0.9._int.2 :label;
 <_void._.8.8nmppsMinNV_.1long._.0.0.9._int.9._long._.0.9._int.2>

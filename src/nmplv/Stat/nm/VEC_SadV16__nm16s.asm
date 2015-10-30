@@ -27,12 +27,12 @@ begin ".text_nmplv"
 //--------------------------------------------------------------------
 //! \fn int nmppsSadV16_16s(nm16s* pSrc1,nm16s* pSrc2);
 //!
-//! \perfinclude _nmppsSadV16__FPSsPSs_.html
+//! \perfinclude _nmppsSadV16_16s.html
 //--------------------------------------------------------------------
 
-global _nmppsSadV16__FPSsPSs_:label;
+global _nmppsSadV16_16s:label;
 global _int._.8.8nmppsSadV16_.1short._.0.9._short._.0.2 :label;
-<_nmppsSadV16__FPSsPSs_>
+<_nmppsSadV16_16s>
 <_int._.8.8nmppsSadV16_.1short._.0.9._short._.0.2>
 .branch;
 	ar5 = _VEC_TBL_One_G;

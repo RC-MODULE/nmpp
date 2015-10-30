@@ -96,7 +96,7 @@ public:
 	}	 
 
 #ifndef NMTL_DISABLE_INDEX_CHECK
-	inline cmplx<nmint<T> >&    operator [] (int idx)
+	__INLINE__ cmplx<nmint<T> >&    operator [] (int idx)
 	{
 		ASSERTE(idx>=0);
 		ASSERTE(idx<m_size);
@@ -104,7 +104,7 @@ public:
 		return *res;
 	}
 #else
-	inline cmplx<nmint<T> >&    operator [] (int idx)
+	__INLINE__ cmplx<nmint<T> >&    operator [] (int idx)
 	{
 		return (cmplx<nmint<T> >*)(m_data+idx);
 	}

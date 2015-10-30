@@ -31,7 +31,7 @@ begin ".text_nmplv"
 
 //! \fn void nmppsClipPowC_64s(nm64s *pSrcVec, int nClipFactor, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsClipPowC__FPiiPii_.html
+//! \perfinclude _nmppsClipPowC_32s.html
 
 global _void._.8.8nmppsClipPowC_.1long._.0.9._int.9._long._.0.9._int.2 :label;
 <_void._.8.8nmppsClipPowC_.1long._.0.9._int.9._long._.0.9._int.2>

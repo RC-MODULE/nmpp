@@ -22,12 +22,12 @@
 
 //! \fn void nmppsGet_8s(nm8s*  pVec, int nIndex, int8b &nVal)
 //!
-//! \perfinclude _nmppsGetVal__FPciRi_.html
+//! \perfinclude _nmppsGetVal_8s.html
 
 begin ".text_nmplv"
-global _nmppsGetVal__FPciRi_:	label;
+global _nmppsGetVal_8s:	label;
 global _void._.8.8nmppsGetVal_.1char._.0.9._int.9._int._.6.2 :label;
-<_nmppsGetVal__FPciRi_>
+<_nmppsGetVal_8s>
 <_void._.8.8nmppsGetVal_.1char._.0.9._int.9._int._.6.2>
 .branch;
 	ar5 = ar7 - 2;

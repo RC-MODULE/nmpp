@@ -20,16 +20,16 @@
 #ifndef __IMALLOC_H
 #define __IMALLOC_H
 
-inline int nmppsSizeOf_8s(nm8s*, int nCount){
+__INLINE__ int nmppsSizeOf_8s(nm8s*, int nCount){
 	return nCount>>2;
 }
-inline int nmppsSizeOf_8u(nm8u*, int nCount){
+__INLINE__ int nmppsSizeOf_8u(nm8u*, int nCount){
 	return nCount>>2;
 }
-inline int nmppsSizeOf_32s(nm32s*, int nCount){
+__INLINE__ int nmppsSizeOf_32s(nm32s*, int nCount){
 	return nCount;
 }
-inline int nmppsSizeOf_32u(nm32u*, int nCount){
+__INLINE__ int nmppsSizeOf_32u(nm32u*, int nCount){
 	return nCount;
 }
 
@@ -163,7 +163,7 @@ void IMG_Free(void* ptr);
 		\~
 */
 	//! \{
-static inline void IMG_ReleaseObject(nm64s* pKernel);
+static __INLINE__ void IMG_ReleaseObject(nm64s* pKernel);
 	//! \}
 
 

@@ -61,14 +61,15 @@
     \endxmlonly
     */
     //! \{
-void nmppsCrc_(unsigned int* pSrcVec, int nSize, unsigned int& nCrc);
-inline void nmppsCrc_64s(nm64s* pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize<<1, nCrc); }
-inline void nmppsCrc_32s(nm32s* pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize, nCrc); }
-inline void nmppsCrc_16s(nm16s* pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize>>1, nCrc); }
-inline void nmppsCrc_8s(nm8s*  pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize>>2, nCrc); }
-inline void nmppsCrc_64u(nm64u* pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize<<1, nCrc); }
-inline void nmppsCrc_16u(nm16u* pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize>>1, nCrc); }
-inline void nmppsCrc_8u(nm8u*  pSrcVec, int nSize, unsigned int& nCrc) { return nmppsCrc_((unsigned*)pSrcVec, nSize>>2, nCrc); }
+           void nmppsCrc_32u(nm32u* pSrcVec, int nSize, unsigned int* nCrc);
+__INLINE__ void nmppsCrc_64s(nm64s* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize<<1, nCrc); }
+__INLINE__ void nmppsCrc_32s(nm32s* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize,    nCrc); }           
+__INLINE__ void nmppsCrc_16s(nm16s* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize>>1, nCrc); }
+__INLINE__ void nmppsCrc_8s (nm8s*  pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize>>2, nCrc); }
+__INLINE__ void nmppsCrc_64u(nm64u* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize<<1, nCrc); }
+
+__INLINE__ void nmppsCrc_16u(nm16u* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize>>1, nCrc); }
+__INLINE__ void nmppsCrc_8u (nm8u*  pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize>>2, nCrc); }
 
 
     //! \}

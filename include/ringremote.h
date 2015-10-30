@@ -146,22 +146,22 @@ public:
 		return true;
 	}
 
-	inline bool IsFull(){
+	__INLINE__ bool IsFull(){
 		GetHead();
 		GetTail();
 		return (head-tail==size);
 	}
-	inline bool IsEmpty(){
+	__INLINE__ bool IsEmpty(){
 		GetHead();
 		GetTail();
 		return (head==tail);
 	}
-	inline size_t GetWriteAvail(){
+	__INLINE__ size_t GetWriteAvail(){
 		GetHead();
 		GetTail();
 		return (size-(head-tail));
 	}
-	inline size_t GetReadAvail(){
+	__INLINE__ size_t GetReadAvail(){
 		GetHead();
 		GetTail();
 		return (head-tail);

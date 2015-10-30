@@ -77,11 +77,11 @@ begin ".text_nmplv"
 ///////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsRshC_8u(nm8u *pSrcVec, int nShift, nm8u *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsRshC__FPUciPUci_.html
+//! \perfinclude _nmppsRshC_8u.html
 
-global _nmppsRshC__FPUciPUci_:label;
+global _nmppsRshC_8u:label;
 global _void._.8.8nmppsRshC_.1unsigned._char._.0.9._int.9._unsigned._char._.0.9._int.2 :label;
-<_nmppsRshC__FPUciPUci_>
+<_nmppsRshC_8u>
 <_void._.8.8nmppsRshC_.1unsigned._char._.0.9._int.9._unsigned._char._.0.9._int.2>
 .branch;
 	ar5 = sp - 4;

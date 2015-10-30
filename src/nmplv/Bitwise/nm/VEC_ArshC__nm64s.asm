@@ -553,7 +553,7 @@ begin ".text_nmplv"
 // 
 //! \fn void nmppsArshC_64s(nm64s *pSrcVec, int nShift, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsArshC__FPliPli_.html
+//! \perfinclude _nmppsArshC_64s.html
 
 global _void._.8.8nmppsArshC_.1long._.0.9._int.9._long._.0.9._int.2 :label;
 <_void._.8.8nmppsArshC_.1long._.0.9._int.9._long._.0.9._int.2>

@@ -29,12 +29,12 @@ begin ".text_nmplv"
 
 //! \fn void nmppsNeg (nm64s *pSrcVec, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsNeg__FPlPli.html
+//! \perfinclude _nmppsNeg_64s.html
 
-global _nmppsNeg__FPlPli:label;
+global _nmppsNeg_64s:label;
 global _void._.8.8nmppsNeg.1long._.0.9._long._.0.9._int.2 :label;
 
-<_nmppsNeg__FPlPli>
+<_nmppsNeg_64s>
 <_void._.8.8nmppsNeg.1long._.0.9._long._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=gr5;

@@ -34,11 +34,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsMaskV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsMaskV__FPUlPUlPUlPUli_.html
+//! \perfinclude _nmppsMaskV_64u.html
 
 global _nmppsMaskV__FPUlPUlPUlPUli_ :label;
 global _void._.8.8nmppsMaskV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
-<_nmppsMaskV__FPUlPUlPUlPUli_>
+<_nmppsMaskV_64u>
 <_void._.8.8nmppsMaskV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
 .branch;
 	ar5=sp-2;

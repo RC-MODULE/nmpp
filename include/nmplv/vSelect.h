@@ -84,7 +84,7 @@
 	        [C0h..3Fh]=[-64..+63]	   
          [80h..00h]=[-128..0	]	
 */
-void nmppsMaxVal_8s(nm8s* pSrcVec, int nSize, int8b& nMaxValue);
+void nmppsMaxVal_8s(nm8s* pSrcVec, int nSize, int8b* nMaxValue);
 /**
 \restr
 \ru ћаксимальный и минимальный элементы массива должны отличатс€ не более чем на 2^15-1. \n
@@ -96,7 +96,7 @@ void nmppsMaxVal_8s(nm8s* pSrcVec, int nSize, int8b& nMaxValue);
     [C000h..3FFFh]=[-16384..+16383	] 
     [8000h..0000h]=[-32768..0		]     
 */
-void nmppsMaxVal_16s(nm16s* pSrcVec, int nSize, int16b& nMaxValue);
+void nmppsMaxVal_16s(nm16s* pSrcVec, int nSize, int16b* nMaxValue);
 /**
 \restr
 \ru ћаксимальный и минимальный элементы массива должны отличатс€ не более чем на 2^31-1. \n
@@ -109,8 +109,8 @@ void nmppsMaxVal_16s(nm16s* pSrcVec, int nSize, int16b& nMaxValue);
     [C0000000h..3FFFFFFFh]=[ -2^30..+2^30-1	] 
     [80000000h..00000000h]=[ -2^31..0		]     
 */
-void nmppsMaxVal_32s(nm32s* pSrcVec, int nSize, int& nMaxValue);
-void nmppsMaxVal_64s(nm64s63b *pSrcVec, int nSize, int64b &nMaxValue);
+void nmppsMaxVal_32s(nm32s* pSrcVec, int nSize, int* nMaxValue);
+void nmppsMaxVal_64s(nm64s63b *pSrcVec, int nSize, int64b *nMaxValue);
 
     //! \}
 
@@ -186,7 +186,7 @@ void nmppsMaxVal_64s(nm64s63b *pSrcVec, int nSize, int64b &nMaxValue);
         [C0h..3Fh]=[-64..+63]	  
         [80h..00h]=[-128..0	]	  
 */
-void nmppsMinVal_8s(nm8s* pSrcVec, int nSize, int8b& nMinValue);
+void nmppsMinVal_8s(nm8s* pSrcVec, int nSize, int8b* nMinValue);
 /**
 \restr
     \ru ћаксимальный и минимальный элементы массива должны отличатс€ не более чем на 2^15-1. \n
@@ -198,7 +198,7 @@ void nmppsMinVal_8s(nm8s* pSrcVec, int nSize, int8b& nMinValue);
         [C000h..3FFFh]=[-16384..+16383	] 
         [8000h..0000h]=[-32768..0		]     
 */
-void nmppsMinVal_16s(nm16s* pSrcVec, int nSize, int16b& nMinValue);
+void nmppsMinVal_16s(nm16s* pSrcVec, int nSize, int16b* nMinValue);
 /**
 \restr
     \ru ћаксимальный и минимальный элементы массива должны отличатс€ не более чем на 2^31-1. \n
@@ -210,7 +210,7 @@ void nmppsMinVal_16s(nm16s* pSrcVec, int nSize, int16b& nMinValue);
         [C0000000h..3FFFFFFFh]=[ -2^30..+2^30-1	] 
         [80000000h..00000000h]=[ -2^31..0		]     
 */
-void nmppsMinVal_32s(nm32s* pSrcVec, int nSize, int& nMinValue);
+void nmppsMinVal_32s(nm32s* pSrcVec, int nSize, int* nMinValue);
     //! \}
 
 //*****************************************************************************
@@ -295,9 +295,9 @@ void nmppsMinVal_32s(nm32s* pSrcVec, int nSize, int& nMinValue);
     \endxmlonly
 	*/
     //! \{
-void nmppsMaxPos_8s(nm8s7b  *pSrcVec, int nSize, int& nIndex, int8b &nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir=1);
-void nmppsMaxPos_16s(nm16s15b *pSrcVec, int nSize, int& nIndex, int16b &nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir=1);
-void nmppsMaxPos_32s(nm32s31b *pSrcVec, int nSize, int& nIndex, int32b &nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir=1);
+void nmppsMaxPos_8s(nm8s7b  *pSrcVec, int nSize, int* nIndex, int8b *nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
+void nmppsMaxPos_16s(nm16s15b *pSrcVec, int nSize, int* nIndex, int16b *nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
+void nmppsMaxPos_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
     //! \}
 
 
@@ -383,9 +383,9 @@ void nmppsMaxPos_32s(nm32s31b *pSrcVec, int nSize, int& nIndex, int32b &nMaxValu
 	\endxmlonly
 	*/
     //! \{
-void nmppsMinPos_8s(nm8s7b   *pSrcVec, int nSize, int& nIndex, int8b &nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir=1);
-void nmppsMinPos_16s(nm16s15b *pSrcVec, int nSize, int& nIndex, int16b &nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir=1);
-void nmppsMinPos_32s(nm32s31b *pSrcVec, int nSize, int& nIndex, int32b &nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir=1);
+void nmppsMinPos_8s(nm8s7b   *pSrcVec, int nSize, int* nIndex, int8b  *nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
+void nmppsMinPos_16s(nm16s15b *pSrcVec, int nSize, int* nIndex, int16b *nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
+void nmppsMinPos_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
     //! \}
 
 
@@ -432,11 +432,11 @@ void nmppsMinPos_32s(nm32s31b *pSrcVec, int nSize, int& nIndex, int32b &nMinValu
 	*/
 
 	//! \{
-int nmppsMinPosV9_(int* pSrcVec,int nStride,int& nPos);
-int nmppsMinPosV16_(int* pSrcVec,int nStride,int& nPos);
-int nmppsMinPosV25_(int* pSrcVec,int nStride,int& nPos);
-int nmppsMinPosV256_(int* pSrcVec,int nStride,int& nPos);
-int nmppsMinPosV1024_(int* pSrcVec,int nStride,int& nPos);
+int nmppsMinPosV9_32s(int* pSrcVec,int nStride,int* nPos);
+int nmppsMinPosV16_32s(int* pSrcVec,int nStride,int* nPos);
+int nmppsMinPosV25_32s(int* pSrcVec,int nStride,int* nPos);
+int nmppsMinPosV256_32s(int* pSrcVec,int nStride,int* nPos);
+int nmppsMinPosV1024_32s(int* pSrcVec,int nStride,int* nPos);
 	//! \}
 
 //*****************************************************************************
@@ -478,7 +478,7 @@ int nmppsMinPosV1024_(int* pSrcVec,int nStride,int& nPos);
 	\endxmlonly
 	*/
 	//! \{
-int nmppsFirstZeroPos_(int* pSrcVec, int nSize);
+int nmppsFirstZeroPos_32s(int* pSrcVec, int nSize);
 	//! \}
 //*****************************************************************************
 
@@ -519,7 +519,7 @@ int nmppsFirstZeroPos_(int* pSrcVec, int nSize);
 	\endxmlonly
 	*/
 	//! \{
-int nmppsFirstNonZeroPos_(int* pSrcVec, int nSize);
+int nmppsFirstNonZeroPos_32s(int* pSrcVec, int nSize);
 	//! \}
 
 //*****************************************************************************
@@ -561,7 +561,7 @@ int nmppsFirstNonZeroPos_(int* pSrcVec, int nSize);
 	\endxmlonly
 	*/
 	//! \{
-int nmppsLastZeroPos_(int* pSrcVec, int nSize);
+int nmppsLastZeroPos_32s(int* pSrcVec, int nSize);
 	//! \}
 
 //*****************************************************************************
@@ -605,7 +605,7 @@ int nmppsLastZeroPos_(int* pSrcVec, int nSize);
 	
 	*/
 	//! \{
-int nmppsLastNonZeroPos_(int* pSrcVec, int nSize);
+int nmppsLastNonZeroPos_32s(int* pSrcVec, int nSize);
 	//! \}
 
 
@@ -1304,8 +1304,8 @@ void nmppsClipArshCnv_AddC_16s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b
 void nmppsClipArshCnv_AddC_32s(nm32s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
     //! \}
 
-extern "C" nm64u VEC_TBL_Diagonal_01h_G[8];
-extern "C" nm64u VEC_TBL_Diagonal_01h_L[8];
+//extern "C" nm64u VEC_TBL_Diagonal_01h_G[8];
+//extern "C" nm64u VEC_TBL_Diagonal_01h_L[8];
 /**	
 \defgroup nmppsClipCnv_AddC_ nmppsClipCnv_AddC_
     \ingroup vSelect
@@ -1357,7 +1357,7 @@ extern "C" nm64u VEC_TBL_Diagonal_01h_L[8];
     \par
     */
     //! \{
-void nmppsClipCnv_AddC_16s(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s* pDstVec, int nSize, nm64u* weights=VEC_TBL_Diagonal_01h_G);
+void nmppsClipCnv_AddC_16s(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s* pDstVec, int nSize, nm64u* weights); //=VEC_TBL_Diagonal_01h_G
     //! \}
 
 	

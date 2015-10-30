@@ -140,7 +140,7 @@ int FFT_Inv1024(
 	return 0;
 }
 
-inline cmplx<double> IW1024(int power)
+__INLINE__ cmplx<double> IW1024(int power)
 {
 	power-=(power>>10)<<10;
 	cmplx<double>Z (0,double(power)*2.0*PI/1024.0);

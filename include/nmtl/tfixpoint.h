@@ -46,7 +46,7 @@
 #ifdef __NM__
 	#define INLINE
 #else 
-	#define INLINE inline
+	#define INLINE __INLINE__
 #endif
 
 template<class T, int point> class tfixpoint{
@@ -352,18 +352,18 @@ template <class T, int point> INLINE tfixpoint<T,point> sin (tfixpoint<T,point> 
 
 #define FIXPOINT64(val,point) (ROUND2FIXED((val)*((__int64(1))<<point)))
 
-double inline cnv2double(double x){
+double __INLINE__ cnv2double(double x){
 	return x;
 }
 
-float inline cnv2float(float x){
+float __INLINE__ cnv2float(float x){
 	return x;
 }
 
-template <class T, int point> double inline cnv2double(tfixpoint<T,point>& x){
+template <class T, int point> double __INLINE__ cnv2double(tfixpoint<T,point>& x){
 	return x.flt();
 }
-template <class T, int point> float inline cnv2float(tfixpoint<T,point>& x){
+template <class T, int point> float __INLINE__ cnv2float(tfixpoint<T,point>& x){
 	return x.flt();
 }
 

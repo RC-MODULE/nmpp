@@ -27,11 +27,11 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsSubCRev (nm16s *pSrcVec, int16b nVal, nm16s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsSubCRev__FPSsiPSsi.html
+//! \perfinclude _nmppsSubCRev_16s.html
 
-global _nmppsSubCRev__FPSsiPSsi:label;
+global _nmppsSubCRev_16s:label;
 global _void._.8.8nmppsSubCRev.1short._.0.9._int.9._short._.0.9._int.2 :label;
-<_nmppsSubCRev__FPSsiPSsi>
+<_nmppsSubCRev_16s>
 <_void._.8.8nmppsSubCRev.1short._.0.9._int.9._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=false;

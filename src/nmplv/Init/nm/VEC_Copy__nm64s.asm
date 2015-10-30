@@ -27,7 +27,7 @@ begin ".text_nmplv"
     
 //! \fn void nmppsCopy_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCopy__FPlPli_.html
+//! \perfinclude _nmppsCopy_64s.html
 
 
 global _void._.8.8nmppsCopy_.1long._.0.9._long._.0.9._int.2 :label;

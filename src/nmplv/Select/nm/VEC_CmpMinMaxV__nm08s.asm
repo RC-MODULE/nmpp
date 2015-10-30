@@ -26,11 +26,11 @@ begin ".text_nmplv"
 
 //! \fn void  nmppsCmpMinMaxV_8s(nm8s *pSrcVec1, nm8s *pSrcVec2, nm8s *pDstMin, nm8s *pDstMax, int nSize)
 //!
-//! \perfinclude _nmppsCmpMinMaxV__FPcPcPcPci_.html
+//! \perfinclude _nmppsCmpMinMaxV_8s.html
 
-global _nmppsCmpMinMaxV__FPcPcPcPci_:label;
+global _nmppsCmpMinMaxV_8s:label;
 global _void._.8.8nmppsCmpMinMaxV_.1char._.0.9._char._.0.9._char._.0.9._char._.0.9._int.2 :label;
-<_nmppsCmpMinMaxV__FPcPcPcPci_>
+<_nmppsCmpMinMaxV_8s>
 <_void._.8.8nmppsCmpMinMaxV_.1char._.0.9._char._.0.9._char._.0.9._char._.0.9._int.2>
 .branch;
 	ar5=sp-2;

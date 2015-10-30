@@ -24,11 +24,11 @@ begin ".text_nmplv"
 ///////////////////////////////////////////////////////////
 //! \fn void nmppsNot_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsNot__FPUlPUli_.html
+//! \perfinclude _nmppsNot_64u.html
 
-global _nmppsNot__FPUlPUli_:	label;
+global _nmppsNot_64u:	label;
 global _void._.8.8nmppsNot_.1unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
-<_nmppsNot__FPUlPUli_>
+<_nmppsNot_64u>
 <_void._.8.8nmppsNot_.1unsigned._long._.0.9._unsigned._long._.0.9._int.2>
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

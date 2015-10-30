@@ -56,7 +56,7 @@ public:
 	}
 
 //#ifndef NMTL_DISABLE_INDEX_CHECK
-//	inline nmint<T>* operator[](int y)
+//	__INLINE__ nmint<T>* operator[](int y)
 //	{
 //		_ASSERTE(y>=-m_border);
 //		_ASSERTE(y<m_height+m_border);
@@ -64,7 +64,7 @@ public:
 //		return (nmint<T>*) (m_data+y*m_stride);
 //	}
 //#else	
-	inline nmvecpack<T> operator [](int y) const
+	__INLINE__ nmvecpack<T> operator [](int y) const
 	{
 		_ASSERTE(y>=-m_border);
 		_ASSERTE(y<m_height+m_border);
@@ -369,21 +369,21 @@ public:
 //			Data[i]=(T2)m_data[i].value;
 //	}
 
-	inline nmvec<T> GetVec(int y)
+	__INLINE__ nmvec<T> GetVec(int y)
 	{
 		_ASSERTE(y>=0);
 		_ASSERTE(y<m_height);
 		return nmvec<T>(m_data+y*m_stride,m_width);
 	}
 
-	inline nmvec<T> GetVec(int y,int x,int len)
+	__INLINE__ nmvec<T> GetVec(int y,int x,int len)
 	{
 		_ASSERTE(y>=0);
 		_ASSERTE(y<m_height);
 		return nmvec<T>(m_data+y*m_stride+x,len);
 	}
 
-	inline nmmtrpack<T>& SetMtr(int y,int x,nmmtrpack<T>& mSrc)
+	__INLINE__ nmmtrpack<T>& SetMtr(int y,int x,nmmtrpack<T>& mSrc)
 	{
 		T* dst=m_data+y*m_width+x;
 		T* src=mSrc.m_data;
@@ -396,7 +396,7 @@ public:
 		return *this;
 	}
 
-	inline nmmtrpack<T>& GetMtr(int y,int x,nmmtrpack<T>& mRes)
+	__INLINE__ nmmtrpack<T>& GetMtr(int y,int x,nmmtrpack<T>& mRes)
 	{
 		T* src=m_data+y*m_stride+x;
 		T* dst=mRes.m_data;
@@ -409,14 +409,14 @@ public:
 		return mRes;
 	}
 
-	inline nmmtrpack<T> GetMtr(int y,int x,int height,int width)
+	__INLINE__ nmmtrpack<T> GetMtr(int y,int x,int height,int width)
 	{
 		nmmtrpack<T> Res(height,width);
 		GetMtr(y,x,Res);
 		return Res;
 	}
 	
-	inline T* Addr(int y, int x)
+	__INLINE__ T* Addr(int y, int x)
 	{
 		return m_data+y*m_stride+x;
 	}

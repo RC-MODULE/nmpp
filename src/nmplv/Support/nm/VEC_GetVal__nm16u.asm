@@ -22,12 +22,12 @@
 /////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsGet_16u(nm16u* pVec, int nIndex, uint16b &nVal)
 //!
-//! \perfinclude _nmppsGetVal__FPUsiRUi_.html
+//! \perfinclude _nmppsGetVal_16u.html
 begin ".text_nmplv"
 
-global _nmppsGetVal__FPUsiRUi_:	label;
+global _nmppsGetVal_16u:	label;
 global _void._.8.8nmppsGetVal_.1unsigned._short._.0.9._int.9._unsigned._int._.6.2: label;
-<_nmppsGetVal__FPUsiRUi_>
+<_nmppsGetVal_16u>
 <_void._.8.8nmppsGetVal_.1unsigned._short._.0.9._int.9._unsigned._int._.6.2>
 .branch;
 	ar5 = ar7 - 2;

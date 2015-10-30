@@ -33,12 +33,12 @@ begin ".text_nmplv"
     //--------------------------------------------------------------------
     //! \fn void nmppsFill_16s(nm16s *pVec, int16b nVal, int nSize)
 	//!
-	//! \perfinclude _nmppsFill__FPSsii_.html
+	//! \perfinclude _nmppsFill_16s.html
     //--------------------------------------------------------------------
 
-global _nmppsFill__FPSsii_:label;
+global _nmppsFill_16s:label;
 global _void._.8.8nmppsFill_.1short._.0.9._int.9._int.2 :label;
-<_nmppsFill__FPSsii_>
+<_nmppsFill_16s>
 <_void._.8.8nmppsFill_.1short._.0.9._int.9._int.2>
 .branch;
     ar5 = sp - 2	with gr7=false;

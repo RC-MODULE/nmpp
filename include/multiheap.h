@@ -704,7 +704,7 @@ public:
 			if (pBox)
 				pHeap->Release(pBox);
 	}
-	//inline T& operator [] (int idx){
+	//__INLINE__ T& operator [] (int idx){
 	//	return *nmppsAddr_(pData,idx);
 	//}
 };
@@ -823,7 +823,7 @@ public:
 			}
 		return 1;
 	}
-	inline T* operator [] (int idx){
+	__INLINE__ T* operator [] (int idx){
 		return nmppsAddr_(pData,idx);
 	}
 	~C_BoxImg() {

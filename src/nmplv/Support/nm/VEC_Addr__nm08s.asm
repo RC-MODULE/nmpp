@@ -27,7 +27,7 @@ begin ".text_nmplv"
     //--------------------------------------------------------------------
     //! \fn nm8s * nmppsAddr_8s(nm8s *pVec, int nIndex) 
 	//!
-	//! \perfinclude _nmppsAddr__FPci_.html
+	//! \perfinclude _nmppsAddr_8s.html
     //--------------------------------------------------------------------
 	   
 global _char._.0.8.8nmppsAddr_.1char._const._.0.9._int.2 :label;

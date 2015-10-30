@@ -28,12 +28,12 @@ begin ".text_nmplv"
     //--------------------------------------------------------------------
     //! \fn void nmppsFill_64s(nm64s *pVec, int64b *nVal, int nSize) 
 	//!
-	//! \perfinclude _nmppsFill__FPlPli_.html
+	//! \perfinclude _nmppsFill_64s.html
     //--------------------------------------------------------------------
 
-global _nmppsFill__FPlPli_:label;
+global _nmppsFill_64s:label;
 global _void._.8.8nmppsFill_.1long._.0.9._long._.0.9._int.2 :label;
-<_nmppsFill__FPlPli_>
+<_nmppsFill_64s>
 <_void._.8.8nmppsFill_.1long._.0.9._long._.0.9._int.2>
 .branch;
     ar5 = sp - 2	with gr7=false;

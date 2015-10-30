@@ -27,11 +27,11 @@ CompareMinMax_rep0:label;
 
 //! \fn void  nmppsCmpMinMaxV_32s(nm32s *pSrcVec1, nm32s *pSrcVec2, nm32s *pDstMin, nm32s *pDstMax, int nSize) 
 //!
-//! \perfinclude _nmppsCmpMinMaxV__FPiPiPiPii_.html
+//! \perfinclude _nmppsCmpMinMaxV_32s.html
 
-global _nmppsCmpMinMaxV__FPiPiPiPii_:label;
+global _nmppsCmpMinMaxV_32s:label;
 global _void._.8.8nmppsCmpMinMaxV_.1int._.0.9._int._.0.9._int._.0.9._int._.0.9._int.2 :label;
-<_nmppsCmpMinMaxV__FPiPiPiPii_>
+<_nmppsCmpMinMaxV_32s>
 <_void._.8.8nmppsCmpMinMaxV_.1int._.0.9._int._.0.9._int._.0.9._int._.0.9._int.2>
 .branch;
 	ar5=sp-2;

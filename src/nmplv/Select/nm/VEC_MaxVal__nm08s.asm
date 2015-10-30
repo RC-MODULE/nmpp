@@ -30,12 +30,12 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsMaxVal_8s(nm8s *pSrcVec, int nSize, int8b &nMaxValue) 
 //!
-//! \perfinclude _nmppsMaxVal__FPciRi_.html
+//! \perfinclude _nmppsMaxVal_8s.html
 
 
 global _nmppsMaxVal__FPciRi_ :label;
 global _void._.8.8nmppsMaxVal_.1char._.0.9._int.9._int._.6.2 :label;
-<_nmppsMaxVal__FPciRi_>
+<_nmppsMaxVal_8s>
 <_void._.8.8nmppsMaxVal_.1char._.0.9._int.9._int._.6.2>
 .branch;
 	ar5=sp-2;

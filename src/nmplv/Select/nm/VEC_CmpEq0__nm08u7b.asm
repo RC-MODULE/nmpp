@@ -141,9 +141,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsCmpEq0__FUcP3nm1Pii_.html
 //--------------------------------------------------------------------
 
-    global _nmppsCmpEq0__FPUc3nm1Pii_:	label;
+    global _nmppsCmpEq0_8u:	label;
 global _void._.8.8nmppsCmpEq0_.1unsigned._char._.0.9._class._nm1._.0.9._int.9._int.2 :label;
-<_nmppsCmpEq0__FPUc3nm1Pii_>
+<_nmppsCmpEq0_8u>
 <_void._.8.8nmppsCmpEq0_.1unsigned._char._.0.9._class._nm1._.0.9._int.9._int.2>
 .branch;
 	ar5 = ar7 - 2;

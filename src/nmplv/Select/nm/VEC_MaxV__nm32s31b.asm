@@ -25,11 +25,11 @@ extern vec_CompareMax:label;
 
 //! \fn void nmppsMaxV_32s(nm32s31b*  pSrcVec1, nm32s31b* pSrcVec2,  nm32s31b*  pDstMax, int nSize);
 //!
-//! \perfinclude _nmppsMaxV__FPiPiPii_.html
+//! \perfinclude _nmppsMaxV_32s.html
 
 global _nmppsMaxV__FPiPiPii_ :label;
 global _void._.8.8nmppsMaxV_.1int._.0.9._int._.0.9._int._.0.9._int.2 :label;
-<_nmppsMaxV__FPiPiPii_>
+<_nmppsMaxV_32s>
 <_void._.8.8nmppsMaxV_.1int._.0.9._int._.0.9._int._.0.9._int.2>
 .branch;
 	ar5=sp-2;

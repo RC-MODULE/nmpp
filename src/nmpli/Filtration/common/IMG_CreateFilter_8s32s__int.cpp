@@ -14,22 +14,22 @@
 
 
 
-static inline int GetDisp0(int nSize)
+static __INLINE__ int GetDisp0(int nSize)
 {
 	return ((nSize-3)/2%8+1);
 }
 
-static inline int GetDisp1(int nSize)
+static __INLINE__ int GetDisp1(int nSize)
 {
 	return ((nSize+9)/2)%8+1;
 }
 
-static inline int GetDisp2(int nSize)
+static __INLINE__ int GetDisp2(int nSize)
 {
 	return ((nSize+5)/2)%8+1;
 }
 
-static inline int GetDisp3(int nSize)
+static __INLINE__ int GetDisp3(int nSize)
 {
 	return ((nSize+1)/2)%8+1;
 }

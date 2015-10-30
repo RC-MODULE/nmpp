@@ -106,7 +106,7 @@ int FFT_Inv256(
 }
 
 
-inline cmplx<double> IW256(int power)
+__INLINE__ cmplx<double> IW256(int power)
 {
 	power-=(power>>8)<<8;
 	cmplx<double> z(0,(double(power)*2.0*PI)/256.0);

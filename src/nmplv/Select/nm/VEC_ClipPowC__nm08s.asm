@@ -30,11 +30,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsClipPowC_8s(nm8s *pSrcVec, int nClipFactor, nm8s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsClipPowC__FPciPci_.html
+//! \perfinclude _nmppsClipPowC_8s.html
 
-global _nmppsClipPowC__FPciPci_:label;
+global _nmppsClipPowC_8s:label;
 global _void._.8.8nmppsClipPowC_.1char._.0.9._int.9._char._.0.9._int.2 :label;
-<_nmppsClipPowC__FPciPci_>
+<_nmppsClipPowC_8s>
 <_void._.8.8nmppsClipPowC_.1char._.0.9._int.9._char._.0.9._int.2>
 .branch;
 	ar5=ar7-2;

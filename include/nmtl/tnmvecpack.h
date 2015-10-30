@@ -58,54 +58,54 @@ public:
 	}
 	
 	
-	inline int intdisp(int indx);
-	inline int bitdisp(int indx);
+	__INLINE__ int intdisp(int indx);
+	__INLINE__ int bitdisp(int indx);
 };
 
-inline int nmintpack<nm1>::intdisp(int indx)
+__INLINE__ int nmintpack<nm1>::intdisp(int indx)
 {
 	return indx>>5;
 }
 
-inline int nmintpack<nm2s>::intdisp(int indx)
+__INLINE__ int nmintpack<nm2s>::intdisp(int indx)
 {
 	return indx>>4;
 }
 
-inline int nmintpack<nm4s>::intdisp(int indx)
+__INLINE__ int nmintpack<nm4s>::intdisp(int indx)
 {
 	return indx>>3;
 }
 
-inline int nmintpack<nm8s>::intdisp(int indx)
+__INLINE__ int nmintpack<nm8s>::intdisp(int indx)
 {
 	return indx>>2;
 }
 
-inline int nmintpack<nm16s>::intdisp(int indx)
+__INLINE__ int nmintpack<nm16s>::intdisp(int indx)
 {
 	return indx>>1;
 }
 
-inline int nmintpack<nm1>::bitdisp(int indx)
+__INLINE__ int nmintpack<nm1>::bitdisp(int indx)
 {
 	return indx&0x1F;
 }
-inline int nmintpack<nm2s>::bitdisp(int indx)
+__INLINE__ int nmintpack<nm2s>::bitdisp(int indx)
 {
 	return indx&0xF;
 }
-inline int nmintpack<nm4s>::bitdisp(int indx)
+__INLINE__ int nmintpack<nm4s>::bitdisp(int indx)
 {
 	return indx&0x7;
 }
 
-inline int nmintpack<nm8s>::bitdisp(int indx)
+__INLINE__ int nmintpack<nm8s>::bitdisp(int indx)
 {
 	return indx&3;
 }
 
-inline int nmintpack<nm16s>::bitdisp(int indx)
+__INLINE__ int nmintpack<nm16s>::bitdisp(int indx)
 {
 	return indx&2;
 }
@@ -188,7 +188,7 @@ public:
 		return *this;
 	}	 
 
-	inline nmintpack<T> operator [] (int idx) 
+	__INLINE__ nmintpack<T> operator [] (int idx) 
 	{
 		//_ASSERTE(idx>=-m_border);
 		//_ASSERTE(idx<m_size+m_border);

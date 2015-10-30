@@ -28,11 +28,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsSub (nm8s *pSrcVec1, nm8s *pSrcVec2, nm8s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsSub__FPcPcPci.html
+//! \perfinclude _nmppsSub_8s.html
 
-global _nmppsSub__FPcPcPci:label;
+global _nmppsSub_8s:label;
 global _void._.8.8nmppsSub.1char._.0.9._char._.0.9._char._.0.9._int.2 :label;
-<_nmppsSub__FPcPcPci>
+<_nmppsSub_8s>
 <_void._.8.8nmppsSub.1char._.0.9._char._.0.9._char._.0.9._int.2>
 .branch;
 	ar5 = sp - 2 with gr7=false;

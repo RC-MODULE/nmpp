@@ -21,7 +21,7 @@ extern unsigned int CRC32_Table[];
 //#include "vcrc.h"
 #include "nmplv.h"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-void nmppsCrc_(
+void nmppsCrc_32s(
     unsigned int* pSrcVec, // Input Vector			:long Any[Size/2]
     int nSize,             // Vector size        	:[0,1,2...]
     unsigned int& nCrc     // Init/Output crc

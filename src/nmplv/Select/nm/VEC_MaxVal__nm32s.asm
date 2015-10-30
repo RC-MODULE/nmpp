@@ -42,11 +42,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsMaxVal_32s(nm32s *pSrcVec, int nSize, int &nMaxValue) 
 //!
-//! \perfinclude _nmppsMaxVal__FPiiRi_.html
+//! \perfinclude _nmppsMaxVal_32s.html
 
 global _nmppsMaxVal__FPiiRi_ :label;
 global _void._.8.8nmppsMaxVal_.1int._.0.9._int.9._int._.6.2 :label;
-<_nmppsMaxVal__FPiiRi_>
+<_nmppsMaxVal_32s>
 <_void._.8.8nmppsMaxVal_.1int._.0.9._int.9._int._.6.2>
 .branch;
 	ar5=sp-2;

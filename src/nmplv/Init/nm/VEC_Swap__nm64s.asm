@@ -26,7 +26,7 @@ extern vec_Swap:label;
 
 //! \fn void nmppsSwap_64s(nm64s *pSrcVec1, nm64s *pSrcVec2, int nSize) 
 //!
-//! \perfinclude _nmppsSwap__FPlPli_.html
+//! \perfinclude _nmppsSwap_64s.html
 
 
 global _void._.8.8nmppsSwap_.1long._.0.9._long._.0.9._int.2 :label;

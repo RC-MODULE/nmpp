@@ -26,13 +26,13 @@ begin ".text_nmplv"
 //-----------------------------------------------------------------------------------
 //! \fn int nmppsSadV16_8s(nm8s* pSrc1,nm8s* pSrc2);
 //!
-//! \perfinclude _nmppsSadV16__FPcPc_.html
+//! \perfinclude _nmppsSadV16_8s.html
 //--------------------------------------------------------------------
 
 
-global _nmppsSadV16__FPcPc_:label;
+global _nmppsSadV16_8s:label;
 global _int._.8.8nmppsSadV16_.1char._.0.9._char._.0.2 :label;
-<_nmppsSadV16__FPcPc_>
+<_nmppsSadV16_8s>
 <_int._.8.8nmppsSadV16_.1char._.0.9._char._.0.2>
 .branch;
 	ar5 = _VEC_TBL_One_G;

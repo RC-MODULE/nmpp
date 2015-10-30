@@ -38,11 +38,11 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsRemap_32u(nm32u* pSrcVec, nm32u* pDstVec, nm32s* pRemapTable, int nSize);
 //!
-//! \perfinclude _nmppsRemap__FPUiPUiPii_.html
+//! \perfinclude _nmppsRemap_32u.html
 
-global _nmppsRemap__FPUiPUiPii_:label;
+global _nmppsRemap_32u:label;
 global _void._.8.8nmppsRemap_.1unsigned._int._.0.9._unsigned._int._.0.9._int._.0.9._int.2 :label;
-<_nmppsRemap__FPUiPUiPii_>
+<_nmppsRemap_32u>
 <_void._.8.8nmppsRemap_.1unsigned._int._.0.9._unsigned._int._.0.9._int._.0.9._int.2>
 .branch;
     ar5 = ar7 - 2;

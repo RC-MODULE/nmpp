@@ -25,7 +25,7 @@ begin ".text_nmplv"
 
 //! \fn void nmppsCnv_16s(nm16s* pSrcVec, nm4s* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCnv__FPiPci_.html
+//! \perfinclude _nmppsCnv_32s.html
 
 
 global _void._.8.8nmppsCnv_.1short._.0.9._class._nm4s._.0.9._int.2 :label;

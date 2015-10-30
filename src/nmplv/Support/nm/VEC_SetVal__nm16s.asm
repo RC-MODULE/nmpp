@@ -25,11 +25,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsSetInt_16s(nm16s *pVec, int nIndex, int16b Val) 
 //!
-//! \perfinclude _nmppsSetVal__FPSsii_.html
+//! \perfinclude _nmppsSetVal_16s.html
 
-global _nmppsSetVal__FPSsii_:	label;
+global _nmppsSetVal_16s:	label;
 global _void._.8.8nmppsSetVal_.1short._.0.9._int.9._int.2 :label;
-<_nmppsSetVal__FPSsii_>
+<_nmppsSetVal_16s>
 <_void._.8.8nmppsSetVal_.1short._.0.9._int.9._int.2>
 .branch;
 	ar5 = ar7 - 5;

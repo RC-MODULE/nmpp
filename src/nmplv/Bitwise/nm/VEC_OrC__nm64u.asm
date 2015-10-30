@@ -27,11 +27,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsOrC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsOrC__FPUlPUlPUli_.html
+//! \perfinclude _nmppsOrC_64u.html
 
-global _nmppsOrC__FPUlPUlPUli_:	label;
+global _nmppsOrC_64u:	label;
 global _void._.8.8nmppsOrC_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
-<_nmppsOrC__FPUlPUlPUli_>
+<_nmppsOrC_64u>
 <_void._.8.8nmppsOrC_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

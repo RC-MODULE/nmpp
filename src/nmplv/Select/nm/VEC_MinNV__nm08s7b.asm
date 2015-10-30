@@ -25,7 +25,7 @@ extern vec_CompareMinNV:label;
 
 //! \fn void nmppsMinNV_8s(nm8s7b**  pSrcVec1, nm8s7b* pSrcVec2, int numVecs, nm8s7b*  pDstMin, int nSize);
 //!
-//! \perfinclude _nmppsMinV__FPcPcPci_.html
+//! \perfinclude _nmppsMinV_8s.html
 
 global _void._.8.8nmppsMinNV_.1char._.0.0.9._int.9._char._.0.9._int.2 :label;
 <_void._.8.8nmppsMinNV_.1char._.0.0.9._int.9._char._.0.9._int.2>

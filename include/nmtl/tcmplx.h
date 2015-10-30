@@ -276,7 +276,7 @@ template <class T> void	Out(const cmplx<T>& x)
 //*     Type conversion                                                      * 
 //*****************************************************************************
 /*
-template <class T> inline void double_(cmplx<T> &X, double* &pDstVec)
+template <class T> __INLINE__ void double_(cmplx<T> &X, double* &pDstVec)
 {
 	double_(X.re,pDstVec);
 	double_(X.im,pDstVec);

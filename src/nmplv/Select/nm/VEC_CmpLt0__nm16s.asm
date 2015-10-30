@@ -31,11 +31,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsCmpLt0_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCmpLt0__FPSsPSsi_.html
+//! \perfinclude _nmppsCmpLt0_16s.html
 
-global _nmppsCmpLt0__FPSsPSsi_:	label;
+global _nmppsCmpLt0_16s:	label;
 global _void._.8.8nmppsCmpLt0_.1short._.0.9._short._.0.9._int.2 :label;
-<_nmppsCmpLt0__FPSsPSsi_>
+<_nmppsCmpLt0_16s>
 <_void._.8.8nmppsCmpLt0_.1short._.0.9._short._.0.9._int.2>
 	ar5 = ar7 - 2	with gr7 = false;
 	push ar0,gr0	with gr7++;

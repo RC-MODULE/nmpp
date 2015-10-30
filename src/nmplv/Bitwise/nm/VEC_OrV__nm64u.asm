@@ -25,11 +25,11 @@ begin ".text_nmplv"
 ///////////////////////////////////////////////////////////
 //! \fn void nmppsOrV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsOrV__FPUlPUlPUli_.html
+//! \perfinclude _nmppsOrV_64u.html
 
-global _nmppsOrV__FPUlPUlPUli_:	label;
+global _nmppsOrV_64u:	label;
 global _void._.8.8nmppsOrV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
-<_nmppsOrV__FPUlPUlPUli_>
+<_nmppsOrV_64u>
 <_void._.8.8nmppsOrV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

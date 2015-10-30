@@ -6,10 +6,10 @@ extern _nmppsTmpBuffer64_L_: word;
 begin ".text_nmplv"
 	//! \fn void nmppsCmpNeV_8u(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b chTrueFlag);
 	//!
-	//! \perfinclude _nmppsCmpNeV__FPUcPUcPcii_.html
-global _nmppsCmpNeV__FPUcPUcPcii_: label;
+	//! \perfinclude _nmppsCmpNeV_8u.html
+global _nmppsCmpNeV_8u: label;
 global _void._.8.8nmppsCmpNeV_.1unsigned._char._.0.9._unsigned._char._.0.9._char._.0.9._int.9._int.2 :label;
-<_nmppsCmpNeV__FPUcPUcPcii_>
+<_nmppsCmpNeV_8u>
 <_void._.8.8nmppsCmpNeV_.1unsigned._char._.0.9._unsigned._char._.0.9._char._.0.9._int.9._int.2>
 .branch;    
     ar5 = sp - 2;

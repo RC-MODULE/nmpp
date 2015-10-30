@@ -86,11 +86,11 @@ begin ".text_nmplv"
 ///////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsRshC_16u(nm16u *pSrcVec, int nShift, nm16u *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsRshC__FPUsiPUsi_.html
+//! \perfinclude _nmppsRshC_16u.html
 
-global _nmppsRshC__FPUsiPUsi_:label;
+global _nmppsRshC_16u:label;
 global _void._.8.8nmppsRshC_.1unsigned._short._.0.9._int.9._unsigned._short._.0.9._int.2 :label;
-<_nmppsRshC__FPUsiPUsi_>
+<_nmppsRshC_16u>
 <_void._.8.8nmppsRshC_.1unsigned._short._.0.9._int.9._unsigned._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 4;

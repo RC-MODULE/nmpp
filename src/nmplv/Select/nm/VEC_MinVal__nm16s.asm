@@ -35,11 +35,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsMinVal_16s(nm16s *pSrcVec, int nSize, int16b &nMinValue) 
 //!
-//! \perfinclude _nmppsMinVal__FPSsiRi_.html
+//! \perfinclude _nmppsMinVal_16s.html
 
 global _nmppsMinVal__FPSsiRi_ :label;
 global _void._.8.8nmppsMinVal_.1short._.0.9._int.9._int._.6.2 :label;
-<_nmppsMinVal__FPSsiRi_>
+<_nmppsMinVal_16s>
 <_void._.8.8nmppsMinVal_.1short._.0.9._int.9._int._.6.2>
 .branch;
 	ar5=sp-2;

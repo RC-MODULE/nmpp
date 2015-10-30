@@ -30,11 +30,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsSub (nm16s *pSrcVec1, nm16s *pSrcVec2, nm16s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsSub__FPSsPSsPSsi.html
+//! \perfinclude _nmppsSub_16s.html
 
-global _nmppsSub__FPSsPSsPSsi:label;
+global _nmppsSub_16s:label;
 global _void._.8.8nmppsSub.1short._.0.9._short._.0.9._short._.0.9._int.2 :label;
-<_nmppsSub__FPSsPSsPSsi>
+<_nmppsSub_16s>
 <_void._.8.8nmppsSub.1short._.0.9._short._.0.9._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 2 with gr7=false;

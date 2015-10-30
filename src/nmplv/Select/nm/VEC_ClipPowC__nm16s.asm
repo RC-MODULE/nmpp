@@ -31,11 +31,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsClipPowC_16s(nm16s *pSrcVec, int nClipFactor, nm16s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsClipPowC__FPSsiPSsi_.html
+//! \perfinclude _nmppsClipPowC_16s.html
 
-global _nmppsClipPowC__FPSsiPSsi_:label;
+global _nmppsClipPowC_16s:label;
 global _void._.8.8nmppsClipPowC_.1short._.0.9._int.9._short._.0.9._int.2 :label;
-<_nmppsClipPowC__FPSsiPSsi_>
+<_nmppsClipPowC_16s>
 <_void._.8.8nmppsClipPowC_.1short._.0.9._int.9._short._.0.9._int.2>
 .branch;
 	ar5=ar7-2;

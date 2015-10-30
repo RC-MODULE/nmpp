@@ -22,11 +22,11 @@ begin ".text_nmplv"
  
 //! \fn int nmppsFirstNonZeroPos_(int* pSrcVec, int nSize)
 //!
-//! \perfinclude _nmppsFirstNonZeroPos__FPii_.html 
+//! \perfinclude _nmppsFirstNonZeroPos_32s.html 
 
-global _nmppsFirstNonZeroPos__FPii_:label;
+global _nmppsFirstNonZeroPos_32s:label;
 global _int._.8.8nmppsFirstNonZeroPos_.1int._.0.9._int.2 :label;
-<_nmppsFirstNonZeroPos__FPii_>	
+<_nmppsFirstNonZeroPos_32s>	
 <_int._.8.8nmppsFirstNonZeroPos_.1int._.0.9._int.2>
  
  	ar5=ar7-2;

@@ -135,7 +135,7 @@ int FFT_Inv2048(
 	
 }
 
-inline cmplx<double> IW2048(size_t power)
+__INLINE__ cmplx<double> IW2048(size_t power)
 {
 	power-=(power>>11)<<11;
 	cmplx<double>Z (0,double(power)*2.0*PI/2048.0);

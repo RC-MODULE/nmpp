@@ -140,7 +140,7 @@ int FFT_Fwd512(
 
 
 
-inline cmplx<double> W512(int power)
+__INLINE__ cmplx<double> W512(int power)
 {
 	power-=(power>>9)<<9;
 	cmplx<double> z(0,-(double(power)*2.0*PI)/512.0);

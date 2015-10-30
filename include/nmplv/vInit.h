@@ -72,13 +72,13 @@ void nmppsSet_8s(nm8s* pVec,  int8b nVal, int nSize);
 void nmppsSet_16s(nm16s* pVec, int16b nVal, int nSize);
 void nmppsSet_32s(nm32s* pVec, int32b nVal, int nSize);
 void nmppsSet_64sp(nm64s* pVec, int64b* nVal, int nSize); 
-inline void nmppsSet_64s(nm64s* pVec, int64b  nVal, int nSize)  {nmppsSet_64sp((nm64s*) pVec, (int64b*)&nVal, nSize);}
+__INLINE__ void nmppsSet_64s(nm64s* pVec, int64b  nVal, int nSize)  {nmppsSet_64sp((nm64s*) pVec, (int64b*)&nVal, nSize);}
 
-inline void nmppsSet_8u(nm8u* pVec,  uint8b nVal, int nSize)	{nmppsSet_8s((nm8s*) pVec,  (int8b)nVal, nSize);}
-inline void nmppsSet_16u(nm16u* pVec, uint16b nVal, int nSize)	{nmppsSet_16s((nm16s*) pVec, (int16b)nVal, nSize);}
-inline void nmppsSet_32u(nm32u* pVec, uint32b nVal, int nSize)	{nmppsSet_32s((nm32s*) pVec, (int32b)nVal, nSize);}
-inline void nmppsSet_64u(nm64u* pVec, uint64b  nVal, int nSize)	{nmppsSet_64s((nm64s*) pVec, (int64b)nVal, nSize);}
-inline void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize)	{nmppsSet_64sp((nm64s*) pVec, (int64b*)nVal, nSize);}
+__INLINE__ void nmppsSet_8u(nm8u* pVec,  uint8b nVal, int nSize)	{nmppsSet_8s((nm8s*) pVec,  (int8b)nVal, nSize);}
+__INLINE__ void nmppsSet_16u(nm16u* pVec, uint16b nVal, int nSize)	{nmppsSet_16s((nm16s*) pVec, (int16b)nVal, nSize);}
+__INLINE__ void nmppsSet_32u(nm32u* pVec, uint32b nVal, int nSize)	{nmppsSet_32s((nm32s*) pVec, (int32b)nVal, nSize);}
+__INLINE__ void nmppsSet_64u(nm64u* pVec, uint64b  nVal, int nSize)	{nmppsSet_64s((nm64s*) pVec, (int64b)nVal, nSize);}
+__INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize)	{nmppsSet_64sp((nm64s*) pVec, (int64b*)nVal, nSize);}
     //! \}
 
 
@@ -128,13 +128,13 @@ inline void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize)	{nmppsSet_64sp(
 	/~
 */
 void nmppsRand_32u(nm32u* pDstVec, int nSize, unsigned nRandomize );
-inline void nmppsRand_8s(nm8s* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>2, nRandomize);}
-inline void nmppsRand_16s(nm16s* pDstVec, int nSize, unsigned nRandomize) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>1, nRandomize);}
-inline void nmppsRand_32s(nm32s* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize, nRandomize);}
-//inline void nmppsRand_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRand_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
-inline void nmppsRand_8u(nm8u* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>2, nRandomize);}
-inline void nmppsRand_16u(nm16u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>1, nRandomize);}
-inline void nmppsRand_64u(nm64u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
+__INLINE__ void nmppsRand_8s(nm8s* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>2, nRandomize);}
+__INLINE__ void nmppsRand_16s(nm16s* pDstVec, int nSize, unsigned nRandomize) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>1, nRandomize);}
+__INLINE__ void nmppsRand_32s(nm32s* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize, nRandomize);}
+//__INLINE__ void nmppsRand_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRand_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
+__INLINE__ void nmppsRand_8u(nm8u* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>2, nRandomize);}
+__INLINE__ void nmppsRand_16u(nm16u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>1, nRandomize);}
+__INLINE__ void nmppsRand_64u(nm64u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
 
 
 /**
@@ -433,10 +433,10 @@ void nmppsCopy_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 void nmppsCopy_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
 void nmppsCopy_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 
-inline void nmppsCopy_8u(nm8u*  pSrcVec, nm8u*  pDstVec, int nSize)  { nmppsCopy_8s (( nm8s*)  pSrcVec, (nm8s*)  pDstVec,  nSize);}
-inline void nmppsCopy_16u(nm16u* pSrcVec, nm16u* pDstVec, int nSize) { nmppsCopy_16s(( nm16s*) pSrcVec, (nm16s*) pDstVec,  nSize);}
-inline void nmppsCopy_32u(nm32u* pSrcVec, nm32u* pDstVec, int nSize) { nmppsCopy_32s(( nm32s*) pSrcVec, (nm32s*) pDstVec,  nSize);}
-inline void nmppsCopy_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize) { nmppsCopy_64s(( nm64s*) pSrcVec, (nm64s*) pDstVec,  nSize);}
+__INLINE__ void nmppsCopy_8u(nm8u*  pSrcVec, nm8u*  pDstVec, int nSize)  { nmppsCopy_8s (( nm8s*)  pSrcVec, (nm8s*)  pDstVec,  nSize);}
+__INLINE__ void nmppsCopy_16u(nm16u* pSrcVec, nm16u* pDstVec, int nSize) { nmppsCopy_16s(( nm16s*) pSrcVec, (nm16s*) pDstVec,  nSize);}
+__INLINE__ void nmppsCopy_32u(nm32u* pSrcVec, nm32u* pDstVec, int nSize) { nmppsCopy_32s(( nm32s*) pSrcVec, (nm32s*) pDstVec,  nSize);}
+__INLINE__ void nmppsCopy_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize) { nmppsCopy_64s(( nm64s*) pSrcVec, (nm64s*) pDstVec,  nSize);}
 
     //! \}
 

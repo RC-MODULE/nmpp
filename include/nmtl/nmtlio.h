@@ -61,7 +61,7 @@
 
 
 #ifndef NM6403
-inline ostream& operator<< (ostream& s, mtr<unsigned char>& mtr)
+__INLINE__ ostream& operator<< (ostream& s, mtr<unsigned char>& mtr)
 {
 //		char str[255];
 		s <<"{\n";
@@ -85,7 +85,7 @@ inline ostream& operator<< (ostream& s, mtr<unsigned char>& mtr)
         return s;
 }
 
-inline ostream& operator<< (ostream& s, mtr<int>& mtr)
+__INLINE__ ostream& operator<< (ostream& s, mtr<int>& mtr)
 {
 //		char str[255];
 		s <<"{\n";
@@ -113,7 +113,7 @@ inline ostream& operator<< (ostream& s, mtr<int>& mtr)
         return s;
 }
 
-inline  ostream& operator<< (ostream& s, const __int64& y)
+__INLINE__  ostream& operator<< (ostream& s, const __int64& y)
 {
 	
 		int hi,lo;
@@ -125,7 +125,7 @@ inline  ostream& operator<< (ostream& s, const __int64& y)
 }
 
 
-inline ostream& operator<< (ostream& s, mtr<__int64>& mtr)
+__INLINE__ ostream& operator<< (ostream& s, mtr<__int64>& mtr)
 {
 //		char str[255];
 		s <<"{\n";
@@ -155,7 +155,7 @@ inline ostream& operator<< (ostream& s, mtr<__int64>& mtr)
 
 
 
-inline ostream& operator<< (ostream& s, mtr<double>& mtr)
+__INLINE__ ostream& operator<< (ostream& s, mtr<double>& mtr)
 {
 		char dbl[255];
 		s <<"{\n";
@@ -200,7 +200,7 @@ template <class T> ostream&	operator<<	(ostream& s, const cmplx<T>& y)
 */
 
 #ifdef WIN32
-inline  ostream& operator<< (ostream& s, const nmint<__int64>& y)
+__INLINE__  ostream& operator<< (ostream& s, const nmint<__int64>& y)
 {
 	
 		int hi,lo;
@@ -211,21 +211,21 @@ inline  ostream& operator<< (ostream& s, const nmint<__int64>& y)
         return s;
 }
 
-inline  ostream& operator<< (ostream& s, const nmint<int>& y)
+__INLINE__  ostream& operator<< (ostream& s, const nmint<int>& y)
 {
 	unsigned int x=(__int32)y.m_value;	
 	s<< "0x" << setw(8) << setiosflags(ios::hex|ios::uppercase|ios::internal) << setfill('0') << setiosflags(ios::uppercase) << x;
 	return s;
 }
 
-inline  ostream& operator<< (ostream& s, const nmint<short>& y)
+__INLINE__  ostream& operator<< (ostream& s, const nmint<short>& y)
 {
 	unsigned __int16 x=(__int16)y.m_value;	
 	s<< "0x" << setw(4) << setiosflags(ios::hex|ios::uppercase|ios::internal) << setfill('0') << x ; 
 	return s;
 }
 
-inline  ostream& operator<< (ostream& s, const nmint<char>& y)
+__INLINE__  ostream& operator<< (ostream& s, const nmint<char>& y)
 {
 	unsigned __int8 x=y.m_value;	
 	s<< "0x" << setw(2)  << setiosflags(ios::hex|ios::uppercase|ios::internal) << setfill('0') << x ; 
@@ -238,7 +238,7 @@ inline  ostream& operator<< (ostream& s, const nmint<char>& y)
 #endif
 
 #ifdef WIN32
-template <class T> inline ostream& operator<< (ostream& s, nmmtr<T>& mtr)
+template <class T> __INLINE__ ostream& operator<< (ostream& s, nmmtr<T>& mtr)
 {
 	s <<"{\n";
 	for(int y=0;y<mtr.m_height-1;y++)
@@ -263,7 +263,7 @@ template <class T> inline ostream& operator<< (ostream& s, nmmtr<T>& mtr)
 
 		
 
-inline ostream& AsmArray (ostream& s,  nmmtr64s& mtr)
+__INLINE__ ostream& AsmArray (ostream& s,  nmmtr64s& mtr)
 {
 	s << " long[" << dec << mtr.m_width <<"*" << mtr.m_height << "]=(\n";
 	for(int y=0;y<mtr.m_height-1;y++)
@@ -304,7 +304,7 @@ inline ostream& AsmArray (ostream& s,  nmmtr64s& mtr)
 	return s;
 }
 
-inline ostream& AsmArray (ostream& s,  nmmtr8s& mtr)
+__INLINE__ ostream& AsmArray (ostream& s,  nmmtr8s& mtr)
 {
 	_ASSERTE(mtr.m_width%8==0);
 	nmmtr64s mClone((__int64*)mtr.m_data,mtr.m_height,mtr.m_width/8,mtr.m_stride/8);

@@ -264,7 +264,7 @@ begin ".text_nmplv"
 //
 //! \fn void nmppsArshC_8s(nm8s *pSrcVec, int nShift, nm8s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsArshC__FPciPci_.html
+//! \perfinclude _nmppsArshC_8s.html
 
 
 global _void._.8.8nmppsArshC_.1char._.0.9._int.9._char._.0.9._int.2 :label;

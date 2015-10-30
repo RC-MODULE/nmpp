@@ -26,11 +26,11 @@ begin ".text_nmplv"
 ///////////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsAbsDiff (nm64s *pSrcVec1, nm64s *pSrcVec2, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsAbsDiff__FPlPlPli.html
+//! \perfinclude _nmppsAbsDiff_64s.html
 
-global _nmppsAbsDiff__FPlPlPli:label;
+global _nmppsAbsDiff_64s:label;
 global _void._.8.8nmppsAbsDiff.1long._.0.9._long._.0.9._long._.0.9._int.2 :label;
-<_nmppsAbsDiff__FPlPlPli>
+<_nmppsAbsDiff_64s>
 <_void._.8.8nmppsAbsDiff.1long._.0.9._long._.0.9._long._.0.9._int.2>
 .branch;
 	ar5 = sp - 2;

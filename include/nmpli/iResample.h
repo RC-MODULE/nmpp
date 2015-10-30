@@ -279,13 +279,13 @@ void IMG_ResampleDown2XY(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcH
 //void IMG_VResample3div2_Arsh0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* pDstImg);
 
 
-//inline void IMG_CreateResampleDown2X_8u8u(nm64s**	pKernel, int nHint)	{	SIG_CreateResampleDown2_8u8u(pKernel,nHint);}
-//inline void IMG_CreateResampleDown2X_8u16u(nm64s** pKernel, int nHint)	{	SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
-//inline void IMG_CreateResampleDown2X_16u16u(nm64s** pKernel, int nHint)	{	SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
-//inline void IMG_CreateResampleDown2Y_8u16u(nm64s** pKernel, int nHint)	{   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
-//inline void IMG_CreateResampleDown2XY_8u16u(nm64s**	 pKernel, int nHint){   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
-//inline void IMG_CreateResampleDown2XY_8u8u(nm64s** pKernel, int nHint)	{   SIG_CreateResampleDown2_8u8u(pKernel,nHint);}
-//inline void IMG_CreateResampleDown2XY_16u16u(nm64s** pKernel,int nHint)	{   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
+//__INLINE__ void IMG_CreateResampleDown2X_8u8u(nm64s**	pKernel, int nHint)	{	SIG_CreateResampleDown2_8u8u(pKernel,nHint);}
+//__INLINE__ void IMG_CreateResampleDown2X_8u16u(nm64s** pKernel, int nHint)	{	SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
+//__INLINE__ void IMG_CreateResampleDown2X_16u16u(nm64s** pKernel, int nHint)	{	SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
+//__INLINE__ void IMG_CreateResampleDown2Y_8u16u(nm64s** pKernel, int nHint)	{   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
+//__INLINE__ void IMG_CreateResampleDown2XY_8u16u(nm64s**	 pKernel, int nHint){   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
+//__INLINE__ void IMG_CreateResampleDown2XY_8u8u(nm64s** pKernel, int nHint)	{   SIG_CreateResampleDown2_8u8u(pKernel,nHint);}
+//__INLINE__ void IMG_CreateResampleDown2XY_16u16u(nm64s** pKernel,int nHint)	{   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
 
 
 #endif // _I_Resample_H_INCLUDED_

@@ -9,16 +9,16 @@ class nmshort{
 public:
 	unsigned int *adr;
 	int idx;
-	inline nmshort(){
+	__INLINE__ nmshort(){
 		//adr=0;
 		//idx=0;
 	}
-	inline nmshort(nmshort& ch){
+	__INLINE__ nmshort(nmshort& ch){
 		adr=ch.adr;
 		idx=ch.idx;
 //		crc^=ch;
 	}
-	inline nmshort& operator = (nmshort ch){
+	__INLINE__ nmshort& operator = (nmshort ch){
 		unsigned char val=(ch);
 		(*adr) &= ~(0xFFFF<<(idx*16));
 		(*adr) |= (val) <<(idx*16);
@@ -27,7 +27,7 @@ public:
 		//idx=ch.idx;
 		return *this;
 	}
-	inline unsigned int operator + (nmshort& ch){
+	__INLINE__ unsigned int operator + (nmshort& ch){
 		unsigned int a=(ch);
 		unsigned int b=(*this);
 		a+=b;
@@ -35,20 +35,20 @@ public:
 		return a;
 	}
 
-	inline nmshort& operator = (unsigned int val){
+	__INLINE__ nmshort& operator = (unsigned int val){
 		(*adr) &= ~(0xFFFF<<(idx*16));
 		(*adr) |= (val&0xFFFF) <<(idx*16);
 //		crc^=val;
 		return *this;
 	}
-	inline operator unsigned char(){
+	__INLINE__ operator unsigned char(){
 		unsigned char ret=((*adr)>>(idx*4));
 		ret&=0xFF;
 //		crc^=ret;
 		return ret;
 	}
 	
-	inline uint16ptr operator &();
+	__INLINE__ uint16ptr operator &();
 
 };
 
@@ -59,7 +59,7 @@ public:
 	unsigned int *addr;
 	int indx;
 	nmshort arref;
-	inline uint16ptr (){
+	__INLINE__ uint16ptr (){
 		addr=0;
 		indx=0;
 	}
@@ -73,23 +73,23 @@ public:
 	//	addr=p.addr;
 	//}
 	
-	inline unsigned char* x86addr(){
+	__INLINE__ unsigned char* x86addr(){
 		return ((unsigned char*)addr)+indx;
 	}
-	inline uint16ptr (void* p){
+	__INLINE__ uint16ptr (void* p){
 		addr=(unsigned int*)p;
 		indx=0;
 	}
-	inline uint16ptr (unsigned short* p){
+	__INLINE__ uint16ptr (unsigned short* p){
 		addr=(unsigned int*)p;
 		indx=0;
 	}
-	inline uint16ptr (short* p){
+	__INLINE__ uint16ptr (short* p){
 		addr=(unsigned int*)p;
 		indx=0;
 	}
 
-	inline uint16ptr(const uint16ptr& p){
+	__INLINE__ uint16ptr(const uint16ptr& p){
 		indx=p.indx;
 		addr=p.addr;
 	}
@@ -97,11 +97,11 @@ public:
 	//	addr=(unsigned*)p;
 	//	indx=0;
 	//}
-	inline uint16ptr(unsigned int*p){
+	__INLINE__ uint16ptr(unsigned int*p){
 		addr=p;
 		indx=0;
 	}
-	inline uint16ptr(unsigned int*p,int offset){
+	__INLINE__ uint16ptr(unsigned int*p,int offset){
 		addr=p+(offset>>1);
 		indx=offset&1;
 	}
@@ -110,7 +110,7 @@ public:
 	//	return int(addr);
 	//}
 
-	inline nmshort& operator [](int idx){
+	__INLINE__ nmshort& operator [](int idx){
 		
 		arref.adr=addr+(indx+idx)/2;
 		arref.idx=(indx+idx)%2;
@@ -124,13 +124,13 @@ public:
 	//}
 
 
-	inline uint16ptr& operator = (unsigned int* ptr){
+	__INLINE__ uint16ptr& operator = (unsigned int* ptr){
 		addr=(unsigned*)ptr;
 		indx=0;
 		return (*this);
 	}
 	
-	inline bool operator < (uint16ptr ptr){
+	__INLINE__ bool operator < (uint16ptr ptr){
 		if (addr<ptr.addr)
 			return 1;
 		if (addr==ptr.addr)
@@ -139,7 +139,7 @@ public:
 		return 0;
 	}
 	
-	inline bool operator >= (uint16ptr ptr){
+	__INLINE__ bool operator >= (uint16ptr ptr){
 		if (addr>ptr.addr)
 			return 1;
 		if (addr==ptr.addr)
@@ -149,7 +149,7 @@ public:
 	}
 	
 
-	inline int operator - (uint16ptr ptr){
+	__INLINE__ int operator - (uint16ptr ptr){
 		int a=(int)addr;
 		int b=(int)ptr.addr;
 
@@ -173,13 +173,13 @@ public:
 	
 	
 	
-	inline uint16ptr& operator = (const uint16ptr& p){
+	__INLINE__ uint16ptr& operator = (const uint16ptr& p){
 		addr=p.addr;
 		indx=p.indx;
 		return (*this);
 	}
 
-	inline unsigned int* ptr(){
+	__INLINE__ unsigned int* ptr(){
 		if (indx==0)
 			return addr;
 		//}
@@ -188,7 +188,7 @@ public:
 			return (unsigned int*)-1;
 		}
 	}
-	inline nmshort& operator *(){
+	__INLINE__ nmshort& operator *(){
 
 		return (nmshort&)(*this);
 	}
@@ -220,14 +220,14 @@ indx=(indx-idx)&0x1;
 return *this;
 }
 */
-	inline uint16ptr operator + (int idx){
+	__INLINE__ uint16ptr operator + (int idx){
 		uint16ptr tmp(*this);
 		tmp.addr=addr+((indx+idx)>>1);
 		tmp.indx=(indx+idx)&0x1;
 		return tmp;
 	}
 
-	inline uint16ptr operator- (int idx){
+	__INLINE__ uint16ptr operator- (int idx){
 		uint16ptr tmp(*this);
 		tmp.addr=addr+((indx-idx)>>1);
 		tmp.indx=(indx-idx)&0x1;
@@ -235,19 +235,19 @@ return *this;
 	}
 
 
-	inline uint16ptr& operator+= (int idx){
+	__INLINE__ uint16ptr& operator+= (int idx){
 		addr=addr+((indx+idx)>>1);
 		indx=(indx+idx)&0x1;
 		return *this;
 	}
 
-	inline uint16ptr& operator-= (int idx){
+	__INLINE__ uint16ptr& operator-= (int idx){
 		addr=addr+((indx-idx)>>1);
 		indx=(indx-idx)&0x1;
 		return *this;
 	}
 
-	inline uint16ptr operator++ (int){
+	__INLINE__ uint16ptr operator++ (int){
 		uint16ptr tmp(*this);
 		if (indx==1){
 			indx=0;
@@ -259,7 +259,7 @@ return *this;
 		return tmp;
 	}
 
-	inline uint16ptr& operator++ (){
+	__INLINE__ uint16ptr& operator++ (){
 		if (indx==1){
 			indx=0;
 			addr++;
@@ -270,11 +270,11 @@ return *this;
 		return *this;
 	}
 
-	inline unsigned int operator== (unsigned int N){
+	__INLINE__ unsigned int operator== (unsigned int N){
 		return (((unsigned int)addr)==N);
 	}
 	
-	inline bool operator == (uint16ptr ptr){
+	__INLINE__ bool operator == (uint16ptr ptr){
 		if (addr==ptr.addr && indx==ptr.indx)
 			return 1;
 		return 0;
@@ -282,7 +282,7 @@ return *this;
 
 };
 
-inline uint16ptr nmshort::operator &(){
+__INLINE__ uint16ptr nmshort::operator &(){
 	uint16ptr p;
 	p.addr=adr;
 	p.indx=idx;
@@ -315,30 +315,30 @@ public:
 	nmshort1D(){
 	}
 
-	inline nmshort& operator [](int idx){
+	__INLINE__ nmshort& operator [](int idx){
 		addr=data+idx/4;
 		indx=idx%4;
 		return deref;
 	}
 
-	inline operator uint16ptr(){
+	__INLINE__ operator uint16ptr(){
 		uint16ptr p;
 		p.addr=data;
 		p.indx=0;
 		return p;
 	}
-	inline unsigned int* ptr(){
+	__INLINE__ unsigned int* ptr(){
 		return data;
 	}
 
 	
 };
 */
-inline void free(uint16ptr& p){
+__INLINE__ void free(uint16ptr& p){
 	free(p.addr);
 }
 
-inline void nmshort_memcpy (uint16ptr dst, uint16ptr src, unsigned int  len){
+__INLINE__ void nmshort_memcpy (uint16ptr dst, uint16ptr src, unsigned int  len){
 	
 	
 	#ifdef __NM__
@@ -380,7 +380,7 @@ inline void nmshort_memcpy (uint16ptr dst, uint16ptr src, unsigned int  len){
 	#endif
 }
 
-inline void nmshort_memset (uint16ptr dst, int setvalue, unsigned int  len){
+__INLINE__ void nmshort_memset (uint16ptr dst, int setvalue, unsigned int  len){
 	
 	
 	#ifdef __NM__

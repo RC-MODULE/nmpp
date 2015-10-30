@@ -34,10 +34,11 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsSumN (nm16s **ppSrcVec, nm16s *pDstVec, int nSize, int nNumberOfVectors) 
 //!
-//! \perfinclude _nmppsSumN__FPPSsPSsii.html
-
+//! \perfinclude _nmppsSumN_16s.html
+global _nmppsSumN_16s:label;
 global _void._.8.8nmppsSum4.1short._.0.0.9._short._.0.9._int.2 :label;
 <_void._.8.8nmppsSum4.1short._.0.0.9._short._.0.9._int.2>
+<_nmppsSumN_16s>
 .branch;
 	ar5 = sp - 2;
 	

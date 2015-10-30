@@ -28,7 +28,7 @@ begin ".text_nmplv"
 		
 //! \fn void nmppsCopy_8s(nm8s* pSrcVec, nm8s* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCopy__FPcPci_.html
+//! \perfinclude _nmppsCopy_8s.html
 
 global _void._.8.8nmppsCopy_.1char._.0.9._char._.0.9._int.2 :label;
 <_void._.8.8nmppsCopy_.1char._.0.9._char._.0.9._int.2>

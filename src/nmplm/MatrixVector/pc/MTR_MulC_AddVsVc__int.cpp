@@ -20,7 +20,7 @@
 #include "nmplv.h"
 
 
-void MTR_MulC_AddVsVc(
+void MTR_MulC_AddVsVc_32s(
 			int			MulN,
 			nm32s*		SrcMtr,
 			nm32s*		SrcVecStr,
@@ -31,5 +31,5 @@ void MTR_MulC_AddVsVc(
 
 {
 	for(int row=0;row<nHeight;row++)
-		nmppsMulC_AddV_AddC(SrcMtr+row*nWidth,MulN,SrcVecStr,SrcVecCol[row],DstMtr+row*nWidth,nWidth);
+		nmppsMulC_AddV_AddC_32s(SrcMtr+row*nWidth,MulN,SrcVecStr,SrcVecCol[row],DstMtr+row*nWidth,nWidth);
 }

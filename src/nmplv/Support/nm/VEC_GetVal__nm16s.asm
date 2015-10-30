@@ -22,12 +22,12 @@
 /////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsGet_16s(nm16s* pVec, int nIndex, int16b &nVal)
 //!
-//! \perfinclude _nmppsGetVal__FPSsiRi_.html
+//! \perfinclude _nmppsGetVal_16s.html
 begin ".text_nmplv"
 
-global _nmppsGetVal__FPSsiRi_:	label;
+global _nmppsGetVal_16s:	label;
 global _void._.8.8nmppsGetVal_.1short._.0.9._int.9._int._.6.2: label;
-<_nmppsGetVal__FPSsiRi_>
+<_nmppsGetVal_16s>
 <_void._.8.8nmppsGetVal_.1short._.0.9._int.9._int._.6.2>
 .branch;
 	ar5 = ar7 - 2;

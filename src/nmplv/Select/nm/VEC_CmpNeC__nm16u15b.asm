@@ -7,10 +7,10 @@ extern _nmppsTmpBuffer64_L_: word;
 begin ".text_nmplv"
 	//! \fn void nmppsCmpNeC_16u(nm16u15b* pSrcVec,  uint15b shCmpVal,   nm16s* pDstVec, int nSize, int16b shTrueFlag);
 	//!
-	//! \perfinclude _nmppsCmpNeC__FPUsUiPSsii_.html
-global _nmppsCmpNeC__FPUsUiPSsii_: label;
+	//! \perfinclude _nmppsCmpNeC_16u.html
+global _nmppsCmpNeC_16u: label;
 global _void._.8.8nmppsCmpNeC_.1unsigned._short._.0.9._unsigned._int.9._short._.0.9._int.9._int.2 :label;
-<_nmppsCmpNeC__FPUsUiPSsii_>
+<_nmppsCmpNeC_16u>
 <_void._.8.8nmppsCmpNeC_.1unsigned._short._.0.9._unsigned._int.9._short._.0.9._int.9._int.2>
 .branch;    
     ar5 = sp - 2;

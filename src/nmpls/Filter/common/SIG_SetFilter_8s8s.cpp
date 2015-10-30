@@ -11,7 +11,7 @@
 	// f(17)=0
 	// f(19)=7
 	// f(21)=6
-inline int GetDisp(int nSize)
+__INLINE__ int GetDisp(int nSize)
 {
 	return (7-((nSize-3)/2)%8);
 }

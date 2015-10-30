@@ -28,13 +28,13 @@ begin ".text_nmplv"
     //--------------------------------------------------------------------
     //! \fn nm32s * nmppsAddr_32s(nm32s *pVec, int nIndex) 
 	//!
-	//! \perfinclude _nmppsAddr__FPii_.html
+	//! \perfinclude _nmppsAddr_32s.html
     //--------------------------------------------------------------------
 
     
-global _nmppsAddr__FPii_:label;
+global _nmppsAddr_32s:label;
 global _int._.0.8.8nmppsAddr_.1int._.0.9._int.2 :label;
-<_nmppsAddr__FPii_>
+<_nmppsAddr_32s>
 <_int._.0.8.8nmppsAddr_.1int._.0.9._int.2>
 .branch;
 	ar5 = sp-2 with gr7=gr5;	

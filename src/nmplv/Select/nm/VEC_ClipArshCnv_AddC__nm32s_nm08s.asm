@@ -42,7 +42,7 @@ extern vec_ClipMul4D4W4_AddVr:label;     // core:from file Math_Mul4D4W4.asm
 
 //! \fn void nmppsClipArshCnv_AddC_32s(nm32s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
 //! 
-//! \perfinclude _nmppsClipArshCnv_AddC__FPiiiiPci_.html
+//! \perfinclude _nmppsClipArshCnv_AddC_32s.html
 
 
 global _void._.8.8nmppsClipArshCnv_AddC_.1int._.0.9._int.9._int.9._int.9._char._.0.9._int.2 :label;

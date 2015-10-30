@@ -26,11 +26,11 @@ begin ".text_nmplv"
 
 //! \fn uint16u nmppsGet_16u(nm16u *pVec, int nIndex) 
 //!
-//! \perfinclude _nmppsGetVal__FPUsi_.html
+//! \perfinclude _nmppsGetVal_16u.html
 
-global _nmppsGetVal__FPUsi_:	label;
+global _nmppsGetVal_16u:	label;
 global _unsigned._int._.8.8nmppsGetVal_.1unsigned._short._.0.9._int.2 :label;
-<_nmppsGetVal__FPUsi_>
+<_nmppsGetVal_16u>
 <_unsigned._int._.8.8nmppsGetVal_.1unsigned._short._.0.9._int.2>
 .branch;
 	ar5 = ar7 - 2;

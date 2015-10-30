@@ -30,7 +30,7 @@ begin ".text_nmplv"
 
 //! \fn nm64s nmppsSum (nm64s *pSrcVec, int nSize, int64b *pnRes)
 //!
-//! \perfinclude _nmppsSum__FPliPl.html
+//! \perfinclude _nmppsSum_64s.html
 
 
 global _void._.8.8nmppsSum.1long._.0.9._int.9._long._.0.2 :label;

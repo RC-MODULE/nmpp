@@ -74,20 +74,20 @@
 			  \~
     */
     //! \{
-inline void MTR_Malloc(nm1** pptr,   int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>6) +1, hint);}
-inline void MTR_Malloc(nm2s** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>5) +1, hint);}
-inline void MTR_Malloc(nm4s** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>4) +1, hint);}
-inline void MTR_Malloc(nm8s** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>3) +1, hint);}
-inline void MTR_Malloc(nm16s** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>2) +1, hint);}
-inline void MTR_Malloc(nm32s** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>1) +1, hint);}
-inline void MTR_Malloc(nm64s** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth   )   , hint);}
+__INLINE__ void MTR_Malloc(nm1** pptr,   int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>6) +1, hint);}
+__INLINE__ void MTR_Malloc(nm2s** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>5) +1, hint);}
+__INLINE__ void MTR_Malloc(nm4s** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>4) +1, hint);}
+__INLINE__ void MTR_Malloc(nm8s** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>3) +1, hint);}
+__INLINE__ void MTR_Malloc(nm16s** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>2) +1, hint);}
+__INLINE__ void MTR_Malloc(nm32s** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>1) +1, hint);}
+__INLINE__ void MTR_Malloc(nm64s** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth   )   , hint);}
 
-inline void MTR_Malloc(nm2u** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>5) +1, hint);}
-inline void MTR_Malloc(nm4u** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>4) +1, hint);}
-inline void MTR_Malloc(nm8u** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>3) +1, hint);}
-inline void MTR_Malloc(nm16u** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>2) +1, hint);}
-inline void MTR_Malloc(nm32u** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>1) +1, hint);}
-inline void MTR_Malloc(nm64u** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth   )   , hint);}
+__INLINE__ void MTR_Malloc(nm2u** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>5) +1, hint);}
+__INLINE__ void MTR_Malloc(nm4u** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>4) +1, hint);}
+__INLINE__ void MTR_Malloc(nm8u** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>3) +1, hint);}
+__INLINE__ void MTR_Malloc(nm16u** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>2) +1, hint);}
+__INLINE__ void MTR_Malloc(nm32u** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>1) +1, hint);}
+__INLINE__ void MTR_Malloc(nm64u** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth   )   , hint);}
 
     //! \}
 
@@ -111,7 +111,7 @@ inline void MTR_Malloc(nm64u** pptr, int nHeight, int nWidth, int hint = MEM_LOC
     */
     //! \{
 
-inline void MTR_Free(void* ptr) {nmppsFree(ptr);}
+__INLINE__ void MTR_Free(void* ptr) {nmppsFree(ptr);}
     //! \}
 
 //*****************************************************************************
@@ -176,20 +176,20 @@ inline void MTR_Free(void* ptr) {nmppsFree(ptr);}
     \endxmlonly
     */
     //! \{
-inline nm1*   MTR_Addr(nm1*   pMTR, int nWidth, int nY, int nX)	{	return (nm1*)  ((int*)pMTR+((nWidth*nY+nX)>>5));}
-inline nm2s*  MTR_Addr(nm2s*  pMTR, int nWidth, int nY, int nX)	{	return (nm2s*) ((int*)pMTR+((nWidth*nY+nX)>>4));}
-inline nm4s*  MTR_Addr(nm4s*  pMTR, int nWidth, int nY, int nX)	{	return (nm4s*) ((int*)pMTR+((nWidth*nY+nX)>>3));}
-inline nm8s*  MTR_Addr(nm8s*  pMTR, int nWidth, int nY, int nX)	{	return (nm8s*) ((int*)pMTR+((nWidth*nY+nX)>>2));}
-inline nm16s* MTR_Addr(nm16s* pMTR, int nWidth, int nY, int nX)	{	return (nm16s*)((int*)pMTR+((nWidth*nY+nX)>>1));}
-inline nm32s* MTR_Addr(nm32s* pMTR, int nWidth, int nY, int nX)	{	return (nm32s*)((int*)pMTR+(nWidth*nY+nX));}
-inline nm64s* MTR_Addr(nm64s* pMTR, int nWidth, int nY, int nX) {	return (nm64s*)((int*)pMTR+((nWidth*nY+nX)<<1));}
+__INLINE__ nm1*   MTR_Addr(nm1*   pMTR, int nWidth, int nY, int nX)	{	return (nm1*)  ((int*)pMTR+((nWidth*nY+nX)>>5));}
+__INLINE__ nm2s*  MTR_Addr(nm2s*  pMTR, int nWidth, int nY, int nX)	{	return (nm2s*) ((int*)pMTR+((nWidth*nY+nX)>>4));}
+__INLINE__ nm4s*  MTR_Addr(nm4s*  pMTR, int nWidth, int nY, int nX)	{	return (nm4s*) ((int*)pMTR+((nWidth*nY+nX)>>3));}
+__INLINE__ nm8s*  MTR_Addr(nm8s*  pMTR, int nWidth, int nY, int nX)	{	return (nm8s*) ((int*)pMTR+((nWidth*nY+nX)>>2));}
+__INLINE__ nm16s* MTR_Addr(nm16s* pMTR, int nWidth, int nY, int nX)	{	return (nm16s*)((int*)pMTR+((nWidth*nY+nX)>>1));}
+__INLINE__ nm32s* MTR_Addr(nm32s* pMTR, int nWidth, int nY, int nX)	{	return (nm32s*)((int*)pMTR+(nWidth*nY+nX));}
+__INLINE__ nm64s* MTR_Addr(nm64s* pMTR, int nWidth, int nY, int nX) {	return (nm64s*)((int*)pMTR+((nWidth*nY+nX)<<1));}
 
-inline nm2u*  MTR_Addr(nm2u*  pMTR, int nWidth, int nY, int nX)	{	return (nm2u*) ((int*)pMTR+((nWidth*nY+nX)>>4));}
-inline nm4u*  MTR_Addr(nm4u*  pMTR, int nWidth, int nY, int nX)	{	return (nm4u*) ((int*)pMTR+((nWidth*nY+nX)>>3));}
-inline nm8u*  MTR_Addr(nm8u*  pMTR, int nWidth, int nY, int nX)	{	return (nm8u*) ((int*)pMTR+((nWidth*nY+nX)>>2));}
-inline nm16u* MTR_Addr(nm16u* pMTR, int nWidth, int nY, int nX)	{	return (nm16u*)((int*)pMTR+((nWidth*nY+nX)>>1));}
-inline nm32u* MTR_Addr(nm32u* pMTR, int nWidth, int nY, int nX)	{	return (nm32u*)((int*)pMTR+(nWidth*nY+nX));}
-inline nm64u* MTR_Addr(nm64u* pMTR, int nWidth, int nY, int nX) {	return (nm64u*)((int*)pMTR+((nWidth*nY+nX)<<1));}
+__INLINE__ nm2u*  MTR_Addr(nm2u*  pMTR, int nWidth, int nY, int nX)	{	return (nm2u*) ((int*)pMTR+((nWidth*nY+nX)>>4));}
+__INLINE__ nm4u*  MTR_Addr(nm4u*  pMTR, int nWidth, int nY, int nX)	{	return (nm4u*) ((int*)pMTR+((nWidth*nY+nX)>>3));}
+__INLINE__ nm8u*  MTR_Addr(nm8u*  pMTR, int nWidth, int nY, int nX)	{	return (nm8u*) ((int*)pMTR+((nWidth*nY+nX)>>2));}
+__INLINE__ nm16u* MTR_Addr(nm16u* pMTR, int nWidth, int nY, int nX)	{	return (nm16u*)((int*)pMTR+((nWidth*nY+nX)>>1));}
+__INLINE__ nm32u* MTR_Addr(nm32u* pMTR, int nWidth, int nY, int nX)	{	return (nm32u*)((int*)pMTR+(nWidth*nY+nX));}
+__INLINE__ nm64u* MTR_Addr(nm64u* pMTR, int nWidth, int nY, int nX) {	return (nm64u*)((int*)pMTR+((nWidth*nY+nX)<<1));}
 
     //! \}
 //*****************************************************************************
@@ -241,21 +241,21 @@ inline nm64u* MTR_Addr(nm64u* pMTR, int nWidth, int nY, int nX) {	return (nm64u*
     \endxmlonly
     */
     //! \{
-inline void MTR_SetVal(nm1*  pMtr,   int nWidth,  int nY, int nX, int1b nVal)	{ nmppsSetInt_1  (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm1*  pMtr,   int nWidth,  int nY, int nX, int1b nVal)	{ nmppsSetInt_1  (pMtr, nY*nWidth+nX,nVal);}
 																							  
-inline void MTR_SetVal(nm2s* pMtr,   int nWidth,  int nY, int nX, int2b nVal)	{ nmppsSetInt_2s (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_SetVal(nm4s* pMtr,   int nWidth,  int nY, int nX, int4b nVal)	{ nmppsSetInt_4s (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_SetVal(nm8s* pMtr,   int nWidth,  int nY, int nX, int8b nVal)	{ nmppsSetInt_8s (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_SetVal(nm16s* pMtr,  int nWidth,  int nY, int nX, int16b nVal)	{ nmppsSetInt_16s(pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_SetVal(nm32s* pMtr,  int nWidth,  int nY, int nX, int32b nVal)	{ nmppsSetInt_32s(pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_SetVal(nm64s* pMtr,  int nWidth,  int nY, int nX, int64b nVal)	{ nmppsSetInt_64s(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm2s* pMtr,   int nWidth,  int nY, int nX, int2b nVal)	{ nmppsSetInt_2s (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm4s* pMtr,   int nWidth,  int nY, int nX, int4b nVal)	{ nmppsSetInt_4s (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm8s* pMtr,   int nWidth,  int nY, int nX, int8b nVal)	{ nmppsSetInt_8s (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm16s* pMtr,  int nWidth,  int nY, int nX, int16b nVal)	{ nmppsSetInt_16s(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm32s* pMtr,  int nWidth,  int nY, int nX, int32b nVal)	{ nmppsSetInt_32s(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm64s* pMtr,  int nWidth,  int nY, int nX, int64b nVal)	{ nmppsSetInt_64s(pMtr, nY*nWidth+nX,nVal);}
 																							  
-inline void MTR_SetVal(nm2u* pMtr,	 int nWidth,  int nY, int nX, uint2b nVal)	{ nmppsSetInt_2u (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_SetVal(nm4u* pMtr,   int nWidth,  int nY, int nX, uint4b nVal)	{ nmppsSetInt_4u (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_SetVal(nm8u* pMtr,   int nWidth,  int nY, int nX, uint8b nVal)	{ nmppsSetInt_8u (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_SetVal(nm16u* pMtr,  int nWidth,  int nY, int nX, uint16b nVal)	{ nmppsSetInt_16u(pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_SetVal(nm32u* pMtr,  int nWidth,  int nY, int nX, uint32b nVal)	{ nmppsSetInt_32u(pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_SetVal(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64b nVal)	{ nmppsSetInt_64u(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm2u* pMtr,	 int nWidth,  int nY, int nX, uint2b nVal)	{ nmppsSetInt_2u (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm4u* pMtr,   int nWidth,  int nY, int nX, uint4b nVal)	{ nmppsSetInt_4u (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm8u* pMtr,   int nWidth,  int nY, int nX, uint8b nVal)	{ nmppsSetInt_8u (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm16u* pMtr,  int nWidth,  int nY, int nX, uint16b nVal)	{ nmppsSetInt_16u(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm32u* pMtr,  int nWidth,  int nY, int nX, uint32b nVal)	{ nmppsSetInt_32u(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64b nVal)	{ nmppsSetInt_64u(pMtr, nY*nWidth+nX,nVal);}
     //! \}
 
 //*****************************************************************************
@@ -307,21 +307,21 @@ inline void MTR_SetVal(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64b nVal)	
     \endxmlonly
     */
     //! \{
-inline void MTR_GetVal(nm1*  pMtr,   int nWidth,  int nY, int nX, int1b* nVal)  { nmppsGetVal_1  (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm1*  pMtr,   int nWidth,  int nY, int nX, int1b* nVal)  { nmppsGetVal_1  (pMtr, nY*nWidth+nX,nVal);}
 																							  
-inline void MTR_GetVal(nm2s* pMtr,   int nWidth,  int nY, int nX, int2b* nVal)  { nmppsGetVal_2s (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_GetVal(nm4s* pMtr,   int nWidth,  int nY, int nX, int4b* nVal)  { nmppsGetVal_4s (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_GetVal(nm8s* pMtr,   int nWidth,  int nY, int nX, int8b* nVal)  { nmppsGetVal_8s (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_GetVal(nm16s* pMtr,  int nWidth,  int nY, int nX, int16b* nVal) { nmppsGetVal_16s(pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_GetVal(nm32s* pMtr,  int nWidth,  int nY, int nX, int32b* nVal) { nmppsGetVal_32s(pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_GetVal(nm64s* pMtr,  int nWidth,  int nY, int nX, int64b* nVal) { nmppsGetVal_64s(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm2s* pMtr,   int nWidth,  int nY, int nX, int2b* nVal)  { nmppsGetVal_2s (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm4s* pMtr,   int nWidth,  int nY, int nX, int4b* nVal)  { nmppsGetVal_4s (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm8s* pMtr,   int nWidth,  int nY, int nX, int8b* nVal)  { nmppsGetVal_8s (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm16s* pMtr,  int nWidth,  int nY, int nX, int16b* nVal) { nmppsGetVal_16s(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm32s* pMtr,  int nWidth,  int nY, int nX, int32b* nVal) { nmppsGetVal_32s(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm64s* pMtr,  int nWidth,  int nY, int nX, int64b* nVal) { nmppsGetVal_64s(pMtr, nY*nWidth+nX,nVal);}
 																							  
-inline void MTR_GetVal(nm2u* pMtr,	 int nWidth,  int nY, int nX, uint2b* nVal) { nmppsGetVal_2u (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_GetVal(nm4u* pMtr,   int nWidth,  int nY, int nX, uint4b* nVal) { nmppsGetVal_4u (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_GetVal(nm8u* pMtr,   int nWidth,  int nY, int nX, uint8b* nVal) { nmppsGetVal_8u (pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_GetVal(nm16u* pMtr,  int nWidth,  int nY, int nX, uint16b* nVal){ nmppsGetVal_16u(pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_GetVal(nm32u* pMtr,  int nWidth,  int nY, int nX, uint32b* nVal){ nmppsGetVal_32u(pMtr, nY*nWidth+nX,nVal);}
-inline void MTR_GetVal(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64b* nVal){ nmppsGetVal_64u(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm2u* pMtr,	 int nWidth,  int nY, int nX, uint2b* nVal) { nmppsGetVal_2u (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm4u* pMtr,   int nWidth,  int nY, int nX, uint4b* nVal) { nmppsGetVal_4u (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm8u* pMtr,   int nWidth,  int nY, int nX, uint8b* nVal) { nmppsGetVal_8u (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm16u* pMtr,  int nWidth,  int nY, int nX, uint16b* nVal){ nmppsGetVal_16u(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm32u* pMtr,  int nWidth,  int nY, int nX, uint32b* nVal){ nmppsGetVal_32u(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_GetVal(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64b* nVal){ nmppsGetVal_64u(pMtr, nY*nWidth+nX,nVal);}
 
 
     //! \}

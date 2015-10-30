@@ -40,7 +40,7 @@ begin ".text_nmplv"
 
 //! \fn void nmppsCnv_8s(nm8s* pSrcVec, nm64s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv__FPcPli_.html
+//! \perfinclude _nmppsCnv_8s.html
 
 
 global _void._.8.8nmppsCnv_.1char._.0.9._long._.0.9._int.2 :label;
@@ -55,7 +55,7 @@ global _void._.8.8nmppsCnv_.1char._.0.9._long._.0.9._int.2 :label;
 
 //! \fn void nmppsCnv_8u(nm8u* pSrcVec, nm64u* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv__FPUcPUli_.html
+//! \perfinclude _nmppsCnv_8u.html
 
 global _void._.8.8nmppsCnv_.1unsigned._char._.0.9._unsigned._long._.0.9._int.2 :label;
 <_void._.8.8nmppsCnv_.1unsigned._char._.0.9._unsigned._long._.0.9._int.2>

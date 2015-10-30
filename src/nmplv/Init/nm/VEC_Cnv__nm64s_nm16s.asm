@@ -30,7 +30,7 @@ begin ".text_nmplv"
 
 //! \fn void nmppsCnv_64s(nm64s* pSrcVec, nm16s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv__FPlPii_.html
+//! \perfinclude _nmppsCnv_64s.html
 
 
 global _void._.8.8nmppsCnv_.1long._.0.9._short._.0.9._int.2 :label;

@@ -27,11 +27,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsMulC (nm32s *pSrcVec, int32b nVal, nm32s *pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsMulC__FPiiPii.html
+//! \perfinclude _nmppsMulC_32s.html
 
-global _nmppsMulC__FPiiPii:label;
+global _nmppsMulC_32s:label;
 global _void._.8.8nmppsMulC.1int._.0.9._int.9._int._.0.9._int.2 :label;
-<_nmppsMulC__FPiiPii>
+<_nmppsMulC_32s>
 <_void._.8.8nmppsMulC.1int._.0.9._int.9._int._.0.9._int.2>
 .branch;
 

@@ -32,11 +32,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsDivC (nm32s *pSrcVec, int nDivisor, nm32s *pDstVec, int nSize, void *pTmpBuf1, void *pTmpBuf2) 
 //!
-//! \perfinclude _nmppsDivC__FPiiPiiPvPv.html
+//! \perfinclude _nmppsDivC_32s.html
 
 global _nmppsDivC__FPiiPiiPvPv :label;
 global _void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._void._.0.2 :label;
-<_nmppsDivC__FPiiPiiPvPv>
+<_nmppsDivC_32s>
 <_void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._void._.0.2>
 .branch;
 
@@ -190,7 +190,7 @@ global _void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._voi
 
 global _nmppsDiv_By2Int__FPiPiPiiPvPvii_ :label;
 global _void._.8.8nmppsDiv_By2Int_.1int._.0.9._int._.0.9._int._.0.9._int.9._void._.0.9._void._.0.9._int.9._int.2 :label;
-<_nmppsDiv_By2Int__FPiPiPiiPvPvii_>
+<_nmppsDiv_By2Int_32s>
 <_void._.8.8nmppsDiv_By2Int_.1int._.0.9._int._.0.9._int._.0.9._int.9._void._.0.9._void._.0.9._int.9._int.2>
  
 

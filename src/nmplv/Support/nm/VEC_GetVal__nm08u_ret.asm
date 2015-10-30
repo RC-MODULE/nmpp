@@ -24,11 +24,11 @@ begin ".text_nmplv"
 
 //! \fn uint8u nmppsGet_8u(nm8u *pVec, int nIndex) 
 //!
-//! \perfinclude _nmppsGetVal__FPUci_.html
+//! \perfinclude _nmppsGetVal_8u.html
 
-global _nmppsGetVal__FPUci_:	label;
+global _nmppsGetVal_8u:	label;
 global _unsigned._int._.8.8nmppsGetVal_.1unsigned._char._.0.9._int.2 :label;
-<_nmppsGetVal__FPUci_>
+<_nmppsGetVal_8u>
 <_unsigned._int._.8.8nmppsGetVal_.1unsigned._char._.0.9._int.2>
 .branch;
 	ar5 = ar7 - 2;

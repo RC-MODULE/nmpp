@@ -112,16 +112,16 @@ public:
 		
 	}
 
-	inline bool IsFull(){
+	__INLINE__ bool IsFull(){
 		return (head-tail==size);
 	}
-	inline bool IsEmpty(){
+	__INLINE__ bool IsEmpty(){
 		return (head==tail);
 	}
-	inline size_t PushAvail(){
+	__INLINE__ size_t PushAvail(){
 		return (size-(head-tail));
 	}
-	inline size_t PopAvail(){
+	__INLINE__ size_t PopAvail(){
 		return (head-tail);
 	}
 	

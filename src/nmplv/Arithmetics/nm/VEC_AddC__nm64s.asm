@@ -28,7 +28,7 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsAddC (nm64s *pSrcVec, int64b *pnVal, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsAddC__FPlPlPli.html
+//! \perfinclude _nmppsAddC_64s.html
 
 global _void._.8.8nmppsAddC.1long._.0.9._long._.0.9._long._.0.9._int.2 :label;
 

@@ -56,7 +56,7 @@ begin ".text_nmplv"
 
 //! \fn void nmppsCnv_16s(nm16s* pSrcVec, nm8s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv__FPSsPci_.html
+//! \perfinclude _nmppsCnv_16s.html
 
 
 global _void._.8.8nmppsClipCnv_AddC_.1short._.0.9._int.9._int.9._char._.0.9._int.9._unsigned._long._.0.2 :label;

@@ -41,12 +41,12 @@ begin ".text_nmplv"
 //--------------------------------------------------------------------
 //! \fn void nmppsRand_64s(nm64s *pDstVec, int nSize, int nRandomize=1) 
 //!
-//! \perfinclude _nmppsRand__FPlii_.html
+//! \perfinclude _nmppsRand_64s.html
 //--------------------------------------------------------------------
     
-global _nmppsRand__FPlii_:label;
+global _nmppsRand_64s:label;
 global _void._.8.8nmppsRand_.1long._.0.9._int.9._int.2 :label;
-<_nmppsRand__FPlii_>
+<_nmppsRand_64s>
 <_void._.8.8nmppsRand_.1long._.0.9._int.9._int.2>
 .branch;
     

@@ -293,7 +293,7 @@ int IFFT256_int_radix2(
 			);
 
 
-inline void CmplxPack8to64(
+__INLINE__ void CmplxPack8to64(
 							vec<cmplx<char> > &W,
 							vec<nmint64s > &WRePacked,
 							vec<nmint64s > &WImPacked)
@@ -318,9 +318,9 @@ inline void CmplxPack8to64(
 	}
 }
 
-//inline void OutTable(vec<nmint64s > &Table,nm8s*TableName,nm8s* Section)
-inline void OutTable(vec<nmint64s > &Table,char*TableName,char* Section)
-//inline void OutTable(nmvec64s &Table,char*TableName,char* Section)
+//__INLINE__ void OutTable(vec<nmint64s > &Table,nm8s*TableName,nm8s* Section)
+__INLINE__ void OutTable(vec<nmint64s > &Table,char*TableName,char* Section)
+//__INLINE__ void OutTable(nmvec64s &Table,char*TableName,char* Section)
 {
 /*
 	cout << "data" << '"'<< Section << '"' <<endl; 

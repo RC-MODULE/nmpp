@@ -30,7 +30,7 @@ begin ".text_nmplv"
 
 //! \fn void nmppsCnv_8s(nm8s* pSrcVec, nm4s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv__FPc4nm4sPi_.html
+//! \perfinclude _nmppsCnv_8s.html
 
 
 global _void._.8.8nmppsCnv_.1char._.0.9._class._nm4s._.0.9._int.2 :label;

@@ -135,7 +135,7 @@ int FFT_Inv512(
 
 
 
-inline cmplx<double> IW512(int power)
+__INLINE__ cmplx<double> IW512(int power)
 {
 	power-=(power>>9)<<9;
 	cmplx<double> z(0,+(double(power)*2.0*PI)/512.0);

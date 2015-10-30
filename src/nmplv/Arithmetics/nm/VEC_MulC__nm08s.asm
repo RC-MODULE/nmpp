@@ -32,11 +32,11 @@ extern vec_vsum_data_0:label;
 
 //! \fn void nmppsMulC (nm8s *pSrcVec, int16b nVal, nm16s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsMulC__FPciPSsi.html
+//! \perfinclude _nmppsMulC_8s.html
 
-global _nmppsMulC__FPciPSsi:label;
+global _nmppsMulC_8s:label;
 global _void._.8.8nmppsMulC.1char._.0.9._int.9._short._.0.9._int.2 :label;
-<_nmppsMulC__FPciPSsi>
+<_nmppsMulC_8s>
 <_void._.8.8nmppsMulC.1char._.0.9._int.9._short._.0.9._int.2>
 .branch;
 

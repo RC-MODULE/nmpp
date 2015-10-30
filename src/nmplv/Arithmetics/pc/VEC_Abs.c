@@ -27,7 +27,8 @@ void nmppsAbs_4s(
 		)
 {
 	nm8s v,m;
-	for(int i=0; i<nSize/2; i++)
+	int i=0;
+	for(i=0; i<nSize/2; i++)
 	{
 		v=((nm8s*)pSrcVec)[i];
 		m=((v>>7)<<4)|(((v<<4)>>7)&0xF);
@@ -43,7 +44,8 @@ void nmppsAbs_8s(
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
-	for(int i=0; i<nSize; i++)
+	int i=0;
+	for(i=0; i<nSize; i++)
 		pDstVec[i] = ABS(pSrcVec[i]);
 	// No IPP analog
 }
@@ -56,15 +58,9 @@ void nmppsAbs_16s(
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[0,4,8,..]
 		)
 {
-#ifndef USE_IPP
-	for(int i=0; i<nSize; i++)
+	int i=0;
+	for(i=0; i<nSize; i++)
 		pDstVec[i] = ABS(pSrcVec[i]);
-#else
-	if (pSrcVec!=pDstVec)
-		ippsAbs_16s(pSrcVec, pDstVec, nSize);
-	else
-		ippsAbs_16s_I(pSrcVec,nSize);
-#endif
 }
 
 
@@ -76,9 +72,9 @@ void nmppsAbs_32s(
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[2,4,6...]
 		)
 {
-	for(int i=0; i<nSize; i++)
+	int i=0;
+	for(i=0; i<nSize; i++)
 		pDstVec[i] = ABS(pSrcVec[i]);
-	// No IPP Analog
 }
 
 
@@ -90,8 +86,8 @@ void nmppsAbs_64s(
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[2,4,6...]
 		)
 {
-	for(int i=0; i<nSize; i++)
+	int i=0;
+	for(i=0; i<nSize; i++)
 		pDstVec[i] = ABS(pSrcVec[i]);
-	// No IPP analog
 }
 

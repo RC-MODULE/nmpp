@@ -15,11 +15,11 @@ begin ".text_nmplv"
 
 	//! \fn void nmppsCmpEqC_8u(nm8u7b* pSrcVec,  uint7b chCmpVal,  nm8s* pDstVec, int nSize, int8b chTrueFlag);
 	//!
-	//! \perfinclude _nmppsCmpEqC__FPUcUiPcii_.html
+	//! \perfinclude _nmppsCmpEqC_8u.html
 
-global _nmppsCmpEqC__FPUcUiPcii_: label;
+global _nmppsCmpEqC_8u: label;
 global _void._.8.8nmppsCmpEqC_.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2 :label;
-<_nmppsCmpEqC__FPUcUiPcii_>
+<_nmppsCmpEqC_8u>
  <_void._.8.8nmppsCmpEqC_.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2>
 .branch;    
     ar5 = sp - 2;

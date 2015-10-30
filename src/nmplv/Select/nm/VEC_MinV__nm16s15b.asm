@@ -25,11 +25,11 @@ extern vec_CompareMin:label;
 
 //! \fn void nmppsMinV_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMax, int nSize);
 //!
-//! \perfinclude _nmppsMinV__FPSsPSsPSsi_.html
+//! \perfinclude _nmppsMinV_16s.html
 
 global _nmppsMinV__FPSsPSsPSsi_ :label;
 global _void._.8.8nmppsMinV_.1short._.0.9._short._.0.9._short._.0.9._int.2 :label;
-<_nmppsMinV__FPSsPSsPSsi_>
+<_nmppsMinV_16s>
 <_void._.8.8nmppsMinV_.1short._.0.9._short._.0.9._short._.0.9._int.2>
 .branch;
 	ar5=sp-2;

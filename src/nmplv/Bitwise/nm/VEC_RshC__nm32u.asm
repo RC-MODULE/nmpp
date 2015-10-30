@@ -132,11 +132,11 @@ begin ".text_nmplv"
 // 
 //! \fn void nmppsRshC_32u(nm32u *pSrcVec, int nShift, nm32u *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsRshC__FPUiiPUii_.html
+//! \perfinclude _nmppsRshC_32u.html
 
-global _nmppsRshC__FPUiiPUii_:label;
+global _nmppsRshC_32u:label;
 global _void._.8.8nmppsRshC_.1unsigned._int._.0.9._int.9._unsigned._int._.0.9._int.2 :label;
-<_nmppsRshC__FPUiiPUii_>
+<_nmppsRshC_32u>
 <_void._.8.8nmppsRshC_.1unsigned._int._.0.9._int.9._unsigned._int._.0.9._int.2>
 .branch;
 	ar5 = sp - 4;

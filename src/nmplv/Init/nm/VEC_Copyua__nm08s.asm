@@ -307,11 +307,11 @@ begin ".text_nmplv"
 
     //! \fn void nmppsCopyua_8s(nm8s *pSrcVec, int nOffset, nm8s *pDstVec, int nSize) 
     //!
-    //! \perfinclude _nmppsCopyua__FPciPci_.html
+    //! \perfinclude _nmppsCopyua_8s.html
 
-global _nmppsCopyua__FPciPci_:label;
+global _nmppsCopyua_8s:label;
 global _void._.8.8nmppsCopyua_.1char._.0.9._int.9._char._.0.9._int.2 :label;
-<_nmppsCopyua__FPciPci_>
+<_nmppsCopyua_8s>
 <_void._.8.8nmppsCopyua_.1char._.0.9._int.9._char._.0.9._int.2>
 .branch;
 	ar5 = sp-2		with gr7=false;	

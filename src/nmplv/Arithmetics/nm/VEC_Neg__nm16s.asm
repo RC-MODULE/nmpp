@@ -29,11 +29,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsNeg (nm16s *pSrcVec, nm16s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsNeg__FPSsPSsi.html
+//! \perfinclude _nmppsNeg_16s.html
 
-global _nmppsNeg__FPSsPSsi:label;
+global _nmppsNeg_16s:label;
 global _void._.8.8nmppsNeg.1short._.0.9._short._.0.9._int.2 :label;
-<_nmppsNeg__FPSsPSsi>
+<_nmppsNeg_16s>
 <_void._.8.8nmppsNeg.1short._.0.9._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=gr5;

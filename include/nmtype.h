@@ -247,9 +247,11 @@ struct int15in16x4{
 	\~	\f$[-2^{31},\ldots,+2^{31}-1]\f$.
 	*/
 typedef int nm32s;
-struct int32x2{
+typedef struct s_int32x2{
 //public:
-	unsigned long long data;
+	int hi;
+	int lo;
+	//unsigned long long data;
 //	int32x2(){
 //		data=0;
 //	}
@@ -273,7 +275,7 @@ struct int32x2{
 //	int get(int indx){
 //		return ((int*)&data)[indx];
 //	}
-};
+}int32x2;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
@@ -842,7 +844,7 @@ int2b	nmget_2s(struct nm2s*  pVec, int nIndex)
 	return nVal;
 }
 
-inline int4b nmget_4s(nm4s*  pVec, int nIndex)
+__INLINE__ int4b nmget_4s(nm4s*  pVec, int nIndex)
 {
 	nm32u nBase=((nm32u)nIndex)/8;
 	nm32u nDisp=((nm32u)nIndex)%8;
@@ -853,18 +855,18 @@ inline int4b nmget_4s(nm4s*  pVec, int nIndex)
 	return nVal;
 }
 
-inline int8b	nmget_8s(nm8s*  pVec, int nIndex)
+__INLINE__ int8b	nmget_8s(nm8s*  pVec, int nIndex)
 {
 	return (char*)pVec[nIndex];
 }
 
-inline int16b	nmget_16s(nm16s* pVec, int nIndex)
+__INLINE__ int16b	nmget_16s(nm16s* pVec, int nIndex)
 {
 	return (hsort)pVec[nIndex];
 }
 
 ---------------- uint ------------------------------------ 
-inline uint1b nmget_1u(nm1*   pVec, int nIndex)
+__INLINE__ uint1b nmget_1u(nm1*   pVec, int nIndex)
 {
 	nm32u nBase=((nm32u)nIndex)/32;
 	nm32u nDisp=((nm32u)nIndex)%32;
@@ -873,7 +875,7 @@ inline uint1b nmget_1u(nm1*   pVec, int nIndex)
 	nVal&=1;
 	return nVal;
 }
-inline uint2b	nmget_2u(nm2u*  pVec, int nIndex)
+__INLINE__ uint2b	nmget_2u(nm2u*  pVec, int nIndex)
 {
 	nm32u nBase=((nm32u)nIndex)/16;
 	nm32u nDisp=((nm32u)nIndex)%16;
@@ -884,7 +886,7 @@ inline uint2b	nmget_2u(nm2u*  pVec, int nIndex)
 }
 
 
-inline uint4b	nmget_4u(nm4u*  pVec, int nIndex)
+__INLINE__ uint4b	nmget_4u(nm4u*  pVec, int nIndex)
 {
 	nm32u nBase=((nm32u)nIndex)/8;
 	nm32u nDisp=((nm32u)nIndex)%8;
@@ -894,12 +896,12 @@ inline uint4b	nmget_4u(nm4u*  pVec, int nIndex)
 	return nVal;
 }
 
-inline uint8b	nmget_8u(nm8u*  pVec, int nIndex)
+__INLINE__ uint8b	nmget_8u(nm8u*  pVec, int nIndex)
 {
 	return pVec[nIndex];
 }
 
-inline uint16b	nmget_16u(nm16u* pVec, int nIndex)
+__INLINE__ uint16b	nmget_16u(nm16u* pVec, int nIndex)
 {
 	return pVec[nIndex];
 }
@@ -971,9 +973,9 @@ struct v4nm8s {
     \en Type of vec structure consisting of 8 8-bit sigened words.
 	*/
 //struct v8nm8s {VEC_NM8S(8)};
-struct v8nm8s {
+typedef struct s_v8nm8s {
 	unsigned long long vec[1];
-};
+}v8nm8s ;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1006,9 +1008,9 @@ typedef struct  s_v4nm16s {
     \en Type of vec structure consisting of 8 16-bit sigened words.
 	*/
 //struct v8nm16s {VEC_NM16S(8)};
-struct v8nm16s {
+typedef struct s_v8nm16s {
 	unsigned long long vec[2];
-};
+}v8nm16s ;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1017,9 +1019,9 @@ struct v8nm16s {
     \en Type of vec structure consisting of 16 16-bit sigened words.
 	*/
 //struct v16nm16s {VEC_NM16S(16)};
-struct v16nm16s {
+typedef struct s_v16nm16s {
 	unsigned long long vec[4];
-};
+}v16nm16s ;
 
 //-----------------------------------------------------------------------------
     /**
@@ -1029,9 +1031,9 @@ struct v16nm16s {
     \en Type of vec structure consisting of 2 32-bit sigened words.
 	*/
 //struct v2nm32s {VEC_NM32S(2)};
-struct v2nm32s {
+typedef struct s_v2nm32s {
 	unsigned long long vec[1];
-};
+}v2nm32s ;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1040,9 +1042,9 @@ struct v2nm32s {
     \en Type of vec structure consisting of 4 32-bit sigened words.
 	*/
 //struct v4nm32s {VEC_NM32S(4)};
-struct v4nm32s {
+typedef struct s_v4nm32s {
 	unsigned long long vec[2];
-};
+} v4nm32s ;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1051,9 +1053,9 @@ struct v4nm32s {
     \en Type of vec structure consisting of 8 32-bit sigened words.
 	*/
 //struct v8nm32s {VEC_NM32S(8)	};
-struct v8nm32s {
+typedef struct s_v8nm32s {
 	unsigned long long vec[4];
-};
+} v8nm32s ;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1062,9 +1064,9 @@ struct v8nm32s {
     \en Type of {VECtor structure consisting of 16 32-bit sigened words.
 	*/
 //struct v16nm32s {VEC_NM32S(16)	};
-struct v16nm32s {
+typedef struct s_v16nm32s {
 	unsigned long long data[8];
-};
+}v16nm32s ;
 //-----------------------------------------------------------------------------
     /**
 		\~
@@ -1283,7 +1285,7 @@ typedef struct s_nm32sc
 		\~
 	\~ \f$[-2^{63},\ldots,+2^{63}-1]\f$.
 	*/
-struct nm64sc
+typedef struct s_nm64sc
 {
 
 		//!
@@ -1303,24 +1305,24 @@ struct nm64sc
 //
 //	int Print();
 //
-};
+} nm64sc;
 //
 ///*
-//inline int NM_CAPACITY(nm1*)  {return 64;}
+//__INLINE__ int NM_CAPACITY(nm1*)  {return 64;}
 //
-//inline int NM_CAPACITY(nm2s*)  {return 32;}
-//inline int NM_CAPACITY(nm4s*)  {return 16;}
-//inline int NM_CAPACITY(nm8s*)  {return 8;}
-//inline int NM_CAPACITY(nm16s*) {return 4;}
-//inline int NM_CAPACITY(nm32s*) {return 2;}
-//inline int NM_CAPACITY(nm64s*) {return 1;}
+//__INLINE__ int NM_CAPACITY(nm2s*)  {return 32;}
+//__INLINE__ int NM_CAPACITY(nm4s*)  {return 16;}
+//__INLINE__ int NM_CAPACITY(nm8s*)  {return 8;}
+//__INLINE__ int NM_CAPACITY(nm16s*) {return 4;}
+//__INLINE__ int NM_CAPACITY(nm32s*) {return 2;}
+//__INLINE__ int NM_CAPACITY(nm64s*) {return 1;}
 //
-//inline int NM_CAPACITY(nm2u*)  {return 32;}
-//inline int NM_CAPACITY(nm4u*)  {return 16;}
-//inline int NM_CAPACITY(nm8u*)  {return 8;}
-//inline int NM_CAPACITY(nm16u*) {return 4;}
-//inline int NM_CAPACITY(nm32u*) {return 2;}
-//inline int NM_CAPACITY(nm64u*) {return 1;}
+//__INLINE__ int NM_CAPACITY(nm2u*)  {return 32;}
+//__INLINE__ int NM_CAPACITY(nm4u*)  {return 16;}
+//__INLINE__ int NM_CAPACITY(nm8u*)  {return 8;}
+//__INLINE__ int NM_CAPACITY(nm16u*) {return 4;}
+//__INLINE__ int NM_CAPACITY(nm32u*) {return 2;}
+//__INLINE__ int NM_CAPACITY(nm64u*) {return 1;}
 //*/
 //#define CAPACITY_nm64s 1
 //#define CAPACITY_nm32s 2
@@ -1331,7 +1333,7 @@ struct nm64sc
 //#define CAPACITY_nm1 64
 //
 //
-
+#define __INLINE__ inline
 #endif
 
  // _NMTYPE_H_INCLUDED_

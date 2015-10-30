@@ -313,7 +313,7 @@ begin ".text_nmplv"
 //
 //! \fn void nmppsArshC_16s(nm16s *pSrcVec, int nShift, nm16s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsArshC__FPSsiPSsi_.html
+//! \perfinclude _nmppsArshC_16s.html
 
 global _void._.8.8nmppsArshC_.1short._.0.9._int.9._short._.0.9._int.2 :label;
 <_void._.8.8nmppsArshC_.1short._.0.9._int.9._short._.0.9._int.2>

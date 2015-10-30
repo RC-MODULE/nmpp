@@ -36,11 +36,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsCnv_8s(nm8s* pSrcVec, nm32s* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCnv__FPcPii_.html
+//! \perfinclude _nmppsCnv_8s.html
 
 
 global _void._.8.8nmppsCnv_.1char._.0.9._int._.0.9._int.2 :label;
-<_nmppsCnv__FPcPii_>
+<_nmppsCnv_8s>
 <_void._.8.8nmppsCnv_.1char._.0.9._int._.0.9._int.2>
 .branch;
    	delayed goto JumpFromSigned;
@@ -52,11 +52,11 @@ global _void._.8.8nmppsCnv_.1char._.0.9._int._.0.9._int.2 :label;
 
 //! \fn void nmppsCnv_8u(nm8u* pSrcVec, nm32u* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv__FPUcPUii_.html
+//! \perfinclude _nmppsCnv_8u.html
 
-global _nmppsCnv__FPUcPUii_:label;
+global _nmppsCnv_8u:label;
 global _void._.8.8nmppsCnv_.1unsigned._char._.0.9._unsigned._int._.0.9._int.2 :label;
-<_nmppsCnv__FPUcPUii_>
+<_nmppsCnv_8u>
 <_void._.8.8nmppsCnv_.1unsigned._char._.0.9._unsigned._int._.0.9._int.2>
 .branch;
 	nb1 = 80808080h;

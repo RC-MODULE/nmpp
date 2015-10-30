@@ -26,7 +26,7 @@ begin ".text_nmplv"
 
 //! \fn void nmppsAndV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsAndV__FPUlPUlPUli_.html
+//! \perfinclude _nmppsAndV_64u.html
 
 
 global _void._.8.8nmppsAndV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;

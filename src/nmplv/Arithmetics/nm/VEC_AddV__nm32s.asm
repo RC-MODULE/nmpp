@@ -30,7 +30,7 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsAdd (nm32s *pSrcVec1, nm32s *pSrcVec2, nm32s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsAdd__FPiPiPii.html
+//! \perfinclude _nmppsAdd_32s.html
 
 
 global _void._.8.8nmppsAdd.1int._.0.9._int._.0.9._int._.0.9._int.2 :label;

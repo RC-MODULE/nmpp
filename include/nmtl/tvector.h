@@ -29,6 +29,7 @@
 
 
 #include<string.h>
+#include "nmtype.h"
 
 template <class T> class mtr;
 
@@ -210,14 +211,14 @@ public:
 		return *this;
 	}	 
 
-	inline T* addr(int idx)
+	__INLINE__ T* addr(int idx)
 	{
 		ASSERTE(idx>=-m_border);
 		ASSERTE(idx<size+m_border);
 		return m_data+idx;
 	}
 
-	inline T&    operator [] (int idx)
+	__INLINE__ T&    operator [] (int idx)
 	{
 		ASSERTE(idx>=-m_border);
 		ASSERTE(idx<size+m_border);

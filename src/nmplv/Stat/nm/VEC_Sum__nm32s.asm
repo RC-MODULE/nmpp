@@ -29,7 +29,7 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsSum (nm32s *pSrcVec, int nSize, int64b *pnRes) 
 //!
-//! \perfinclude _nmppsSum__FPiiPl.html
+//! \perfinclude _nmppsSum_32s.html
 
 
 global _void._.8.8nmppsSum.1int._.0.9._int.9._long._.0.2 :label;

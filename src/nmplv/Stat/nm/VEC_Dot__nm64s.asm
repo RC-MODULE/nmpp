@@ -26,11 +26,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsDotProd (nm64s *pSrcVec1, nm64s *pSrcVec2, int nSize, int64b *pnRes) 
 //!
-//! \perfinclude _nmppsDotProd__FPlPliPl.html
+//! \perfinclude _nmppsDotProd_64s.html
 			 
-global _nmppsDotProd__FPlPliPl:label;
+global _nmppsDotProd_64s:label;
 global _void._.8.8nmppsDotProd.1long._.0.9._long._.0.9._int.9._long._.0.2 :label;
-<_nmppsDotProd__FPlPliPl>
+<_nmppsDotProd_64s>
 <_void._.8.8nmppsDotProd.1long._.0.9._long._.0.9._int.9._long._.0.2>
 	ar5 = sp - 2;
 

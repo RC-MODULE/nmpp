@@ -29,7 +29,7 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsAdd (nm8s *pSrcVec1, nm8s *pSrcVec2, nm8s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsAdd__FPcPcPci.html
+//! \perfinclude _nmppsAdd_8s.html
 
 global _void._.8.8nmppsAdd.1char._.0.9._char._.0.9._char._.0.9._int.2 :label;
 <_void._.8.8nmppsAdd.1char._.0.9._char._.0.9._char._.0.9._int.2>

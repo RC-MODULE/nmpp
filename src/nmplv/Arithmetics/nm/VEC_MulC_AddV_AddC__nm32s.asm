@@ -33,11 +33,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsMulC_AddV_AddC (nm32s *pSrcVec1, int nMulVal, nm32s *pSrcVec2, int nAddVal, nm32s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsMulC_AddV_AddC__FPiiPiiPii.html
+//! \perfinclude _nmppsMulC_AddV_AddC_32s.html
 
-global _nmppsMulC_AddV_AddC__FPiiPiiPii:label;
+global _nmppsMulC_AddV_AddC_32s:label;
 global _void._.8.8nmppsMulC_AddV_AddC.1int._.0.9._int.9._int._.0.9._int.9._int._.0.9._int.2 :label;
-<_nmppsMulC_AddV_AddC__FPiiPiiPii>
+<_nmppsMulC_AddV_AddC_32s>
 <_void._.8.8nmppsMulC_AddV_AddC.1int._.0.9._int.9._int._.0.9._int.9._int._.0.9._int.2>
 
 .branch;

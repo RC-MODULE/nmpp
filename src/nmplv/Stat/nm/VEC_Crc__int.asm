@@ -103,11 +103,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsCrc_(unsigned int* pSrcVec, int nSize, unsigned int& nCrc);
 //!
-//! \perfinclude _nmppsCrc__FPUiiRUi_.html
+//! \perfinclude _nmppsCrc_32u.html
 
 global _nmppsCrc__FPUiiRUi_ :label;
 global _void._.8.8nmppsCrc_.1unsigned._int._.0.9._int.9._unsigned._int._.6.2 :label;
-<_nmppsCrc__FPUiiRUi_>
+<_nmppsCrc_32u>
 <_void._.8.8nmppsCrc_.1unsigned._int._.0.9._int.9._unsigned._int._.6.2>
  
 

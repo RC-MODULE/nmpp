@@ -34,11 +34,11 @@ begin ".text_nmplv"
 
 //! \fn void nmppsAdd_AddC (nm32s *pSrcVec1, nm32s *pSrcVec2, int nVal, nm32s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsAdd_AddC__FPiPiiPii.html
+//! \perfinclude _nmppsAdd_AddC_32s.html
 
-global _nmppsAdd_AddC__FPiPiiPii:label;
+global _nmppsAdd_AddC_32s:label;
 global _void._.8.8nmppsAdd_AddC.1int._.0.9._int._.0.9._int.9._int._.0.9._int.2 :label;
-<_nmppsAdd_AddC__FPiPiiPii>
+<_nmppsAdd_AddC_32s>
 <_void._.8.8nmppsAdd_AddC.1int._.0.9._int._.0.9._int.9._int._.0.9._int.2>
 .branch;
 	ar5 = sp - 2;

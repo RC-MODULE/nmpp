@@ -26,14 +26,14 @@ begin ".text_nmplv"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_SubV_Abs (nm32s *pSrcVec1, nm32s *pSrcVec2, nm32s *pDstVec, int nSize) 
+//! \fn void nmppsAbsDiff (nm32s *pSrcVec1, nm32s *pSrcVec2, nm32s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_SubV_Abs__FPiPiPii.html
+//! \perfinclude _nmppsAbsDiff__FPiPiPii.html
 
-global _VEC_SubV_Abs__FPiPiPii:label;
-global _void._.8.8VEC_SubV_Abs.1int._.0.9._int._.0.9._int._.0.9._int.2 :label;
-<_VEC_SubV_Abs__FPiPiPii>
-<_void._.8.8VEC_SubV_Abs.1int._.0.9._int._.0.9._int._.0.9._int.2>
+global _nmppsAbsDiff__FPiPiPii:label;
+global _void._.8.8nmppsAbsDiff.1int._.0.9._int._.0.9._int._.0.9._int.2 :label;
+<_nmppsAbsDiff__FPiPiPii>
+<_void._.8.8nmppsAbsDiff.1int._.0.9._int._.0.9._int._.0.9._int.2>
 .branch;
 	ar5 = sp - 2;
 

@@ -23,7 +23,7 @@
 
 
     /**
-    \defgroup VEC_Abs VEC_Abs
+    \defgroup nmppsAbs nmppsAbs
     \ingroup vArithmetics
     \brief
         \ru Вычисление абсолютных значений для элементов вектора. 
@@ -82,16 +82,16 @@
     
     */
     //! \{
-void VEC_Abs(nm8s* pSrcVec, nm8s* pDstVec, int nSize);
-void VEC_Abs(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
-void VEC_Abs(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
-void VEC_Abs(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+void nmppsAbs_8s(nm8s* pSrcVec, nm8s* pDstVec, int nSize);
+void nmppsAbs_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+void nmppsAbs_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsAbs_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
-void VEC_Abs(nm4s* pSrcVec, nm4s* pDstVec, int nSize);
+void nmppsAbs(nm4s* pSrcVec, nm4s* pDstVec, int nSize);
 
 
  /**
-    \defgroup VEC_Abs1 VEC_Abs1
+    \defgroup nmppsAbs1 nmppsAbs1
     \ingroup vArithmetics
     \brief
         \ru Функция логического вычесления модулей элементов вектора. 
@@ -139,18 +139,18 @@ void VEC_Abs(nm4s* pSrcVec, nm4s* pDstVec, int nSize);
     
     */
     //! \{
-void VEC_Abs1(nm4s* pSrcVec, nm4s* pDstVec, int nSize);
-void VEC_Abs1(nm8s* pSrcVec, nm8s* pDstVec, int nSize);
-void VEC_Abs1(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
-void VEC_Abs1(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
-void VEC_Abs1(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+void nmppsAbs1(nm4s* pSrcVec, nm4s* pDstVec, int nSize);
+void nmppsAbs1(nm8s* pSrcVec, nm8s* pDstVec, int nSize);
+void nmppsAbs1(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+void nmppsAbs1(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsAbs1(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
 
 
 //*****************************************************************************
     
     /**
-    \defgroup VEC_Neg VEC_Neg
+    \defgroup nmppsNeg nmppsNeg
     \ingroup vArithmetics
     \brief
         \ru Изменение знака элементов вектора на противоположный. 
@@ -195,16 +195,16 @@ void VEC_Abs1(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_Neg(nm8s* pSrcVec, nm8s* pDstVec, int nSize);
-void VEC_Neg(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
-void VEC_Neg(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
-void VEC_Neg(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+void nmppsNeg(nm8s* pSrcVec, nm8s* pDstVec, int nSize);
+void nmppsNeg(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+void nmppsNeg(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsNeg(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_AddC VEC_AddC
+    \defgroup nmppsAddC nmppsAddC
     \ingroup vArithmetics
     \brief
         \ru Добавление к вектору константы. 
@@ -262,16 +262,16 @@ void VEC_Neg(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_AddC(nm8s* pSrcVec,  int8b nVal,    nm8s* pDstVec,  int nSize);
-void VEC_AddC(nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSize);
-void VEC_AddC(nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
-void VEC_AddC(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
+void nmppsAddC(nm8s* pSrcVec,  int8b nVal,    nm8s* pDstVec,  int nSize);
+void nmppsAddC(nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSize);
+void nmppsAddC(nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
+void nmppsAddC(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_AddV VEC_AddV
+    \defgroup nmppsAdd nmppsAdd
     \ingroup vArithmetics
     \brief
         \ru Сложение двух векторов. 
@@ -323,17 +323,17 @@ void VEC_AddC(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_AddV(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
-void VEC_AddV(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
-void VEC_AddV(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
-void VEC_AddV(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+void nmppsAdd(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
+void nmppsAdd(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
+void nmppsAdd(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
+void nmppsAdd(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
     //! \}
 
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_AddV_AddC VEC_AddV_AddC
+    \defgroup nmppsAdd_AddC nmppsAdd_AddC
     \ingroup vArithmetics
     \brief
         \ru Сложение двух векторов с прибавлением константы. 
@@ -390,13 +390,13 @@ void VEC_AddV(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_AddV_AddC(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVec, int nSize);
+void nmppsAdd_AddC(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_SubC VEC_SubC
+    \defgroup nmppsSubC nmppsSubC
     \ingroup vArithmetics
     \brief
         \ru Вычитание константы из  вектора. 
@@ -454,16 +454,16 @@ void VEC_AddV_AddC(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVec, i
     \endxmlonly
     */
     //! \{
-void VEC_SubC(nm8s* pSrcVec,  int8b nVal,    nm8s*  pDstVec,  int nSize);
-void VEC_SubC(nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSize);
-void VEC_SubC(nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
-void VEC_SubC(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
+void nmppsSubC(nm8s* pSrcVec,  int8b nVal,    nm8s*  pDstVec,  int nSize);
+void nmppsSubC(nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSize);
+void nmppsSubC(nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
+void nmppsSubC(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
     
     /**
-    \defgroup VEC_SubC_Neg VEC_SubC_Neg
+    \defgroup nmppsSubCRev nmppsSubCRev
     \ingroup vArithmetics
     \brief
         \ru Вычитание константы из  вектора  с переменой знака элементов вектора. 
@@ -521,16 +521,16 @@ void VEC_SubC(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_SubC_Neg(nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
-void VEC_SubC_Neg(nm16s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
-void VEC_SubC_Neg(nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
-void VEC_SubC_Neg(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
+void nmppsSubCRev(nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
+void nmppsSubCRev(nm16s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
+void nmppsSubCRev(nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
+void nmppsSubCRev(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_SubV VEC_SubV
+    \defgroup nmppsSub nmppsSub
     \ingroup vArithmetics
     \brief
         \ru Вычитание двух вектров. 
@@ -582,17 +582,17 @@ void VEC_SubC_Neg(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_SubV(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
-void VEC_SubV(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
-void VEC_SubV(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
-void VEC_SubV(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+void nmppsSub(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
+void nmppsSub(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
+void nmppsSub(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
+void nmppsSub(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
     //! \}
 
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_SubV_Abs VEC_SubV_Abs
+    \defgroup nmppsAbsDiff nmppsAbsDiff
     \ingroup vArithmetics
     \brief
         \ru Вычисление вектора модулей разности элементов двух векторов. 
@@ -655,16 +655,16 @@ void VEC_SubV(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
     
     */
     //! \{
-void VEC_SubV_Abs(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
-void VEC_SubV_Abs(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
-void VEC_SubV_Abs(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
-void VEC_SubV_Abs(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+void nmppsAbsDiff(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
+void nmppsAbsDiff(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
+void nmppsAbsDiff(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
+void nmppsAbsDiff(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
     //! \}
 	
 //*****************************************************************************
 
     /**
-    \defgroup VEC_SubV_Abs1 VEC_SubV_Abs1
+    \defgroup nmppsAbsDiff1 nmppsAbsDiff1
     \ingroup vArithmetics
     \brief
         \ru Функция логического вычисления модулей разностей элементов двух векторов. 
@@ -730,13 +730,13 @@ void VEC_SubV_Abs(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
     
     */
     //! \{
-void VEC_SubV_Abs1(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
+void nmppsAbsDiff1(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
     //! \}	
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_MulC VEC_MulC
+    \defgroup nmppsMulC nmppsMulC
     \ingroup vArithmetics
     \brief
         \ru Умножение вектора на константу. 
@@ -789,19 +789,19 @@ void VEC_SubV_Abs1(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_MulC(nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
-void VEC_MulC(nm8s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
-void VEC_MulC(nm16s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
-void VEC_MulC(nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
-void VEC_MulC(nm32s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
-void VEC_MulC(nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
+void nmppsMulC(nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
+void nmppsMulC(nm8s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
+void nmppsMulC(nm16s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
+void nmppsMulC(nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
+void nmppsMulC(nm32s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
+void nmppsMulC(nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
     //! \}
 
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_MulV_AddC VEC_MulV_AddC
+    \defgroup nmppsMul_AddC nmppsMul_AddC
     \ingroup vArithmetics
     \brief
         \ru Поэлементное умножение векторов с прибавлением константы. 
@@ -859,12 +859,12 @@ void VEC_MulC(nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void VEC_MulV_AddC(nm64s* pSrcVec1,nm64s* pSrcVec2, nm64s* pnVal, nm64s* pDstVec, int nSize);
+void nmppsMul_AddC(nm64s* pSrcVec1,nm64s* pSrcVec2, nm64s* pnVal, nm64s* pDstVec, int nSize);
     //! \}
 //*****************************************************************************
 
     /**
-    \defgroup VEC_MulC_AddC VEC_MulC_AddC
+    \defgroup nmppsMulC_AddC nmppsMulC_AddC
     \ingroup vArithmetics
     \brief
         \ru Умножение вектора на константу с прибавлением константы. 
@@ -921,14 +921,14 @@ void VEC_MulV_AddC(nm64s* pSrcVec1,nm64s* pSrcVec2, nm64s* pnVal, nm64s* pDstVec
     \endxmlonly
     */
     //! \{
-void VEC_MulC_AddC(nm32s* pSrcVec, int nMulVal, int nAddVal, nm32s* pDstVec, int nSize);
+void nmppsMulC_AddC(nm32s* pSrcVec, int nMulVal, int nAddVal, nm32s* pDstVec, int nSize);
     //! \}
 
 	
 
 
 /**
- *   \ingroup VEC_MulC_AddC
+ *   \ingroup nmppsMulC_AddC
  *
  *  \brief Sparse vector by constant multiplication with addition of constant. 
  *  \f[
@@ -951,7 +951,7 @@ void VEC_MulC_AddC(nm32s* pSrcVec, int nMulVal, int nAddVal, nm32s* pDstVec, int
  *  \details 
  */
 //! \{
-void VEC_MulC_AddC(int32x2* dataSparseSrc,  int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc=1, int stepSparseDst=1);
+void nmppsMulC_AddC(int32x2* dataSparseSrc,  int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc=1, int stepSparseDst=1);
 //! \}
 
 
@@ -988,7 +988,7 @@ void VEC_ArshC_MulC_AddC(int32x2* dataSparseSrc,  int32x2& preshiftArg, int32x2&
 //*****************************************************************************
 
     /**
-    \defgroup VEC_MulC_AddV_AddC VEC_MulC_AddV_AddC
+    \defgroup nmppsMulC_AddV_AddC nmppsMulC_AddV_AddC
     \ingroup vArithmetics
     \brief
         \ru Умножение вектора на константу с прибавлением вектора и константы. 
@@ -1051,13 +1051,13 @@ void VEC_ArshC_MulC_AddC(int32x2* dataSparseSrc,  int32x2& preshiftArg, int32x2&
     \endxmlonly
     */
     //! \{
-void VEC_MulC_AddV_AddC(nm32s* pSrcVec1, int nMulVal, nm32s* pSrcVec2, int nAddVal, nm32s* pDstVec, int nSize);
+void nmppsMulC_AddV_AddC(nm32s* pSrcVec1, int nMulVal, nm32s* pSrcVec2, int nAddVal, nm32s* pDstVec, int nSize);
     //! \}
  
 //*****************************************************************************
 
     /**
-    \defgroup VEC_AddNV VEC_AddNV
+    \defgroup nmppsSumN nmppsSumN
     \ingroup vArithmetics
     \brief
         \ru Сложение нескольких векторов. 
@@ -1113,12 +1113,12 @@ void VEC_MulC_AddV_AddC(nm32s* pSrcVec1, int nMulVal, nm32s* pSrcVec2, int nAddV
 
     */
     //! \{
-void VEC_AddNV(nm8s  ** ppSrcVec, nm16s* pDstVec, int nSize, int nNumberOfVectors);
-void VEC_AddNV(nm16s ** ppSrcVec, nm16s* pDstVec, int nSize, int nNumberOfVectors);
+void nmppsSumN(nm8s  ** ppSrcVec, nm16s* pDstVec, int nSize, int nNumberOfVectors);
+void nmppsSumN(nm16s ** ppSrcVec, nm16s* pDstVec, int nSize, int nNumberOfVectors);
     //! \}
 
 		
-void VEC_Add4V(
+void nmppsSum4(
 		nm16s**			Vectors,		// array of pointers to buffers	:nm8s*  Any  [NumberOfBuffer]
 		nm16s*			pDstVec,		// result buffer				:long Local  [VecSize/4]
 		int				nSize			// buffer size in 8-bit elements:nSize    =[256,512,..]
@@ -1127,7 +1127,7 @@ void VEC_Add4V(
 //*****************************************************************************
 
     /**
-    \defgroup VEC_DivC  VEC_DivC
+    \defgroup nmppsDivC  nmppsDivC
     \ingroup vArithmetics
     \brief
         \ru Деление вектора на константу. 
@@ -1216,13 +1216,13 @@ void VEC_Add4V(
     \endxmlonly
     \{
     */
-void VEC_DivC(nm32s* pSrcVec, int nDivisor, nm32s* pDstVec, int nSize, void* pTmpBuf1, void* pTmpBuf2);
+void nmppsDivC(nm32s* pSrcVec, int nDivisor, nm32s* pDstVec, int nSize, void* pTmpBuf1, void* pTmpBuf2);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Sum VEC_Sum
+    \defgroup nmppsSum nmppsSum
     \ingroup vArithmetics
     \brief
         \ru Возвращает сумму всех элементов вектора. 
@@ -1270,17 +1270,17 @@ void VEC_DivC(nm32s* pSrcVec, int nDivisor, nm32s* pDstVec, int nSize, void* pTm
     
     */
     //! \{
-void VEC_Sum(nm1* pSrcVec, int nSize, int32b *pnRes, void* pTmpBuf);
-void VEC_Sum(nm8s* pSrcVec, int nSize, int32b *pnRes);
-void VEC_Sum(nm16s* pSrcVec, int nSize, int64b *pnRes);
-void VEC_Sum(nm32s* pSrcVec, int nSize, int64b *pnRes);
-void VEC_Sum(nm64s* pSrcVec, int nSize, int64b *pnRes);
+void nmppsSum(nm1* pSrcVec, int nSize, int32b *pnRes, void* pTmpBuf);
+void nmppsSum(nm8s* pSrcVec, int nSize, int32b *pnRes);
+void nmppsSum(nm16s* pSrcVec, int nSize, int64b *pnRes);
+void nmppsSum(nm32s* pSrcVec, int nSize, int64b *pnRes);
+void nmppsSum(nm64s* pSrcVec, int nSize, int64b *pnRes);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup VEC_Dot VEC_Dot
+    \defgroup nmppsDotProd nmppsDotProd
     \ingroup vArithmetics
     \brief
         \ru Скалярное умножение двух векторов. 
@@ -1333,33 +1333,33 @@ void VEC_Sum(nm64s* pSrcVec, int nSize, int64b *pnRes);
     \endxmlonly
     */
     //! \{
-void VEC_Dot(nm8s*  pSrcVec1,  nm8s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
-void VEC_Dot(nm8s*  pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
-void VEC_Dot(nm8s*  pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
-void VEC_Dot(nm8s*  pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+void nmppsDotProd(nm8s*  pSrcVec1,  nm8s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+void nmppsDotProd(nm8s*  pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+void nmppsDotProd(nm8s*  pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+void nmppsDotProd(nm8s*  pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
 
-void VEC_Dot(nm16s* pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
-void VEC_Dot(nm16s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
-void VEC_Dot(nm16s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+void nmppsDotProd(nm16s* pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+void nmppsDotProd(nm16s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+void nmppsDotProd(nm16s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
 
-void VEC_Dot(nm32s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
-void VEC_Dot(nm32s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+void nmppsDotProd(nm32s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+void nmppsDotProd(nm32s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
 
-void VEC_Dot(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+void nmppsDotProd(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
     //! \}
 
 	/**
 	\internal
-	\addtogroup VEC_Dot
+	\addtogroup nmppsDotProd
 	*/
 	//! \{
-//void VEC_Dot(nm16sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pnRes);//pc version is not available
-void VEC_Dot(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pnRes);
+//void nmppsDotProd(nm16sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pnRes);//pc version is not available
+void nmppsDotProd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pnRes);
 	//! \}
 
 //*****************************************************************************
 	/**
-	\defgroup VEC_WAdd2V VEC_WAdd2V
+	\defgroup nmppsWeightedSum nmppsWeightedSum
 	\ingroup vArithmetics
 	\brief
 		\ru Поэлементное взвешенное суммирование элементов двух векторов
@@ -1417,9 +1417,9 @@ void VEC_Dot(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pnRes);
 	*/
 
    //! \{    
-void VEC_WAdd2V(nm8s* pSrcVec1,int nW1,nm8s* pSrcVec2,int nW2, nm16s* pDstVec, int nSize);
-void VEC_WAdd2V(nm16s* pSrcVec1,int nW1,nm16s* pSrcVec2,int nW2, nm32s* pDstVec, int nSize);
-void VEC_WAdd2V(nm32s* pSrcVec1,nm64s nW1,nm32s* pSrcVec2,nm64s nW2, nm64s* pDstVec, int nSize);
+void nmppsWeightedSum(nm8s* pSrcVec1,int nW1,nm8s* pSrcVec2,int nW2, nm16s* pDstVec, int nSize);
+void nmppsWeightedSum(nm16s* pSrcVec1,int nW1,nm16s* pSrcVec2,int nW2, nm32s* pDstVec, int nSize);
+void nmppsWeightedSum(nm32s* pSrcVec1,nm64s nW1,nm32s* pSrcVec2,nm64s nW2, nm64s* pDstVec, int nSize);
     //! \}
 
 

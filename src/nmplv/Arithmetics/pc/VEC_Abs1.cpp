@@ -22,7 +22,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute value calculation
-void VEC_Abs1(
+void nmppsAbs1(
 		nm4s*			pSrcVec,		// input buffer		:long Local [VecSize/8]
 		nm4s*			pDstVec,		// output buffer	:long Global[VecSize/8]
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[8,16,32...]
@@ -38,7 +38,7 @@ void VEC_Abs1(
 	}
 }
 
-void VEC_Abs1(
+void nmppsAbs1(
 		nm8s*			pSrcVec,		// input buffer		:long Local [VecSize/8]
 		nm8s*			pDstVec,		// output buffer	:long Global[VecSize/8]
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[8,16,32...]
@@ -54,7 +54,7 @@ void VEC_Abs1(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute value calculation
-void VEC_Abs1(
+void nmppsAbs1(
 		nm16s*			pSrcVec,		// input buffer		:long Local [VecSize/4]
 		nm16s*			pDstVec,		// output buffer	:long Global[VecSize/4]
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[0,4,8,..]
@@ -71,7 +71,7 @@ void VEC_Abs1(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute value calculation
-void VEC_Abs1(
+void nmppsAbs1(
 		nm32s*			pSrcVec,		// input buffer		:long Local [VecSize/2]
 		nm32s*			pDstVec,		// output buffer	:long Global[VecSize/2]
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[2,4,6...]
@@ -88,7 +88,7 @@ void VEC_Abs1(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute value calculation
-void VEC_Abs1(
+void nmppsAbs1(
 		nm64s*			pSrcVec,		// input buffer		:long Local [VecSize/2]
 		nm64s*			pDstVec,		// output buffer	:long Global[VecSize/2]
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[2,4,6...]

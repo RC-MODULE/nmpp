@@ -2,9 +2,9 @@
 extern vec_vsum_data_vr:label;
 begin ".text_nmplv"
 
-// void VEC_MulC_AddC(int32x2* dataSparseSrc,  int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc=1, int stepSparseDst=1);
-global "_void._.8.8VEC_MulC_AddC.1class._int32x2._.0.9._class._int32x2._.6.9._class._int32x2._.6.9._class._int32x2._.0.9._int.9._int.9._int.2" : label;
-       <_void._.8.8VEC_MulC_AddC.1class._int32x2._.0.9._class._int32x2._.6.9._class._int32x2._.6.9._class._int32x2._.0.9._int.9._int.9._int.2>
+// void nmppsMulC_AddC(int32x2* dataSparseSrc,  int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc=1, int stepSparseDst=1);
+global "_void._.8.8nmppsMulC_AddC.1class._int32x2._.0.9._class._int32x2._.6.9._class._int32x2._.6.9._class._int32x2._.0.9._int.9._int.9._int.2" : label;
+       <_void._.8.8nmppsMulC_AddC.1class._int32x2._.0.9._class._int32x2._.6.9._class._int32x2._.6.9._class._int32x2._.0.9._int.9._int.9._int.2>
 
 .branch;
 	ar5 = ar7-2;

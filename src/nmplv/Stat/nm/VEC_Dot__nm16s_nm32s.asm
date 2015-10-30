@@ -33,14 +33,14 @@ end ".data_nmplv_G";
 begin ".text_nmplv"
 .branch;
 
-//! \fn void VEC_Dot (nm16s *pSrcVec1, nm32s *pSrcVec2, int nSize, int64b *pnRes, void* pTmpBuff) 
+//! \fn void nmppsDotProd (nm16s *pSrcVec1, nm32s *pSrcVec2, int nSize, int64b *pnRes, void* pTmpBuff) 
 //!
-//! \perfinclude _VEC_Dot__FPSsPiiPlPv.html
+//! \perfinclude _nmppsDotProd__FPSsPiiPlPv.html
 
-global _VEC_Dot__FPSsPiiPlPv:label;
-global _void._.8.8VEC_Dot.1short._.0.9._int._.0.9._int.9._long._.0.9._void._.0.2 :label;
-<_VEC_Dot__FPSsPiiPlPv>
-<_void._.8.8VEC_Dot.1short._.0.9._int._.0.9._int.9._long._.0.9._void._.0.2>
+global _nmppsDotProd__FPSsPiiPlPv:label;
+global _void._.8.8nmppsDotProd.1short._.0.9._int._.0.9._int.9._long._.0.9._void._.0.2 :label;
+<_nmppsDotProd__FPSsPiiPlPv>
+<_void._.8.8nmppsDotProd.1short._.0.9._int._.0.9._int.9._long._.0.9._void._.0.2>
 	ar5 = sp - 2;
 
 	PUSH_REGS();

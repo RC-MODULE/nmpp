@@ -27,14 +27,14 @@ end ".data_nmplv_G";
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_MulC (nm32s *pSrcVec, int64b nVal, nm64s *pDstVec, int nSize) 
+//! \fn void nmppsMulC (nm32s *pSrcVec, int64b nVal, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_MulC__FPilPli.html
+//! \perfinclude _nmppsMulC__FPilPli.html
 
-global _VEC_MulC__FPilPli:label;
-global _void._.8.8VEC_MulC.1int._.0.9._long.9._long._.0.9._int.2 :label;
-<_VEC_MulC__FPilPli>
-<_void._.8.8VEC_MulC.1int._.0.9._long.9._long._.0.9._int.2>
+global _nmppsMulC__FPilPli:label;
+global _void._.8.8nmppsMulC.1int._.0.9._long.9._long._.0.9._int.2 :label;
+<_nmppsMulC__FPilPli>
+<_void._.8.8nmppsMulC.1int._.0.9._long.9._long._.0.9._int.2>
 .branch;
 
 

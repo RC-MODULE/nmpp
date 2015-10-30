@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 #include "nmplv.h"
 /////////////////////////////////////////////////////////////////////////////////
-void VEC_DivC(
+void nmppsDivC(
 			nm32s*	pSrcVec,			// Input array 					:long Global[VecSize/2]
 			int		Divisor,		// Divisor						:[1,2,..128]
 			nm32s*	pDstVec,			// Output qunatized array		:long Local [VecSize/2]

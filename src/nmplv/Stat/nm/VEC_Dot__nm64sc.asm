@@ -4,15 +4,15 @@ begin ".text_nmplv"
 //  Скалярное умножение комплексных векторов сопр.V1*V2
 //  time=70 тактов на комрлексное число.
 //------------------------------------------------------------------------------------------------
-//! \fn void VEC_Dot(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize,  nm64sc *pnRes);
+//! \fn void nmppsDotProd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize,  nm64sc *pnRes);
 //! 
-//! \perfinclude _VEC_Dot__F6nm64scP6nm64scPi6nm64scP.html 
+//! \perfinclude _nmppsDotProd__F6nm64scP6nm64scPi6nm64scP.html 
 //------------------------------------------------------------------------------------------------
-global _VEC_Dot__F6nm64scP6nm64scPi6nm64scP:label;
-global _void._.8.8VEC_Dot.1class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._class._nm64sc._.0.2 :label;
+global _nmppsDotProd__F6nm64scP6nm64scPi6nm64scP:label;
+global _void._.8.8nmppsDotProd.1class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._class._nm64sc._.0.2 :label;
 tmp: word[16];
-      <_VEC_Dot__F6nm64scP6nm64scPi6nm64scP>
-<_void._.8.8VEC_Dot.1class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._class._nm64sc._.0.2>
+      <_nmppsDotProd__F6nm64scP6nm64scPi6nm64scP>
+<_void._.8.8nmppsDotProd.1class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._class._nm64sc._.0.2>
    ar5=ar7-2 with gr7=false;
    PUSH_REGS();
    ar0=[--ar5];  // Vec1

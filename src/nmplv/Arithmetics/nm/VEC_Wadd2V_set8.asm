@@ -12,7 +12,7 @@
 //!
 //! \file   VEC_Wadd2V_set8.asm
 //! \author Сергей Свечников
-//! \brief  <Установка двух к-тов для VEC_WAdd2V_Exe(nm8s...>
+//! \brief  <Установка двух к-тов для nmppsWeightedSum_Exe(nm8s...>
 //!
 //! \endif
 //!
@@ -20,9 +20,9 @@
 
 begin ".text_nmplv"
 
-global _void._.8.8VEC_WAdd2V_Set8.1int.9._int.9._class._S_VEC_WAdd2V._.0.2 :label;
+global _void._.8.8nmppsWeightedSum_Set8.1int.9._int.9._class._S_nmppsWeightedSum._.0.2 :label;
 
-<_void._.8.8VEC_WAdd2V_Set8.1int.9._int.9._class._S_VEC_WAdd2V._.0.2>
+<_void._.8.8nmppsWeightedSum_Set8.1int.9._int.9._class._S_nmppsWeightedSum._.0.2>
   ar5=ar7-2;
   push ar0,gr0;
   push ar1,gr1 with gr0=true;

@@ -26,14 +26,14 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_SubV (nm8s *pSrcVec1, nm8s *pSrcVec2, nm8s *pDstVec, int nSize) 
+//! \fn void nmppsSub (nm8s *pSrcVec1, nm8s *pSrcVec2, nm8s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_SubV__FPcPcPci.html
+//! \perfinclude _nmppsSub__FPcPcPci.html
 
-global _VEC_SubV__FPcPcPci:label;
-global _void._.8.8VEC_SubV.1char._.0.9._char._.0.9._char._.0.9._int.2 :label;
-<_VEC_SubV__FPcPcPci>
-<_void._.8.8VEC_SubV.1char._.0.9._char._.0.9._char._.0.9._int.2>
+global _nmppsSub__FPcPcPci:label;
+global _void._.8.8nmppsSub.1char._.0.9._char._.0.9._char._.0.9._int.2 :label;
+<_nmppsSub__FPcPcPci>
+<_void._.8.8nmppsSub.1char._.0.9._char._.0.9._char._.0.9._int.2>
 .branch;
 	ar5 = sp - 2 with gr7=false;
 	push ar0,gr0 with gr7++;

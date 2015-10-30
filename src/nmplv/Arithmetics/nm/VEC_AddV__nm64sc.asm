@@ -2,14 +2,14 @@ extern vec_Add:label;
 import from macros.mlb;
 begin ".text_nmplv"
 //------------------------------------------------------------------------------------------------
-//! \fn void VEC_AddV(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
+//! \fn void nmppsAdd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
 //! 
-//! \perfinclude _VEC_AddV__F6nm64scP6nm64scP6nm64scPi.html 
+//! \perfinclude _nmppsAdd__F6nm64scP6nm64scP6nm64scPi.html 
 //------------------------------------------------------------------------------------------------
 
 
-global _void._.8.8VEC_AddV.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.2 :label;
-<_void._.8.8VEC_AddV.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.2>
+global _void._.8.8nmppsAdd.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.2 :label;
+<_void._.8.8nmppsAdd.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.2>
 
 
 .branch;

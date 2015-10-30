@@ -12,17 +12,17 @@
 //!
 //! \file   VEC_Wadd2V_set16.asm
 //! \author Сергей Свечников
-//! \brief  <Установка двух к-тов для VEC_WAdd2V_Exe(nm16s...>
+//! \brief  <Установка двух к-тов для nmppsWeightedSum_Exe(nm16s...>
 //!
 //! \endif
 //!
 //------------------------------------------------------------------------
 
 begin ".text_nmplv"
-global _VEC_WAdd2V_Set16__Fii12S_VEC_WAdd2VP:label;
-global _void._.8.8VEC_WAdd2V_Set16.1int.9._int.9._class._S_VEC_WAdd2V._.0.2 :label;
-<_VEC_WAdd2V_Set16__Fii12S_VEC_WAdd2VP>
-<_void._.8.8VEC_WAdd2V_Set16.1int.9._int.9._class._S_VEC_WAdd2V._.0.2>
+global _nmppsWeightedSum_Set16__Fii12S_nmppsWeightedSumP:label;
+global _void._.8.8nmppsWeightedSum_Set16.1int.9._int.9._class._S_nmppsWeightedSum._.0.2 :label;
+<_nmppsWeightedSum_Set16__Fii12S_nmppsWeightedSumP>
+<_void._.8.8nmppsWeightedSum_Set16.1int.9._int.9._class._S_nmppsWeightedSum._.0.2>
   ar5=ar7-2;
   push ar0,gr0;
   push ar1,gr1;

@@ -33,7 +33,7 @@
 // 2826 ticks per 10240 elements with C++ call (0.276 clocks per element)
 // The order of intermediate data transmissions in function is:
 //		Buf1[],Buf2			=> pDstVec[]				- Subtraction	(in-place is supported)
-void VEC_SubV(
+void nmppsSub(
 		nm8s*			pSrcVec1,	// input buffer		:long Local [VecSize/8]
 		nm8s*			pSrcVec2,	// input buffer		:long Local [VecSize/8]
 		nm8s*			pDstVec,		// output buffer	:long Global[VecSize/8]
@@ -61,7 +61,7 @@ void VEC_SubV(
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two short vectors
-void VEC_SubV(
+void nmppsSub(
 		nm16s*			pSrcVec1,		// input buffer		:long Local [VecSize/4]
 		nm16s*			pSrcVec2,		// input buffer		:long Local [VecSize/4]
 		nm16s*			pDstVec,			// output buffer	:long Global[VecSize/4]
@@ -93,7 +93,7 @@ void VEC_SubV(
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two int vectors
-void VEC_SubV(
+void nmppsSub(
 		nm32s*			pSrcVec1,		// input buffer		:long Local [VecSize/2]
 		nm32s*			pSrcVec2,		// input buffer		:long Local [VecSize/2]
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/2]
@@ -124,7 +124,7 @@ void VEC_SubV(
 }
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two __int64 vectors
-void VEC_SubV(
+void nmppsSub(
 	  nm64s*			pSrcVec1,		// input buffer		:long Local [nSize]
 	  nm64s*			pSrcVec2,		// input buffer		:long Local [nSize]
 	  nm64s*			pDstVec,			// output buffer	:long Global[nSize]
@@ -147,7 +147,7 @@ void VEC_SubV(
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two __int64 complex vectors
-void VEC_SubV(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize)
+void nmppsSub(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize)
 {
 	int i;
 	for(i=0;i<nSize;i++)
@@ -161,7 +161,7 @@ void VEC_SubV(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize)
 /////////////////////////////////////////////////////////////////////////////////////////
 // Decrement of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]-Decrement
-void VEC_SubC(
+void nmppsSubC(
 		nm8s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		int8b			nVal,				// decrement		:
 		nm8s*			pDstVec,			// output buffer	:long Global[VecSize/8]
@@ -188,7 +188,7 @@ void VEC_SubC(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Decrement of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]-Decrement
-void VEC_SubC(
+void nmppsSubC(
 		nm16s*			pSrcVec,			// input buffer		:long Local [VecSize/4]
 		int16b			nVal,				// decrement		:
 		nm16s*			pDstVec,			// output buffer	:long Global[VecSize/4]
@@ -219,7 +219,7 @@ void VEC_SubC(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Decrement of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]-Decrement
-void VEC_SubC(
+void nmppsSubC(
 		nm32s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
 		int32b			nVal,				// decrement		:
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/2]
@@ -248,7 +248,7 @@ void VEC_SubC(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // pDstVec[i]=pSrcVec[i]-Decrement
-void VEC_SubC(
+void nmppsSubC(
 		nm64s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
 		nm64s*			pnVal,				// decrement		:
 		nm64s*			pDstVec,			// output buffer	:long Global[VecSize/2]
@@ -271,7 +271,7 @@ void VEC_SubC(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // pDstVec[i]=Decrement-pSrcVec[i]
-void VEC_SubC_Neg(
+void nmppsSubCRev(
 		nm8s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		int8b			nVal,				// decrement		:
 		nm8s*			pDstVec,			// output buffer	:long Global[VecSize/8]
@@ -295,7 +295,7 @@ void VEC_SubC_Neg(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // pDstVec[i]=Decrement-pSrcVec[i]
-void VEC_SubC_Neg(
+void nmppsSubCRev(
 		nm16s*			pSrcVec,			// input buffer		:long Local [VecSize/4]
 		int16b			nVal,				// decrement		:
 		nm16s*			pDstVec,			// output buffer	:long Global[VecSize/4]
@@ -325,7 +325,7 @@ void VEC_SubC_Neg(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // pDstVec[i]=Decrement-pSrcVec[i]
-void VEC_SubC_Neg(
+void nmppsSubCRev(
 		nm32s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
 		int32b			nVal,				// decrement		:
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/2]
@@ -355,7 +355,7 @@ void VEC_SubC_Neg(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // pDstVec[i]=Decrement-pSrcVec[i]
-void VEC_SubC_Neg(
+void nmppsSubCRev(
 		nm64s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
 		nm64s*				pnVal,				// decrement		:
 		nm64s*			pDstVec,			// output buffer	:long Global[VecSize/2]
@@ -379,76 +379,76 @@ void VEC_SubC_Neg(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
-void VEC_SubV_Abs(
+void nmppsAbsDiff(
 		nm8s*			pSrcVec1,	// input buffer		:long Local			[VecSize/8]
 		nm8s*			pSrcVec2,	// input buffer		:long Local/Global	[VecSize/8]
 		nm8s*			pDstVec,		// output buffer	:long Global		[VecSize/8]
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[0,8,16,32...]
 		)
 {
-	VEC_SubV(pSrcVec1,pSrcVec2,pDstVec,nSize);
-	VEC_Abs(pDstVec,pDstVec,nSize);
+	nmppsSub(pSrcVec1,pSrcVec2,pDstVec,nSize);
+	nmppsAbs(pDstVec,pDstVec,nSize);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
 // pDstVec[i]=|pSrcVec1[i]-pSrcVec2[i]|
-void VEC_SubV_Abs(
+void nmppsAbsDiff(
 		nm16s*			pSrcVec1,		// input buffer		:long Local	[VecSize/4]
 		nm16s*			pSrcVec2,		// input buffer		:long Any   [VecSize/4]
 		nm16s*			pDstVec,			// output buffer	:long Global[VecSize/4]
 		int				nSize			// size of input buffer in 32 bit elements. nSize=[0,4,8...]
 		)
 {
-	VEC_SubV(pSrcVec1,pSrcVec2,pDstVec,nSize);
-	VEC_Abs(pDstVec,pDstVec,nSize);
+	nmppsSub(pSrcVec1,pSrcVec2,pDstVec,nSize);
+	nmppsAbs(pDstVec,pDstVec,nSize);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
 // pDstVec[i]=|pSrcVec1[i]-pSrcVec2[i]|
-void VEC_SubV_Abs(
+void nmppsAbsDiff(
 		nm32s*			pSrcVec1,		// input buffer		:long Local	[VecSize/2]
 		nm32s*			pSrcVec2,		// input buffer		:long Any   [VecSize/2]
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/2]
 		int				nSize			// size of input buffer in 32 bit elements. nSize=[0,2,4..]
 		)
 {
-	VEC_SubV(pSrcVec1,pSrcVec2,pDstVec,nSize);
-	VEC_Abs(pDstVec,pDstVec,nSize);
+	nmppsSub(pSrcVec1,pSrcVec2,pDstVec,nSize);
+	nmppsAbs(pDstVec,pDstVec,nSize);
 }
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
 // pDstVec[i]=|pSrcVec1[i]-pSrcVec2[i]|
-void VEC_SubV_Abs(
+void nmppsAbsDiff(
 		nm64s*			pSrcVec1,		// input buffer		:long Local	[VecSize/2]
 		nm64s*			pSrcVec2,		// input buffer		:long Any   [VecSize/2]
 		nm64s*			pDstVec,		// output buffer	:long Global[VecSize/2]
 		int				nSize			// size of input buffer in 32 bit elements. nSize=[0,2,4..]
 		)
 {
-	VEC_SubV(pSrcVec1,pSrcVec2,pDstVec,nSize);
-	VEC_Abs(pDstVec,pDstVec,nSize);
+	nmppsSub(pSrcVec1,pSrcVec2,pDstVec,nSize);
+	nmppsAbs(pDstVec,pDstVec,nSize);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Logical absolute difference calculation
-void VEC_SubV_Abs1(
+void nmppsAbsDiff1(
 		nm8s*			pSrcVec1,	// input buffer		:long Local			[VecSize/8]
 		nm8s*			pSrcVec2,	// input buffer		:long Local/Global	[VecSize/8]
 		nm8s*			pDstVec,	// output buffer	:long Global		[VecSize/8]
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[0,8,16,32...]
 		)
 {
-	VEC_SubV(pSrcVec1,pSrcVec2,pDstVec,nSize);
-	VEC_Abs1(pDstVec,pDstVec,nSize);
+	nmppsSub(pSrcVec1,pSrcVec2,pDstVec,nSize);
+	nmppsAbs1(pDstVec,pDstVec,nSize);
 }
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
-void VEC_SubV(
+void nmppsSub(
 		nm8u*			pSrcVec1,	
 		nm8u*			pSrcVec2,	
 		nm16s*			pDstVec,	
@@ -459,7 +459,7 @@ void VEC_SubV(
 	nm16s* pTmp2=(nm16s*)malloc(2*nSize);
 	VEC_Cnv(pSrcVec1,(nm16u*)pTmp1,nSize);
 	VEC_Cnv(pSrcVec2,(nm16u*)pTmp2,nSize);
-	VEC_SubV(pTmp1,pTmp2,pDstVec,nSize);
+	nmppsSub(pTmp1,pTmp2,pDstVec,nSize);
 	free(pTmp1);
 	free(pTmp2);
 }
@@ -469,7 +469,7 @@ void VEC_SubV(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
 // pDstVec[i]=|pSrcVec1[i]-pSrcVec2[i]|
-void VEC_SubVN8_Abs(
+void nmppsSubN8_Abs(
 		nm32s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		nm32s*			SrcN8,			// decrement		:long [1]
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/8]
@@ -492,7 +492,7 @@ void VEC_SubVN8_Abs(
 ////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
 // pDstVec[i]=|pSrcVec1[i]-pSrcVec2[i]|
-void VEC_SubVN16_Abs(
+void nmppsSubN16_Abs(
 		nm32s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		nm32s*			SrcN16,			// decrement		:long [1]
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/8]
@@ -511,7 +511,7 @@ void VEC_SubVN16_Abs(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
 // pDstVec[i]=|pSrcVec1[i]-pSrcVec2[i]|
-void VEC_SubVN16_Abs(
+void nmppsSubN16_Abs(
 		nm8s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		nm8s*			SrcN16,			// decrement		:long [1]
 		nm8s*			pDstVec,			// output buffer	:long Global[VecSize/8]

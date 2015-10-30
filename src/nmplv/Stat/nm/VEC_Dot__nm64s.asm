@@ -24,14 +24,14 @@ import from macros.mlb;
 begin ".text_nmplv"
 .branch;
 
-//! \fn void VEC_Dot (nm64s *pSrcVec1, nm64s *pSrcVec2, int nSize, int64b *pnRes) 
+//! \fn void nmppsDotProd (nm64s *pSrcVec1, nm64s *pSrcVec2, int nSize, int64b *pnRes) 
 //!
-//! \perfinclude _VEC_Dot__FPlPliPl.html
+//! \perfinclude _nmppsDotProd__FPlPliPl.html
 			 
-global _VEC_Dot__FPlPliPl:label;
-global _void._.8.8VEC_Dot.1long._.0.9._long._.0.9._int.9._long._.0.2 :label;
-<_VEC_Dot__FPlPliPl>
-<_void._.8.8VEC_Dot.1long._.0.9._long._.0.9._int.9._long._.0.2>
+global _nmppsDotProd__FPlPliPl:label;
+global _void._.8.8nmppsDotProd.1long._.0.9._long._.0.9._int.9._long._.0.2 :label;
+<_nmppsDotProd__FPlPliPl>
+<_void._.8.8nmppsDotProd.1long._.0.9._long._.0.9._int.9._long._.0.2>
 	ar5 = sp - 2;
 
 	PUSH_REGS();

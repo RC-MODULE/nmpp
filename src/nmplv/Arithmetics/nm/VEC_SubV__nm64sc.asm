@@ -2,13 +2,13 @@ import from macros.mlb;
 extern vec_Sub:label;
 begin ".text_nmplv"
 //------------------------------------------------------------------------------------------------
-//! \fn void VEC_SubV(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
+//! \fn void nmppsSub(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
 //! 
-//! \perfinclude _VEC_SubV__F6nm64scP6nm64scP6nm64scPi.html 
+//! \perfinclude _nmppsSub__F6nm64scP6nm64scP6nm64scPi.html 
 //------------------------------------------------------------------------------------------------
 
-global _void._.8.8VEC_SubV.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.2 :label;
-<_void._.8.8VEC_SubV.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.2>
+global _void._.8.8nmppsSub.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.2 :label;
+<_void._.8.8nmppsSub.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.2>
 .branch;
 	ar5 = sp - 2 with gr7=false;
 	nb1 = gr7;			

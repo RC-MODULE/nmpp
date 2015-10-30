@@ -24,14 +24,14 @@ extern vec_activate_data_xor_data:label;
 begin ".text_nmplv"
 
 
-//! \fn void VEC_Abs1 (nm4s *pSrcVec, nm4s *pDstVec, int nSize) 
+//! \fn void nmppsAbs1 (nm4s *pSrcVec, nm4s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_Abs1__F4nm4sP4nm4sPi.html
+//! \perfinclude _nmppsAbs1__F4nm4sP4nm4sPi.html
 
-global _VEC_Abs1__F4nm4sP4nm4sPi:label;
-global _void._.8.8VEC_Abs1.1class._nm4s._.0.9._class._nm4s._.0.9._int.2 :label;
-<_VEC_Abs1__F4nm4sP4nm4sPi>
-<_void._.8.8VEC_Abs1.1class._nm4s._.0.9._class._nm4s._.0.9._int.2>
+global _nmppsAbs1__F4nm4sP4nm4sPi:label;
+global _void._.8.8nmppsAbs1.1class._nm4s._.0.9._class._nm4s._.0.9._int.2 :label;
+<_nmppsAbs1__F4nm4sP4nm4sPi>
+<_void._.8.8nmppsAbs1.1class._nm4s._.0.9._class._nm4s._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=gr5;
 	push ar0,gr0	with gr0=false;

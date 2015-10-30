@@ -43,14 +43,14 @@ begin ".text_nmplv"
 
    
 
-//! \fn void VEC_Dot (nm8s *pSrcVec1, nm8s *pSrcVec2, int nSize, int64b *pnRes, void* pTmpBuff) 
+//! \fn void nmppsDotProd (nm8s *pSrcVec1, nm8s *pSrcVec2, int nSize, int64b *pnRes, void* pTmpBuff) 
 //!
-//! \perfinclude _VEC_Dot__FPcPciPlPv.html
+//! \perfinclude _nmppsDotProd__FPcPciPlPv.html
 				 
-global _VEC_Dot__FPcPciPlPv:label;
-global _void._.8.8VEC_Dot.1char._.0.9._char._.0.9._int.9._long._.0.9._void._.0.2 :label;
-<_VEC_Dot__FPcPciPlPv>
-<_void._.8.8VEC_Dot.1char._.0.9._char._.0.9._int.9._long._.0.9._void._.0.2>
+global _nmppsDotProd__FPcPciPlPv:label;
+global _void._.8.8nmppsDotProd.1char._.0.9._char._.0.9._int.9._long._.0.9._void._.0.2 :label;
+<_nmppsDotProd__FPcPciPlPv>
+<_void._.8.8nmppsDotProd.1char._.0.9._char._.0.9._int.9._long._.0.9._void._.0.2>
 	ar5 = sp - 2;
 
 	PUSH_REGS();

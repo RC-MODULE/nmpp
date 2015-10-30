@@ -42,14 +42,14 @@ begin ".text_nmplv"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_AddNV (nm8s **ppSrcVec, nm16s *pDstVec, int nSize, int nNumberOfVectors) 
+//! \fn void nmppsSumN (nm8s **ppSrcVec, nm16s *pDstVec, int nSize, int nNumberOfVectors) 
 //!
-//! \perfinclude _VEC_AddNV__FPPcPSsii.html
+//! \perfinclude _nmppsSumN__FPPcPSsii.html
 
-global _VEC_AddNV__FPPcPSsii:label;
-global _void._.8.8VEC_AddNV.1char._.0.0.9._short._.0.9._int.9._int.2 :label;
-<_VEC_AddNV__FPPcPSsii>
-<_void._.8.8VEC_AddNV.1char._.0.0.9._short._.0.9._int.9._int.2>
+global _nmppsSumN__FPPcPSsii:label;
+global _void._.8.8nmppsSumN.1char._.0.0.9._short._.0.9._int.9._int.2 :label;
+<_nmppsSumN__FPPcPSsii>
+<_void._.8.8nmppsSumN.1char._.0.0.9._short._.0.9._int.9._int.2>
 .branch;
 	ar5 = sp - 2;
 

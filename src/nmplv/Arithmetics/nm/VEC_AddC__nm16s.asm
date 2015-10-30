@@ -24,13 +24,13 @@ extern _VEC_TmpBuffer16_G:long;
 begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_AddC (nm16s *pSrcVec, int16b nVal, nm16s *pDstVec, int nSize) 
+//! \fn void nmppsAddC (nm16s *pSrcVec, int16b nVal, nm16s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_AddC__FPlPlPli.html
+//! \perfinclude _nmppsAddC__FPlPlPli.html
 
 
-global _void._.8.8VEC_AddC.1short._.0.9._int.9._short._.0.9._int.2 :label;
-<_void._.8.8VEC_AddC.1short._.0.9._int.9._short._.0.9._int.2>
+global _void._.8.8nmppsAddC.1short._.0.9._int.9._short._.0.9._int.2 :label;
+<_void._.8.8nmppsAddC.1short._.0.9._int.9._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 2;
 

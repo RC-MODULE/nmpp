@@ -31,5 +31,5 @@ void MTR_MulC_AddVsVc(
 
 {
 	for(int row=0;row<nHeight;row++)
-		VEC_MulC_AddV_AddC(SrcMtr+row*nWidth,MulN,SrcVecStr,SrcVecCol[row],DstMtr+row*nWidth,nWidth);
+		nmppsMulC_AddV_AddC(SrcMtr+row*nWidth,MulN,SrcVecStr,SrcVecCol[row],DstMtr+row*nWidth,nWidth);
 }

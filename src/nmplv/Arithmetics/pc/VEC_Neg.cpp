@@ -25,7 +25,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Sign reversion
-void VEC_Neg(
+void nmppsNeg(
 		nm8s*			pSrcVec,		// input buffer		:long Local [Size/8]
 		nm8s*			pDstVec,		// output buffer	:long Global[Size/8]
 		int				nSize			// size of input buffer in 8 bit elements. nSize=[0,8,16,24...]
@@ -37,7 +37,7 @@ void VEC_Neg(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Sign reversion
-void VEC_Neg(
+void nmppsNeg(
 		nm16s*			pSrcVec,		// input buffer		:long Local [Size/4]
 		nm16s*			pDstVec,		// output buffer	:long Global[Size/4]
 		int				nSize			// size of input buffer in 16-bit elements. nSize=[0,4,8,12..]
@@ -49,7 +49,7 @@ void VEC_Neg(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Sign reversion
-void VEC_Neg(
+void nmppsNeg(
 		nm32s*			pSrcVec,		// input buffer		:long Local [Size/2]
 		nm32s*			pDstVec,		// output buffer	:long Global[Size/2]
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
@@ -61,7 +61,7 @@ void VEC_Neg(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Sign reversion
-void VEC_Neg(
+void nmppsNeg(
 		nm64s*		pSrcVec,		// input buffer		:long Local [nSize]
 		nm64s*		pDstVec,		// output buffer	:long Global[nSize]
 		int				nSize			// size of input buffer in 64-bit elements. nSize=[0,1,2,3...]

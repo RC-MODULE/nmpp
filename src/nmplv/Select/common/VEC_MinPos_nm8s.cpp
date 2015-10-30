@@ -37,7 +37,7 @@ void VEC_MinPos (nm8s7b   *pSrcVec, int nSize, int& nIndex, int8b &nMinValue, vo
 	//}
 
 	VEC_MinVal(pSrcVec, nSize, nMinValue);
-	VEC_SubC(pSrcVec,nMinValue,(nm8s*)pTmp1,nSize);
+	nmppsSubC(pSrcVec,nMinValue,(nm8s*)pTmp1,nSize);
 	VEC_CmpEq0((nm8u7b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create min bitmap
 
 	if(nSearchDir > 0){

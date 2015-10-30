@@ -30,14 +30,14 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////
 // Elementwise division of 32-bit signed
 
-//! \fn void VEC_DivC (nm32s *pSrcVec, int nDivisor, nm32s *pDstVec, int nSize, void *pTmpBuf1, void *pTmpBuf2) 
+//! \fn void nmppsDivC (nm32s *pSrcVec, int nDivisor, nm32s *pDstVec, int nSize, void *pTmpBuf1, void *pTmpBuf2) 
 //!
-//! \perfinclude _VEC_DivC__FPiiPiiPvPv.html
+//! \perfinclude _nmppsDivC__FPiiPiiPvPv.html
 
-global _VEC_DivC__FPiiPiiPvPv :label;
-global _void._.8.8VEC_DivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._void._.0.2 :label;
-<_VEC_DivC__FPiiPiiPvPv>
-<_void._.8.8VEC_DivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._void._.0.2>
+global _nmppsDivC__FPiiPiiPvPv :label;
+global _void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._void._.0.2 :label;
+<_nmppsDivC__FPiiPiiPvPv>
+<_void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._void._.0.2>
 .branch;
 
 	//ar5 = ar7-6		with gr7 = false;

@@ -24,12 +24,12 @@ extern _VEC_TmpBuffer16_G:long;
 begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_AddC (nm8s *pSrcVec, int8b nVal, nm8s *pDstVec, int nSize) 
+//! \fn void nmppsAddC (nm8s *pSrcVec, int8b nVal, nm8s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_AddC__FPciPci.html
+//! \perfinclude _nmppsAddC__FPciPci.html
 
-global _void._.8.8VEC_AddC.1char._.0.9._int.9._char._.0.9._int.2 :label;
-<_void._.8.8VEC_AddC.1char._.0.9._int.9._char._.0.9._int.2>
+global _void._.8.8nmppsAddC.1char._.0.9._int.9._char._.0.9._int.2 :label;
+<_void._.8.8nmppsAddC.1char._.0.9._int.9._char._.0.9._int.2>
 .branch;
 	ar5 = sp - 2;
 

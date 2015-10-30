@@ -32,14 +32,14 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_AddV_AddC (nm32s *pSrcVec1, nm32s *pSrcVec2, int nVal, nm32s *pDstVec, int nSize) 
+//! \fn void nmppsAdd_AddC (nm32s *pSrcVec1, nm32s *pSrcVec2, int nVal, nm32s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_AddV_AddC__FPiPiiPii.html
+//! \perfinclude _nmppsAdd_AddC__FPiPiiPii.html
 
-global _VEC_AddV_AddC__FPiPiiPii:label;
-global _void._.8.8VEC_AddV_AddC.1int._.0.9._int._.0.9._int.9._int._.0.9._int.2 :label;
-<_VEC_AddV_AddC__FPiPiiPii>
-<_void._.8.8VEC_AddV_AddC.1int._.0.9._int._.0.9._int.9._int._.0.9._int.2>
+global _nmppsAdd_AddC__FPiPiiPii:label;
+global _void._.8.8nmppsAdd_AddC.1int._.0.9._int._.0.9._int.9._int._.0.9._int.2 :label;
+<_nmppsAdd_AddC__FPiPiiPii>
+<_void._.8.8nmppsAdd_AddC.1int._.0.9._int._.0.9._int.9._int._.0.9._int.2>
 .branch;
 	ar5 = sp - 2;
 

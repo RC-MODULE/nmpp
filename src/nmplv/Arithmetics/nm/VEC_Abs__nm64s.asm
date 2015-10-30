@@ -28,15 +28,15 @@ begin ".text_nmplv"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_Abs (nm64s *pSrcVec, nm64s *pDstVec, int nSize) 
+//! \fn void nmppsAbs (nm64s *pSrcVec, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_Abs__FPlPli.html
+//! \perfinclude _nmppsAbs__FPlPli.html
 
-global _VEC_Abs__FPlPli:label;
-global _void._.8.8VEC_Abs.1long._.0.9._long._.0.9._int.2 :label;
+global _nmppsAbs__FPlPli:label;
+global _void._.8.8nmppsAbs.1long._.0.9._long._.0.9._int.2 :label;
 
-<_VEC_Abs__FPlPli>
-<_void._.8.8VEC_Abs.1long._.0.9._long._.0.9._int.2>
+<_nmppsAbs__FPlPli>
+<_void._.8.8nmppsAbs.1long._.0.9._long._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=gr5;
 	push ar0,gr0	with gr0=false;

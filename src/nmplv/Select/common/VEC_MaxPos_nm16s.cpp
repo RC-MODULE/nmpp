@@ -38,7 +38,7 @@ void VEC_MaxPos (nm16s15b *pSrcVec, int nSize, int& nIndex, int16b &nMaxValue, v
 	//}
 
 	VEC_MaxVal(pSrcVec, nSize, nMaxValue);
-	VEC_SubC_Neg(pSrcVec,nMaxValue,(nm16s*)pTmp1,nSize);
+	nmppsSubCRev(pSrcVec,nMaxValue,(nm16s*)pTmp1,nSize);
 	VEC_CmpEq0((nm16u15b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create Max bitmap
 
 

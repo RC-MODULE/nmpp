@@ -15,27 +15,27 @@
 
 	/**
 	\internal
-	\addtogroup VEC_AddV
+	\addtogroup nmppsAdd
 	*/
 	//! \{
-void VEC_AddV(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
+void nmppsAdd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
 	//! \}
 
 	/**
 	\internal
-	\addtogroup VEC_SubV
+	\addtogroup nmppsSub
 	*/
 	//! \{
-void VEC_SubV(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
+void nmppsSub(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
 	//! \}
 
 
 	/**
 	\internal
-	\addtogroup VEC_MulC
+	\addtogroup nmppsMulC
 	*/
 	//! \{
-void VEC_MulC(nm64sc *pSrcVec, nm64s *pnVal, nm64sc *pDstVec, int nSize);
+void nmppsMulC(nm64sc *pSrcVec, nm64s *pnVal, nm64sc *pDstVec, int nSize);
 	//! \}
 
 

@@ -24,14 +24,14 @@ extern _VEC_TmpBuffer16_G:long;
 begin ".text_nmplv"
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_SubV_Abs1 (nm8s *pSrcVec1, nm8s *pSrcVec2, nm8s *pDstVec, int nSize) 
+//! \fn void nmppsAbsDiff1 (nm8s *pSrcVec1, nm8s *pSrcVec2, nm8s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_SubV_Abs__FPcPcPci.html
+//! \perfinclude _nmppsAbsDiff__FPcPcPci.html
 
-global _VEC_SubV_Abs1__FPcPcPci:label;
-global _void._.8.8VEC_SubV_Abs1.1char._.0.9._char._.0.9._char._.0.9._int.2 :label;
-<_VEC_SubV_Abs1__FPcPcPci>
-<_void._.8.8VEC_SubV_Abs1.1char._.0.9._char._.0.9._char._.0.9._int.2>
+global _nmppsAbsDiff1__FPcPcPci:label;
+global _void._.8.8nmppsAbsDiff1.1char._.0.9._char._.0.9._char._.0.9._int.2 :label;
+<_nmppsAbsDiff1__FPcPcPci>
+<_void._.8.8nmppsAbsDiff1.1char._.0.9._char._.0.9._char._.0.9._int.2>
 .branch;
 	ar5 = sp - 2;
 

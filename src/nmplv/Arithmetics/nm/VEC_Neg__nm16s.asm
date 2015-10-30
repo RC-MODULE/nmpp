@@ -27,14 +27,14 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_Neg (nm16s *pSrcVec, nm16s *pDstVec, int nSize) 
+//! \fn void nmppsNeg (nm16s *pSrcVec, nm16s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_Neg__FPSsPSsi.html
+//! \perfinclude _nmppsNeg__FPSsPSsi.html
 
-global _VEC_Neg__FPSsPSsi:label;
-global _void._.8.8VEC_Neg.1short._.0.9._short._.0.9._int.2 :label;
-<_VEC_Neg__FPSsPSsi>
-<_void._.8.8VEC_Neg.1short._.0.9._short._.0.9._int.2>
+global _nmppsNeg__FPSsPSsi:label;
+global _void._.8.8nmppsNeg.1short._.0.9._short._.0.9._int.2 :label;
+<_nmppsNeg__FPSsPSsi>
+<_void._.8.8nmppsNeg.1short._.0.9._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=gr5;
 	push ar0,gr0	with gr0=false;

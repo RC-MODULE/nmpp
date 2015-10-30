@@ -30,14 +30,14 @@ begin ".text_nmplv"
 
 extern vec_vsum_data_0:label;
 
-//! \fn void VEC_MulC (nm8s *pSrcVec, int16b nVal, nm16s *pDstVec, int nSize) 
+//! \fn void nmppsMulC (nm8s *pSrcVec, int16b nVal, nm16s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_MulC__FPciPSsi.html
+//! \perfinclude _nmppsMulC__FPciPSsi.html
 
-global _VEC_MulC__FPciPSsi:label;
-global _void._.8.8VEC_MulC.1char._.0.9._int.9._short._.0.9._int.2 :label;
-<_VEC_MulC__FPciPSsi>
-<_void._.8.8VEC_MulC.1char._.0.9._int.9._short._.0.9._int.2>
+global _nmppsMulC__FPciPSsi:label;
+global _void._.8.8nmppsMulC.1char._.0.9._int.9._short._.0.9._int.2 :label;
+<_nmppsMulC__FPciPSsi>
+<_void._.8.8nmppsMulC.1char._.0.9._int.9._short._.0.9._int.2>
 .branch;
 
 

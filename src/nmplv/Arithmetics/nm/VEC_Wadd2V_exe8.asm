@@ -21,10 +21,10 @@
 begin ".text_nmplv"
 extern vec_Mul2D2W8_AddVr:label;
 
-// void VEC_WAdd2V_Exe(nm8s* pSrcVec1,nm8s* pSrcVec2, S_VEC_WAdd2V* kerW, nm16s* pDstVec, int nSize);
+// void nmppsWeightedSum_Exe(nm8s* pSrcVec1,nm8s* pSrcVec2, S_nmppsWeightedSum* kerW, nm16s* pDstVec, int nSize);
 
-global _void._.8.8VEC_WAdd2V_Exe.1char._.0.9._char._.0.9._class._S_VEC_WAdd2V._.0.9._short._.0.9._int.2 :label;
-<_void._.8.8VEC_WAdd2V_Exe.1char._.0.9._char._.0.9._class._S_VEC_WAdd2V._.0.9._short._.0.9._int.2>
+global _void._.8.8nmppsWeightedSum_Exe.1char._.0.9._char._.0.9._class._S_nmppsWeightedSum._.0.9._short._.0.9._int.2 :label;
+<_void._.8.8nmppsWeightedSum_Exe.1char._.0.9._char._.0.9._class._S_nmppsWeightedSum._.0.9._short._.0.9._int.2>
   ar5=ar7-2;
   push ar0,gr0; push ar1,gr1;  push ar2,gr2; push ar4,gr4; push ar6,gr6;
   ar0=[--ar5]with gr4=false;// pSrcVec1

@@ -85,8 +85,8 @@
 	\defgroup vec_0_sub_data
     \ingroup vCore
     
-        \ru Ядро функции VEC_Neg(). 
-        \en VEC_Neg() function core. 
+        \ru Ядро функции nmppsNeg(). 
+        \en nmppsNeg() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -237,8 +237,8 @@
         \en The function allow calculate approximate absolute value. 
     
 		\~
-        \ru Ядро функции VEC_Abs1(). 
-        \en VEC_Abs1() function core. 
+        \ru Ядро функции nmppsAbs1(). 
+        \en nmppsAbs1() function core. 
 		\~
     \ru Действие функции эквивалентныо следующим псевдоинструкциям: 
     \en The function operation is equivalent to the following pseudoinstructions: 
@@ -503,8 +503,8 @@
     \defgroup vec_data_add_afifo
     \ingroup vcomplex
    
-        \ru Ядро функции VEC_Sum(). 
-        \en Core of VEC_Sum() function. 
+        \ru Ядро функции nmppsSum(). 
+        \en Core of nmppsSum() function. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -553,8 +553,8 @@
     \defgroup vec_data_add_ram
    \ingroup vCore
    
-        \ru Ядро функции VEC_AddC(). 
-        \en Core of VEC_AddC() function. 
+        \ru Ядро функции nmppsAddC(). 
+        \en Core of nmppsAddC() function. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -707,8 +707,8 @@
      \defgroup vec_data_sub_ram
    \ingroup vCore
    
-        \ru Ядро функции VEC_SubC(). 
-        \en Core of VEC_SubC() function. 
+        \ru Ядро функции nmppsSubC(). 
+        \en Core of nmppsSubC() function. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1084,8 +1084,8 @@
      \defgroup vec_Abs
    \ingroup vcomplex
    
-        \ru Ядро функции VEC_Abs(). 
-        \en VEC_Abs() function core. 
+        \ru Ядро функции nmppsAbs(). 
+        \en nmppsAbs() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1145,8 +1145,8 @@
      \defgroup vec_Add
    \ingroup vCore
    
-        \ru Ядро функции VEC_AddV(). 
-        \en VEC_AddV() function core. 
+        \ru Ядро функции nmppsAdd(). 
+        \en nmppsAdd() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1652,8 +1652,8 @@
         \en It increases negative numbers by 1. 
     
 		\~
-        \ru Применяется в VEC_DivC(). 
-        \en It is used in VEC_DivC(). 
+        \ru Применяется в nmppsDivC(). 
+        \en It is used in nmppsDivC(). 
 		\~
     \ru Действие функции эквивалентно следующим псевдоинструкциям: 
     \en The function operation is equivalent to the following pseudoinstructions: 
@@ -2325,8 +2325,8 @@
      \defgroup vec_Sub
    \ingroup vCore
    
-        \ru Ядро функции VEC_SubV(). 
-        \en VEC_SubV() function core. 
+        \ru Ядро функции nmppsSub(). 
+        \en nmppsSub() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -2381,8 +2381,8 @@
     \defgroup vec_SubAbs
     \ingroup vcomplex
    
-        \ru Ядро функции VEC_SubV_Abs(). 
-        \en VEC_SubV_Abs() function core. 
+        \ru Ядро функции nmppsAbsDiff(). 
+        \en nmppsAbsDiff() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -2840,8 +2840,8 @@
      \defgroup vec_ram_sub_data
    \ingroup vCore
    
-        \ru Ядро функции VEC_SubC_Neg(). 
-        \en VEC_SubC_Neg() function core. 
+        \ru Ядро функции nmppsSubCRev(). 
+        \en nmppsSubCRev() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -3006,8 +3006,8 @@
      \defgroup vec_vsum_data_afifo
    \ingroup vcomplex
    
-        \ru Используется в VEC_Sum(nm1* pSrcVec, void* pTmpBuf, int nSize) 
-        \en It is used in VEC_Sum(nm1* pSrcVec,  void* pTmpBuf, int nSize) 
+        \ru Используется в nmppsSum(nm1* pSrcVec, void* pTmpBuf, int nSize) 
+        \en It is used in nmppsSum(nm1* pSrcVec,  void* pTmpBuf, int nSize) 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 

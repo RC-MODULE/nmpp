@@ -26,13 +26,13 @@ begin ".text_nmplv"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_AddC (nm64s *pSrcVec, int64b *pnVal, nm64s *pDstVec, int nSize) 
+//! \fn void nmppsAddC (nm64s *pSrcVec, int64b *pnVal, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_AddC__FPlPlPli.html
+//! \perfinclude _nmppsAddC__FPlPlPli.html
 
-global _void._.8.8VEC_AddC.1long._.0.9._long._.0.9._long._.0.9._int.2 :label;
+global _void._.8.8nmppsAddC.1long._.0.9._long._.0.9._long._.0.9._int.2 :label;
 
-<_void._.8.8VEC_AddC.1long._.0.9._long._.0.9._long._.0.9._int.2>
+<_void._.8.8nmppsAddC.1long._.0.9._long._.0.9._long._.0.9._int.2>
 .branch;
 	ar5 = sp - 2;
 

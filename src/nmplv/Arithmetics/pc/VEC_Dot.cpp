@@ -21,7 +21,7 @@
 #include "nmplv.h"
 /////////////////////////////////////////////////////////////////////////////////////////
 // Scalar multiplication of two vectors
-int	VEC_Dot(
+int	nmppsDotProd(
 			nm32s*		pSrcVec1,		// input  32-bit vec		:long -----[Size/2]
 			nm32s*		pSrcVec2,		// input  32-bit vec		:long -----[Size/2]
 			int			nSize			// size of input buffers	:nSize=[0,2,4...]
@@ -39,7 +39,7 @@ int	VEC_Dot(
 //////////////////////////////////////////////////////////////////////////////////////
 // Vector multiplication
 //////////////////////////////////////////////////////////////////////////////////////
-void VEC_Dot(
+void nmppsDotProd(
 	nm64s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm64s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -51,7 +51,7 @@ void VEC_Dot(
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void VEC_Dot(
+void nmppsDotProd(
 	nm32s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm64s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -63,7 +63,7 @@ void VEC_Dot(
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void VEC_Dot(
+void nmppsDotProd(
 	nm16s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm64s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -75,7 +75,7 @@ void VEC_Dot(
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void VEC_Dot(
+void nmppsDotProd(
 	nm8s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm64s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -88,7 +88,7 @@ void VEC_Dot(
 }
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-void VEC_Dot(
+void nmppsDotProd(
 	nm32s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm32s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -101,7 +101,7 @@ void VEC_Dot(
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void VEC_Dot(
+void nmppsDotProd(
 	nm16s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm32s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -114,7 +114,7 @@ void VEC_Dot(
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void VEC_Dot(
+void nmppsDotProd(
 	nm8s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm32s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -128,7 +128,7 @@ void VEC_Dot(
 }
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-void VEC_Dot(
+void nmppsDotProd(
 	nm16s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm16s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -141,7 +141,7 @@ void VEC_Dot(
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void VEC_Dot(
+void nmppsDotProd(
 	nm8s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm16s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -155,7 +155,7 @@ void VEC_Dot(
 }
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-void VEC_Dot(
+void nmppsDotProd(
 	nm8s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm8s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -170,7 +170,7 @@ void VEC_Dot(
 //////////////////////////////////////////////////////////////////////////////////////
 
 // With first argument conjuction
-void VEC_Dot(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pDstRes)
+void nmppsDotProd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pDstRes)
 {
 	int i;
 
@@ -180,14 +180,14 @@ void VEC_Dot(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pDstRes)
 	{
 
 //		if(IsMultOverflow(&pSrcVec1[i].re, &pSrcVec2[i].re))
-//			printf("VEC_Dot overflow(r1, r2)\n");
+//			printf("nmppsDotProd overflow(r1, r2)\n");
 //		if(IsMultOverflow(&pSrcVec1[i].im, &pSrcVec2[i].im))
-//			printf("VEC_Dot overflow(c1, c2)\n");
+//			printf("nmppsDotProd overflow(c1, c2)\n");
 		pDstRes->re += pSrcVec1[i].re*pSrcVec2[i].re + pSrcVec1[i].im*pSrcVec2[i].im;
 //		if(IsMultOverflow(&pSrcVec1[i].re, &pSrcVec2[i].im))
-//			printf("VEC_Dot overflow(r1, c2)\n");
+//			printf("nmppsDotProd overflow(r1, c2)\n");
 //		if(IsMultOverflow(&pSrcVec1[i].im, &pSrcVec2[i].re))
-//			printf("VEC_Dot overflow(c1, r2)\n");
+//			printf("nmppsDotProd overflow(c1, r2)\n");
 		pDstRes->im += pSrcVec1[i].re*pSrcVec2[i].im - pSrcVec1[i].im*pSrcVec2[i].re;
 	}
 }

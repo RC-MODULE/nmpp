@@ -28,14 +28,14 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn nm64s VEC_Sum (nm64s *pSrcVec, int nSize, int64b *pnRes)
+//! \fn nm64s nmppsSum (nm64s *pSrcVec, int nSize, int64b *pnRes)
 //!
-//! \perfinclude _VEC_Sum__FPliPl.html
+//! \perfinclude _nmppsSum__FPliPl.html
 
 
-global _void._.8.8VEC_Sum.1long._.0.9._int.9._long._.0.2 :label;
+global _void._.8.8nmppsSum.1long._.0.9._int.9._long._.0.2 :label;
 
-<_void._.8.8VEC_Sum.1long._.0.9._int.9._long._.0.2>
+<_void._.8.8nmppsSum.1long._.0.9._int.9._long._.0.2>
 .branch;
 	ar5 = sp - 2;
 	push ar0,gr0 with gr0=false;

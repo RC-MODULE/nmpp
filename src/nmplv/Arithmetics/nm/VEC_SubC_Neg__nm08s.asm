@@ -23,14 +23,14 @@ extern  _VEC_TmpBuffer16_G:long;
 
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_SubC_Neg (nm8s *pSrcVec, int8b nVal, nm8s *pDstVec, int nSize) 
+//! \fn void nmppsSubCRev (nm8s *pSrcVec, int8b nVal, nm8s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_SubC_Neg__FPciPci.html
+//! \perfinclude _nmppsSubCRev__FPciPci.html
 
-global _VEC_SubC_Neg__FPciPci:label;
-global _void._.8.8VEC_SubC_Neg.1char._.0.9._int.9._char._.0.9._int.2 :label;
-<_VEC_SubC_Neg__FPciPci>
-<_void._.8.8VEC_SubC_Neg.1char._.0.9._int.9._char._.0.9._int.2>
+global _nmppsSubCRev__FPciPci:label;
+global _void._.8.8nmppsSubCRev.1char._.0.9._int.9._char._.0.9._int.2 :label;
+<_nmppsSubCRev__FPciPci>
+<_void._.8.8nmppsSubCRev.1char._.0.9._int.9._char._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

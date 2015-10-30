@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: VEC_DivC__nm64sc_nm64sc.cpp             $
+//  $Workfile:: nmppsDivC__nm64sc_nm64sc.cpp             $
 //
 //  nmplv
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   VEC_DivC__nm64sc_nm64sc.cpp
+//! \file   nmppsDivC__nm64sc_nm64sc.cpp
 //! \author Sergey V. Vaganov esq.
 //! \brief  <Brief Description>
 //!
@@ -21,7 +21,7 @@
 
 
 #include "nmtype.h"
-void VEC_DivC(nm64sc *pSrcVec, nm64sc *pDstVec, int nSize, nm64sc *pnDivisor)
+void nmppsDivC(nm64sc *pSrcVec, nm64sc *pDstVec, int nSize, nm64sc *pnDivisor)
 {
 	int i;
 	if(!pnDivisor->im)

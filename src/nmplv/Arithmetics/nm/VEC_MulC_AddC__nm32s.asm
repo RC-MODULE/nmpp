@@ -30,14 +30,14 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_MulC_AddC (nm32s *pSrcVec, int nMulVal, int nAddVal, nm32s *pDstVec, int nSize) 
+//! \fn void nmppsMulC_AddC (nm32s *pSrcVec, int nMulVal, int nAddVal, nm32s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_MulC_AddC__FPiiiPii.html
+//! \perfinclude _nmppsMulC_AddC__FPiiiPii.html
 
-global _VEC_MulC_AddC__FPiiiPii:label;
-global _void._.8.8VEC_MulC_AddC.1int._.0.9._int.9._int.9._int._.0.9._int.2 :label;
-<_VEC_MulC_AddC__FPiiiPii>
-<_void._.8.8VEC_MulC_AddC.1int._.0.9._int.9._int.9._int._.0.9._int.2>
+global _nmppsMulC_AddC__FPiiiPii:label;
+global _void._.8.8nmppsMulC_AddC.1int._.0.9._int.9._int.9._int._.0.9._int.2 :label;
+<_nmppsMulC_AddC__FPiiiPii>
+<_void._.8.8nmppsMulC_AddC.1int._.0.9._int.9._int.9._int._.0.9._int.2>
 
 .branch;
 

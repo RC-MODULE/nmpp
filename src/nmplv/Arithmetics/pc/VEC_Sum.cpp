@@ -62,7 +62,7 @@ unsigned ByteArray[256]={0, 1, 1, 2, 1, 2, 2, 3,
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Count bits in 64-bit vectors. Each amount store in the 64 bit vec. 
-void		VEC_Sum(
+void		nmppsSum(
 	nm1*			pSrcVec,			// input buffer		:long Local [nSize]
 		int				nSize,			// size of input buffer in 64-bit elements. nSize=[0,1,2,3...]
 		int *   pnRes, 
@@ -102,7 +102,7 @@ void		VEC_Sum(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
-void VEC_Sum(
+void nmppsSum(
 		nm8s*			pSrcVec,
 		int				nSize,
 		int *   pnRes
@@ -116,7 +116,7 @@ void VEC_Sum(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
-void VEC_Sum(
+void nmppsSum(
 		nm16s*			pSrcVec,
 		int				nSize,
 		__int64 *   pnRes
@@ -129,7 +129,7 @@ void VEC_Sum(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
-void VEC_Sum(
+void nmppsSum(
 		nm32s*			pSrcVec,
 		int				nSize,
 		__int64 *   pnRes
@@ -142,7 +142,7 @@ void VEC_Sum(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
-void VEC_Sum(
+void nmppsSum(
 	  nm64s*			pSrcVec,
 		int				nSize,
 		__int64 *   pnRes

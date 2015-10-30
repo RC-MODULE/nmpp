@@ -25,14 +25,14 @@ extern vec_Abs:label;
 begin ".text_nmplv"
 
 
-//! \fn void VEC_Abs (nm8s *pSrcVec, nm8s *pDstVec, int nSize) 
+//! \fn void nmppsAbs (nm8s *pSrcVec, nm8s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_Abs__FPcPci.html
+//! \perfinclude _nmppsAbs__FPcPci.html
 
-global _VEC_Abs__FPcPci:label;
-global _void._.8.8VEC_Abs.1char._.0.9._char._.0.9._int.2 :label;
-<_VEC_Abs__FPcPci>
-<_void._.8.8VEC_Abs.1char._.0.9._char._.0.9._int.2>
+global _nmppsAbs__FPcPci:label;
+global _void._.8.8nmppsAbs.1char._.0.9._char._.0.9._int.2 :label;
+<_nmppsAbs__FPcPci>
+<_void._.8.8nmppsAbs.1char._.0.9._char._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=gr5;
 	push ar0,gr0	with gr0=false;

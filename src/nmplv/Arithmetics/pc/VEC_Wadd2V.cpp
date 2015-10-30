@@ -1,7 +1,7 @@
 #include "nmplv.h"
 
 
-void VEC_WAdd2V(nm8s* pSrcVec1,int W1,nm8s* pSrcVec2,int W2, nm16s* pDstVec, int nSize)
+void nmppsWeightedSum(nm8s* pSrcVec1,int W1,nm8s* pSrcVec2,int W2, nm16s* pDstVec, int nSize)
 {
 	for(int i=0;i<nSize;i++)	
 	{
@@ -9,7 +9,7 @@ void VEC_WAdd2V(nm8s* pSrcVec1,int W1,nm8s* pSrcVec2,int W2, nm16s* pDstVec, int
 	}
   return;	
 }
-void VEC_WAdd2V(nm16s* pSrcVec1,int W1,nm16s* pSrcVec2,int W2, nm32s* pDstVec, int nSize)
+void nmppsWeightedSum(nm16s* pSrcVec1,int W1,nm16s* pSrcVec2,int W2, nm32s* pDstVec, int nSize)
 {
 	for(int i=0;i<nSize;i++)	
 	{
@@ -17,7 +17,7 @@ void VEC_WAdd2V(nm16s* pSrcVec1,int W1,nm16s* pSrcVec2,int W2, nm32s* pDstVec, i
 	}
   return;	
 }
-void VEC_WAdd2V(nm32s* pSrcVec1,nm64s W1,nm32s* pSrcVec2,nm64s W2, nm64s* pDstVec, int nSize)
+void nmppsWeightedSum(nm32s* pSrcVec1,nm64s W1,nm32s* pSrcVec2,nm64s W2, nm64s* pDstVec, int nSize)
 {
 	for(int i=0;i<nSize;i++)	
 	{

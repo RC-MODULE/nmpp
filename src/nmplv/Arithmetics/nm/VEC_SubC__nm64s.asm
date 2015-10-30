@@ -25,12 +25,12 @@ begin ".text_nmplv"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void VEC_SubC (nm64s *pSrcVec, int64b *pnVal, nm64s *pDstVec, int nSize) 
+//! \fn void nmppsSubC (nm64s *pSrcVec, int64b *pnVal, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_SubC__FPlPlPli.html
+//! \perfinclude _nmppsSubC__FPlPlPli.html
 
-global _void._.8.8VEC_SubC.1long._.0.9._long._.0.9._long._.0.9._int.2 :label;
-<_void._.8.8VEC_SubC.1long._.0.9._long._.0.9._long._.0.9._int.2>
+global _void._.8.8nmppsSubC.1long._.0.9._long._.0.9._long._.0.9._int.2 :label;
+<_void._.8.8nmppsSubC.1long._.0.9._long._.0.9._long._.0.9._int.2>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

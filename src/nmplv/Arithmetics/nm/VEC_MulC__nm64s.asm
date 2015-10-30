@@ -26,14 +26,14 @@ begin ".text_nmplv"
 extern vec_vsum_data_0:label;
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void VEC_MulC (nm64s *pSrcVec, int64b nVal, nm64s *pDstVec, int nSize) 
+//! \fn void nmppsMulC (nm64s *pSrcVec, int64b nVal, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_MulC__FPllPli.html
+//! \perfinclude _nmppsMulC__FPllPli.html
 
-global _VEC_MulC__FPllPli:label;
-global _void._.8.8VEC_MulC.1long._.0.9._long.9._long._.0.9._int.2 :label;
-<_VEC_MulC__FPllPli>
-<_void._.8.8VEC_MulC.1long._.0.9._long.9._long._.0.9._int.2>
+global _nmppsMulC__FPllPli:label;
+global _void._.8.8nmppsMulC.1long._.0.9._long.9._long._.0.9._int.2 :label;
+<_nmppsMulC__FPllPli>
+<_void._.8.8nmppsMulC.1long._.0.9._long.9._long._.0.9._int.2>
 .branch;
 
 

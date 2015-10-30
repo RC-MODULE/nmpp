@@ -10,11 +10,11 @@ void SIG_Filter(nm8s* pSrcRe, nm8s* pSrcIm, nm32s* pDstRe, nm32s* pDstIm, int nS
 	
 	SIG_Filter(pSrcRe, pTmp0, nSize, pKernelRe);
 	SIG_Filter(pSrcIm, pTmp1, nSize, pKernelIm);
-	VEC_SubV(pTmp0,pTmp1,pDstRe,nSize);
+	nmppsSub(pTmp0,pTmp1,pDstRe,nSize);
 	
 	SIG_Filter(pSrcIm, pTmp0, nSize, pKernelRe);
 	SIG_Filter(pSrcRe, pTmp1, nSize, pKernelIm);
-	VEC_AddV(pTmp0,pTmp1,pDstRe,nSize);
+	nmppsAdd(pTmp0,pTmp1,pDstRe,nSize);
 	
 }
 

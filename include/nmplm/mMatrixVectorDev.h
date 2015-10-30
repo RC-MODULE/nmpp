@@ -148,22 +148,22 @@ void MTR_ProdV_Zero( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int nSt
     //! \}
 
     //--------------------------------------------------------------------
-    // \defgroup VEC_SubV8_Abs VEC_SubV8_Abs
+    // \defgroup nmppsSub8_Abs nmppsSub8_Abs
     // \ingroup mMatrixVector
     // \{
     //--------------------------------------------------------------------
-	//void VEC_SubV8_Abs(nm32s* pSrcVec, nm32s* SrcN8, nm32s* pDstVec, int nSize);
+	//void nmppsSub8_Abs(nm32s* pSrcVec, nm32s* SrcN8, nm32s* pDstVec, int nSize);
     // \todo void MTR_SubV8_Abs(nm32s* pSrcMtr,int nSrcStride,nm32s* pSrcVec8,nm32s* pDstMtr,int pDstStride,int nHeight);
     // \}
 
     //--------------------------------------------------------------------
-    // \defgroup VEC_SubV16_Abs VEC_SubV16_Abs
+    // \defgroup nmppsSub16_Abs nmppsSub16_Abs
     // \ingroup MatrixVector
     // \{
     //--------------------------------------------------------------------
-//void VEC_SubV16_Abs(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
-//void VEC_SubV16_Abs(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
-//void VEC_SubV16_Abs(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
+//void nmppsSub16_Abs(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
+//void nmppsSub16_Abs(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
+//void nmppsSub16_Abs(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
 // \todo void MTR_SubV16_Abs(nm8s* pSrcMtr,int nSrcStride, nm8s* pSrcVec16, nm8s* pDstMtr,int nDstStride, int nHeight);
 // \todo void MTR_SubV16_Abs(nm32s* pSrcMtr,int nSrcStride, nm32s* pSrcVec16, nm32s* pDstMtr,int nDstStride, int nHeight);
 

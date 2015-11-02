@@ -37,9 +37,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsAdd_AddC_32s.html
 
 global _nmppsAdd_AddC_32s:label;
-global _void._.8.8nmppsAdd_AddC.1int._.0.9._int._.0.9._int.9._int._.0.9._int.2 :label;
+global _nmppsAdd_AddC32s:label;
 <_nmppsAdd_AddC_32s>
-<_void._.8.8nmppsAdd_AddC.1int._.0.9._int._.0.9._int.9._int._.0.9._int.2>
+<_nmppsAdd_AddC32s>
 .branch;
 	ar5 = sp - 2;
 

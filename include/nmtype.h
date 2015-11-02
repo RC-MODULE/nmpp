@@ -1333,7 +1333,12 @@ typedef struct s_nm64sc
 //#define CAPACITY_nm1 64
 //
 //
+#ifdef __cplusplus
 #define __INLINE__ inline
+#else
+#define __INLINE__ __inline
+#endif
+
 #endif
 
  // _NMTYPE_H_INCLUDED_

@@ -15,6 +15,10 @@
 #ifndef __VSUPPORT_H
 #define __VSUPPORT_H
 #include <stdlib.h>
+
+#ifdef __cplusplus
+		extern "C" {
+#endif
 //#include "nmtype.h"
 
     /**
@@ -42,7 +46,9 @@
 		\~
     */
     //! \{
+
 void nmppsMalloc_64s(nm64s** pptr, int nSize, int hint );
+
 __INLINE__ void nmppsMalloc_1 (nm1**   pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>6) +1, hint);}
 __INLINE__ void nmppsMalloc_2s(nm2s**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>5) +1, hint);}
 __INLINE__ void nmppsMalloc_2u(nm2u**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>5) +1, hint);}
@@ -55,6 +61,7 @@ __INLINE__ void nmppsMalloc_16s(nm16s** pptr, int nSize, int hint) { nmppsMalloc
 __INLINE__ void nmppsMalloc_32u(nm32u** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>1) +1, hint);}
 __INLINE__ void nmppsMalloc_32s(nm32s** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>1) +1, hint);}
 __INLINE__ void nmppsMalloc_64u(nm64u** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, nSize, hint);}
+
     //! \}
 
 //*****************************************************************************
@@ -347,6 +354,11 @@ __INLINE__ uint32b	nmppsGet_32u(nm32u* pVec, int nIndex) {return pVec[nIndex];}
 	__INLINE__ unsigned nmppsSize32_32u(nm32u* ,unsigned size) {return size;  }
 	__INLINE__ unsigned nmppsSize32_64u(nm64u* ,unsigned size) {return size*2;}
 */
+
+#ifdef __cplusplus
+		};
+#endif
+
 #endif
 
 

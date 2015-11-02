@@ -7,9 +7,7 @@ begin ".text_nmplv"
 //--------------------------------------------------------------------
 
 global _nmppsMinPosV16_32s:label;
-global _int._.8.8nmppsMinPosV16_.1int._.0.9._int.9._int._.6.2 :label;
 <_nmppsMinPosV16_32s>
-<_int._.8.8nmppsMinPosV16_.1int._.0.9._int.9._int._.6.2>
 .branch;
 
 	ar5=ar7-2;

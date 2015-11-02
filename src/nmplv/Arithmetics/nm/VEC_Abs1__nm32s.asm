@@ -30,9 +30,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsAbs1_32s.html
 
 global _nmppsAbs1_32s:label;
-global _void._.8.8nmppsAbs1.1int._.0.9._int._.0.9._int.2 :label;
+global _nmppsAbs132s:label;
 <_nmppsAbs1_32s>
-<_void._.8.8nmppsAbs1.1int._.0.9._int._.0.9._int.2>
+<_nmppsAbs132s>
 .branch;
 	ar5 = sp - 2	with gr7=gr5;
 	push ar0,gr0	with gr0=false;

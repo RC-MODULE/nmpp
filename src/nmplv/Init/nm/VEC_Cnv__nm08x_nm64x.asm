@@ -38,13 +38,13 @@ end ".data";
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsCnv_8s(nm8s* pSrcVec, nm64s* pDstVec, int nSize)
+//! \fn void nmppsCnv_8s64s(nm8s* pSrcVec, nm64s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv_8s.html
+//! \perfinclude _nmppsCnv_8s64s.html
 
 
-global _void._.8.8nmppsCnv_.1char._.0.9._long._.0.9._int.2 :label;
-<_void._.8.8nmppsCnv_.1char._.0.9._long._.0.9._int.2>
+global _nmppsCnv_8s64s:label;
+<_nmppsCnv_8s64s>
 .branch;
    	delayed goto JumpFromSigned;
 		nb1 = 00000000h;

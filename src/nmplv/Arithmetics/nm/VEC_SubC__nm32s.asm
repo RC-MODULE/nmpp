@@ -31,9 +31,9 @@ begin ".text_nmplv"
 
 
 global _nmppsSubC_32s:label;
-global _void._.8.8nmppsSubC.1int._.0.9._int.9._int._.0.9._int.2 :label;
+global _nmppsSubC32s:label;
 <_nmppsSubC_32s>
-<_void._.8.8nmppsSubC.1int._.0.9._int.9._int._.0.9._int.2>
+<_nmppsSubC32s>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

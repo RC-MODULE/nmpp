@@ -28,8 +28,8 @@ begin ".text_nmplv"
 //!
 //! \perfinclude _nmppsAddC_32s.html
 
-global _void._.8.8nmppsAddC.1int._.0.9._int.9._int._.0.9._int.2 :label;
-<_void._.8.8nmppsAddC.1int._.0.9._int.9._int._.0.9._int.2>
+global _nmppsAddC32s:label;
+<_nmppsAddC32s>
 .branch;
 	ar5 = sp - 2;
 

@@ -30,10 +30,10 @@ begin ".text_nmplv"
 //--------------------------------------------------------------------
 
 
+
 global _nmppsSadV16_8s:label;
-global _int._.8.8nmppsSadV16_.1char._.0.9._char._.0.2 :label;
 <_nmppsSadV16_8s>
-<_int._.8.8nmppsSadV16_.1char._.0.9._char._.0.2>
+
 .branch;
 	ar5 = _VEC_TBL_One_G;
 	rep 8 wfifo=[ar5];

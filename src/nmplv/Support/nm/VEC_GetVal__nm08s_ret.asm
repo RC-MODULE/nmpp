@@ -25,10 +25,9 @@
 //! \perfinclude _nmppsGetVal_8s.html
 
 begin ".text_nmplv"
-global _nmppsGetVal_8s:	label;
-global _int._.8.8nmppsGetVal_.1char._.0.9._int.2 :label;
+global _nmppsGetVal_8s:label;
 <_nmppsGetVal_8s>
-<_int._.8.8nmppsGetVal_.1char._.0.9._int.2>
+
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0;

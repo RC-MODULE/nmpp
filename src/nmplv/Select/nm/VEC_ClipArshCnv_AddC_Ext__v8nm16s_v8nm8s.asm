@@ -114,7 +114,6 @@ global _void._.8.8nmppsClipArshCnv_AddC_Ext_.1class._v8nm16s._.0.9._class._v8nm3
 //
 // 
 <_nmppsClipArshCnv_AddC_Ext_Set_32s>
-<_void._.8.8nmppsClipArshCnv_AddC_Ext_Set_.1int._.0.9._int._.0.9._char._.0.9._class._S_Clip_Arsh_Cnv_AddC_Ext._.0.2>
 .branch;
     ar5 = ar7 - 2;
     push ar0, gr0;

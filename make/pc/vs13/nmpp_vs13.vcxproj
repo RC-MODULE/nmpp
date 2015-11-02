@@ -173,7 +173,6 @@
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/DivTable_1_145_18.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/DivTable_1_145_19.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/Quant.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Abs.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Abs1.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Add.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_DivC.cpp" /> 
@@ -196,7 +195,6 @@
  	<ClCompile Include="../../../src/nmplv/Init/common/VEC_Rand_nm32u.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/VEC_Cnv.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/VEC_Copy.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Init/pc/VEC_Fill.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/VEC_Swap.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/nmtl_spec/pc/tcmplx_spec.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Select/common/VEC_LastNonZeroPos.cpp" /> 
@@ -233,18 +231,27 @@
  	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MinV.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/VEC_MinVal.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/32Ini.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Stat/pc/CRC32_Table.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Stat/pc/VEC_Crc.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/VEC_SadV16.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_Addr.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_GetVal.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_Malloc64s.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_SetVal.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Support/common/malloc32.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Transform/common/VEC_Remap_nm8u.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Transform/pc/VEC_QSort.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Transform/pc/VEC_Remap.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Transform/pc/VEC_Split.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/SCL_DoubleToFix32__double.c" /> 
+ 	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/SCL_Fix32ToDouble__int.c" /> 
+ 	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/scl_fixarctan32__int.c" /> 
+ 	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/SCL_FixDiv32__int.c" /> 
+ 	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/SCL_FixMul32__int.c" /> 
+ 	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/scl_fixsqrt32__int.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/VEC_Abs.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsRand.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsSet.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Stat/pc/CRC32_Table.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Stat/pc/VEC_Crc.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_Malloc64s.c" /> 
    </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

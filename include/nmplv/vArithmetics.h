@@ -21,6 +21,9 @@
 #ifndef _VARITHM_H_INCLUDED_
 #define _VARITHM_H_INCLUDED_
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
 
     /**
     \defgroup nmppsAbs nmppsAbs
@@ -82,14 +85,14 @@
     
     */
     //! \{
-//extern "C"	{
+
 void nmppsAbs_8s(nm8s* pSrcVec, nm8s* pDstVec, int nSize);
 void nmppsAbs_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 void nmppsAbs_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
 void nmppsAbs_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
 void nmppsAbs_4s(nm4s* pSrcVec, nm4s* pDstVec, int nSize);
-//	};
+
 
  /**
     \defgroup nmppsAbs1 nmppsAbs1
@@ -1423,5 +1426,8 @@ void nmppsWeightedSum_16s(nm16s* pSrcVec1,int nW1,nm16s* pSrcVec2,int nW2, nm32s
 void nmppsWeightedSum_32s(nm32s* pSrcVec1,nm64s nW1,nm32s* pSrcVec2,nm64s nW2, nm64s* pDstVec, int nSize);
     //! \}
 
+#ifdef __cplusplus
+		};
+#endif
 
 #endif // _VECARITM_H_INCLUDED_

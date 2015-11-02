@@ -45,9 +45,7 @@ begin ".text_nmplv"
 //--------------------------------------------------------------------
     
 global _nmppsRand_64s:label;
-global _void._.8.8nmppsRand_.1long._.0.9._int.9._int.2 :label;
 <_nmppsRand_64s>
-<_void._.8.8nmppsRand_.1long._.0.9._int.9._int.2>
 .branch;
     
 	gr7 = false;

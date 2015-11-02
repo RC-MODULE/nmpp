@@ -34,9 +34,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsClipPowC_32s.html
 
 global _nmppsClipPowC_32s:label;
-global _void._.8.8nmppsClipPowC_.1int._.0.9._int.9._int._.0.9._int.2 :label;
 <_nmppsClipPowC_32s>
-<_void._.8.8nmppsClipPowC_.1int._.0.9._int.9._int._.0.9._int.2>
 .branch;
 
 	ar5=ar7-2;

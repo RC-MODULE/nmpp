@@ -27,10 +27,8 @@ extern vec_CompareMax:label;
 //!
 //! \perfinclude _nmppsMaxV_32s.html
 
-global _nmppsMaxV__FPiPiPii_ :label;
-global _void._.8.8nmppsMaxV_.1int._.0.9._int._.0.9._int._.0.9._int.2 :label;
+global _nmppsMaxV_32s:label;
 <_nmppsMaxV_32s>
-<_void._.8.8nmppsMaxV_.1int._.0.9._int._.0.9._int._.0.9._int.2>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0	with gr0=false;

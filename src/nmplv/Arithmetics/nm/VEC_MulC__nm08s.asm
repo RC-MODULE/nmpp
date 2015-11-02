@@ -35,9 +35,9 @@ extern vec_vsum_data_0:label;
 //! \perfinclude _nmppsMulC_8s.html
 
 global _nmppsMulC_8s:label;
-global _void._.8.8nmppsMulC.1char._.0.9._int.9._short._.0.9._int.2 :label;
+global _nmppsMulC8s:label;
 <_nmppsMulC_8s>
-<_void._.8.8nmppsMulC.1char._.0.9._int.9._short._.0.9._int.2>
+<_nmppsMulC8s>
 .branch;
 
 

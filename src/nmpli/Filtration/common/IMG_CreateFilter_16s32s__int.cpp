@@ -279,7 +279,7 @@ void IMG_CreateFilter_16s32s(int* pWeights, int nKerWidth, int nKerHeight, int n
 	int AllocSize=6+nDispArraySize+(nNumberOfArrays0+nNumberOfArrays1)*nKerHeight*4*2;
 	nmppsMalloc_32s((nm32s**)pKernel, AllocSize,nHint);
 	if (*pKernel==0) return;
-	//nmppsFill_32s((nm32s*)*pKernel,5,AllocSize);
+	//nmppsSet_32s((nm32s*)*pKernel,5,AllocSize);
 	IMG_SetFilter_16s32s(pWeights, nKerWidth, nKerHeight, nImgWidth, *pKernel);
 }*/
 

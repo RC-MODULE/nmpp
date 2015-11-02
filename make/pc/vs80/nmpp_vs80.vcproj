@@ -186,7 +186,6 @@
  			<File RelativePath="..\..\..\src\nmplv\Init\common\VEC_Rand_nm32u.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\VEC_Cnv.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\VEC_Copy.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmplv\Init\pc\VEC_Fill.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\VEC_Swap.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\nmtl_spec\pc\tcmplx_spec.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\common\VEC_LastNonZeroPos.cpp" > </File> 
@@ -223,12 +222,9 @@
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\VEC_MinV.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\VEC_MinVal.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Stat\pc\32Ini.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmplv\Stat\pc\CRC32_Table.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmplv\Stat\pc\VEC_Crc.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Stat\pc\VEC_SadV16.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_Addr.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_GetVal.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_Malloc64s.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_SetVal.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Support\common\malloc32.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Transform\common\VEC_Remap_nm8u.cpp" > </File> 
@@ -242,6 +238,11 @@
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_FixMul32__int.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\scl_fixsqrt32__int.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\VEC_Abs.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsRand.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSet.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Stat\pc\CRC32_Table.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Stat\pc\VEC_Crc.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_Malloc64s.c" > </File> 
  		</Filter> 
  		<Filter
 			Name="Header Files"
@@ -278,6 +279,14 @@
  			<File RelativePath="../../../include/nmplv/vStat.h" > </File> 
  			<File RelativePath="../../../include/nmplv/vSupport.h" > </File> 
  			<File RelativePath="../../../include/nmplv/vTransform.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/Backup" > </File> 
+ 			<File RelativePath="1" > </File> 
+ 			<File RelativePath="of" > </File> 
+ 			<File RelativePath="iResample.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/Backup" > </File> 
+ 			<File RelativePath="1" > </File> 
+ 			<File RelativePath="of" > </File> 
+ 			<File RelativePath="iSupport.h" > </File> 
  			<File RelativePath="../../../include/nmpli/iArithmetics.h" > </File> 
  			<File RelativePath="../../../include/nmpli/iCellTexture.h" > </File> 
  			<File RelativePath="../../../include/nmpli/iDef.h" > </File> 
@@ -297,12 +306,20 @@
  			<File RelativePath="../../../include/nmpli/iSupport.h" > </File> 
  			<File RelativePath="../../../include/nmpli/nmpli.h" > </File> 
  			<File RelativePath="../../../include/nmpli/warpimg.h" > </File> 
+ 			<File RelativePath="../../../include/nmpls/Backup" > </File> 
+ 			<File RelativePath="1" > </File> 
+ 			<File RelativePath="of" > </File> 
+ 			<File RelativePath="fftext.h" > </File> 
  			<File RelativePath="../../../include/nmpls/fft.h" > </File> 
  			<File RelativePath="../../../include/nmpls/fftext.h" > </File> 
  			<File RelativePath="../../../include/nmpls/nmpls.h" > </File> 
  			<File RelativePath="../../../include/nmpls/sCorrelation.h" > </File> 
  			<File RelativePath="../../../include/nmpls/sFiltration.h" > </File> 
  			<File RelativePath="../../../include/nmpls/sResample.h" > </File> 
+ 			<File RelativePath="../../../include/nmplm/Backup" > </File> 
+ 			<File RelativePath="1" > </File> 
+ 			<File RelativePath="of" > </File> 
+ 			<File RelativePath="mSupport.h" > </File> 
  			<File RelativePath="../../../include/nmplm/mInit.h" > </File> 
  			<File RelativePath="../../../include/nmplm/mInverse.h" > </File> 
  			<File RelativePath="../../../include/nmplm/mMatrixVector.h" > </File> 

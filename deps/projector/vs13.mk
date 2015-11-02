@@ -152,6 +152,7 @@ define ClCompile
 VC_APP+=$$(TAB)<ClCompile Include="$(1)" /> $$(CR)
 endef 
 $(foreach cpp,$(ALL_CPP),$(eval $(call ClCompile,$(cpp)))	)
+$(foreach c,  $(ALL_C),  $(eval $(call ClCompile,$(c)))	    )
 
 define VC_APP1  
   </ItemGroup>
@@ -256,6 +257,7 @@ define LIB_ClCompile
 VC_LIB+=$$(TAB)<ClCompile Include="$(1)" /> $$(CR)
 endef
 $(foreach cpp,$(ALL_CPP),$(eval $(call LIB_ClCompile,$(cpp)))	)
+$(foreach c,$(ALL_C),$(eval $(call LIB_ClCompile,$(c)))	)
   
 define VC_LIB1  
   </ItemGroup>

@@ -42,8 +42,8 @@ begin ".text_nmplv"
 //!
 //! \perfinclude _nmppsClipCC_32s.html
 
-global _void._.8.8nmppsClipCC_.1int._.0.9._int.9._int.9._int._.0.9._int.2 :label;
-<_void._.8.8nmppsClipCC_.1int._.0.9._int.9._int.9._int._.0.9._int.2>
+global _nmppsClipCC_32s:label;
+<_nmppsClipCC_32s>
 .branch;
 
 

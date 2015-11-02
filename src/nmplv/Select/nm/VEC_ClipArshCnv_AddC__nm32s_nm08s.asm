@@ -45,8 +45,8 @@ extern vec_ClipMul4D4W4_AddVr:label;     // core:from file Math_Mul4D4W4.asm
 //! \perfinclude _nmppsClipArshCnv_AddC_32s.html
 
 
-global _void._.8.8nmppsClipArshCnv_AddC_.1int._.0.9._int.9._int.9._int.9._char._.0.9._int.2 :label;
-<_void._.8.8nmppsClipArshCnv_AddC_.1int._.0.9._int.9._int.9._int.9._char._.0.9._int.2>
+global _nmppsClipArshCnv_AddC_32s:label;
+<_nmppsClipArshCnv_AddC_32s>
 	ar5=ar7-2 with gr7=false;
 	push ar6,gr6 with gr7++;      //   gr7=1
 	push ar0,gr0 with gr6=gr7<<1; //   gr6=2

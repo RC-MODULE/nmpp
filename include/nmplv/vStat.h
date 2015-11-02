@@ -21,6 +21,11 @@
  
 #ifndef _VSTAT_H_INCLUDED_
 #define _VSTAT_H_INCLUDED_
+
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
     /**
 	\internal
     \defgroup nmppsCrc_ nmppsCrc_
@@ -61,7 +66,8 @@
     \endxmlonly
     */
     //! \{
-           void nmppsCrc_32u(nm32u* pSrcVec, int nSize, unsigned int* nCrc);
+
+   void nmppsCrc_32u(nm32u* pSrcVec, int nSize, unsigned int* nCrc);
 __INLINE__ void nmppsCrc_64s(nm64s* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize<<1, nCrc); }
 __INLINE__ void nmppsCrc_32s(nm32s* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize,    nCrc); }           
 __INLINE__ void nmppsCrc_16s(nm16s* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize>>1, nCrc); }
@@ -114,5 +120,9 @@ int nmppsSadV16_16s(nm16s* pSrc1,nm16s* pSrc2);
 int nmppsSadV16_8s(nm8s*  pSrc1,nm8s*  pSrc2);
     //! \}
 
+	
+#ifdef __cplusplus
+		};
+#endif
 
 #endif // _VSTAT_H_INCLUDED_

@@ -28,9 +28,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsSubC_8s.html
 
 global _nmppsSubC_8s:label;
-global _void._.8.8nmppsSubC.1char._.0.9._int.9._char._.0.9._int.2 :label;
+global _nmppsSubC8s:label;
 <_nmppsSubC_8s>
-<_void._.8.8nmppsSubC.1char._.0.9._int.9._char._.0.9._int.2>
+<_nmppsSubC8s>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

@@ -35,9 +35,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsDivC_32s.html
 
 global _nmppsDivC__FPiiPiiPvPv :label;
-global _void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._void._.0.2 :label;
+global _nmppsDivC32s:label;
 <_nmppsDivC_32s>
-<_void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._void._.0.2>
+<_nmppsDivC32s>
 .branch;
 
 	//ar5 = ar7-6		with gr7 = false;
@@ -91,12 +91,12 @@ global _void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._voi
 
 
 
-	extern _void._.8.8nmppsArshC_.1int._.0.9._int.9._int._.0.9._int.2:label;
+	extern _nmppsArshC_32s:label;
 	ar5 = ar7;
 	ar7 += 4;
 	[ ar5++ ] = gr5;			// int nSize
 	[ ar5++ ] = gr1;			// nm32s* pDstVec
-	delayed call _void._.8.8nmppsArshC_.1int._.0.9._int.9._int._.0.9._int.2;
+	delayed call _nmppsArshC_32s;
 		[ ar5++ ] = gr7;		// int nShift
 		[ ar5++ ] = ar1;		// nm32s* pSrcVec
 	nul;
@@ -188,10 +188,10 @@ global _void._.8.8nmppsDivC.1int._.0.9._int.9._int._.0.9._int.9._void._.0.9._voi
 //		Note that the using same buffer pointers can reduce function performance.
 
 
-global _nmppsDiv_By2Int__FPiPiPiiPvPvii_ :label;
-global _void._.8.8nmppsDiv_By2Int_.1int._.0.9._int._.0.9._int._.0.9._int.9._void._.0.9._void._.0.9._int.9._int.2 :label;
+
+global _nmppsDiv_By2Int_32s:label;
 <_nmppsDiv_By2Int_32s>
-<_void._.8.8nmppsDiv_By2Int_.1int._.0.9._int._.0.9._int._.0.9._int.9._void._.0.9._void._.0.9._int.9._int.2>
+
  
 
 .branch;

@@ -25,9 +25,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsFirstZeroPos_32s.html 
 
 global _nmppsFirstZeroPos_32s:label;
-global _int._.8.8nmppsFirstZeroPos_.1int._.0.9._int.2 :label;
 <_nmppsFirstZeroPos_32s>	
-<_int._.8.8nmppsFirstZeroPos_.1int._.0.9._int.2>
  
  	ar5=ar7-2;
  	push ar0,gr0 	with gr0=false;

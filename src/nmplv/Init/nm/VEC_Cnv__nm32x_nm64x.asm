@@ -36,9 +36,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsCnv_32s.html
 
 
-global _void._.8.8nmppsCnv_.1int._.0.9._long._.0.9._int.2 :label;
+global _nmppsCnv_32s:label;
 
-<_void._.8.8nmppsCnv_.1int._.0.9._long._.0.9._int.2>
+<_nmppsCnv_32s>
 .branch;
 	delayed goto JumpFromSigned;
 		nb1 = 00000000h;

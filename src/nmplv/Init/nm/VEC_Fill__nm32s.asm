@@ -27,15 +27,13 @@ extern _nmppsTmpBuffer16_G_:long;
 begin ".text_nmplv"
 
    //--------------------------------------------------------------------
-    //! \fn void nmppsFill_32s(nm32s *pVec, int32b nVal, int nSize) 
+    //! \fn void nmppsSet_32s(nm32s *pVec, int32b nVal, int nSize) 
 	//!
-	//! \perfinclude _nmppsFill_32s.html
+	//! \perfinclude _nmppsSet_32s.html
     //--------------------------------------------------------------------
 
-global _nmppsFill_32s:label;
-global _void._.8.8nmppsFill_.1int._.0.9._int.9._int.2 :label;
-<_nmppsFill_32s>
-<_void._.8.8nmppsFill_.1int._.0.9._int.9._int.2>
+global _nmppsSet_32s:label;
+<_nmppsSet_32s>
 .branch;
     ar5 = sp - 2	with gr7=false;
     push ar0,gr0	with gr7++;

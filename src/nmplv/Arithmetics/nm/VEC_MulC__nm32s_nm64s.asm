@@ -32,9 +32,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsMulC_32s.html
 
 global _nmppsMulC_32s:label;
-global _void._.8.8nmppsMulC.1int._.0.9._long.9._long._.0.9._int.2 :label;
+global _nmppsMulC32s:label;
 <_nmppsMulC_32s>
-<_void._.8.8nmppsMulC.1int._.0.9._long.9._long._.0.9._int.2>
+<_nmppsMulC32s>
 .branch;
 
 

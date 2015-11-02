@@ -43,10 +43,8 @@ begin ".text_nmplv"
 //!
 //! \perfinclude _nmppsMinVal_32s.html
 
-global _nmppsMinVal__FPiiRi_ :label;
-global _void._.8.8nmppsMinVal_.1int._.0.9._int.9._int._.6.2 :label;
+global _nmppsMinVal_32s:label;
 <_nmppsMinVal_32s>
-<_void._.8.8nmppsMinVal_.1int._.0.9._int.9._int._.6.2>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0;

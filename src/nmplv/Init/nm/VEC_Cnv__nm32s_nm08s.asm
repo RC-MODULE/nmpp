@@ -39,12 +39,12 @@ end ".data_nmplv_L";
 
 begin ".text_nmplv"
 
-//! \fn void nmppsCnv_32s(nm32s* pSrcVec, nm8s* pDstVec, int nSize);
+//! \fn void nmppsCnv_32s8s(nm32s* pSrcVec, nm8s* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCnv_32s.html
+//! \perfinclude _nmppsCnv_32s8s.html
 
-global _void._.8.8nmppsCnv_.1int._.0.9._char._.0.9._int.2 :label;
-<_void._.8.8nmppsCnv_.1int._.0.9._char._.0.9._int.2>
+global _nmppsCnv_32s8s:label;
+<_nmppsCnv_32s8s>
 .branch;
     ar5 = sp - 2 with gr7 = false;
 	push ar0,gr0 with gr7++;

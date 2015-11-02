@@ -20,6 +20,9 @@
 #ifndef _VINIT_H_INCLUDED_
 #define _VINIT_H_INCLUDED_
 
+#ifdef __cplusplus
+		extern "C" {
+#endif		
 
     /**
     \defgroup nmppsSet nmppsSet
@@ -68,6 +71,7 @@
     \endxmlonly
     */
     //! \{
+
 void nmppsSet_8s(nm8s* pVec,  int8b nVal, int nSize);
 void nmppsSet_16s(nm16s* pVec, int16b nVal, int nSize);
 void nmppsSet_32s(nm32s* pVec, int32b nVal, int nSize);
@@ -79,13 +83,15 @@ __INLINE__ void nmppsSet_16u(nm16u* pVec, uint16b nVal, int nSize)	{nmppsSet_16s
 __INLINE__ void nmppsSet_32u(nm32u* pVec, uint32b nVal, int nSize)	{nmppsSet_32s((nm32s*) pVec, (int32b)nVal, nSize);}
 __INLINE__ void nmppsSet_64u(nm64u* pVec, uint64b  nVal, int nSize)	{nmppsSet_64s((nm64s*) pVec, (int64b)nVal, nSize);}
 __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize)	{nmppsSet_64sp((nm64s*) pVec, (int64b*)nVal, nSize);}
+
+
     //! \}
 
 
 //*****************************************************************************
 
     /**
-    \defgroup nmppsRand_ nmppsRand_
+    \defgroup nmppsRand nmppsRand
     \ingroup vInit
     \brief
         \ru »нициализаци€ массива случайными числами. 
@@ -127,15 +133,17 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize)	{nmppsSet_6
 	/en Random initialization of 32-bit buffer
 	/~
 */
-void nmppsRand_32u(nm32u* pDstVec, int nSize, unsigned nRandomize );
-__INLINE__ void nmppsRand_8s(nm8s* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>2, nRandomize);}
-__INLINE__ void nmppsRand_16s(nm16s* pDstVec, int nSize, unsigned nRandomize) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>1, nRandomize);}
-__INLINE__ void nmppsRand_32s(nm32s* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize, nRandomize);}
-//__INLINE__ void nmppsRand_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRand_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
-__INLINE__ void nmppsRand_8u(nm8u* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>2, nRandomize);}
-__INLINE__ void nmppsRand_16u(nm16u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize>>1, nRandomize);}
-__INLINE__ void nmppsRand_64u(nm64u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
+//void nmppsRand_32u(nm32u* pDstVec, int nSize, unsigned nRandomize );
+void nmppsRand_64s(nm64s* pDstVec, int nSize, int nRandomize );
+__INLINE__ void nmppsRand_8s (nm8s* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>3, nRandomize);}
+__INLINE__ void nmppsRand_16s(nm16s* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>2, nRandomize);}
+__INLINE__ void nmppsRand_32s(nm32s* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>1, nRandomize);}
+__INLINE__ void nmppsRand_8u (nm8u* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>3, nRandomize);}
+__INLINE__ void nmppsRand_16u(nm16u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>2, nRandomize);}
+__INLINE__ void nmppsRand_32u(nm32u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>1, nRandomize);}
+__INLINE__ void nmppsRand_64u(nm64u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize   , nRandomize);}
 
+//__INLINE__ void nmppsRand_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRand_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
 
 /**
 	/ru  »нициализаци€ массива 64-разр€дными случайными числами. 
@@ -143,7 +151,7 @@ __INLINE__ void nmppsRand_64u(nm64u* pDstVec, int nSize, unsigned nRandomize ) {
 	/~
 
 */
-void nmppsRand_64s(nm64s* pDstVec, int nSize, int nRandomize );
+
     //! \}
 
 	
@@ -556,6 +564,10 @@ void nmppsCopyua_8s(nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSize);
 void nmppsSwap_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize);
     //! \}
 
+#ifdef __cplusplus
+		};
+#endif
+	
 #endif // _INIT_H_INCLUDED_
 
 

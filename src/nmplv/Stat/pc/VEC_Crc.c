@@ -21,10 +21,10 @@ extern unsigned int CRC32_Table[];
 //#include "vcrc.h"
 #include "nmplv.h"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-void nmppsCrc_32s(
+void nmppsCrc_32u(
     unsigned int* pSrcVec, // Input Vector			:long Any[Size/2]
     int nSize,             // Vector size        	:[0,1,2...]
-    unsigned int& nCrc     // Init/Output crc
+    unsigned int* Crc     // Init/Output crc
     )
        
 {
@@ -38,14 +38,14 @@ void nmppsCrc_32s(
     {
 		a = pSrcVec[i];
         b = a & 0x000000FF;
-        nCrc = ( nCrc >> 8 ) ^ pTable[( b ^ ( nCrc & 0x000000FF ) )];
+        *Crc = ( *Crc >> 8 ) ^ pTable[( b ^ ( *Crc & 0x000000FF ) )];
         b = ( a >> 8 ) & 0x000000FF;
-        nCrc = ( nCrc >> 8 ) ^ pTable[( b ^ ( nCrc & 0x000000FF ) )];
+        *Crc = ( *Crc >> 8 ) ^ pTable[( b ^ ( *Crc & 0x000000FF ) )];
         b = ( a >> 16 ) & 0x000000FF;
-        nCrc = ( nCrc >> 8 ) ^ pTable[( b ^ ( nCrc & 0x000000FF ) )];
+        *Crc = ( *Crc >> 8 ) ^ pTable[( b ^ ( *Crc & 0x000000FF ) )];
         b = ( a >> 24 ) & 0x000000FF;
-        nCrc = ( nCrc >> 8 ) ^ pTable[( b ^ ( nCrc & 0x000000FF ) )];
+        *Crc = ( *Crc >> 8 ) ^ pTable[( b ^ ( *Crc & 0x000000FF ) )];
     }
-    nCrc = ~ nCrc;
+    *Crc = ~ *Crc;
 
 }

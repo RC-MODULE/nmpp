@@ -20,7 +20,7 @@
 #include "nmplv.h"
 ////////////////////////////////////////////////////////////////////////////
 //  Setting all 64-bit elements of Buffer to const value given by InitValue
-void nmppsFill_64s(nm64s*	Buffer,		// Destination array					:long Global [SizeInt64]
+void nmppsSet_64s(nm64s*	Buffer,		// Destination array					:long Global [SizeInt64]
 		nm64s*		InitValue,	// Init value
 		int			SizeInt64	// nSize of Source array in 64-bit ints; :SizeInt32= [0,1,2,...]
 		)
@@ -42,7 +42,7 @@ void nmppsFill_64s(nm64s*	Buffer,		// Destination array					:long Global [SizeIn
 
 ////////////////////////////////////////////////////////////////////////////
 //  Setting all 32-bit elements of Buffer to const value given by InitValue
-void nmppsFill_32s(nm32s*	Buffer,		// Destination array					:long Global [SizeInt32/2]
+void nmppsSet_32s(nm32s*	Buffer,		// Destination array					:long Global [SizeInt32/2]
 		int		InitValue,	// Init value 
 		int		SizeInt32	// nSize of Source array in 32-bit ints; :SizeInt32= [0,2,4...]
 		)
@@ -53,7 +53,7 @@ void nmppsFill_32s(nm32s*	Buffer,		// Destination array					:long Global [SizeIn
 
 ////////////////////////////////////////////////////////////////////////////
 //  Setting all 16-bit elements of Buffer to const value given by InitValue
-void nmppsFill_16s(nm16s*	Buffer,		// Destination array					:long Global [SizeInt16/4]
+void nmppsSet_16s(nm16s*	Buffer,		// Destination array					:long Global [SizeInt16/4]
 		int		InitValue,	// Init value 
 		int		SizeInt16	// nSize of Source array in 16-bit shorts:SizeInt16= [0,4,8,...]
 		)

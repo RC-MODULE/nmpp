@@ -227,7 +227,6 @@ return;
 // void nmppsClipArshCnv_AddC_Ext_Aux_(short *pshSrc, S_Clip_Arsh_Cnv_AddC_Ext *pParams, char *pchDst, int nSrcSize);
 //
 <_nmppsClipArshCnv_AddC_Ext_Exe_16s>
-<_void._.8.8nmppsClipArshCnv_AddC_Ext_Exe_.1short._.0.9._class._S_Clip_Arsh_Cnv_AddC_Ext._.0.9._char._.0.9._int.2>
 .branch;
     ar5 = ar7 - 2;
     push ar0, gr0;

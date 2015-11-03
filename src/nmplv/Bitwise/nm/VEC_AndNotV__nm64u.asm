@@ -28,8 +28,8 @@ begin ".text_nmplv"
 
 
 
-global _void._.8.8nmppsAndNotV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
-<_void._.8.8nmppsAndNotV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
+global _nmppsAndNotV_64u:label;
+<_nmppsAndNotV_64u>
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0,gr0	with gr7++;
 	push ar1,gr1	with gr7++;

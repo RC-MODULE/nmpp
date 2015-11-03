@@ -315,8 +315,8 @@ begin ".text_nmplv"
 //!
 //! \perfinclude _nmppsArshC_16s.html
 
-global _void._.8.8nmppsArshC_.1short._.0.9._int.9._short._.0.9._int.2 :label;
-<_void._.8.8nmppsArshC_.1short._.0.9._int.9._short._.0.9._int.2>
+global _nmppsArshC_16s:label;
+<_nmppsArshC_16s>
 .branch;
 	ar5 = sp - 4;
 	push ar0,gr0;

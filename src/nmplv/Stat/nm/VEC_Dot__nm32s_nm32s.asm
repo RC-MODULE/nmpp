@@ -40,9 +40,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsDotProd_32s.html
 
 global _nmppsDotProd_32s:label;
-global _nmppsDotProd32s:label;
 <_nmppsDotProd_32s>
-<_nmppsDotProd32s>
 	ar5 = sp - 2;
 
 	PUSH_REGS();

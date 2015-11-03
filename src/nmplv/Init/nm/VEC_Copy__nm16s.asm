@@ -30,8 +30,8 @@ begin ".text_nmplv"
 //!
 //! \perfinclude _nmppsCopy_16s.html
 
-global _void._.8.8nmppsCopy_.1short._.0.9._short._.0.9._int.2 :label;
-<_void._.8.8nmppsCopy_.1short._.0.9._short._.0.9._int.2>
+global _nmppsCopy_16s:label;
+<_nmppsCopy_16s>
 .branch;
     ar5 = sp - 2	with gr7=gr5;
 	push ar0,gr0	with gr0=false;

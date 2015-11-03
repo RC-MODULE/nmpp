@@ -28,9 +28,8 @@ extern vec_CompareMinMax:label;
 //! \perfinclude _nmppsCmpMinMaxV_16s.html
 
 global _nmppsCmpMinMaxV__FPSsPSsPSsPSsi_ :label;
-global _void._.8.8nmppsCmpMinMaxV_.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2 :label;
+global _nmppsCmpMinMaxV_16s:label;
 <_nmppsCmpMinMaxV_16s>
-<_void._.8.8nmppsCmpMinMaxV_.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0 with gr0=false;

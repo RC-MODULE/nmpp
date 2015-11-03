@@ -41,9 +41,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsRemap_32u.html
 
 global _nmppsRemap_32u:label;
-global _void._.8.8nmppsRemap_.1unsigned._int._.0.9._unsigned._int._.0.9._int._.0.9._int.2 :label;
 <_nmppsRemap_32u>
-<_void._.8.8nmppsRemap_.1unsigned._int._.0.9._unsigned._int._.0.9._int._.0.9._int.2>
 .branch;
     ar5 = ar7 - 2;
     PUSH_REGS();

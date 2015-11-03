@@ -50,8 +50,8 @@ global _nmppsCnv_32s:label;
 //! \perfinclude _nmppsCnv_32u.html
 
 
-global _void._.8.8nmppsCnv_.1unsigned._int._.0.9._unsigned._long._.0.9._int.2 :label;
-<_void._.8.8nmppsCnv_.1unsigned._int._.0.9._unsigned._long._.0.9._int.2>
+global _nmppsCnv_32u:label;
+<_nmppsCnv_32u>
 .branch;
 	nb1 = 80000000h;
 	<JumpFromSigned>

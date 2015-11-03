@@ -39,8 +39,8 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsCnv_8s32s.html
 
 
-global _nmppsCnv_8s32s:label;
-<_nmppsCnv_8s32s>
+global _nmppsCnv_8s_32s:label;
+<_nmppsCnv_8s_32s>
 .branch;
    	delayed goto JumpFromSigned;
 		nb1 = 80000000h;
@@ -54,9 +54,7 @@ global _nmppsCnv_8s32s:label;
 //! \perfinclude _nmppsCnv_8u.html
 
 global _nmppsCnv_8u:label;
-global _void._.8.8nmppsCnv_.1unsigned._char._.0.9._unsigned._int._.0.9._int.2 :label;
 <_nmppsCnv_8u>
-<_void._.8.8nmppsCnv_.1unsigned._char._.0.9._unsigned._int._.0.9._int.2>
 .branch;
 	nb1 = 80808080h;
 	<JumpFromSigned>

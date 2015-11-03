@@ -26,9 +26,8 @@
 begin ".text_nmplv"
 
 global _nmppsGetVal_16s:	label;
-global _void._.8.8nmppsGetVal_.1short._.0.9._int.9._int._.6.2: label;
+global _nmppsGetVal_16s:label;
 <_nmppsGetVal_16s>
-<_void._.8.8nmppsGetVal_.1short._.0.9._int.9._int._.6.2>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0;

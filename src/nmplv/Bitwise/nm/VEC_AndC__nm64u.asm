@@ -30,9 +30,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsAndC_64u.html
 
 
-global _void._.8.8nmppsAndC_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
+global _nmppsAndC_64u:label;
 
-<_void._.8.8nmppsAndC_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
+<_nmppsAndC_64u>
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0,gr0	with gr7++;
 	push ar1,gr1	with gr7++;

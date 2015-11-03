@@ -37,9 +37,8 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsMaskV_64u.html
 
 global _nmppsMaskV__FPUlPUlPUlPUli_ :label;
-global _void._.8.8nmppsMaskV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
+global _nmppsMaskV_64u:label;
 <_nmppsMaskV_64u>
-<_void._.8.8nmppsMaskV_.1unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._unsigned._long._.0.9._int.2>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0	with gr0=false;

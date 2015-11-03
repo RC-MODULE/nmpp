@@ -33,11 +33,8 @@ begin ".text_nmplv"
 //! \fn void nmppsMinCmpLtV_16s(nm16s15b *pSrcVec1, nm16s15b *pSrcVec2, nm16s15b *pDstMin, nm16s15b *pDstSignMask, int nSize) 
 //!		
 //! \perfinclude _nmppsMinCmpLtV_16s.html
-
-global _nmppsMinCmpLtV__FPSsPSsPSsPSsi_ :label; 
-global _void._.8.8nmppsMinCmpLtV_.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2:label;
- <_nmppsMinCmpLtV_16s> 
- <_void._.8.8nmppsMinCmpLtV_.1short._.0.9._short._.0.9._short._.0.9._short._.0.9._int.2> 
+global _nmppsMinCmpLtV_16s:label;
+<_nmppsMinCmpLtV_16s> 
  .branch; ar5=sp-2; push ar0,gr0	with gr0=false; push ar1,gr1	with 
  gr0++; push ar4,gr4	with gr0++; push ar5,gr5	with gr1=gr0; push ar6,gr6	
  with gr4=gr0;

@@ -57,8 +57,8 @@ global _nmppsCnv_8s64s:label;
 //!
 //! \perfinclude _nmppsCnv_8u.html
 
-global _void._.8.8nmppsCnv_.1unsigned._char._.0.9._unsigned._long._.0.9._int.2 :label;
-<_void._.8.8nmppsCnv_.1unsigned._char._.0.9._unsigned._long._.0.9._int.2>
+global _nmppsCnv_8u:label;
+<_nmppsCnv_8u>
 .branch;
 	nb1 = 80808080h;
 	<JumpFromSigned>

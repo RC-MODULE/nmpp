@@ -32,8 +32,8 @@ begin ".text_nmplv"
 //!
 //! \perfinclude nmppsMul_AddC.html
 
-global _void._.8.8nmppsMul_AddC.1long._.0.9._long._.0.9._long._.0.9._long._.0.9._int.2 :label;
-<_void._.8.8nmppsMul_AddC.1long._.0.9._long._.0.9._long._.0.9._long._.0.9._int.2>
+global _nmppsMul_AddC64s:label;
+<_nmppsMul_AddC64s>
  
 .branch;
 

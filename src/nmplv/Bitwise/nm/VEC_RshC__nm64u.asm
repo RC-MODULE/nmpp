@@ -243,9 +243,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsRshC_64u.html
 
 global _nmppsRshC_64u:label;
-global _void._.8.8nmppsRshC_.1unsigned._long._.0.9._int.9._unsigned._long._.0.9._int.2 :label;
 <_nmppsRshC_64u>
-<_void._.8.8nmppsRshC_.1unsigned._long._.0.9._int.9._unsigned._long._.0.9._int.2>
 .branch;
 	ar5 = sp - 4;
 	push ar0,gr0;

@@ -17,10 +17,9 @@ begin ".text_nmplv"
 	//!
 	//! \perfinclude _nmppsCmpEqC_8u.html
 
-global _nmppsCmpEqC_8u: label;
-global _void._.8.8nmppsCmpEqC_.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2 :label;
+global _nmppsCmpEqC_8u:label;
 <_nmppsCmpEqC_8u>
- <_void._.8.8nmppsCmpEqC_.1unsigned._char._.0.9._unsigned._int.9._char._.0.9._int.9._int.2>
+ 
 .branch;    
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;

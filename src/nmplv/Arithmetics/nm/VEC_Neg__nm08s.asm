@@ -29,9 +29,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsNeg_8s.html
 
 global _nmppsNeg_8s:label;
-global _nmppsNeg8s:label;
 <_nmppsNeg_8s>
-<_nmppsNeg8s>
 .branch;
 	ar5 = sp - 2	with gr7=gr5;
 	push ar0,gr0	with gr0=false;

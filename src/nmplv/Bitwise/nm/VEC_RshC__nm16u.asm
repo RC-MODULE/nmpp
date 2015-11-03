@@ -89,9 +89,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsRshC_16u.html
 
 global _nmppsRshC_16u:label;
-global _void._.8.8nmppsRshC_.1unsigned._short._.0.9._int.9._unsigned._short._.0.9._int.2 :label;
 <_nmppsRshC_16u>
-<_void._.8.8nmppsRshC_.1unsigned._short._.0.9._int.9._unsigned._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 4;
 	push ar0,gr0;

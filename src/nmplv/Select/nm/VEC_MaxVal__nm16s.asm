@@ -36,9 +36,8 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsMaxVal_16s.html
 
 global _nmppsMaxVal__FPSsiRi_ :label;
-global _void._.8.8nmppsMaxVal_.1short._.0.9._int.9._int._.6.2 :label;
+global _nmppsMaxVal_16s:label;
 <_nmppsMaxVal_16s>
-<_void._.8.8nmppsMaxVal_.1short._.0.9._int.9._int._.6.2>
 .branch;
 	ar5=sp-2;
 	PUSH_REGS();

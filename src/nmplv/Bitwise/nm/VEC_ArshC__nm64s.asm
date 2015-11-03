@@ -555,8 +555,8 @@ begin ".text_nmplv"
 //!
 //! \perfinclude _nmppsArshC_64s.html
 
-global _void._.8.8nmppsArshC_.1long._.0.9._int.9._long._.0.9._int.2 :label;
-<_void._.8.8nmppsArshC_.1long._.0.9._int.9._long._.0.9._int.2>
+global _nmppsArshC_64s:label;
+<_nmppsArshC_64s>
 .branch;
 	ar5 = sp - 4;
 	push ar0,gr0;

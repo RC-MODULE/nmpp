@@ -43,8 +43,8 @@ begin ".text_nmplv"
 //!
 //! \perfinclude _nmppsCnv_32s8s.html
 
-global _nmppsCnv_32s8s:label;
-<_nmppsCnv_32s8s>
+global _nmppsCnv_32s_8s:label;
+<_nmppsCnv_32s_8s>
 .branch;
     ar5 = sp - 2 with gr7 = false;
 	push ar0,gr0 with gr7++;

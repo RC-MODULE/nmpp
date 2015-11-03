@@ -35,9 +35,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsMulC_16s.html
 
 global _nmppsMulC_16s:label;
-global _void._.8.8nmppsMulC.1short._.0.9._int.9._int._.0.9._int.2 :label;
+global _nmppsMulC16s:label;
 <_nmppsMulC_16s>
-<_void._.8.8nmppsMulC.1short._.0.9._int.9._int._.0.9._int.2>
+<_nmppsMulC16s>
 .branch;
 
 

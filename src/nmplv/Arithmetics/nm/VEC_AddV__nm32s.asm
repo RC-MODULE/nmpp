@@ -33,8 +33,8 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsAdd_32s.html
 
 
-global _nmppsAdd32s:label;
-<_nmppsAdd32s>
+global _nmppsAdd_32s:label;
+<_nmppsAdd_32s>
 .branch;
 	ar5 = sp - 2;
 	

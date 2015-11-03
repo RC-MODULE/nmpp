@@ -29,9 +29,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsDotProd_64s.html
 			 
 global _nmppsDotProd_64s:label;
-global _void._.8.8nmppsDotProd.1long._.0.9._long._.0.9._int.9._long._.0.2 :label;
+global _nmppsDotProd64s:label;
 <_nmppsDotProd_64s>
-<_void._.8.8nmppsDotProd.1long._.0.9._long._.0.9._int.9._long._.0.2>
+<_nmppsDotProd64s>
 	ar5 = sp - 2;
 
 	PUSH_REGS();

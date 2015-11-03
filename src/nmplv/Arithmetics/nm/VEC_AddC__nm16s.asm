@@ -29,8 +29,8 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsAddC_64s.html
 
 
-global _void._.8.8nmppsAddC.1short._.0.9._int.9._short._.0.9._int.2 :label;
-<_void._.8.8nmppsAddC.1short._.0.9._int.9._short._.0.9._int.2>
+global _nmppsAddC16s:label;
+<_nmppsAddC16s>
 .branch;
 	ar5 = sp - 2;
 

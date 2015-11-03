@@ -27,9 +27,8 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsNot_64u.html
 
 global _nmppsNot_64u:	label;
-global _void._.8.8nmppsNot_.1unsigned._long._.0.9._unsigned._long._.0.9._int.2 :label;
+global _nmppsNot_64u:label;
 <_nmppsNot_64u>
-<_void._.8.8nmppsNot_.1unsigned._long._.0.9._unsigned._long._.0.9._int.2>
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0,gr0	with gr7++;
 	push ar5,gr5	with gr0=gr7+1;

@@ -29,9 +29,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsGetVal_16u.html
 
 global _nmppsGetVal_16u:	label;
-global _unsigned._int._.8.8nmppsGetVal_.1unsigned._short._.0.9._int.2 :label;
+global _unsigned._nmppsGetVal_16u:label;
 <_nmppsGetVal_16u>
-<_unsigned._int._.8.8nmppsGetVal_.1unsigned._short._.0.9._int.2>
+<_unsigned._nmppsGetVal_16u>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0;

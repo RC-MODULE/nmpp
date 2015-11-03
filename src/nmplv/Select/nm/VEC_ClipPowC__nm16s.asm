@@ -34,9 +34,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsClipPowC_16s.html
 
 global _nmppsClipPowC_16s:label;
-global _void._.8.8nmppsClipPowC_.1short._.0.9._int.9._short._.0.9._int.2 :label;
 <_nmppsClipPowC_16s>
-<_void._.8.8nmppsClipPowC_.1short._.0.9._int.9._short._.0.9._int.2>
 .branch;
 	ar5=ar7-2;
 	push ar0,gr0	with gr7=false;

@@ -142,9 +142,8 @@ begin ".text_nmplv"
 //--------------------------------------------------------------------
 
     global _nmppsCmpEq0_8u:	label;
-global _void._.8.8nmppsCmpEq0_.1unsigned._char._.0.9._class._nm1._.0.9._int.9._int.2 :label;
+global _nmppsCmpEq0_8u:label;
 <_nmppsCmpEq0_8u>
-<_void._.8.8nmppsCmpEq0_.1unsigned._char._.0.9._class._nm1._.0.9._int.9._int.2>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0 with gr0 = false;

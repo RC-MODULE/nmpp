@@ -29,8 +29,8 @@ extern vec_Swap:label;
 //! \perfinclude _nmppsSwap_64s.html
 
 
-global _void._.8.8nmppsSwap_.1long._.0.9._long._.0.9._int.2 :label;
-<_void._.8.8nmppsSwap_.1long._.0.9._long._.0.9._int.2>
+global _nmppsSwap_64s:label;
+<_nmppsSwap_64s>
 
 .branch;
 

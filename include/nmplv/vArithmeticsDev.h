@@ -18,7 +18,7 @@
 	\addtogroup nmppsAdd
 	*/
 	//! \{
-void nmppsAdd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
+void nmppsAdd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
 	//! \}
 
 	/**
@@ -26,7 +26,7 @@ void nmppsAdd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
 	\addtogroup nmppsSub
 	*/
 	//! \{
-void nmppsSub(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
+void nmppsSub_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
 	//! \}
 
 
@@ -35,7 +35,7 @@ void nmppsSub(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
 	\addtogroup nmppsMulC
 	*/
 	//! \{
-void nmppsMulC(nm64sc *pSrcVec, nm64s *pnVal, nm64sc *pDstVec, int nSize);
+void nmppsMulC_64sc(nm64sc *pSrcVec, nm64s *pnVal, nm64sc *pDstVec, int nSize);
 	//! \}
 
 

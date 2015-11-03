@@ -73,7 +73,8 @@ void		nmppsSum(
 /*
 	nm64u x;
 	nm64u* Src=(nm64u*) pSrcVec;
-	for(int i=0;i<nSize>>6;i++)
+	int i;
+	for (i=0;i<nSize>>6;i++)
 	{
 		x=Src[i];
 		for(int j=0;j<64;j++)
@@ -85,13 +86,15 @@ void		nmppsSum(
 	nm8u x;
 	nm8u* Src=(nm8u*) pSrcVec;
 /*
-	for(int i=0;i<nSize>>3;i++)
+	int i;
+	for (i=0;i<nSize>>3;i++)
 	{
 		x=Src[i];
 		sum+=((x&1)+(x&2)+(x&4)+(x&8)+(x&16)+(x&32)+(x&64)+(x&128));
 	}
 */
-	for(int i=0;i<nSize>>3;i++)
+	int i;
+	for (i=0;i<nSize>>3;i++)
 	{
 		x=Src[i];
 		sum+=ByteArray[x];
@@ -102,54 +105,58 @@ void		nmppsSum(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
-void nmppsSum(
+void nmppsSum_8s(
 		nm8s*			pSrcVec,
 		int				nSize,
 		int *   pnRes
 		)
 {
 	int sum = 0;
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		sum += (int)pSrcVec[i];
 	*pnRes=sum;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
-void nmppsSum(
+void nmppsSum_16s(
 		nm16s*			pSrcVec,
 		int				nSize,
 		__int64 *   pnRes
 		)
 {
 	__int64 sum = 0;
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		sum += pSrcVec[i];
 	*pnRes=sum;
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
-void nmppsSum(
+void nmppsSum_32s(
 		nm32s*			pSrcVec,
 		int				nSize,
 		__int64 *   pnRes
 		)
 {
 	__int64 sum = 0;
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		sum += pSrcVec[i];
 	*pnRes=sum;
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
-void nmppsSum(
+void nmppsSum_64s(
 	  nm64s*			pSrcVec,
 		int				nSize,
 		__int64 *   pnRes
 		)
 {
 	__int64 sum = 0;
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		sum += pSrcVec[i];
 	*pnRes=sum;
 }

@@ -29,7 +29,8 @@ void nmppsArshC_64s(nm64s*			pSrcVec,	// input buffer		:long Local [Size/2]
 	int				Size		// size of input buffer in 32 bit elements. Size=[2,4,6...]
 		)
 {
-	for(int i=0; i<Size; i++)
+	int i;
+	for (i=0; i<Size; i++)
 		pDstVec[i] = pSrcVec[i] >> Shift;
 	// No IPP analog
 }
@@ -43,7 +44,8 @@ void nmppsArshC_32s(nm32s*			pSrcVec,	// input buffer		:long Local [Size/2]
 		)
 {
 #ifndef USE_IPP
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] >> Shift;
 #else
 	if (pSrcVec!=pDstVec)
@@ -62,7 +64,8 @@ void nmppsArshC_16s(nm16s*			pSrcVec,	// input buffer		:long Local [Size/2]
 		)
 {
 #ifndef USE_IPP
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] >> Shift;
 #else
 	if (pSrcVec!=pDstVec)
@@ -80,7 +83,8 @@ void nmppsArshC_8s(nm8s*			pSrcVec,	// input buffer		:long Local [Size/2]
 	int				Size		// size of input buffer in 32 bit elements. Size=[2,4,6...]
 		)
 {
-	for(int i=0; i<Size; i++)
+	int i;
+	for (i=0; i<Size; i++)
 		pDstVec[i] = pSrcVec[i] >> Shift;
 	// No IPPS analog
 }
@@ -94,7 +98,8 @@ void nmppsRshC_8u(nm8u*	pSrcVec,	//Input buffer		:long Local [Size/8].
 	)
 {
 #ifndef USE_IPP
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] >> Shift;
 #else
 	if (pSrcVec!=pDstVec)
@@ -113,7 +118,8 @@ void nmppsRshC_16u(nm16u*	pSrcVec,		//Input buffer		:long Local [Size/4].
 	)
 {
 #ifndef USE_IPP
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] >> Shift;
 #else
 	if (pSrcVec!=pDstVec)
@@ -131,7 +137,8 @@ void nmppsRshC_32u(nm32u*	SrcVec,		//Input buffer		:long Local [Size/4].
 	int		Size		//Size of input buffer in 8 bit elements. Size=[0,4,8,12...].
 	)
 {
-	for(int i=0; i<Size; i++)
+	int i;
+	for (i=0; i<Size; i++)
 		DstVec[i] = SrcVec[i] >> Shift;
 	// No IPPS nalaog
 }
@@ -144,7 +151,8 @@ void nmppsRshC_64u(nm64u*	SrcVec,		//Input buffer		:long Local [Size/4].
 	int		Size		//Size of input buffer in 8 bit elements. Size=[0,4,8,12...].
 	)
 {
-	for(int i=0; i<Size; i++)
+	int i;
+	for (i=0; i<Size; i++)
 		DstVec[i] = SrcVec[i] >> Shift;
 	// No IPPS analog
 }
@@ -175,8 +183,10 @@ void nmppsDisplaceBits_(
 	nm64u* pbits=(nm64u*)pnBits;
 	
 	unsigned __int64 tmp;
+	int i;
 	dst[0]=(src[0]<<nBits)|(*pbits)>>(64-nBits);
-	for(int i=1;i<nSize;i++)
+
+	for (i=1;i<nSize;i++)
 	{
 		tmp=src[i-1]>>(64-nBits);
 		dst[i]=src[i]<<nBits;
@@ -188,24 +198,27 @@ void nmppsDisplaceBits_(
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsRshC_AddC_8u(nm8u *pSrcVec,   int nShift,uint8b nAddVal, nm8u *pDstVec, int nSize)
 {
+	int i;
 	nm8u nMask=0xFF;
 	nMask>>=nShift;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = ((pSrcVec[i] >> nShift) + nAddVal)&nMask;
 }
 
 void nmppsRshC_AddC_16u(nm16u *pSrcVec,  int nShift, uint16b nAddVal, nm16u *pDstVec, int nSize)
 {
+	int i;
 	nm16u nMask=0xFFFF;
 	nMask>>=nShift;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = ((pSrcVec[i] >> nShift) + nAddVal)&nMask;
 }
 
 void nmppsRshC_AddC_32u(nm32u *pSrcVec,   int nShift, uint32b nAddVal,nm32u *pDstVec, int nSize)
 {
+	int i;
 	nm32u nMask=0xFFFFFFFF;
 	nMask>>=nShift;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = ((pSrcVec[i] >> nShift) + nAddVal)&nMask;
 }

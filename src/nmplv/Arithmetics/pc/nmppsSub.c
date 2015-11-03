@@ -18,9 +18,7 @@
 //!
 //------------------------------------------------------------------------
 
-//#include "vec.h"
-#include "nmplv.h"
-//#include "nmtl.h"
+
 #include "nmtype.h"
 
 //extern "C"{
@@ -40,7 +38,8 @@ void nmppsSub_8s(
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[8,16,32...]
 		)
 {
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] - pSrcVec2[i];
 
 }
@@ -55,7 +54,8 @@ void nmppsSub_16s(
 		int				nSize			// size of input buffer in 16-bit elements. nSize=[0,4,8,12..]
 		)
 {
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] - pSrcVec2[i];
 }
 
@@ -68,7 +68,8 @@ void nmppsSub_32s(
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] - pSrcVec2[i];
 }
 //////////////////////////////////////////////////////////////////////////////////////
@@ -80,7 +81,8 @@ void nmppsSub_64s(
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,1,2,3,4...]
 		)
 {
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] - pSrcVec2[i];
 	
 	// No IPP analog
@@ -109,8 +111,9 @@ void nmppsSubC_8s(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[0,8,16,32...]
 		)
 {
-	nVal=char(nVal);
-	for(int i=0; i<nSize; i++)
+	int i;
+	nVal=(char)nVal;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] - nVal;
 
 
@@ -126,8 +129,9 @@ void nmppsSubC_16s(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[0,4,8,12...]
 		)
 {
-	nVal=short(nVal);
-	for(int i=0; i<nSize; i++)
+	int i;
+	nVal=(short)nVal;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] - nVal;
 }
 
@@ -141,7 +145,8 @@ void nmppsSubC_32s(
 		int				nSize		// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] - nVal;
 
 }
@@ -155,7 +160,8 @@ void nmppsSubC_64s(
 		int				nSize		// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
-	for(int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] - *pnVal;
 }
 
@@ -169,8 +175,10 @@ void nmppsSubCRev_8s(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[0,8,16,32...]
 		)
 {
-	nVal=char(nVal);
-	for(int i=0; i<nSize; i++)
+	int i;
+	nVal=(char)nVal;
+
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = nVal-pSrcVec[i];
 }
 
@@ -183,8 +191,10 @@ void nmppsSubCRev_16s(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[0,4,8,12...]
 		)
 {
-	nVal=short(nVal);
-	for(int i=0; i<nSize; i++)
+	int i;
+	nVal=(short)nVal;
+
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = nVal-pSrcVec[i];
 }
 
@@ -198,37 +208,30 @@ void nmppsSubCRev_32s(
 		)
 {
 
-	for(int i=0; i<nSize; i++)
+	int i;
+
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = nVal-pSrcVec[i];
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // pDstVec[i]=Decrement-pSrcVec[i]
-void nmppsSubCRev(
+void nmppsSubCRev_64s(
 		nm64s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
 		nm64s*				pnVal,				// decrement		:
 		nm64s*			pDstVec,			// output buffer	:long Global[VecSize/2]
 		int				nSize		// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
-	//if (CHECK_OVERFLOW())
-	//{
-	//	nmvec64s SrcVec(pSrcVec,nSize);
-	//	nmint64s C(*pnVal);
-	//	nmvec64s DstVec(pDstVec,nSize);
-	//	for(int i=0; i<nSize; i++)
-	//		DstVec[i] = C-SrcVec[i];
-	//}
-	//else
-		for(int i=0; i<nSize; i++)
-			pDstVec[i] = *pnVal-pSrcVec[i];
-	// No IPP analog
+	int i;
+	for (i=0; i<nSize; i++)
+		pDstVec[i] = *pnVal-pSrcVec[i];
 }
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
-void nmppsAbsDiff(
+void nmppsAbsDiff_8s(
 		nm8s*			pSrcVec1,	// input buffer		:long Local			[VecSize/8]
 		nm8s*			pSrcVec2,	// input buffer		:long Local/Global	[VecSize/8]
 		nm8s*			pDstVec,		// output buffer	:long Global		[VecSize/8]
@@ -242,7 +245,7 @@ void nmppsAbsDiff(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
 // pDstVec[i]=|pSrcVec1[i]-pSrcVec2[i]|
-void nmppsAbsDiff(
+void nmppsAbsDiff_16s(
 		nm16s*			pSrcVec1,		// input buffer		:long Local	[VecSize/4]
 		nm16s*			pSrcVec2,		// input buffer		:long Any   [VecSize/4]
 		nm16s*			pDstVec,			// output buffer	:long Global[VecSize/4]
@@ -256,7 +259,7 @@ void nmppsAbsDiff(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
 // pDstVec[i]=|pSrcVec1[i]-pSrcVec2[i]|
-void nmppsAbsDiff(
+void nmppsAbsDiff_32s(
 		nm32s*			pSrcVec1,		// input buffer		:long Local	[VecSize/2]
 		nm32s*			pSrcVec2,		// input buffer		:long Any   [VecSize/2]
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/2]
@@ -325,7 +328,8 @@ void nmppsSubN8_Abs(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[8,16,32...]
 		)
 {
-	for(int i=0; i<(VecSize/8)*8; )
+	int i;
+	for (i=0; i<(VecSize/8)*8; )
 	{
 		pDstVec[i] = abs(pSrcVec[i] - SrcN8[0]);i++;
 		pDstVec[i] = abs(pSrcVec[i] - SrcN8[1]);i++;
@@ -348,7 +352,8 @@ void nmppsSubN16_Abs(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[8,16,32...]
 		)
 {
-	for(int i=0; i<(VecSize/16)*16; )
+	int i;
+	for (i=0; i<(VecSize/16)*16; )
 	{
 
 		for (int j=0;j<16;j++)
@@ -367,7 +372,8 @@ void nmppsSubN16_Abs(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[8,16,32...]
 		)
 {
-	for(int i=0; i<(VecSize/16)*16; )
+	int i;
+	for (i=0; i<(VecSize/16)*16; )
 	{
 		for (int j=0;j<16;j++)
 			{	pDstVec[i] = (pSrcVec[i] - SrcN16[i%16]);pDstVec[i] = ABS(pDstVec[i]);i++;}

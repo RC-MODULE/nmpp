@@ -21,7 +21,7 @@
 
 
 #include "nmtype.h"
-void nmppsDivC(nm64sc *pSrcVec, nm64sc *pDstVec, int nSize, nm64sc *pnDivisor)
+void nmppsDivC_64sc(nm64sc *pSrcVec, nm64sc *pDstVec, int nSize, nm64sc *pnDivisor)
 {
 	int i;
 	if(!pnDivisor->im)

@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 #include "nmplv.h"
 /////////////////////////////////////////////////////////////////////////////////
-void nmppsDivC(
+void nmppsDivC_32s(
 			nm32s*	pSrcVec,			// Input array 					:long Global[VecSize/2]
 			int		Divisor,		// Divisor						:[1,2,..128]
 			nm32s*	pDstVec,			// Output qunatized array		:long Local [VecSize/2]
@@ -28,7 +28,8 @@ void nmppsDivC(
 			void*	TmpBufG			// Temporary buffer	on Global	:long Local [23] 
 			)
 {
-	for(int i=0;i<nSize;i++)
+	int i;
+	for (i=0;i<nSize;i++)
 		pDstVec[i]=pSrcVec[i]/Divisor;
 
 }

@@ -32,12 +32,13 @@ void nmppsAndNV_64u(nm64u**	pSrcVecs,		// Input Buffer
 
 	nm64u * pVec0=pSrcVecs[0];
 	nm64u * pVec1=pSrcVecs[1];
-	for(int i=0; i<nSize; i++){
+	int i,k;
+	for (i=0; i<nSize; i++){
 			pDstVec[i] = pVec0[i] & pVec1[i];
 		}
 		
-	for(int i=0; i<nSize; i++){
-		for(int k=2; k<numVecs; k++){
+	for (i=0; i<nSize; i++){
+		for(k=2; k<numVecs; k++){
 			nm64u * pVec=pSrcVecs[k];
 			pDstVec[i]&= pVec[i];
 			}

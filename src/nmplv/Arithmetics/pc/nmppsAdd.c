@@ -18,122 +18,66 @@
 //!
 //------------------------------------------------------------------------
 
-//#include "vec.h"
+
 #include "nmplv.h"
-//#include "nmtl.h"
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two char vectors
-void nmppsAdd(
+void nmppsAdd_8s(
 		nm8s*			pSrcVec1,		// input buffer		:long Local [VecSize/8]
 		nm8s*			pSrcVec2,		// input buffer		:long Local [VecSize/8]
 		nm8s*			pDstVec,			// output buffer	:long Global[VecSize/8]
 		int				nSize			// size of input buffer in 8 bit elements. nSize=[0,8,16,24...]
 		)
 {
-	//if (CHECK_OVERFLOW())
-	//{
-	//	nmvec8s SrcVecA(pSrcVec1,nSize);
-	//	nmvec8s SrcVecB(pSrcVec2,nSize);
-	//	nmvec8s DstVec(pDstVec,nSize);
-	//	DstVec=SrcVecA+SrcVecB;
-	//}
-	//else
-		for(int i=0; i<nSize; i++)
-			pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
-	// No IPPS analog
-	// IppStatus ippsAdd_8u_Sfs(const Ipp8u* pSrc1, const Ipp8u* pSrc2,Ipp8u* pDst, int len, int scaleFactor);
-	// IppStatus ippsAdd_8u_ISfs(const Ipp8u* pSrc, Ipp8u* pSrcDst,int len, int scaleFactor);
-	// ???
+	int i;
+	for (i=0; i<nSize; i++)
+		pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two short vectors
-void nmppsAdd(
+void nmppsAdd_16s(
 		nm16s*			pSrcVec1,		// input buffer		:long Local [VecSize/4]
 		nm16s*			pSrcVec2,		// input buffer		:long Local [VecSize/4]
 		nm16s*			pDstVec,			// output buffer	:long Global[VecSize/4]
 		int				nSize			// size of input buffer in 16-bit elements. nSize=[0,4,8,12..]
 		)
 {
-#ifndef USE_IPP
-	//if (CHECK_OVERFLOW())
-	//{
-	//	nmvec16s SrcVecA(pSrcVec1,nSize);
-	//	nmvec16s SrcVecB(pSrcVec2,nSize);
-	//	nmvec16s DstVec(pDstVec,nSize);
-	//	DstVec=SrcVecA+SrcVecB;
-	//}
-	//else
-		for(int i=0; i<nSize; i++)
-			pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
-#else
-	if (pSrcVec2==pDstVec)
-		ippsAdd_16s_I(pSrcVec1,pSrcVec2,nSize);
-	else
-		if (pSrcVec1==pDstVec)
-			ippsAdd_16s_I(pSrcVec2,pSrcVec1,nSize);
-		else
-			ippsAdd_16s(pSrcVec1,pSrcVec2,pDstVec,nSize);
-#endif
-
+	int i;
+	for (i=0; i<nSize; i++)
+		pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two int vectors
-void nmppsAdd(
+void nmppsAdd_32s(
 		nm32s*			pSrcVec1,		// input buffer		:long Local [VecSize/2]
 		nm32s*			pSrcVec2,		// input buffer		:long Local [VecSize/2]
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/2]
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
-#ifndef USE_IPP
-	//if (CHECK_OVERFLOW())
-	//{
-	//	nmvec32s SrcVecA(pSrcVec1,nSize);
-	//	nmvec32s SrcVecB(pSrcVec2,nSize);
-	//	nmvec32s DstVec(pDstVec,nSize);
-	//	DstVec=SrcVecA+SrcVecB;
-	//}
-	//else
-		for(int i=0; i<nSize; i++)
-			pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
-#else
-	if (pSrcVec2==pDstVec)
-		ippsAdd_32s_ISfs(pSrcVec1,pSrcVec2,nSize,0);
-	else
-		if (pSrcVec1==pDstVec)
-			ippsAdd_32s_ISfs(pSrcVec2,pSrcVec1,nSize,0);
-		else
-			ippsAdd_32s_Sfs(pSrcVec1,pSrcVec2,pDstVec,nSize,0);
-#endif
-
+	int i;
+	for (i=0; i<nSize; i++)
+		pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two long vectors
-void nmppsAdd(
+void nmppsAdd_64s(
 		nm64s*		pSrcVec1,		// input buffer		:long Local [nSize]
 		nm64s*		pSrcVec2,		// input buffer		:long Local [nSize]
 		nm64s*		pDstVec,			// output buffer	:long Global[nSize]
 		int				nSize			// size of input buffer in 64-bit elements. nSize=[0,1,2,3...]
 		)
 {
-	//if (CHECK_OVERFLOW())
-	//{
-	//	nmvec64s SrcVecA(pSrcVec1,nSize);
-	//	nmvec64s SrcVecB(pSrcVec2,nSize);
-	//	nmvec64s DstVec(pDstVec,nSize);
-	//	DstVec=SrcVecA+SrcVecB;
-	//}
-	//else
-		for(int i=0; i<nSize; i++)
-			pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
-	
-	// No IPPS analog
+	int i;
+	for (i=0; i<nSize; i++)
+		pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two long complex vectors
-void nmppsAdd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize)
+void nmppsAdd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize)
 {
 	int i;
 	for(i=0;i<nSize;i++)
@@ -145,7 +89,7 @@ void nmppsAdd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize)
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiple Summation of several arrays with accumulation of result
-void nmppsSum4(
+void nmppsSum4_16s(
 		nm16s**			Vectors,		// array of pointers to buffers	:nm8s*  Any  [NumberOfBuffer]
 		nm16s*			pDstVec,		// result buffer				:long Local  [VecSize/4]
 		int				nSize			// buffer size in 8-bit elements:nSize    =[256,512,..]
@@ -162,7 +106,7 @@ void nmppsSum4(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiple Summation of several arrays with accumulation of result
-void nmppsSumN(
+void nmppsSumN_8s(
 		nm8s**			Vectors,		// array of pointers to buffers	:nm8s*  Any  [NumberOfBuffer]
 		nm16s*			pDstVec,		// result buffer				:long Local  [VecSize/4]
 		int				nSize,			// buffer size in 8-bit elements:nSize    =[256,512,..]
@@ -180,16 +124,16 @@ void nmppsSumN(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiple Summation of several arrays with accumulation of result
 // pDstVec[i]=Buffers[0][i]+Buffers[1][i]+...+Buffers[NumberOfBuffers-1][i]
-void nmppsSumN(
+void nmppsSumN_16s(
 		nm16s**			Vectors,		// array of pointers to buffers	:nm8s*  Any  [NumberOfBuffer]
 		nm16s*			pDstVec,			// result buffer				:long Local  [VecSize/4]
 		int				nSize,		// buffer size in 8-bit elements:nSize    =[***,..]
 		int				VecNumber		// number of being added buffers:NumbersOfVectors=[2,3,4...256]
 		)								// Buffer - char packed array	:long Global [VecSize/8]
 {
-
+	int i;
 	nmppsAdd(Vectors[0],Vectors[1],pDstVec,nSize);
-	for(int i=2;i<VecNumber;i++)
+	for (i=2;i<VecNumber;i++)
 		nmppsAdd(Vectors[i],pDstVec,pDstVec,nSize); // with IPP use
 }
 
@@ -198,96 +142,55 @@ void nmppsSumN(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Increment of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]+Increment
-void nmppsAddC(
+void nmppsAddC_8s(
 		nm8s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		int8b			nVal,				// increment		:Increment=[-128...+127]
 		nm8s*			pDstVec,			// output buffer	:long Global[VecSize/8]
 		int				nSize			// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
-	nVal=char(nVal);
+	int i;
+	nVal=(char)nVal;
+	for (i=0; i<nSize; i++)
+		pDstVec[i] = pSrcVec[i] + nVal;
 
-	//if (CHECK_OVERFLOW())
-	//{
-	//	nmvec8s SrcVec(pSrcVec,nSize);
-	//	nmint8s C(nVal);
-	//	nmvec8s DstVec(pDstVec,nSize);
-	//	for(int i=0; i<nSize; i++)
-	//		DstVec[i] = SrcVec[i] + C;
-	//}
-	//else
-		for(int i=0; i<nSize; i++)
-			pDstVec[i] = pSrcVec[i] + nVal;
-	// No IPPS analog
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Increment of vec elements by constant value
 // pDstVec[i]=Increment+pSrcVec[i]
-void nmppsAddC(
+void nmppsAddC_16s(
 		nm16s*			pSrcVec,				// input buffer		:long Local [VecSize/4]
 		int16b			nVal,					// increment		:
 		nm16s*			pDstVec,				// output buffer	:long Global[VecSize/4]
 		int				nSize				// size of input buffer in 16-bit elements. nSize=[0,4,8,12...]
 		)
 {
-	nVal=short(nVal);
-#ifndef USE_IPP
-	//if (CHECK_OVERFLOW())
-	//{
-	//	nmvec16s SrcVec(pSrcVec,nSize);
-	//	nmint16s C(nVal);
-	//	nmvec16s DstVec(pDstVec,nSize);
-	//	for(int i=0; i<nSize; i++)
-	//		DstVec[i] = SrcVec[i] + C;
-	//}
-	//else
-		for(int i=0; i<nSize; i++)
-			pDstVec[i] = pSrcVec[i] + nVal;
-
-#else
-	if (pSrcVec==pDstVec)
-		ippsAddC_16s_I(nVal, pSrcVec,nSize);
-	else
-		ippsAddC_16s_Sfs(pSrcVec,nVal, pDstVec,nSize,0);
-#endif
+	int i;
+	nVal=(short)nVal;
+	for (i=0; i<nSize; i++)
+		pDstVec[i] = pSrcVec[i] + nVal;
 }
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Increment of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]+Increment
-void nmppsAddC(
+void nmppsAddC_32s(
 		nm32s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
 		int				nVal,				// increment		:
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/2]
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
-#ifndef USE_IPP
-	//if (CHECK_OVERFLOW())
-	//{
-	//	nmvec32s SrcVec(pSrcVec,nSize);
-	//	nmint32s C(nVal);
-	//	nmvec32s DstVec(pDstVec,nSize);
-	//	for(int i=0; i<nSize; i++)
-	//		DstVec[i] = SrcVec[i] + C;
-	//}
-	//else
-		for(int i=0; i<nSize; i++)
-			pDstVec[i] = pSrcVec[i] + nVal;
-#else
-	if (pSrcVec==pDstVec)
-		ippsAddC_32s_ISfs(nVal, pSrcVec,nSize,0);
-	else
-		ippsAddC_32s_Sfs(pSrcVec,nVal, pDstVec,nSize,0);
-#endif
-
+	int i;
+	for (i=0; i<nSize; i++)
+		pDstVec[i] = pSrcVec[i] + nVal;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two int vectors with addition of constant
-void nmppsAdd_AddC(
+void nmppsAdd_AddC_32s(
 		nm32s*			SrcVecA,		// input buffer		:long Local [VecSize/2]
 		nm32s*			SrcVecB,		// input buffer		:long Local [VecSize/2]
 		int				nVal,				// additional constant
@@ -295,27 +198,15 @@ void nmppsAdd_AddC(
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
-	/*if (CHECK_OVERFLOW())
-	{
-		vec<nmint<32> > SrcA(nSize);SrcA.SetData(SrcVecA);
-		vec<nmint<32> > SrcB(nSize);SrcB.SetData(SrcVecB);
-		vec<nmint<32> > DstVec (nSize);
-		nmint<32>    C(nVal);
-		DstVec=SrcA+SrcB+C;
-		DstVec.GetData(pDstVec);
-	}
-	else{
-	*/	
-	nmppsAdd(SrcVecA,SrcVecB,pDstVec,nSize);
-	nmppsAddC(pDstVec,nVal,pDstVec,nSize);
-	//}
-
+	nmppsAdd_32s(SrcVecA,SrcVecB,pDstVec,nSize);
+	nmppsAddC_32s(pDstVec,nVal,pDstVec,nSize);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Increment of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]+Increment
-void nmppsAddC(
+/*
+void nmppsAddC_32s(
 		nm32s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		int*			nVal,				// increment		:Increment=[-128...+127]
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/8]
@@ -324,28 +215,19 @@ void nmppsAddC(
 {
 	nmppsAddC(pSrcVec,*nVal,pDstVec,nSize);
 }
-
+*/
 /////////////////////////////////////////////////////////////////////////////////////////
 // Increment of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]+Increment
-void nmppsAddC(
+void nmppsAddC_64s(
 		nm64s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		nm64s*			nVal,				// increment		:Increment=[-128...+127]
 		nm64s*			pDstVec,			// output buffer	:long Global[VecSize/8]
 		int				nSize			// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
-	//if (CHECK_OVERFLOW())
-	//{
-	//	nmvec64s SrcVec(pSrcVec,nSize);
-	//	nmint64s C(*nVal);
-	//	nmvec64s DstVec(pDstVec,nSize);
-	//	for(int i=0; i<nSize; i++)
-	//		DstVec[i] = SrcVec[i] + C;
-	//}
-	//else
-		for(int i=0; i<nSize; i++)
-			pDstVec[i] = pSrcVec[i] + *nVal;
-	// No IPPS analog
+	int i;
+	for (i=0; i<nSize; i++)
+		pDstVec[i] = pSrcVec[i] + *nVal;
 }
 

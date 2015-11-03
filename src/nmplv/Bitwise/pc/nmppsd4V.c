@@ -29,7 +29,8 @@ void nmppsAnd4V_64u(nm64u* pVec0,
 				nm64u* pDstVec, 
 				int 	nSize)
 {
-	for (int i=0; i<nSize; i++)
+	int i;
+	for (i=0; i<nSize; i++)
 			pDstVec[i] = pVec0[i] & pVec1[i] & pVec2[i] & pVec3[i];
 	
 }

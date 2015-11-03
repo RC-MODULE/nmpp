@@ -27,7 +27,8 @@ void nmppsSwap_64s(nm64s*		pSrcVec1,		// input buffer		:long Long[...]
 		)
 {
 	__int64 buff;
-	for(int i=0;i<nSize;i++)
+	int i;
+	for (i=0;i<nSize;i++)
 	{
 		buff=pSrcVec1[i];
 		pSrcVec1[i]=pSrcVec2[i];

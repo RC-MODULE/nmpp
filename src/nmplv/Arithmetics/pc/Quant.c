@@ -29,17 +29,18 @@ void nmppsQuant_By2Int_32s(nm32s*	pSrcVec,			// Input array 					:long Global[Co
 			int		SrcReadStep,		// long to long reading step (in 32-bit words)	:=[-2,0,2,4,6...]
 			int		DstWriteStep,		// long to long writing step (in 32-bit words)	:=[-2,0,2,4,6...] 
 			int		PreShift,			// Right preshifting by even number of bits		:=[0,2,4...30]
-			bool	UsePostShift		// if =0 - Skip result scaling down by 2^19 
+			int		UsePostShift		// if =0 - Skip result scaling down by 2^19 
 			)						
 
 {
 	int i, j, k;
 
-	j = k = 0;
+
 	int Q0=(1<<18)/Quantizers[0]+1;
 	int DQ0=1<<17;
 	int Q1=(1<<18)/Quantizers[1]+1;
 	int DQ1=1<<17;
+	j = k = 0;
 	for(i=0; i<Count>>1; i++)
 	{
 		DstBuffer[j] =  (pSrcVec[k]  >>PreShift)*Q0+DQ0;

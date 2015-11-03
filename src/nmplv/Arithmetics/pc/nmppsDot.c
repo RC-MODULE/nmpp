@@ -21,14 +21,15 @@
 #include "nmplv.h"
 /////////////////////////////////////////////////////////////////////////////////////////
 // Scalar multiplication of two vectors
-int	nmppsDotProd(
+int	nmppsDotProd_32s(
 			nm32s*		pSrcVec1,		// input  32-bit vec		:long -----[Size/2]
 			nm32s*		pSrcVec2,		// input  32-bit vec		:long -----[Size/2]
 			int			nSize			// size of input buffers	:nSize=[0,2,4...]
 		)
 {
 	int Res=0;
-	for(int i=0;i<nSize;i++)
+	int i;
+	for (i=0;i<nSize;i++)
 		Res+=pSrcVec1[i]*pSrcVec2[i];
 	return Res;
 
@@ -39,56 +40,60 @@ int	nmppsDotProd(
 //////////////////////////////////////////////////////////////////////////////////////
 // Vector multiplication
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsDotProd(
+void nmppsDotProd_64s(
 	nm64s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm64s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
 	nm64s*	DstVec		//Output buffer		:long Any
 	)
 {
+	int i;
 	DstVec[0] = 0;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsDotProd(
+void nmppsDotProd_32s64s64s(
 	nm32s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm64s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
 	nm64s*	DstVec		//Output buffer		:long Any
 	)
 {
+	int i;
 	DstVec[0] = 0;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsDotProd(
+void nmppsDotProd_16s64s64s(
 	nm16s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm64s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
 	nm64s*	DstVec		//Output buffer		:long Any
 	)
 {
+	int i;
 	DstVec[0] = 0;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsDotProd(
+void nmppsDotProd_8s64s64s(
 	nm8s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm64s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
 	nm64s*	DstVec		//Output buffer		:long Any
 	)
 {
+	int i;
 	DstVec[0] = 0;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsDotProd(
+void nmppsDotProd_32s32s64s(
 	nm32s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm32s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -96,12 +101,13 @@ void nmppsDotProd(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	int i;
 	DstVec[0] = 0;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsDotProd(
+void nmppsDotProd_16s32s64s(
 	nm16s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm32s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -109,12 +115,13 @@ void nmppsDotProd(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	int i;
 	DstVec[0] = 0;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsDotProd(
+void nmppsDotProd_8s32s64s(
 	nm8s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm32s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -122,13 +129,14 @@ void nmppsDotProd(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	int i;
 	DstVec[0] = 0;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsDotProd(
+void nmppsDotProd_16s16s64s(
 	nm16s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm16s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -136,12 +144,13 @@ void nmppsDotProd(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	int i;
 	DstVec[0] = 0;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsDotProd(
+void nmppsDotProd_8s16s64s(
 	nm8s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm16s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -149,13 +158,14 @@ void nmppsDotProd(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	int i;
 	DstVec[0] = 0;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsDotProd(
+void nmppsDotProd_8s8s64s(
 	nm8s*	SrcVec0,	//Input0 buffer		:long Local [Size].
 	nm8s*	SrcVec1,	//Input1 buffer		:long Global[Size].
 	int		nSize,		//Size of input vec
@@ -163,17 +173,17 @@ void nmppsDotProd(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	int i;
 	DstVec[0] = 0;
-	for(int i=0; i<nSize; i++)
+	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
 // With first argument conjuction
-void nmppsDotProd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pDstRes)
+void nmppsDotProd_64sc64sc64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pDstRes)
 {
 	int i;
-
 	pDstRes->re = 0;
 	pDstRes->im = 0;
 	for(i=0;i<nSize;i++)

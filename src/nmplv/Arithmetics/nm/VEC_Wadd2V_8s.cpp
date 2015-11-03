@@ -91,7 +91,7 @@ void nmppsWeightedSum_Exe(nm32s* pSrcVec1,nm32s* pSrcVec2, S_nmppsWeightedSum* k
 //! 
 //! \perfinclude _nmppsWeightedSum__FPciPciPSsi.html
 //!				 
-void nmppsWeightedSum(nm8s* pSrcVec1,int W1,nm8s* pSrcVec2,int W2, nm16s* pDstVec, int nSize)
+void nmppsWeightedSum_8s(nm8s* pSrcVec1,int W1,nm8s* pSrcVec2,int W2, nm16s* pDstVec, int nSize)
 {
 	S_nmppsWeightedSum kerW;
 	nmppsWeightedSum_Set8(W1,W2,&kerW);
@@ -101,7 +101,7 @@ void nmppsWeightedSum(nm8s* pSrcVec1,int W1,nm8s* pSrcVec2,int W2, nm16s* pDstVe
 //! 
 //! \perfinclude _nmppsWeightedSum__FPSsiPSsiPii.html
 //! 
-void nmppsWeightedSum(nm16s* pSrcVec1,int W1,nm16s* pSrcVec2,int W2, nm32s* pDstVec, int nSize)
+void nmppsWeightedSum_16s(nm16s* pSrcVec1,int W1,nm16s* pSrcVec2,int W2, nm32s* pDstVec, int nSize)
 {
 	S_nmppsWeightedSum kerW;
 	nmppsWeightedSum_Set16(W1,W2,&kerW);
@@ -110,7 +110,7 @@ void nmppsWeightedSum(nm16s* pSrcVec1,int W1,nm16s* pSrcVec2,int W2, nm32s* pDst
 //! 
 //! \perfinclude _nmppsWeightedSum__FPilPilPli.html
 //! 
-void nmppsWeightedSum(nm32s* pSrcVec1, nm64s W1,nm32s* pSrcVec2, nm64s W2, nm64s* pDstVec, int nSize)
+void nmppsWeightedSum_32s(nm32s* pSrcVec1, nm64s W1,nm32s* pSrcVec2, nm64s W2, nm64s* pDstVec, int nSize)
 {
 	S_nmppsWeightedSum kerW;
 	nmppsWeightedSum_Set32(W1,W2, &kerW);

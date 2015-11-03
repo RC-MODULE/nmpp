@@ -68,6 +68,7 @@ void nmppsCopyua_8s(nm8s*			pSrcVec,		// input buffer		:long Long[...]
 		int				nSize		// buffer size in 8-bit elemetns	:[0,8,16,24...]
 		)
 {
-	for(int i=0;i<nSize;i++)
+	int i;
+	for (i=0;i<nSize;i++)
 		pDstVec[i]=pSrcVec[nOffset+i];
 }

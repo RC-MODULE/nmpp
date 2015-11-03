@@ -26,7 +26,8 @@ void nmppsNot_64u(nm64u*	pSrcVec,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
-	for(int i=0; i<nSize; i++)
+int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = ~pSrcVec[i];
 }
 ///////////////////////////////////////////////////////////////////////////////
@@ -37,7 +38,8 @@ void nmppsAndV_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
-	for(int i=0; i<nSize; i++)
+int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] & Src2[i];
 }
 ///////////////////////////////////////////////////////////////////////////////
@@ -48,7 +50,8 @@ void nmppsAndNotV_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
-	for(int i=0; i<nSize; i++)
+int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] & (~Src2[i]);
 }
 
@@ -60,7 +63,8 @@ void nmppsAndC_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
-	for(int i=0; i<nSize; i++)
+int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] & Mask[0];
 }
 ///////////////////////////////////////////////////////////////////////////////
@@ -71,7 +75,8 @@ void nmppsOrV_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
-	for(int i=0; i<nSize; i++)
+int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] | Src2[i];
 }
 ///////////////////////////////////////////////////////////////////////////////
@@ -82,7 +87,8 @@ void nmppsOrC_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
-	for(int i=0; i<nSize; i++)
+int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] | Mask[0];
 }
 ///////////////////////////////////////////////////////////////////////////////
@@ -94,7 +100,8 @@ void nmppsXorV_64u(nm64u*		pSrcVec1,	// Input Buffer					:long Local[nSize]
 			int			nSize		// Vector size in 64-bit words	:nSize=[0,1,2,..,n]
 			)
 {
-	for(int i=0; i<nSize; i++)
+int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] ^ pSrcVec2[i];
 }
 ///////////////////////////////////////////////////////////////////////////////
@@ -105,7 +112,8 @@ void nmppsXorC_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
-	for(int i=0; i<nSize; i++)
+int i;
+	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] ^ Mask[0];
 }
 
@@ -124,6 +132,7 @@ void nmppsMaskV_64u(nm64u*		pSrcVec1,	// Input Buffer								: long Global[nSize
 	nm32u *pV2=(nm32u*) pSrcVec2;
 	nm32u *pV3=(nm32u*) pSrcVec3;
 	nm32u *pDst=(nm32u*)pDstVec;
-	for(int i=0;i<nSize*2;i++)
+int i;
+	for (i=0;i<nSize*2;i++)
 		pDst[i]=(pV1[i]&pV3[i])|(pV2[i]&(~pV3[i]));
 }

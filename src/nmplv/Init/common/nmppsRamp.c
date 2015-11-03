@@ -26,7 +26,8 @@
 
 void nmppsRamp_8s(nm8s* pVec, int8b nOffset, int8b nSlope, int nSize)
 {
-	for(int i=0; i<nSize; i++, nOffset+=nSlope)
+	int i;
+	for(i=0; i<nSize; i++, nOffset+=nSlope)
 		nmppsSetInt_8s(pVec, i, nOffset); 
 }
 
@@ -36,7 +37,8 @@ void nmppsRamp_8s(nm8s* pVec, int8b nOffset, int8b nSlope, int nSize)
 
 void nmppsRamp_16s(nm16s* pVec, int16b nOffset, int16b nSlope, int nSize)
 {
-	for(int i=0; i<nSize; i++, nOffset+=nSlope)
+	int i;
+	for(i=0; i<nSize; i++, nOffset+=nSlope)
 		nmppsSetInt_16s(pVec, i, nOffset); 
 }
 
@@ -46,7 +48,8 @@ void nmppsRamp_16s(nm16s* pVec, int16b nOffset, int16b nSlope, int nSize)
 
 void nmppsRamp_32s(nm32s* pVec, int32b nOffset, int32b nSlope, int nSize)
 {
-	for(int i=0; i<nSize; i++, pVec++, nOffset+=nSlope)
+	int i;
+	for(i=0; i<nSize; i++, pVec++, nOffset+=nSlope)
 		*pVec=nOffset;
 }
 
@@ -56,6 +59,7 @@ void nmppsRamp_32s(nm32s* pVec, int32b nOffset, int32b nSlope, int nSize)
 
 void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize)
 {
-	for(int i=0; i<nSize; i++, pVec++, nOffset+=nSlope)
+	int i;
+	for(i=0; i<nSize; i++, pVec++, nOffset+=nSlope)
 		*pVec=nOffset;
 }

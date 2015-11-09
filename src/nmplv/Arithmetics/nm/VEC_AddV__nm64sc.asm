@@ -2,17 +2,18 @@ extern vec_Add:label;
 import from macros.mlb;
 begin ".text_nmplv"
 //------------------------------------------------------------------------------------------------
-//! \fn void nmppsAdd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
+//! \fn void _nmppsAdd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
 //! 
-//! \perfinclude _nmppsAdd__F6nm64scP6nm64scP6nm64scPi.html 
+//! \perfinclude _nmppsAdd_64sc.html 
 //------------------------------------------------------------------------------------------------
 
 
-global _void._.8.8nmppsAdd.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.2 :label;
-<_void._.8.8nmppsAdd.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.2>
+global _nmppsAdd_64sc :label;
+<_nmppsAdd_64sc>
 
 
 .branch;
+	ar5 = sp - 2;
 	push ar0,gr0 with gr0=false;
 	push ar1,gr1 with gr0++;
 	push ar5,gr5 with gr0++;		// gr0=2 

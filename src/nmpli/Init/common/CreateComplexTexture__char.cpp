@@ -90,24 +90,24 @@ void IMG_CreateCellTexture(unsigned char *texture_img, int width, int height)
 
 
 //!
-//! \perfinclude _IMG_CreateSCL_RandomCellTexture__FPUcii.html
+//! \perfinclude _IMG_CreatenmppsRandomCellTexture__FPUcii.html
 //!
 
 void IMG_CreateRandomCellTexture(unsigned char *texture_img, int width, int height)
 {
 	nmppsSet_8u(texture_img, 0, width*height);
-	//sSCL_Rand((unsigned)time( NULL ) );
-	//time=VEC_SCL_Rand()
+	//snmppcRand((unsigned)time( NULL ) );
+	//time=VEC_nmppcRand()
 
 	int i, j=0, di, dj;
 	while(j<height)
 	{
-		dj=SCL_Rand(20,59);//%40+20;
+		dj=nmppcRand(20,59);//%40+20;
 		i=0;
 		while(i<width)
 		{
-			di=SCL_Rand(20,59);
-			int color=SCL_Rand(0,255);
+			di=nmppcRand(20,59);
+			int color=nmppcRand(0,255);
 			for(int l=0; l<dj; l++)
 				for(int k=0; k<di; k++) {
 					int m1 = (j+l < height-1)? j+l : height-1;
@@ -130,7 +130,7 @@ void IMG_CreateRandomCellTexture(unsigned char *texture_img, int width, int heig
 void IMG_CreateComplexTexture(unsigned char *texture_img, int width, int height)
 {
 	nmppsSet_8u(texture_img, 0, width*height);
-//	sSCL_Rand((unsigned)time( NULL ) );
+//	snmppcRand((unsigned)time( NULL ) );
 
 	int side=width>>2;
 	int side2=side>>1;
@@ -141,12 +141,12 @@ void IMG_CreateComplexTexture(unsigned char *texture_img, int width, int height)
 		for(int i=0; i<width; i+=side)
 		{
 			for(int n=0; n<4; n++)
-				y[n]=SCL_Rand();
-			border[0]=RPoint(SCL_Rand(0,side4-1)+i, y[0]%side4+j);
-			border[1]=RPoint(SCL_Rand(0,side4-1)+i, y[1]%side4+j+side2+side4);
-			border[2]=RPoint(SCL_Rand(0,side4-1)+i+side2+side4, y[1]%side4+j+side2+side4);
-			border[3]=RPoint(SCL_Rand(0,side4-1)+i+side2+side4, y[0]%side4+j);
-			int color=100+SCL_Rand()%156;
+				y[n]=nmppcRand();
+			border[0]=RPoint(nmppcRand(0,side4-1)+i, y[0]%side4+j);
+			border[1]=RPoint(nmppcRand(0,side4-1)+i, y[1]%side4+j+side2+side4);
+			border[2]=RPoint(nmppcRand(0,side4-1)+i+side2+side4, y[1]%side4+j+side2+side4);
+			border[3]=RPoint(nmppcRand(0,side4-1)+i+side2+side4, y[0]%side4+j);
+			int color=100+nmppcRand()%156;
 			for(int l=0; l<side; l++)
 				for(int k=0; k<side; k++)
 				{

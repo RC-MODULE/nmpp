@@ -32,12 +32,10 @@ begin ".text_nmplv"
 
 //! \fn void nmppsMulC (nm16s *pSrcVec, int32b nVal, nm32s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsMulC_16s.html
+//! \perfinclude _nmppsMulC_16s32s.html
 
-global _nmppsMulC_16s:label;
-global _nmppsMulC16s:label;
-<_nmppsMulC_16s>
-<_nmppsMulC16s>
+global _nmppsMulC_16s32s:label;
+<_nmppsMulC_16s32s>
 .branch;
 
 

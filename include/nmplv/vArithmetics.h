@@ -793,12 +793,12 @@ void nmppsAbsDiff1_8s(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsMulC_8s8s(nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
+void nmppsMulC_8s   (nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
 void nmppsMulC_8s16s(nm8s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
 void nmppsMulC_16s32s(nm16s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
-void nmppsMulC_32s32s(nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
+void nmppsMulC_32s   (nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
 void nmppsMulC_32s64s(nm32s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
-void nmppsMulC_64s64s(nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
+void nmppsMulC_64s   (nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
     //! \}
 
 
@@ -955,12 +955,12 @@ void nmppsMulC_AddC_32s(nm32s* pSrcVec, int nMulVal, int nAddVal, nm32s* pDstVec
  *  \details 
  */
 //! \{
-void nmppsMulC_AddC_32s_step(int32x2* dataSparseSrc,  int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst);
+void nmppsMulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst);
 //! \}
 
 
 /**
- *  \defgroup nmppsArshC_MulC_AddC_ nmppsArshC_MulC_AddC_
+ *  \defgroup nmppsArshC_MulC_AddC nmppsArshC_MulC_AddC
  *  \ingroup vArithmetics
  *
  *  Sparse vector by constant multiplication with addition of constant. 
@@ -985,7 +985,7 @@ void nmppsMulC_AddC_32s_step(int32x2* dataSparseSrc,  int32x2* mulArg, int32x2* 
  *  \details 
  */
 //! \{
-void nmppsArshC_MulC_AddC_(int32x2* dataSparseSrc,  int32x2* preshiftArg, int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst);
+void nmppsArshC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg, int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst);
 //! \}
 	
 
@@ -1118,7 +1118,7 @@ void nmppsMulC_AddV_AddC_32s(nm32s* pSrcVec1, int nMulVal, nm32s* pSrcVec2, int 
     */
     //! \{
 void nmppsSumN_8s16s(nm8s  ** ppSrcVec, nm16s* pDstVec, int nSize, int nNumberOfVectors);
-void nmppsSumN_16s16s(nm16s ** ppSrcVec, nm16s* pDstVec, int nSize, int nNumberOfVectors);
+void nmppsSumN_16s  (nm16s ** ppSrcVec, nm16s* pDstVec, int nSize, int nNumberOfVectors);
     //! \}
 
 		
@@ -1421,9 +1421,9 @@ void nmppsDotProd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pn
 	*/
 
    //! \{    
-void nmppsWeightedSum_8s(nm8s* pSrcVec1,int nW1,nm8s* pSrcVec2,int nW2, nm16s* pDstVec, int nSize);
-void nmppsWeightedSum_16s(nm16s* pSrcVec1,int nW1,nm16s* pSrcVec2,int nW2, nm32s* pDstVec, int nSize);
-void nmppsWeightedSum_32s(nm32s* pSrcVec1,nm64s nW1,nm32s* pSrcVec2,nm64s nW2, nm64s* pDstVec, int nSize);
+void nmppsWeightedSum_8s16s(nm8s* pSrcVec1,int nW1,nm8s* pSrcVec2,int nW2, nm16s* pDstVec, int nSize);
+void nmppsWeightedSum_16s32s(nm16s* pSrcVec1,int nW1,nm16s* pSrcVec2,int nW2, nm32s* pDstVec, int nSize);
+void nmppsWeightedSum_32s64s(nm32s* pSrcVec1,nm64s nW1,nm32s* pSrcVec2,nm64s nW2, nm64s* pDstVec, int nSize);
     //! \}
 
 #ifdef __cplusplus

@@ -28,8 +28,8 @@ begin ".text_nmplv"
 //!
 //! \perfinclude _nmppsAddC_8s.html
 
-global _nmppsAddC8s:label;
-<_nmppsAddC8s>
+global _nmppsAddC_8s:label;
+<_nmppsAddC_8s>
 .branch;
 	ar5 = sp - 2;
 

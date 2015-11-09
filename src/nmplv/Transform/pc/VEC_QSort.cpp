@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 
 //#include "vec.h"
-//#include "nmplv.h"
+//#include "nmpp.h"
 
 void VEC_QSort(
 	  int*	pSrc,	//Pointer to input massive

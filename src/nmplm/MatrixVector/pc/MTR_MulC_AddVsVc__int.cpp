@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-#include "nmplv.h"
+#include "nmpp.h"
 
 
 void MTR_MulC_AddVsVc_32s(

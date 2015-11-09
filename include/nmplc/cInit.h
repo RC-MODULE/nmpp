@@ -25,7 +25,7 @@
 //*****************************************************************************
 
     /**
-    \defgroup SCL_Rand SCL_Rand
+    \defgroup nmppsRand nmppsRand
     \ingroup cInit
     \brief 
         \ru Генерация случайного числа с равномерным раcпределением.
@@ -76,9 +76,9 @@
     \endxmlonly
     */
     //! \{
-int SCL_Rand(int nMin, int nMax, int nDivisible);
-int SCL_Rand(int nMin, int nMax);
-int SCL_Rand();
+int nmppcRand(int nMin, int nMax, int nDivisible);
+int nmppcRand(int nMin, int nMax);
+int nmppcRand();
     //! \}
 
 

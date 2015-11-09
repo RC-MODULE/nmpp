@@ -34,10 +34,8 @@ extern vec_vsum_data_0:label;
 //!
 //! \perfinclude _nmppsMulC_8s.html
 
-global _nmppsMulC_8s:label;
-global _nmppsMulC8s:label;
-<_nmppsMulC_8s>
-<_nmppsMulC8s>
+global _nmppsMulC_8s16s:label;
+<_nmppsMulC_8s16s>
 .branch;
 
 

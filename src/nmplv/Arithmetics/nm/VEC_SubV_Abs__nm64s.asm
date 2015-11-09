@@ -29,9 +29,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsAbsDiff_64s.html
 
 global _nmppsAbsDiff_64s:label;
-global _nmppsAbsDiff64s:label;
 <_nmppsAbsDiff_64s>
-<_nmppsAbsDiff64s>
 .branch;
 	ar5 = sp - 2;
 

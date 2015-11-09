@@ -21,8 +21,8 @@ ifeq ($(OS),Windows_NT)
   OS_TODIR = -d
   OS_TAR   = $(OS_UNZIP)
   PATH    := $(NEURO)/bin;$(MC5103)/bin;$(MB7707)/bin;$(MC7601)/bin;$(ROOT)/deps/gnuwin32/bin;$(VSHELL32)/bin;$(PATH)
-  # prevents call of embedded 'find.exe' in Windows and GNU make becomes callable
-  #PATH:= $(subst $(SystemRoot),,$(PATH))	
+  #prevents call of embedded 'find.exe' in Windows and GNU make becomes callable
+  PATH:= $(subst $(SystemRoot),,$(PATH))	
 
   MB7707_MAC ?= 1A-2B-3C-4D-5E-6F
 else
@@ -64,8 +64,8 @@ endif
 PLATFORMS += vs80
 PLATFORMS += vs13
 PLATFORMS += gcc
-PLATFORMS:= mc5103 gcc vs13
+PLATFORMS:= mc5103 vs80
 TARGET1=mc5103
-TARGET2=gcc
+TARGET2=vs80
 
  

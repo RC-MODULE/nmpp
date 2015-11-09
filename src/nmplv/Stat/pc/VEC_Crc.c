@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 extern unsigned int CRC32_Table[];
 //#include "vcrc.h"
-#include "nmplv.h"
+#include "nmpp.h"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 void nmppsCrc_32u(
     unsigned int* pSrcVec, // Input Vector			:long Any[Size/2]

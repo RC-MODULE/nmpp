@@ -1,4 +1,4 @@
-#include "nmplv.h"
+#include "nmpp.h"
 
 void IMG_DeinterlaceSplit(nm8u* pSrcImg, int nSrcWidth, int nSrcHeight, nm8u* pDstEven, nm8u* pDstOdd)
 {

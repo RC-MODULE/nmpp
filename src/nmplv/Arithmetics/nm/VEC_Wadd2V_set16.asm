@@ -19,10 +19,9 @@
 //------------------------------------------------------------------------
 
 begin ".text_nmplv"
-global _nmppsWeightedSum_Set16__Fii12S_nmppsWeightedSumP:label;
-global _void._.8.8nmppsWeightedSum_Set16.1int.9._int.9._class._S_nmppsWeightedSum._.0.2 :label;
-<_nmppsWeightedSum_Set16__Fii12S_nmppsWeightedSumP>
-<_void._.8.8nmppsWeightedSum_Set16.1int.9._int.9._class._S_nmppsWeightedSum._.0.2>
+global _nmppsWeightedSum_Set16 :label;
+<_nmppsWeightedSum_Set16>
+
   ar5=ar7-2;
   push ar0,gr0;
   push ar1,gr1;

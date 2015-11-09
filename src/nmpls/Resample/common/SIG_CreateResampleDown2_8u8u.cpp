@@ -1,5 +1,5 @@
 #include "nmpls.h"
-#include "nmplv.h"
+#include "nmpp.h"
 /*
 void SIG_CreateResampleDown2_8u8u(nm64s** pKernel, int nHint)
 {

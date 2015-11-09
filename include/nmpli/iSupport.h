@@ -53,7 +53,7 @@ public:
 		m_nStride=nStride;
 		m_nSize=m_nStride*m_nHeight;
 		m_pContainer=(T*)allocator32(nmppsSizeOf_(m_pData,m_nStride*(m_nHeight+2*m_nBorder)));
-		//nmppsMalloc_(&m_pContainer, m_nStride*(m_nHeight+2*m_nBorder), nHint);
+		//nmppsMalloc_64s(&m_pContainer, m_nStride*(m_nHeight+2*m_nBorder), nHint);
 		m_pData=nmppsAddr_(m_pContainer,m_nStride*m_nBorder);
 	}
 	C_Img(T* pData, int nWidth,int nHeight, int nStride, int nBorder)
@@ -70,7 +70,7 @@ public:
 	~C_Img()
 	{
 		if (m_pContainer)
-			nmppsFree_(m_pContainer);
+			nmppsFree(m_pContainer);
 	}
 	void Fill(T color)
 	{

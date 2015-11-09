@@ -18,7 +18,7 @@
 //!
 //------------------------------------------------------------------------
 //#include "vec.h"
-#include "nmplv.h"
+#include "nmpp.h"
 //*****************************************************************************
 //  Converts each byte of the pSrcVec buffer to the 2 bytes by sign propagation
 //  and stores the result in the pDstVec buffer

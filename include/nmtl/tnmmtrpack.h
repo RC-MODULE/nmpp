@@ -48,7 +48,7 @@ public:
 		m_border=Border;
 		//m_container=new T[(m_height+2*m_border)*m_width];
 		//m_data=m_container+m_width*m_border;
-		nmppsMalloc_(&m_container,(m_height+2*m_border)*m_width);
+		nmppsMalloc_64s(&m_container,(m_height+2*m_border)*m_width);
 		m_data=nmppsAddr_(m_container,m_border*m_width);
 		m_size=m_width*m_height;
 		m_stride=m_width;
@@ -80,7 +80,7 @@ public:
 		m_size  =mtr.m_size;
 		//m_container=new T[(m_height+2*m_border)*m_width];
 		//m_data=m_container+m_width*m_border;
-		nmppsMalloc_(&m_container,(m_height+2*m_border)*m_width);
+		nmppsMalloc_64s(&m_container,(m_height+2*m_border)*m_width);
 		m_data=nmppsAddr_(m_container,m_border*m_width);
 		
 		m_flag_new=true;
@@ -111,7 +111,7 @@ public:
 	{ 	
 		if (m_flag_new)
 			//delete m_container;	
-			nmppsFree_(m_container);
+			nmppsFree(m_container);
 	}
 
 	nmmtrpack<T>& operator= (const nmmtrpack<T>& mtr)

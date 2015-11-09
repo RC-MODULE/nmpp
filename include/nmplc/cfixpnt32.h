@@ -8,9 +8,11 @@
 //*                                                                         */
 //*  Date:28.12.99                                                          */
 //***************************************************************************/
+#ifdef __cplusplus
+extern "C" 	{	
+#endif
 
-extern "C" 
-{
+
 //=============================================================================
 	/**
 	\defgroup SCL_FixExp32 SCL_FixExp32
@@ -480,4 +482,7 @@ double SCL_Fix32ToDouble(int arg);
 	void SCL_FixDivMod32(int nDividend, int nDivisor, int* pnQuotient, int* pnReminder);
 	void SCL_FixDivPosMod32(unsigned int nDividend, unsigned int nDivisor,  int* pnQuotient, int* pnReminder);
     //! \}
-}
+#ifdef __cplusplus
+		};
+#endif
+

@@ -33,9 +33,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsSum_64s.html
 
 
-global _nmppsSum64s:label;
+global _nmppsSum_64s:label;
 
-<_nmppsSum64s>
+<_nmppsSum_64s>
 .branch;
 	ar5 = sp - 2;
 	push ar0,gr0 with gr0=false;

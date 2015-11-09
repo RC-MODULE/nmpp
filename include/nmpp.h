@@ -12,17 +12,17 @@
     *
     *     \defgroup MTR_Group Матричные функции 
     */
-#include "./nmplm/nmplm.h"	
+//#include "./nmplm/nmplm.h"	
 	/**
     *
     *     \defgroup SIG_Group Функции обработки сигналов 
     */
-#include "./nmpls/nmpls.h"	
+//#include "./nmpls/nmpls.h"	
 	/**
     *
     *     \defgroup IMG_Group Функции обработки изображений
     */
-#include "./nmpli/nmpli.h"	
+//#include "./nmpli/nmpli.h"	
 	/**
     *
     *     \defgroup SCL_Group Скалярные функции 

@@ -34,10 +34,8 @@ begin ".text_nmplv"
 //!
 //! \perfinclude _nmppsDivC_32s.html
 
-global _nmppsDivC__FPiiPiiPvPv :label;
-global _nmppsDivC32s:label;
+global _nmppsDivC_32s:label;
 <_nmppsDivC_32s>
-<_nmppsDivC32s>
 .branch;
 
 	//ar5 = ar7-6		with gr7 = false;

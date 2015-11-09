@@ -1,4 +1,4 @@
-#include "nmplv.h"
+#include "nmpp.h"
 int nmppsSadV16_8s(nm8s* pVec1,nm8s* pVec2)
 {
 	int nSad=0;

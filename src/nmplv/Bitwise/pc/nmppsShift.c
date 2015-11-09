@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 /////////////////////////////////////////////////////////////////////////////////////////
 //#include "vShift.h"
-#include "nmplv.h"
+#include "nmpp.h"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Arithmetic right shift under 64-bit signed elements of input array
@@ -170,7 +170,7 @@ void nmppsRshC_64u(nm64u*	SrcVec,		//Input buffer		:long Local [Size/4].
 //						Dst=[07060504030201AB][0F0E0D0C0B0A0908]....... (last 8 bits of Src will be lost)
 // If you point pBits to the last 64-bit word of Src buffer you will get the cyclical bit shift
 
-void nmppsDisplaceBits_(
+void nmppsDisplaceBits_64u(
 	const   nm64u*	pSrcVec,		//Input buffer					:long Local [Size/8].
 			nm64u*	pDstVec,		//Output buffer					:long Global[Size/8].
 			nm64u*	pnBits,		//Being pushed bits				:long Variable

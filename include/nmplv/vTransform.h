@@ -53,9 +53,9 @@
     \xmlonly
         <testperf> 
 			<init> 	
-				nmppsRand_32u((nm32u*)L,1024);
+				nmppsRandUniform_32u((nm32u*)L,1024);
 				nmppsArshC_32s((nm32s*)L, 1, (nm32s*)L, 1024);
-				nmppsRand_32u((nm32u*)G,1024);
+				nmppsRandUniform_32u((nm32u*)G,1024);
 				nmppsArshC_32s((nm32s*)G, 1, (nm32s*)G, 1024);
              </init>
              <param> pSrcDstVec </param> <values> L G 	  	</values>
@@ -63,7 +63,7 @@
         </testperf>
         <testperf> 
 			<init> 
-				nmppsRand_32u((nm32u*)G,1024);
+				nmppsRandUniform_32u((nm32u*)G,1024);
 				nmppsArshC_32s((nm32s*)G, 1, (nm32s*)G, 1024);
              </init>
              <param> pSrcDstVec </param> <values> G </values>

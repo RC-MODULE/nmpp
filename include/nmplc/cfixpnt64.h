@@ -8,9 +8,11 @@
 //*                                                                         */
 //*  Date:28.12.99                                                          */
 //***************************************************************************/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-extern "C" 
-{
+
 //=============================================================================
 	/**
 	\defgroup SCL_FixSqrt64 SCL_FixSqrt64
@@ -256,4 +258,8 @@ void SCL_FixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotien
     //! \}
 
 	long SCL_FrExp(double nArg);
-}
+
+#ifdef __cplusplus
+		};
+#endif
+

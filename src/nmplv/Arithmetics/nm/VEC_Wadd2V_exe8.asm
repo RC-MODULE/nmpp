@@ -21,10 +21,10 @@
 begin ".text_nmplv"
 extern vec_Mul2D2W8_AddVr:label;
 
-// void nmppsWeightedSum_Exe(nm8s* pSrcVec1,nm8s* pSrcVec2, S_nmppsWeightedSum* kerW, nm16s* pDstVec, int nSize);
+// void nmppsWeightedSum_Exe_8s16s(nm8s* pSrcVec1,nm8s* pSrcVec2, S_nmppsWeightedSum* kerW, nm16s* pDstVec, int nSize);
 
-global _nmppsWeightedSum_Exe_8s:label;
-<_nmppsWeightedSum_Exe_8s>
+global _nmppsWeightedSum_Exe_8s16s:label;
+<_nmppsWeightedSum_Exe_8s16s>
   ar5=ar7-2;
   push ar0,gr0; push ar1,gr1;  push ar2,gr2; push ar4,gr4; push ar6,gr6;
   ar0=[--ar5]with gr4=false;// pSrcVec1

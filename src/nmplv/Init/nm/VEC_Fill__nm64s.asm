@@ -26,13 +26,13 @@ extern vec_ram:label;
 begin ".text_nmplv"
 
     //--------------------------------------------------------------------
-    //! \fn void nmppsSet_64s(nm64s *pVec, int64b *nVal, int nSize) 
+    //! \fn void nmppsSet_64sp(nm64s *pVec, int64b *nVal, int nSize) 
 	//!
 	//! \perfinclude _nmppsSet_64s.html
     //--------------------------------------------------------------------
 
-global _nmppsSet_64s:label;
-<_nmppsSet_64s>
+global _nmppsSet_64sp:label;
+<_nmppsSet_64sp>
 .branch;
     ar5 = sp - 2	with gr7=false;
     push ar0,gr0	with gr7++;

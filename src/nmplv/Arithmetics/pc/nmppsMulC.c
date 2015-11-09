@@ -18,10 +18,10 @@
 //!
 //------------------------------------------------------------------------
 
-#include "nmplv.h"
+#include "nmpp.h"
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 64-bit buffer elements by 64-bit scalar value
-void nmppsMulC_64s64s(
+void nmppsMulC_64s(
 		  nm64s*		pSrcVec,				// input  buffer		:long Local  [nSize]
 		  nm64s			MulN,				// 64-bit scalar value
 		  nm64s*		pDstVec,				// output buffer		:long Global [nSize]
@@ -61,7 +61,7 @@ void nmppsMulC_16s32s(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 32-bit buffer elements by scalar value
-void nmppsMulC_32s32s(
+void nmppsMulC_32s(
 			nm32s*		pSrcVec,			// input vec			:long Local  [VecSize/2]
 			int			MulN,				// 32-bit scalar value
 			nm32s*		pDstVec,			// output vec		:long Global [VecSize/2]
@@ -91,7 +91,7 @@ void nmppsMulC_8s16s(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 8-bit buffer elements by 8-bit scalar value
-void nmppsMulC_8s8s(
+void nmppsMulC_8s(
 			nm8s*		pSrcVec,		// input  buffer					:long Local  [VecSize/8]
 			int8b		MulN,			// 8-bit scalar value
 			nm8s*		pDstVec,		// output buffer					:long Global [VecSize/8]
@@ -119,32 +119,32 @@ void nmppsMulC_AddC_32s(
 	nmppsMulC_32s(pSrcVec,MulN,pDstVec,nSize);
 	nmppsAddC_32s(pDstVec,AddN,pDstVec,nSize);
 }
-/*
-void nmppsMulC_AddC(int32x2* dataSparseSrc,  int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst)
+
+void nmppsMulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst)
 {
 	int32x2* pSrc=dataSparseSrc;
 	int32x2* pDst=dataSparseDst;
 	int i;
 	for (i=0; i<size; i++){
-		pDst->lo()=pSrc->lo()*mulArg.lo()+addArg.lo();
-		pDst->hi()=pSrc->hi()*mulArg.hi()+addArg.hi();
+		pDst->lo=pSrc->lo*mulArg->lo+addArg->lo;
+		pDst->hi=pSrc->hi*mulArg->hi+addArg->hi;
 		pSrc+=stepSparseSrc;
 		pDst+=stepSparseDst;
 	}
 }
 
-void nmppsArshC_MulC_AddC_(int32x2* dataSparseSrc,  int32x2& preshiftArg, int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst)
+void nmppsArshC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg, int32x2* mulArg, int32x2* addArg, int32x2* dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst)
 {
 	int32x2* pSrc=dataSparseSrc;
 	int32x2* pDst=dataSparseDst;
 	int i;
 	for (i=0; i<size; i++){
-		pDst->lo()=(pSrc->lo()>>preshiftArg.lo())*mulArg.lo()+addArg.lo();
-		pDst->hi()=(pSrc->hi()>>preshiftArg.hi())*mulArg.hi()+addArg.hi();
+		pDst->lo=(pSrc->lo>>preshiftArg->lo)*mulArg->lo+addArg->lo;
+		pDst->hi=(pSrc->hi>>preshiftArg->hi)*mulArg->hi+addArg->hi;
 		pSrc+=stepSparseSrc;
 		pDst+=stepSparseDst;
 	}
-}*/
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 32-bit buffer elements by scalar value with vec and constant addition

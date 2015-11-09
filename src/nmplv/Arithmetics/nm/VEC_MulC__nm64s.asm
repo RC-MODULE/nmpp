@@ -31,9 +31,7 @@ extern vec_vsum_data_0:label;
 //! \perfinclude _nmppsMulC_64s.html
 
 global _nmppsMulC_64s:label;
-global _nmppsMulC64s:label;
 <_nmppsMulC_64s>
-<_nmppsMulC64s>
 .branch;
 
 

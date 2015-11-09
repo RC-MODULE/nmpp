@@ -32,10 +32,8 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsNeg_64s.html
 
 global _nmppsNeg_64s:label;
-global _nmppsNeg64s:label;
 
 <_nmppsNeg_64s>
-<_nmppsNeg64s>
 .branch;
 	ar5 = sp - 2	with gr7=gr5;
 	push ar0,gr0	with gr0=false;

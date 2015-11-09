@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-#include "nmplv.h"
+#include "nmpp.h"
 
 /*
 nm8s*  nmppsAddr_8s(const nm8s*  pBase, int Disp) { return (nm8s*)pBase+Disp; }

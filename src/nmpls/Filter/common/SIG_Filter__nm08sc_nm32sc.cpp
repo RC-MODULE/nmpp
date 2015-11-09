@@ -1,5 +1,5 @@
 
-#include "nmplv.h"
+#include "nmpp.h"
 #include "nmpls.h"
 
 /*
@@ -31,8 +31,8 @@ void SIG_CreateFilter_8s32s(nm32sc* pWeights, int nSize, nm64s** pKernel, int hi
 	nKerSize+=1;
 	nKerSize&=~1;
 	nmppsMalloc_32s((nm32s**)pKernel,2*nKerSize+2,hint);
-	nmppsMalloc_(&pWeightsRe, nSize, MEM_GLOBAL);
-	nmppsMalloc_(&pWeightsIm, nSize, MEM_GLOBAL);
+	nmppsMalloc_64s(&pWeightsRe, nSize, MEM_GLOBAL);
+	nmppsMalloc_64s(&pWeightsIm, nSize, MEM_GLOBAL);
 	for(int i=0; i<nSize; i++){
 		pWeightsRe[i]=pWeights[i].re;
 		pWeightsIm[i]=pWeights[i].im;
@@ -44,7 +44,7 @@ void SIG_CreateFilter_8s32s(nm32sc* pWeights, int nSize, nm64s** pKernel, int hi
 	pKer[1]=(int)pKernelIm;
 	SIG_SetFilter_8s32s(pWeightsRe, nSize, pKernelRe);
 	SIG_SetFilter_8s32s(pWeightsIm, nSize, pKernelIm);
-	nmppsFree_(pWeightsIm);
-	nmppsFree_(pWeightsRe);
+	nmppsFree(pWeightsIm);
+	nmppsFree(pWeightsRe);
 }
 */

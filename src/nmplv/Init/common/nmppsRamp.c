@@ -18,7 +18,7 @@
 //!
 //------------------------------------------------------------------------
 #include "nmtype.h"
-#include "nmplv.h"
+#include "nmpp.h"
 //!
 //! \perfinclude _nmppsRamp__FPciii_.html
 //!

@@ -19,6 +19,12 @@
 //------------------------------------------------------------------------
 #ifndef _VBITWISE_H_INCLUDED_
 #define _VBITWISE_H_INCLUDED_
+
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
+
 //#include "Vector.h"
 
     /**
@@ -736,7 +742,7 @@ void nmppsMaskV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pMaskVec, nm64u* pD
 //*****************************************************************************
 
     /**
-    \defgroup nmppsArshC_ nmppsArshC_
+    \defgroup nmppsArshC nmppsArshC
     \ingroup vBitwise
     \brief
         \ru Операция арифметического сдвига вправо. 
@@ -973,7 +979,7 @@ void nmppsRshC_AddC_32u(nm32u *pSrcVec,  int nShift, uint32b nAddVal,  nm32u *pD
 //*****************************************************************************
 
     /**
-    \defgroup nmppsDisplaceBits_ nmppsDisplaceBits_
+    \defgroup nmppsDisplaceBits nmppsDisplaceBits
     \ingroup vBitwise
     \brief
 		\ru Нерпрерывное смещение битов внутри бинарного массива в сторону конца массива
@@ -1050,7 +1056,11 @@ void nmppsRshC_AddC_32u(nm32u *pSrcVec,  int nShift, uint32b nAddVal,  nm32u *pD
     \endxmlonly
     */
     //! \{
-void nmppsDisplaceBits_(const nm64u* pSrcVec, nm64u* pDstVec, nm64u* pnBits, int nBits, int nSize);
+void nmppsDisplaceBits_64u(const nm64u* pSrcVec, nm64u* pDstVec, nm64u* pnBits, int nBits, int nSize);
     //! \}
 
+	
+#ifdef __cplusplus
+	};
+#endif
 #endif // _VBITWISE_H_INCLUDED_

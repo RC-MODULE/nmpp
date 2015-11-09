@@ -20,7 +20,7 @@
 
 //#include "vec.h"
 //#include "splib.h"
-#include "nmplv.h"
+#include "nmpp.h"
 
 
 void nmppsRemap_32u(nm32u*	pSrcVec,		

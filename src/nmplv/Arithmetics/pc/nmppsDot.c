@@ -18,7 +18,7 @@
 //!
 //------------------------------------------------------------------------
 //#include "vec.h"
-#include "nmplv.h"
+#include "nmpp.h"
 /////////////////////////////////////////////////////////////////////////////////////////
 // Scalar multiplication of two vectors
 int	nmppsDotProd_32s(
@@ -35,7 +35,7 @@ int	nmppsDotProd_32s(
 
 	//ippsDotProd_32s_Sfs(const Ipp32s* pSrc1, const Ipp32s*pSrc2, int len, Ipp32s* pDp, int scaleFactor);
 }
-#include "nmplv.h"
+#include "nmpp.h"
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Vector multiplication

@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-#include "nmplv.h"
+#include "nmpp.h"
 ////////////////////////////////////////////////////////////////////////////
 //  Setting all 64-bit elements of Buffer to const value given by InitValue
 void nmppsSet_64sp(nm64s*	Buffer,		// Destination array					:long Global [SizeInt64]

@@ -23,16 +23,16 @@
 
  
 //! 
-//! \perfinclude _nmppsRand__FPUiiUi_.html
+//! \perfinclude _nmppsRandUniform__FPUiiUi_.html
 //! 
 
 
-
+static int				Randomize=1;
 ////////////////////////////////////////////////////////////////////////////
 //  Random initialization of 64-bit Buffer
-void nmppsRand_64s(nm64s*			pDstVec,		// array									:int Global [SizeInt]
-		int				nSize,		// nSize of Source array in 64-bit elements	:nSize=    [0,1,2,3,4...]
-		int				Randomize
+void nmppsRandUniform_64s(
+		nm64s*			pDstVec,		// array									:int Global [SizeInt]
+		int				nSize 		// nSize of Source array in 64-bit elements	:nSize=    [0,1,2,3,4...]
 		)
 {
 	__int64 Rand=Randomize&0xFFFFFFFFL;

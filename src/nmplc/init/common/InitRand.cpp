@@ -20,29 +20,29 @@
 #include "nmplc.h"
 ////////////////////////////////////////////////////////////////////////////
 //  Random initalization of 32-bit buffer
-unsigned SCL_Randomize=1;
+unsigned nmppcRandomize=1;
 
 //! 
 //! \perfinclude _SCL_Rand__Fiii.html
 //! 
 
-int SCL_Rand(
+int nmppcRand(
 		int Min,
 		int Max)
 {
 
-	unsigned int R=SCL_Rand();
+	unsigned int R=nmppcRand();
 	R%=unsigned(Max-Min+1);
 	int X=int(R)+Min;
 	return X;
 }
 
-int SCL_Rand(
+int nmppcRand(
 		int Min,
 		int Max,
 		int	Divisible)
 {
-	unsigned int R=SCL_Rand();
+	unsigned int R=nmppcRand();
 	R%=unsigned(Max-Min+1);
 	int X=int(R)+Min;
 	X/=Divisible;
@@ -54,15 +54,15 @@ int SCL_Rand(
 //  Random initalization of 32-bit buffer
 
 //! 
-//! \perfinclude _SCL_Rand__Fv.html
+//! \perfinclude _nmppcRand__Fv.html
 //! 
 
-int SCL_Rand()
+int nmppcRand()
 {
 
-	SCL_Randomize=1664525L*SCL_Randomize+1013904223L;
-	unsigned int R=SCL_Randomize>>16;
-	SCL_Randomize=1664525L*SCL_Randomize+1013904223L;
-	R|=(SCL_Randomize&0xFFFF0000);
+	nmppcRandomize=1664525L*nmppcRandomize+1013904223L;
+	unsigned int R=nmppcRandomize>>16;
+	nmppcRandomize=1664525L*nmppcRandomize+1013904223L;
+	R|=(nmppcRandomize&0xFFFF0000);
 	return R;
 }

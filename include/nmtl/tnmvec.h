@@ -67,7 +67,7 @@ public:
 		m_container=new T[size+2*m_border];
 		m_data=m_container+m_border;
 		//tmalloc(m_container,size+2*m_border);
-//		nmppsMalloc_(&m_container,size+2*m_border);
+//		nmppsMalloc_64s(&m_container,size+2*m_border);
 //		m_data=nmppsAddr_(m_container,m_border);
 	}
 
@@ -78,7 +78,7 @@ public:
 		m_container=new T[size+2*m_border];
 		m_data=m_container+m_border;
 		memcpy(m_data,vec.m_data,size*sizeof(T));
-//		nmppsMalloc_(&m_container,size+2*m_border);
+//		nmppsMalloc_64s(&m_container,size+2*m_border);
 //		m_data=nmppsAddr_(m_container,m_border);
 //		nmppsCopy_(vec.m_data,m_data,size);
 	};
@@ -88,7 +88,7 @@ public:
 	{
 		if (m_container)
 			//delete []m_container;
-//			nmppsFree_(m_container);
+//			nmppsFree(m_container);
 		m_container=0;
 	
 

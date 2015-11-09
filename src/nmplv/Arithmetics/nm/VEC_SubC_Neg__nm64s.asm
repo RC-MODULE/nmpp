@@ -28,9 +28,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsSubCRev_64s.html
 
 global _nmppsSubCRev_64s:label;
-global _nmppsSubCRev64s:label;
 <_nmppsSubCRev_64s>
-<_nmppsSubCRev64s>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

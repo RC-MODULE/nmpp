@@ -18,7 +18,7 @@
 //!
 //------------------------------------------------------------------------
 
-#include "nmplv.h"
+#include "nmpp.h"
 //void nmppsAnd4V_64u(nm64u* pSrcVec1, nm64u* pSrcVec2,nm64u* pSrcVec3,nm64u* pSrcVec4, nm64u* pDstVec, int nSize);
 ///////////////////////////////////////////////////////////
 // pDstVec[i] = !pSrcVec[i]; 

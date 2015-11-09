@@ -23,11 +23,11 @@
 
  
 //! 
-//! \perfinclude _nmppsRand__FPUiiUi_.html
+//! \perfinclude _nmppsRandUniform__FPUiiUi_.html
 //! 
 
 /*
-void nmppsRand_32u(nm32u*	pDstVec,		// array									:int Global [SizeInt]
+void nmppsRandUniform_32u(nm32u*	pDstVec,		// array									:int Global [SizeInt]
 		int				nSize,		// nSize of Source array in 32-bit elements	:nSize=    [0,1,2,3,4...]
 		unsigned nRandomize
 		)

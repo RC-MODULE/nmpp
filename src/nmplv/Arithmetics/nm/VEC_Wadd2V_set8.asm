@@ -20,9 +20,8 @@
 
 begin ".text_nmplv"
 
-global _void._.8.8nmppsWeightedSum_Set8.1int.9._int.9._class._S_nmppsWeightedSum._.0.2 :label;
-
-<_void._.8.8nmppsWeightedSum_Set8.1int.9._int.9._class._S_nmppsWeightedSum._.0.2>
+global _nmppsWeightedSum_Set8 :label;
+<_nmppsWeightedSum_Set8>
   ar5=ar7-2;
   push ar0,gr0;
   push ar1,gr1 with gr0=true;

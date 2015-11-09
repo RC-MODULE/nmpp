@@ -9,32 +9,32 @@
 // X  - anything (constant or any register)
 
 macro VEC_ARSH32_RRRR(rSrc,rDst,rIntCount,rShift)
-	extern _void._.8.8VEC_ArshC.1int._.0.9._int.9._int._.0.9._int.2:label;
+	extern _nmppsArshC_32s:label;
 	ar5 = ar7;
 	ar7 += 4;
     [ ar5++ ] = rShift;
 	[ ar5++ ] = rIntCount;
-	delayed call _void._.8.8VEC_ArshC.1int._.0.9._int.9._int._.0.9._int.2;
+	delayed call _nmppsArshC_32s;
 		[ ar5++ ] = rDst;
 		[ ar5++ ] = rSrc;
 	nul;
 	ar7-=4;
 end VEC_ARSH32_RRRR;
-
-macro VEC_ARSH32_RRRRRR(rSrc,rDst,rCount,rShift,rReadStep,rWriteStep)
-	extern _VEC_ArshC__FPiiPiiii:label;
-	ar5 = sp;
-	ar7 += 6;
-	[ ar5++ ] = rWriteStep;
-	[ ar5++ ] = rReadStep;
-	[ ar5++ ] = rShift;
-	[ ar5++ ] = rCount;
-	delayed call _VEC_ArshC__FPiiPiiii;
-		[ ar5++ ] = rDst;
-		[ ar5++ ] = rSrc;
-	nul;
-	ar7 -= 6;
-end VEC_ARSH32_RRRRRR;
+//
+//macro VEC_ARSH32_RRRRRR(rSrc,rDst,rCount,rShift,rReadStep,rWriteStep)
+//	extern _VEC_ArshC__FPiiPiiii:label;
+//	ar5 = sp;
+//	ar7 += 6;
+//	[ ar5++ ] = rWriteStep;
+//	[ ar5++ ] = rReadStep;
+//	[ ar5++ ] = rShift;
+//	[ ar5++ ] = rCount;
+//	delayed call _VEC_ArshC__FPiiPiiii;
+//		[ ar5++ ] = rDst;
+//		[ ar5++ ] = rSrc;
+//	nul;
+//	ar7 -= 6;
+//end VEC_ARSH32_RRRRRR;
 
 //***************************************************************************/
 //*                     RC Module Inc., Moscow, Russia                      */

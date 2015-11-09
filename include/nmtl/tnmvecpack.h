@@ -152,7 +152,7 @@ public:
 		//m_container=new T[m_size+2*m_border];
 		//m_data=m_container+m_border;
 		//tmalloc(m_container,m_size+2*m_border);
-		nmppsMalloc_((T**)&m_container,m_size+2*m_border);
+		nmppsMalloc_64s((T**)&m_container,m_size+2*m_border);
 		nmintpack<T> first(m_container,m_border);
 		m_data=first.m_container;// ERROR here nmppsAddr_((T*)m_container,m_border);
 		reset();
@@ -166,7 +166,7 @@ public:
 		//m_container=new T[m_size+2*m_border];
 		//m_data=m_container+m_border;
 		//memcpy(m_data,vec.m_data,m_size*sizeof(T));
-		nmppsMalloc_(&m_container,m_size+2*m_border);
+		nmppsMalloc_64s(&m_container,m_size+2*m_border);
 		m_data=nmppsAddr_(m_container,m_border);
 		nmppsCopy_(vec.m_data,m_data,m_size);
 	};
@@ -176,7 +176,7 @@ public:
 	{
 		if (m_container)
 			//delete []m_container;
-			nmppsFree_(m_container);
+			nmppsFree(m_container);
 		m_container=0;
 	}
 

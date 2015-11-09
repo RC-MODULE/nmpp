@@ -26,7 +26,7 @@ data ".data_nmplv_L"
 end ".data_nmplv_L";
 
 data ".data_nmplv_G"
-	nRandomize:long=0l;
+	nRandomize:long=01L;
 	RandMul:long=1664525L;
 	RandAdd:long=1013904223L;
 end ".data_nmplv_G";
@@ -39,13 +39,13 @@ begin ".text_nmplv"
 ////////////////////////////////////////////////////////////////////////////
 
 //--------------------------------------------------------------------
-//! \fn void nmppsRand_64s(nm64s *pDstVec, int nSize, int nRandomize=1) 
+//! \fn void nmppsRandUniform_64s(nm64s *pDstVec, int nSize); //, int nRandomize=1) 
 //!
-//! \perfinclude _nmppsRand_64s.html
+//! \perfinclude _nmppsRandUniform_64s.html
 //--------------------------------------------------------------------
     
-global _nmppsRand_64s:label;
-<_nmppsRand_64s>
+global _nmppsRandUniform_64s:label;
+<_nmppsRandUniform_64s>
 .branch;
     
 	gr7 = false;
@@ -59,11 +59,10 @@ global _nmppsRand_64s:label;
 
     ar6 = [--ar5];			// Buffer
     gr7 = [--ar5];			// nSize
-	gr6 = [--ar5];			// Random
-	ar5 = nRandomize;
-	vr  = [RandAdd];
-	[ar5] = gr6	with gr6=false;
-	with gr7--;
+	//gr6 = [--ar5];			// Random
+	ar5 = nRandomize with gr6=false;
+	vr  = [RandAdd]  with gr7--;
+	//[ar5] = gr6	
 	if < delayed goto end_Random;
 		//WTW_REG(gr6);
 		wtw;

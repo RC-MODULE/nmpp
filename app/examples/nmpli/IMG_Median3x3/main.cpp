@@ -37,7 +37,7 @@ int main()
 	if (malloc32error) 
 		return -1;
 	
-	nmppsRand_(imSrc.pWarp,imSrc.nWarpSize);
+	nmppsRandUniform_(imSrc.pWarp,imSrc.nWarpSize);
 	nmppsRshC_(imSrc.pWarp,1,imSrc.pWarp,imSrc.nWarpSize);
 
 	

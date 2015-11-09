@@ -40,9 +40,9 @@
 		\~
     \note 
 		\ru Память, распределенная с помощью функций nmppsMalloc_ должна
-              освобождаться с помощью функции nmppsFree_(). 
+              освобождаться с помощью функции nmppsFree(). 
         \en Memory allocated with function nmppsMalloc_ should be 
-              freed with function nmppsFree_()
+              freed with function nmppsFree()
 		\~
     */
     //! \{
@@ -67,7 +67,7 @@ __INLINE__ void nmppsMalloc_64u(nm64u** pptr, int nSize, int hint) { nmppsMalloc
 //*****************************************************************************
 
     /**
-    \defgroup nmppsFree_ nmppsFree_
+    \defgroup nmppsFree nmppsFree
     \ingroup vSupport
     \brief
         \ru Освобождение памяти для векторов. 

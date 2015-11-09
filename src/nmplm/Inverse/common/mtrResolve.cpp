@@ -25,7 +25,7 @@
 
 
 
-#include "nmplv.h"
+#include "nmpp.h"
 
 void MTR_fpResolve_Gauss(
 	 double*	pSrcMtrA,

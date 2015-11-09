@@ -248,9 +248,9 @@ void IMG_ResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDs
 //	nm8s*  pSrc8s;
 //	nm16s* pHResample16s;
 //	nm16s* pVResample16s;
-//	nmppsMalloc_(&pSrc8s,nSrcSize+100);
-//	nmppsMalloc_(&pHResample16s,nSrcSize*5/4+nSrcWidth*100);
-//	nmppsMalloc_(&pVResample16s,nSrcSize*5*5/4/4+nSrcWidth*100);
+//	nmppsMalloc_64s(&pSrc8s,nSrcSize+100);
+//	nmppsMalloc_64s(&pHResample16s,nSrcSize*5/4+nSrcWidth*100);
+//	nmppsMalloc_64s(&pVResample16s,nSrcSize*5*5/4/4+nSrcWidth*100);
 //
 //	nmppsSubC_8s((nm8s*)pSrcImg,char(128),(nm8s*)pSrc8s,nSrcSize);
 //	SIG_Resample5div4_Arsh0((nm8s*)pSrc8s,nSrcSize,pHResample16s+nSrcWidth*50);
@@ -258,8 +258,8 @@ void IMG_ResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDs
 //	IMG_VResample5div4_Arsh0(pHResample16s+nSrcWidth*50,nSrcWidth*5/4,nSrcHeight,pVResample16s+nSrcWidth*50);
 //	nmppsClipPowCArshCnv_AddC_(pVResample16s+nSrcWidth*50, 6+7,6,128,(nm8s*)pDstImg, nSrcSize*5*5/4/4);
 //	
-//	nmppsFree_(pVResample16s);
-//	nmppsFree_(pHResample16s);
-//	nmppsFree_(pSrc8s);
+//	nmppsFree(pVResample16s);
+//	nmppsFree(pHResample16s);
+//	nmppsFree(pSrc8s);
 //	
 //}

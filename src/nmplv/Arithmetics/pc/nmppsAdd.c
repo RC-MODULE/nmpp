@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 
 
-#include "nmplv.h"
+#include "nmpp.h"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -106,7 +106,7 @@ void nmppsSum4_16s(
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiple Summation of several arrays with accumulation of result
-void nmppsSumN_8s(
+void nmppsSumN_8s16s(
 		nm8s**			Vectors,		// array of pointers to buffers	:nm8s*  Any  [NumberOfBuffer]
 		nm16s*			pDstVec,		// result buffer				:long Local  [VecSize/4]
 		int				nSize,			// buffer size in 8-bit elements:nSize    =[256,512,..]
@@ -132,9 +132,9 @@ void nmppsSumN_16s(
 		)								// Buffer - char packed array	:long Global [VecSize/8]
 {
 	int i;
-	nmppsAdd(Vectors[0],Vectors[1],pDstVec,nSize);
+	nmppsAdd_16s(Vectors[0],Vectors[1],pDstVec,nSize);
 	for (i=2;i<VecNumber;i++)
-		nmppsAdd(Vectors[i],pDstVec,pDstVec,nSize); // with IPP use
+		nmppsAdd_16s(Vectors[i],pDstVec,pDstVec,nSize); // with IPP use
 }
 
 

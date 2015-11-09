@@ -32,9 +32,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsSub_64s.html
 
 global _nmppsSub_64s:label;
-global _nmppsSub64s:label;
 <_nmppsSub_64s>
-<_nmppsSub64s>
 .branch;
 	ar5 = sp - 2 with gr7=false;
 	nb1 = gr7;			

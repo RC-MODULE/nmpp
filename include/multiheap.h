@@ -5,7 +5,7 @@ typedef unsigned size_t32;
 
 
 
-#include "nmplv.h"
+#include "nmpp.h"
 
 
 #define GUARD_BITS 0x600DB1D5
@@ -761,7 +761,7 @@ public:
 		if (FillMode==BOX_IMG_FILL_NONE)
 			return;
 		if (FillMode==BOX_IMG_FILL_RAND){
-			nmppsRand_(pBox,sizeBox);
+			nmppsRandUniform_(pBox,sizeBox);
 			return;
 		}
 		nmppsSet_(pBox,FillMode,sizeBox);

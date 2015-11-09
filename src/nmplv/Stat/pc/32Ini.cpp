@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 
 //#include "vcrc.h"
-#include "nmplv.h"
+#include "nmpp.h"
 const unsigned int CRC32POLY = 0xEDB88320;
 
 void InitCRC32Table( nm32u* pT )

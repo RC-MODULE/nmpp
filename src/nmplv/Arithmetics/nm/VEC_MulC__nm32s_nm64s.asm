@@ -27,14 +27,12 @@ end ".data_nmplv_G";
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsMulC (nm32s *pSrcVec, int64b nVal, nm64s *pDstVec, int nSize) 
+//! \fn void nmppsMulC_32s64s (nm32s *pSrcVec, int64b nVal, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude _nmppsMulC_32s.html
+//! \perfinclude _nmppsMulC_32s64s.html
 
-global _nmppsMulC_32s:label;
-global _nmppsMulC32s:label;
-<_nmppsMulC_32s>
-<_nmppsMulC32s>
+global _nmppsMulC_32s64s:label;
+<_nmppsMulC_32s64s>
 .branch;
 
 

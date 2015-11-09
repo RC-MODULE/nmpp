@@ -1,4 +1,4 @@
-#include "nmplv.h"
+#include "nmpp.h"
 void IMG_DeinterlaceBlend(nm8u* pSrcEven, nm8u* pSrcOdd, int nSrcWidth, int nSrcHeight, nm8u* pDst)
 {
 	int i, j, IndDst; // i - string index, j - column index

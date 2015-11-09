@@ -33,9 +33,9 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsAdd_64s.html
 
 
-global _nmppsAdd64s:label;
+global _nmppsAdd_64s:label;
 
-<_nmppsAdd64s>
+<_nmppsAdd_64s>
 .branch;
 	ar5 = sp - 2;
 	

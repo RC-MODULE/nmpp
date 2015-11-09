@@ -1,4 +1,4 @@
-#include "nmplv.h"
+#include "nmpp.h"
 #define IMG_AT_BUFFER 1
 #define WARP_AT_BUFFER 2
 template<class T> class C_WarpImg

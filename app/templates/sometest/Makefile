@@ -63,7 +63,7 @@ make_$(1)/Makefile: make_$(1)
 	
 
 make_$(1): 
-	mkdir make_$(1)
+	-mkdir make_$(1)
 
 endef	
 

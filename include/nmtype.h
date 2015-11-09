@@ -1324,13 +1324,13 @@ typedef struct s_nm64sc
 //__INLINE__ int NM_CAPACITY(nm32u*) {return 2;}
 //__INLINE__ int NM_CAPACITY(nm64u*) {return 1;}
 //*/
-//#define CAPACITY_nm64s 1
-//#define CAPACITY_nm32s 2
-//#define CAPACITY_nm16s 4
-//#define CAPACITY_nm8s 8
-//#define CAPACITY_nm4s 16
-//#define CAPACITY_nm2s 32
-//#define CAPACITY_nm1 64
+#define CAPACITY_nm64s 1
+#define CAPACITY_nm32s 2
+#define CAPACITY_nm16s 4
+#define CAPACITY_nm8s 8
+#define CAPACITY_nm4s 16
+#define CAPACITY_nm2s 32
+#define CAPACITY_nm1 64
 //
 //
 #ifdef __cplusplus

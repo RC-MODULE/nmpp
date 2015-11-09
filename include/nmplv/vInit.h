@@ -91,7 +91,7 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize)	{nmppsSet_6
 //*****************************************************************************
 
     /**
-    \defgroup nmppsRand nmppsRand
+    \defgroup nmppsRandUniform nmppsRandUniform
     \ingroup vInit
     \brief
         \ru Инициализация массива случайными числами. 
@@ -133,17 +133,17 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize)	{nmppsSet_6
 	/en Random initialization of 32-bit buffer
 	/~
 */
-//void nmppsRand_32u(nm32u* pDstVec, int nSize, unsigned nRandomize );
-void nmppsRand_64s(nm64s* pDstVec, int nSize, int nRandomize );
-__INLINE__ void nmppsRand_8s (nm8s* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>3, nRandomize);}
-__INLINE__ void nmppsRand_16s(nm16s* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>2, nRandomize);}
-__INLINE__ void nmppsRand_32s(nm32s* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>1, nRandomize);}
-__INLINE__ void nmppsRand_8u (nm8u* pDstVec,  int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>3, nRandomize);}
-__INLINE__ void nmppsRand_16u(nm16u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>2, nRandomize);}
-__INLINE__ void nmppsRand_32u(nm32u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize>>1, nRandomize);}
-__INLINE__ void nmppsRand_64u(nm64u* pDstVec, int nSize, unsigned nRandomize ) {nmppsRand_64s((nm64s*)pDstVec,  nSize   , nRandomize);}
+//void nmppsRandUniform_32u(nm32u* pDstVec, int nSize, unsigned nRandomize );
+void nmppsRandUniform_64s(nm64s* pDstVec, int nSize);
+__INLINE__ void nmppsRandUniform_8s (nm8s* pDstVec,  int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize>>3);}
+__INLINE__ void nmppsRandUniform_16s(nm16s* pDstVec, int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize>>2);}
+__INLINE__ void nmppsRandUniform_32s(nm32s* pDstVec, int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize>>1);}
+__INLINE__ void nmppsRandUniform_8u (nm8u* pDstVec,  int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize>>3);}
+__INLINE__ void nmppsRandUniform_16u(nm16u* pDstVec, int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize>>2);}
+__INLINE__ void nmppsRandUniform_32u(nm32u* pDstVec, int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize>>1);}
+__INLINE__ void nmppsRandUniform_64u(nm64u* pDstVec, int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize   );}
 
-//__INLINE__ void nmppsRand_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRand_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
+//__INLINE__ void nmppsRandUniform_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRandUniform_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
 
 /**
 	/ru  Инициализация массива 64-разрядными случайными числами. 
@@ -159,7 +159,7 @@ __INLINE__ void nmppsRand_64u(nm64u* pDstVec, int nSize, unsigned nRandomize ) {
 //*****************************************************************************
 
     /**
-    \defgroup nmppsRand_ nmppsRand_
+    \defgroup nmppsRandUniform_ nmppsRandUniform_
     \ingroup vInit
     \brief 
         \ru Генерация случайного числа с равномерным раcпределением.
@@ -210,9 +210,9 @@ __INLINE__ void nmppsRand_64u(nm64u* pDstVec, int nSize, unsigned nRandomize ) {
     \endxmlonly
     */
     //! \{
-int nmppsRand2_32s(int nMin, int nMax, int nDivisible);
-int nmppsRand3_32s(int nMin, int nMax);
-int nmppsRand();
+int nmppsRandUniform2_32s(int nMin, int nMax, int nDivisible);
+int nmppsRandUniform3_32s(int nMin, int nMax);
+int nmppsRandUniform();
 
     //! \}
 

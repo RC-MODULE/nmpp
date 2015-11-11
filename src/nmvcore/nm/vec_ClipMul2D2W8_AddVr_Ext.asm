@@ -24,7 +24,7 @@ begin ".text_nmvcore"
 //! \brief 
 //! 
 //! Взвешенное умножение двух массивов с накоплением и активацей
-//! Ядро функции nmppsClipPowC_Arsh_Cnv_AddС_Ext_().
+//! Ядро функции nmppsClipPowC_RShift_Convert_AddС_Ext_().
 //! Действие функции эквивалентно следующим псевдоинструкциям:
 //! \code
 //!		rep 8 wfifo=[ar4++],ftw,wtw;

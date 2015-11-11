@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: BoolCnv8to1.as $
+//  $Workfile:: BoolConvert8to1.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   BoolCnv8to1.asm
+//! \file   BoolConvert8to1.asm
 //! \author Сергей Ландышев
 //! \brief  Функции преобразования елементов вектора.
 //!
@@ -46,7 +46,7 @@
     //  
 
 data ".data_nmplv_L"
-global	_w_BoolCnv_L:	long[64] = (
+global	_w_BoolConvert_L:	long[64] = (
 		0000000000000001hl, 0000000000000002hl,
 		0000000000000004hl, 0000000000000008hl,
 		0000000000000010hl, 0000000000000020hl,
@@ -79,7 +79,7 @@ global	_w_BoolCnv_L:	long[64] = (
 		0400000000000000hl, 0800000000000000hl,
 		1000000000000000hl, 2000000000000000hl,
 		4000000000000000hl, 8000000000000000hl);
-global	_buf_BoolCnv_L:	long[64];
+global	_buf_BoolConvert_L:	long[64];
 global	_mask_table: word[32] = (
 		0ffffffffh, 000000001h, 000000003h, 000000007h,
 		00000000fh, 00000001fh, 00000003fh, 00000007fh,
@@ -91,7 +91,7 @@ global	_mask_table: word[32] = (
 		00fffffffh, 01fffffffh, 03fffffffh, 07fffffffh);
 end ".data_nmplv_L";
 data ".data_nmplv_G"
-global	_w_BoolCnv_G:	long[64] = (
+global	_w_BoolConvert_G:	long[64] = (
 		0000000000000001hl, 0000000000000002hl,
 		0000000000000004hl, 0000000000000008hl,
 		0000000000000010hl, 0000000000000020hl,
@@ -124,7 +124,7 @@ global	_w_BoolCnv_G:	long[64] = (
 		0400000000000000hl, 0800000000000000hl,
 		1000000000000000hl, 2000000000000000hl,
 		4000000000000000hl, 8000000000000000hl);
-global	_buf_BoolCnv_G:	long[64];
+global	_buf_BoolConvert_G:	long[64];
 end ".data_nmplv_G";
 //////////////////////////////////////////////////////////////////////
 import from macros.mlb;
@@ -161,23 +161,23 @@ global _nmppsCmpEq0_8u:label;
 	gr5 = ar6 with gr1 = gr4 << 21;		
 	vr = ar2, gr2;
 	sb = 02020202h with gr1 >>= 21;	//8 rows.
-	if =0 delayed goto lab_BoolCnv8to1_0 with gr4 >>= 11;
-		ar5 = _w_BoolCnv_L with gr5;
+	if =0 delayed goto lab_BoolConvert8to1_0 with gr4 >>= 11;
+		ar5 = _w_BoolConvert_L with gr5;
 	gr4++ noflags;
-<lab_BoolCnv8to1_0>
-	if > delayed goto lab_BoolCnv8to1_1 with gr5 = true;
-		ar1 = _buf_BoolCnv_L;
-	ar5 = _w_BoolCnv_G;
-	ar1 = _buf_BoolCnv_G;
-<lab_BoolCnv8to1_1>
+<lab_BoolConvert8to1_0>
+	if > delayed goto lab_BoolConvert8to1_1 with gr5 = true;
+		ar1 = _buf_BoolConvert_L;
+	ar5 = _w_BoolConvert_G;
+	ar1 = _buf_BoolConvert_G;
+<lab_BoolConvert8to1_1>
 	nb1 = gr5;						//64 cols.
 	ar4 = ar5;
 	rep 32 wfifo = [ar4++], ftw;
 	f1cr = 0fefefefeh;
 	gr4--;
-	if =0 delayed goto lab_BoolCnv8to1_3 with gr4--;
+	if =0 delayed goto lab_BoolConvert8to1_3 with gr4--;
 		WTW_REG(gr5);
-<lab_BoolCnv8to1_2>
+<lab_BoolConvert8to1_2>
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, vr;
 	WTW_REG(gr5);
 	ar0-=510;	//return to next vector.
@@ -200,9 +200,9 @@ global _nmppsCmpEq0_8u:label;
 	ar0-=14;
 	rep 32 wfifo = [ar4++], ftw;
 	rep 32 [ar6++] = afifo;
-	if > delayed goto lab_BoolCnv8to1_2 with gr4--;
+	if > delayed goto lab_BoolConvert8to1_2 with gr4--;
 		WTW_REG(gr5);
-<lab_BoolCnv8to1_3>
+<lab_BoolConvert8to1_3>
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, vr;
 	WTW_REG(gr5);
 	ar0-=510;
@@ -221,32 +221,32 @@ global _nmppsCmpEq0_8u:label;
 	ar0-=510;	//return to next vector.
 .endrepeat;
 	ar4 = ar1 with gr1;
-	if =0 delayed goto lab_BoolCnv8to1_5 with gr5 = gr1 << 27;
+	if =0 delayed goto lab_BoolConvert8to1_5 with gr5 = gr1 << 27;
 		gr1 >>= 5;
 		gr5;
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
 	rep 32 [ar4++] = afifo;
-<lab_BoolCnv8to1_4>
-	if <>0 delayed goto lab_BoolCnv8to1_41 with gr1--;
+<lab_BoolConvert8to1_4>
+	if <>0 delayed goto lab_BoolConvert8to1_41 with gr1--;
 		ar5 = _mask_table;
 	gr1--;
-<lab_BoolCnv8to1_41>
-	if < goto lab_BoolCnv8to1_42;
-<lab_BoolCnv8to1_411>
-	if > delayed goto lab_BoolCnv8to1_411 with gr1--;
+<lab_BoolConvert8to1_41>
+	if < goto lab_BoolConvert8to1_42;
+<lab_BoolConvert8to1_411>
+	if > delayed goto lab_BoolConvert8to1_411 with gr1--;
 		gr4 = [ar1++];
 		[ar6++] = gr4;
-<lab_BoolCnv8to1_42>
+<lab_BoolConvert8to1_42>
 	gr4 = [ar1++] with gr5 >>= 27;
 	gr5 = [ar5+=gr5];
 	gr4 = gr4 and gr5;
-	delayed goto lab_BoolCnv8to1_6 with gr4 and gr2;
+	delayed goto lab_BoolConvert8to1_6 with gr4 and gr2;
 		[ar6++] = gr4;
 		nul;
-<lab_BoolCnv8to1_5>
+<lab_BoolConvert8to1_5>
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
 	rep 32 [ar6++] = afifo;
-<lab_BoolCnv8to1_6>
+<lab_BoolConvert8to1_6>
 	pop ar6, gr6;
 	pop ar5,gr5;
 	pop ar4, gr4;

@@ -309,8 +309,8 @@ void nmppsSub_8u16s(
 {
 	nm16s* pTmp1=(nm16s*)malloc(2*nSize);
 	nm16s* pTmp2=(nm16s*)malloc(2*nSize);
-	nmppsCnv_8u16u(pSrcVec1,(nm16u*)pTmp1,nSize);
-	nmppsCnv_8u16u(pSrcVec2,(nm16u*)pTmp2,nSize);
+	nmppsConvert_8u16u(pSrcVec1,(nm16u*)pTmp1,nSize);
+	nmppsConvert_8u16u(pSrcVec2,(nm16u*)pTmp2,nSize);
 	nmppsSub_16s(pTmp1,pTmp2,pDstVec,nSize);
 	free(pTmp1);
 	free(pTmp2);

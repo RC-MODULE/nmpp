@@ -147,11 +147,11 @@ struct int8x8{
 #ifdef __NM__	
 	unsigned long items;
 #else 
-	char item[8];
+	signed char item[8];
 #endif	
 };
 
-typedef char nm8s;
+typedef signed char nm8s;
 //typedef struct s_nm8s{
 //#ifdef __NM__	
 //	unsigned long vec;
@@ -174,7 +174,7 @@ typedef char nm8s;
 		\~
 	\~	\f$[-2^6,\ldots,+2^6-1]=[-64,\ldots,+63]\f$
 	*/
-typedef char nm8s7b;
+typedef signed char nm8s7b;
 struct int7in8x8{
 #ifdef __NM__	
 	unsigned long items;
@@ -199,11 +199,11 @@ struct int16x4{
 #ifdef __NM__	
 	unsigned long items;
 #else 
-	short item[4];
+	signed short item[4];
 #endif	
 };
 
-typedef short nm16s;
+typedef signed short nm16s;
 //typedef struct s_nm16s {
 //#ifdef __NM__	
 //	unsigned long vec;
@@ -226,12 +226,12 @@ typedef short nm16s;
 		\~
 	\~ \f$[-2^{14},\ldots,+2^{14}-1]\f$
 	*/
-typedef short nm16s15b;
+typedef signed short nm16s15b;
 struct int15in16x4{
 #ifdef __NM__	
 	unsigned long items;
 #else 
-	short item[4];
+	signed short item[4];
 #endif	
 };
 //-----------------------------------------------------------------------------
@@ -427,7 +427,7 @@ typedef struct s_nm16u {
 #ifdef __NM__	
 	unsigned long vec;
 #else 
-	short num[4];
+	unsigned short num[4];
 #endif	
 } nm16u_t;
 typedef unsigned short  nm16u;
@@ -469,7 +469,7 @@ struct uint32x2{
 #ifdef __NM__	
 	unsigned long items;
 #else 
-	unsigned item[2];
+	unsigned int item[2];
 #endif	
 };
 //-----------------------------------------------------------------------------
@@ -1235,11 +1235,12 @@ typedef v16nm4u v16nm4b3u;
 	\ru Диапазон значений [-128,\ldots,127]. 
 	\en Number range is [-128,\ldots,127].
 	*/
+	
 struct nm16sc
 {
 
-	short r;
-	short c;
+	signed short r;
+	signed short c;
 	
 	//nm16sc() : r(0), c(0) {}
 	//nm16sc(nm16s b) : r(b), c(0) {}

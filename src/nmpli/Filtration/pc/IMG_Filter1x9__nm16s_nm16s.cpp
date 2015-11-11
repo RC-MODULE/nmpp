@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   Cnv16_WxH.cpp
+//! \file   Convert16_WxH.cpp
 //! \author Дмитрий Рыжов
 //! \brief  Функции векторного ядра.
 //! 

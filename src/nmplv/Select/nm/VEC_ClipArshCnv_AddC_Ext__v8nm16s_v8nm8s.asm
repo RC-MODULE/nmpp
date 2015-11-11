@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: nmppsClip_Arsh_Cnv_AddC_Ext_16s8s_ $
+//  $Workfile:: nmppsClip_RShift_Convert_AddC_Ext_16s8s_ $
 //
 //  Vector-processing library
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file  nmppsClipArshCnv_AddC_Ext_.asm
+//! \file  nmppsClipRShiftConvert_AddC_Ext_.asm
 //! \author Sergey Landyshev
 //! \brief  \ru Функции преобразования елементов вектора.
 //!			\en Element conversion functions
@@ -69,12 +69,12 @@ pnShift: word;
 pnC: word;
 Params: long[21];
 //------------------------------------------------------------------------
-//! \fn void nmppsClipArshCnv_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v8nm32s* pnShift, v8nm8s* pnAdd,  v8nm8s* pDstVec, int nSize);
+//! \fn void nmppsClipRShiftConvert_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v8nm32s* pnShift, v8nm8s* pnAdd,  v8nm8s* pDstVec, int nSize);
 //! \
-//! \perfinclude _nmppsClipArshCnv_AddC_Ext__F7v8nm16sP7v8nm32sP7v8nm32sP6v8nm8sP6v8nm8sPi_.html
+//! \perfinclude _nmppsClipRShiftConvert_AddC_Ext__F7v8nm16sP7v8nm32sP7v8nm32sP6v8nm8sP6v8nm8sPi_.html
 //------------------------------------------------------------------------
-global _void._.8.8nmppsClipArshCnv_AddC_Ext_.1class._v8nm16s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm8s._.0.9._int.2 :label;
-<_void._.8.8nmppsClipArshCnv_AddC_Ext_.1class._v8nm16s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm8s._.0.9._int.2>
+global _void._.8.8nmppsClipRShiftConvert_AddC_Ext_.1class._v8nm16s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm8s._.0.9._int.2 :label;
+<_void._.8.8nmppsClipRShiftConvert_AddC_Ext_.1class._v8nm16s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm8s._.0.9._int.2>
 .branch;
     ar5 = ar7 - 2;
     push ar0, gr0;
@@ -92,14 +92,14 @@ global _void._.8.8nmppsClipArshCnv_AddC_Ext_.1class._v8nm16s._.0.9._class._v8nm3
     ar0 = Params;
     push ar0, gr0;
     push ar1, gr1;
-    call _nmppsClipArshCnv_AddC_Ext_Set_32s;
+    call _nmppsClipRShiftConvert_AddC_Ext_Set_32s;
     pop ar1, gr1;
     pop ar0, gr0;
     
     ar3 = Params;
     push ar2, gr2;
     push ar3, gr3;
-    call _nmppsClipArshCnv_AddC_Ext_Exe_16s;
+    call _nmppsClipRShiftConvert_AddC_Ext_Exe_16s;
     pop ar3, gr3;
     pop ar2, gr2;
     
@@ -110,10 +110,10 @@ global _void._.8.8nmppsClipArshCnv_AddC_Ext_.1class._v8nm16s._.0.9._class._v8nm3
  return;
  .wait;
 //------------------------------------------------------------------------
-// void nmppsClipArshCnv_AddC_Ext_Set_(int *pnClip, int *pnShift, char *pchC, S_Clip_Arsh_Cnv_AddC_Ext *pParams);
+// void nmppsClipRShiftConvert_AddC_Ext_Set_(int *pnClip, int *pnShift, char *pchC, S_Clip_RShift_Convert_AddC_Ext *pParams);
 //
 // 
-<_nmppsClipArshCnv_AddC_Ext_Set_32s>
+<_nmppsClipRShiftConvert_AddC_Ext_Set_32s>
 .branch;
     ar5 = ar7 - 2;
     push ar0, gr0;
@@ -224,9 +224,9 @@ global _void._.8.8nmppsClipArshCnv_AddC_Ext_.1class._v8nm16s._.0.9._class._v8nm3
 return;
 .wait;
 //------------------------------------------------------------------------
-// void nmppsClipArshCnv_AddC_Ext_Aux_(short *pshSrc, S_Clip_Arsh_Cnv_AddC_Ext *pParams, char *pchDst, int nSrcSize);
+// void nmppsClipRShiftConvert_AddC_Ext_Aux_(short *pshSrc, S_Clip_RShift_Convert_AddC_Ext *pParams, char *pchDst, int nSrcSize);
 //
-<_nmppsClipArshCnv_AddC_Ext_Exe_16s>
+<_nmppsClipRShiftConvert_AddC_Ext_Exe_16s>
 .branch;
     ar5 = ar7 - 2;
     push ar0, gr0;

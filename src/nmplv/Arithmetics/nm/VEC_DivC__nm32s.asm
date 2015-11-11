@@ -89,12 +89,12 @@ global _nmppsDivC_32s:label;
 
 
 
-	extern _nmppsArshC_32s:label;
+	extern _nmppsRShiftC_32s:label;
 	ar5 = ar7;
 	ar7 += 4;
 	[ ar5++ ] = gr5;			// int nSize
 	[ ar5++ ] = gr1;			// nm32s* pDstVec
-	delayed call _nmppsArshC_32s;
+	delayed call _nmppsRShiftC_32s;
 		[ ar5++ ] = gr7;		// int nShift
 		[ ar5++ ] = ar1;		// nm32s* pSrcVec
 	nul;

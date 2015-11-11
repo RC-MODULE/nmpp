@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: CnvRGB24_RGB30.ASM $
+//  $Workfile:: ConvertRGB24_RGB30.ASM $
 //
 //  Библиотека обработки изображений
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   CnvRGB24_RGB30.asm
+//! \file   ConvertRGB24_RGB30.asm
 //! \author Сергей Ландышев.
 //! \brief  Функция конвертирует элементы RGB из 8-ми разрядного представления
 //!         в 10-ти разрядное. 
@@ -19,8 +19,8 @@
 //!
 //------------------------------------------------------------------------
 extern vec_vsum_data_0: label;
-global _IMG_Cnv__F12RGB32_nm8uP13RGB32_nm10uPi: label;
-global _void._.8.8IMG_Cnv.1class._RGB32_nm8u._.0.9._class._RGB32_nm10u._.0.9._int.2 :label;
+global _IMG_Convert__F12RGB32_nm8uP13RGB32_nm10uPi: label;
+global _void._.8.8IMG_Convert.1class._RGB32_nm8u._.0.9._class._RGB32_nm10u._.0.9._int.2 :label;
 
     //--------------------------------------------------------------------
 begin ".text_nmpli"
@@ -35,12 +35,12 @@ Weights:	long[8] = (
 		00000000000000000hl);
 
     //--------------------------------------------------------------------
-    //! \fn  void IMG_Cnv(RGB32_nm8u* pSrcImg, RGB32_nm10u* pDstImg, int nSize); 
+    //! \fn  void IMG_Convert(RGB32_nm8u* pSrcImg, RGB32_nm10u* pDstImg, int nSize); 
     //!
-	//! \perfinclude _IMG_Cnv__F10RGB32_nm8uP11RGB32_nm10uPi.html
+	//! \perfinclude _IMG_Convert__F10RGB32_nm8uP11RGB32_nm10uPi.html
     //--------------------------------------------------------------------
-<_IMG_Cnv__F12RGB32_nm8uP13RGB32_nm10uPi>
-<_void._.8.8IMG_Cnv.1class._RGB32_nm8u._.0.9._class._RGB32_nm10u._.0.9._int.2>
+<_IMG_Convert__F12RGB32_nm8uP13RGB32_nm10uPi>
+<_void._.8.8IMG_Convert.1class._RGB32_nm8u._.0.9._class._RGB32_nm10u._.0.9._int.2>
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;
     push ar5, gr5 with gr0++;

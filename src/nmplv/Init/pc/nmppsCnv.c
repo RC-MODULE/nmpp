@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: pcCnv.cp $
+//  $Workfile:: pcConvert.cp $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   pcCnv.cpp
+//! \file   pcConvert.cpp
 //! \author Сергей Мушкаев
 //! \brief  Функции для преобразования запакованных данных.
 //!
@@ -22,7 +22,7 @@
 //*****************************************************************************
 //  Converts each byte of the pSrcVec buffer to the 2 bytes by sign propagation
 //  and stores the result in the pDstVec buffer
-void nmppsCnv_8s16s(
+void nmppsConvert_8s16s(
 			nm8s*			pSrcVec,	// input buffer		:long Local [Size/8]
 			nm16s*			Dst16bit,	// output buffer	:long Global[Size/4]
 			int				nSize		// size of input buffer in 8 bit elements. nSize=[256,512,...]
@@ -36,7 +36,7 @@ void nmppsCnv_8s16s(
 
 //  Converts each byte of the pSrcVec buffer to the 2 bytes by adding
 //  leading zero byte and stores the result in the Dst16bit buffer.
-void nmppsCnv_8u16u(
+void nmppsConvert_8u16u(
 			nm8u*	pSrcVec,	// input buffer		:long Local [Size/8]
 			nm16u*	Dst16bit,	// output buffer	:long Global[Size/4]
 			int				nSize		// size of input buffer in 8 bit elements. nSize=[256,512,...]
@@ -51,7 +51,7 @@ void nmppsCnv_8u16u(
 //******************************************************************************
 //  Converts each byte of the pSrcVec buffer to the 4 bytes by sign propagation
 //  and stores the result in the pDstVec buffer
-void nmppsCnv_8s32s(
+void nmppsConvert_8s32s(
 			nm8s*			pSrcVec,	// input buffer		:long Local [Size/8]
 			nm32s*			pDstVec,	// output buffer	:long Global[Size/2]
 			int				nSize		// size of input buffer in 8 bit elements. nSize=[256,512,...]
@@ -64,7 +64,7 @@ void nmppsCnv_8s32s(
 //******************************************************************************
 //  Converts each byte of the pSrcVec buffer to the 8 bytes by sign propagation
 //  and stores the result in the pDstVec buffer
-void nmppsCnv_8s64s(
+void nmppsConvert_8s64s(
 			nm8s*			pSrcVec,	// input buffer		:long Local [Size/8]
 			nm64s*			pDstVec,	// output buffer	:long Global[Size/1]
 			int				nSize		// size of input buffer in 8 bit elements. nSize=[64,128,...]
@@ -77,7 +77,7 @@ void nmppsCnv_8s64s(
 
 //    Converts each byte of the pSrcVec buffer to the 4 bytes by adding
 //    3 leading zero bytes and stores the result in the pDstVec buffer.
-void nmppsCnv_8u32u(
+void nmppsConvert_8u32u(
 			nm8u*	pSrcVec,	// input buffer		:long Local [Size/8]
 			nm32u*	pDstVec,	// output buffer	:long Global[Size/2]
 			int				nSize		// size of input buffer in 8 bit elements. nSize=[256,512,...]
@@ -90,7 +90,7 @@ void nmppsCnv_8u32u(
 
 //    Converts each byte of the pSrcVec buffer to the 8 bytes by adding
 //    3 leading zero bytes and stores the result in the pDstVec buffer.
-void nmppsCnv_8u64u(
+void nmppsConvert_8u64u(
 			nm8u*	pSrcVec,	// input buffer		:long Local [Size/8]
 			nm64u*	pDstVec,	// output buffer	:long Global[Size/1]
 			int				nSize		// size of input buffer in 8 bit elements. nSize=[64,128,...]
@@ -105,7 +105,7 @@ void nmppsCnv_8u64u(
 //*******************************************************************************
 //	Converts each 16 bit word of the pSrcVec to the 4 bytes by sign propagation
 //	leading zero byte and stores the result in the pDstVec buffer.
-void nmppsCnv_16s32s(nm16s*			pSrcVec,	// input buffer		:long Local [Size/4]
+void nmppsConvert_16s32s(nm16s*			pSrcVec,	// input buffer		:long Local [Size/4]
 			nm32s*			pDstVec,	// output buffer	:long Global[Size/2]
 			int				nSize		// size of input buffer in 16 bit elements. nSize=[128,256,...]
 			)
@@ -118,7 +118,7 @@ void nmppsCnv_16s32s(nm16s*			pSrcVec,	// input buffer		:long Local [Size/4]
 //*******************************************************************************
 //	Converts each 16 bit word of the pSrcVec to the 8 bytes by sign propagation
 //	leading zero byte and stores the result in the pDstVec buffer.
-void nmppsCnv_16s64s(
+void nmppsConvert_16s64s(
 			nm16s*			pSrcVec,	// input buffer		:long Local [Size/4]
 			nm64s*			pDstVec,	// output buffer	:long Global[Size/1]
 			int				nSize		// size of input buffer in 16 bit elements. nSize=[64,128,...]
@@ -134,7 +134,7 @@ void nmppsCnv_16s64s(
 //*******************************************************************************
 //	Converts each 32 bit word of the pSrcVec to the 8 bytes by sign propagation
 //	leading zero byte and stores the result in the pDstVec buffer.
-void nmppsCnv_32s64s(nm32s*			pSrcVec,	// input buffer		:long Local [Size/2]
+void nmppsConvert_32s64s(nm32s*			pSrcVec,	// input buffer		:long Local [Size/2]
 			nm64s*			pDstVec,	// output buffer	:long Global[Size/1]
 			int				nSize		// size of input buffer in 16 bit elements. nSize=[64,128,...]
 			)
@@ -148,7 +148,7 @@ void nmppsCnv_32s64s(nm32s*			pSrcVec,	// input buffer		:long Local [Size/2]
 
 //	Converts each 16 bit word of the pSrcVec to the 4 bytes by adding
 //	leading zero byte and stores the result in the pDstVec buffer.
-void nmppsCnv_16u32u(
+void nmppsConvert_16u32u(
 			nm16u*	pSrcVec,	// input buffer		:long Local [Size/2]
 			nm32u*	pDstVec,	// output buffer	:long Global[Size/1]
 			int				nSize		// size of input buffer in 16 bit elements. nSize=[64,128,...]
@@ -162,7 +162,7 @@ void nmppsCnv_16u32u(
 
 //	Converts each 16 bit word of the pSrcVec to the 8 bytes by adding
 //	leading zero byte and stores the result in the pDstVec buffer.
-void nmppsCnv_16u64u(
+void nmppsConvert_16u64u(
 			nm16u*	pSrcVec,	// input buffer		:long Local [Size/4]
 			nm64u*	pDstVec,	// output buffer	:long Global[Size/1]
 			int				nSize		// size of input buffer in 16 bit elements. nSize=[64,128,...]
@@ -177,7 +177,7 @@ void nmppsCnv_16u64u(
 
 //	Converts each 32 bit word of the pSrcVec to the 8 bytes by adding
 //	leading zero byte and stores the result in the pDstVec buffer.
-void nmppsCnv_32u64u(nm32u*	pSrcVec,	// input buffer		:long Local [Size/4]
+void nmppsConvert_32u64u(nm32u*	pSrcVec,	// input buffer		:long Local [Size/4]
 			nm64u*	pDstVec,	// output buffer	:long Global[Size/2]
 			int				nSize		// size of input buffer in 16 bit elements. nSize=[128,256,...]
 			)
@@ -191,7 +191,7 @@ void nmppsCnv_32u64u(nm32u*	pSrcVec,	// input buffer		:long Local [Size/4]
 //******************************************************************************
 //	Converts each 4 bytes of the pSrcVec buffer to the 2 byte by removing
 //	2 leading bytes and stores the result in the Dst16bit buffer
-void nmppsCnv_32s16s(
+void nmppsConvert_32s16s(
 			nm32s*			pSrcVec,	// input buffer		:long Local [Size/2]
 			nm16s*			pDstVec,	// output buffer	:long Global[Size/4]
 			int				nSize		// size of input buffer in 32 bit elements. nSize=[128,256,..,]
@@ -205,7 +205,7 @@ void nmppsCnv_32s16s(
 //******************************************************************************
 //    Converts each 4 bytes of the pSrcVec buffer to the 1 byte by removing
 //    3 leading bytes and stores the result in the pDstVec buffer.
-void nmppsCnv_32s8s(
+void nmppsConvert_32s8s(
 			nm32s*			pSrcVec,	// input buffer		:long Local [Size/2]
 			nm8s*			pDstVec,	// output buffer	:long Global[Size/8]
 			int				nSize		// size of input buffer in 32 bit elements. nSize=[256,512,..]
@@ -220,7 +220,7 @@ void nmppsCnv_32s8s(
 //******************************************************************************
 //    Converts each 2 bytes of the pSrcVec buffer  to the 1 byte by removing
 //    leading byte and stores the result in the pDstVec buffer 
-void nmppsCnv_16s8s(
+void nmppsConvert_16s8s(
 			nm16s*			pSrcVec,	// input buffer		:long Local [Size/4]
 			nm8s*			pDstVec,	// output buffer	:long Global[Size/8]
 			int				nSize		// size of input buffer in 16 bit elements. nSize=[256,512,..]
@@ -235,7 +235,7 @@ void nmppsCnv_16s8s(
 //  Converts each bit of the pSrcVec buffer to the 2 bits by sign propagation
 //  and stores the result in the pDstVec buffer
 //	Example: 0b -> 00b, 1b -> 11b.
-void nmppsCnv_1s2s(
+void nmppsConvert_1s2s(
 			nm1*			pSrcVec,	// input buffer		:long Local [Size/64]
 			nm2s*			pDstVec,	// output buffer	:long Global[Size/32]
 			int				nSize	// size of input buffer in bits. 
@@ -261,7 +261,7 @@ void nmppsCnv_1s2s(
 //  Converts each bit of the pSrcVec buffer to the 2 bits by adding
 //  leading zero bit and stores the result in the pDstVec buffer.
 //	Example: 0b -> 00b, 1b -> 01b.
-void nmppsCnv_1u2u(
+void nmppsConvert_1u2u(
 			nm1*			pSrcVec,	// input buffer		:long Local [Size/64]
 			nm2u*			pDstVec,	// output buffer	:long Global[Size/32]
 			int				nSize	// size of input buffer in bits. 
@@ -290,7 +290,7 @@ void nmppsCnv_1u2u(
 //  Converts each bit pair of the pSrcVec buffer to the 4 bits by sign propagation
 //  and stores the result in the pDstVec buffer
 //	Example: 00b -> 0000b, 01b -> 0001b, 10b -> 1110b, 11b -> 1111b.
-void nmppsCnv_2s4s(nm2s* pSrcVec, nm4s* pDstVec, int nSize)
+void nmppsConvert_2s4s(nm2s* pSrcVec, nm4s* pDstVec, int nSize)
 {
 	int i, j;
 	nm64s*pi64Dst = (nm64s*)pDstVec;
@@ -313,7 +313,7 @@ void nmppsCnv_2s4s(nm2s* pSrcVec, nm4s* pDstVec, int nSize)
 //	Converts each bit pair of the pSrcVec buffer to the 4 bits by adding
 //	3 leading zero bits and stores the result in the pDstVec buffer.
 //	Example: 00b -> 0000b, 01b -> 0001b, 10b -> 0010b, 11b -> 0011b.
-void nmppsCnv_2u4u(nm2u* pSrcVec, nm4u* pDstVec, int nSize)
+void nmppsConvert_2u4u(nm2u* pSrcVec, nm4u* pDstVec, int nSize)
 {
 	int i, j;
 	nm64s*pi64Dst = (nm64s*)pDstVec;
@@ -333,7 +333,7 @@ void nmppsCnv_2u4u(nm2u* pSrcVec, nm4u* pDstVec, int nSize)
 	}
 }
 //******************************************************************************
-void nmppsCnv_32s4s(nm32s *pSrc, nm4s *pDst, int nSize)
+void nmppsConvert_32s4s(nm32s *pSrc, nm4s *pDst, int nSize)
 {
     int i;
     for (i=0; i<nSize; i++)
@@ -342,7 +342,7 @@ void nmppsCnv_32s4s(nm32s *pSrc, nm4s *pDst, int nSize)
     }
 }
 
-void nmppsCnv_16s4s(nm16s *pSrc, nm4s *pDst, int nSize)
+void nmppsConvert_16s4s(nm16s *pSrc, nm4s *pDst, int nSize)
 {
     int i;
     for (i=0; i<nSize; i++)
@@ -351,7 +351,7 @@ void nmppsCnv_16s4s(nm16s *pSrc, nm4s *pDst, int nSize)
     }
 }
 
-void nmppsCnv_8s4s(nm8s *pSrc, nm4s *pDst, int nSize)
+void nmppsConvert_8s4s(nm8s *pSrc, nm4s *pDst, int nSize)
 {
     int i;
     for (i=0; i<nSize; i++)
@@ -360,13 +360,13 @@ void nmppsCnv_8s4s(nm8s *pSrc, nm4s *pDst, int nSize)
     }
 }
 
-void nmppsCnv_64s32s(nm64s* pSrcVec, nm32s* pDstVec, int nSize)
+void nmppsConvert_64s32s(nm64s* pSrcVec, nm32s* pDstVec, int nSize)
 {
 	int i;
 	for (i=0;i<nSize;i++)
 		pDstVec[i] = (nm32s)pSrcVec[i];
 }
-void nmppsCnv_64s16s(nm64s* pSrcVec, nm16s* pDstVec, int nSize)
+void nmppsConvert_64s16s(nm64s* pSrcVec, nm16s* pDstVec, int nSize)
 {
 	int i;
 	for (i=0;i<nSize;i++)

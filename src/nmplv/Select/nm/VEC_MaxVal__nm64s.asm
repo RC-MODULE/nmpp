@@ -31,13 +31,13 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
-//! \fn void nmppsMaxVal_64s(nm64s63b *pSrcVec, int nSize, int64b &nMaxValue) 
+//! \fn void nmppsMax_64s(nm64s63b *pSrcVec, int nSize, int64b &nMaxValue) 
 //!
-//! \perfinclude _nmppsMaxVal_64s.html
+//! \perfinclude _nmppsMax_64s.html
 
-global _nmppsMaxVal__FPliRl_ :label;
-global _nmppsMaxVal_64s:label;
-<_nmppsMaxVal_64s>
+global _nmppsMax__FPliRl_ :label;
+global _nmppsMax_64s:label;
+<_nmppsMax_64s>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0;

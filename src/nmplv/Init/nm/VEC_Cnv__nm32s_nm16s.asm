@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: Cnv32to16.as $
+//  $Workfile:: Convert32to16.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   Cnv32to16.asm
+//! \file   Convert32to16.asm
 //! \author Сергей Мушкаев
 //! \brief  Функции преобразования елементов вектора.
 //!
@@ -42,12 +42,12 @@ end ".data_nmplv_G";
 
 begin ".text_nmplv"
 
-//! \fn void nmppsCnv_32s(nm32s* pSrcVec, nm16s* pDstVec, int nSize)
+//! \fn void nmppsConvert_32s(nm32s* pSrcVec, nm16s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv_32s.html
+//! \perfinclude _nmppsConvert_32s.html
 
-global _nmppsCnv_32s:label;
-<_nmppsCnv_32s>
+global _nmppsConvert_32s:label;
+<_nmppsConvert_32s>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

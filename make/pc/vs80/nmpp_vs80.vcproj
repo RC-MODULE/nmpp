@@ -125,6 +125,7 @@
  			<File RelativePath="..\..\..\src\nmpls\Correlation\pc\SIG_XCorr.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\pcFFT256.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\W256Tbl.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmppsFFT256Fwd.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\pc\pcFFT512.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\pc\W512tbl.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT1024\pc\pcFFT1024.cpp" > </File> 
@@ -176,7 +177,6 @@
  			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_Addr.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_GetVal.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_SetVal.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmplv\Support\common\malloc32.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Transform\common\VEC_Remap_nm8u.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Transform\pc\VEC_QSort.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Transform\pc\VEC_Remap.cpp" > </File> 
@@ -218,6 +218,7 @@
  			<File RelativePath="..\..\..\src\nmplv\Stat\pc\CRC32_Table.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Stat\pc\VEC_Crc.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_Malloc64s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Support\common\malloc32.c" > </File> 
  		</Filter> 
  		<Filter
 			Name="Header Files"

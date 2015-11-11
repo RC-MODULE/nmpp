@@ -23,13 +23,13 @@ begin ".text_nmplv"
 extern vec_CompareMin:label;
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsMinV_64s(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMax, int nSize);
+//! \fn void nmppsMinEvery_64s(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMax, int nSize);
 //!
-//! \perfinclude _nmppsMinV_64s.html
+//! \perfinclude _nmppsMinEvery_64s.html
 
-global _nmppsMinV__FPlPlPli_ :label;
-global _nmppsMinV_64s:label;
-<_nmppsMinV_64s>
+global _nmppsMinEvery__FPlPlPli_ :label;
+global _nmppsMinEvery_64s:label;
+<_nmppsMinEvery_64s>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0	with gr0=false;

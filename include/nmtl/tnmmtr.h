@@ -427,13 +427,13 @@ void fill(nmint<T> &nVal)
 
 #ifdef __NM__
 #else
-typedef  nmmtr<char>	nmmtr8s;
-typedef  nmmtr<short>	nmmtr16s;
+typedef  nmmtr<signed char>	nmmtr8s;
+typedef  nmmtr<signed short>	nmmtr16s;
 typedef  nmmtr<unsigned char>		nmmtr8u;
 typedef  nmmtr<unsigned short>		nmmtr16u;
 #endif
 
-typedef  nmmtr<int>		nmmtr32s;
+typedef  nmmtr<signed int>		nmmtr32s;
 typedef  nmmtr<long long>	nmmtr64s;	
 typedef  nmmtr<unsigned int>		nmmtr32u;
 typedef  nmmtr<unsigned long long>	nmmtr64u;	

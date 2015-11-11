@@ -960,7 +960,7 @@ void nmppsMulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* mulArg, int32x2* add
 
 
 /**
- *  \defgroup nmppsArshC_MulC_AddC nmppsArshC_MulC_AddC
+ *  \defgroup nmppsRShiftC_MulC_AddC nmppsRShiftC_MulC_AddC
  *  \ingroup vArithmetics
  *
  *  Sparse vector by constant multiplication with addition of constant. 
@@ -985,7 +985,7 @@ void nmppsMulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* mulArg, int32x2* add
  *  \details 
  */
 //! \{
-void nmppsArshC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg, int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst);
+void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg, int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst);
 //! \}
 	
 

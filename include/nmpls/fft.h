@@ -99,7 +99,7 @@
 // based on floating-point arithmetic, but output is less precise.
 // The mode of calulation accuracy may be set or switched by appropriate ***Set6bit() or ***Set7bit() function
 // NOTE: At least on time the accuracy setting function must be called before FFT routine executing.
-
+#include "malloc32.h"
 
 extern "C"
 {
@@ -252,6 +252,31 @@ void  FFT_Fwd256(
 			void*		GBuffer,	// Temp buffer   :long[256*2]
 			int			ShiftR=-1	// Shift normalization	by default it means ShiftR=14 at 7 bit precision and   ShiftR=12 at 6 bit precision
 			);
+#include "time.h"
+#include "malloc32.h"
+#include "fft.h"	
+
+extern "C" {
+struct NmppsFFTSpec {
+	
+	int shift[4];
+	int round[4];
+	void* fftTable[2];
+	void* buffer[4];
+	Free32Func free;
+	//NmppsAllocation allocOrder;
+};
+
+
+
+
+int  nmppsFFT256FwdInitAlloc(Malloc32Func allocate,  Free32Func free, struct NmppsFFTSpec* spec);
+void nmppsFFTFree(NmppsFFTSpec* spec );
+void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+void nmppsFFT256FwdOptimize(void* src, void* dst, NmppsAllocation* allocOrder);
+};
+
+	
    
 struct s_fft_fwd256_settings {
 	int8x8*	dataSinCos0;

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: BoolCnv32to1.as $
+//  $Workfile:: BoolConvert32to1.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   BoolCnv32to1.asm
+//! \file   BoolConvert32to1.asm
 //! \author Сергей Ландышев
 //! \brief  Функции преобразования елементов вектора. 
 //!
@@ -20,10 +20,10 @@
 
 //#include "vConvert.h"
 //////////////////////////////////////////////////////////////////////
-extern _w_BoolCnv_L:		long;
-extern _w_BoolCnv_G:		long;
-extern _buf_BoolCnv_L:		long;
-extern _buf_BoolCnv_G:		long;
+extern _w_BoolConvert_L:		long;
+extern _w_BoolConvert_G:		long;
+extern _buf_BoolConvert_L:		long;
+extern _buf_BoolConvert_G:		long;
 extern _mask_table:			word;
 
 import from macros.mlb;
@@ -53,23 +53,23 @@ global _nmppsCmpEq0_32u:label;
 	vr = ar2, gr2;
 	gr5 = ar6 with gr1 = gr4 << 21;
 	sb = 2 with gr1 >>= 21;			//2 rows.
-	if =0 delayed goto lab_BoolCnv32to1_0 with gr4 >>= 11;	//gr4 - counter.
-		ar5 = _w_BoolCnv_L with gr5;
+	if =0 delayed goto lab_BoolConvert32to1_0 with gr4 >>= 11;	//gr4 - counter.
+		ar5 = _w_BoolConvert_L with gr5;
 	gr4++ noflags;
-<lab_BoolCnv32to1_0>
-	if > delayed goto lab_BoolCnv32to1_1 with gr5 = true;
-		ar1 = _buf_BoolCnv_L;	
-	ar5 = _w_BoolCnv_G;
-	ar1 = _buf_BoolCnv_G;
-<lab_BoolCnv32to1_1>
+<lab_BoolConvert32to1_0>
+	if > delayed goto lab_BoolConvert32to1_1 with gr5 = true;
+		ar1 = _buf_BoolConvert_L;	
+	ar5 = _w_BoolConvert_G;
+	ar1 = _buf_BoolConvert_G;
+<lab_BoolConvert32to1_1>
 	nb1 = gr5;						//64 cols.
 	ar4 = ar5;
 	rep 32 wfifo = [ar4++], ftw;
 	f1cr = 0fffffffeh;
 	gr4--;
-	if =0 delayed goto lab_BoolCnv32to1_3 with gr4--;
+	if =0 delayed goto lab_BoolConvert32to1_3 with gr4--;
 		WTW_REG(gr5);
-<lab_BoolCnv32to1_2>
+<lab_BoolConvert32to1_2>
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, vr;
 	WTW_REG(gr5);
 	ar0-=2046;	//return to next vector.
@@ -92,9 +92,9 @@ global _nmppsCmpEq0_32u:label;
 	ar0-=62;
 	rep 32 wfifo = [ar4++], ftw;
 	rep 32 [ar6++] = afifo;
-	if > delayed goto lab_BoolCnv32to1_2 with gr4--;
+	if > delayed goto lab_BoolConvert32to1_2 with gr4--;
 		WTW_REG(gr5);
-<lab_BoolCnv32to1_3>
+<lab_BoolConvert32to1_3>
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, vr;
 	WTW_REG(gr5);
 	ar0-=2046;
@@ -113,32 +113,32 @@ global _nmppsCmpEq0_32u:label;
 	ar0-=2046;	//return to next vector.
 .endrepeat;
 	ar4 = ar1 with gr1;
-	if =0 delayed goto lab_BoolCnv32to1_5 with gr5 = gr1 << 27;
+	if =0 delayed goto lab_BoolConvert32to1_5 with gr5 = gr1 << 27;
 		gr1 >>= 5;
 		gr5;
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
 	rep 32 [ar4++] = afifo; //Save afifo in temporary buffer.
-<lab_BoolCnv32to1_4>
-	if <>0 delayed goto lab_BoolCnv32to1_41 with gr1--;
+<lab_BoolConvert32to1_4>
+	if <>0 delayed goto lab_BoolConvert32to1_41 with gr1--;
 		ar5 = _mask_table;
 	gr1--;
-<lab_BoolCnv32to1_41>
-	if < goto lab_BoolCnv32to1_42;
-<lab_BoolCnv32to1_411>
-	if > delayed goto lab_BoolCnv32to1_411 with gr1--;
+<lab_BoolConvert32to1_41>
+	if < goto lab_BoolConvert32to1_42;
+<lab_BoolConvert32to1_411>
+	if > delayed goto lab_BoolConvert32to1_411 with gr1--;
 		gr4 = [ar1++];
 		[ar6++] = gr4;
-<lab_BoolCnv32to1_42>
+<lab_BoolConvert32to1_42>
 	gr4 = [ar1++] with gr5 >>= 27;
 	gr5 = [ar5+=gr5];
 	gr4 = gr4 and gr5;
-	delayed goto lab_BoolCnv32to1_6 with gr4 and gr2;
+	delayed goto lab_BoolConvert32to1_6 with gr4 and gr2;
 		[ar6++] = gr4;
 		nul;
-<lab_BoolCnv32to1_5>
+<lab_BoolConvert32to1_5>
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
 	rep 32 [ar6++] = afifo;
-<lab_BoolCnv32to1_6>
+<lab_BoolConvert32to1_6>
 	pop ar6, gr6;
 	pop ar5,gr5;
 	pop ar4, gr4;
@@ -150,5 +150,5 @@ global _nmppsCmpEq0_32u:label;
 //////////////////////////////////////////////////////////////////////
 end ".text_nmplv";
 //********************************************************************/
-//		END OF FILE BoolCnv32to1.asm                                 */
+//		END OF FILE BoolConvert32to1.asm                                 */
 //********************************************************************/

@@ -29,8 +29,8 @@ void nmppsRemap_8u(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVec
 
 
 {
-	nmppsCnv_8u32u((nm8u*)pSrcVec,(nm32u*)pTmpBuf1,nSrcVecSize);
+	nmppsConvert_8u32u((nm8u*)pSrcVec,(nm32u*)pTmpBuf1,nSrcVecSize);
 	nmppsRemap_32u((nm32u*)pTmpBuf1,(nm32u*)pTmpBuf2,pRemapTable,nDstVecSize);
-	nmppsCnv_32s8s((nm32s*)pTmpBuf2,(nm8s*)pDstVec,nDstVecSize);
+	nmppsConvert_32s8s((nm32s*)pTmpBuf2,(nm8s*)pDstVec,nDstVecSize);
 }
 

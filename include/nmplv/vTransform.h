@@ -54,9 +54,9 @@
         <testperf> 
 			<init> 	
 				nmppsRandUniform_32u((nm32u*)L,1024);
-				nmppsArshC_32s((nm32s*)L, 1, (nm32s*)L, 1024);
+				nmppsRShiftC_32s((nm32s*)L, 1, (nm32s*)L, 1024);
 				nmppsRandUniform_32u((nm32u*)G,1024);
-				nmppsArshC_32s((nm32s*)G, 1, (nm32s*)G, 1024);
+				nmppsRShiftC_32s((nm32s*)G, 1, (nm32s*)G, 1024);
              </init>
              <param> pSrcDstVec </param> <values> L G 	  	</values>
              <param> nSize </param> <values> 256 	</values>
@@ -64,7 +64,7 @@
         <testperf> 
 			<init> 
 				nmppsRandUniform_32u((nm32u*)G,1024);
-				nmppsArshC_32s((nm32s*)G, 1, (nm32s*)G, 1024);
+				nmppsRShiftC_32s((nm32s*)G, 1, (nm32s*)G, 1024);
              </init>
              <param> pSrcDstVec </param> <values> G </values>
              <param> nSize </param> <values> 8 128 256 </values>
@@ -126,9 +126,9 @@ void nmppsQSort_32s(nm32s* pSrcDstVec, int nSize);
 		// Функция 
 		// void nmppsRemap_8u(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVecSize, int nDstVecSize, void* pTmpBuf1, void* pTmpBuf2);
 		// выполняет следющие действия: 
-	    nmppsCnv_8u((nm8u*) pSrcVec, (nm32u*)pTmpBuf1,nSrcVecSize);
+	    nmppsConvert_8u((nm8u*) pSrcVec, (nm32u*)pTmpBuf1,nSrcVecSize);
 	    nmppsRemap_32u((nm32u*)pTmpBuf1,(nm32u*)pTmpBuf2,RemapTable,DstVecSize);
-	    nmppsCnv_32s((nm32s*)pTmpBuf2,(nm8s*) pDstVec, DstVecSize);
+	    nmppsConvert_32s((nm32s*)pTmpBuf2,(nm8s*) pDstVec, DstVecSize);
 	\endcode
 	
 	\note

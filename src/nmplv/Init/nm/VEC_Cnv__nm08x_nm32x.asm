@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: Cnv08to32.as $
+//  $Workfile:: Convert08to32.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   Cnv08to32.asm
+//! \file   Convert08to32.asm
 //! \author Сергей Мушкаев
 //! \brief  Функции преобразования елементов вектора.
 //!
@@ -34,13 +34,13 @@ end ".data";
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsCnv_8s32s(nm8s* pSrcVec, nm32s* pDstVec, int nSize);
+//! \fn void nmppsConvert_8s32s(nm8s* pSrcVec, nm32s* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCnv_8s32s.html
+//! \perfinclude _nmppsConvert_8s32s.html
 
 
-global _nmppsCnv_8s_32s:label;
-<_nmppsCnv_8s_32s>
+global _nmppsConvert_8s_32s:label;
+<_nmppsConvert_8s_32s>
 .branch;
    	delayed goto JumpFromSigned;
 		nb1 = 80000000h;
@@ -49,12 +49,12 @@ global _nmppsCnv_8s_32s:label;
 
 		
 
-//! \fn void nmppsCnv_8u(nm8u* pSrcVec, nm32u* pDstVec, int nSize)
+//! \fn void nmppsConvert_8u(nm8u* pSrcVec, nm32u* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv_8u.html
+//! \perfinclude _nmppsConvert_8u.html
 
-global _nmppsCnv_8u:label;
-<_nmppsCnv_8u>
+global _nmppsConvert_8u:label;
+<_nmppsConvert_8u>
 .branch;
 	nb1 = 80808080h;
 	<JumpFromSigned>

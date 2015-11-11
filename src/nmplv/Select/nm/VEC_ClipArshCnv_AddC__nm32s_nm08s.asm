@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: ClipPowCArshCnvAddC.asm    $
+//  $Workfile:: ClipPowCRShiftConvertAddC.asm    $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file  ClipPowCArshCnvAddC.asm
+//! \file  ClipPowCRShiftConvertAddC.asm
 //! \author Сергей Свечников
 //! \brief  Функции преобразования елементов вектора.
 //!
@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 
 data ".data_nmplv_L"
-  LWArshConvert32to8: long[16]=( 
+  LWRShiftConvert32to8: long[16]=( 
      0l, 1l,             0l,            100hl,
      0l, 10000hl,        0l,        1000000hl,
      0l, 100000000hl,    0l,    10000000000hl,
@@ -27,7 +27,7 @@ data ".data_nmplv_L"
 end ".data_nmplv_L";
 
 data ".data_nmplv_G"
-  GWArshConvert32to8: long[16]=( 
+  GWRShiftConvert32to8: long[16]=( 
      0l, 1l,             0l,            100hl,
      0l, 10000hl,        0l,        1000000hl,
      0l, 100000000hl,    0l,    10000000000hl,
@@ -40,13 +40,13 @@ extern  tbl_f1cr_nm32 : long;
 extern tbl_sb_nm32_EvenARSH: long;
 extern vec_ClipMul4D4W4_AddVr:label;     // core:from file Math_Mul4D4W4.asm 
 
-//! \fn void nmppsClipArshCnv_AddC_32s(nm32s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
+//! \fn void nmppsClipRShiftConvert_AddC_32s(nm32s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
 //! 
-//! \perfinclude _nmppsClipArshCnv_AddC_32s.html
+//! \perfinclude _nmppsClipRShiftConvert_AddC_32s.html
 
 
-global _nmppsClipArshCnv_AddC_32s:label;
-<_nmppsClipArshCnv_AddC_32s>
+global _nmppsClipRShiftConvert_AddC_32s:label;
+<_nmppsClipRShiftConvert_AddC_32s>
 	ar5=ar7-2 with gr7=false;
 	push ar6,gr6 with gr7++;      //   gr7=1
 	push ar0,gr0 with gr6=gr7<<1; //   gr6=2
@@ -76,7 +76,7 @@ global _nmppsClipArshCnv_AddC_32s:label;
 	
 	ar0=gr5 with gr7=gr5; // Где банка из
 	if < delayed skip L0 with gr7+=gr6;  // gr7=src+2
-		ar4 = LWArshConvert32to8; ar4 = GWArshConvert32to8;
+		ar4 = LWRShiftConvert32to8; ar4 = GWRShiftConvert32to8;
 	<L0>
 	ar1=gr7 with gr7+=gr6; // ar1=src+2
 	ar6=[--ar5];     //  DstVec

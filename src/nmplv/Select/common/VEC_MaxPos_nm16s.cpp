@@ -19,9 +19,9 @@
 //------------------------------------------------------------------------
 #include "nmpp.h"
 //!
-//! \perfinclude _nmppsMaxPos__FPSsiRiRiPvPvi_.html
+//! \perfinclude _nmppsMaxIndx__FPSsiRiRiPvPvi_.html
 //! 
-void nmppsMaxPos_16s(nm16s15b *pSrcVec, int nSize, int& nIndex, int16b &nMaxValue, void *pLTmpBuff,void *pGTmpBuff, int nSearchDir)
+void nmppsMaxIndx_16s(nm16s15b *pSrcVec, int nSize, int& nIndex, int16b &nMaxValue, void *pLTmpBuff,void *pGTmpBuff, int nSearchDir)
 
 {
 	int nPos;
@@ -37,7 +37,7 @@ void nmppsMaxPos_16s(nm16s15b *pSrcVec, int nSize, int& nIndex, int16b &nMaxValu
 	//	pTmp2=pGTmpBuff;
 	//}
 
-	nmppsMaxVal_16s(pSrcVec, nSize, &nMaxValue);
+	nmppsMax_16s(pSrcVec, nSize, &nMaxValue);
 	nmppsSubCRev_16s(pSrcVec,nMaxValue,(nm16s*)pTmp1,nSize);
 	nmppsCmpEq0_16u((nm16u15b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create Max bitmap
 

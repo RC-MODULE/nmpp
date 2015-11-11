@@ -28,13 +28,13 @@ extern vec_MaxVal:label;
 
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void nmppsMaxVal_8s(nm8s *pSrcVec, int nSize, int8b &nMaxValue) 
+//! \fn void nmppsMax_8s(nm8s *pSrcVec, int nSize, int8b &nMaxValue) 
 //!
-//! \perfinclude _nmppsMaxVal_8s.html
+//! \perfinclude _nmppsMax_8s.html
 
 
-global _nmppsMaxVal_8s:label;
-<_nmppsMaxVal_8s>
+global _nmppsMax_8s:label;
+<_nmppsMax_8s>
 
 .branch;
 	ar5=sp-2;

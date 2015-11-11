@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: Cnv32to64.as $
+//  $Workfile:: Convert32to64.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   Cnv16to64.asm
+//! \file   Convert16to64.asm
 //! \author Сергей Мушкаев
 //! \brief  Функции преобразования елементов вектора.
 //!
@@ -31,27 +31,27 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
-//! \fn void nmppsCnv_32s(nm32s* pSrcVec, nm64s* pDstVec, int nSize)
+//! \fn void nmppsConvert_32s(nm32s* pSrcVec, nm64s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv_32s.html
+//! \perfinclude _nmppsConvert_32s.html
 
 
-global _nmppsCnv_32s:label;
+global _nmppsConvert_32s:label;
 
-<_nmppsCnv_32s>
+<_nmppsConvert_32s>
 .branch;
 	delayed goto JumpFromSigned;
 		nb1 = 00000000h;
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsCnv_32u(nm32u* pSrcVec, nm64u* pDstVec, int nSize)
+//! \fn void nmppsConvert_32u(nm32u* pSrcVec, nm64u* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv_32u.html
+//! \perfinclude _nmppsConvert_32u.html
 
 
-global _nmppsCnv_32u:label;
-<_nmppsCnv_32u>
+global _nmppsConvert_32u:label;
+<_nmppsConvert_32u>
 .branch;
 	nb1 = 80000000h;
 	<JumpFromSigned>

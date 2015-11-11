@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: ClipArshCnvAdd_16s8s.asm    $
+//  $Workfile:: ClipRShiftConvertAdd_16s8s.asm    $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file  ClipArshCnvAdd_16s8s.asm
+//! \file  ClipRShiftConvertAdd_16s8s.asm
 //! \author Сергей Мушкаев
 //! \brief  Функции преобразования елементов вектора.
 //!
@@ -40,7 +40,7 @@ global	vec_tbl_sb_2x4rows:  long[8] = (
 
 
 
-	LWArshConvert16to8:  long[8*2] = (
+	LWRShiftConvert16to8:  long[8*2] = (
 						0000000000000000hl,
 						0000000000000001hl,
 						0000000000000000hl,
@@ -63,7 +63,7 @@ end ".data_nmplv_L";
 
 
 data ".data_nmplv_G"
-	GWArshConvert16to8:  long[8*2] = ( 
+	GWRShiftConvert16to8:  long[8*2] = ( 
 						0000000000000000hl,
 						0000000000000001hl,
 						0000000000000000hl,
@@ -85,13 +85,13 @@ end ".data_nmplv_G";
 begin ".text_nmplv"
     
     //--------------------------------------------------------------------
-    //! \fn void nmppsClipArshCnv_AddC_16s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
+    //! \fn void nmppsClipRShiftConvert_AddC_16s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
 	//!
-	//! \perfinclude _nmppsClipArshCnv_AddC_16s.html
+	//! \perfinclude _nmppsClipRShiftConvert_AddC_16s.html
     //--------------------------------------------------------------------
 
-global _nmppsClipArshCnv_AddC_16s:label;
-<_nmppsClipArshCnv_AddC_16s>
+global _nmppsClipRShiftConvert_AddC_16s:label;
+<_nmppsClipRShiftConvert_AddC_16s>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;
@@ -121,9 +121,9 @@ global _nmppsClipArshCnv_AddC_16s:label;
 	ar0 = gr5		with gr5;
 	
 	if < delayed goto LoadLocalMatrix;
-		ar4 = LWArshConvert16to8;
+		ar4 = LWRShiftConvert16to8;
 	
-	ar4 = GWArshConvert16to8;
+	ar4 = GWRShiftConvert16to8;
 	<LoadLocalMatrix>
 
 	ar6 = [--ar5];					// pDstVec

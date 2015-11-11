@@ -32,7 +32,7 @@ int i;
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = Src1[i] & Src2[i];
-void nmppsAndV_64u(nm64u*	Src1,		// Input Buffer
+void nmppsAnd_64u(nm64u*	Src1,		// Input Buffer
 	nm64u*	Src2,		// Input Buffer
 	nm64u*	pDstVec,		// Output Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
@@ -69,7 +69,7 @@ int i;
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = Src1[i] | Src2[i];
-void nmppsOrV_64u(nm64u*	Src1,		// Input Buffer
+void nmppsOr_64u(nm64u*	Src1,		// Input Buffer
 	nm64u*	Src2,		// Input Buffer
 	nm64u*	pDstVec,		// Output Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
@@ -94,7 +94,7 @@ int i;
 ///////////////////////////////////////////////////////////////////////////////
 //	Bitwise XOR operation 
 //	pDstVec[i] = pSrcVec1[i] ^ pSrcVec2[i];
-void nmppsXorV_64u(nm64u*		pSrcVec1,	// Input Buffer					:long Local[nSize]
+void nmppsXor_64u(nm64u*		pSrcVec1,	// Input Buffer					:long Local[nSize]
 			nm64u*		pSrcVec2,	// Input Buffer					:long Local[nSize]
 			nm64u*		pDstVec,		// Output Buffer				:long Global[nSize]
 			int			nSize		// Vector size in 64-bit words	:nSize=[0,1,2,..,n]

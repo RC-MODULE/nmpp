@@ -276,7 +276,7 @@ void IMG_ResampleDown2XY(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, in
 void IMG_ResampleDown2XY(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
     //! \}
 
-//void IMG_VResample3div2_Arsh0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* pDstImg);
+//void IMG_VResample3div2_RShift0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* pDstImg);
 
 
 //__INLINE__ void IMG_CreateResampleDown2X_8u8u(nm64s**	pKernel, int nHint)	{	SIG_CreateResampleDown2_8u8u(pKernel,nHint);}

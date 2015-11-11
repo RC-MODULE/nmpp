@@ -1,13 +1,13 @@
 begin ".text_nmplv"
 
 //--------------------------------------------------------------------
-//! \fn int nmppsMinPosV9_(int* pSrcVec,int nStride,int& nPos);
+//! \fn int nmppsMinIndxV9_(int* pSrcVec,int nStride,int& nPos);
 //!
-//! \perfinclude _nmppsMinPosV9_32s.html
+//! \perfinclude _nmppsMinIndxV9_32s.html
 //--------------------------------------------------------------------
 
-global _nmppsMinPosV9_32s:label;
-<_nmppsMinPosV9_32s>
+global _nmppsMinIndxV9_32s:label;
+<_nmppsMinIndxV9_32s>
 .branch;
 
 	ar5=ar7-2;

@@ -16,7 +16,7 @@
 
 
     /**
-    \defgroup nmppsMaxVal_ nmppsMaxVal_
+    \defgroup nmppsMax_ nmppsMax_
     \ingroup vSelect
     \brief
         \ru Поиск значения максимального элемента вектора. 
@@ -84,7 +84,7 @@
 	        [C0h..3Fh]=[-64..+63]	   
          [80h..00h]=[-128..0	]	
 */
-void nmppsMaxVal_8s(nm8s* pSrcVec, int nSize, int8b* nMaxValue);
+void nmppsMax_8s(nm8s* pSrcVec, int nSize, int8b* nMaxValue);
 /**
 \restr
 \ru Максимальный и минимальный элементы массива должны отличатся не более чем на 2^15-1. \n
@@ -96,7 +96,7 @@ void nmppsMaxVal_8s(nm8s* pSrcVec, int nSize, int8b* nMaxValue);
     [C000h..3FFFh]=[-16384..+16383	] 
     [8000h..0000h]=[-32768..0		]     
 */
-void nmppsMaxVal_16s(nm16s* pSrcVec, int nSize, int16b* nMaxValue);
+void nmppsMax_16s(nm16s* pSrcVec, int nSize, int16b* nMaxValue);
 /**
 \restr
 \ru Максимальный и минимальный элементы массива должны отличатся не более чем на 2^31-1. \n
@@ -109,15 +109,15 @@ void nmppsMaxVal_16s(nm16s* pSrcVec, int nSize, int16b* nMaxValue);
     [C0000000h..3FFFFFFFh]=[ -2^30..+2^30-1	] 
     [80000000h..00000000h]=[ -2^31..0		]     
 */
-void nmppsMaxVal_32s(nm32s* pSrcVec, int nSize, int* nMaxValue);
-void nmppsMaxVal_64s(nm64s63b *pSrcVec, int nSize, int64b *nMaxValue);
+void nmppsMax_32s(nm32s* pSrcVec, int nSize, int* nMaxValue);
+void nmppsMax_64s(nm64s63b *pSrcVec, int nSize, int64b *nMaxValue);
 
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup nmppsMinVal_ nmppsMinVal_
+    \defgroup nmppsMin_ nmppsMin_
     \ingroup vSelect
     \brief
         \ru Поиск значения минимального элемента вектора. 
@@ -186,7 +186,7 @@ void nmppsMaxVal_64s(nm64s63b *pSrcVec, int nSize, int64b *nMaxValue);
         [C0h..3Fh]=[-64..+63]	  
         [80h..00h]=[-128..0	]	  
 */
-void nmppsMinVal_8s(nm8s* pSrcVec, int nSize, int8b* nMinValue);
+void nmppsMin_8s(nm8s* pSrcVec, int nSize, int8b* nMinValue);
 /**
 \restr
     \ru Максимальный и минимальный элементы массива должны отличатся не более чем на 2^15-1. \n
@@ -198,7 +198,7 @@ void nmppsMinVal_8s(nm8s* pSrcVec, int nSize, int8b* nMinValue);
         [C000h..3FFFh]=[-16384..+16383	] 
         [8000h..0000h]=[-32768..0		]     
 */
-void nmppsMinVal_16s(nm16s* pSrcVec, int nSize, int16b* nMinValue);
+void nmppsMin_16s(nm16s* pSrcVec, int nSize, int16b* nMinValue);
 /**
 \restr
     \ru Максимальный и минимальный элементы массива должны отличатся не более чем на 2^31-1. \n
@@ -210,13 +210,13 @@ void nmppsMinVal_16s(nm16s* pSrcVec, int nSize, int16b* nMinValue);
         [C0000000h..3FFFFFFFh]=[ -2^30..+2^30-1	] 
         [80000000h..00000000h]=[ -2^31..0		]     
 */
-void nmppsMinVal_32s(nm32s* pSrcVec, int nSize, int* nMinValue);
+void nmppsMin_32s(nm32s* pSrcVec, int nSize, int* nMinValue);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup nmppsMaxPos_ nmppsMaxPos_
+    \defgroup nmppsMaxIndx_ nmppsMaxIndx_
     \ingroup vSelect
     \brief
         \ru Поиск значения максимального элемента вектора 
@@ -295,16 +295,16 @@ void nmppsMinVal_32s(nm32s* pSrcVec, int nSize, int* nMinValue);
     \endxmlonly
 	*/
     //! \{
-void nmppsMaxPos_8s(nm8s7b  *pSrcVec, int nSize, int* nIndex, int8b *nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
-void nmppsMaxPos_16s(nm16s15b *pSrcVec, int nSize, int* nIndex, int16b *nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
-void nmppsMaxPos_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
+void nmppsMaxIndx_8s(nm8s7b  *pSrcVec, int nSize, int* nIndex, int8b *nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
+void nmppsMaxIndx_16s(nm16s15b *pSrcVec, int nSize, int* nIndex, int16b *nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
+void nmppsMaxIndx_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMaxValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
     //! \}
 
 
 //*****************************************************************************
 
     /**
-    \defgroup nmppsMinPos_ nmppsMinPos_
+    \defgroup nmppsMinIndx_ nmppsMinIndx_
     \ingroup vSelect
     \brief
         \ru Поиск значения минимального элемента вектора 
@@ -383,16 +383,16 @@ void nmppsMaxPos_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMaxValu
 	\endxmlonly
 	*/
     //! \{
-void nmppsMinPos_8s(nm8s7b   *pSrcVec, int nSize, int* nIndex, int8b  *nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
-void nmppsMinPos_16s(nm16s15b *pSrcVec, int nSize, int* nIndex, int16b *nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
-void nmppsMinPos_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
+void nmppsMinIndx_8s(nm8s7b   *pSrcVec, int nSize, int* nIndex, int8b  *nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
+void nmppsMinIndx_16s(nm16s15b *pSrcVec, int nSize, int* nIndex, int16b *nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
+void nmppsMinIndx_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMinValue, void *pLTmpBuf,void *pGTmpBuf, int nSearchDir);
     //! \}
 
 
 //*****************************************************************************
 
     /**
-    \defgroup nmppsMinPosVN_ nmppsMinPosVN_
+    \defgroup nmppsMinIndxVN_ nmppsMinIndxVN_
     \ingroup vSelect
 	\brief 
         \ru Поиск значения минимального элемента вектора  длины N и его положения в векторе. 
@@ -432,11 +432,11 @@ void nmppsMinPos_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMinValu
 	*/
 
 	//! \{
-int nmppsMinPosV9_32s(int* pSrcVec,int nStride,int* nPos);
-int nmppsMinPosV16_32s(int* pSrcVec,int nStride,int* nPos);
-int nmppsMinPosV25_32s(int* pSrcVec,int nStride,int* nPos);
-int nmppsMinPosV256_32s(int* pSrcVec,int nStride,int* nPos);
-int nmppsMinPosV1024_32s(int* pSrcVec,int nStride,int* nPos);
+int nmppsMinIndxV9_32s(int* pSrcVec,int nStride,int* nPos);
+int nmppsMinIndxV16_32s(int* pSrcVec,int nStride,int* nPos);
+int nmppsMinIndxV25_32s(int* pSrcVec,int nStride,int* nPos);
+int nmppsMinIndxV256_32s(int* pSrcVec,int nStride,int* nPos);
+int nmppsMinIndxV1024_32s(int* pSrcVec,int nStride,int* nPos);
 	//! \}
 
 //*****************************************************************************
@@ -611,7 +611,7 @@ int nmppsLastNonZeroPos_32s(int* pSrcVec, int nSize);
 
 //*****************************************************************************
     /**
-    \defgroup nmppsMinV_ nmppsMinV_
+    \defgroup nmppsMinEvery_ nmppsMinEvery_
     \ingroup vSelect
     \brief
         \ru Поэлементный минимум из двух векторов. 
@@ -670,10 +670,10 @@ int nmppsLastNonZeroPos_32s(int* pSrcVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsMinV_8s(nm8s7b*   pSrcVec1, nm8s7b*   pSrcVec2, nm8s7b*   pDstMinVec, int nSize);
-void nmppsMinV_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMinVec, int nSize);
-void nmppsMinV_32s(nm32s31b* pSrcVec1, nm32s31b* pSrcVec2, nm32s31b* pDstMinVec, int nSize);
-void nmppsMinV_64s(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMinVec, int nSize);
+void nmppsMinEvery_8s(nm8s7b*   pSrcVec1, nm8s7b*   pSrcVec2, nm8s7b*   pDstMinVec, int nSize);
+void nmppsMinEvery_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMinVec, int nSize);
+void nmppsMinEvery_32s(nm32s31b* pSrcVec1, nm32s31b* pSrcVec2, nm32s31b* pDstMinVec, int nSize);
+void nmppsMinEvery_64s(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMinVec, int nSize);
 
     //! \}
 //*****************************************************************************
@@ -686,7 +686,7 @@ void nmppsMinNV_64s(nm64s63b** pSrcVecs, int numVecs, nm64s63b* pDstMinVec, int 
 //*****************************************************************************
 
     /**
-    \defgroup nmppsMaxV_ nmppsMaxV_
+    \defgroup nmppsMaxEvery_ nmppsMaxEvery_
     \ingroup vSelect
     \brief
         \ru Поэлементный максимум из двух векторов. 
@@ -747,10 +747,10 @@ void nmppsMinNV_64s(nm64s63b** pSrcVecs, int numVecs, nm64s63b* pDstMinVec, int 
     \endxmlonly
     */
     //! \{
-void nmppsMaxV_8s(nm8s7b*   pSrcVec1, nm8s7b* pSrcVec2,   nm8s7b*  pDstMaxVec,  int nSize);
-void nmppsMaxV_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMaxVec, int nSize);
-void nmppsMaxV_32s(nm32s31b* pSrcVec1, nm32s31b* pSrcVec2, nm32s31b* pDstMaxVec, int nSize);
-void nmppsMaxV_64s(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMaxVec, int nSize);
+void nmppsMaxEvery_8s(nm8s7b*   pSrcVec1, nm8s7b* pSrcVec2,   nm8s7b*  pDstMaxVec,  int nSize);
+void nmppsMaxEvery_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMaxVec, int nSize);
+void nmppsMaxEvery_32s(nm32s31b* pSrcVec1, nm32s31b* pSrcVec2, nm32s31b* pDstMaxVec, int nSize);
+void nmppsMaxEvery_64s(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMaxVec, int nSize);
 
     //! \}
 
@@ -1206,7 +1206,7 @@ void nmppsClipCC_32s(nm32s30b* pSrcVec, int30b nNegThresh, int30b nPosThresh, nm
 //*****************************************************************************
 
     /**
-    \defgroup nmppsClipArshCnv_AddC_ nmppsClipArshCnv_AddC_
+    \defgroup nmppsClipRShiftConvert_AddC_ nmppsClipRShiftConvert_AddC_
     \ingroup vSelect
     \brief
         \ru Сокращение разрядности данных c предварительной их обработкой. 
@@ -1300,14 +1300,14 @@ void nmppsClipCC_32s(nm32s30b* pSrcVec, int30b nNegThresh, int30b nPosThresh, nm
     \endxmlonly
     */
     //! \{
-void nmppsClipArshCnv_AddC_16s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
-void nmppsClipArshCnv_AddC_32s(nm32s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
+void nmppsClipRShiftConvert_AddC_16s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
+void nmppsClipRShiftConvert_AddC_32s(nm32s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
     //! \}
 
 //extern "C" nm64u VEC_TBL_Diagonal_01h_G[8];
 //extern "C" nm64u VEC_TBL_Diagonal_01h_L[8];
 /**	
-\defgroup nmppsClipCnv_AddC_ nmppsClipCnv_AddC_
+\defgroup nmppsClipConvert_AddC_ nmppsClipConvert_AddC_
     \ingroup vSelect
     \brief
         \ru Сокращение разрядности данных c предварительной их обработкой. 
@@ -1357,14 +1357,14 @@ void nmppsClipArshCnv_AddC_32s(nm32s* pSrcVec, int nClipFactor,int nShift, int8b
     \par
     */
     //! \{
-void nmppsClipCnv_AddC_16s(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s* pDstVec, int nSize, nm64u* weights); //=VEC_TBL_Diagonal_01h_G
+void nmppsClipConvert_AddC_16s(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s* pDstVec, int nSize, nm64u* weights); //=VEC_TBL_Diagonal_01h_G
     //! \}
 
 	
 //*****************************************************************************
   /**
   \internal
-  \defgroup nmppsClipArshCnv_AddC_Ext_ nmppsClipArshCnv_AddC_Ext_
+  \defgroup nmppsClipRShiftConvert_AddC_Ext_ nmppsClipRShiftConvert_AddC_Ext_
   \ingroup vSelect
 
 	\brief
@@ -1453,11 +1453,11 @@ void nmppsClipCnv_AddC_16s(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s
 	\endxmlonly
 	*/
 	//! \{
-//void nmppsClipArshCnv_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v8nm32s* pnShift, v8nm8s* pnAdd,  v8nm8s* pDstVec, int nSize);
-void nmppsClipArshCnv_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v8nm32s* pnShift, v8nm32s* pnAdd,  v8nm8s* pDstVec, int nSize);
+//void nmppsClipRShiftConvert_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v8nm32s* pnShift, v8nm8s* pnAdd,  v8nm8s* pDstVec, int nSize);
+void nmppsClipRShiftConvert_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v8nm32s* pnShift, v8nm32s* pnAdd,  v8nm8s* pDstVec, int nSize);
 
 	//! \}
-//void nmppsClipArshCnv_AddC_Ext_(v16nm16s* pSrcVec, v16nm32s* pnClipFactor, v16nm32s* pnShift,v16nm4s* pnAdd, 
+//void nmppsClipRShiftConvert_AddC_Ext_(v16nm16s* pSrcVec, v16nm32s* pnClipFactor, v16nm32s* pnShift,v16nm4s* pnAdd, 
 //							  v16nm4s* pDstVec, int nSize);
 
 
@@ -1706,7 +1706,7 @@ void nmppsCmpNeV_8u(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize
 
 /*
 	\internal
-    \defgroup nmppsCnv_ nmppsCnv_
+    \defgroup nmppsConvert_ nmppsConvert_
     \ingroup vInit
     \brief
         \ru Изменение разрядности элементов вектора с клиппированием
@@ -1758,7 +1758,7 @@ void nmppsCmpNeV_8u(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize
     \{
     */
   //! \{
-void Vec_ClipArshCnv_AddC( nm32s* pSrcVec, nm8u* pDstVec, int nSize);
+void Vec_ClipRShiftConvert_AddC( nm32s* pSrcVec, nm8u* pDstVec, int nSize);
   //! \}
 
 

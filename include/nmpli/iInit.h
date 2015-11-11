@@ -8,7 +8,7 @@
 
     /**
 	\internal
-    \defgroup IMG_ArshCnv IMG_ArshCnv
+    \defgroup IMG_RShiftConvert IMG_RShiftConvert
     \ingroup iInit
     \brief
         \ru Преобразование типов для элементов изображения. 
@@ -102,7 +102,7 @@
     \endxmlonly
     */
     //! \{
-void IMG_ArshCnv(nm32s* pSrcImg, int nSrcStride, nm16s* pDstImg,  int nDstStride, int nShift, int nWidth, int nHeight); 
+void IMG_RShiftConvert(nm32s* pSrcImg, int nSrcStride, nm16s* pDstImg,  int nDstStride, int nShift, int nWidth, int nHeight); 
     //! \}
 
 
@@ -121,7 +121,7 @@ void IMG_ArshCnv(nm32s* pSrcImg, int nSrcStride, nm16s* pDstImg,  int nDstStride
 // \~
 
     /**
-    \defgroup IMG_Cnv IMG_Cnv
+    \defgroup IMG_Convert IMG_Convert
     \ingroup iInit
     \brief
         \ru Преобразование типов для элементов изображения.
@@ -174,8 +174,8 @@ void IMG_ArshCnv(nm32s* pSrcImg, int nSrcStride, nm16s* pDstImg,  int nDstStride
     \endxmlonly
     */
     //! \{
-void IMG_Cnv(RGB32_nm8u* pSrcImg, RGB32_nm10u* pDstImg, int nSize); 
-void IMG_Cnv(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize); 
+void IMG_Convert(RGB32_nm8u* pSrcImg, RGB32_nm10u* pDstImg, int nSize); 
+void IMG_Convert(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize); 
     //! \}
 
 
@@ -213,7 +213,7 @@ void IMG_Cnv(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize);
             полезные данные занимают младшие 24 бита. Для получения
             восьмибитовых пикселей неоходимо вырезать биты 16..23,
             например, с помощью 
-           nmppsClipArshCnv_Add_32s(nm32s* pSrcVec, int nClipFactor,int nShift, nm64u* nAddValue,nm8s* pDstVec, int nSize);
+           nmppsClipRShiftConvert_Add_32s(nm32s* pSrcVec, int nClipFactor,int nShift, nm64u* nAddValue,nm8s* pDstVec, int nSize);
            с параметрами nClipFactor=24,  nShift=16.
 		\en
 	\param nSize 

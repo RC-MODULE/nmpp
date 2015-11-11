@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: Cnv1to2.as $
+//  $Workfile:: Convert1to2.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   Cnv1to2.asm
+//! \file   Convert1to2.asm
 //! \author Сергей Мушкаев 
 //! \brief  Функции преобразования елементов вектора.
 //!
@@ -20,7 +20,7 @@
 //#include "vConvert.h"
 //-----------------------------------------------------------------------------
 data ".data_nmplv_L"
-	w_nmppsCnv_L_: long[128] = (
+	w_nmppsConvert_L_: long[128] = (
 		1hl, 10hl, 100hl, 1000hl, 10000hl, 100000hl, 1000000hl, 10000000hl,
 		100000000hl, 1000000000hl, 10000000000hl, 100000000000hl,
 		1000000000000hl, 10000000000000hl, 100000000000000hl, 1000000000000000hl,
@@ -38,20 +38,20 @@ data ".data_nmplv_L"
 		4000000000000hl, 40000000000000hl, 400000000000000hl, 4000000000000000hl);
 end ".data_nmplv_L";
 data ".data_nmplv_G"
-	w_nmppsCnv_G_: long[32];
+	w_nmppsConvert_G_: long[32];
 end ".data_nmplv_G";
 //-----------------------------------------------------------------------------
 import from macros.mlb;
 //-----------------------------------------------------------------------------
 begin ".text_nmplv"
 
-//! \fn void nmppsCnv_1*(nm1* pSrcVec, nm2u* pDstVec, int nSize)
+//! \fn void nmppsConvert_1*(nm1* pSrcVec, nm2u* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv__F3nm1P4nm2uPi_.html
+//! \perfinclude _nmppsConvert__F3nm1P4nm2uPi_.html
 
 
-global _void._.8.8nmppsCnv_.1class._nm1._.0.9._class._nm2u._.0.9._int.2 :label;
-<_void._.8.8nmppsCnv_.1class._nm1._.0.9._class._nm2u._.0.9._int.2>
+global _void._.8.8nmppsConvert_.1class._nm1._.0.9._class._nm2u._.0.9._int.2 :label;
+<_void._.8.8nmppsConvert_.1class._nm1._.0.9._class._nm2u._.0.9._int.2>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0;
@@ -71,15 +71,15 @@ global _void._.8.8nmppsCnv_.1class._nm1._.0.9._class._nm2u._.0.9._int.2 :label;
 	
 	nb1 = gr4 with gr7 >>= 11;
 	sb = 0aaaaaaaahl;
-	ar5 = w_nmppsCnv_L_ ;
+	ar5 = w_nmppsConvert_L_ ;
 	gr5 = ar5 with gr7--;
 	rep 32 wfifo = [ar5++], ftw;
 	WTW_REG(gr4);
-	if =0 delayed goto lab_nmppsCnv_2_ with gr7--;
+	if =0 delayed goto lab_nmppsConvert_2_ with gr7--;
 		rep 32 wfifo = [ar5++], ftw;
 		nul;
 
-<lab_nmppsCnv_1_>
+<lab_nmppsConvert_1_>
 	rep 32 data,ram = [ar0++] with vsum, data, 0;
 	WTW_REG(gr4);
 	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;
@@ -90,11 +90,11 @@ global _void._.8.8nmppsCnv_.1class._nm1._.0.9._class._nm2u._.0.9._int.2 :label;
 	ar5 = gr5;
 	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;
 	WTW_REG(gr4);
-	if > delayed goto lab_nmppsCnv_1_ with gr7--;	
+	if > delayed goto lab_nmppsConvert_1_ with gr7--;	
 		rep 32 [ar2++gr2] = afifo;
 		rep 32 wfifo = [ar5++], ftw;
 
-<lab_nmppsCnv_2_>
+<lab_nmppsConvert_2_>
 	rep 32 data,ram = [ar0++] with vsum, data, 0;
 	WTW_REG(gr4);
 	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;
@@ -115,5 +115,5 @@ global _void._.8.8nmppsCnv_.1class._nm1._.0.9._class._nm2u._.0.9._int.2 :label;
 //////////////////////////////////////////////////////////////////////
 end ".text_nmplv";
 //********************************************************************/
-//		END OF FILE vCnv1to2.asm                                     */
+//		END OF FILE vConvert1to2.asm                                     */
 //********************************************************************/

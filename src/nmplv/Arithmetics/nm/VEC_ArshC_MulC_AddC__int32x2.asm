@@ -3,9 +3,9 @@ extern vec_vsum_data_vr:label;
 extern tbl_sb_nm32_EvenARSH:long;
 begin ".text_nmplv"
 
-// void nmppsArshC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg, int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst);
-global "_nmppsArshC_MulC_AddC_2x32s" : label;
-       <_nmppsArshC_MulC_AddC_2x32s>
+// void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg, int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst);
+global "_nmppsRShiftC_MulC_AddC_2x32s" : label;
+       <_nmppsRShiftC_MulC_AddC_2x32s>
 
 .branch;
 	ar5 = ar7-2;

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: Cnv08to16.as $
+//  $Workfile:: Convert08to16.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   Cnv08to16.asm
+//! \file   Convert08to16.asm
 //! \author Сергей Мушкаев
 //! \brief  Функции преобразования елементов вектора.
 //!
@@ -31,24 +31,24 @@ begin ".text_nmplv"
 
 
 
-//! \fn void nmppsCnv_8s16s(nm8s* pSrcVec, nm16s* pDstVec, int nSize);
+//! \fn void nmppsConvert_8s16s(nm8s* pSrcVec, nm16s* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCnv_8s16s.html
+//! \perfinclude _nmppsConvert_8s16s.html
 
-global _nmppsCnv_8s_16s:label;
-<_nmppsCnv_8s_16s>
+global _nmppsConvert_8s_16s:label;
+<_nmppsConvert_8s_16s>
 .branch;
  	delayed goto JumpFromSigned;
 		nb1 = 80008000h;
 
 /////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsCnv_8u(nm8u* pSrcVec, nm16u* pDstVec, int nSize);
+//! \fn void nmppsConvert_8u(nm8u* pSrcVec, nm16u* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCnv_8u.html
+//! \perfinclude _nmppsConvert_8u.html
 
-global _nmppsCnv_8u:label;
-<_nmppsCnv_8u>
+global _nmppsConvert_8u:label;
+<_nmppsConvert_8u>
 .branch;
 
 	nb1 = 80808080h;

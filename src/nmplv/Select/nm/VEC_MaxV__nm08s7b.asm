@@ -23,13 +23,13 @@ begin ".text_nmplv"
 extern vec_CompareMax:label;
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsMaxV_8s(nm8s7b*  pSrcVec1, nm8s7b* pSrcVec2,  nm8s7b*  pDstMax, int nSize);
+//! \fn void nmppsMaxEvery_8s(nm8s7b*  pSrcVec1, nm8s7b* pSrcVec2,  nm8s7b*  pDstMax, int nSize);
 //!
-//! \perfinclude _nmppsMaxV_8s.html
+//! \perfinclude _nmppsMaxEvery_8s.html
 
-global _nmppsMaxV__FPcPcPci_ :label;
-global _nmppsMaxV_8s:label;
-<_nmppsMaxV_8s>
+global _nmppsMaxEvery__FPcPcPci_ :label;
+global _nmppsMaxEvery_8s:label;
+<_nmppsMaxEvery_8s>
 
 .branch;
 	ar5=sp-2;

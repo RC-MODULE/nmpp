@@ -857,8 +857,8 @@
     \defgroup vec_And
     \ingroup vCore
    
-        \ru Ядро функции nmppsAndV_(). 
-        \en nmppsAndV_() function core. 
+        \ru Ядро функции nmppsAnd_(). 
+        \en nmppsAnd_() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -974,8 +974,8 @@
     \defgroup vec_Or
     \ingroup vCore
    
-        \ru Ядро функции nmppsOrV_(). 
-        \en nmppsOrV_() function core. 
+        \ru Ядро функции nmppsOr_(). 
+        \en nmppsOr_() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1029,8 +1029,8 @@
      \defgroup vec_Xor
    \ingroup vCore
    
-        \ru Ядро функции nmppsXorV_(). 
-        \en nmppsXorV_() function core. 
+        \ru Ядро функции nmppsXor_(). 
+        \en nmppsXor_() function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1279,8 +1279,8 @@
         \en Weighted multiplication of two arrays with accumulation and activation 
     
 		\~
-        \ru Ядро функции nmppsClipPowC_Arsh_Cnv_AddС_(). 
-        \en nmppsClipPowC_Arsh_Cnv_AddС_() function core. 
+        \ru Ядро функции nmppsClipPowC_RShift_Convert_AddС_(). 
+        \en nmppsClipPowC_RShift_Convert_AddС_() function core. 
 		\~
     \ru Действие функции эквивалентно следующим псевдоинструкциям: 
     \en The function operation is equivalent to the following pseudoinstructions:   
@@ -1705,8 +1705,8 @@
      \defgroup vec_Mul2D2W1_AddVr
    \ingroup vsum
    
-        \ru Ядро функции nmppsCnv_64s(nm64s* ,nm32s* ,int ). 
-        \en nmppsCnv_64s(nm64s* ,nm32s* ,int ) function core. 
+        \ru Ядро функции nmppsConvert_64s(nm64s* ,nm32s* ,int ). 
+        \en nmppsConvert_64s(nm64s* ,nm32s* ,int ) function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1779,8 +1779,8 @@
     \defgroup vec_Mul2D2W2_AddVr
     \ingroup vsum
    
-        \ru Ядро функции nmppsCnv_32s(nm32s* ,nm16s* ,int ). 
-        \en nmppsCnv_32s(nm32s* ,nm16s* ,int ) function core. 
+        \ru Ядро функции nmppsConvert_32s(nm32s* ,nm16s* ,int ). 
+        \en nmppsConvert_32s(nm32s* ,nm16s* ,int ) function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -1853,8 +1853,8 @@
      \defgroup vec_Mul2D2W4_AddVr
    \ingroup vsum
    
-        \ru Ядро функции nmppsCnv_16s(nm16s* pSrcVec, nm8s* pDstVec, int nSize). 
-        \en nmppsCnv_16s(nm16s* pSrcVec, nm8s* pDstVec, int nSize) function core. 
+        \ru Ядро функции nmppsConvert_16s(nm16s* pSrcVec, nm8s* pDstVec, int nSize). 
+        \en nmppsConvert_16s(nm16s* pSrcVec, nm8s* pDstVec, int nSize) function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 
@@ -2167,8 +2167,8 @@
      \defgroup vec_Mul4D4W2_AddVr
    \ingroup vsum
    
-        \ru Ядро функции nmppsCnv_32s(nm32s* pSrcVec, nm8s* pDstVec, int nSize). 
-        \en nmppsCnv_32s(nm32s* pSrcVec, nm8s* pDstVec, int nSize) function core. 
+        \ru Ядро функции nmppsConvert_32s(nm32s* pSrcVec, nm8s* pDstVec, int nSize). 
+        \en nmppsConvert_32s(nm32s* pSrcVec, nm8s* pDstVec, int nSize) function core. 
     
 		\~
         \ru Действие функции эквивалентно следующим псевдоинструкциям: 

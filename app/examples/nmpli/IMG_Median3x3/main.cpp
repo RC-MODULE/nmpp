@@ -38,7 +38,7 @@ int main()
 		return -1;
 	
 	nmppsRandUniform_(imSrc.pWarp,imSrc.nWarpSize);
-	nmppsRshC_(imSrc.pWarp,1,imSrc.pWarp,imSrc.nWarpSize);
+	nmppsRShiftC_(imSrc.pWarp,1,imSrc.pWarp,imSrc.nWarpSize);
 
 	
 	IMG_Median3x3(

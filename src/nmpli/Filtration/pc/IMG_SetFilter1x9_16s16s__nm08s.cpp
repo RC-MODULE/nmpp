@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   Cnv16_WxH.cpp
+//! \file   Convert16_WxH.cpp
 //! \author Дмитрий Рыжов
 //! \brief  Функции векторного ядра.
 //! 
@@ -94,7 +94,7 @@ void IMG_SetFilter13x5_16s32s(  nm32s * pWeights, nm64s ** pKernel)
 
 void IMG_SetFilter1x9_16s16s( nm8s * pWeights, nm8s * pKernel)
 {
-	//nmppsCnv_(pWeights,(nm16s*)*pKernel,9);
+	//nmppsConvert_(pWeights,(nm16s*)*pKernel,9);
 	nmppsCopy_8s(pWeights,pKernel,16);
 }
 

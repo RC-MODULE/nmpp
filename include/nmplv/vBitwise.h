@@ -147,7 +147,7 @@ void nmppsAndC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsAndV_ nmppsAndV_
+    \defgroup nmppsAnd_ nmppsAnd_
     \ingroup vBitwise
     \brief
         \ru Функция логического "И" между двумя векторами. 
@@ -197,7 +197,7 @@ void nmppsAndC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsAndV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+void nmppsAnd_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 	
 /**
@@ -383,7 +383,7 @@ void nmppsOrC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsOrV_ nmppsOrV_
+    \defgroup nmppsOr_ nmppsOr_
     \ingroup vBitwise
     \brief
         \ru Функция логического "ИЛИ" между двумя векторами. 
@@ -433,7 +433,7 @@ void nmppsOrC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsOrV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+void nmppsOr_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 	
 /**
@@ -623,7 +623,7 @@ void nmppsXorC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsXorV_ nmppsXorV_
+    \defgroup nmppsXor_ nmppsXor_
     \ingroup vBitwise
     \brief
         \ru Функция логического "Исключающего ИЛИ" между двумя векторами. 
@@ -673,7 +673,7 @@ void nmppsXorC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsXorV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+void nmppsXor_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -742,7 +742,7 @@ void nmppsMaskV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pMaskVec, nm64u* pD
 //*****************************************************************************
 
     /**
-    \defgroup nmppsArshC nmppsArshC
+    \defgroup nmppsRShiftC nmppsRShiftC
     \ingroup vBitwise
     \brief
         \ru Операция арифметического сдвига вправо. 
@@ -812,16 +812,16 @@ void nmppsMaskV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pMaskVec, nm64u* pD
     \endxmlonly
     */
     //! \{
-void nmppsArshC_8s(nm8s* pSrcVec, int nShift,  nm8s* pDstVec, int nSize);
-void nmppsArshC_16s(nm16s* pSrcVec, int nShift, nm16s* pDstVec, int nSize);
-void nmppsArshC_32s(nm32s* pSrcVec, int nShift, nm32s* pDstVec, int nSize);
-void nmppsArshC_64s(nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSize);
+void nmppsRShiftC_8s (nm8s* pSrcVec, int nShift,  nm8s* pDstVec, int nSize);
+void nmppsRShiftC_16s(nm16s* pSrcVec, int nShift, nm16s* pDstVec, int nSize);
+void nmppsRShiftC_32s(nm32s* pSrcVec, int nShift, nm32s* pDstVec, int nSize);
+void nmppsRShiftC_64s(nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup nmppsRshC_ nmppsRshC_
+    \defgroup nmppsRShiftC_ nmppsRShiftC_
     \ingroup vBitwise
     \brief
         \ru Операция логического сдвига. 
@@ -888,16 +888,16 @@ void nmppsArshC_64s(nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void  nmppsRshC_8u(nm8u* pSrcVec, int nShift,  nm8u* pDstVec, int nSize);
-void  nmppsRshC_16u(nm16u* pSrcVec, int nShift, nm16u* pDstVec, int nSize);
-void  nmppsRshC_32u(nm32u* pSrcVec, int nShift, nm32u* pDstVec, int nSize);
-void  nmppsRshC_64u(nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSize);
+void  nmppsRShiftC_8u (nm8u* pSrcVec, int nShift,  nm8u* pDstVec, int nSize);
+void  nmppsRShiftC_16u(nm16u* pSrcVec, int nShift, nm16u* pDstVec, int nSize);
+void  nmppsRShiftC_32u(nm32u* pSrcVec, int nShift, nm32u* pDstVec, int nSize);
+void  nmppsRShiftC_64u(nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSize);
     //! \}
 
 
 
     /**
-    \defgroup nmppsRshC_AddC_ nmppsRshC_AddC_
+    \defgroup nmppsRShiftC_AddC_ nmppsRShiftC_AddC_
     \ingroup vBitwise
     \brief
         \ru Операция логического сдвига. 
@@ -971,10 +971,10 @@ void  nmppsRshC_64u(nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsRshC_AddC_16u(nm16u *pSrcVec,  int nShift, uint16b nAddVal,  nm16u *pDstVec, int nSize);
+void nmppsRShiftC_AddC_16u(nm16u *pSrcVec,  int nShift, uint16b nAddVal,  nm16u *pDstVec, int nSize);
     //! \}
-void nmppsRshC_AddC_8u(nm8u *pSrcVec,   int nShift, uint8b nAddVal,  nm8u  *pDstVec, int nSize);
-void nmppsRshC_AddC_32u(nm32u *pSrcVec,  int nShift, uint32b nAddVal,  nm32u *pDstVec, int nSize);
+void nmppsRShiftC_AddC_8u(nm8u *pSrcVec,   int nShift, uint8b nAddVal,  nm8u  *pDstVec, int nSize);
+void nmppsRShiftC_AddC_32u(nm32u *pSrcVec,  int nShift, uint32b nAddVal,  nm32u *pDstVec, int nSize);
 
 //*****************************************************************************
 
@@ -1056,7 +1056,7 @@ void nmppsRshC_AddC_32u(nm32u *pSrcVec,  int nShift, uint32b nAddVal,  nm32u *pD
     \endxmlonly
     */
     //! \{
-void nmppsDisplaceBits_64u(const nm64u* pSrcVec, nm64u* pDstVec, nm64u* pnBits, int nBits, int nSize);
+void nmppsFwdShiftBitstream(const nm64u* pSrcVec, nm64u* pDstVec, nm64u* pnBits, int nBits, int nSize);
     //! \}
 
 	

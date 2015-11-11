@@ -19,9 +19,9 @@
 //------------------------------------------------------------------------
 #include "nmpp.h"
 //!
-//! \perfinclude _nmppsMinPos__FPiiRiRiPvPvi_.html
+//! \perfinclude _nmppsMinIndx__FPiiRiRiPvPvi_.html
 //! 
-void nmppsMinPos_32s(nm32s31b *pSrcVec, int nSize, int& nIndex, int32b &nMinValue, void *pLTmpBuff,void *pGTmpBuff, int nSearchDir)
+void nmppsMinIndx_32s(nm32s31b *pSrcVec, int nSize, int& nIndex, int32b &nMinValue, void *pLTmpBuff,void *pGTmpBuff, int nSearchDir)
 {
 	int nPos;
 	void* pTmp1;
@@ -36,7 +36,7 @@ void nmppsMinPos_32s(nm32s31b *pSrcVec, int nSize, int& nIndex, int32b &nMinValu
 	//	pTmp2=pGTmpBuff;
 	//}
 
-	nmppsMinVal_32s(pSrcVec, nSize, &nMinValue);
+	nmppsMin_32s(pSrcVec, nSize, &nMinValue);
 	nmppsSubC_32s(pSrcVec,nMinValue,(nm32s*)pTmp1,nSize);
 	nmppsCmpEq0_32u((nm32u31b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create min bitmap
 

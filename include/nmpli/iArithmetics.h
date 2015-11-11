@@ -7,7 +7,7 @@
 
     /**
 	\internal
-    \defgroup IMG_AddCnvArshI IMG_AddCnvArshI
+    \defgroup IMG_AddConvertRShiftI IMG_AddConvertRShiftI
     \ingroup iArithmetics
     \brief
         \ru Поэлементное прибавление преобразованного изображения. 
@@ -96,14 +96,14 @@
     \endxmlonly
     */
     //! \{
-void IMG_AddCnvArshI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight); 
+void IMG_AddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight); 
     //! \}
 
 //*****************************************************************************
 
     /**
 	\internal
-    \defgroup IMG_SubCnvArshI IMG_SubCnvArshI
+    \defgroup IMG_SubConvertRShiftI IMG_SubConvertRShiftI
     \ingroup iArithmetics
     \brief
         \ru Поэлементное вычитание преобразованного изображения. 
@@ -193,7 +193,7 @@ void IMG_AddCnvArshI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg, int 
     */
     //! \{
 
-void IMG_SubCnvArshI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight);
+void IMG_SubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight);
     //! \}
 
 //*****************************************************************************

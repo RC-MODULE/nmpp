@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: Cnv32to08.as $
+//  $Workfile:: Convert32to08.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   Cnv32to08.asm
+//! \file   Convert32to08.asm
 //! \author Сергей Мушкаев
 //! \brief  Функции преобразования елементов вектора. 
 //!
@@ -39,12 +39,12 @@ end ".data_nmplv_L";
 
 begin ".text_nmplv"
 
-//! \fn void nmppsCnv_32s8s(nm32s* pSrcVec, nm8s* pDstVec, int nSize);
+//! \fn void nmppsConvert_32s8s(nm32s* pSrcVec, nm8s* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsCnv_32s8s.html
+//! \perfinclude _nmppsConvert_32s8s.html
 
-global _nmppsCnv_32s_8s:label;
-<_nmppsCnv_32s_8s>
+global _nmppsConvert_32s_8s:label;
+<_nmppsConvert_32s_8s>
 .branch;
     ar5 = sp - 2 with gr7 = false;
 	push ar0,gr0 with gr7++;

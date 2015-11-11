@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: CnvRGB32_nm10u_Gray_nm32s.asm             $
+//  $Workfile:: ConvertRGB32_nm10u_Gray_nm32s.asm             $
 //
 //  <Название библиотеки>
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   CnvRGB32_nm10u_Gray_nm32s.asm
+//! \file   ConvertRGB32_nm10u_Gray_nm32s.asm
 //! \author S. Mushkaev
 //! \brief  Преобразование из RGB в Gray
 //!

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: Cnv16to08.as $
+//  $Workfile:: Convert16to08.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   Cnv16to08.asm
+//! \file   Convert16to08.asm
 //! \author Сергей Мушкаев
 //! \brief  Функции преобразования елементов вектора.
 //!
@@ -28,13 +28,13 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsCnv_64s(nm64s* pSrcVec, nm16s* pDstVec, int nSize)
+//! \fn void nmppsConvert_64s(nm64s* pSrcVec, nm16s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsCnv_64s.html
+//! \perfinclude _nmppsConvert_64s.html
 
 
-global _nmppsCnv_64s:label;
-<_nmppsCnv_64s>
+global _nmppsConvert_64s:label;
+<_nmppsConvert_64s>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

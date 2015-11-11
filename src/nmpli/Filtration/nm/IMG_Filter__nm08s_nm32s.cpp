@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   Cnv16_WxH.cpp
+//! \file   Convert16_WxH.cpp
 //! \author S. Mushkaev
 //! \brief  Функции векторного ядра.
 //! 

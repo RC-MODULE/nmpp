@@ -218,7 +218,7 @@ public:
 		return m_data+idx;
 	}
 
-	__INLINE__ T&    operator [] (int idx)
+	__INLINE__ T&    operator [] (size_t idx)
 	{
 		ASSERTE(idx>=-m_border);
 		ASSERTE(idx<size+m_border);

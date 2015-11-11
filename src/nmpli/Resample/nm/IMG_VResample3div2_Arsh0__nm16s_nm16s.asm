@@ -59,16 +59,16 @@ extern vec_Mul2D2W8_AddVr:label;
 begin ".text_nmpli"
 
 
-//! \fn void IMG_VResample3div2_Arsh0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* pDstImg);
+//! \fn void IMG_VResample3div2_RShift0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* pDstImg);
 //!
 //! \n
-//! \perfinclude _IMG_VResample3div2_Arsh0__FPSsiiPSs.html
+//! \perfinclude _IMG_VResample3div2_RShift0__FPSsiiPSs.html
 
 //
-global _IMG_VResample3div2_Arsh0__FPSsiiPSs:label;
-global _void._.8.8IMG_VResample3div2_Arsh0.1short._.0.9._int.9._int.9._short._.0.2 :label;
-<_IMG_VResample3div2_Arsh0__FPSsiiPSs>
-<_void._.8.8IMG_VResample3div2_Arsh0.1short._.0.9._int.9._int.9._short._.0.2>
+global _IMG_VResample3div2_RShift0__FPSsiiPSs:label;
+global _void._.8.8IMG_VResample3div2_RShift0.1short._.0.9._int.9._int.9._short._.0.2 :label;
+<_IMG_VResample3div2_RShift0__FPSsiiPSs>
+<_void._.8.8IMG_VResample3div2_RShift0.1short._.0.9._int.9._int.9._short._.0.2>
 .branch;
 	ar5 = sp - 2;
 	

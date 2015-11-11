@@ -167,7 +167,7 @@ void SIG_ResampleUp3Down2(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize,  nm64s
 
 
 
-void SIG_Resample5div4_Arsh0(nm8s* pSrcVec,int nSrcVecSize, nm16s* pDstVec)
+void SIG_Resample5div4_RShift0(nm8s* pSrcVec,int nSrcVecSize, nm16s* pDstVec)
 {
 	nmvec16s vKernel(41);				// Filter kernel
 	nmvec8s  vSrcUpsample(nSrcVecSize*5,22);	// Resampled vSrc by 5 times
@@ -380,7 +380,8 @@ void SIG_VResample(nm8s* pSrcImg, int nSrcStride, int nSrcWidth, int nSrcHeight,
 				// Up-resampling by nP times
 			for( y=0;y<nSrcHeight;y++)
 			{
-				vSrcUpsample[y*nP]=mSrcImg[y][x];
+				
+				vSrcUpsample[y*nP]= mSrcImg[y][x];
 			}
 
 				// Filtration

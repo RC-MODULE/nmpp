@@ -3,21 +3,21 @@
 
 
 #ifdef __NM__
-	struct NmppsMalloc32Spec nmppsMalloc32Spec = {{malloc0,malloc1,malloc2,malloc3},MALLOC32_RANDOM_ORDER,0,0,0,0,0,0,0};
+	struct NmppsMalloc32Spec nmppsMalloc32Spec = {{malloc0,malloc1,malloc2,malloc3},MALLOC32_PRIOR_SEQ,0,0,0,0,0,0,0};
 
 #else 
 	void* __malloc32(unsigned int sizeInt32){
 		return malloc(sizeInt32*4);
 	}
-	struct NmppsMalloc32Spec nmppsMalloc32Spec = {{__malloc32,__malloc32,__malloc32,__malloc32},MALLOC32_RANDOM_ORDER,0,0,0,0,0,0,0};
+	struct NmppsMalloc32Spec nmppsMalloc32Spec = {{__malloc32,__malloc32,__malloc32,__malloc32},MALLOC32_PRIOR_SEQ,0,0,0,0,0,0,0};
 #endif 
 
 void* nmppsMalloc32(unsigned sizeInt32){
 	void* buffer=0;
 	static unsigned randomize=123;
 	unsigned heapIndx;
-	switch(nmppsMalloc32Spec.orderType){
-		case(MALLOC32_FIXED_ORDER):
+	switch(nmppsMalloc32Spec.mode){
+		case(MALLOC32_FIXED_SEQ):
 			heapIndx=0xF&(nmppsMalloc32Spec.fixedOrder>>(nmppsMalloc32Spec.nextFixedIndx<<2));
 			if (heapIndx==0xF){
 				heapIndx=0xF&nmppsMalloc32Spec.fixedOrder;
@@ -27,7 +27,7 @@ void* nmppsMalloc32(unsigned sizeInt32){
 				nmppsMalloc32Spec.nextFixedIndx++;
 			buffer=nmppsMalloc32Spec.allocator[heapIndx](sizeInt32);
 			break;
-		case(MALLOC32_PRIOR_ORDER):
+		case(MALLOC32_PRIOR_SEQ):
 			{
 				unsigned order=nmppsMalloc32Spec.priorOrder;
 				while ((heapIndx=(order&0xF))!=0xF){
@@ -39,7 +39,7 @@ void* nmppsMalloc32(unsigned sizeInt32){
 			}
 			break;
 
-		case(MALLOC32_RANDOM_ORDER):
+		case(MALLOC32_RANDOM_SEQ):
 			{
 				unsigned mask=nmppsMalloc32Spec.randomMask;
 				while (mask){
@@ -71,38 +71,85 @@ void nmppsFree32(void* buffer){
 		free(buffer);
 }
 
-
-void nmppsMalloc32Mode(NmppsAllocation order, enum MALLOC32_MODE orderType){
-	unsigned heapIndx;
-	nmppsMalloc32Spec.orderType=orderType;
-	switch(orderType){
-		case(MALLOC32_FIXED_ORDER):
-			nmppsMalloc32Spec.fixedOrder=order;
-			break;
-		case(MALLOC32_PRIOR_ORDER):
-			nmppsMalloc32Spec.priorOrder=order;
-			break;
-		case(MALLOC32_RANDOM_ORDER):
-			nmppsMalloc32Spec.randomMask=0;
-			while ((order&0xF)!=0xF){
-				nmppsMalloc32Spec.randomMask|=(1<<(order&0xF));
-				order>>=4;
-			}
-			break;	
-	}
+void nmppsMalloc32InitFixedSeq (uint64  heapSeq,  int heapCount)
+{
+	nmppsMalloc32Spec.mode = MALLOC32_FIXED_SEQ;
+	nmppsMalloc32Spec.fixedOrder=heapSeq;
+	nmppsMalloc32Spec.heapCount =heapCount;
 }
-
-int  nmppsMalloc32GetHistory(NmppsAllocation* order, int numAllocations)
+void nmppsMalloc32InitFixedSeqA(uint64* heapSeq,  int heapCount)
+{
+	//nmppsMalloc32Spec.mode = MALLOC32_FIXED_SEQA;
+	//nmppsMalloc32Spec.fixedOrder=heapSeq;
+	//nmppsMalloc32Spec.heapCount =heapCount;
+}
+void nmppsMalloc32InitRandomSeq(unsigned  heapSet,int heapCount)
 {
 	int i;
-	unsigned long long history=nmppsMalloc32Spec.allocHistory;
-	if (nmppsMalloc32Spec.numBufAllocated<numAllocations)
-		return -1;
-	*order=0xFULL;
+	nmppsMalloc32Spec.mode = MALLOC32_RANDOM_SEQ;
+	nmppsMalloc32Spec.randomMask=0;
+	nmppsMalloc32Spec.heapCount =heapCount;
+	for(i=0; i<heapCount; i++){
+		nmppsMalloc32Spec.randomMask|=(1<<(heapSet&0xF));
+		heapSet>>=4;
+	}
+}
+void nmppsMalloc32InitPriorSeq (uint64  heapSeq,  int heapCount)
+{
+	nmppsMalloc32Spec.mode = MALLOC32_PRIOR_SEQ;
+	nmppsMalloc32Spec.priorOrder=heapSeq;
+	nmppsMalloc32Spec.heapCount =heapCount;
+}
+void nmppsMalloc32InitAddrSeq  (void** addrSeq,   int addrCount)
+{
 	
-	for(i=0; i <numAllocations; i++){
-		*order<<=4;
-		*order|=history&0xF;
+}
+void  nmppsMalloc32StartAddrRec (void** addrSeq,   int maxAddrCount)
+{
+	
+}
+int  nmppsMalloc32StopAddrRec()
+{
+
+	return 0;
+}
+void nmppsMalloc32StartHeapRec (uint64* heapSeq,  int maxHeapCount)
+{
+	
+}
+int  nmppsMalloc32StopHeapRec()
+{
+	return 0;
+}
+void nmppsMalloc32InitBoundary (int size, int fill )
+{
+	
+}
+int  nmppsMalloc32CheckBoundary(void* buffer)
+{
+	return 0;
+}
+int  nmppsMalloc32IsErrorStatus()
+{
+	return nmppsMalloc32Spec.status;
+}
+void  nmppsMalloc32ResetStatus()
+{
+	nmppsMalloc32Spec.status=0;
+}
+
+
+int  nmppsMalloc32GetHistory(uint64* heapSeq, int heapCount)
+{
+	int i;
+	uint64 history=nmppsMalloc32Spec.allocHistory;
+	if (nmppsMalloc32Spec.numBufAllocated<heapCount)
+		return -1;
+	*heapSeq=0xFFULL;
+	
+	for(i=0; i <heapCount; i++){
+		*heapSeq<<=4;
+		*heapSeq|=history&0xF;
 		history>>=4;
 	}
 

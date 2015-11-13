@@ -27,7 +27,7 @@
     *
     *     \defgroup SCL_Group —кал€рные функции 
     */
-#include "./nmplc/nmplc.h"	
+//#include "./nmplc/nmplc.h"	
 	/**
     *
     *     \defgroup CORE_Group Ѕазовые регистровые функции библиотеки

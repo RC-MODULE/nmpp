@@ -257,25 +257,25 @@ void  FFT_Fwd256(
 #include "fft.h"	
 
 extern "C" {
-struct NmppsFFTSpec {
-	
-	int shift[4];
-	int round[4];
-	void* fftTable[2];
-	void* buffer[4];
-	Free32Func free;
-	//NmppsAllocation allocOrder;
+	struct NmppsFFTSpec {
+		
+		int shift[4];
+		int round[4];
+		void* fftTable[2];
+		void* buffer[4];
+		Free32Func free;
+		//NmppsAllocation allocOrder;
+	};
+
+
+
+
+	int  nmppsFFT256FwdInitAlloc(Malloc32Func allocate,  Free32Func free, struct NmppsFFTSpec* spec);
+	void nmppsFFTFree(NmppsFFTSpec* spec );
+	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+	void nmppsFFT256FwdOptimize(void* src, void* dst, uint64* allocOrder);
+
 };
-
-
-
-
-int  nmppsFFT256FwdInitAlloc(Malloc32Func allocate,  Free32Func free, struct NmppsFFTSpec* spec);
-void nmppsFFTFree(NmppsFFTSpec* spec );
-void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
-void nmppsFFT256FwdOptimize(void* src, void* dst, NmppsAllocation* allocOrder);
-};
-
 	
    
 struct s_fft_fwd256_settings {

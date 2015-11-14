@@ -45,21 +45,24 @@ struct NmppsMalloc32Spec{
 void* nmppsMalloc32(unsigned sizeInt32);
 void  nmppsFree32(void* buffer);
 
-void  nmppsMalloc32InitFixedSeqF(uint64  heapSeq);
-void  nmppsMalloc32InitFixedSeq (uint64  heapSeq,  int heapCount);
-void  nmppsMalloc32InitFixedSeqA(uint64* heapSeq,  int heapCount);
-void  nmppsMalloc32InitRandomSeq(uint32  heapSet,  int heapCount);
-void  nmppsMalloc32InitPriorSeq (uint64  heapSeq,  int heapCount);
-void  nmppsMalloc32InitAddrSeq  (void**  addrSeq,  int addrCount);
+typedef uint64  seq64;
+typedef uint64 fseq64;
+
+void  nmppsMalloc32SetFixedModeF(fseq64  heapSeq);
+void  nmppsMalloc32SetFixedMode (seq64   heapSeq,  int heapCount);
+void  nmppsMalloc32SetFixedModeA(seq64*  heapSeq,  int heapCount);
+void  nmppsMalloc32SetRandomMode(uint32  heapSet,  int heapCount);
+void  nmppsMalloc32SetPriorMode (seq64   heapSeq,  int heapCount);
+void  nmppsMalloc32SetDirectMode(void**  addrSeq,  int addrCount);
 void  nmppsMalloc32StartAddrRec (void**  addrSeq,  int maxAddrCount);
 int   nmppsMalloc32StopAddrRec  ();
-void  nmppsMalloc32StartHeapRec (uint64* heapSeq,  int maxHeapCount);
+void  nmppsMalloc32StartHeapRec (seq64*  heapSeq,  int maxHeapCount);
 int   nmppsMalloc32StopHeapRec  ();
-void  nmppsMalloc32InitBoundary (int size, int fill );
+void  nmppsMalloc32SetBoundary  (int size, int fill );
 int   nmppsMalloc32CheckBoundary(void*);
 int   nmppsMalloc32IsErrorStatus();
 void  nmppsMalloc32ResetStatus  ();
-int   nmppsMalloc32GetHistory   (uint64* heapSeq, int allocCount);
+int   nmppsMalloc32GetHistory   (seq64*  heapSeq, int allocCount);
 
 extern struct NmppsMalloc32Spec nmppsMalloc32Spec;
 

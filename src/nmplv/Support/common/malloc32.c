@@ -71,19 +71,26 @@ void nmppsFree32(void* buffer){
 		free(buffer);
 }
 
-void nmppsMalloc32InitFixedSeq (uint64  heapSeq,  int heapCount)
+void nmppsMalloc32SetFixedModeF (fseq64 heapSeq)
 {
 	nmppsMalloc32Spec.mode = MALLOC32_FIXED_SEQ;
 	nmppsMalloc32Spec.fixedOrder=heapSeq;
 	nmppsMalloc32Spec.heapCount =heapCount;
 }
-void nmppsMalloc32InitFixedSeqA(uint64* heapSeq,  int heapCount)
+
+void nmppsMalloc32SetFixedMode (uint64  heapSeq,  int heapCount)
+{
+	nmppsMalloc32Spec.mode = MALLOC32_FIXED_SEQ;
+	nmppsMalloc32Spec.fixedOrder=heapSeq;
+	nmppsMalloc32Spec.heapCount =heapCount;
+}
+void nmppsMalloc32SetFixedModeA(uint64* heapSeq,  int heapCount)
 {
 	//nmppsMalloc32Spec.mode = MALLOC32_FIXED_SEQA;
 	//nmppsMalloc32Spec.fixedOrder=heapSeq;
 	//nmppsMalloc32Spec.heapCount =heapCount;
 }
-void nmppsMalloc32InitRandomSeq(unsigned  heapSet,int heapCount)
+void nmppsMalloc32SetRandomMode(unsigned  heapSet,int heapCount)
 {
 	int i;
 	nmppsMalloc32Spec.mode = MALLOC32_RANDOM_SEQ;
@@ -94,13 +101,13 @@ void nmppsMalloc32InitRandomSeq(unsigned  heapSet,int heapCount)
 		heapSet>>=4;
 	}
 }
-void nmppsMalloc32InitPriorSeq (uint64  heapSeq,  int heapCount)
+void nmppsMalloc32SetPriorMode (uint64  heapSeq,  int heapCount)
 {
 	nmppsMalloc32Spec.mode = MALLOC32_PRIOR_SEQ;
 	nmppsMalloc32Spec.priorOrder=heapSeq;
 	nmppsMalloc32Spec.heapCount =heapCount;
 }
-void nmppsMalloc32InitAddrSeq  (void** addrSeq,   int addrCount)
+void nmppsMalloc32SetDirectMode  (void** addrSeq,   int addrCount)
 {
 	
 }
@@ -121,7 +128,7 @@ int  nmppsMalloc32StopHeapRec()
 {
 	return 0;
 }
-void nmppsMalloc32InitBoundary (int size, int fill )
+void nmppsMalloc32SetBoundary (int size, int fill )
 {
 	
 }

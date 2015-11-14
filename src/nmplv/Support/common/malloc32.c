@@ -75,7 +75,7 @@ void nmppsMalloc32SetFixedModeF (fseq64 heapSeq)
 {
 	nmppsMalloc32Spec.mode = MALLOC32_FIXED_SEQ;
 	nmppsMalloc32Spec.fixedOrder=heapSeq;
-	nmppsMalloc32Spec.heapCount =heapCount;
+	//nmppsMalloc32Spec.heapCount =heapCount;
 }
 
 void nmppsMalloc32SetFixedMode (uint64  heapSeq,  int heapCount)

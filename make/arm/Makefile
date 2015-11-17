@@ -85,7 +85,7 @@ OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a
 #INC_DIRS         = -I../../include -I../../include/nmpls
 INC_DIRS         = -I../../include
-SRC_DIRS         = ../../src/nmplv/Arithmetics/pc
+SRC_DIRS         = ../../src/aura
 TMP_DIR          = Release
 #------------------------------------------------
 CROSS_COMPILE   ?=

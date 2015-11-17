@@ -3,13 +3,13 @@
 
 
 #ifdef __NM__
-	struct NmppsMalloc32Spec nmppsMalloc32Spec = {{malloc0,malloc1,malloc2,malloc3},MALLOC32_PRIOR_SEQ,0,0,0,0,0,0,0};
+	struct NmppsMalloc32Spec nmppsMalloc32Spec = {{malloc0,malloc1,malloc2,malloc3},MALLOC32_PRIORITY_MODE,0xF,0xF3210,0,0,0,0,0,0,0,0,0xF};
 
 #else 
 	void* __malloc32(unsigned int sizeInt32){
 		return malloc(sizeInt32*4);
 	}
-	struct NmppsMalloc32Spec nmppsMalloc32Spec = {{__malloc32,__malloc32,__malloc32,__malloc32},MALLOC32_PRIOR_SEQ,0,0,0,0,0,0,0};
+	struct NmppsMalloc32Spec nmppsMalloc32Spec = {{__malloc32,__malloc32,__malloc32,__malloc32},MALLOC32_PRIORITY_MODE,0xF,0xF3210,0,0,0,0,0,0,0,0,0xF};
 #endif 
 
 void* nmppsMalloc32(unsigned sizeInt32){
@@ -17,31 +17,37 @@ void* nmppsMalloc32(unsigned sizeInt32){
 	static unsigned randomize=123;
 	unsigned heapIndx;
 	switch(nmppsMalloc32Spec.mode){
-		case(MALLOC32_FIXED_SEQ):
-			heapIndx=0xF&(nmppsMalloc32Spec.fixedOrder>>(nmppsMalloc32Spec.nextFixedIndx<<2));
-			if (heapIndx==0xF){
-				heapIndx=0xF&nmppsMalloc32Spec.fixedOrder;
-				nmppsMalloc32Spec.nextFixedIndx=1;
-			}
-			else 
-				nmppsMalloc32Spec.nextFixedIndx++;
+
+		case(MALLOC32_ROUTE_MODE):
+			heapIndx=0xF&(nmppsMalloc32Spec.routeInternal>>(nmppsMalloc32Spec.routePos<<2));
+			nmppsMalloc32Spec.routePos++;
+			if (nmppsMalloc32Spec.routePos == nmppsMalloc32Spec.routeSize)
+				nmppsMalloc32Spec.routePos=0;
 			buffer=nmppsMalloc32Spec.allocator[heapIndx](sizeInt32);
 			break;
-		case(MALLOC32_PRIOR_SEQ):
+
+		case(MALLOC32_LONG_ROUTE_MODE):
+			heapIndx=0xF&(nmppsMalloc32Spec.route[nmppsMalloc32Spec.routePos>>4]>>((nmppsMalloc32Spec.routePos&0xF)<<2));
+			if (nmppsMalloc32Spec.routePos++ == nmppsMalloc32Spec.routeSize)
+				nmppsMalloc32Spec.routePos=0;
+			buffer=nmppsMalloc32Spec.allocator[heapIndx](sizeInt32);
+			break;
+
+		case(MALLOC32_PRIORITY_MODE):
 			{
-				unsigned order=nmppsMalloc32Spec.priorOrder;
-				while ((heapIndx=(order&0xF))!=0xF){
+				unsigned priority=nmppsMalloc32Spec.priority;
+				while ((heapIndx=(priority&0xF))!=0xF){
 					buffer=nmppsMalloc32Spec.allocator[heapIndx](sizeInt32);
 					if (buffer)						
 						break;
-					order>>=4;
+					priority>>=4;
 				}
 			}
 			break;
 
-		case(MALLOC32_RANDOM_SEQ):
+		case(MALLOC32_RANDOM_MODE):
 			{
-				unsigned mask=nmppsMalloc32Spec.randomMask;
+				unsigned mask=nmppsMalloc32Spec.random;
 				while (mask){
 					randomize=1664525*randomize+1013904223;
 					heapIndx=randomize>>30;
@@ -57,8 +63,24 @@ void* nmppsMalloc32(unsigned sizeInt32){
 	}
 	if (buffer) {
 		nmppsMalloc32Spec.numBufAllocated++;
-		nmppsMalloc32Spec.allocHistory<<=4;
-		nmppsMalloc32Spec.allocHistory|=heapIndx;
+		nmppsMalloc32Spec.routeHistoryFifo<<=4;
+		nmppsMalloc32Spec.routeHistoryFifo|=heapIndx;
+		if (nmppsMalloc32Spec.routeHistory){
+			if (nmppsMalloc32Spec.routeHistorySize==nmppsMalloc32Spec.fixedHistoryMaxSize){
+				nmppsMalloc32Spec.status=-1;
+				return buffer;
+			}
+			nmppsMalloc32Spec.routeHistory[nmppsMalloc32Spec.routeHistorySize>>4] |= heapIndx<<((nmppsMalloc32Spec.routeHistorySize&0xF)<<2);	
+		}
+
+		if (nmppsMalloc32Spec.fixedHistory){
+			if (nmppsMalloc32Spec.fixedHistorySize==nmppsMalloc32Spec.fixedHistoryMaxSize){
+				nmppsMalloc32Spec.status=-1;
+				return buffer;
+			}
+			nmppsMalloc32Spec.fixedHistory[nmppsMalloc32Spec.fixedHistorySize]=buffer;
+			nmppsMalloc32Spec.routeSize++;
+		}
 	}
 	else {
 		nmppsMalloc32Spec.status++;
@@ -71,14 +93,21 @@ void nmppsFree32(void* buffer){
 		free(buffer);
 }
 
-void nmppsMalloc32SetFixedModeF (fseq64 heapSeq)
+void nmppsMalloc32SetRouteMode (fseq64 heapSeq)
 {
-	nmppsMalloc32Spec.mode = MALLOC32_FIXED_SEQ;
-	nmppsMalloc32Spec.fixedOrder=heapSeq;
-	//nmppsMalloc32Spec.heapCount =heapCount;
+	nmppsMalloc32Spec.mode = MALLOC32_ROUTE_MODE;
+	nmppsMalloc32Spec.routeInternal=heapSeq;
+	nmppsMalloc32Spec.routePos=0;
+	nmppsMalloc32Spec.routeSize=0;
+	while ((heapSeq&0xF)!=0xF){
+		heapSeq>>=4;
+		nmppsMalloc32Spec.routeSize++;
+		if  (nmppsMalloc32Spec.routeSize==16)
+			break;
+	}
 }
-
-void nmppsMalloc32SetFixedMode (uint64  heapSeq,  int heapCount)
+/*
+void nmppsMalloc32SetLoFixedMode (uint64  heapSeq,  int heapCount)
 {
 	nmppsMalloc32Spec.mode = MALLOC32_FIXED_SEQ;
 	nmppsMalloc32Spec.fixedOrder=heapSeq;
@@ -90,22 +119,23 @@ void nmppsMalloc32SetFixedModeA(uint64* heapSeq,  int heapCount)
 	//nmppsMalloc32Spec.fixedOrder=heapSeq;
 	//nmppsMalloc32Spec.heapCount =heapCount;
 }
+*/
 void nmppsMalloc32SetRandomMode(unsigned  heapSet,int heapCount)
 {
 	int i;
-	nmppsMalloc32Spec.mode = MALLOC32_RANDOM_SEQ;
-	nmppsMalloc32Spec.randomMask=0;
-	nmppsMalloc32Spec.heapCount =heapCount;
+	int randomSize=0;
+	nmppsMalloc32Spec.mode = MALLOC32_RANDOM_MODE;
+	nmppsMalloc32Spec.random=0;
+
 	for(i=0; i<heapCount; i++){
-		nmppsMalloc32Spec.randomMask|=(1<<(heapSet&0xF));
+		nmppsMalloc32Spec.random|=(1<<(heapSet&0xF));
 		heapSet>>=4;
 	}
 }
-void nmppsMalloc32SetPriorMode (uint64  heapSeq,  int heapCount)
+void nmppsMalloc32SetPriorityMode (uint64  heapSeq,  int heapCount)
 {
-	nmppsMalloc32Spec.mode = MALLOC32_PRIOR_SEQ;
-	nmppsMalloc32Spec.priorOrder=heapSeq;
-	nmppsMalloc32Spec.heapCount =heapCount;
+	nmppsMalloc32Spec.mode = MALLOC32_PRIORITY_MODE;
+	nmppsMalloc32Spec.priority=heapSeq;
 }
 void nmppsMalloc32SetDirectMode  (void** addrSeq,   int addrCount)
 {
@@ -146,20 +176,19 @@ void  nmppsMalloc32ResetStatus()
 }
 
 
-int  nmppsMalloc32GetHistory(uint64* heapSeq, int heapCount)
+int   nmppsMalloc32GetHistory   (fseq64*  heapSeq, int seqSize)
 {
 	int i;
-	uint64 history=nmppsMalloc32Spec.allocHistory;
-	if (nmppsMalloc32Spec.numBufAllocated<heapCount)
+	fifo64 history=nmppsMalloc32Spec.routeHistoryFifo;
+	*heapSeq=0xFULL; 
+	if (nmppsMalloc32Spec.numBufAllocated<seqSize)
 		return -1;
-	*heapSeq=0xFFULL;
 	
-	for(i=0; i <heapCount; i++){
+	for(i=0; i <seqSize; i++){
 		*heapSeq<<=4;
 		*heapSeq|=history&0xF;
 		history>>=4;
 	}
-
 }
 
 

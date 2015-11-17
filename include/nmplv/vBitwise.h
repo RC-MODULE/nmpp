@@ -982,7 +982,7 @@ void nmppsRShiftC_AddC_32u(nm32u *pSrcVec,  int nShift, uint32b nAddVal,  nm32u 
     \defgroup nmppsDisplaceBits nmppsDisplaceBits
     \ingroup vBitwise
     \brief
-		\ru Нерпрерывное смещение битов внутри бинарного массива в сторону конца массива
+		\ru Непрерывное смещение битов внутри бинарного массива в сторону конца массива
 		\en Continuous displacement of bits within binary array in direction to the end of array
 		
 		\~

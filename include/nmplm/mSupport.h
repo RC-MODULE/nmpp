@@ -74,6 +74,7 @@
 			  \~
     */
     //! \{
+	/*
 __INLINE__ void MTR_Malloc(nm1** pptr,   int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>6) +1, hint);}
 __INLINE__ void MTR_Malloc(nm2s** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>5) +1, hint);}
 __INLINE__ void MTR_Malloc(nm4s** pptr,  int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>4) +1, hint);}
@@ -88,7 +89,7 @@ __INLINE__ void MTR_Malloc(nm8u** pptr,  int nHeight, int nWidth, int hint = MEM
 __INLINE__ void MTR_Malloc(nm16u** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>2) +1, hint);}
 __INLINE__ void MTR_Malloc(nm32u** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth>>1) +1, hint);}
 __INLINE__ void MTR_Malloc(nm64u** pptr, int nHeight, int nWidth, int hint = MEM_LOCAL) { nmppsMalloc_64s((nm64s**)pptr, (nHeight*nWidth   )   , hint);}
-
+*/
     //! \}
 
 //*****************************************************************************

@@ -182,9 +182,9 @@ void IMG_ResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDs
 	nm8s*  pSrc8s;
 	nm16s* pHResample16s;
 	nm16s* pVResample16s;
-	nmppsMalloc_8s(&pSrc8s,nSrcSize+100,0);
-	nmppsMalloc_16s(&pHResample16s,nSrcSize*3/2+nSrcWidth*100,0);
-	nmppsMalloc_16s(&pVResample16s,nSrcSize*3*3/2/2+nSrcWidth*100,0);
+	pSrc8s=nmppsMalloc_8s(nSrcSize+100);
+	pHResample16s=nmppsMalloc_16s(nSrcSize*3/2+nSrcWidth*100);
+	pVResample16s=nmppsMalloc_16s(nSrcSize*3*3/2/2+nSrcWidth*100);
 
 	nmppsSubC_8s((nm8s*)pSrcImg,char(128),(nm8s*)pSrc8s,nSrcSize);
 	SIG_ResampleUp3Down2((nm8s*)pSrc8s,pHResample16s+nSrcWidth*50,nSrcSize,pKernel);

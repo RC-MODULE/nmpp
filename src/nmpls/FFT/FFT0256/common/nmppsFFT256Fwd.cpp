@@ -17,6 +17,8 @@ int nmppsFFT256FwdInitAlloc(Malloc32Func allocate, Free32Func free, struct Nmpps
 	return 0;
 }
 
+
+
 void nmppsFFTFree(NmppsFFTSpec* spec )
 {
 	spec->free(spec->buffer[0]);
@@ -45,8 +47,7 @@ void nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder)
 			nmppsMalloc32SetRouteMode(route);
 
 			NmppsFFTSpec spec;
-			spec.buffer[0]=(nm32sc*)nmppsMalloc32(256*2*3);
-			spec.buffer[1]=(nm32sc*)nmppsMalloc32(256*2*2);
+			nmppsFFT256FwdInitAlloc(nmppsMalloc32, nmppsFree32, &spec );
 			
 			if (nmppsMalloc32Spec.status==0){
 				t0=clock();
@@ -59,8 +60,7 @@ void nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder)
 				}
 			}
 			//nmppsMalloc32Spec.status=0;
-			nmppsFree32(spec.buffer[0]);
-			nmppsFree32(spec.buffer[1]);
+			nmppsFFTFree(&spec);
 		}
 	}
 }

@@ -101,12 +101,12 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsCrc_(unsigned int* pSrcVec, int nSize, unsigned int& nCrc);
+//! \fn unsigned nmppsCrcAcc_(unsigned int* pSrcVec, int nSize, unsigned int& nCrc);
 //!
-//! \perfinclude _nmppsCrc_32u.html
+//! \perfinclude _nmppsCrcAcc_32u.html
 
-global _nmppsCrc_32u :label;
-<_nmppsCrc_32u>
+global _nmppsCrcAcc_32u :label;
+<_nmppsCrcAcc_32u>
  
 
 .branch;

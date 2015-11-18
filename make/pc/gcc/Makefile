@@ -129,6 +129,7 @@ SRC_DIRS         =  \
 				../../../src/nmplv/Init/pc \
 				../../../src/nmplv/nmtl_spec/pc \
 				../../../src/nmplv/Select/common \
+				../../../src/nmplv/Stat/common \
 				../../../src/nmplv/Select/pc \
 				../../../src/nmplv/Stat/pc \
 				../../../src/nmplv/Support/pc \

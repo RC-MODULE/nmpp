@@ -67,15 +67,27 @@
     */
     //! \{
 
-   void nmppsCrc_32u(nm32u* pSrcVec, int nSize, unsigned int* nCrc);
-__INLINE__ void nmppsCrc_64s(nm64s* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize<<1, nCrc); }
-__INLINE__ void nmppsCrc_32s(nm32s* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize,    nCrc); }           
-__INLINE__ void nmppsCrc_16s(nm16s* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize>>1, nCrc); }
-__INLINE__ void nmppsCrc_8s (nm8s*  pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize>>2, nCrc); }
-__INLINE__ void nmppsCrc_64u(nm64u* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize<<1, nCrc); }
+   unsigned nmppsCrcAcc_32u(nm32u* pSrcVec, int nSize, unsigned int* crcAccumulator);
+   unsigned nmppsCrc_32u(nm32u* pSrcVec, int nSize);
+   
+__INLINE__ unsigned  nmppsCrc_64s(nm64s* pSrcVec, int nSize) {  return nmppsCrc_32u((unsigned*)pSrcVec, nSize<<1); }
+__INLINE__ unsigned  nmppsCrc_32s(nm32s* pSrcVec, int nSize) {  return nmppsCrc_32u((unsigned*)pSrcVec, nSize   ); }           
+__INLINE__ unsigned  nmppsCrc_16s(nm16s* pSrcVec, int nSize) {  return nmppsCrc_32u((unsigned*)pSrcVec, nSize>>1); }
+__INLINE__ unsigned  nmppsCrc_8s (nm8s*  pSrcVec, int nSize) {  return nmppsCrc_32u((unsigned*)pSrcVec, nSize>>2); }
+__INLINE__ unsigned  nmppsCrc_64u(nm64u* pSrcVec, int nSize) {  return nmppsCrc_32u((unsigned*)pSrcVec, nSize<<1); }
+                                                                
+__INLINE__ unsigned  nmppsCrc_16u(nm16u* pSrcVec, int nSize) {  return nmppsCrc_32u((unsigned*)pSrcVec, nSize>>1); }
+__INLINE__ unsigned  nmppsCrc_8u (nm8u*  pSrcVec, int nSize) {  return nmppsCrc_32u((unsigned*)pSrcVec, nSize>>2); }
 
-__INLINE__ void nmppsCrc_16u(nm16u* pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize>>1, nCrc); }
-__INLINE__ void nmppsCrc_8u (nm8u*  pSrcVec, int nSize, unsigned int* nCrc) {  nmppsCrc_32u((unsigned*)pSrcVec, nSize>>2, nCrc); }
+
+__INLINE__ unsigned nmppsCrcAcc_64s(nm64s* pSrcVec, int nSize, unsigned int* crcAccumulator) {  return nmppsCrcAcc_32u((unsigned*)pSrcVec, nSize<<1, crcAccumulator); }
+__INLINE__ unsigned nmppsCrcAcc_32s(nm32s* pSrcVec, int nSize, unsigned int* crcAccumulator) {  return nmppsCrcAcc_32u((unsigned*)pSrcVec, nSize,    crcAccumulator); }           
+__INLINE__ unsigned nmppsCrcAcc_16s(nm16s* pSrcVec, int nSize, unsigned int* crcAccumulator) {  return nmppsCrcAcc_32u((unsigned*)pSrcVec, nSize>>1, crcAccumulator); }
+__INLINE__ unsigned nmppsCrcAcc_8s (nm8s*  pSrcVec, int nSize, unsigned int* crcAccumulator) {  return nmppsCrcAcc_32u((unsigned*)pSrcVec, nSize>>2, crcAccumulator); }
+__INLINE__ unsigned nmppsCrcAcc_64u(nm64u* pSrcVec, int nSize, unsigned int* crcAccumulator) {  return nmppsCrcAcc_32u((unsigned*)pSrcVec, nSize<<1, crcAccumulator); }
+                                                                                                
+__INLINE__ unsigned nmppsCrcAcc_16u(nm16u* pSrcVec, int nSize, unsigned int* crcAccumulator) {  return nmppsCrcAcc_32u((unsigned*)pSrcVec, nSize>>1, crcAccumulator); }
+__INLINE__ unsigned nmppsCrcAcc_8u (nm8u*  pSrcVec, int nSize, unsigned int* crcAccumulator) {  return nmppsCrcAcc_32u((unsigned*)pSrcVec, nSize>>2, crcAccumulator); }
 
 
     //! \}

@@ -215,6 +215,7 @@
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsRand.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSet.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSwap.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Stat\common\nmppsCrc.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Stat\pc\CRC32_Table.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Stat\pc\VEC_Crc.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_Malloc64s.c" > </File> 

@@ -185,7 +185,6 @@
  	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_Addr.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_GetVal.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_SetVal.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Support/common/malloc32.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Transform/common/VEC_Remap_nm8u.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Transform/pc/VEC_QSort.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Transform/pc/VEC_Remap.cpp" /> 
@@ -224,9 +223,11 @@
  	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsRand.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsSet.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsSwap.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Stat/common/nmppsCrc.c" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/CRC32_Table.c" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/VEC_Crc.c" /> 
  	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_Malloc64s.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Support/common/malloc32.c" /> 
    </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

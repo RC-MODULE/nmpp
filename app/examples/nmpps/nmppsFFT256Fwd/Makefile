@@ -59,8 +59,8 @@ define automake_platform
 $(1):make_$(1)/Makefile
 
 make_$(1)/Makefile: make_$(1)
-	echo ROOT=../$(ROOT)| cat - "$(ROOT)/app/templates/sometest/make_$(1)/Makefile" > make_$(1)/Makefile
-	-cp "$(ROOT)/app/templates/sometest/make_$(1)/*.cfg" make_$(1)
+	echo ROOT=../$(ROOT)| cat - $(ROOT)/app/templates/sometest/make_$(1)/Makefile > make_$(1)/Makefile
+	-cp $(ROOT)/app/templates/sometest/make_$(1)/*.cfg make_$(1)
 	
 
 make_$(1): 

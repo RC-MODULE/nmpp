@@ -69,10 +69,14 @@
 #  .DEFAULT_GOAL := skip
 #endif
 
+
+
 GAS =$(CODESOURCERY)/bin/arm-none-eabi-as
-GCC =$(CODESOURCERY)/bin/arm-none-eabi-gcc
+#GCC =$(CODESOURCERY)/bin/arm-none-eabi-gcc
+GCC =arm-module-linux-gnueabi-gcc 
 GLD =$(CODESOURCERY)/bin/arm-none-eabi-gcc
-GAR =$(CODESOURCERY)/bin/arm-none-eabi-ar
+#GAR =$(CODESOURCERY)/bin/arm-none-eabi-ar
+GAR =arm-module-linux-gnueabi-ar
 OBJCOPY = $(CODESOURCERY)/bin/arm-none-eabi-objcopy
 OBJDUMP = $(CODESOURCERY)/bin/arm-none-eabi-objdump
 

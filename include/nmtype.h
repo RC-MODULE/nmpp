@@ -1337,7 +1337,11 @@ typedef struct s_nm64sc
 #ifdef __cplusplus
 #define __INLINE__ inline
 #else
-#define __INLINE__ __inline
+ #ifdef __NM__
+   #define __INLINE__ inline
+ #else 
+   #define __INLINE__ __inline
+  #endif
 #endif
 
 #endif

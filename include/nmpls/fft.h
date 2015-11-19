@@ -101,8 +101,9 @@
 // NOTE: At least on time the accuracy setting function must be called before FFT routine executing.
 #include "malloc32.h"
 
-extern "C"
-{
+#ifdef __cplusplus
+		extern "C" {
+#endif
 //=============================  Forward FFT 256 =====================================
 
 	
@@ -254,9 +255,9 @@ void  FFT_Fwd256(
 			);
 #include "time.h"
 #include "malloc32.h"
-#include "fft.h"	
+	
 
-extern "C" {
+
 	struct NmppsFFTSpec {
 		
 		int shift[4];
@@ -269,13 +270,13 @@ extern "C" {
 
 
 
-
+	int  nmppsFFTTest( struct NmppsFFTSpec* spec);
 	int  nmppsFFT256FwdInitAlloc(Malloc32Func allocate,  Free32Func free, struct NmppsFFTSpec* spec);
 	void nmppsFFTFree(NmppsFFTSpec* spec );
 	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
 	void nmppsFFT256FwdOptimize(void* src, void* dst, uint64* allocOrder);
 
-};
+
 	
    
 struct s_fft_fwd256_settings {
@@ -1639,7 +1640,11 @@ void FFT_Inv8192(
 			void*		GBuffer		// Temp buffer   :long[8192*3]
 			);
 
-}
 
 
-#endif //_SFFT_H_INCLUDED_
+#ifdef __cplusplus
+		};
+#endif
+
+#endif 
+		

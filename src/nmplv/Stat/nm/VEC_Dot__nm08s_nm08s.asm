@@ -43,11 +43,11 @@ begin ".text_nmplv"
 
    
 
-//! \fn void nmppsDotProd (nm8s *pSrcVec1, nm8s *pSrcVec2, int nSize, int64b *pnRes, void* pTmpBuff) 
+//! \fn void nmppsDotProd_8s8s (nm8s *pSrcVec1, nm8s *pSrcVec2, int nSize, int64b *pnRes, void* pTmpBuff) 
 //!
-//! \perfinclude _nmppsDotProd_8s.html
+//! \perfinclude nmppsDotProd_8s8s.html
 				 
-global _nmppsDotProd_8s:label;
+global _nmppsDotProd_8s8s:label;
 <_nmppsDotProd_8s>
 	ar5 = sp - 2;
 

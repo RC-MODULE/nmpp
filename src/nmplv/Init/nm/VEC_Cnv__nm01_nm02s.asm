@@ -45,13 +45,13 @@ import from macros.mlb;
 //-----------------------------------------------------------------------------
 begin ".text_nmplv"
 
-//! \fn void nmppsConvert_1*(nm1* pSrcVec, nm2s* pDstVec, int nSize)
+//! \fn void nmppsConvert_1s2s*(nm1* pSrcVec, nm2s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsConvert__F3nm1P4nm2sPi_.html
+//! \perfinclude nmppsConvert_1s2s.html
 
 
-global _void._.8.8nmppsConvert_.1class._nm1._.0.9._class._nm2s._.0.9._int.2 :label;
-<_void._.8.8nmppsConvert_.1class._nm1._.0.9._class._nm2s._.0.9._int.2>
+global _nmppsConvert_1s2s:label;
+<_nmppsConvert_1s2s>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0;

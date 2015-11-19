@@ -42,12 +42,12 @@ end ".data_nmplv_G";
 
 begin ".text_nmplv"
 
-//! \fn void nmppsConvert_32s(nm32s* pSrcVec, nm16s* pDstVec, int nSize)
+//! \fn void nmppsConvert_32s16s(nm32s* pSrcVec, nm16s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsConvert_32s.html
+//! \perfinclude nmppsConvert_32s16s.html
 
-global _nmppsConvert_32s:label;
-<_nmppsConvert_32s>
+global _nmppsConvert_32s16s:label;
+<_nmppsConvert_32s16s>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

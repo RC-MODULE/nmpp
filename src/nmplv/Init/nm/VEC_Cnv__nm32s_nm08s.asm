@@ -43,8 +43,8 @@ begin ".text_nmplv"
 //!
 //! \perfinclude _nmppsConvert_32s8s.html
 
-global _nmppsConvert_32s_8s:label;
-<_nmppsConvert_32s_8s>
+global _nmppsConvert_32s8s:label;
+<_nmppsConvert_32s8s>
 .branch;
     ar5 = sp - 2 with gr7 = false;
 	push ar0,gr0 with gr7++;

@@ -25,12 +25,12 @@ import from macros.mlb;
 begin ".text_nmplv"
 .branch;
 
-//! \fn void nmppsDotProd (nm32s *pSrcVec1, nm64s *pSrcVec2, int nSize, int64b *pnRes) 
+//! \fn void nmppsDotProd_32s64s (nm32s *pSrcVec1, nm64s *pSrcVec2, int nSize, int64b *pnRes) 
 //!
-//! \perfinclude _nmppsDotProd_32s.html
+//! \perfinclude nmppsDotProd_32s64s.html
 
-global _nmppsDotProd_32s:label;
-<_nmppsDotProd_32s>
+global _nmppsDotProd_32s64s:label;
+<_nmppsDotProd_32s64s>
 	ar5 = sp - 2;
 
 	PUSH_REGS();

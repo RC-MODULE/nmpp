@@ -43,13 +43,13 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsConvert_16s(nm16s* pSrcVec, nm8s* pDstVec, int nSize)
+//! \fn void nmppsConvert_16s8s(nm16s* pSrcVec, nm8s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsConvert_16s.html
+//! \perfinclude nmppsConvert_16s8s.html
 
 
-global _nmppsConvert_16s:label;
-<_nmppsConvert_16s>
+global _nmppsConvert_16s8s:label;
+<_nmppsConvert_16s8s>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	f1cr = gr7;

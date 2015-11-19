@@ -29,24 +29,24 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
-//! \fn void nmppsConvert_16s(nm16s* pSrcVec, nm32s* pDstVec, int nSize)
+//! \fn void nmppsConvert_16s32s(nm16s* pSrcVec, nm32s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsConvert_16s.html
+//! \perfinclude nmppsConvert_16s32s.html
 
-global _nmppsConvert_16s:label;
-<_nmppsConvert_16s>
+global _nmppsConvert_16s32s:label;
+<_nmppsConvert_16s32s>
 .branch;
 	delayed goto JumpFromSigned;
 		nb1 = 80000000h;
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsConvert_16u(nm16u* pSrcVec, nm32u* pDstVec, int nSize)
+//! \fn void nmppsConvert_16u32u(nm16u* pSrcVec, nm32u* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsConvert_16u.html
+//! \perfinclude nmppsConvert_16u32u.html
 
-global _nmppsConvert_16u:label;
-<_nmppsConvert_16u>
+global _nmppsConvert_16u32u:label;
+<_nmppsConvert_16u32u>
 .branch;
 	nb1 = 80008000h;
 	<JumpFromSigned>

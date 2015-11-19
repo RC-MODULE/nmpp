@@ -23,13 +23,13 @@ extern _VEC_TBL_Diagonal_1h_L:long[16];
 
 begin ".text_nmplv"
 
-//! \fn void nmppsConvert_16s(nm16s* pSrcVec, nm4s* pDstVec, int nSize);
+//! \fn void nmppsConvert_16s4s(nm16s* pSrcVec, nm4s* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsConvert_32s.html
+//! \perfinclude nmppsConvert_16s4s.html
 
 
-global _nmppsConvert_16s:label;
-<_nmppsConvert_16s>
+global _nmppsConvert_16s4s:label;
+<_nmppsConvert_16s4s>
 .branch;
     ar5 = sp - 2 with gr7 = false;
 	push ar0,gr0 with gr7++;

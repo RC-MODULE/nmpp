@@ -35,12 +35,12 @@ begin ".text_nmplv"
 .branch;
 //***************************************************************************/
 
-//! \fn void nmppsDotProd (nm32s *pSrcVec1, nm32s *pSrcVec2, int nSize, int64b *pnRes, void* pTmpBuff) 
+//! \fn void nmppsDotProd_32s32s (nm32s *pSrcVec1, nm32s *pSrcVec2, int nSize, int64b *pnRes, void* pTmpBuff) 
 //!
-//! \perfinclude _nmppsDotProd_32s.html
+//! \perfinclude nmppsDotProd_32s32s.html
 
-global _nmppsDotProd_32s:label;
-<_nmppsDotProd_32s>
+global _nmppsDotProd_32s32s:label;
+<_nmppsDotProd_32s32s>
 	ar5 = sp - 2;
 
 	PUSH_REGS();

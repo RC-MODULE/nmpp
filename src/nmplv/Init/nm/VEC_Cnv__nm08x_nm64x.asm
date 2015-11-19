@@ -53,12 +53,12 @@ global _nmppsConvert_8s64s:label;
 
 		
 
-//! \fn void nmppsConvert_8u(nm8u* pSrcVec, nm64u* pDstVec, int nSize)
+//! \fn void nmppsConvert_8u64u(nm8u* pSrcVec, nm64u* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsConvert_8u.html
+//! \perfinclude nmppsConvert_8u64u.html
 
-global _nmppsConvert_8u:label;
-<_nmppsConvert_8u>
+global _nmppsConvert_8u64u:label;
+<_nmppsConvert_8u64u>
 .branch;
 	nb1 = 80808080h;
 	<JumpFromSigned>

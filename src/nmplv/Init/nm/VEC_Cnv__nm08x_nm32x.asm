@@ -39,8 +39,8 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsConvert_8s32s.html
 
 
-global _nmppsConvert_8s_32s:label;
-<_nmppsConvert_8s_32s>
+global _nmppsConvert_8s32s:label;
+<_nmppsConvert_8s32s>
 .branch;
    	delayed goto JumpFromSigned;
 		nb1 = 80000000h;
@@ -49,12 +49,12 @@ global _nmppsConvert_8s_32s:label;
 
 		
 
-//! \fn void nmppsConvert_8u(nm8u* pSrcVec, nm32u* pDstVec, int nSize)
+//! \fn void nmppsConvert_8u32u(nm8u* pSrcVec, nm32u* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsConvert_8u.html
+//! \perfinclude nmppsConvert_8u32u.html
 
-global _nmppsConvert_8u:label;
-<_nmppsConvert_8u>
+global _nmppsConvert_8u32u:label;
+<_nmppsConvert_8u32u>
 .branch;
 	nb1 = 80808080h;
 	<JumpFromSigned>

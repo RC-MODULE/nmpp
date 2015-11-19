@@ -105,7 +105,73 @@ int   nmppsMalloc32GetHistory   (fseq64*  heapSeq, int seqSize);
 extern struct NmppsMalloc32Spec nmppsMalloc32Spec;
 
 
+ /**
+    \defgroup nmppsMalloc nmppsMalloc
+    \ingroup vSupport
+    \brief
+        \ru Распределение памяти для векторов библиотеки. 
+        \en Memory allocation for library vectors. 
+		\~
+    \param nSize 
+        \ru Число элементов в векторе. 
+        \en Number of elements in vec. 
+		\~
+    \param hint 
+        \ru Номер банка памяти. Может принимать значения 
+                    MEM_LOCAL, MEM_GLOBAL. 
+        \en Number of memory bank. Admissible values for memory bank
+                    are MEM_LOCAL, MEM_GLOBAL. 
+		\~
+    \note 
+		\ru Память, распределенная с помощью функций nmppsMalloc_ должна
+              освобождаться с помощью функции nmppsFree(). 
+        \en Memory allocated with function nmppsMalloc_ should be 
+              freed with function nmppsFree()
+		\~
+    */
+    //! \{
+/*
+void nmppsMalloc_64s(nm64s** pptr, int nSize, int hint );
 
+__INLINE__ void nmppsMalloc_1 (nm1**   pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>6) +1, hint);}
+__INLINE__ void nmppsMalloc_2s(nm2s**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>5) +1, hint);}
+__INLINE__ void nmppsMalloc_2u(nm2u**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>5) +1, hint);}
+__INLINE__ void nmppsMalloc_4s(nm4s**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>4) +1, hint);}
+__INLINE__ void nmppsMalloc_4u(nm4u**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>4) +1, hint);}
+__INLINE__ void nmppsMalloc_8u(nm8u**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>3) +1, hint);}
+__INLINE__ void nmppsMalloc_8s(nm8s**  pptr, int nSize, int hint ) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>3) +1, hint);}
+__INLINE__ void nmppsMalloc_16u(nm16u** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>2) +1, hint);}
+__INLINE__ void nmppsMalloc_16s(nm16s** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>2) +1, hint);}
+__INLINE__ void nmppsMalloc_32u(nm32u** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>1) +1, hint);}
+__INLINE__ void nmppsMalloc_32s(nm32s** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, (nSize>>1) +1, hint);}
+__INLINE__ void nmppsMalloc_64u(nm64u** pptr, int nSize, int hint) { nmppsMalloc_64s((nm64s**)pptr, nSize, hint);}
+*/
+    //! \}
+
+//*****************************************************************************
+
+    /**
+    \defgroup nmppsFree nmppsFree
+    \ingroup vSupport
+    \brief
+        \ru Освобождение памяти для векторов. 
+        \en Memory deallocation for vectors. 
+		\~
+    \note 
+		  \ru Данная функция должна вызываться только для
+              векторов, распределенных с помощью функций 
+              nmppsMalloc_.
+          \en This function should be called only for matrixis
+              allocated by nmppsMalloc_ functions. 
+		\~
+    */
+    //! \{
+
+
+ __INLINE__  void nmppsFree(void* ptr) {nmppsFree32((void*)ptr);}
+    //! \}
+    
+    
 
 #ifdef __cplusplus
 		};

@@ -33,12 +33,12 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
-//! \fn void nmppsConvert_16s(nm16s* pSrcVec, nm64s* pDstVec, int nSize)
+//! \fn void nmppsConvert_16s64s(nm16s* pSrcVec, nm64s* pDstVec, int nSize)
 //!
-//! \perfinclude _nmppsConvert_16s.html
+//! \perfinclude nmppsConvert_16s64s.html
 
-global _nmppsConvert_16s:label;
-<_nmppsConvert_16s>
+global _nmppsConvert_16s64s:label;
+<_nmppsConvert_16s64s>
 .branch;
 	delayed goto JumpFromSigned;
 		nb1 = 00000000h;

@@ -23,8 +23,9 @@ typedef unsigned int uint32;
 #endif 
 
 typedef void (*t_free_func)(void*);
-typedef void (*Free32Func)(void*);
-typedef void* (*Malloc32Func)(unsigned int);
+typedef void (Free32Func)(void*);
+typedef void* (Malloc32Func)(unsigned int);
+
 typedef uint64 fifo64;
 typedef uint32 fseq32;
 
@@ -32,7 +33,7 @@ typedef uint32 fseq32;
 enum  MALLOC32_MODE {MALLOC32_PRIORITY_MODE, MALLOC32_ROUTE_MODE, MALLOC32_LONG_ROUTE_MODE,  MALLOC32_FIXED_MODE, MALLOC32_RANDOM_MODE };
 
 struct NmppsMalloc32Spec{
-	Malloc32Func allocator[4];	
+	Malloc32Func* allocator[4];	
 	enum    MALLOC32_MODE mode;
 	uint32  random;			//  bit-mask of available heaps
 	fseq32  priority;		//  heap allocation sequence in decdendnig priority terminated by 0xF

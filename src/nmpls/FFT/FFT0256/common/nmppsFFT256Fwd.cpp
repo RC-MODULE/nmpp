@@ -4,7 +4,7 @@
 
 extern "C" {
 	
-int nmppsFFT256FwdInitAlloc(Malloc32Func allocate, Free32Func free, struct NmppsFFTSpec* spec )
+int nmppsFFT256FwdInitAlloc(Malloc32Func* allocate, Free32Func* free,  NmppsFFTSpec* spec )
 {
 	spec->buffer[0]=allocate(256*2*3);
 	spec->buffer[1]=allocate(256*2*2);
@@ -37,6 +37,7 @@ void nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder)
 	unsigned heapIndx0;
 	unsigned heapIndx1;
 	fseq64   route;
+	*allocOrder=0xFFFFFF00;
 	clock_t t0,t1,bestTime=0x1000000;
 		
 	for(heapIndx0=0; heapIndx0<4; heapIndx0++){
@@ -59,7 +60,7 @@ void nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder)
 					nmppsMalloc32GetHistory(allocOrder,2);
 				}
 			}
-			//nmppsMalloc32Spec.status=0;
+			nmppsMalloc32Spec.status=0;
 			nmppsFFTFree(&spec);
 		}
 	}

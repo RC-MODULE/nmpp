@@ -33,6 +33,7 @@
     *     \defgroup CORE_Group Базовые регистровые функции библиотеки
     */
 	
+#include "./malloc32.h"		
 
 
 

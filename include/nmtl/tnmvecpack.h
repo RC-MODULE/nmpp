@@ -39,13 +39,13 @@ public:
 	nmintpack<T>&	operator=	(const nmintpack<T>& val)
 	{
 		int n=val;
-		nmppsSetInt_((T*)m_container,m_disp,n);
+		nmppsPut_((T*)m_container,m_disp,n);
 		return (*this);
 	}
 
 	nmintpack<T>&	operator=	(const int& val)
 	{
-		nmppsSetInt_((T*)m_container,m_disp,val);
+		nmppsPut_((T*)m_container,m_disp,val);
 		return (*this);
 	}
 

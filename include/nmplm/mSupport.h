@@ -242,21 +242,21 @@ __INLINE__ nm64u* MTR_Addr(nm64u* pMTR, int nWidth, int nY, int nX) {	return (nm
     \endxmlonly
     */
     //! \{
-__INLINE__ void MTR_SetVal(nm1*  pMtr,   int nWidth,  int nY, int nX, int1b nVal)	{ nmppsSetInt_1  (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm1*  pMtr,   int nWidth,  int nY, int nX, int1b nVal)	{ nmppsPut_1  (pMtr, nY*nWidth+nX,nVal);}
 																							  
-__INLINE__ void MTR_SetVal(nm2s* pMtr,   int nWidth,  int nY, int nX, int2b nVal)	{ nmppsSetInt_2s (pMtr, nY*nWidth+nX,nVal);}
-__INLINE__ void MTR_SetVal(nm4s* pMtr,   int nWidth,  int nY, int nX, int4b nVal)	{ nmppsSetInt_4s (pMtr, nY*nWidth+nX,nVal);}
-__INLINE__ void MTR_SetVal(nm8s* pMtr,   int nWidth,  int nY, int nX, int8b nVal)	{ nmppsSetInt_8s (pMtr, nY*nWidth+nX,nVal);}
-__INLINE__ void MTR_SetVal(nm16s* pMtr,  int nWidth,  int nY, int nX, int16b nVal)	{ nmppsSetInt_16s(pMtr, nY*nWidth+nX,nVal);}
-__INLINE__ void MTR_SetVal(nm32s* pMtr,  int nWidth,  int nY, int nX, int32b nVal)	{ nmppsSetInt_32s(pMtr, nY*nWidth+nX,nVal);}
-__INLINE__ void MTR_SetVal(nm64s* pMtr,  int nWidth,  int nY, int nX, int64b nVal)	{ nmppsSetInt_64s(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm2s* pMtr,   int nWidth,  int nY, int nX, int2b nVal)	{ nmppsPut_2s (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm4s* pMtr,   int nWidth,  int nY, int nX, int4b nVal)	{ nmppsPut_4s (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm8s* pMtr,   int nWidth,  int nY, int nX, int8b nVal)	{ nmppsPut_8s (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm16s* pMtr,  int nWidth,  int nY, int nX, int16b nVal)	{ nmppsPut_16s(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm32s* pMtr,  int nWidth,  int nY, int nX, int32b nVal)	{ nmppsPut_32s(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm64s* pMtr,  int nWidth,  int nY, int nX, int64b nVal)	{ nmppsPut_64s(pMtr, nY*nWidth+nX,nVal);}
 																							  
-__INLINE__ void MTR_SetVal(nm2u* pMtr,	 int nWidth,  int nY, int nX, uint2b nVal)	{ nmppsSetInt_2u (pMtr, nY*nWidth+nX,nVal);}
-__INLINE__ void MTR_SetVal(nm4u* pMtr,   int nWidth,  int nY, int nX, uint4b nVal)	{ nmppsSetInt_4u (pMtr, nY*nWidth+nX,nVal);}
-__INLINE__ void MTR_SetVal(nm8u* pMtr,   int nWidth,  int nY, int nX, uint8b nVal)	{ nmppsSetInt_8u (pMtr, nY*nWidth+nX,nVal);}
-__INLINE__ void MTR_SetVal(nm16u* pMtr,  int nWidth,  int nY, int nX, uint16b nVal)	{ nmppsSetInt_16u(pMtr, nY*nWidth+nX,nVal);}
-__INLINE__ void MTR_SetVal(nm32u* pMtr,  int nWidth,  int nY, int nX, uint32b nVal)	{ nmppsSetInt_32u(pMtr, nY*nWidth+nX,nVal);}
-__INLINE__ void MTR_SetVal(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64b nVal)	{ nmppsSetInt_64u(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm2u* pMtr,	 int nWidth,  int nY, int nX, uint2b nVal)	{ nmppsPut_2u (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm4u* pMtr,   int nWidth,  int nY, int nX, uint4b nVal)	{ nmppsPut_4u (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm8u* pMtr,   int nWidth,  int nY, int nX, uint8b nVal)	{ nmppsPut_8u (pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm16u* pMtr,  int nWidth,  int nY, int nX, uint16b nVal)	{ nmppsPut_16u(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm32u* pMtr,  int nWidth,  int nY, int nX, uint32b nVal)	{ nmppsPut_32u(pMtr, nY*nWidth+nX,nVal);}
+__INLINE__ void MTR_SetVal(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64b nVal)	{ nmppsPut_64u(pMtr, nY*nWidth+nX,nVal);}
     //! \}
 
 //*****************************************************************************

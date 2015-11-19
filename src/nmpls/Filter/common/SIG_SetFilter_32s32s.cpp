@@ -78,8 +78,8 @@ int SIG_SetFilter_32s32s(int* pWeights, int nSize, nm64s* pKernel)
 	nm32s* pDispArray	=((nm32s*)pKernel)+2;
 	nm32s* pWeightMatrix=((nm32s*)pDispArray)+nNumberOfArrays+1;	
 	
-	nmppsSetInt_32s(((nm32s*)pKernel),0,nNumberOfArrays);
-	nmppsSetInt_32s(((nm32s*)pKernel),1,(int)pWeightMatrix);
+	nmppsPut_32s(((nm32s*)pKernel),0,nNumberOfArrays);
+	nmppsPut_32s(((nm32s*)pKernel),1,(int)pWeightMatrix);
 	
 	for(int i=0;i< nNumberOfArrays; i++){
 		pDispArray[i]=(i<<1)-((nNumberOfArrays>>1)<<1);
@@ -89,8 +89,8 @@ int SIG_SetFilter_32s32s(int* pWeights, int nSize, nm64s* pKernel)
 
 	int disp=GetDisp(nSize);
 	for(int i=0; i<nSize;i++){
-		nmppsSetInt_32s(pWeightMatrix,i*2+disp*2  ,pWeights[i]);
-		nmppsSetInt_32s(pWeightMatrix,i*2+disp*2+3,pWeights[i]);
+		nmppsPut_32s(pWeightMatrix,i*2+disp*2  ,pWeights[i]);
+		nmppsPut_32s(pWeightMatrix,i*2+disp*2+3,pWeights[i]);
 	}
 //	return 2+(nSize/2+2)+(nSize/2+2)*4;
 	int AllocSize=2+nNumberOfArrays+1+nNumberOfArrays*4;

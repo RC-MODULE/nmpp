@@ -24,7 +24,7 @@ begin ".text_nmplv"
 
 //! \fn uint4b nmppsGet_4u(nm4u *pVec, int nIndex) 
 //!
-//! \perfinclude _nmppsGetVal__F4nm4uPi_.html
+//! \perfinclude _nmppsGet_4u.html
 
 macro EXTRACT(n)
 	delayed return with	gr7<<=n;
@@ -33,11 +33,8 @@ macro EXTRACT(n)
 		nul;
 end EXTRACT;
 
-global _nmppsGetVal__F4nm4uPi_:	label;
-global _unsigned._int._.8.8nmppsGetVal_.1class._nm4u._.0.9._int.2:label;
-<_nmppsGetVal__F4nm4uPi_>
-<_unsigned._int._.8.8nmppsGetVal_.1class._nm4u._.0.9._int.2>
-
+global _nmppsGet_4u:	label;
+<_nmppsGet_4u>
 
 
 .branch;

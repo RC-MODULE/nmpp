@@ -22,9 +22,9 @@
 
 begin ".text_nmplv"
 
-//! \fn void nmppsGet_2u(nm2u *pVec, int nIndex, uint2b& nVal) 
+//! \fn void nmppsGetVal_2u(nm2u *pVec, int nIndex, uint2b& nVal) 
 //!
-//! \perfinclude _nmppsGetVal__F4nm2uPiRUi_.html
+//! \perfinclude nmppsGetVal_2u.html
 
 macro EXTRACT(n)
 	delayed return with	gr7<<=n;
@@ -33,10 +33,8 @@ macro EXTRACT(n)
 		nul;
 end EXTRACT;
 
-global _nmppsGetVal__F4nm2uPiRUi_:	label;
-global _void._.8.8nmppsGetVal_.1class._nm2u._.0.9._int.9._unsigned._int._.6.2 :label;
-<_nmppsGetVal__F4nm2uPiRUi_>
-<_void._.8.8nmppsGetVal_.1class._nm2u._.0.9._int.9._unsigned._int._.6.2>
+global _nmppsGetVal_2u:	label;
+<_nmppsGetVal_2u>
 
 .branch;
 	ar5 = ar7 - 2;

@@ -536,6 +536,10 @@
 				>
 			</File>
 			<File
+				RelativePath="../../src/nmpls/FFT/FFT0256/common/nmppsFFT256Fwd.cpp"
+				>
+			</File>
+			<File
 				RelativePath="../../src/nmpls/FFT/FFT0256/nm/FFT_Fwd256_16x16.asm"
 				>
 			</File>
@@ -868,6 +872,10 @@
 				>
 			</File>
 			<File
+				RelativePath="../../src/nmplv/Arithmetics/nm/VEC_Abs__nm04s.asm"
+				>
+			</File>
+			<File
 				RelativePath="../../src/nmplv/Arithmetics/nm/VEC_Abs__nm08s.asm"
 				>
 			</File>
@@ -881,6 +889,10 @@
 			</File>
 			<File
 				RelativePath="../../src/nmplv/Arithmetics/nm/VEC_Abs__nm64s.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmplv/Arithmetics/nm/VEC_Abs_nm04.asm"
 				>
 			</File>
 			<File
@@ -1068,7 +1080,7 @@
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Arithmetics/nm/VEC_Wadd2V_8s.cpp"
+				RelativePath="../../src/nmplv/Arithmetics/nm/VEC_Wadd2V_8s.c"
 				>
 			</File>
 			<File
@@ -1304,35 +1316,35 @@
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Select/common/VEC_LastNonZeroPos.cpp"
+				RelativePath="../../src/nmplv/Select/common/nmppsLastNonZeroIndx.c"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Select/common/VEC_LastZeroPos.cpp"
+				RelativePath="../../src/nmplv/Select/common/nmppsLastZeroIndx.c"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Select/common/VEC_MaxPos_nm16s.cpp"
+				RelativePath="../../src/nmplv/Select/common/nmppsMaxIndx_nm16s.c"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Select/common/VEC_MaxPos_nm32s.cpp"
+				RelativePath="../../src/nmplv/Select/common/nmppsMaxIndx_nm32s.c"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Select/common/VEC_MaxPos_nm8s.cpp"
+				RelativePath="../../src/nmplv/Select/common/nmppsMaxIndx_nm8s.c"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Select/common/VEC_MinPos_nm16s.cpp"
+				RelativePath="../../src/nmplv/Select/common/nmppsMinIndx_nm16s.c"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Select/common/VEC_MinPos_nm32s.cpp"
+				RelativePath="../../src/nmplv/Select/common/nmppsMinIndx_nm32s.c"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Select/common/VEC_MinPos_nm8s.cpp"
+				RelativePath="../../src/nmplv/Select/common/nmppsMinIndx_nm8s.c"
 				>
 			</File>
 			<File
@@ -1548,6 +1560,10 @@
 				>
 			</File>
 			<File
+				RelativePath="../../src/nmplv/Stat/common/nmppsCrc.c"
+				>
+			</File>
+			<File
 				RelativePath="../../src/nmplv/Stat/nm/VEC_Crc__int.asm"
 				>
 			</File>
@@ -1624,7 +1640,7 @@
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Support/common/malloc32.cpp"
+				RelativePath="../../src/nmplv/Support/common/malloc32.c"
 				>
 			</File>
 			<File
@@ -1781,6 +1797,10 @@
 			</File>
 			<File
 				RelativePath="../../src/nmplv/Tables/nm/Diagonal_FFh.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmplv/Tables/nm/Diagonal_Fh.asm"
 				>
 			</File>
 			<File
@@ -2382,22 +2402,6 @@
 				>
 			</File>
 			<File
-				RelativePath="../../include/nmplv/Backup"
-				>
-			</File>
-			<File
-				RelativePath="../../include/nmplv/Backup"
-				>
-			</File>
-			<File
-				RelativePath="../../include/nmplv/Backup"
-				>
-			</File>
-			<File
-				RelativePath="../../include/nmplv/Backup"
-				>
-			</File>
-			<File
 				RelativePath="../../include/nmplv/nmplv.h"
 				>
 			</File>
@@ -2471,54 +2475,6 @@
 			</File>
 			<File
 				RelativePath="../../include/tfixpoint.h"
-				>
-			</File>
-			<File
-				RelativePath="1"
-				>
-			</File>
-			<File
-				RelativePath="1"
-				>
-			</File>
-			<File
-				RelativePath="1"
-				>
-			</File>
-			<File
-				RelativePath="2"
-				>
-			</File>
-			<File
-				RelativePath="of"
-				>
-			</File>
-			<File
-				RelativePath="of"
-				>
-			</File>
-			<File
-				RelativePath="of"
-				>
-			</File>
-			<File
-				RelativePath="of"
-				>
-			</File>
-			<File
-				RelativePath="sArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="sArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="vArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="vArithmeticsDev.h"
 				>
 			</File>
 		</Filter>

@@ -145,8 +145,8 @@ int IMG_SetFilter_16s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgW
 	nm32s* pDispArray	=((nm32s*)pKernel)+2;
 	nm16s* pWeightMatrix=(nm16s*)nmppsAddr_32s((nm32s*)pDispArray,nKerHeight*nNumberOfArrays+1);	
 	
-	nmppsSetInt_32s(((nm32s*)pKernel),0,(int)nNumberOfArrays*nKerHeight);
-	nmppsSetInt_32s(((nm32s*)pKernel),1,(int)pWeightMatrix);
+	nmppsPut_32s(((nm32s*)pKernel),0,(int)nNumberOfArrays*nKerHeight);
+	nmppsPut_32s(((nm32s*)pKernel),1,(int)pWeightMatrix);
 	
 	int disp=-(nImgWidth>>1)*(nKerHeight>>1);
 	for(int j=0; j<nKerHeight; j++){
@@ -162,10 +162,10 @@ int IMG_SetFilter_16s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgW
 	disp=GetDisp(nKerWidth);
 	for(int j=0,k=0; j<nKerHeight; j++){
 		for(int i=0; i<nKerWidth; i++,k++){
-			nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*0,pWeights[k]);
-			nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*1,pWeights[k]);
-			nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*2,pWeights[k]);
-			nmppsSetInt_16s(pWeightMatrix,(i+disp)*4+5*3,pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,(i+disp)*4+5*0,pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,(i+disp)*4+5*1,pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,(i+disp)*4+5*2,pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,(i+disp)*4+5*3,pWeights[k]);
 		}
 		pWeightMatrix=nmppsAddr_16s(pWeightMatrix,nNumberOfArrays*16);
 	}

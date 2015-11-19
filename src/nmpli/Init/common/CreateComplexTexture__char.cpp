@@ -83,7 +83,7 @@ void IMG_CreateCellTexture(unsigned char *texture_img, int width, int height)
 				for(int k=0; k<50; k++) {
 					int m1 = (j+l < height-1)? j+l : height-1;
 					int m2 = (i+k < width-1)? i+k : width-1;
-					nmppsSetInt_8u(texture_img,width*m1+m2,(i+j)%256);
+					nmppsPut_8u(texture_img,width*m1+m2,(i+j)%256);
 				}
 
 }
@@ -112,7 +112,7 @@ void IMG_CreateRandomCellTexture(unsigned char *texture_img, int width, int heig
 				for(int k=0; k<di; k++) {
 					int m1 = (j+l < height-1)? j+l : height-1;
 					int m2 = (i+k < width-1)? i+k : width-1;
-					nmppsSetInt_8u(texture_img,width*m1+m2,color);
+					nmppsPut_8u(texture_img,width*m1+m2,color);
 				}
 			i+=di;
 		}
@@ -155,7 +155,7 @@ void IMG_CreateComplexTexture(unsigned char *texture_img, int width, int height)
 					{
 						int m1 = (j+l < height-1)? j+l : height-1;
 						int m2 = (i+k < width-1)? i+k : width-1;
-						nmppsSetInt_8u(texture_img,width*m1+m2,color);
+						nmppsPut_8u(texture_img,width*m1+m2,color);
 					}
 
 				}

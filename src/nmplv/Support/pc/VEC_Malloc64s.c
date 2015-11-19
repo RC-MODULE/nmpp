@@ -1,6 +1,6 @@
 #include "nmpp.h"
 
-
+/*
 void nmppsMalloc_64s(nm64s** pptr, int nSize, int hint)
 //nm64s* nmppsMalloc_nm64s_(int size, int hint) 
 {
@@ -9,3 +9,4 @@ void nmppsMalloc_64s(nm64s** pptr, int nSize, int hint)
 		*pptr=(nm64s*) ptr;
 }
 
+*/

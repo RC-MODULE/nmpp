@@ -20,9 +20,9 @@ int IMG_SetFilter_8s8s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWid
 	int*	pDisp=(nm32s*)nmppsAddr_32s((nm32s*)pKernel,2);
 	nm64s*	pMatrix=(nm64s*)nmppsAddr_32s(pDisp,nNumberOfArrays*nKerHeight+1);
 
-	nmppsSetInt_32s((nm32s*)pKernel,0,nNumberOfArrays*nKerHeight);
-	nmppsSetInt_32s((nm32s*)pKernel,1,2+nNumberOfArrays*nKerHeight+1);
-	nmppsSetInt_32s((nm32s*)pKernel,2+nNumberOfArrays*nKerHeight,0x600DBEEF);
+	nmppsPut_32s((nm32s*)pKernel,0,nNumberOfArrays*nKerHeight);
+	nmppsPut_32s((nm32s*)pKernel,1,2+nNumberOfArrays*nKerHeight+1);
+	nmppsPut_32s((nm32s*)pKernel,2+nNumberOfArrays*nKerHeight,0x600DBEEF);
 	
 	for(int y=0; y<nKerHeight; y++){
 		Sig_SetDisp_Filter_8s8s( nNumberOfArrays, nDisp,pDisp);

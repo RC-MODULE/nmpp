@@ -26,12 +26,10 @@ begin ".text_nmplv"
 
 //! \fn uint16u nmppsGet_16u(nm16u *pVec, int nIndex) 
 //!
-//! \perfinclude _nmppsGetVal_16u.html
+//! \perfinclude _nmppsGet_16u.html
 
-global _nmppsGetVal_16u:	label;
-global _unsigned._nmppsGetVal_16u:label;
-<_nmppsGetVal_16u>
-<_unsigned._nmppsGetVal_16u>
+global _nmppsGet_16u:	label;
+<_nmppsGet_16u>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0;

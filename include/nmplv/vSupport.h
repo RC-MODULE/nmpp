@@ -189,7 +189,7 @@ __INLINE__ nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nI
 //*****************************************************************************
 
     /**
-    \defgroup nmppsSetVal_ nmppsSetVal_
+    \defgroup nmppsSet_ nmppsSet_
     \ingroup vSupport
     \brief
         \ru Модификация элемента вектора. 
@@ -226,20 +226,20 @@ __INLINE__ nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nI
     */
     //! \{
 
-void		nmppsSetInt_1 (nm1*  pVec,  int nIndex,  int1b  nVal);
-void		nmppsSetInt_2s(nm2s* pVec,  int nIndex,  int2b  nVal);
-void		nmppsSetInt_4s(nm4s* pVec,  int nIndex,  int4b  nVal);
-void		nmppsSetInt_8s(nm8s* pVec,  int nIndex,  int8b  nVal);
-void		nmppsSetInt_16s(nm16s* pVec, int nIndex,  int16b nVal);
-__INLINE__ void nmppsSetInt_32s(nm32s* pVec, int nIndex,  int32b nVal)	{pVec[nIndex]=nVal;}
-__INLINE__ void nmppsSetInt_64s(nm64s* pVec, int nIndex,  int64b nVal)	{pVec[nIndex]=nVal;}
+void		nmppsPut_1 (nm1*  pVec,  int nIndex,  int1b  nVal);
+void		nmppsPut_2s(nm2s* pVec,  int nIndex,  int2b  nVal);
+void		nmppsPut_4s(nm4s* pVec,  int nIndex,  int4b  nVal);
+void		nmppsPut_8s(nm8s* pVec,  int nIndex,  int8b  nVal);
+void		nmppsPut_16s(nm16s* pVec, int nIndex,  int16b nVal);
+__INLINE__ void nmppsPut_32s(nm32s* pVec, int nIndex,  int32b nVal)	{pVec[nIndex]=nVal;}
+__INLINE__ void nmppsPut_64s(nm64s* pVec, int nIndex,  int64b nVal)	{pVec[nIndex]=nVal;}
 
-__INLINE__ void	nmppsSetInt_2u(nm2u* pVec,  int nIndex, uint2b  nVal)   	{nmppsSetInt_2s((nm2s*)pVec,nIndex,(int2b)nVal);}
-__INLINE__ void	nmppsSetInt_4u(nm4u* pVec,  int nIndex, uint4b  nVal)   	{nmppsSetInt_4s((nm4s*)pVec,nIndex,(int4b)nVal);}
-__INLINE__ void	nmppsSetInt_8u(nm8u* pVec,  int nIndex, uint8b nVal)		{nmppsSetInt_8s((nm8s*)pVec,nIndex,(int8b)nVal);}
-__INLINE__ void	nmppsSetInt_16u(nm16u* pVec, int nIndex, uint16b nVal)   	{nmppsSetInt_16s((nm16s*)pVec,nIndex,(int16b)nVal);}
-__INLINE__ void nmppsSetInt_32u(nm32u* pVec, int nIndex, uint32b nVal)	{pVec[nIndex]=nVal;}
-__INLINE__ void nmppsSetInt_64u(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex]=nVal;}
+__INLINE__ void	nmppsPut_2u(nm2u* pVec,  int nIndex, uint2b  nVal)   	{nmppsPut_2s((nm2s*)pVec,nIndex,(int2b)nVal);}
+__INLINE__ void	nmppsPut_4u(nm4u* pVec,  int nIndex, uint4b  nVal)   	{nmppsPut_4s((nm4s*)pVec,nIndex,(int4b)nVal);}
+__INLINE__ void	nmppsPut_8u(nm8u* pVec,  int nIndex, uint8b nVal)		{nmppsPut_8s((nm8s*)pVec,nIndex,(int8b)nVal);}
+__INLINE__ void	nmppsPut_16u(nm16u* pVec, int nIndex, uint16b nVal)   	{nmppsPut_16s((nm16s*)pVec,nIndex,(int16b)nVal);}
+__INLINE__ void nmppsPut_32u(nm32u* pVec, int nIndex, uint32b nVal)	{pVec[nIndex]=nVal;}
+__INLINE__ void nmppsPut_64u(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex]=nVal;}
 
     
     //! \}

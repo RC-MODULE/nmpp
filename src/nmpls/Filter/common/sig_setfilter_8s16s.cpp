@@ -200,13 +200,13 @@ __INLINE__ int GetDisp1(int nSize)
 //	nDisp0*=-2;
 //	nDisp1*=-2;
 //
-//	nmppsSetInt_32s(((nm32s*)pKernel),0, nNumberOfArrays0);		// Number of arrays
-//	nmppsSetInt_32s(((nm32s*)pKernel),1,(int)nDisp0);			// ar0 displacement for first array
-//	nmppsSetInt_32s(((nm32s*)pKernel),2,(int)pWeightMatrix0);	// weights for first array
+//	nmppsPut_32s(((nm32s*)pKernel),0, nNumberOfArrays0);		// Number of arrays
+//	nmppsPut_32s(((nm32s*)pKernel),1,(int)nDisp0);			// ar0 displacement for first array
+//	nmppsPut_32s(((nm32s*)pKernel),2,(int)pWeightMatrix0);	// weights for first array
 //
-//	nmppsSetInt_32s(((nm32s*)pKernel),3, nNumberOfArrays1);		// Number of arrays
-//	nmppsSetInt_32s(((nm32s*)pKernel),4,(int)nDisp1);			// ar0 displacement for first array
-//	nmppsSetInt_32s(((nm32s*)pKernel),5,(int)pWeightMatrix1);	// weights for first array
+//	nmppsPut_32s(((nm32s*)pKernel),3, nNumberOfArrays1);		// Number of arrays
+//	nmppsPut_32s(((nm32s*)pKernel),4,(int)nDisp1);			// ar0 displacement for first array
+//	nmppsPut_32s(((nm32s*)pKernel),5,(int)pWeightMatrix1);	// weights for first array
 //
 //	for(int i=0;i< nDispArraySize; i++){
 //		pDispArray[i]=i<<1;
@@ -215,10 +215,10 @@ __INLINE__ int GetDisp1(int nSize)
 //	nmppsSet_32s((nm32s*)pWeightMatrix,0,nWeightsSize);
 //
 //	for(int i=0; i<nSize;i++){
-//		nmppsSetInt_(pWeightMatrix,8*4+i*4 ,	 pWeights[i]);
-//		nmppsSetInt_(pWeightMatrix,8*4+i*4+5,	 pWeights[i]);
-//		nmppsSetInt_(pWeightMatrix,8*4+i*4+10 , pWeights[i]);
-//		nmppsSetInt_(pWeightMatrix,8*4+i*4+15 , pWeights[i]);
+//		nmppsPut_(pWeightMatrix,8*4+i*4 ,	 pWeights[i]);
+//		nmppsPut_(pWeightMatrix,8*4+i*4+5,	 pWeights[i]);
+//		nmppsPut_(pWeightMatrix,8*4+i*4+10 , pWeights[i]);
+//		nmppsPut_(pWeightMatrix,8*4+i*4+15 , pWeights[i]);
 //	}
 //	return 6+(18+nSize)/8+1+(18+nSize)*2;
 //}
@@ -246,10 +246,10 @@ int SIG_SetFilter_8s16s(int* pWeights, int nSize, nm64s* pKernel)
 	nm16s* pWeightMatrix =(nm16s*)nmppsAddr_32s((nm32s*)pDispArray,nDispArraySize);	
 	nm16s* pWeightMatrix0=(nm16s*)nmppsAddr_32s((nm32s*)pWeightMatrix,nDisp0*2);	
 	nm16s* pWeightMatrix1=(nm16s*)nmppsAddr_32s((nm32s*)pWeightMatrix,nDisp1*2);	
-	nmppsSetInt_32s(((nm32s*)pKernel),0,(int) nNumberOfArrays0);		// Number of arrays
-	nmppsSetInt_32s(((nm32s*)pKernel),2,(int) pWeightMatrix0);		// weights for first array
-	nmppsSetInt_32s(((nm32s*)pKernel),3,(int) nNumberOfArrays1);		// Number of arrays
-	nmppsSetInt_32s(((nm32s*)pKernel),5,(int) pWeightMatrix1);		// weights for first array
+	nmppsPut_32s(((nm32s*)pKernel),0,(int) nNumberOfArrays0);		// Number of arrays
+	nmppsPut_32s(((nm32s*)pKernel),2,(int) pWeightMatrix0);		// weights for first array
+	nmppsPut_32s(((nm32s*)pKernel),3,(int) nNumberOfArrays1);		// Number of arrays
+	nmppsPut_32s(((nm32s*)pKernel),5,(int) pWeightMatrix1);		// weights for first array
 
 	int nSrcDisp0=(((nSize/2)-0)+7)/8;
 	int nSrcDisp1=(((nSize/2)-4)+7)/8;
@@ -258,13 +258,13 @@ int SIG_SetFilter_8s16s(int* pWeights, int nSize, nm64s* pKernel)
 	nSrcDisp1*=-2;
 
 	//----------- Disp array 0 --------------------
-	nmppsSetInt_32s(((nm32s*)pKernel),1,(int)pDispArray);	
+	nmppsPut_32s(((nm32s*)pKernel),1,(int)pDispArray);	
 	for(int i=0;i< nNumberOfArrays0; i++){
 		*pDispArray=(i<<1)+nSrcDisp0;
 		pDispArray++;
 	}
 	//----------- Disp array 1 --------------------
-	nmppsSetInt_32s(((nm32s*)pKernel),4,(int)pDispArray);	
+	nmppsPut_32s(((nm32s*)pKernel),4,(int)pDispArray);	
 	for(int i=0;i< nNumberOfArrays1; i++){
 		*pDispArray=(i<<1)+nSrcDisp1;
 		pDispArray++;
@@ -274,10 +274,10 @@ int SIG_SetFilter_8s16s(int* pWeights, int nSize, nm64s* pKernel)
 
 	//----------- Weight array 0,1 ----------------
 	for(int i=0; i<nSize;i++){
-		nmppsSetInt_16s(pWeightMatrix,8*4+i*4 ,	 pWeights[i]);
-		nmppsSetInt_16s(pWeightMatrix,8*4+i*4+5,	 pWeights[i]);
-		nmppsSetInt_16s(pWeightMatrix,8*4+i*4+10 , pWeights[i]);
-		nmppsSetInt_16s(pWeightMatrix,8*4+i*4+15 , pWeights[i]);
+		nmppsPut_16s(pWeightMatrix,8*4+i*4 ,	 pWeights[i]);
+		nmppsPut_16s(pWeightMatrix,8*4+i*4+5,	 pWeights[i]);
+		nmppsPut_16s(pWeightMatrix,8*4+i*4+10 , pWeights[i]);
+		nmppsPut_16s(pWeightMatrix,8*4+i*4+15 , pWeights[i]);
 	}
 	// Total size	= 6+(18+nSize)/8*2+1+(18+nSize)*2=
 	//				= 7+(18+nSize)*5/4
@@ -338,10 +338,10 @@ int SIG_GetFilterKernelSize_8s16s(int nSize)
 	nm16s* pWeightMatrix =(nm16s*)nmppsAddr_32s((nm32s*)pDispArray,nDispArraySize);	
 	nm16s* pWeightMatrix0=(nm16s*)nmppsAddr_32s((nm32s*)pWeightMatrix,nDisp0*2);	
 	nm16s* pWeightMatrix1=(nm16s*)nmppsAddr_32s((nm32s*)pWeightMatrix,nDisp1*2);	
-	//nmppsSetInt_32s(((nm32s*)pKernel),0,(int) nNumberOfArrays0);		// Number of arrays
-	//nmppsSetInt_32s(((nm32s*)pKernel),2,(int) pWeightMatrix0);		// weights for first array
-	//nmppsSetInt_32s(((nm32s*)pKernel),3,(int) nNumberOfArrays1);		// Number of arrays
-	//nmppsSetInt_32s(((nm32s*)pKernel),5,(int) pWeightMatrix1);		// weights for first array
+	//nmppsPut_32s(((nm32s*)pKernel),0,(int) nNumberOfArrays0);		// Number of arrays
+	//nmppsPut_32s(((nm32s*)pKernel),2,(int) pWeightMatrix0);		// weights for first array
+	//nmppsPut_32s(((nm32s*)pKernel),3,(int) nNumberOfArrays1);		// Number of arrays
+	//nmppsPut_32s(((nm32s*)pKernel),5,(int) pWeightMatrix1);		// weights for first array
 
 	int nSrcDisp0=(((nSize/2)-0)+7)/8;
 	int nSrcDisp1=(((nSize/2)-4)+7)/8;
@@ -350,13 +350,13 @@ int SIG_GetFilterKernelSize_8s16s(int nSize)
 	nSrcDisp1*=-2;
 
 	//----------- Disp array 0 --------------------
-	//nmppsSetInt_32s(((nm32s*)pKernel),1,(int)pDispArray);	
+	//nmppsPut_32s(((nm32s*)pKernel),1,(int)pDispArray);	
 	for(int i=0;i< nNumberOfArrays0; i++){
 		//*pDispArray=(i<<1)+nSrcDisp0;
 		pDispArray++;
 	}
 	//----------- Disp array 1 --------------------
-	//nmppsSetInt_32s(((nm32s*)pKernel),4,(int)pDispArray);	
+	//nmppsPut_32s(((nm32s*)pKernel),4,(int)pDispArray);	
 	for(int i=0;i< nNumberOfArrays1; i++){
 		//*pDispArray=(i<<1)+nSrcDisp1;
 		pDispArray++;
@@ -367,14 +367,14 @@ int SIG_GetFilterKernelSize_8s16s(int nSize)
 	//----------- Weight array 0,1 ----------------
 	
 	for(int i=0; i<nSize;i++){
-		//nmppsSetInt_(pWeightMatrix,8*4+i*4 ,	 pWeights[i]);
-		//nmppsSetInt_(pWeightMatrix,8*4+i*4+5,	 pWeights[i]);
-		//nmppsSetInt_(pWeightMatrix,8*4+i*4+10 , pWeights[i]);
-		//nmppsSetInt_(pWeightMatrix,8*4+i*4+15 , pWeights[i]);
+		//nmppsPut_(pWeightMatrix,8*4+i*4 ,	 pWeights[i]);
+		//nmppsPut_(pWeightMatrix,8*4+i*4+5,	 pWeights[i]);
+		//nmppsPut_(pWeightMatrix,8*4+i*4+10 , pWeights[i]);
+		//nmppsPut_(pWeightMatrix,8*4+i*4+15 , pWeights[i]);
 	}
 	// Total size	= 6+(18+nSize)/8*2+1+(18+nSize)*2=
 	//				= 7+(18+nSize)*5/4
-	int AllocSize=(int)nmppsAddr_(nmppsSetInt_(pWeightMatrix,8*4+i*4+15)-(int)pKernel;
+	int AllocSize=(int)nmppsAddr_(nmppsPut_(pWeightMatrix,8*4+i*4+15)-(int)pKernel;
 	return AllocSize;
 #endif
 }

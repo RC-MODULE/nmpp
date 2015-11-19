@@ -20,7 +20,7 @@
 
 //#include "vConvert.h"
 
-//! \fn void nmppsGet_8s(nm8s*  pVec, int nIndex, int8b &nVal)
+//! \fn void nmppsGetVal_8s(nm8s*  pVec, int nIndex, int8b &nVal)
 //!
 //! \perfinclude _nmppsGetVal_8s.html
 

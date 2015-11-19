@@ -49,7 +49,7 @@ ALL_H   =$(wildcard $(addsuffix /*.h,$(HEADER_DIRS)))
 
 VPATH    = $(subst -l,,$(LIB_DIRS)) 
 
-$(TARGETD): $(PROJECT).vcproj $(ALL_CPP)
+$(TARGETD): $(PROJECT).vcproj $(ALL_CPP) $(NMPP)/lib/$(LIBSD)
 	rm -f -r $(@)
 	"$(VS80COMNTOOLS)vsvars32" && vcbuild $(PROJECT).vcproj
 

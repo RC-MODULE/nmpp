@@ -51,7 +51,7 @@ ALL_H   =$(wildcard $(addsuffix /*.h,$(HEADER_DIRS)))
 
 VPATH    = $(subst -l,,$(LIB_DIRS)) 
 
-$(TARGETD): $(PROJECT).vcxproj $(ALL_CPP)
+$(TARGETD): $(PROJECT).vcxproj $(ALL_CPP) $(NMPP)/lib/$(LIBSD)
 	rm -f -r $(@)
 	"$(VS120COMNTOOLS)vsvars32" && msbuild $(PROJECT).vcxproj
 

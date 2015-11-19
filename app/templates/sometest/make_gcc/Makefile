@@ -32,7 +32,7 @@ SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))
 
 VPATH    = $(subst -L,,$(LIB_DIRS)) $(NEURO)/lib
 
-$(TARGET): $(SRC_CPP)  Makefile
+$(TARGET): $(SRC_CPP)  Makefile $(NMPP)/lib/nmpp_gcc.a
 	g++ -o $(TARGET) $(SRC_CPP) $(INC_DIRS) $(LIB_DIRS) -l$(LIBS)
 
 run: .exitcode

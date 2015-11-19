@@ -1065,7 +1065,7 @@ typedef struct s_v8nm32s {
 	*/
 //struct v16nm32s {VEC_NM32S(16)	};
 typedef struct s_v16nm32s {
-	unsigned long long data[8];
+	unsigned long long vec[8];
 }v16nm32s ;
 //-----------------------------------------------------------------------------
     /**

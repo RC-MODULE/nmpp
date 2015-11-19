@@ -23,13 +23,13 @@
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsSetInt_8s(nm8s *pVec, int nIndex, int8b Val) 
+//! \fn void nmppsPut_8s(nm8s *pVec, int nIndex, int8b Val) 
 //!
-//! \perfinclude _nmppsSetVal_8s.html
+//! \perfinclude _nmppsPut_8s.html
 
 
-global _nmppsSetVal_8s:label;
-<_nmppsSetVal_8s> 
+global _nmppsPut_8s:label;
+<_nmppsPut_8s> 
 
 .branch;
 	ar5 = ar7 - 5;

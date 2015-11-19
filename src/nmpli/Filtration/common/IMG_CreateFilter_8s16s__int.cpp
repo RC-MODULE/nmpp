@@ -227,8 +227,8 @@ int IMG_SetFilter_8s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWi
 	//-------------- Disp Matrix 0 ------------------
 	disp=-(nImgWidth>>2)*(nKerHeight>>1);
 
-	nmppsSetInt_32s(((nm32s*)pKernel),0,nNumberOfArrays0*nKerHeight);// Number of arrays
-	nmppsSetInt_32s(((nm32s*)pKernel),1,(int)pDispArray);					// ar0 displacement for first array
+	nmppsPut_32s(((nm32s*)pKernel),0,nNumberOfArrays0*nKerHeight);// Number of arrays
+	nmppsPut_32s(((nm32s*)pKernel),1,(int)pDispArray);					// ar0 displacement for first array
 
 	
 	for(int j=0; j<nKerHeight; j++){
@@ -241,8 +241,8 @@ int IMG_SetFilter_8s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWi
 
 	//-------------- Disp Matrix 1 ------------------
 	disp=-(nImgWidth>>2)*(nKerHeight>>1);
-	nmppsSetInt_32s(((nm32s*)pKernel),3, nNumberOfArrays1*nKerHeight);// Number of arrays
-	nmppsSetInt_32s(((nm32s*)pKernel),4,(int)pDispArray);			 // ar0 displacement for first array
+	nmppsPut_32s(((nm32s*)pKernel),3, nNumberOfArrays1*nKerHeight);// Number of arrays
+	nmppsPut_32s(((nm32s*)pKernel),4,(int)pDispArray);			 // ar0 displacement for first array
 	
 	for(int j=0; j<nKerHeight; j++){
 		for(int i=0; i<nNumberOfArrays1; i++){
@@ -261,25 +261,25 @@ int IMG_SetFilter_8s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWi
 	nmppsSet_32s((nm32s*)pWeightMatrix,0,(nNumberOfArrays0+nNumberOfArrays1)*8*2*nKerHeight);
 
 	//-------------- Weight Matrix 0 -------------------
-	nmppsSetInt_32s(((nm32s*)pKernel),2,((int)pWeightMatrix));	// weights for first array
+	nmppsPut_32s(((nm32s*)pKernel),2,((int)pWeightMatrix));	// weights for first array
 	for(int j=0,k=0; j<nKerHeight; j++){
 		for(int i=0; i<nKerWidth;i++,k++){
-			nmppsSetInt_16s(pWeightMatrix,8*4+i*4	-nDisp0*2*2, pWeights[k]);
-			nmppsSetInt_16s(pWeightMatrix,8*4+i*4+5	-nDisp0*2*2, pWeights[k]);
-			nmppsSetInt_16s(pWeightMatrix,8*4+i*4+10 -nDisp0*2*2, pWeights[k]);
-			nmppsSetInt_16s(pWeightMatrix,8*4+i*4+15 -nDisp0*2*2, pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,8*4+i*4	-nDisp0*2*2, pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,8*4+i*4+5	-nDisp0*2*2, pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,8*4+i*4+10 -nDisp0*2*2, pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,8*4+i*4+15 -nDisp0*2*2, pWeights[k]);
 		}
 		pWeightMatrix=nmppsAddr_16s(pWeightMatrix,nNumberOfArrays0*8*4);
 	}
 
 	//-------------- Weight Matrix 1 ------------------
-	nmppsSetInt_32s(((nm32s*)pKernel),5,((int)pWeightMatrix));	// weights for first array
+	nmppsPut_32s(((nm32s*)pKernel),5,((int)pWeightMatrix));	// weights for first array
 	for(int j=0,k=0; j<nKerHeight; j++){
 		for(int i=0; i<nKerWidth;i++,k++){
-			nmppsSetInt_16s(pWeightMatrix,8*4+i*4	-nDisp1*2*2, pWeights[k]);
-			nmppsSetInt_16s(pWeightMatrix,8*4+i*4+5	-nDisp1*2*2, pWeights[k]);
-			nmppsSetInt_16s(pWeightMatrix,8*4+i*4+10 -nDisp1*2*2, pWeights[k]);
-			nmppsSetInt_16s(pWeightMatrix,8*4+i*4+15 -nDisp1*2*2, pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,8*4+i*4	-nDisp1*2*2, pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,8*4+i*4+5	-nDisp1*2*2, pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,8*4+i*4+10 -nDisp1*2*2, pWeights[k]);
+			nmppsPut_16s(pWeightMatrix,8*4+i*4+15 -nDisp1*2*2, pWeights[k]);
 		}
 		pWeightMatrix=nmppsAddr_16s(pWeightMatrix,nNumberOfArrays1*8*4);
 	}

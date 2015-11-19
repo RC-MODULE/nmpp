@@ -20,12 +20,11 @@
 //#include "vConvert.h"
 
 /////////////////////////////////////////////////////////////////////////////////
-//! \fn void nmppsGet_16u(nm16u* pVec, int nIndex, uint16b &nVal)
+//! \fn void nmppsGetVal_16u(nm16u* pVec, int nIndex, uint16b &nVal)
 //!
 //! \perfinclude _nmppsGetVal_16u.html
 begin ".text_nmplv"
 
-global _nmppsGetVal_16u:	label;
 global _nmppsGetVal_16u:label;
 <_nmppsGetVal_16u>
 .branch;

@@ -63,25 +63,25 @@ int SIG_SetResampleUp3Down2_8s16s(nm64s* Kernel)
 	int i;
 	for(i=0;i<8;i++)
 	{
-		nmppsSetInt_16s(pKernel,(5+i)*4+1,b[i]);
-		nmppsSetInt_16s(pKernel,(6+i)*4+2,a[i]);
+		nmppsPut_16s(pKernel,(5+i)*4+1,b[i]);
+		nmppsPut_16s(pKernel,(6+i)*4+2,a[i]);
 
-		nmppsSetInt_16s(pKernel,(16+i)*4+1,a[i]);
-		nmppsSetInt_16s(pKernel,(17+i)*4+3,b[i]);
+		nmppsPut_16s(pKernel,(16+i)*4+1,a[i]);
+		nmppsPut_16s(pKernel,(17+i)*4+3,b[i]);
 
-		nmppsSetInt_16s(pKernel,(34+i)*4+0,a[i]);
-		nmppsSetInt_16s(pKernel,(35+i)*4+2,b[i]);
-		nmppsSetInt_16s(pKernel,(36+i)*4+3,a[i]);
+		nmppsPut_16s(pKernel,(34+i)*4+0,a[i]);
+		nmppsPut_16s(pKernel,(35+i)*4+2,b[i]);
+		nmppsPut_16s(pKernel,(36+i)*4+3,a[i]);
 	}
 
 	for(i=0;i<6;i++)
 	{
-		nmppsSetInt_16s(pKernel,(16+i)*4+0,b[i+1]);
+		nmppsPut_16s(pKernel,(16+i)*4+0,b[i+1]);
 	}
 
-	nmppsSetInt_16s(pKernel,8*4+0,(short)K);
-	nmppsSetInt_16s(pKernel,10*4+3,(short)K);
-	nmppsSetInt_16s(pKernel,20*4+2,(short)K);
-	nmppsSetInt_16s(pKernel,38*4+1,(short)K);
+	nmppsPut_16s(pKernel,8*4+0,(short)K);
+	nmppsPut_16s(pKernel,10*4+3,(short)K);
+	nmppsPut_16s(pKernel,20*4+2,(short)K);
+	nmppsPut_16s(pKernel,38*4+1,(short)K);
 	return 16*3*4>>1;
 }

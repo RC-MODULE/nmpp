@@ -14,6 +14,9 @@
 #ifndef VSELECT_H
 #define VSELECT_H
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
 
     /**
     \defgroup nmppsMax_ nmppsMax_
@@ -53,7 +56,7 @@
 			<param> nSize 	  </param> <values> 10240 </values>
 			<init2>	
 					nmppsSet_(pSrcVec,0,nSize);
-					nmppsSetInt_(pSrcVec,nSize-1,1);
+					nmppsPut_(pSrcVec,nSize-1,1);
 			</init2>
         </testperf>
         <testperf> 
@@ -62,7 +65,7 @@
 			<param> nSize 	  </param> <values> 8 128 1024 10240 </values>
 			<init2>	
 					nmppsSet_(pSrcVec,0,nSize);	
-					nmppsSetInt_(pSrcVec,nSize-1,1);
+					nmppsPut_(pSrcVec,nSize-1,1);
 			</init2>
         </testperf>
     \endxmlonly
@@ -154,7 +157,7 @@ void nmppsMax_64s(nm64s63b *pSrcVec, int nSize, int64b *nMaxValue);
 			<param> nSize		</param> <values> 10240 </values>
 			<init2>	
 					nmppsSet_(pSrcVec,0,nSize);		
-					nmppsSetInt_(pSrcVec,nSize-1,-1); 
+					nmppsPut_(pSrcVec,nSize-1,-1); 
 			</init2>
         </testperf>
         <testperf> 
@@ -163,7 +166,7 @@ void nmppsMax_64s(nm64s63b *pSrcVec, int nSize, int64b *nMaxValue);
 			<param> nSize		</param> <values> 8 128 1024 10240 </values>
 			<init2>
 					nmppsSet_(pSrcVec,0,nSize);		
-					nmppsSetInt_(pSrcVec,nSize-1,-1); 
+					nmppsPut_(pSrcVec,nSize-1,-1); 
 			</init2>
         </testperf>
     \endxmlonly
@@ -289,7 +292,7 @@ void nmppsMin_32s(nm32s* pSrcVec, int nSize, int* nMinValue);
 			<param> nSize		</param> <values> 64 1024 10240 </values>
 			<init2>	
 					nmppsSet_(pSrcVec,0,nSize);		
-					nmppsSetInt_(pSrcVec,nSize-1,1);	
+					nmppsPut_(pSrcVec,nSize-1,1);	
 			</init2>
 		</testperf>
     \endxmlonly
@@ -377,7 +380,7 @@ void nmppsMaxIndx_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMaxVal
 			<param> nSize		</param> <values> 64 1024 10240 </values>
 			<init2>	
 					nmppsSet_(pSrcVec,0,nSize);		
-					nmppsSetInt_(pSrcVec,nSize-1,-1);	
+					nmppsPut_(pSrcVec,nSize-1,-1);	
 			</init2>
 		</testperf>
 	\endxmlonly
@@ -442,7 +445,7 @@ int nmppsMinIndxV1024_32s(int* pSrcVec,int nStride,int* nPos);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsFirstZeroPos_ nmppsFirstZeroPos_
+    \defgroup nmppsFirstZeroIndx nmppsFirstZeroIndx
     \ingroup vSelect
 	\brief 
         \ru Поиск позиции первого нулевого элемента в векторе . 
@@ -478,12 +481,12 @@ int nmppsMinIndxV1024_32s(int* pSrcVec,int nStride,int* nPos);
 	\endxmlonly
 	*/
 	//! \{
-int nmppsFirstZeroPos_32s(int* pSrcVec, int nSize);
+int nmppsFirstZeroIndx_32s(int* pSrcVec, int nSize);
 	//! \}
 //*****************************************************************************
 
     /**
-    \defgroup nmppsFirstNonZeroPos_ nmppsFirstNonZeroPos_
+    \defgroup nmppsFirstNonZeroIndx nmppsFirstNonZeroIndx
     \ingroup vSelect
 	\brief 
         \ru Поиск позиции первого ненулевого элемента в векторе . 
@@ -519,13 +522,13 @@ int nmppsFirstZeroPos_32s(int* pSrcVec, int nSize);
 	\endxmlonly
 	*/
 	//! \{
-int nmppsFirstNonZeroPos_32s(int* pSrcVec, int nSize);
+int nmppsFirstNonZeroIndx_32s(int* pSrcVec, int nSize);
 	//! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup nmppsLastZeroPos_ nmppsLastZeroPos_
+    \defgroup nmppsLastZeroIndx nmppsLastZeroIndx
     \ingroup vSelect
 	\brief 
         \ru Поиск позиции последнего нулевого элемента в векторе . 
@@ -561,13 +564,13 @@ int nmppsFirstNonZeroPos_32s(int* pSrcVec, int nSize);
 	\endxmlonly
 	*/
 	//! \{
-int nmppsLastZeroPos_32s(int* pSrcVec, int nSize);
+int nmppsLastZeroIndx_32s(int* pSrcVec, int nSize);
 	//! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup nmppsLastNonZeroPos_ nmppsLastNonZeroPos_
+    \defgroup nmppsLastNonZeroIndx nmppsLastNonZeroIndx
     \ingroup vSelect
 	\brief 
         \ru Поиск позиции последнего ненулевого элемента в векторе . 
@@ -605,7 +608,7 @@ int nmppsLastZeroPos_32s(int* pSrcVec, int nSize);
 	
 	*/
 	//! \{
-int nmppsLastNonZeroPos_32s(int* pSrcVec, int nSize);
+int nmppsLastNonZeroIndx_32s(int* pSrcVec, int nSize);
 	//! \}
 
 
@@ -839,7 +842,7 @@ void nmppsMinCmpLtV_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMi
 //*****************************************************************************
 
     /**
-    \defgroup nmppsCmpLt0_ nmppsCmpLt0_
+    \defgroup nmppsCmpLt0 nmppsCmpLt0
     \ingroup vSelect
     \brief
         \ru Сравнивает элементы массива на меньше нуля. 
@@ -1464,7 +1467,7 @@ void nmppsClipRShiftConvert_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v
 //******************************************************************************************
 
   /**
-	\defgroup nmppsCmpEqC_ nmppsCmpEqC_
+	\defgroup nmppsCmpEqC nmppsCmpEqC
     \ingroup vSelect
     \brief
         \ru Сравнивает элементы массива на признак равенства константе. 
@@ -1761,6 +1764,8 @@ void nmppsCmpNeV_8u(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize
 void Vec_ClipRShiftConvert_AddC( nm32s* pSrcVec, nm8u* pDstVec, int nSize);
   //! \}
 
-
+#ifdef __cplusplus
+		};
+#endif
 
 #endif

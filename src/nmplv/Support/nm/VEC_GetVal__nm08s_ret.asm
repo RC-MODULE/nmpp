@@ -22,11 +22,11 @@
 
 //! \fn int8b nmppsGet_8s(nm8s *pVec, int nIndex) 
 //!
-//! \perfinclude _nmppsGetVal_8s.html
+//! \perfinclude _nmppsGet_8s.html
 
 begin ".text_nmplv"
-global _nmppsGetVal_8s:label;
-<_nmppsGetVal_8s>
+global _nmppsGet_8s:label;
+<_nmppsGet_8s>
 
 .branch;
 	ar5 = ar7 - 2;

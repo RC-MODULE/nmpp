@@ -338,7 +338,7 @@ void nmppsConvert_32s4s(nm32s *pSrc, nm4s *pDst, int nSize)
     int i;
     for (i=0; i<nSize; i++)
     {
-        nmppsSetInt_4s(pDst,i,pSrc[i]);
+        nmppsPut_4s(pDst,i,pSrc[i]);
     }
 }
 
@@ -347,7 +347,7 @@ void nmppsConvert_16s4s(nm16s *pSrc, nm4s *pDst, int nSize)
     int i;
     for (i=0; i<nSize; i++)
     {
-        nmppsSetInt_4s(pDst,i,pSrc[i]);
+        nmppsPut_4s(pDst,i,pSrc[i]);
     }
 }
 
@@ -356,7 +356,7 @@ void nmppsConvert_8s4s(nm8s *pSrc, nm4s *pDst, int nSize)
     int i;
     for (i=0; i<nSize; i++)
     {
-        nmppsSetInt_4s(pDst,i,pSrc[i]);
+        nmppsPut_4s(pDst,i,pSrc[i]);
     }
 }
 

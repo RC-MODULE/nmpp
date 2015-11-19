@@ -27,7 +27,7 @@ SRC_ASM  = $(wildcard $(addsuffix /*.asm,..))
 
 VPATH    = $(subst -L,,$(LIB_DIRS)) $(NEURO)/lib
 
-$(TARGET): $(SRC_CPP)  $(CFG)   Makefile
+$(TARGET): $(SRC_CPP)  $(CFG)   Makefile $(NMPP)/lib/nmpp_nmc3d.lib
 	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) -soc -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=16384 -heap1=16384 -heap2=16384 -heap3=16384
 #                                                                                         [L00]:64kB   [L01]:64kB  [G00]:64kB   [G01]:64kB
 

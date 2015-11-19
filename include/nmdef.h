@@ -49,8 +49,8 @@
 #ifdef __NM__
 #define GET_CHAR(pArray,Index,val)			(nmppsGetVal_((pArray),(Index),(val)))
 #define GET_SHORT(pArray,Index,val)			(nmppsGetVal_((pArray),(Index),(val)))
-#define SET_CHAR(pArray,Index,Char)		(nmppsSetInt_((pArray),(Index),(Char)))
-#define SET_SHORT(pArray,Index,Short)	(nmppsSetInt_((pArray),(Index),(Short)))
+#define SET_CHAR(pArray,Index,Char)		(nmppsPut_((pArray),(Index),(Char)))
+#define SET_SHORT(pArray,Index,Short)	(nmppsPut_((pArray),(Index),(Short)))
 #else
 #define GET_CHAR(pArray,Index,val)			((val)=(pArray)[(Index)])
 #define GET_SHORT(pArray,Index,val)			((val)=(pArray)[(Index)])

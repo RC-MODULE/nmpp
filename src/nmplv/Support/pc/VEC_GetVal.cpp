@@ -20,7 +20,7 @@
 #include "nmpp.h"
 
 //================= nmppsGetVal_ ===========================================    
-int2b	nmppsGet_2s(nm2s*  pVec, int nIndex)
+int2b	nmppsGetVal_2s(nm2s*  pVec, int nIndex)
 {
 	nm32u nBase=(nm32u(nIndex))/16;
 	nm32u nDisp=(nm32u(nIndex))%16;
@@ -31,7 +31,7 @@ int2b	nmppsGet_2s(nm2s*  pVec, int nIndex)
 	return nVal;
 }
 
-int4b			nmppsGet_4s(nm4s*  pVec, int nIndex)
+int4b			nmppsGetVal_4s(nm4s*  pVec, int nIndex)
 {
 	nm32u nBase=(nm32u(nIndex))/8;
 	nm32u nDisp=(nm32u(nIndex))%8;
@@ -42,12 +42,12 @@ int4b			nmppsGet_4s(nm4s*  pVec, int nIndex)
 	return nVal;
 }
 
-int8b	nmppsGet_8s(nm8s*  pVec, int nIndex)
+int8b	nmppsGetVal_8s(nm8s*  pVec, int nIndex)
 {
 	return pVec[nIndex];
 }
 
-int16b	nmppsGet_16s(nm16s* pVec, int nIndex)
+int16b	nmppsGetVal_16s(nm16s* pVec, int nIndex)
 {
 	return pVec[nIndex];
 }
@@ -62,7 +62,7 @@ uint1b	nmppsGetVal_1 (nm1*   pVec, int nIndex)
 	nVal&=1;
 	return nVal;
 }
-uint2b	nmppsGet_2u(nm2u*  pVec, int nIndex)
+uint2b	nmppsGetVal_2u(nm2u*  pVec, int nIndex)
 {
 	nm32u nBase=(nm32u(nIndex))/16;
 	nm32u nDisp=(nm32u(nIndex))%16;
@@ -73,7 +73,7 @@ uint2b	nmppsGet_2u(nm2u*  pVec, int nIndex)
 }
 
 
-uint4b	nmppsGet_4u(nm4u*  pVec, int nIndex)
+uint4b	nmppsGetVal_4u(nm4u*  pVec, int nIndex)
 {
 	nm32u nBase=(nm32u(nIndex))/8;
 	nm32u nDisp=(nm32u(nIndex))%8;
@@ -83,12 +83,12 @@ uint4b	nmppsGet_4u(nm4u*  pVec, int nIndex)
 	return nVal;
 }
 
-uint8b	nmppsGet_8u(nm8u*  pVec, int nIndex)
+uint8b	nmppsGetVal_8u(nm8u*  pVec, int nIndex)
 {
 	return pVec[nIndex];
 }
 
-uint16b	nmppsGet_16u(nm16u* pVec, int nIndex)
+uint16b	nmppsGetVal_16u(nm16u* pVec, int nIndex)
 {
 	return pVec[nIndex];
 }
@@ -103,18 +103,18 @@ void nmppsGetVal_1(nm1*  pArray, int Index, int1b &nVal)
 
 void nmppsGetVal_2s(nm2s*  pArray, int Index, int2b &nVal)
 {
-	nVal=nmppsGet_2s(pArray,Index);
+	nVal=nmppsGetVal_2s(pArray,Index);
 }
 void nmppsGetVal_4s(nm4s* pArray, int Index, int4b &nVal)
 {
-	nVal=nmppsGet_4s(pArray,Index);
+	nVal=nmppsGetVal_4s(pArray,Index);
 }
 
-void nmppsGet_8s(nm8s*  pArray, int Index, int8b &nVal)
+void nmppsGetVal_8s(nm8s*  pArray, int Index, int8b &nVal)
 {
 	nVal=pArray[Index];
 }
-void nmppsGet_16s(nm16s* pArray, int Index, int16b &nVal)
+void nmppsGetVal_16s(nm16s* pArray, int Index, int16b &nVal)
 {
 	nVal=pArray[Index];
 }
@@ -128,19 +128,19 @@ void nmppsGetVal_1_1*(nm1*  pArray, int Index, uint1b &nVal)
 
 void nmppsGetVal_2u(nm2u*  pArray, int Index, uint2b &nVal)
 {
-	nVal=nmppsGet_2u(pArray,Index);
+	nVal=nmppsGetVal_2u(pArray,Index);
 }
 
 void nmppsGetVal_4u(nm4u* pArray, int Index, uint4b &nVal)
 {
-	nVal=nmppsGet_4u(pArray,Index);
+	nVal=nmppsGetVal_4u(pArray,Index);
 }
 
-void nmppsGet_8u(nm8u*  pArray, int Index, uint8b &nVal)
+void nmppsGetVal_8u(nm8u*  pArray, int Index, uint8b &nVal)
 {
 	nVal=pArray[Index];
 }
-void nmppsGet_16u(nm16u* pArray, int Index, uint16b &nVal)
+void nmppsGetVal_16u(nm16u* pArray, int Index, uint16b &nVal)
 {
 	nVal=pArray[Index];
 }

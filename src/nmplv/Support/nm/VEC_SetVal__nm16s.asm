@@ -23,13 +23,12 @@
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsSetInt_16s(nm16s *pVec, int nIndex, int16b Val) 
+//! \fn void nmppsPut_16s(nm16s *pVec, int nIndex, int16b Val) 
 //!
-//! \perfinclude _nmppsSetVal_16s.html
+//! \perfinclude _nmppsPut_16s.html
 
-global _nmppsSetVal_16s:	label;
-global _nmppsSetVal_16s:label;
-<_nmppsSetVal_16s>
+global _nmppsPut_16s:label;
+<_nmppsPut_16s>
 .branch;
 	ar5 = ar7 - 5;
 	push ar1,gr1;

@@ -20,12 +20,12 @@
 
 begin ".text_nmplv"
 
-//! \fn int nmppsFirstZeroPos_(int* pSrcVec, int nSize)
+//! \fn int nmppsFirstZeroIndx_32s(int* pSrcVec, int nSize)
 //!
-//! \perfinclude _nmppsFirstZeroPos_32s.html 
+//! \perfinclude _nmppsFirstZeroIndx_32s.html 
 
-global _nmppsFirstZeroPos_32s:label;
-<_nmppsFirstZeroPos_32s>	
+global _nmppsFirstZeroIndx_32s:label;
+<_nmppsFirstZeroIndx_32s>	
  
  	ar5=ar7-2;
  	push ar0,gr0 	with gr0=false;

@@ -20,12 +20,11 @@
 
 //#include "vConvert.h"
 
-//! \fn void nmppsGet_8u(nm8u*  pVec, int nIndex, uint8b &nVal)
+//! \fn void nmppsGetVal_8u(nm8u*  pVec, int nIndex, uint8b &nVal)
 //!
 //! \perfinclude _nmppsGetVal_8u.html
 
 begin ".text_nmplv"
-global _nmppsGetVal_8u:	label;
 global _nmppsGetVal_8u:label;
 <_nmppsGetVal_8u>
  

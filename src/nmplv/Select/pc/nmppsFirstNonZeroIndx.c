@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-int nmppsFirstNonZeroPos_32s(int* pSrcVec, int nSize)
+int nmppsFirstNonZeroIndx_32s(int* pSrcVec, int nSize)
 {
 	int i;
 	for(i=0;i<nSize;i++){

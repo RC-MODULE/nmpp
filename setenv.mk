@@ -53,18 +53,22 @@ endif
 #endif
 #endif 
 
-ifdef MC5103
-PLATFORMS += mc5103
-endif 
+PLATFORMS  += mc5103
 
 ifdef MC7601
 PLATFORMS += mc7601
 endif 
 
+ifdef VS80COMNTOOLS
 PLATFORMS += vs80
+endif 
+
+ifdef VS120COMNTOOLS
 PLATFORMS += vs13
-PLATFORMS += gcc
-PLATFORMS:= mc5103 vs80
+endif
+
+#PLATFORMS += gcc
+
 TARGET1=mc5103
 TARGET2=vs80
 

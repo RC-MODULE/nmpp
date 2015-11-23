@@ -22,7 +22,7 @@ int main()
 	NmppsFFTSpec spec;
 	fseq64 route=0xF10;
 	nmppsFFT256FwdOptimize(src,dst,&route);
-	nmppsMalloc32SetRouteMode(route);
+	nmppsMallocSetRouteMode(route);
 	nmppsFFT256FwdInitAlloc(nmppsMalloc32,nmppsFree32,&spec);
 	t0=clock();
 	nmppsFFT256Fwd(src,dst,&spec);

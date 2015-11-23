@@ -239,7 +239,7 @@
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinCmpLtV.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinEvery.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinEveryN.c" > </File> 
- 			<File RelativePath="..\..\..\src\nmplv\Stat\common\nmppsCrc.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Stat\common\nmpps_Crc.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Stat\pc\CRC32_Table.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Stat\pc\VEC_Crc.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_Malloc64s.c" > </File> 

@@ -32,7 +32,7 @@ typedef uint32 fseq32;
 
 enum  MALLOC32_MODE {MALLOC32_PRIORITY_MODE, MALLOC32_ROUTE_MODE, MALLOC32_LONG_ROUTE_MODE,  MALLOC32_FIXED_MODE, MALLOC32_RANDOM_MODE };
 
-struct NmppsMalloc32Spec{
+struct NmppsMallocSpec{
 	Malloc32Func* allocator[4];	
 	enum    MALLOC32_MODE mode;
 	uint32  random;			//  bit-mask of available heaps
@@ -87,23 +87,22 @@ void   nmppsFree32(void* buffer);
 typedef uint64  seq64;
 typedef uint64 fseq64;
 
-void  nmppsMalloc32SetRouteMode (fseq64  heapSeq);
-//void  nmppsMalloc32SetRouteMode (seq64   heapSeq,  int heapCount);
-void  nmppsMalloc32SetBigRouteMode(seq64*  heapSeq,  int heapCount);
-void  nmppsMalloc32SetRandomMode(uint32  heapSet,  int heapCount);
-void  nmppsMalloc32SetPriorityMode (seq64   heapSeq,  int heapCount);
-void  nmppsMalloc32SetFixedMode(void**  addrSeq,  int addrCount);
-void  nmppsMalloc32StartAddrRec (void**  addrSeq,  int maxAddrCount);
-int   nmppsMalloc32StopAddrRec  ();
-void  nmppsMalloc32StartRouteRec (seq64*  heapSeq,  int maxHeapCount);
-int   nmppsMalloc32StopRouteRec  ();
-void  nmppsMalloc32SetBoundary  (int size, int fill );
-int   nmppsMalloc32CheckBoundary(void*);
-int   nmppsMalloc32IsErrorStatus();
-void  nmppsMalloc32ResetStatus  ();
-int   nmppsMalloc32GetHistory   (fseq64*  heapSeq, int seqSize);
+void  nmppsMallocSetRouteMode (fseq64  heapSeq);
+void  nmppsMallocSetBigRouteMode(seq64*  heapSeq,  int heapCount);
+void  nmppsMallocSetRandomMode(uint32  heapSet,  int heapCount);
+void  nmppsMallocSetPriorityMode (seq64   heapSeq,  int heapCount);
+void  nmppsMallocSetFixedMode(void**  addrSeq,  int addrCount);
+void  nmppsMallocStartAddrRec (void**  addrSeq,  int maxAddrCount);
+int   nmppsMallocStopAddrRec  ();
+void  nmppsMallocStartRouteRec (seq64*  heapSeq,  int maxHeapCount);
+int   nmppsMallocStopRouteRec  ();
+void  nmppsMallocSetBoundary  (int size, int fill );
+int   nmppsMallocCheckBoundary(void*);
+int   nmppsMallocIsErrorStatus();
+void  nmppsMallocResetStatus  ();
+int   nmppsMallocGetHistory   (fseq64*  heapSeq, int seqSize);
 
-extern struct NmppsMalloc32Spec nmppsMalloc32Spec;
+extern struct NmppsMallocSpec nmppsMallocSpec;
 
 
  /**

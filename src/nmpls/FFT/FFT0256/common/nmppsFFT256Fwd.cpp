@@ -45,22 +45,22 @@ void nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder)
 			
 			
 			route =0xF00|(heapIndx1<<4)|(heapIndx0); 
-			nmppsMalloc32SetRouteMode(route);
+			nmppsMallocSetRouteMode(route);
 
 			NmppsFFTSpec spec;
 			nmppsFFT256FwdInitAlloc(nmppsMalloc32, nmppsFree32, &spec );
 			
-			if (nmppsMalloc32Spec.status==0){
+			if (nmppsMallocSpec.status==0){
 				t0=clock();
 				nmppsFFT256Fwd((nm32sc*)src, (nm32sc*)dst, &spec);
 				t1=clock();
 				
 				if (bestTime>t1-t0){
 					bestTime=t1-t0;
-					nmppsMalloc32GetHistory(allocOrder,2);
+					nmppsMallocGetHistory(allocOrder,2);
 				}
 			}
-			nmppsMalloc32Spec.status=0;
+			nmppsMallocSpec.status=0;
 			nmppsFFTFree(&spec);
 		}
 	}

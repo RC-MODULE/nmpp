@@ -19,10 +19,12 @@
 //------------------------------------------------------------------------
 #include "nmpp.h"
 #include "time.h"
-
+ int ststic_arr[100];
+ int init_arr[2]={1,2};
 int main()
 {
-		
+		 int local_arr[100];
+		 local_arr[1]=ststic_arr[1];
 	clock_t t0,t1;
 	int size=10240;
 	nm8s *src, *dst;

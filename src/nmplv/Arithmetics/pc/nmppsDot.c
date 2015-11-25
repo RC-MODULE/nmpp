@@ -19,6 +19,7 @@
 //------------------------------------------------------------------------
 //#include "vec.h"
 #include "nmpp.h"
+#undef RPC
 /////////////////////////////////////////////////////////////////////////////////////////
 // Scalar multiplication of two vectors
 int	nmppsDotProd_32s(
@@ -27,6 +28,10 @@ int	nmppsDotProd_32s(
 			int			nSize			// size of input buffers	:nSize=[0,2,4...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int Res=0;
 	int i;
 	for (i=0;i<nSize;i++)
@@ -34,8 +39,11 @@ int	nmppsDotProd_32s(
 	return Res;
 
 	//ippsDotProd_32s_Sfs(const Ipp32s* pSrc1, const Ipp32s*pSrc2, int len, Ipp32s* pDp, int scaleFactor);
+
+	#endif
 }
-#include "nmpp.h"
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Vector multiplication
@@ -47,11 +55,18 @@ void nmppsDotProd_64s(
 	nm64s*	DstVec		//Output buffer		:long Any
 	)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	DstVec[0] = 0;
 	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
+
+	#endif
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_32s64s64s(
 	nm32s*	SrcVec0,	//Input0 buffer		:long Local [Size].
@@ -60,11 +75,18 @@ void nmppsDotProd_32s64s64s(
 	nm64s*	DstVec		//Output buffer		:long Any
 	)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	DstVec[0] = 0;
 	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
+
+	#endif
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_16s64s64s(
 	nm16s*	SrcVec0,	//Input0 buffer		:long Local [Size].
@@ -73,11 +95,18 @@ void nmppsDotProd_16s64s64s(
 	nm64s*	DstVec		//Output buffer		:long Any
 	)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	DstVec[0] = 0;
 	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
+
+	#endif
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_8s64s64s(
 	nm8s*	SrcVec0,	//Input0 buffer		:long Local [Size].
@@ -86,11 +115,18 @@ void nmppsDotProd_8s64s64s(
 	nm64s*	DstVec		//Output buffer		:long Any
 	)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	DstVec[0] = 0;
 	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
+
+	#endif
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_32s32s64s(
@@ -101,11 +137,18 @@ void nmppsDotProd_32s32s64s(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	DstVec[0] = 0;
 	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
+
+	#endif
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_16s32s64s(
 	nm16s*	SrcVec0,	//Input0 buffer		:long Local [Size].
@@ -115,11 +158,18 @@ void nmppsDotProd_16s32s64s(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	DstVec[0] = 0;
 	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
+
+	#endif
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_8s32s64s(
 	nm8s*	SrcVec0,	//Input0 buffer		:long Local [Size].
@@ -129,11 +179,18 @@ void nmppsDotProd_8s32s64s(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	DstVec[0] = 0;
 	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
+
+	#endif
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_16s16s64s(
@@ -144,11 +201,18 @@ void nmppsDotProd_16s16s64s(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	DstVec[0] = 0;
 	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
+
+	#endif
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_8s16s64s(
 	nm8s*	SrcVec0,	//Input0 buffer		:long Local [Size].
@@ -158,11 +222,18 @@ void nmppsDotProd_8s16s64s(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	DstVec[0] = 0;
 	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
+
+	#endif
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_8s8s64s(
@@ -173,16 +244,27 @@ void nmppsDotProd_8s8s64s(
 	void*	pTmpBuf		//Temporary Buffer	:long Local [nSize*8].
 	)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	DstVec[0] = 0;
 	for (i=0; i<nSize; i++)
 		DstVec[0] += ((nm64s)SrcVec0[i])*((nm64s)SrcVec1[i]);
+
+	#endif
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 
 // With first argument conjuction
 void nmppsDotProd_64sc64sc64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pDstRes)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	pDstRes->re = 0;
 	pDstRes->im = 0;
@@ -200,5 +282,8 @@ void nmppsDotProd_64sc64sc64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm
 //			printf("nmppsDotProd overflow(c1, r2)\n");
 		pDstRes->im += pSrcVec1[i].re*pSrcVec2[i].im - pSrcVec1[i].im*pSrcVec2[i].re;
 	}
+
+	#endif
 }
+
 

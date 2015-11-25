@@ -18,7 +18,7 @@
 //*                                                                         */
 //***************************************************************************/
 #include "nmpp.h"
-
+#undef RPC
 
 
 
@@ -31,10 +31,17 @@ void nmppsNeg_8s(
 		int				nSize			// size of input buffer in 8 bit elements. nSize=[0,8,16,24...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = -pSrcVec[i];
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Sign reversion
@@ -44,10 +51,17 @@ void nmppsNeg_16s(
 		int				nSize			// size of input buffer in 16-bit elements. nSize=[0,4,8,12..]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = -pSrcVec[i];
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Sign reversion
@@ -57,10 +71,17 @@ void nmppsNeg_32s(
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = -pSrcVec[i];
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Sign reversion
@@ -70,7 +91,14 @@ void nmppsNeg_64s(
 		int				nSize			// size of input buffer in 64-bit elements. nSize=[0,1,2,3...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = -pSrcVec[i];
+
+	#endif
 }
+

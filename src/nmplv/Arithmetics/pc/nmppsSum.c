@@ -19,6 +19,7 @@
 //------------------------------------------------------------------------
 
 //#include "vec.h"
+#undef RPC
 
 #include "nmpp.h"
 
@@ -69,6 +70,10 @@ void		nmppsSum(
 		void*			pTmpBuf
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int sum=0;
 /*
 	nm64u x;
@@ -101,7 +106,10 @@ void		nmppsSum(
 	}
 
 	*pnRes=sum;
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
@@ -111,12 +119,19 @@ void nmppsSum_8s(
 		int *   pnRes
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int sum = 0;
 	int i;
 	for (i=0; i<nSize; i++)
 		sum += (int)pSrcVec[i];
 	*pnRes=sum;
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
@@ -126,12 +141,19 @@ void nmppsSum_16s(
 		__int64 *   pnRes
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	__int64 sum = 0;
 	int i;
 	for (i=0; i<nSize; i++)
 		sum += pSrcVec[i];
 	*pnRes=sum;
+
+	#endif
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
 void nmppsSum_32s(
@@ -140,12 +162,19 @@ void nmppsSum_32s(
 		__int64 *   pnRes
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	__int64 sum = 0;
 	int i;
 	for (i=0; i<nSize; i++)
 		sum += pSrcVec[i];
 	*pnRes=sum;
+
+	#endif
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
 void nmppsSum_64s(
@@ -154,9 +183,16 @@ void nmppsSum_64s(
 		__int64 *   pnRes
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	__int64 sum = 0;
 	int i;
 	for (i=0; i<nSize; i++)
 		sum += pSrcVec[i];
 	*pnRes=sum;
+
+	#endif
 }
+

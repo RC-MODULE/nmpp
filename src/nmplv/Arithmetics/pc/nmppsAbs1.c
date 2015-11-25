@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-//#include "vec.h"
+#include "rpc.h"
 #include "nmpp.h"
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -28,6 +28,10 @@ void nmppsAbs1_4s(
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	nm8s v,m;
 	int i;
 	for (i=0; i<nSize/2; i++)
@@ -37,7 +41,10 @@ void nmppsAbs1_4s(
 		v^=m;
 		((nm8s*)pDstVec)[i]=v;
 	}
+
+	#endif
 }
+
 
 void nmppsAbs1_8s(
 		nm8s*			pSrcVec,		// input buffer		:long Local [VecSize/8]
@@ -45,6 +52,10 @@ void nmppsAbs1_8s(
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(nmppsAbs1_8s,pSrcVec,pDstVec,nSize);
+	#else
+
 	nm8s v;
 	int i;
 	for (i=0; i<nSize; i++)
@@ -52,7 +63,10 @@ void nmppsAbs1_8s(
 		v=pSrcVec[i];
 		pDstVec[i] = (v>>7)^v;
 	}
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute value calculation
@@ -62,6 +76,10 @@ void nmppsAbs1_16s(
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[0,4,8,..]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(nmppsAbs1_16s,pSrcVec,pDstVec,nSize);
+	#else
+
 	nm16s v;
 	int i;
 	for (i=0; i<nSize; i++)
@@ -69,7 +87,10 @@ void nmppsAbs1_16s(
 		v=pSrcVec[i];
 		pDstVec[i] = (v>>15)^v;
 	}
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -80,6 +101,10 @@ void nmppsAbs1_32s(
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(nmppsAbs1_32s,pSrcVec,pDstVec,nSize);
+	#else
+
 	nm32s v;
 	int i;
 	for (i=0; i<nSize; i++)
@@ -87,7 +112,10 @@ void nmppsAbs1_32s(
 		v=pSrcVec[i];
 		pDstVec[i] = (v>>31)^v;
 	}
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -98,6 +126,10 @@ void nmppsAbs1_64s(
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(nmppsAbs1_64s,pSrcVec,pDstVec,nSize);
+	#else
+
 	nm64s v;
 	int i;
 	for (i=0; i<nSize; i++)
@@ -105,4 +137,7 @@ void nmppsAbs1_64s(
 		v=pSrcVec[i];
 		pDstVec[i] = (v>>63)^v;
 	}
+
+	#endif
 }
+

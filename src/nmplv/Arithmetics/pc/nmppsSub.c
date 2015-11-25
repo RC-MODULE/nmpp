@@ -18,7 +18,7 @@
 //!
 //------------------------------------------------------------------------
 
-
+#undef RPC
 #include "nmtype.h"
 
 //extern "C"{
@@ -38,11 +38,18 @@ void nmppsSub_8s(
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] - pSrcVec2[i];
 
+
+	#endif
 }
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -54,10 +61,17 @@ void nmppsSub_16s(
 		int				nSize			// size of input buffer in 16-bit elements. nSize=[0,4,8,12..]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] - pSrcVec2[i];
+
+	#endif
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two int vectors
@@ -68,10 +82,17 @@ void nmppsSub_32s(
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] - pSrcVec2[i];
+
+	#endif
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two __int64 vectors
 void nmppsSub_64s(
@@ -81,24 +102,38 @@ void nmppsSub_64s(
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,1,2,3,4...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] - pSrcVec2[i];
 	
 	// No IPP analog
+
+	#endif
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two __int64 complex vectors
 void nmppsSub_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for(i=0;i<nSize;i++)
 	{
 		pDstVec[i].re = pSrcVec1[i].re - pSrcVec2[i].re;
 		pDstVec[i].im = pSrcVec1[i].im - pSrcVec2[i].im;
 	}
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -111,13 +146,20 @@ void nmppsSubC_8s(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[0,8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	nVal=(char)nVal;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] - nVal;
 
 
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Decrement of vec elements by constant value
@@ -129,11 +171,18 @@ void nmppsSubC_16s(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[0,4,8,12...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	nVal=(short)nVal;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] - nVal;
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Decrement of vec elements by constant value
@@ -145,11 +194,18 @@ void nmppsSubC_32s(
 		int				nSize		// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] - nVal;
 
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // pDstVec[i]=pSrcVec[i]-Decrement
@@ -160,10 +216,17 @@ void nmppsSubC_64s(
 		int				nSize		// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] - *pnVal;
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -175,12 +238,19 @@ void nmppsSubCRev_8s(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[0,8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	nVal=(char)nVal;
 
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = nVal-pSrcVec[i];
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // pDstVec[i]=Decrement-pSrcVec[i]
@@ -191,12 +261,19 @@ void nmppsSubCRev_16s(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[0,4,8,12...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	nVal=(short)nVal;
 
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = nVal-pSrcVec[i];
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // pDstVec[i]=Decrement-pSrcVec[i]
@@ -207,13 +284,20 @@ void nmppsSubCRev_32s(
 		int				nSize		// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 
 	int i;
 
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = nVal-pSrcVec[i];
 
+
+	#endif
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // pDstVec[i]=Decrement-pSrcVec[i]
 void nmppsSubCRev_64s(
@@ -223,10 +307,17 @@ void nmppsSubCRev_64s(
 		int				nSize		// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = *pnVal-pSrcVec[i];
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -238,9 +329,16 @@ void nmppsAbsDiff_8s(
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[0,8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	nmppsSub_8s(pSrcVec1,pSrcVec2,pDstVec,nSize);
 	nmppsAbs_8s(pDstVec,pDstVec,nSize);
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
@@ -252,9 +350,16 @@ void nmppsAbsDiff_16s(
 		int				nSize			// size of input buffer in 32 bit elements. nSize=[0,4,8...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	nmppsSub_16s(pSrcVec1,pSrcVec2,pDstVec,nSize);
 	nmppsAbs_16s(pDstVec,pDstVec,nSize);
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
@@ -266,9 +371,16 @@ void nmppsAbsDiff_32s(
 		int				nSize			// size of input buffer in 32 bit elements. nSize=[0,2,4..]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	nmppsSub_32s(pSrcVec1,pSrcVec2,pDstVec,nSize);
 	nmppsAbs_32s(pDstVec,pDstVec,nSize);
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -281,9 +393,16 @@ void nmppsAbsDiff_64s(
 		int				nSize			// size of input buffer in 32 bit elements. nSize=[0,2,4..]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	nmppsSub_64s(pSrcVec1,pSrcVec2,pDstVec,nSize);
 	nmppsAbs_64s(pDstVec,pDstVec,nSize);
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Logical absolute difference calculation
@@ -294,9 +413,16 @@ void nmppsAbsDiff1_8s(
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[0,8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	nmppsSub_8s(pSrcVec1,pSrcVec2,pDstVec,nSize);
 	nmppsAbs1_8s(pDstVec,pDstVec,nSize);
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -307,6 +433,10 @@ void nmppsSub_8u16s(
 		int				nSize		
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	nm16s* pTmp1=(nm16s*)malloc(2*nSize);
 	nm16s* pTmp2=(nm16s*)malloc(2*nSize);
 	nmppsConvert_8u16u(pSrcVec1,(nm16u*)pTmp1,nSize);
@@ -314,7 +444,10 @@ void nmppsSub_8u16s(
 	nmppsSub_16s(pTmp1,pTmp2,pDstVec,nSize);
 	free(pTmp1);
 	free(pTmp2);
+
+	#endif
 }
+
 
 
 /*
@@ -328,6 +461,10 @@ void nmppsSubN8_Abs(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<(VecSize/8)*8; )
 	{
@@ -340,7 +477,10 @@ void nmppsSubN8_Abs(
 		pDstVec[i] = abs(pSrcVec[i] - SrcN8[6]);i++;
 		pDstVec[i] = abs(pSrcVec[i] - SrcN8[7]);i++;
 	}
+
+	#endif
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
@@ -352,6 +492,10 @@ void nmppsSubN16_Abs(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<(VecSize/16)*16; )
 	{
@@ -359,7 +503,10 @@ void nmppsSubN16_Abs(
 		for (int j=0;j<16;j++)
 			{	pDstVec[i] = abs(pSrcVec[i] - SrcN16[i%16]);i++;}
 	}
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -372,13 +519,20 @@ void nmppsSubN16_Abs(
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<(VecSize/16)*16; )
 	{
 		for (int j=0;j<16;j++)
 			{	pDstVec[i] = (pSrcVec[i] - SrcN16[i%16]);pDstVec[i] = ABS(pDstVec[i]);i++;}
 	}
+
+	#endif
 }
+
 */
 /////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////

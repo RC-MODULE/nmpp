@@ -28,8 +28,15 @@ void nmppsDivC_32s(
 			void*	TmpBufG			// Temporary buffer	on Global	:long Local [23] 
 			)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0;i<nSize;i++)
 		pDstVec[i]=pSrcVec[i]/Divisor;
 
+
+	#endif
 }
+

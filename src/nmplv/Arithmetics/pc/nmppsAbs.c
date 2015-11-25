@@ -17,7 +17,9 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
+#include "rpc.h"
 #include "nmpp.h"
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute value calculation
 void nmppsAbs_4s(
@@ -26,6 +28,10 @@ void nmppsAbs_4s(
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(nmppsAbs_4s,pSrcVec,pDstVec,nSize/2);
+	#else
+
 	nm8s v,m;
 	int i=0;
 	for(i=0; i<nSize/2; i++)
@@ -37,7 +43,10 @@ void nmppsAbs_4s(
 		v+=(0x11&m);
 		((nm8s*)pDstVec)[i]=v;
 	}
+
+	#endif
 }
+
 
 void nmppsAbs_8s(
 		nm8s*			pSrcVec,		// input buffer		:long Local [VecSize/8]
@@ -45,11 +54,18 @@ void nmppsAbs_8s(
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(nmppsAbs_8s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int i=0;
 	for(i=0; i<nSize; i++)
 		pDstVec[i] = ABS(pSrcVec[i]);
 	// No IPP analog
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute value calculation
@@ -59,10 +75,17 @@ void nmppsAbs_16s(
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[0,4,8,..]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(nmppsAbs_16s,pSrcVec,pDstVec,nSize*2);
+	#else
+
 	int i=0;
 	for(i=0; i<nSize; i++)
 		pDstVec[i] = ABS(pSrcVec[i]);
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -73,10 +96,17 @@ void nmppsAbs_32s(
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(nmppsAbs_32s,pSrcVec,pDstVec,nSize*4);
+	#else
+
 	int i=0;
 	for(i=0; i<nSize; i++)
 		pDstVec[i] = ABS(pSrcVec[i]);
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -87,8 +117,15 @@ void nmppsAbs_64s(
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(nmppsAbs_64s,pSrcVec,pDstVec,nSize*8);
+	#else
+
 	int i=0;
 	for(i=0; i<nSize; i++)
 		pDstVec[i] = ABS(pSrcVec[i]);
+
+	#endif
 }
+
 

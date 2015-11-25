@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-
+#include "rpc.h"
 
 #include "nmpp.h"
 
@@ -31,10 +31,17 @@ void nmppsAdd_8s(
 		int				nSize			// size of input buffer in 8 bit elements. nSize=[0,8,16,24...]
 		)
 {
+	#ifdef RPC
+	RPC_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
+
+	#endif
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two short vectors
 void nmppsAdd_16s(
@@ -44,10 +51,17 @@ void nmppsAdd_16s(
 		int				nSize			// size of input buffer in 16-bit elements. nSize=[0,4,8,12..]
 		)
 {
+	#ifdef RPC
+	RPC_PPPI(nmppsAdd_16s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
+
+	#endif
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two int vectors
 void nmppsAdd_32s(
@@ -57,10 +71,17 @@ void nmppsAdd_32s(
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPPI(nmppsAdd_32s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
+
+	#endif
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two long vectors
 void nmppsAdd_64s(
@@ -70,22 +91,36 @@ void nmppsAdd_64s(
 		int				nSize			// size of input buffer in 64-bit elements. nSize=[0,1,2,3...]
 		)
 {
+	#ifdef RPC
+	RPC_PPPI(nmppsAdd_64s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two long complex vectors
 void nmppsAdd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize)
 {
+	#ifdef RPC
+	RPC_PPPI(nmppsAdd_64sc,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	#else
+
 	int i;
 	for(i=0;i<nSize;i++)
 	{
 		pDstVec[i].re = pSrcVec1[i].re + pSrcVec2[i].re;
 		pDstVec[i].im = pSrcVec1[i].im + pSrcVec2[i].im;
 	}
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiple Summation of several arrays with accumulation of result
@@ -95,6 +130,10 @@ void nmppsSum4_16s(
 		int				nSize			// buffer size in 8-bit elements:nSize    =[256,512,..]
 		)								// Buffer - char packed array	:long Global [VecSize/8]
 {
+	//#ifdef RPC
+	//RPC_PPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	//#else
+
 	int i, j;
 	for(i=0; i<nSize; i++)
 	{
@@ -102,7 +141,10 @@ void nmppsSum4_16s(
 		for(j=0; j<4; j++)
 			pDstVec[i] += (short)(Vectors[j][i]);
 	}
+
+	//#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiple Summation of several arrays with accumulation of result
@@ -113,6 +155,10 @@ void nmppsSumN_8s16s(
 		int				VecNumber		// number of being added buffers:NumbersOfVectors=[2,3,4....]
 		)								// Buffer - char packed array	:long Global [VecSize/8]
 {
+	//#ifdef RPC
+	//RPC_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	//#else
+
 	int i, j;
 	for(i=0; i<nSize; i++)
 	{
@@ -120,7 +166,10 @@ void nmppsSumN_8s16s(
 		for(j=0; j<VecNumber; j++)
 			pDstVec[i] += (short)(Vectors[j][i]);
 	}
+
+	//#endif
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiple Summation of several arrays with accumulation of result
 // pDstVec[i]=Buffers[0][i]+Buffers[1][i]+...+Buffers[NumberOfBuffers-1][i]
@@ -131,11 +180,18 @@ void nmppsSumN_16s(
 		int				VecNumber		// number of being added buffers:NumbersOfVectors=[2,3,4...256]
 		)								// Buffer - char packed array	:long Global [VecSize/8]
 {
+	//#ifdef RPC
+	//RPC_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	//#else
+
 	int i;
 	nmppsAdd_16s(Vectors[0],Vectors[1],pDstVec,nSize);
 	for (i=2;i<VecNumber;i++)
 		nmppsAdd_16s(Vectors[i],pDstVec,pDstVec,nSize); // with IPP use
+
+	//#endif
 }
+
 
 
 
@@ -149,12 +205,19 @@ void nmppsAddC_8s(
 		int				nSize			// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PIPI(nmppsAdd_8s,pSrcVec,nVal,pDstVec,nSize);
+	#else
+
 	int i;
 	nVal=(char)nVal;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] + nVal;
 
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Increment of vec elements by constant value
@@ -166,11 +229,18 @@ void nmppsAddC_16s(
 		int				nSize				// size of input buffer in 16-bit elements. nSize=[0,4,8,12...]
 		)
 {
+	#ifdef RPC
+	RPC_PIPI(nmppsAddC_16s,pSrcVec,nVal,pDstVec,nSize*2);
+	#else
+
 	int i;
 	nVal=(short)nVal;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] + nVal;
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -183,10 +253,17 @@ void nmppsAddC_32s(
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PIPI(nmppsAddC_32s,pSrcVec,nVal,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] + nVal;
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two int vectors with addition of constant
@@ -198,9 +275,16 @@ void nmppsAdd_AddC_32s(
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	//#ifdef RPC
+	//RPC_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	//#else
+
 	nmppsAdd_32s(SrcVecA,SrcVecB,pDstVec,nSize);
 	nmppsAddC_32s(pDstVec,nVal,pDstVec,nSize);
+
+	//#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Increment of vec elements by constant value
@@ -213,8 +297,15 @@ void nmppsAddC_32s(
 		int				nSize			// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	#else
+
 	nmppsAddC(pSrcVec,*nVal,pDstVec,nSize);
+
+	#endif
 }
+
 */
 /////////////////////////////////////////////////////////////////////////////////////////
 // Increment of vec elements by constant value
@@ -226,8 +317,15 @@ void nmppsAddC_64s(
 		int				nSize			// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
+	#ifdef RPC
+	RPC_PIPI(nmppsAddC_64s,pSrcVec,nVal,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec[i] + *nVal;
+
+	#endif
 }
+
 

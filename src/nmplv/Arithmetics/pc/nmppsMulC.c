@@ -19,6 +19,7 @@
 //------------------------------------------------------------------------
 
 #include "nmpp.h"
+#undef RPC
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 64-bit buffer elements by 64-bit scalar value
 void nmppsMulC_64s(
@@ -28,10 +29,17 @@ void nmppsMulC_64s(
 			int			nSize				// size of input buffer in 64-bit elements. nSize=[0,1,2,3..]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0;i<nSize;i++)
 		pDstVec[i]=pSrcVec[i]*MulN;
+
+	#endif
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 32-bit buffer elements by 64-bit scalar value
 void nmppsMulC_32s64s(
@@ -41,10 +49,17 @@ void nmppsMulC_32s64s(
 			int			nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0;i<nSize;i++)
 		pDstVec[i]=pSrcVec[i]*MulN;
+
+	#endif
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 16-bit buffer elements by 32-bit scalar value
 void nmppsMulC_16s32s(
@@ -54,10 +69,17 @@ void nmppsMulC_16s32s(
 			int			nSize			// size of input buffer in 16-bit elements. nSize=[0,4,8...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0;i<nSize;i++)
 		pDstVec[i]=pSrcVec[i]*MulN;
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 32-bit buffer elements by scalar value
@@ -68,10 +90,17 @@ void nmppsMulC_32s(
 			int			nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0;i<nSize;i++)
 		pDstVec[i]=pSrcVec[i]*MulN;
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -83,11 +112,18 @@ void nmppsMulC_8s16s(
 			int			nSize			// size of input buffer in 8-bit elements. nSize=[0,8,16...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	MulN=(short)MulN;
 	for (i=0;i<nSize;i++)
 		pDstVec[i]=pSrcVec[i]*MulN;
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 8-bit buffer elements by 8-bit scalar value
@@ -98,11 +134,18 @@ void nmppsMulC_8s(
 			int			nSize			// size of input buffer in 8-bit elements. nSize=[0,8,16...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	MulN=(short)MulN;
 	for (i=0;i<nSize;i++)
 		pDstVec[i]=pSrcVec[i]*MulN;
+
+	#endif
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -116,12 +159,23 @@ void nmppsMulC_AddC_32s(
 			int			nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	nmppsMulC_32s(pSrcVec,MulN,pDstVec,nSize);
 	nmppsAddC_32s(pDstVec,AddN,pDstVec,nSize);
+
+	#endif
 }
+
 
 void nmppsMulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int32x2* pSrc=dataSparseSrc;
 	int32x2* pDst=dataSparseDst;
 	int i;
@@ -131,10 +185,17 @@ void nmppsMulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* mulArg, int32x2* add
 		pSrc+=stepSparseSrc;
 		pDst+=stepSparseDst;
 	}
+
+	#endif
 }
+
 
 void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg, int32x2* mulArg, int32x2* addArg, int32x2* dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int32x2* pSrc=dataSparseSrc;
 	int32x2* pDst=dataSparseDst;
 	int i;
@@ -144,7 +205,10 @@ void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg,
 		pSrc+=stepSparseSrc;
 		pDst+=stepSparseDst;
 	}
+
+	#endif
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 32-bit buffer elements by scalar value with vec and constant addition
@@ -158,10 +222,17 @@ void nmppsMulC_AddV_AddC_32s(
 			int			nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_PPI(pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0;i<nSize;i++)
 		pDstVec[i]=pSrcVec1[i]*MulN+pSrcVec2[i]+AddN;
 	//nmppsMulC_32s(pSrcVec1,MulN,pDstVec,nSize);
 	//nmppsAdd_32s(pDstVec,pSrcVec2,pDstVec,nSize);
 	//nmppsAddC_32s(pDstVec,AddN,pDstVec,nSize);
+
+	#endif
 }
+

@@ -70,98 +70,36 @@
 #endif
 
 
+
+GAS =$(ARM_CC)/bin/arm-none-eabi-as
+#GCC =$(ARM_CC)/bin/arm-none-eabi-gcc
+GCC =arm-module-linux-gnueabi-gcc 
+GLD =$(ARM_CC)/bin/arm-none-eabi-gcc
+#GAR =$(ARM_CC)/bin/arm-none-eabi-ar
+GAR =arm-module-linux-gnueabi-ar
+OBJCOPY = $(ARM_CC)/bin/arm-none-eabi-objcopy
+OBJDUMP = $(ARM_CC)/bin/arm-none-eabi-objdump
+
+
 #--------------  target & input dirs -------------------
 ROOT             = ../..
 include $(ROOT)/setenv.mk
-PROJECT          = nmpp_nmc3
+PROJECT          = arm
 OUT_DIR          = ../../lib
-TARGET           = $(OUT_DIR)/$(PROJECT).lib
-INC_DIRS         = -I"$(NEURO)/include" -I../../include
-SRC_DIRS         = 	 \
-					../../src/nmplc/arithmetic/common \
-					../../src/nmplc/fixpoint32/nm \
-					../../src/nmplc/fixpoint64/nm \
-					../../src/nmplc/init/common \
-					../../src/nmplc/integer/nm \
-					../../src/nmpli/Arithmetics/nm \
-					../../src/nmpli/Convert/common \
-					../../src/nmpli/Convert/nm \
-					../../src/nmpli/Filtration/common \
-					../../src/nmpli/Filtration/nm \
-					../../src/nmpli/Floodfill/common \
-					../../src/nmpli/Floodfill/nm \
-					../../src/nmpli/Init/common \
-					../../src/nmpli/Print/nm \
-					../../src/nmpli/Reodering/nm \
-					../../src/nmpli/Resample/common \
-					../../src/nmpli/Resample/nm \
-					../../src/nmpli/Select/nm \
-					../../src/nmpli/Support/common \
-					../../src/nmplm/Core/nm \
-					../../src/nmplm/Init/nm \
-					../../src/nmplm/Inverse/common \
-					../../src/nmplm/MatrixVector/nm \
-					../../src/nmplm/Support/common \
-					../../src/nmpls/Correlation/nm \
-					../../src/nmpls/FFT/FFT0256/nm \
-					../../src/nmpls/FFT/FFT0256/common \
-					../../src/nmpls/FFT/FFT0512/nm \
-					../../src/nmpls/FFT/FFT1024/nm \
-					../../src/nmpls/FFT/FFT2048/nm \
-					../../src/nmpls/FFT/FFT4096/nm \
-					../../src/nmpls/FFT/FFT8192/nm \
-					../../src/nmpls/FFT/IFFT0256/nm \
-					../../src/nmpls/FFT/IFFT0512/nm \
-					../../src/nmpls/FFT/IFFT1024/nm \
-					../../src/nmpls/FFT/IFFT2048/nm \
-					../../src/nmpls/FFT/IFFT4096/nm \
-					../../src/nmpls/FFT/IFFT8192/nm \
-					../../src/nmpls/Filter/common \
-					../../src/nmpls/Filtration/nm \
-					../../src/nmpls/Resample/common \
-					../../src/nmpls/Resample/nm \
-					../../src/nmplv/Arithmetics/common \
-					../../src/nmplv/Arithmetics/nm \
-					../../src/nmplv/Bitwise/nm \
-					../../src/nmplv/Init/common \
-					../../src/nmplv/Init/nm \
-					../../src/nmplv/Select/common \
-					../../src/nmplv/Select/nm \
-					../../src/nmplv/Stat/common \
-					../../src/nmplv/Stat/nm \
-					../../src/nmplv/Support/nm \
-					../../src/nmplv/Support/common \
-					../../src/nmplv/Tables/nm \
-					../../src/nmplv/Transform/common \
-					../../src/nmplv/Transform/nm \
-					../../src/nmvcore/nm
-
-LIB_DIRS         = 
-TMP_DIR          =Release
-LIBS             = 
-#--------------  RELEASE/ALL config -------------------
+TARGET           = $(OUT_DIR)/$(PROJECT).a
+#INC_DIRS         = -I../../include -I../../include/nmpls
+INC_DIRS         = -I../../include
+SRC_DIRS         = ../../src/aura
+TMP_DIR          = Release
+#------------------------------------------------
 CROSS_COMPILE   ?=
-AS               =asm 				 
-AS_FLAGS         =-nmc3 -nm2ms  $(INC_DIRS)
-AS_FLAGS_C2ASM   =-nmc3 -nm2ms  $(INC_DIRS)
-LIBS             =
-CC               =nmcpp
-CC_FLAGS         =-6405 -DNEURO -OPT2 -inline 
-BUILDER          =libr
-BUILDER_FLAGS    =-c $(TARGET)
-#--------------  DEBUG config -------------------------
-ifdef DEBUG      
-TARGET           =$(OUT_DIR)/$(PROJECT)d.lib
-CC_FLAGS         =-6405 -DNEURO -OPT0 -inline -debug 
-LIBS            :=
-AS_FLAGS        +=-ga
-BUILDER_FLAGS   +=-d0
-TMP_DIR          =Debug
-endif 
-#--------------  Visual Studio config (for vs8.mk)--
-HEADER_DIRS      =../../include ../../include/nmplv ../../include/nmpli ../../include/nmpls ../../include/nmplm ../../include/nmplc
-RESOURCES        =Makefile
+AS               = $(GCC)
+AS_FLAGS         = $(INC_DIRS)
+CC               = $(GCC)
+CC_FLAGS 		 = -std=c99 -fno-exceptions -Wall -O0 -mcpu=arm1176jzf-s -DGPIO_LEG=6 -fno-zero-initialized-in-bss $(ING_DIRS) -I$(ARM_CC)/Sourcery_G++_Lite/arm-none-eabi/include 
 
+BUILDER          = $(GAR)
+BUILDER_FLAGS    = rcs $(TARGET)
 
 
 #--------------  Header dependence parsing -------------------------
@@ -201,7 +139,6 @@ OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM
 default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
 
 all: 
-	$(MAKE) -j4 DEBUG=y
 	$(MAKE) -j4
 
 	
@@ -214,44 +151,18 @@ $(TARGET): $(TMP_DIR) $(OBJECTS)
 $(OUT_DIR): 
 	-mkdir "$(@)"
 	
-$(TMP_DIR)/%.o: %.asm 
+$(TMP_DIR)/%.o: %.c 
 	$(PREPROCESS_ASM_DEP)
-	$(AS) $(AS_FLAGS) $(<) -o$(@)
+	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
+
+$(TMP_DIR)/%.o: %.cpp
+	$(PREPROCESS_ASM_DEP)
+	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 	
-$(TMP_DIR)/%.o: $(TMP_DIR)/%.asmx 
-	$(AS) $(AS_FLAGS_C2ASM) $(<) -o$(@)
-
-$(TMP_DIR)/%.asmx: %.cpp 
-	$(PREPROCESS_CPP_DEP)
-	$(CC) $(CC_FLAGS) $(<) -O$(@) $(INC_DIRS) 
-
-$(TMP_DIR)/%.asmx: %.c
-	$(PREPROCESS_CPP_DEP)
-	$(CC) $(CC_FLAGS) $(<) -O$(@) $(INC_DIRS) 
-
 clean:
 	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
 	-$(OS_RD) Debug Release
  
 cleanall:
 	$(MAKE) clean
-	$(MAKE) clean DEBUG=y
 	
-#.toolchecked.mk:
-#	$(MAKE) -f checktools.mk
-
-#========================== Visual Studio 8 support ===================
-export ALL_CPP ALL_ASM ALL_C ALL_H
-
-vs8: $(PROJECT).vcproj
-
-$(PROJECT).vcproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs8.mk nmc-app --silent >$(@)
-
-vs13: $(PROJECT).vcxproj
-
-$(PROJECT).vcxproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs13.mk nmc-app --silent >$(@)
-
-skip:
-	@echo SDK missing. Compilation is skipped!

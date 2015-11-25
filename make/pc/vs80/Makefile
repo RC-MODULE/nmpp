@@ -76,7 +76,7 @@ endif
 
 #--------------  target & input dirs -------------------
 ROOT             = ../../..
-PROJECT          = nmpp_vs80
+PROJECT          = nmpp-vs80
 OUT_DIR          = $(ROOT)/lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib
 TARGETD          = $(OUT_DIR)/$(PROJECT)d.lib

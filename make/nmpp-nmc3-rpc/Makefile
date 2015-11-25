@@ -69,40 +69,49 @@
 #  .DEFAULT_GOAL := skip
 #endif
 
-ROOT = ../..
-include $(ROOT)/setenv.mk
-
-CC =$(ARM_CC)
-LD =$(ARM_CC)
-AR =$(ARM_AR)
-OBJCOPY = $(ARM_CC)-objcopy
-OBJDUMP = $(ARM_CC)-objdump
-
-
+EASYNMC_DIR     = $(AURA)/nmc-utils/libeasynmc-nmc
 #--------------  target & input dirs -------------------
 ROOT             = ../..
 include $(ROOT)/setenv.mk
-PROJECT          = libnmpp-rpc-arm
+PROJECT          = nmpp-nmc3-rpc
 OUT_DIR          = ../../lib
-TARGET           = $(OUT_DIR)/$(PROJECT).a
-#INC_DIRS         = -I../../include -I../../include/nmpls
-INC_DIRS         = -I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include
-SRC_DIRS         = ../../src/nmplv/Arithmetics/pc
-TMP_DIR          = Release
-#------------------------------------------------
-AS_FLAGS         = $(INC_DIRS)
-CC_FLAGS 		 = -g -Wall -fPIC $(INC_DIRS) -DRPC=y
+TARGET           = $(OUT_DIR)/$(PROJECT).lib
+INC_DIRS         = -I"$(NEURO)/include" -I../../include -I$(AURA)/include -I$(EASYNMC_DIR)/include
+SRC_DIRS         = 	 \
+					$(ROOT)/src/nmplv/Arithmetics/nm-rpc
 
-#-std=c99 -fno-exceptions -Wall -O0 -mcpu=arm1176jzf-s -DGPIO_LEG=6 -fno-zero-initialized-in-bss $(ING_DIRS) 
+LIB_DIRS         = 
+TMP_DIR          =Release
+LIBS             = 
+#--------------  RELEASE/ALL config -------------------
+CROSS_COMPILE   ?=
+AS               =asm 				 
+AS_FLAGS         =-nmc3 -nm2ms  $(INC_DIRS)
+AS_FLAGS_C2ASM   =-nmc3 -nm2ms  $(INC_DIRS)
+LIBS             =
+CC               =nmcpp
+CC_FLAGS         =-6405 -DNEURO -OPT2 -inline -Tc99
+BUILDER          =libr
+BUILDER_FLAGS    =-c $(TARGET)
+#--------------  DEBUG config -------------------------
+ifdef DEBUG      
+TARGET           =$(OUT_DIR)/$(PROJECT)d.lib
+CC_FLAGS         =-6405 -DNEURO -OPT0 -inline -debug 
+LIBS            :=
+AS_FLAGS        +=-ga
+BUILDER_FLAGS   +=-d0
+TMP_DIR          =Debug
+endif 
+#--------------  Visual Studio config (for vs8.mk)--
+HEADER_DIRS      =../../include ../../include/nmplv ../../include/nmpli ../../include/nmpls ../../include/nmplm ../../include/nmplc
+RESOURCES        =Makefile
 
-BUILDER          = $(AR)
-BUILDER_FLAGS    = rcs $(TARGET)
 
 
 #--------------  Header dependence parsing -------------------------
 ifdef HAVE_gcc
-PREPROCESS_ASM_DEP = $(ARM_CC)gcc -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
-PREPROCESS_CPP_DEP = $(ARM_CC)gcc -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
+PREPROCESS_ASM_DEP = $(CROSS_COMPILE)gcc -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
+PREPROCESS_CPP_DEP = $(CROSS_COMPILE)gcc -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 endif
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
@@ -136,6 +145,7 @@ OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM
 default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
 
 all: 
+	$(MAKE) -j4 DEBUG=y
 	$(MAKE) -j4
 
 	
@@ -148,18 +158,44 @@ $(TARGET): $(TMP_DIR) $(OBJECTS)
 $(OUT_DIR): 
 	-mkdir "$(@)"
 	
-$(TMP_DIR)/%.o: %.c 
+$(TMP_DIR)/%.o: %.asm 
 	$(PREPROCESS_ASM_DEP)
-	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
-
-$(TMP_DIR)/%.o: %.cpp
-	$(PREPROCESS_ASM_DEP)
-	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
+	$(AS) $(AS_FLAGS) $(<) -o$(@)
 	
+$(TMP_DIR)/%.o: $(TMP_DIR)/%.asmx 
+	$(AS) $(AS_FLAGS_C2ASM) $(<) -o$(@)
+
+$(TMP_DIR)/%.asmx: %.cpp 
+	$(PREPROCESS_CPP_DEP)
+	$(CC) $(CC_FLAGS) $(<) -O$(@) $(INC_DIRS) 
+
+$(TMP_DIR)/%.asmx: %.c
+	$(PREPROCESS_CPP_DEP)
+	$(CC) $(CC_FLAGS) $(<) -O$(@) $(INC_DIRS) 
+
 clean:
 	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
 	-$(OS_RD) Debug Release
  
 cleanall:
 	$(MAKE) clean
+	$(MAKE) clean DEBUG=y
 	
+#.toolchecked.mk:
+#	$(MAKE) -f checktools.mk
+
+#========================== Visual Studio 8 support ===================
+export ALL_CPP ALL_ASM ALL_C ALL_H
+
+vs8: $(PROJECT).vcproj
+
+$(PROJECT).vcproj: Makefile
+	make --file=$(ROOT)/deps/projector/vs8.mk nmc-app --silent >$(@)
+
+vs13: $(PROJECT).vcxproj
+
+$(PROJECT).vcxproj: Makefile
+	make --file=$(ROOT)/deps/projector/vs13.mk nmc-app --silent >$(@)
+
+skip:
+	@echo SDK missing. Compilation is skipped!

@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8,00"
-	Name="nmpp_gcc"
+	Name="gcc"
 	ProjectGUID="{D16B06DE-BB5E-478F-8904-3C61312607C5}"
 	Keyword="MakeFileProj"
 	>

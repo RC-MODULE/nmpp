@@ -29,7 +29,7 @@ void nmppsAbs_4s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(nmppsAbs_4s,pSrcVec,pDstVec,nSize/2);
+	RPC_PPI("nmppsAbs_4s",pSrcVec,pDstVec,nSize/2);
 	#else
 
 	nm8s v,m;
@@ -55,7 +55,7 @@ void nmppsAbs_8s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(nmppsAbs_8s,pSrcVec,pDstVec,nSize);
+	RPC_PPI("nmppsAbs_8s",pSrcVec,pDstVec,nSize);
 	#else
 
 	int i=0;
@@ -76,7 +76,7 @@ void nmppsAbs_16s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(nmppsAbs_16s,pSrcVec,pDstVec,nSize*2);
+	RPC_PPI("nmppsAbs_16s",pSrcVec,pDstVec,nSize*2);
 	#else
 
 	int i=0;
@@ -97,7 +97,7 @@ void nmppsAbs_32s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(nmppsAbs_32s,pSrcVec,pDstVec,nSize*4);
+	RPC_PPI("nmppsAbs_32s",pSrcVec,pDstVec,nSize*4);
 	#else
 
 	int i=0;
@@ -118,7 +118,7 @@ void nmppsAbs_64s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(nmppsAbs_64s,pSrcVec,pDstVec,nSize*8);
+	RPC_PPI("nmppsAbs_64s",pSrcVec,pDstVec,nSize*8);
 	#else
 
 	int i=0;

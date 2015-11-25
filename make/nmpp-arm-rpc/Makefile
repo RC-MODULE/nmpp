@@ -61,119 +61,57 @@
 #============== PROJECT & BUILD CONFIGURATION ==========
 #
 #include .toolchecked.mk
-#
-#ifndef HAVE_gcc
-#$(waring *** ERROR : $(CROSS_COMPILE)gcc compiler not found GCC (mingw32) might not have installed correctly. )
-#.DEFAULT_GOAL := skip
+
+#ifdef NEURO
+#  .DEFAULT_GOAL := default
+#else 
+#  $(error *** ERROR: 'NEURO' environment variable is not defined! NMSDK might not have installed correctly. )
+#  .DEFAULT_GOAL := skip
 #endif
 
+ROOT = ../..
+include $(ROOT)/setenv.mk
 
-
-
-
-
+CC =$(ARM_CC)
+LD =$(ARM_CC)
+AR =$(ARM_AR)
+OBJCOPY = $(ARM_CC)-objcopy
+OBJDUMP = $(ARM_CC)-objdump
 
 
 #--------------  target & input dirs -------------------
-ROOT             = ../../..
-PROJECT          = nmpp-gcc
-OUT_DIR          = $(ROOT)/lib
-TARGET           = $(OUT_DIR)/lib$(PROJECT).a
-INC_DIRS         = -I"$(NEURO)/include" -I$(ROOT)/include -I$(ROOT)/include/nmpls
-SRC_DIRS         =  \
-				../../../src/nmplc/arithmetic/common \
-				../../../src/nmplc/fixpoint32/pc \
-				../../../src/nmplc/fixpoint64/pc \
-				../../../src/nmplc/init/common \
-				../../../src/nmplc/integer/pc \
-				../../../src/nmpli/Arithmetics/pc \
-				../../../src/nmpli/Convert/common \
-				../../../src/nmpli/Convert/pc \
-				../../../src/nmpli/Filtration/common \
-				../../../src/nmpli/Filtration/pc \
-				../../../src/nmpli/Floodfill/common \
-				../../../src/nmpli/Floodfill/pc \
-				../../../src/nmpli/Init/common \
-				../../../src/nmpli/Reodering/pc \
-				../../../src/nmpli/Resample/common \
-				../../../src/nmpli/Resample/pc \
-				../../../src/nmpli/Select/pc \
-				../../../src/nmpli/Support/common \
-				../../../src/nmplm/Core/pc \
-				../../../src/nmplm/Init/pc \
-				../../../src/nmplm/Inverse/common \
-				../../../src/nmplm/MatrixVector/pc \
-				../../../src/nmplm/Support/common \
-				../../../src/nmplm/Support/pc \
-				../../../src/nmpls/Correlation/pc \
-				../../../src/nmpls/FFT/FFT0256/pc \
-				../../../src/nmpls/FFT/FFT0512/pc \
-				../../../src/nmpls/FFT/FFT1024/pc \
-				../../../src/nmpls/FFT/FFT2048/pc \
-				../../../src/nmpls/FFT/FFT4096/pc \
-				../../../src/nmpls/FFT/FFT8192/pc \
-				../../../src/nmpls/FFT/IFFT0256/pc \
-				../../../src/nmpls/FFT/IFFT0512/pc \
-				../../../src/nmpls/FFT/IFFT1024/pc \
-				../../../src/nmpls/FFT/IFFT2048/pc \
-				../../../src/nmpls/FFT/IFFT4096/pc \
-				../../../src/nmpls/FFT/IFFT8192/pc \
-				../../../src/nmpls/Filter/common \
-				../../../src/nmpls/Filtration/pc \
-				../../../src/nmpls/Resample/common \
-				../../../src/nmpls/Resample/pc \
-				../../../src/nmplv/Arithmetics/common \
-				../../../src/nmplv/Arithmetics/pc \
-				../../../src/nmplv/Bitwise/pc \
-				../../../src/nmplv/Init/common \
-				../../../src/nmplv/Init/pc \
-				../../../src/nmplv/nmtl_spec/pc \
-				../../../src/nmplv/Select/common \
-				../../../src/nmplv/Stat/common \
-				../../../src/nmplv/Select/pc \
-				../../../src/nmplv/Stat/pc \
-				../../../src/nmplv/Support/pc \
-				../../../src/nmplv/Support/common \
-				../../../src/nmplv/Transform/common \
-				../../../src/nmplv/Transform/pc
-
+ROOT             = ../..
+include $(ROOT)/setenv.mk
+PROJECT          = libnmpp-arm-rpc
+OUT_DIR          = ../../lib
+TARGET           = $(OUT_DIR)/$(PROJECT).a
+#INC_DIRS         = -I../../include -I../../include/nmpls
+INC_DIRS         = -I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include
+SRC_DIRS         =  ../../src/nmplv/Arithmetics/pc \
+					../../src/nmplv/Support/common \
+					../../src/nmplv/Support/pc \
+					../../src/nmplv/Stat/common \
+					../../src/nmplv/Stat/pc \
+					../../src/nmplv/Init/common \
+					../../src/nmplv/Init/pc \
 					
+					
+TMP_DIR          = Release
+#------------------------------------------------
+AS_FLAGS         = $(INC_DIRS)
+CC_FLAGS 		 = -g -Wall -fPIC $(INC_DIRS) -DRPC=y -std=c99
 
-LIB_DIRS         = 
-TMP_DIR          =Release
-LIBS             = 
-#--------------  RELEASE/ALL config -------------------
-CROSS_COMPILE   ?=
-AS               =
-AS_FLAGS         =
-AS_FLAGS_C2ASM   =
-LIBS             =
-CC               =gcc
-CC_FLAGS         =-std=c99 -c
-BUILDER          =ar
-BUILDER_FLAGS    =rcs $(TARGET)
-#--------------  Visual Studio config (for vs8.mk)--
-HEADER_DIRS      =$(ROOT)/include $(ROOT)/source
-RESOURCES        =Makefile
+#-std=c99 -fno-exceptions -Wall -O0 -mcpu=arm1176jzf-s -DGPIO_LEG=6 -fno-zero-initialized-in-bss $(ING_DIRS) 
 
+BUILDER          = $(AR)
+BUILDER_FLAGS    = rcs $(TARGET)
 
 
 #--------------  Header dependence parsing -------------------------
-PREPROCESS_ASM_DEP = $(CROSS_COMPILE)gcc -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
-PREPROCESS_CPP_DEP = $(CROSS_COMPILE)gcc -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
-
-#==================== Handle OS Specifics ==========================
-ifeq ($(OS),Windows_NT)
-  OS_WHICH= where
-  OS_RM   = del /Q
-  OS_RD   = rd /Q /S
-  SHELL   = cmd
-else
-  OS_WHICH= which
-  OS_RM   = rm -f -r
-  OS_RD   = rm -f -r
+ifdef HAVE_gcc
+PREPROCESS_ASM_DEP = $(ARM_CC)gcc -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
+PREPROCESS_CPP_DEP = $(ARM_CC)gcc -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 endif
-
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 
@@ -188,7 +126,7 @@ endif
 ALL_CPP =$(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
 ALL_ASM =$(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
 ALL_C   =$(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
-
+ALL_H   =$(wildcard $(addsuffix /*.h,$(HEADER_DIRS)))
 
 VPATH    = $(SRC_DIRS)
 
@@ -199,9 +137,8 @@ OBJECTS_C   = $(notdir $(patsubst %.c,%.o,$(ALL_C)))
 OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM))
 
 
-
 #======================== BUILD RULES ====================================
-.PHONY:all clean cleanall kill vs8 vs8stdout skip
+.PHONY:all  clean cleanall vs8  skip
 
 #.DEFAULT_GOAL=default
 default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
@@ -219,38 +156,18 @@ $(TARGET): $(TMP_DIR) $(OBJECTS)
 $(OUT_DIR): 
 	-mkdir "$(@)"
 	
-$(TMP_DIR)/%.o: %.cpp 
-#$(PREPROCESS_CPP_DEP)
-	$(CC) $(CC_FLAGS) $(<) -o $(@) $(INC_DIRS) 
+$(TMP_DIR)/%.o: %.c 
+	$(PREPROCESS_ASM_DEP)
+	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 
-$(TMP_DIR)/%.o: %.c
-#$(PREPROCESS_CPP_DEP)
-	$(CC) $(CC_FLAGS) $(<) -o $(@) $(INC_DIRS) 
-
+$(TMP_DIR)/%.o: %.cpp
+	$(PREPROCESS_ASM_DEP)
+	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
+	
 clean:
-	-rm -f -r *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb 
-	-rm -f -r Release Debug
+	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
+	-$(OS_RD) Debug Release
  
 cleanall:
 	$(MAKE) clean
-	$(MAKE) clean DEBUG=y
-	
-.toolchecked.mk:
-	$(MAKE) -f checktools.mk
-	
-#========================== Visual Studio 8 support ===================
-export ALL_CPP ALL_ASM ALL_C ALL_H
-
-vs8: $(PROJECT).vcproj
-
-$(PROJECT).vcproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs8.mk nmc-app --silent >$(@)
-
-vs13: $(PROJECT).vcxproj
-
-$(PROJECT).vcxproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs13.mk nmc-app --silent >$(@)
-
-skip:
-	@echo SDK missing. Compilation is skipped!
 	

@@ -18,14 +18,14 @@ endif
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MC7601)/include"
 LIB_DIRS = -L"$(NMPP)/lib"  -L"$(MC7601)/lib"
-LIBS     = mc7601_LL_NM.lib nmpp_nmc3d.lib libint_soc.lib  
+LIBS     = mc7601_LL_NM.lib nmpp-nmc3d.lib libint_soc.lib  
 TARGET   = main.abs
 CFG      = mc7601brd.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))
 SRC_ASM  = $(wildcard $(addsuffix /*.asm,..))
 
 
-$(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp_nmc3d.lib
+$(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc3d.lib
 	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) -soc -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=16384 -heap1=16384 -heap2=16384 -heap3=16384
 #                                                                                         [L00]:64kB   [L01]:64kB  [G00]:64kB   [G01]:64kB
 

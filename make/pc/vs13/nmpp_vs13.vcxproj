@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{42D1F973-A2F8-4044-B1EC-0ECD841FA764}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>nmpp_vs13</RootNamespace>
+    <RootNamespace>vs13</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -54,7 +54,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
 	 <Lib>
-      <OutputFile>../../../lib/nmpp_vs13d.lib</OutputFile>
+      <OutputFile>../../../lib/vs13d.lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -75,7 +75,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
 	<Lib>
-      <OutputFile>../../../lib/nmpp_vs13.lib</OutputFile>
+      <OutputFile>../../../lib/vs13.lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

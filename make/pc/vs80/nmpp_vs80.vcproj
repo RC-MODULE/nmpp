@@ -37,7 +37,7 @@
 		
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="../../../lib/nmpp_vs80.lib"
+				OutputFile="../../../lib/vs80.lib"
 			/>
 		
 		</Configuration>
@@ -63,7 +63,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="../../../lib/nmpp_vs80d.lib"
+				OutputFile="../../../lib/vs80d.lib"
 			/>
 		</Configuration>
 	</Configurations>

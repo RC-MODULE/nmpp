@@ -21,7 +21,7 @@ endif
 
 INC_DIRS = -I"$(NMPP)/include"
 LIB_DIRS = -L"$(NMPP)/lib"  
-LIBS     =nmpp_gcc
+LIBS     =gcc
 ifeq ($(OS),Windows_NT)
 TARGET   = main.exe
 else 
@@ -32,7 +32,7 @@ SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))
 
 VPATH    = $(subst -L,,$(LIB_DIRS)) $(NEURO)/lib
 
-$(TARGET): $(SRC_CPP)  Makefile $(NMPP)/lib/nmpp_gcc.a
+$(TARGET): $(SRC_CPP)  Makefile $(NMPP)/lib/gcc.a
 	g++ -o $(TARGET) $(SRC_CPP) $(INC_DIRS) $(LIB_DIRS) -l$(LIBS)
 
 run: .exitcode

@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-#include "rpc.h"
+#include "rpc-host.h"
 
 #include "nmpp.h"
 
@@ -32,7 +32,7 @@ void nmppsAdd_8s(
 		)
 {
 	#ifdef RPC
-	RPC_PPPI("nmppsAdd_8s",pSrcVec1,pSrcVec2,pDstVec,nSize);
+	RPC_HOST_PPPI("nmppsAdd_8s",pSrcVec1,pSrcVec2,pDstVec,nSize);
 	#else
 
 	int i;
@@ -52,7 +52,7 @@ void nmppsAdd_16s(
 		)
 {
 	#ifdef RPC
-	RPC_PPPI("nmppsAdd_16s",pSrcVec1,pSrcVec2,pDstVec,nSize);
+	RPC_HOST_PPPI("nmppsAdd_16s",pSrcVec1,pSrcVec2,pDstVec,nSize);
 	#else
 
 	int i;
@@ -72,7 +72,7 @@ void nmppsAdd_32s(
 		)
 {
 	#ifdef RPC
-	RPC_PPPI("nmppsAdd_32s",pSrcVec1,pSrcVec2,pDstVec,nSize*4);
+	RPC_HOST_PPPI("nmppsAdd_32s",pSrcVec1,pSrcVec2,pDstVec,nSize*4);
 	#else
 
 	int i;
@@ -92,7 +92,7 @@ void nmppsAdd_64s(
 		)
 {
 	#ifdef RPC
-	RPC_PPPI("nmppsAdd_64s",pSrcVec1,pSrcVec2,pDstVec,nSize);
+	RPC_HOST_PPPI("nmppsAdd_64s",pSrcVec1,pSrcVec2,pDstVec,nSize);
 	#else
 
 	int i;
@@ -108,7 +108,7 @@ void nmppsAdd_64s(
 void nmppsAdd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize)
 {
 	#ifdef RPC
-	RPC_PPPI("nmppsAdd_64sc",pSrcVec1,pSrcVec2,pDstVec,nSize);
+	RPC_HOST_PPPI("nmppsAdd_64sc",pSrcVec1,pSrcVec2,pDstVec,nSize);
 	#else
 
 	int i;
@@ -131,7 +131,7 @@ void nmppsSum4_16s(
 		)								// Buffer - char packed array	:long Global [VecSize/8]
 {
 	//#ifdef RPC
-	//RPC_PPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	//HOST_RPC_PPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
 	//#else
 
 	int i, j;
@@ -156,7 +156,7 @@ void nmppsSumN_8s16s(
 		)								// Buffer - char packed array	:long Global [VecSize/8]
 {
 	//#ifdef RPC
-	//RPC_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	//RPC_HOST_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
 	//#else
 
 	int i, j;
@@ -181,7 +181,7 @@ void nmppsSumN_16s(
 		)								// Buffer - char packed array	:long Global [VecSize/8]
 {
 	//#ifdef RPC
-	//RPC_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	//RPC_HOST_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
 	//#else
 
 	int i;
@@ -191,6 +191,7 @@ void nmppsSumN_16s(
 
 	//#endif
 }
+
 
 
 
@@ -206,7 +207,7 @@ void nmppsAddC_8s(
 		)
 {
 	#ifdef RPC
-	RPC_PIPI("nmppsAdd_8s",pSrcVec,nVal,pDstVec,nSize);
+	RPC_HOST_PIPI("nmppsAdd_8s",pSrcVec,nVal,pDstVec,nSize);
 	#else
 
 	int i;
@@ -230,7 +231,7 @@ void nmppsAddC_16s(
 		)
 {
 	#ifdef RPC
-	RPC_PIPI("nmppsAddC_16s",pSrcVec,nVal,pDstVec,nSize*2);
+	RPC_HOST_PIPI("nmppsAddC_16s",pSrcVec,nVal,pDstVec,nSize*2);
 	#else
 
 	int i;
@@ -254,7 +255,7 @@ void nmppsAddC_32s(
 		)
 {
 	#ifdef RPC
-	RPC_PIPI("nmppsAddC_32s",pSrcVec,nVal,pDstVec,nSize*4);
+	RPC_HOST_PIPI("nmppsAddC_32s",pSrcVec,nVal,pDstVec,nSize*4);
 	#else
 
 	int i;
@@ -276,7 +277,7 @@ void nmppsAdd_AddC_32s(
 		)
 {
 	//#ifdef RPC
-	//RPC_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	//RPC_HOST_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
 	//#else
 
 	nmppsAdd_32s(SrcVecA,SrcVecB,pDstVec,nSize);
@@ -298,7 +299,7 @@ void nmppsAddC_32s(
 		)
 {
 	#ifdef RPC
-	RPC_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
+	RPC_HOST_PPPI(nmppsAdd_8s,pSrcVec1,pSrcVec2,pDstVec,nSize);
 	#else
 
 	nmppsAddC(pSrcVec,*nVal,pDstVec,nSize);
@@ -318,7 +319,7 @@ void nmppsAddC_64s(
 		)
 {
 	#ifdef RPC
-	RPC_PIPI(nmppsAddC_64s,pSrcVec,nVal,pDstVec,nSize);
+	RPC_HOST_PIPI(nmppsAddC_64s,pSrcVec,nVal,pDstVec,nSize);
 	#else
 
 	int i;

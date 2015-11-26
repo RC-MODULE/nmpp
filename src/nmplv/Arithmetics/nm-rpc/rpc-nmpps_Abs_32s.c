@@ -1,14 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <easynmc/easynmc.h>
 #include <easynmc/aura.h>
 #include "nmpp.h"
-#include "malloc32.h"
-#include "rpc.h"
+#include "rpc-nmc.h"
 
 
 
+NMC_RPC_PPI(nmppsAbs_32s);
+
+/*
 void rpc_nmppsAbs_32s(void *in, void *out)
 {
 	int i=0;
@@ -25,4 +23,10 @@ void rpc_nmppsAbs_32s(void *in, void *out)
 	//aura_put_u32( 0x600DBEEF);
 }
 
+#pragma data_section ".aura_rpc_exports"
+AURA_METHOD(rpc_nmppsAbs_32s, nmppsAbs_32s, 
+	    BUFFER BUFFER U32,
+	    ""
+	    );
 
+*/

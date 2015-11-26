@@ -33,3 +33,10 @@ void rpc_nmppsFFT256Fwd(void *in, void *out)
 	aura_put_bin(dst, 256*4);
 	nmppsFree(dst);
 }
+/*
+#pragma data_section ".aura_rpc_exports"
+AURA_METHOD(rpc_nmppsFFT256Fwd, nmppsFFT256Fwd, 
+	    BIN(2048), 
+	    BIN(2048));
+
+*/

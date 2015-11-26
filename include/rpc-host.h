@@ -6,7 +6,7 @@
 extern struct aura_node *n;
 
 
-#define RPC_PPI(func,src,dst,size) \
+#define RPC_HOST_PPI(func,src,dst,size) \
 	int ret;	\
     struct aura_buffer *iobuf_src = aura_buffer_request(n, size);	\
 	struct aura_buffer *iobuf_dst = aura_buffer_request(n, size);	\
@@ -23,7 +23,7 @@ extern struct aura_node *n;
 
 
 
-#define RPC_PPPI(func,src0,src1,dst,size) \
+#define RPC_HOST_PPPI(func,src0,src1,dst,size) \
 	int ret;	\
     struct aura_buffer *iobuf_src0 = aura_buffer_request(n, size);	\
 	struct aura_buffer *iobuf_src1 = aura_buffer_request(n, size);	\
@@ -42,7 +42,7 @@ extern struct aura_node *n;
 	slog(0, SLOG_INFO, "ARM: Call func ok"); 
 
 	
-#define RPC_PIPI(func,src,val,dst,size) \
+#define RPC_HOST_PIPI(func,src,val,dst,size) \
 	int ret;	\
     struct aura_buffer *iobuf_src = aura_buffer_request(n, size);	\
 	struct aura_buffer *iobuf_dst = aura_buffer_request(n, size);	\

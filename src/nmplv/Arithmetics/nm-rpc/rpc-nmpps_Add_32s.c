@@ -4,9 +4,10 @@
 #include <easynmc/easynmc.h>
 #include <easynmc/aura.h>
 #include "nmpp.h"
-
+#include "rpc-nmc.h"
  
-		
+NMC_RPC_PPPI(nmppsAdd_32s);
+/*
 void rpc_nmppsAdd_32s(void *in, void *out)
 {
 	int i=0;
@@ -23,4 +24,11 @@ void rpc_nmppsAdd_32s(void *in, void *out)
 	printf("NMC: hello from rpc_nmppsAdd_s32\n");
 	//aura_put_u32( 0x600DBEEF);
 }
-
+*/
+/*
+#pragma data_section ".aura_rpc_exports"
+AURA_METHOD(rpc_nmppsAdd_32s, nmppsAdd_32s, 
+		BUFFER BUFFER BUFFER U32,
+	    ""
+		);
+*/

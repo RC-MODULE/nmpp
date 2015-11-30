@@ -1,6 +1,11 @@
 #include <malloc.h>
 #include "malloc32.h"
 
+#ifdef __NM__
+	__INLINE__ void* malloc32(unsigned sizeInt32) { return malloc(sizeInt32);}
+#else 
+	__INLINE__ void* malloc32(unsigned sizeInt32) { return malloc(sizeInt32*4);}
+#endif
 
 #ifdef __NM__
 	struct NmppsMallocSpec nmppsMallocSpec = {{malloc0,malloc1,malloc2,malloc3},MALLOC32_PRIORITY_MODE,0xF,0xF3210,0,0,0,0,0,0,0,0,0xF};
@@ -260,3 +265,12 @@ void free32(void* p)
 	free(p);
 }
 */
+
+nm8s*  nmppsMalloc_8s (unsigned sizeInt8) { return (nm8s*)  nmppsMalloc32((sizeInt8+7)/4);}
+nm8u*  nmppsMalloc_8u (unsigned sizeInt8) { return (nm8u*)  nmppsMalloc32((sizeInt8+7)/4);}
+nm16s* nmppsMalloc_16s(unsigned sizeInt16){ return (nm16s*) nmppsMalloc32((sizeInt16+3)/2);}
+nm16u* nmppsMalloc_16u(unsigned sizeInt16){ return (nm16u*) nmppsMalloc32((sizeInt16+3)/2);}
+nm32s* nmppsMalloc_32s(unsigned sizeInt32){ return (nm32s*) nmppsMalloc32(sizeInt32+(1&sizeInt32));}
+nm32u* nmppsMalloc_32u(unsigned sizeInt32){ return (nm32u*) nmppsMalloc32(sizeInt32+(1&sizeInt32));}
+nm64s* nmppsMalloc_64s(unsigned sizeInt64){ return (nm64s*) nmppsMalloc32((sizeInt64)<<1);}
+nm64u* nmppsMalloc_64u(unsigned sizeInt64){ return (nm64u*) nmppsMalloc32((sizeInt64)<<1);}

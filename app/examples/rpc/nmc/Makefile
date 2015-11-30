@@ -70,7 +70,8 @@ all:  $(EASYNMC_DIR)/easynmc.lib $(TARGET).abs
 $(TARGET).lib: $(OBJECTS) 
 	-$(SILENT_LIBRARIAN)libr -c $(@) $(^) > /dev/null
 
-$(TARGET).abs: $(OBJECTS) $(ROOT)/lib/nmpp-nmc3-rpc.lib 
+#$(ROOT)/lib/nmpp-nmc3-rpc.lib 
+$(TARGET).abs: $(OBJECTS) 
 	-$(SILENT_LINKER)linker  $(BUILDER_FLAGS) -o$(@) $(OBJECTS) $(LIBS) $(LIBDIR)
 
 $(TARGET).dump: $(TARGET).abs

@@ -47,10 +47,10 @@ LIBDIR		= -l"$(NEURO)/lib" -l"$(EASYNMC_DIR)" -l$(NMPP)/lib
 
 .DEFAULT_GOAL=all
 
-all: rpc $(EASYNMC_DIR)/easynmc.lib $(TARGET).abs
+all:  $(EASYNMC_DIR)/easynmc.lib $(TARGET).abs
 
-rpc:
-	$(MAKE) -C $(ROOT)/make/nmpp-nmc3-rpc
+#rpc:
+#	$(MAKE) -C $(ROOT)/make/nmpp-nmc3-rpc
 	
 %.asmx: %.cpp
 	$(SILENT_DEP)$(CROSS_COMPILE)gcc -E -MM $(<) -o$(@).dep $(IDIRS) 

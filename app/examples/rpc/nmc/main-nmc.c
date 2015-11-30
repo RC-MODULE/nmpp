@@ -9,6 +9,9 @@
 #include "aura-exports.h"
 #include <rpc-nmc.h>
 
+
+
+
 unsigned int *pinmux  = (unsigned int *) 0x0800CC21;
 unsigned int *port    = (unsigned int *) 0x0800A403;
 unsigned int *ddr     = (unsigned int *) 0x0800A407;
@@ -31,6 +34,8 @@ void aura_hexdump (char *desc, unsigned int *addr, int len) {
 extern struct aura_object g_aura_eof;
 int main(int argc, char **argv)
 {
+	
+	
 	printf("NMC: Aura RPC demo \n");
 	aura_init();
 	aura_loop_forever();

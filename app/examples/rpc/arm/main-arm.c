@@ -1,6 +1,7 @@
 #include <aura/aura.h>
 #include <ion/ion.h>
 #include "nmpp.h"
+#include "fft2.h"
 
 struct aura_node *n;
 int main() {
@@ -16,9 +17,9 @@ int main() {
 	aura_wait_status(n, AURA_STATUS_ONLINE);
 
 	
-	int src0[16];
+	int src0[512];
 	int src1[16];
-	int dst[16];
+	int dst[512];
 	int i=0;
 	for(i=0; i<16; i++){
 		src0[i]=i;
@@ -30,6 +31,20 @@ int main() {
 	for(i=0; i<16; i++){
 		printf("%d\r\n",dst[i]);
 	}
+	
+	//=====================
+	/*
+	NmppsFFTSpec spec;
+	fseq64 route;
+	nmppsFFT256FwdOptimize((nm32sc*)src0,(nm32sc*)dst, &route);
+	
+	nmppsMallocSetRouteMode(route);
+	nmppsFFT256FwdInitAlloc(nmppsMalloc32, nmppsFree, &spec);
+	nmppsFFT256Fwd((nm32sc*)src0,(nm32sc*)dst,&spec);
+	nmppsFFTFree(&spec);
+	*/
+	//====================
+	
 	printf("===========\n");
 	aura_close(n);
 	

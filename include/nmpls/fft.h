@@ -270,11 +270,11 @@ void  FFT_Fwd256(
 
 	
 
-	int  nmppsFFT256FwdInitAlloc(Malloc32Func* allocate,  Free32Func* free, NmppsFFTSpec* spec);
-	void nmppsFFT256FwdOptimize(void* src, void* dst, uint64* allocOrder);
-	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
-	
-	void nmppsFFTFree(NmppsFFTSpec* spec );
+//	int  nmppsFFT256FwdInitAlloc(Malloc32Func* allocate,  Free32Func* free, NmppsFFTSpec* spec);
+//	void nmppsFFT256FwdOptimize(void* src, void* dst, uint64* allocOrder);
+//	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+//	
+//	void nmppsFFTFree(NmppsFFTSpec* spec );
 
 
 	

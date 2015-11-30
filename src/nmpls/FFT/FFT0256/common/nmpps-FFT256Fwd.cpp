@@ -1,5 +1,6 @@
 #include "time.h"
 #include "malloc32.h"
+#include "fft.h"
 #include "fft2.h"
 #include "rpc-host.h"
 
@@ -11,6 +12,8 @@ int nmppsFFT256FwdInitAlloc(NmppsFFTSpec* spec )
 	RPC_HOST_P("nmppsFFT256FwdInitAlloc");	
 }
 #else
+	#endif
+*/
 int nmppsFFT256FwdInitAlloc(Malloc32Func* allocate, Free32Func* free,  NmppsFFTSpec* spec )
 {
 	
@@ -25,8 +28,7 @@ int nmppsFFT256FwdInitAlloc(Malloc32Func* allocate, Free32Func* free,  NmppsFFTS
 	return 0;
 
 }
-#endif
-*/
+
 
 
 

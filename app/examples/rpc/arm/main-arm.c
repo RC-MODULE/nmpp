@@ -25,7 +25,8 @@ int main() {
 		src0[i]=i;
 		src1[i]=i-15;
 	}
-	nmppsAdd_8s ((nm8s* )src0,(nm8s* )src1,(nm8s* )dst,16);
+
+	nmppsAdd_8s ((nm8s* )src0,(nm8s* )src1,(nm8s* )dst,16);	
 	nmppsAdd_16s((nm16s*)src0,(nm16s*)src1,(nm16s*)dst,16);
 	nmppsAdd_32s((nm32s*)src0,(nm32s*)src1,(nm32s*)dst,16);
 	nmppsAdd_64s((nm64s*)src0,(nm64s*)src1,(nm64s*)dst,16);

@@ -29,6 +29,7 @@ VPATH    = $(AURA) $(AURA)/nmc-utils
 
 
 ALL_C   = ./main-arm.c 
+ALL_C   += ./test.c 
 ALL_C   += $(AURA)/aura.c 
 ALL_C   += $(AURA)/buffer.c 
 ALL_C   += $(AURA)/buffer-dummy.c 

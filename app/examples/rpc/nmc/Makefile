@@ -16,6 +16,7 @@ include $(ROOT)/setenv.mk
 .SUFFIXES:
 
 OBJECTS :=  \
+	test.o \
 	main-nmc.o \
 	easyconf.o \
 	aura-exports.o

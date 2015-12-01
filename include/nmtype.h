@@ -1335,12 +1335,12 @@ typedef struct s_nm64sc
 //
 //
 #ifdef __cplusplus
-#define __INLINE__ inline
+#define __INLINE__ static inline
 #else
  #ifdef __NM__
-   #define __INLINE__ inline
+   #define __INLINE__ static inline
  #else 
-   #define __INLINE__ __inline
+   #define __INLINE__ static __inline
   #endif
 #endif
 

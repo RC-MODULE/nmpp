@@ -41,7 +41,21 @@ int main() {
 	nmppsAbs_32s((nm32s*)dst,(nm32s*)dst,16);
 	nmppsAbs_64s((nm64s*)dst,(nm64s*)dst,16);
 	
-
+	nmppsAddC_8s ((nm8s* )src0,1,(nm8s* )dst,16);	
+	nmppsAddC_16s((nm16s*)src0,1,(nm16s*)dst,16);
+	nmppsAddC_32s((nm32s*)src0,1,(nm32s*)dst,16);
+	//nmppsAddC_64s((nm64s*)src0,1,(nm64s*)dst,16);
+	
+	nmppsSubC_8s ((nm8s* )src0,1,(nm8s* )dst,16);
+	nmppsSubC_16s((nm16s*)src0,1,(nm16s*)dst,16);
+    nmppsSubC_32s((nm32s*)src0,1,(nm32s*)dst,16);
+	//nmppsSubC_64s((nm64s*)src0,1,(nm64s*)dst,16);
+	
+	nmppsRShiftC_8s ((nm8s* )src0,1,(nm8s* )dst,16);
+	nmppsRShiftC_16s((nm16s*)src0,1,(nm16s*)dst,16);
+    nmppsRShiftC_32s((nm32s*)src0,1,(nm32s*)dst,16);
+	nmppsRShiftC_64s((nm64s*)src0,1,(nm64s*)dst,16);
+	
 	for(i=0; i<16; i++){
 		printf("%d\r\n",dst[i]);
 	}

@@ -18,112 +18,175 @@
 //!
 //------------------------------------------------------------------------
 /////////////////////////////////////////////////////////////////////////////////////////
+#include "rpc-host.h"
 #include "nmpp.h"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Arithmetic right shift under 64-bit signed elements of input array
 void nmppsRShiftC_64s(
-	nm64s*			pSrcVec,	// input buffer		:long Local [Size/2]
+	nm64s*			src,	// input buffer		:long Local [Size/2]
 	int				Shift,		// specifies on how many positions the input values should be right-shifted :[0,1,2,3..31]
-	nm64s*			pDstVec,	// output buffer	:long Global[Size/2]
-	int				Size		// size of input buffer in 32 bit elements. Size=[2,4,6...]
+	nm64s*			dst,	// output buffer	:long Global[Size/2]
+	int				size		// size of input buffer in 32 bit elements. Size=[2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_HOST_PIPI("nmppsRShiftC_64s",src,Shift,dst,size,8);
+	#else
+
+
 	int i;
-	for (i=0; i<Size; i++)
-		pDstVec[i] = pSrcVec[i] >> Shift;
+	for (i=0; i<size; i++)
+		dst[i] = src[i] >> Shift;
+
+	#endif
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Arithmetic right shift under 32-bit signed elements of input array
 void nmppsRShiftC_32s(
-	nm32s*			pSrcVec,	// input buffer		:long Local [Size/2]
+	nm32s*			src,	// input buffer		:long Local [Size/2]
 	int				Shift,		// specifies on how many positions the input values should be right-shifted :[0,1,2,3..31]
-	nm32s*			pDstVec,	// output buffer	:long Global[Size/2]
-	int				nSize		// size of input buffer in 32 bit elements. Size=[2,4,6...]
+	nm32s*			dst,	// output buffer	:long Global[Size/2]
+	int				size		// size of input buffer in 32 bit elements. Size=[2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_HOST_PIPI("nmppsRShiftC_32s",src,Shift,dst,size,4);
+	#else
+
+
 	int i;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = pSrcVec[i] >> Shift;
+	for (i=0; i<size; i++)
+		dst[i] = src[i] >> Shift;
+
+	#endif
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Arithmetic right shift under 16-bit signed elements of input array
-void nmppsRShiftC_16s(nm16s*			pSrcVec,	// input buffer		:long Local [Size/2]
+void nmppsRShiftC_16s(
+	nm16s*			src,	// input buffer		:long Local [Size/2]
 	int				Shift,		// specifies on how many positions the input values should be right-shifted :[0,1,2,3..31]
-	nm16s*			pDstVec,	// output buffer	:long Global[Size/2]
-	int				nSize		// size of input buffer in 32 bit elements. Size=[2,4,6...]
+	nm16s*			dst,	// output buffer	:long Global[Size/2]
+	int				size		// size of input buffer in 32 bit elements. Size=[2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_HOST_PIPI("nmppsRShiftC_16s",src,Shift,dst,size,2);
+	#else
+
+
 	int i;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = pSrcVec[i] >> Shift;
+	for (i=0; i<size; i++)
+		dst[i] = src[i] >> Shift;
+
+	#endif
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Arithmetic right shift under 8-bit signed elements of input array
-void nmppsRShiftC_8s(nm8s*			pSrcVec,	// input buffer		:long Local [Size/2]
+void nmppsRShiftC_8s(
+	nm8s*			src,	// input buffer		:long Local [Size/2]
 	int				Shift,		// specifies on how many positions the input values should be right-shifted :[0,1,2,3..31]
-	nm8s*			pDstVec,	// output buffer	:long Global[Size/2]
-	int				Size		// size of input buffer in 32 bit elements. Size=[2,4,6...]
+	nm8s*			dst,	// output buffer	:long Global[Size/2]
+	int				size		// size of input buffer in 32 bit elements. Size=[2,4,6...]
 		)
 {
+	#ifdef RPC
+	RPC_HOST_PIPI("nmppsRShiftC_8s",src,Shift,dst,size,1);
+	#else
+
+
 	int i;
-	for (i=0; i<Size; i++)
-		pDstVec[i] = pSrcVec[i] >> Shift;
+	for (i=0; i<size; i++)
+		dst[i] = src[i] >> Shift;
+
+	#endif
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Right shift under 8-bit unsigned elements of input array
-void nmppsRShiftC_8u(nm8u*	pSrcVec,	//Input buffer		:long Local [Size/8].
+void nmppsRShiftC_8u(
+	nm8u*	src,	//Input buffer		:long Local [Size/8].
 	int		Shift,		//Specifies on how many positions the input values should be right-shifted :[0, 1, 2, .., 7].
-	nm8u*	pDstVec,	//Output buffer		:long Global[Size/8].
-	int		nSize		//Size of input buffer in 8 bit elements. Size=[256, 512, .., n*256].
+	nm8u*	dst,	//Output buffer		:long Global[Size/8].
+	int		size		//Size of input buffer in 8 bit elements. Size=[256, 512, .., n*256].
 	)
 {
+	#ifdef RPC
+	RPC_HOST_PIPI("nmppsRShiftC_8u",src,Shift,dst,size,1);
+	#else
+
+
 	int i;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = pSrcVec[i] >> Shift;
+	for (i=0; i<size; i++)
+		dst[i] = src[i] >> Shift;
+
+	#endif
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Performs shift to right on 16-bit unsigned elements of input array
-void nmppsRShiftC_16u(nm16u*	pSrcVec,		//Input buffer		:long Local [Size/4].
+void nmppsRShiftC_16u(
+	nm16u*	src,		//Input buffer		:long Local [Size/4].
 	int		Shift,		//Specifies on how many positions the input values should be right-shifted :[0, 1, 2, .., 15].
-	nm16u*	pDstVec,		//Output buffer		:long Global[Size/4].
-	int		nSize		//Size of input buffer in 8 bit elements. Size=[0,4,8,12...].
+	nm16u*	dst,		//Output buffer		:long Global[Size/4].
+	int		size		//Size of input buffer in 8 bit elements. Size=[0,4,8,12...].
 	)
 {
+	#ifdef RPC
+	RPC_HOST_PIPI("nmppsRShiftC_16u",src,Shift,dst,size,2);
+	#else
+
+
 	int i;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = pSrcVec[i] >> Shift;
+	for (i=0; i<size; i++)
+		dst[i] = src[i] >> Shift;
+
+	#endif
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Performs shift to right on 32-bit unsigned elements of input array
-void nmppsRShiftC_32u(nm32u*	SrcVec,		//Input buffer		:long Local [Size/4].
+void nmppsRShiftC_32u(
+	nm32u*	src,		//Input buffer		:long Local [Size/4].
 	int		Shift,		//Specifies on how many positions the input values should be right-shifted :[0, 1, 2, .., 15].
-	nm32u*	DstVec,		//Output buffer		:long Global[Size/4].
-	int		Size		//Size of input buffer in 8 bit elements. Size=[0,4,8,12...].
+	nm32u*	dst,		//Output buffer		:long Global[Size/4].
+	int		size		//Size of input buffer in 8 bit elements. Size=[0,4,8,12...].
 	)
 {
+	#ifdef RPC
+	RPC_HOST_PIPI("nmppsRShiftC_32u",src,Shift,dst,size,4);
+	#else
+
+
 	int i;
-	for (i=0; i<Size; i++)
-		DstVec[i] = SrcVec[i] >> Shift;
+	for (i=0; i<size; i++)
+		dst[i] = src[i] >> Shift;
+
+	#endif
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Performs shift to right on 64-bit unsigned elements of input array
-void nmppsRShiftC_64u(nm64u*	SrcVec,		//Input buffer		:long Local [Size/4].
+void nmppsRShiftC_64u(
+	nm64u*	src,		//Input buffer		:long Local [size/4].
 	int		Shift,		//Specifies on how many positions the input values should be right-shifted :[0, 1, 2, .., 15].
-	nm64u*	DstVec,		//Output buffer		:long Global[Size/4].
-	int		Size		//Size of input buffer in 8 bit elements. Size=[0,4,8,12...].
+	nm64u*	dst,		//Output buffer		:long Global[size/4].
+	int		size		//size of input buffer in 8 bit elements. size=[0,4,8,12...].
 	)
 {
+	#ifdef RPC
+	RPC_HOST_PIPI("nmppsRShiftC_64u",src,Shift,dst,size,8);
+	#else
+
+
 	int i;
-	for (i=0; i<Size; i++)
-		DstVec[i] = SrcVec[i] >> Shift;
+	for (i=0; i<size; i++)
+		dst[i] = src[i] >> Shift;
+
+	#endif
 }
 
 
@@ -140,54 +203,82 @@ void nmppsRShiftC_64u(nm64u*	SrcVec,		//Input buffer		:long Local [Size/4].
 // If you point pBits to the last 64-bit word of Src buffer you will get the cyclical bit shift
 
 void nmppsFwdShiftBitstream(
-	const   nm64u*	pSrcVec,		//Input buffer					:long Local [Size/8].
-			nm64u*	pDstVec,		//Output buffer					:long Global[Size/8].
+	const   nm64u*	src,		//Input buffer					:long Local [size/8].
+			nm64u*	dst,		//Output buffer					:long Global[size/8].
 			nm64u*	pnBits,		//Being pushed bits				:long Variable
 			int		nBits,		//Number of being pushed bits	:nBits=[2,4,6....62].
-			int		nSize		//Size of input buffer in 64-bit long elements. Size=[1,2,3....].
+			int		size		//size of input buffer in 64-bit long elements. size=[1,2,3....].
 	)
 {
-	nm64u* src=(nm64u*)pSrcVec;
-	nm64u* dst=(nm64u*)pDstVec;
+	#ifdef RPC
+	//RPC_HOST_PPPI("nmppsRShiftC_s",src,Shift,dst,size,1);
+	#else
+
+
+	nm64u* src=(nm64u*)src;
+	nm64u* dst=(nm64u*)dst;
 	nm64u* pbits=(nm64u*)pnBits;
 	
 	unsigned __int64 tmp;
 	int i;
 	dst[0]=(src[0]<<nBits)|(*pbits)>>(64-nBits);
 
-	for (i=1;i<nSize;i++)
+	for (i=1;i<size;i++)
 	{
 		tmp=src[i-1]>>(64-nBits);
 		dst[i]=src[i]<<nBits;
 		dst[i]|=tmp;
 	}
+
+	#endif
 }
 
 
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsRShiftC_AddC_8u(nm8u *pSrcVec,   int nShift,uint8b nAddVal, nm8u *pDstVec, int nSize)
+void nmppsRShiftC_AddC_8u(nm8u *src,   int nShift,uint8b nAddVal, nm8u *dst, int size)
 {
+	#ifdef RPC
+	//RPC_HOST_PPPI("nmppsRShiftC_s",src,Shift,dst,size,1);
+	#else
+
+
 	int i;
 	nm8u nMask=0xFF;
 	nMask>>=nShift;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = ((pSrcVec[i] >> nShift) + nAddVal)&nMask;
+	for (i=0; i<size; i++)
+		dst[i] = ((src[i] >> nShift) + nAddVal)&nMask;
+
+	#endif
 }
 
-void nmppsRShiftC_AddC_16u(nm16u *pSrcVec,  int nShift, uint16b nAddVal, nm16u *pDstVec, int nSize)
+void nmppsRShiftC_AddC_16u(nm16u *src,  int nShift, uint16b nAddVal, nm16u *dst, int size)
 {
+	#ifdef RPC
+	//RPC_HOST_PIPI("nmppsRShiftC_s",src,Shift,dst,size,1);
+	#else
+
+
 	int i;
 	nm16u nMask=0xFFFF;
 	nMask>>=nShift;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = ((pSrcVec[i] >> nShift) + nAddVal)&nMask;
+	for (i=0; i<size; i++)
+		dst[i] = ((src[i] >> nShift) + nAddVal)&nMask;
+
+	#endif
 }
 
-void nmppsRShiftC_AddC_32u(nm32u *pSrcVec,   int nShift, uint32b nAddVal,nm32u *pDstVec, int nSize)
+void nmppsRShiftC_AddC_32u(nm32u *src,   int nShift, uint32b nAddVal,nm32u *dst, int size)
 {
+	#ifdef RPC
+	//RPC_HOST_PIPI("nmppsRShiftC_s",src,Shift,dst,size,1);
+	#else
+
+
 	int i;
 	nm32u nMask=0xFFFFFFFF;
 	nMask>>=nShift;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = ((pSrcVec[i] >> nShift) + nAddVal)&nMask;
+	for (i=0; i<size; i++)
+		dst[i] = ((src[i] >> nShift) + nAddVal)&nMask;
+
+	#endif
 }

@@ -29,6 +29,11 @@ void nmppsOr4V_64u(nm64u* pVec0,
 				nm64u* pDstVec, 
 				int 	nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPPI("nmppsRShiftC_s",pSrcVec,Shift,pDstVec,nSize,1);
+	#else
+
+
 
 
 	int i;
@@ -39,5 +44,7 @@ void nmppsOr4V_64u(nm64u* pVec0,
 	}
 		
 	
+
+	#endif
 }
 ///////////////////////////////////////////////////////////////////////////////

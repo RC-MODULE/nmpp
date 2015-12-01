@@ -17,9 +17,9 @@ extern struct aura_node *n;
 	aura_buffer_release(n, iobuf_src); \
 	aura_buffer_release(n, retbuf); \
 	slog(0, SLOG_INFO, "ARM: Call func ok"); 
-*/
+
 	
-#define RPC_HOST_PPI(func,ptr) \
+#define RPC_HOST_PI(func,ptr) \
 	int ret;	\
     struct aura_buffer *iobuf_src = aura_buffer_request(n, size);	\
 	struct aura_buffer *iobuf_dst = aura_buffer_request(n, size);	\
@@ -28,12 +28,12 @@ extern struct aura_node *n;
 	ret = aura_call(n, func, &retbuf,  iobuf_src, iobuf_dst, size); \
 	if (ret != 0) \
 	    BUG(n, "Call func failed!"); \
-	memcpy(dst,iobuf_dst->data,size); \
+	memcpy(dst,iobuf_dst->data,size*k); \
 	aura_buffer_release(n, iobuf_dst); \
 	aura_buffer_release(n, iobuf_src); \
 	aura_buffer_release(n, retbuf); \
 	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
-
+*/
 
 #define RPC_HOST_PPI(func,src,dst,size,k) \
 	int ret;	\
@@ -44,7 +44,7 @@ extern struct aura_node *n;
 	ret = aura_call(n, func, &retbuf,  iobuf_src, iobuf_dst, size); \
 	if (ret != 0) \
 	    BUG(n, "Call func failed!"); \
-	memcpy(dst,iobuf_dst->data,size); \
+	memcpy(dst,iobuf_dst->data,size*k); \
 	aura_buffer_release(n, iobuf_dst); \
 	aura_buffer_release(n, iobuf_src); \
 	aura_buffer_release(n, retbuf); \
@@ -62,8 +62,8 @@ extern struct aura_node *n;
 	struct aura_buffer *retbuf; \
 	ret = aura_call(n, func, &retbuf,  iobuf_src0, iobuf_src1, iobuf_dst, size); \
 	if (ret != 0) \
-	    BUG(n, "Call func failed!"); \
-	memcpy(dst,iobuf_dst->data,size); \
+	    BUG(n, "Call " #func " failed!"); \
+	memcpy(dst,iobuf_dst->data,size*k); \
 	aura_buffer_release(n, iobuf_dst); \
 	aura_buffer_release(n, iobuf_src1); \
 	aura_buffer_release(n, iobuf_src0); \
@@ -77,10 +77,10 @@ extern struct aura_node *n;
 	struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*k);	\
 	memcpy(iobuf_src->data,src,size*k);	\
 	struct aura_buffer *retbuf; \
-	ret = aura_call(n, "func", &retbuf,  iobuf_src, val, iobuf_dst, size); \
+	ret = aura_call(n, func, &retbuf,  iobuf_src, val, iobuf_dst, size); \
 	if (ret != 0) \
-	    BUG(n, "Call func failed!"); \
-	memcpy(dst,iobuf_dst->data,size); \
+	    BUG(n, "Call " #func " failed!"); \
+	memcpy(dst,iobuf_dst->data,size*k); \
 	aura_buffer_release(n, iobuf_dst); \
 	aura_buffer_release(n, iobuf_src); \
 	aura_buffer_release(n, retbuf); \

@@ -207,7 +207,7 @@ void nmppsAddC_8s(
 		)
 {
 	#ifdef RPC
-	RPC_HOST_PIPI("nmppsAdd_8s",pSrcVec,nVal,pDstVec,nSize,1);
+	RPC_HOST_PIPI("nmppsAddC_8s",pSrcVec,nVal,pDstVec,nSize,1);
 	#else
 
 	int i;

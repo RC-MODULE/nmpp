@@ -77,6 +77,81 @@ AURA_METHOD(rpc_nmppsSub_64s, nmppsSub_64s,
 #endif 
 
 //--------------------------------
+#ifdef RPC_nmppsAddC_8s		
+AURA_METHOD(rpc_nmppsAddC_8s, nmppsAddC_8s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsAddC_16s		
+AURA_METHOD(rpc_nmppsAddC_16s, nmppsAddC_16s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsAddC_32s		
+AURA_METHOD(rpc_nmppsAddC_32s, nmppsAddC_32s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsAddC_64s		
+AURA_METHOD(rpc_nmppsAddC_64s, nmppsAddC_64s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+//--------------------------------
+#ifdef RPC_nmppsSubC_8s		
+AURA_METHOD(rpc_nmppsSubC_8s, nmppsSubC_8s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsSubC_16s		
+AURA_METHOD(rpc_nmppsSubC_16s, nmppsSubC_16s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsSubC_32s		
+AURA_METHOD(rpc_nmppsSubC_32s, nmppsSubC_32s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsSubC_64s		
+AURA_METHOD(rpc_nmppsSubC_64s, nmppsSubC_64s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+//--------------------------------
+#ifdef RPC_nmppsRShiftC_8s		
+AURA_METHOD(rpc_nmppsRShiftC_8s, nmppsRShiftC_8s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsRShiftC_16s		
+AURA_METHOD(rpc_nmppsRShiftC_16s, nmppsRShiftC_16s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsRShiftC_32s		
+AURA_METHOD(rpc_nmppsRShiftC_32s, nmppsRShiftC_32s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsRShiftC_64s		
+AURA_METHOD(rpc_nmppsRShiftC_64s, nmppsRShiftC_64s, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+//-----------------------------------
+
 
 // int  nmppsFFT256FwdInitAlloc(Malloc32Func* allocate,  Free32Func* free, NmppsFFTSpec* spec);
 #ifdef RPC_nmppsFFT256Fwd

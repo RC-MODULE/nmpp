@@ -28,6 +28,11 @@ void nmppsOrNV_64u(nm64u**	pSrcVecs,		// Input Buffer
 	int		nSize		// Size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPPI("nmppsRShiftC_s",pSrcVec,Shift,pDstVec,nSize,1);
+	#else
+
+
 
 	int i,k;
 	nm64u * pVec0=pSrcVecs[0];
@@ -42,5 +47,7 @@ void nmppsOrNV_64u(nm64u**	pSrcVecs,		// Input Buffer
 			pDstVec[i]|= pVec[i];
 		}
 	}
+
+	#endif
 }
 ///////////////////////////////////////////////////////////////////////////////

@@ -26,9 +26,16 @@ void nmppsNot_64u(nm64u*	pSrcVec,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI("nmppsNot_64u",pSrcVec,pDstVec,nSize,8);
+	#else
+
+
 int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = ~pSrcVec[i];
+
+	#endif
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = Src1[i] & Src2[i];
@@ -38,9 +45,16 @@ void nmppsAnd_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI("nmppsAnd_64u",pSrcVec,pDstVec,nSize,8);
+	#else
+
+
 int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] & Src2[i];
+
+	#endif
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = Src1[i] & Src2[i];
@@ -50,9 +64,16 @@ void nmppsAndNotV_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI("nmppsAndNotV_64u",pSrcVec,pDstVec,nSize,8);
+	#else
+
+
 int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] & (~Src2[i]);
+
+	#endif
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -63,9 +84,16 @@ void nmppsAndC_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI("nmppsAndC_64u",pSrcVec,pDstVec,nSize,8);
+	#else
+
+
 int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] & Mask[0];
+
+	#endif
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = Src1[i] | Src2[i];
@@ -75,9 +103,16 @@ void nmppsOr_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI("nmppsRShiftC_s",pSrcVec,pDstVec,nSize,8);
+	#else
+
+
 int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] | Src2[i];
+
+	#endif
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = pSrcVec[i] | Mask 
@@ -87,9 +122,16 @@ void nmppsOrC_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI("nmppsRShiftC_s",pSrcVec,pDstVec,nSize,8);
+	#else
+
+
 int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] | Mask[0];
+
+	#endif
 }
 ///////////////////////////////////////////////////////////////////////////////
 //	Bitwise XOR operation 
@@ -100,9 +142,16 @@ void nmppsXor_64u(nm64u*		pSrcVec1,	// Input Buffer					:long Local[nSize]
 			int			nSize		// Vector size in 64-bit words	:nSize=[0,1,2,..,n]
 			)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI("nmppsRShiftC_s",pSrcVec,pDstVec,nSize,8);
+	#else
+
+
 int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] ^ pSrcVec2[i];
+
+	#endif
 }
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = pSrcVec[i] ^ Mask 
@@ -112,9 +161,16 @@ void nmppsXorC_64u(nm64u*	Src1,		// Input Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI("nmppsRShiftC_s",pSrcVec,pDstVec,nSize,8);
+	#else
+
+
 int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = Src1[i] ^ Mask[0];
+
+	#endif
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -128,6 +184,11 @@ void nmppsMaskV_64u(nm64u*		pSrcVec1,	// Input Buffer								: long Global[nSize
 		)
 
 {
+	#ifdef RPC
+	//RPC_HOST_PPI("nmppsRShiftC_s",pSrcVec,pDstVec,nSize,8);
+	#else
+
+
 	nm32u *pV1=(nm32u*) pSrcVec1;
 	nm32u *pV2=(nm32u*) pSrcVec2;
 	nm32u *pV3=(nm32u*) pSrcVec3;
@@ -135,4 +196,6 @@ void nmppsMaskV_64u(nm64u*		pSrcVec1,	// Input Buffer								: long Global[nSize
 int i;
 	for (i=0;i<nSize*2;i++)
 		pDst[i]=(pV1[i]&pV3[i])|(pV2[i]&(~pV3[i]));
+
+	#endif
 }

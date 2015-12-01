@@ -70,7 +70,7 @@ void rpc_ ## func(void *in, void *out) \
 	aura_put_u32(ret); \
 }
 
-
+//--------------------------
 #ifdef RPC_nmppsAbs_64s
 NMC_RPC_PPI(nmppsAbs_64s);
 #endif 
@@ -87,10 +87,39 @@ NMC_RPC_PPI(nmppsAbs_16s);
 NMC_RPC_PPI(nmppsAbs_8s);
 #endif 
 
+//--------------------------
+#ifdef RPC_nmppsAdd_8s
+NMC_RPC_PPPI(nmppsAdd_8s);
+#endif 
+
+#ifdef RPC_nmppsAdd_16s
+NMC_RPC_PPPI(nmppsAdd_16s);
+#endif 
+
 #ifdef RPC_nmppsAdd_32s
 NMC_RPC_PPPI(nmppsAdd_32s);
 #endif 
 
+#ifdef RPC_nmppsAdd_64s
+NMC_RPC_PPPI(nmppsAdd_64s);
+#endif 
+//--------------------------
+#ifdef RPC_nmppsSub_8s
+NMC_RPC_PPPI(nmppsSub_8s);
+#endif 
+
+#ifdef RPC_nmppsSub_16s
+NMC_RPC_PPPI(nmppsSub_16s);
+#endif 
+
+#ifdef RPC_nmppsSub_32s
+NMC_RPC_PPPI(nmppsSub_32s);
+#endif 
+
+#ifdef RPC_nmppsSub_64s
+NMC_RPC_PPPI(nmppsSub_64s);
+#endif 
+//--------------------------
 
 #ifdef RPC_nmppsFFT256Fwd
 NMC_RPC_PPP(nmppsFFT256FwdOptimize);

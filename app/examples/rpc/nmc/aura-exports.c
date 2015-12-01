@@ -1,9 +1,15 @@
 #include <easynmc/easynmc.h>
 #include <easynmc/aura-exportfile.h>
 #include "aura-exports.h"
+//----------------------------------------
+#ifdef RPC_nmppsAbs_8s
+AURA_METHOD(rpc_nmppsAbs_8s, nmppsAbs_8s, 
+	    BUFFER BUFFER U32,
+	    "");
+#endif 
 
-#ifdef RPC_nmppsAbs_64s
-AURA_METHOD(rpc_nmppsAbs_64s, nmppsAbs_64s, 
+#ifdef RPC_nmppsAbs_16s
+AURA_METHOD(rpc_nmppsAbs_16s, nmppsAbs_16s, 
 	    BUFFER BUFFER U32,
 	    "");
 #endif 
@@ -14,15 +20,22 @@ AURA_METHOD(rpc_nmppsAbs_32s, nmppsAbs_32s,
 	    "");
 #endif 
 		
-#ifdef RPC_nmppsAbs_16s
-AURA_METHOD(rpc_nmppsAbs_16s, nmppsAbs_16s, 
+#ifdef RPC_nmppsAbs_64s
+AURA_METHOD(rpc_nmppsAbs_64s, nmppsAbs_64s, 
 	    BUFFER BUFFER U32,
 	    "");
 #endif 
 
-#ifdef RPC_nmppsAbs_8s
-AURA_METHOD(rpc_nmppsAbs_8s, nmppsAbs_8s, 
-	    BUFFER BUFFER U32,
+//-----------------------------------
+#ifdef RPC_nmppsAdd_8s		
+AURA_METHOD(rpc_nmppsAdd_8s, nmppsAdd_8s, 
+		BUFFER BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsAdd_16s		
+AURA_METHOD(rpc_nmppsAdd_16s, nmppsAdd_16s, 
+		BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 
@@ -32,6 +45,38 @@ AURA_METHOD(rpc_nmppsAdd_32s, nmppsAdd_32s,
 	    "");
 #endif 
 
+#ifdef RPC_nmppsAdd_64s		
+AURA_METHOD(rpc_nmppsAdd_64s, nmppsAdd_64s, 
+		BUFFER BUFFER BUFFER U32,
+	    "");
+#endif 
+
+//-----------------------------------
+#ifdef RPC_nmppsSub_8s		
+AURA_METHOD(rpc_nmppsSub_8s, nmppsSub_8s, 
+		BUFFER BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsSub_16s		
+AURA_METHOD(rpc_nmppsSub_16s, nmppsSub_16s, 
+		BUFFER BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsSub_32s		
+AURA_METHOD(rpc_nmppsSub_32s, nmppsSub_32s, 
+		BUFFER BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsSub_64s		
+AURA_METHOD(rpc_nmppsSub_64s, nmppsSub_64s, 
+		BUFFER BUFFER BUFFER U32,
+	    "");
+#endif 
+
+//--------------------------------
 
 // int  nmppsFFT256FwdInitAlloc(Malloc32Func* allocate,  Free32Func* free, NmppsFFTSpec* spec);
 #ifdef RPC_nmppsFFT256Fwd

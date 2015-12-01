@@ -25,8 +25,21 @@ int main() {
 		src0[i]=i;
 		src1[i]=i-15;
 	}
-	nmppsAdd_32s(src0,src1,dst,16);
-	nmppsAbs_32s(dst,dst,16);
+	nmppsAdd_8s ((nm8s* )src0,(nm8s* )src1,(nm8s* )dst,16);
+	nmppsAdd_16s((nm16s*)src0,(nm16s*)src1,(nm16s*)dst,16);
+	nmppsAdd_32s((nm32s*)src0,(nm32s*)src1,(nm32s*)dst,16);
+	nmppsAdd_64s((nm64s*)src0,(nm64s*)src1,(nm64s*)dst,16);
+	
+	nmppsSub_8s ((nm8s* )src0,(nm8s* )src1,(nm8s* )dst,16);
+	nmppsSub_16s((nm16s*)src0,(nm16s*)src1,(nm16s*)dst,16);
+	nmppsSub_32s((nm32s*)src0,(nm32s*)src1,(nm32s*)dst,16);
+	nmppsSub_64s((nm64s*)src0,(nm64s*)src1,(nm64s*)dst,16);
+	
+	nmppsAbs_8s ((nm8s* )dst,(nm8s* )dst,16);
+	nmppsAbs_16s((nm16s*)dst,(nm16s*)dst,16);
+	nmppsAbs_32s((nm32s*)dst,(nm32s*)dst,16);
+	nmppsAbs_64s((nm64s*)dst,(nm64s*)dst,16);
+	
 
 	for(i=0; i<16; i++){
 		printf("%d\r\n",dst[i]);

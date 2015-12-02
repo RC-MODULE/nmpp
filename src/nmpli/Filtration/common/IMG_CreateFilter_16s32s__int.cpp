@@ -12,17 +12,17 @@
 // nSize=11 nDisp=1,3 nMatrix=4
 // nSize=13 nDisp=2,4 nMatrix=4
 
-static __INLINE__ int GetMatrixCount(int nSize)
+__INLINE__ int GetMatrixCount(int nSize)
 {
 	return (nSize+5)/4;	
 }
 
-static __INLINE__ int GetDisp0(int nSize)
+__INLINE__ int GetDisp0(int nSize)
 {
 	return ((nSize-3)/2%4+1);
 }
 
-static __INLINE__ int GetDisp1(int nSize)
+__INLINE__ int GetDisp1(int nSize)
 {
 	return ((nSize+1)/2)%4+1;
 }

@@ -163,7 +163,7 @@ void IMG_Free(void* ptr);
 		\~
 */
 	//! \{
-static __INLINE__ void IMG_ReleaseObject(nm64s* pKernel);
+__INLINE__ void IMG_ReleaseObject(nm64s* pKernel);
 	//! \}
 
 

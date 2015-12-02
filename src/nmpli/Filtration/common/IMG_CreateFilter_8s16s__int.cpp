@@ -12,12 +12,12 @@
 
 
 
-static __INLINE__ int GetDisp0(int nSize)
+__INLINE__ int GetDisp0(int nSize)
 {
 	return ((nSize-3)/2%8+1);
 }
 
- static __INLINE__ int GetDisp1(int nSize)
+ __INLINE__ int GetDisp1(int nSize)
 {
 	return ((nSize+5)/2)%8+1;
 }

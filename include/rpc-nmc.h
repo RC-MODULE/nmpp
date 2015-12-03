@@ -25,14 +25,7 @@ void rpc_ ## func(void *in, void *out) \
 	int *dst = aura_buffer_to_ptr(buf_dst);	 \
 	unsigned size = aura_get_u32(); \
 	func_ppi_t *unifunc=(func_ppi_t*)func; \
-	int i; \
-	for(i=0; i<size/4; i++){ \
-			printf("[NMC:%d %8x %8x]%8x %8x\r\n",size,src, dst, src[i],dst[i]); \
-	} \
 	unifunc(src,dst,size); \
-	for(i=0; i<size/4; i++){ \
-			printf("[NMC:%d %8x %8x]%8x %8x\r\n",size,src, dst, src[i],dst[i]); \
-	} \
 }
 	
 	

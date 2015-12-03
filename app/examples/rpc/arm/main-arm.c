@@ -31,7 +31,7 @@ int main() {
 	signed char dst_8s[32];
 	for(i=0; i<32; i++){
 		src0_8s[i]=i-7;
-		dst_8s[i]=0xCC;
+		dst_8s[i]=0;
 	}
 
 //	nmppsAdd_8s ((nm8s* )src0,(nm8s* )src1,(nm8s* )dst,16);	
@@ -44,15 +44,11 @@ int main() {
 //	nmppsSub_32s((nm32s*)src0,(nm32s*)src1,(nm32s*)dst,16);
 //	nmppsSub_64s((nm64s*)src0,(nm64s*)src1,(nm64s*)dst,16);
 	
+	
 	nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,8);
-	
-	nmppsAbs1_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,8);
-	nmppsAbs1_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,16);
-	nmppsAbs1_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,32);
-	
-	//nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,16);
-	//nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,24);
-	//nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,32);
+//	nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,16);
+//	nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,24);
+//	nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,32);
 	
 	for(i=0; i<32; i++){
 		printf("[ARM] abs8: %d %d\r\n",src0_8s[i],dst_8s[i]);

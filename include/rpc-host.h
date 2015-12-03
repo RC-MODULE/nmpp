@@ -46,8 +46,6 @@ extern struct aura_node *n;
 	if (ret != 0) \
 	    BUG(n, "Call " #func " failed!"); \
 	memcpy(dst,iobuf_dst->data,size*k); \
-	for(ret=0; ret<size*k; ret++) \
-		printf("[ARM: dst]%d \r\n", ((signed char*)iobuf_dst->data)[ret]); \
 	aura_buffer_release(n, iobuf_dst); \
 	aura_buffer_release(n, iobuf_src); \
 	aura_buffer_release(n, retbuf); \

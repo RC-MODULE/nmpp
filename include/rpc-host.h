@@ -37,14 +37,17 @@ extern struct aura_node *n;
 
 #define RPC_HOST_PPI(func,src,dst,size,k) \
 	int ret;	\
-    struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k);	\
-	struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*k);	\
+    struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k+4);	\
+	struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*k+4);	\
+	memset(iobuf_dst->data,0xAA,size*k);	\
 	memcpy(iobuf_src->data,src,size*k);	\
 	struct aura_buffer *retbuf; \
 	ret = aura_call(n, func, &retbuf,  iobuf_src, iobuf_dst, size); \
 	if (ret != 0) \
-	    BUG(n, "Call func failed!"); \
+	    BUG(n, "Call " #func " failed!"); \
 	memcpy(dst,iobuf_dst->data,size*k); \
+	for(ret=0; ret<size*k; ret++) \
+		printf("[ARM: dst]%d \r\n", ((signed char*)iobuf_dst->data)[ret]); \
 	aura_buffer_release(n, iobuf_dst); \
 	aura_buffer_release(n, iobuf_src); \
 	aura_buffer_release(n, retbuf); \

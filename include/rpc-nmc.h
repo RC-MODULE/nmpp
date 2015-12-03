@@ -25,9 +25,17 @@ void rpc_ ## func(void *in, void *out) \
 	int *dst = aura_buffer_to_ptr(buf_dst);	 \
 	unsigned size = aura_get_u32(); \
 	func_ppi_t *unifunc=(func_ppi_t*)func; \
+	int i; \
+	for(i=0; i<size/4; i++){ \
+			printf("[NMC:%d %8x %8x]%8x %8x\r\n",size,src, dst, src[i],dst[i]); \
+	} \
 	unifunc(src,dst,size); \
+	for(i=0; i<size/4; i++){ \
+			printf("[NMC:%d %8x %8x]%8x %8x\r\n",size,src, dst, src[i],dst[i]); \
+	} \
 }
-
+	
+	
 #define NMC_RPC_PPPI(func) \
 void rpc_ ## func(void *in, void *out) \
 { \
@@ -100,6 +108,22 @@ NMC_RPC_PPI(nmppsAbs_16s);
 
 #ifdef RPC_nmppsAbs_8s
 NMC_RPC_PPI(nmppsAbs_8s);
+#endif 
+//-------------------------
+#ifdef RPC_nmppsAbs1_8s
+NMC_RPC_PPI(nmppsAbs1_8s);
+#endif 
+
+#ifdef RPC_nmppsAbs1_16s
+NMC_RPC_PPI(nmppsAbs1_16s);
+#endif 
+
+#ifdef RPC_nmppsAbs1_32s
+NMC_RPC_PPI(nmppsAbs1_32s);
+#endif 
+
+#ifdef RPC_nmppsAbs1_64s
+NMC_RPC_PPI(nmppsAbs1_64s);
 #endif 
 
 //--------------------------

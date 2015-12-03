@@ -26,6 +26,32 @@ AURA_METHOD(rpc_nmppsAbs_64s, nmppsAbs_64s,
 	    "");
 #endif 
 
+//----------------------------------------
+#ifdef RPC_nmppsAbs1_8s
+AURA_METHOD(rpc_nmppsAbs1_8s, nmppsAbs1_8s, 
+	    BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsAbs1_16s
+AURA_METHOD(rpc_nmppsAbs1_16s, nmppsAbs1_16s, 
+	    BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsAbs1_32s
+AURA_METHOD(rpc_nmppsAbs1_32s, nmppsAbs1_32s, 
+	    BUFFER BUFFER U32,
+	    "");
+#endif 
+		
+#ifdef RPC_nmppsAbs1_64s
+AURA_METHOD(rpc_nmppsAbs1_64s, nmppsAbs1_64s, 
+	    BUFFER BUFFER U32,
+	    "");
+#endif 
+
+
 //-----------------------------------
 #ifdef RPC_nmppsAdd_8s		
 AURA_METHOD(rpc_nmppsAdd_8s, nmppsAdd_8s, 

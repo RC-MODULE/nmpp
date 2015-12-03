@@ -3,6 +3,12 @@
 #define RPC_nmppsAbs_16s
 #define RPC_nmppsAbs_8s
 
+#define RPC_nmppsAbs1_32s
+#define RPC_nmppsAbs1_64s
+#define RPC_nmppsAbs1_16s
+#define RPC_nmppsAbs1_8s
+
+
 #define RPC_nmppsAdd_8s
 #define RPC_nmppsAdd_16s
 #define RPC_nmppsAdd_32s

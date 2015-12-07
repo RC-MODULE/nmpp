@@ -100,8 +100,6 @@ SRC_DIRS         =  ../../src/nmplv/Arithmetics/pc \
 					
 TMP_DIR          = Release
 #------------------------------------------------
-CROSS_COMPILE   ?=
-AS               = $(GCC)
 AS_FLAGS         = $(INC_DIRS)
 CC_FLAGS 		 = -g -Wall -fPIC $(INC_DIRS)  -std=c99
 

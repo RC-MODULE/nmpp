@@ -111,7 +111,7 @@ public:
 	}
 
 	// Setting value
-	__INLINE__ void setval(int y, int x, const T& val)
+	inline void setval(int y, int x, const T& val)
 	{
 		ASSERTE(y>=-m_border);
 		ASSERTE(y<m_height+m_border);
@@ -119,14 +119,14 @@ public:
 	}
 
 	// extended setting value 
-	__INLINE__ void setvalx(int y, int x, const T& val)
+	inline void setvalx(int y, int x, const T& val)
 	{
 		ASSERTE(y+m_y0>=-m_border);
 		ASSERTE(y+m_y0<m_height+m_border);
 		m_data[(y+m_y0)*m_stride+x+m_x0]=val;
 	}
 	// getting value
-	__INLINE__ T getval(int y,int x) const
+	inline T getval(int y,int x) const
 	{
 		ASSERTE(y>=-m_border);
 		ASSERTE(y<m_height+m_border);
@@ -134,7 +134,7 @@ public:
 		return val;
 	}
 	// extended getting value
-	__INLINE__ T getvalx(int y,int x) const
+	inline T getvalx(int y,int x) const
 	{
 		ASSERTE(y+m_y0>=-m_border);
 		ASSERTE(y+m_y0<m_height+m_border);
@@ -258,14 +258,14 @@ public:
 	}	
 
 //#ifdef _DEBUG
-//	__INLINE__ vec<T> operator[](int row)
+//	inline vec<T> operator[](int row)
 //	{
 //		ASSERTE(row<m_height+m_border);
 //		ASSERTE(row>=-m_border);
 //		return vec<T>(m_data+row*m_stride,m_width,m_border);
 //	}
 	// return pointer to first element in row 
-	__INLINE__ T* operator[](int row) const
+	inline T* operator[](int row) const
 	{
 		ASSERTE(row<m_height+m_border);
 		ASSERTE(row>=-m_border);
@@ -273,7 +273,7 @@ public:
 	}
 
 	// getting value by linear index
-	__INLINE__ T& index(int idx)
+	inline T& index(int idx)
 	{
 		ASSERTE(idx>=0);
 		ASSERTE(idx<m_size);
@@ -282,7 +282,7 @@ public:
 	}
 
 //#else
-//	__INLINE__ T* operator[](int row)
+//	inline T* operator[](int row)
 //	{
 //		return (m_data+row*m_stride);
 //	}
@@ -662,7 +662,7 @@ public:
 //			m_data[i]=matr.m_data[i];
 //	}
 
-	__INLINE__ T* addr(int y,int x)
+	inline T* addr(int y,int x)
 	{
 		ASSERTE(y<m_height+m_border);
 		ASSERTE(y>=-m_border);
@@ -797,7 +797,7 @@ public:
 
 
 	/*
-	__INLINE__ T max() 
+	inline T max() 
 	{
 		T Max=m_data[0];
 		T* row=m_data;

@@ -188,50 +188,50 @@ public:
 	}
 
 
-	__INLINE__ nmint<T>&	operator/=	(const nmint<T>& val)		
+	inline nmint<T>&	operator/=	(const nmint<T>& val)		
 	{
 			m_value/=val.m_value;
 	}	
 
-	__INLINE__ nmint<T>		operator/	(const nmint<T>& val) const	
+	inline nmint<T>		operator/	(const nmint<T>& val) const	
 	{
 		nmint<T> Res(*this);
 		Res/=val;
 		return Res;
 	}
 
-	__INLINE__ nmint<T>&	operator>>=	(const int y)		
+	inline nmint<T>&	operator>>=	(const int y)		
 	{
 		m_value>>=y;
 		return (*this);
 	}
 
-	__INLINE__ nmint<T>	operator>>	(const int y) const	
+	inline nmint<T>	operator>>	(const int y) const	
 	{
 		nmint<T> z(*this);
 		z>>=y;
 		return z;
 	}
 
-	__INLINE__ nmint<T>&	operator<<=	(const int y)	
+	inline nmint<T>&	operator<<=	(const int y)	
 	{
 		m_value<<=y;
 		return (*this);
 	}
 
-	__INLINE__ nmint<T>	operator<<	(const int n) const
+	inline nmint<T>	operator<<	(const int n) const
 	{
 		nmint<T> Res(*this);
 		Res<<=n;
 		return Res;
 	}
 
-	__INLINE__ nmint<T>&	operator^=	(nmint<T> &val)
+	inline nmint<T>&	operator^=	(nmint<T> &val)
 	{
 		m_value^=val.m_value;
 		return (*this);
 	}
-	__INLINE__ nmint<T>	operator^	(nmint<T> &val) const
+	inline nmint<T>	operator^	(nmint<T> &val) const
 	{
 		nmint<T> Res(*this);
 		Res^=val;
@@ -272,16 +272,16 @@ template <int N> void Round(double& X,nmint<T> &Y)
 
 ///////////////////////////////////////////////////////////////////////////
 // Conversion of to different types
-template<int N> __INLINE__ double double_(const nmint<T> &x)
+template<int N> inline double double_(const nmint<T> &x)
 {
 	return double(x.m_value);
 }
 
-template<int N> __INLINE__ int int_(const nmint<T> &x)
+template<int N> inline int int_(const nmint<T> &x)
 {
 	return int(x.m_value);
 }
-template<int N> __INLINE__ short int shortint_(const nmint<T> &x)
+template<int N> inline short int shortint_(const nmint<T> &x)
 {
 	return short int(x.m_value);
 }

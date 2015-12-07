@@ -215,8 +215,8 @@ void nmppsFwdShiftBitstream(
 	#else
 
 
-	nm64u* src=(nm64u*)src;
-	nm64u* dst=(nm64u*)dst;
+	//nm64u* src=(nm64u*)src;
+	//nm64u* dst=(nm64u*)dst;
 	nm64u* pbits=(nm64u*)pnBits;
 	
 	unsigned __int64 tmp;

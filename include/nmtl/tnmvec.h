@@ -94,7 +94,7 @@ public:
 
 	}
 
-	__INLINE__ nmvec<T>& operator= (const nmvec<T>& vec) // спец. добавил const - nmcpp ругается
+	inline nmvec<T>& operator= (const nmvec<T>& vec) // спец. добавил const - nmcpp ругается
 	{
 		ASSERTE(vec.size==size);
 		memcpy(m_data,vec.m_data,size*sizeof(T));
@@ -102,7 +102,7 @@ public:
 		return *this;
 	}	 
 
-	__INLINE__ nmint<T>&    operator [] (int idx) 
+	inline nmint<T>&    operator [] (int idx) 
 	{
 		ASSERTE(idx>=-m_border);
 		ASSERTE(idx<size+m_border);

@@ -56,7 +56,7 @@ public:
 	}
 
 //#ifndef NMTL_DISABLE_INDEX_CHECK
-//	__INLINE__ nmint<T>* operator[](int y)
+//	inline nmint<T>* operator[](int y)
 //	{
 //		ASSERTE(y>=-m_border);
 //		ASSERTE(y<m_height+m_border);
@@ -64,7 +64,7 @@ public:
 //		return (nmint<T>*) (m_data+y*m_stride);
 //	}
 //#else	
-	__INLINE__ nmvec<T> operator [](int y) const
+	inline nmvec<T> operator [](int y) const
 	{
 		ASSERTE(y>=-m_border);
 		ASSERTE(y<m_height+m_border);
@@ -355,13 +355,13 @@ public:
 
 
 	
-	__INLINE__ T* addr(int y, int x)
+	inline T* addr(int y, int x)
 	{
 		return m_data+y*m_stride+x;
 	}
 
 
-	__INLINE__ nmvec<T> vec(int y)
+	inline nmvec<T> vec(int y)
 	{
 		return nmvec<T>(m_data+y*m_stride,m_width,m_border);
 	}
@@ -440,7 +440,7 @@ typedef  nmmtr<unsigned long long>	nmmtr64u;
 
 #ifndef __NM__
 /*
-template <class T> __INLINE__ ostream& operator<< (ostream& s, nmmtr<T>& mtr)
+template <class T> inline ostream& operator<< (ostream& s, nmmtr<T>& mtr)
 {
 	s <<"{\n";
 	for(int y=0;y<mtr.m_height-1;y++)
@@ -465,7 +465,7 @@ template <class T> __INLINE__ ostream& operator<< (ostream& s, nmmtr<T>& mtr)
 
 		
 
-__INLINE__ ostream& AsmArray (ostream& s,  nmmtr64s& mtr)
+inline ostream& AsmArray (ostream& s,  nmmtr64s& mtr)
 {
 	s << " long[" << dec << mtr.m_width <<"*" << mtr.m_height << "]=(\n";
 	for(int y=0;y<mtr.m_height-1;y++)
@@ -506,7 +506,7 @@ __INLINE__ ostream& AsmArray (ostream& s,  nmmtr64s& mtr)
 	return s;
 }
 
-__INLINE__ ostream& AsmArray (ostream& s,  nmmtr8s& mtr)
+inline ostream& AsmArray (ostream& s,  nmmtr8s& mtr)
 {
 	ASSERTE(mtr.m_width%8==0);
 	nmmtr64s mClone((__int64*)mtr.m_data,mtr.m_height,mtr.m_width/8,mtr.m_stride/8);
@@ -550,21 +550,21 @@ __INLINE__ ostream& AsmArray (ostream& s,  nmmtr8s& mtr)
 //			Data[i]=(T2)m_data[i].value;
 //	}
 
-//	__INLINE__ nmvec<T> GetVec(int y)
+//	inline nmvec<T> GetVec(int y)
 //	{
 //		ASSERTE(y>=0);
 //		ASSERTE(y<m_height);
 //		return nmvec<T>(m_data+y*m_stride,m_width);
 //	}
 //
-//	__INLINE__ nmvec<T> GetVec(int y,int x,int len)
+//	inline nmvec<T> GetVec(int y,int x,int len)
 //	{
 //		ASSERTE(y>=0);
 //		ASSERTE(y<m_height);
 //		return nmvec<T>(m_data+y*m_stride+x,len);
 //	}
 //
-//	__INLINE__ nmmtr<T>& SetMtr(int y,int x,nmmtr<T>& mSrc)
+//	inline nmmtr<T>& SetMtr(int y,int x,nmmtr<T>& mSrc)
 //	{
 //		T* dst=m_data+y*m_width+x;
 //		T* src=mSrc.m_data;
@@ -577,7 +577,7 @@ __INLINE__ ostream& AsmArray (ostream& s,  nmmtr8s& mtr)
 //		return *this;
 //	}
 //
-//	__INLINE__ nmmtr<T>& GetMtr(int y,int x,nmmtr<T>& mRes)
+//	inline nmmtr<T>& GetMtr(int y,int x,nmmtr<T>& mRes)
 //	{
 //		T* src=m_data+y*m_stride+x;
 //		T* dst=mRes.m_data;
@@ -590,7 +590,7 @@ __INLINE__ ostream& AsmArray (ostream& s,  nmmtr8s& mtr)
 //		return mRes;
 //	}
 //
-//	__INLINE__ nmmtr<T> GetMtr(int y,int x,int height,int width)
+//	inline nmmtr<T> GetMtr(int y,int x,int height,int width)
 //	{
 //		nmmtr<T> Res(height,width);
 //		GetMtr(y,x,Res);

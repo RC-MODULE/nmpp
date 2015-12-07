@@ -37,7 +37,7 @@
 		
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="../../../lib/vs80.lib"
+				OutputFile="../../../lib/nmpp-vs80.lib"
 			/>
 		
 		</Configuration>
@@ -63,7 +63,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="../../../lib/vs80d.lib"
+				OutputFile="../../../lib/nmpp-vs80d.lib"
 			/>
 		</Configuration>
 	</Configurations>
@@ -125,7 +125,7 @@
  			<File RelativePath="..\..\..\src\nmpls\Correlation\pc\SIG_XCorr.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\pcFFT256.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\W256Tbl.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmppsFFT256Fwd.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-FFT256Fwd.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\pc\pcFFT512.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\pc\W512tbl.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT1024\pc\pcFFT1024.cpp" > </File> 
@@ -252,6 +252,7 @@
 		> 
  			<File RelativePath="../../../include/crtdbg2.h" > </File> 
  			<File RelativePath="../../../include/fft.h" > </File> 
+ 			<File RelativePath="../../../include/fft2.h" > </File> 
  			<File RelativePath="../../../include/malloc32.h" > </File> 
  			<File RelativePath="../../../include/multiheap.h" > </File> 
  			<File RelativePath="../../../include/nmchar.h" > </File> 
@@ -267,6 +268,8 @@
  			<File RelativePath="../../../include/nmtype.h" > </File> 
  			<File RelativePath="../../../include/ringbuffer.h" > </File> 
  			<File RelativePath="../../../include/ringremote.h" > </File> 
+ 			<File RelativePath="../../../include/rpc-host.h" > </File> 
+ 			<File RelativePath="../../../include/rpc-nmc.h" > </File> 
  			<File RelativePath="../../../include/tfixpoint.h" > </File> 
  			<File RelativePath="../../../include/nmplv/nmplv.h" > </File> 
  			<File RelativePath="../../../include/nmplv/nmtl.h" > </File> 

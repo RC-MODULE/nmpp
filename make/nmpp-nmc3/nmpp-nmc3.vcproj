@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8,00"
 	Name="nmpp-nmc3"
-	ProjectGUID="{D979E765-1DDA-4536-8F56-CAB81C32F5CF}"
+	ProjectGUID="{4CEC77FB-E193-4341-A3BF-C83449DFE67B}"
 	Keyword="MakeFileProj"
 	>
 	<Platforms>
@@ -536,7 +536,7 @@
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmpls/FFT/FFT0256/common/nmppsFFT256Fwd.cpp"
+				RelativePath="../../src/nmpls/FFT/FFT0256/common/nmpps-FFT256Fwd.cpp"
 				>
 			</File>
 			<File
@@ -892,10 +892,6 @@
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Arithmetics/nm/VEC_Abs_nm04.asm"
-				>
-			</File>
-			<File
 				RelativePath="../../src/nmplv/Arithmetics/nm/VEC_Add4V__nm16s.asm"
 				>
 			</File>
@@ -1112,31 +1108,15 @@
 				>
 			</File>
 			<File
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_And__nm64u.asm"
+				>
+			</File>
+			<File
 				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_AndC__nm64u.asm"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_AndNotV__nm64u.asm"
-				>
-			</File>
-			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_AndV__nm64u.asm"
-				>
-			</File>
-			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_ArshC__nm08s.asm"
-				>
-			</File>
-			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_ArshC__nm16s.asm"
-				>
-			</File>
-			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_ArshC__nm32s.asm"
-				>
-			</File>
-			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_ArshC__nm64s.asm"
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_AndNot__nm64u.asm"
 				>
 			</File>
 			<File
@@ -1160,39 +1140,55 @@
 				>
 			</File>
 			<File
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_Or__nm64u.asm"
+				>
+			</File>
+			<File
 				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_OrC__nm64u.asm"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_OrV__nm64u.asm"
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RShiftC__nm08s.asm"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RshC__nm08u.asm"
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RShiftC__nm08u.asm"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RshC__nm16u.asm"
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RShiftC__nm16s.asm"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RshC__nm32u.asm"
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RShiftC__nm16u.asm"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RshC__nm64u.asm"
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RShiftC__nm32s.asm"
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RshC_AddC__nm16u.asm"
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RShiftC__nm32u.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RShiftC__nm64s.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RShiftC__nm64u.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RShiftC_AddC__nm16u.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_Xor__nm64u.asm"
 				>
 			</File>
 			<File
 				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_XorC__nm64u.asm"
-				>
-			</File>
-			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_XorV__nm64u.asm"
 				>
 			</File>
 			<File
@@ -1348,6 +1344,14 @@
 				>
 			</File>
 			<File
+				RelativePath="../../src/nmplv/Select/nm/nmppsFirstNonZeroIndx.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmplv/Select/nm/nmppsFirstZeroIndx.asm"
+				>
+			</File>
+			<File
 				RelativePath="../../src/nmplv/Select/nm/VEC_ClipArshCnv_AddC__nm16s_nm08s.asm"
 				>
 			</File>
@@ -1452,14 +1456,6 @@
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Select/nm/VEC_FirstNonZeroPos.asm"
-				>
-			</File>
-			<File
-				RelativePath="../../src/nmplv/Select/nm/VEC_FirstZeroPos.asm"
-				>
-			</File>
-			<File
 				RelativePath="../../src/nmplv/Select/nm/VEC_MaxV__nm08s7b.asm"
 				>
 			</File>
@@ -1560,7 +1556,7 @@
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmplv/Stat/common/nmppsCrc.c"
+				RelativePath="../../src/nmplv/Stat/common/nmpps_Crc.c"
 				>
 			</File>
 			<File
@@ -2218,6 +2214,10 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/fft2.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/malloc32.h"
 				>
 			</File>
@@ -2471,6 +2471,14 @@
 			</File>
 			<File
 				RelativePath="../../include/ringremote.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/rpc-host.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/rpc-nmc.h"
 				>
 			</File>
 			<File

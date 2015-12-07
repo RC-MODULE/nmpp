@@ -211,14 +211,14 @@ public:
 		return *this;
 	}	 
 
-	__INLINE__ T* addr(int idx)
+	inline T* addr(int idx)
 	{
 		ASSERTE(idx>=-m_border);
 		ASSERTE(idx<size+m_border);
 		return m_data+idx;
 	}
 
-	__INLINE__ T&    operator [] (size_t idx)
+	inline T&    operator [] (size_t idx)
 	{
 		ASSERTE(idx>=-m_border);
 		ASSERTE(idx<size+m_border);

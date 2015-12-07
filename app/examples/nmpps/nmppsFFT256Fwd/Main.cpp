@@ -1,5 +1,6 @@
 #include "nmpp.h"
-#include "fft.h"
+//#include "fft.h"
+#include "fft2.h"
 #include <time.h>
 
 
@@ -10,7 +11,7 @@ int main()
 	t0=clock();
 
 
-	FFT_Fwd256Set7bit();
+	//FFT_Fwd256Set7bit();
 
 	
 	nm32sc* src =(nm32sc*)nmppsMalloc_64s(256);

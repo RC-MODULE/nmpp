@@ -77,8 +77,10 @@ PROJECT          = nmpp-nmc3-rpc
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib
 INC_DIRS         = -I"$(NEURO)/include" -I../../include -I$(AURA)/include -I$(EASYNMC_DIR)/include
-SRC_DIRS         = 	 \
-					$(ROOT)/src/nmplv/Arithmetics/nm-rpc
+SRC_DIRS         = 
+
+#	 \
+#					$(ROOT)/src/nmplv/Arithmetics/nm-rpc
 
 LIB_DIRS         = 
 TMP_DIR          =Release

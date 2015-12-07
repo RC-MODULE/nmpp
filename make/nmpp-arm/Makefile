@@ -69,16 +69,14 @@
 #  .DEFAULT_GOAL := skip
 #endif
 
+ROOT = ../..
+include $(ROOT)/setenv.mk
 
-
-GAS =$(ARM_CC)/bin/arm-none-eabi-as
-#GCC =$(ARM_CC)/bin/arm-none-eabi-gcc
-GCC =arm-module-linux-gnueabi-gcc 
-GLD =$(ARM_CC)/bin/arm-none-eabi-gcc
-#GAR =$(ARM_CC)/bin/arm-none-eabi-ar
-GAR =arm-module-linux-gnueabi-ar
-OBJCOPY = $(ARM_CC)/bin/arm-none-eabi-objcopy
-OBJDUMP = $(ARM_CC)/bin/arm-none-eabi-objdump
+CC =$(ARM_CC)
+LD =$(ARM_CC)
+AR =$(ARM_AR)
+OBJCOPY = $(ARM_CC)-objcopy
+OBJDUMP = $(ARM_CC)-objdump
 
 
 #--------------  target & input dirs -------------------
@@ -88,24 +86,35 @@ PROJECT          = arm
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a
 #INC_DIRS         = -I../../include -I../../include/nmpls
-INC_DIRS         = -I../../include
-SRC_DIRS         = ../../src/aura
+INC_DIRS         = -I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include
+SRC_DIRS         =  ../../src/nmplv/Arithmetics/pc \
+					../../src/nmplv/Support/common \
+					../../src/nmplv/Support/pc \
+					../../src/nmplv/Stat/common \
+					../../src/nmplv/Stat/pc \
+					../../src/nmplv/Init/common \
+					../../src/nmplv/Init/pc \
+					../../src/nmplv/Bitwise/pc 
+					
+#					../../src/nmpls/FFT/FFT0256/common
+					
 TMP_DIR          = Release
 #------------------------------------------------
 CROSS_COMPILE   ?=
 AS               = $(GCC)
 AS_FLAGS         = $(INC_DIRS)
-CC               = $(GCC)
-CC_FLAGS 		 = -std=c99 -fno-exceptions -Wall -O0 -mcpu=arm1176jzf-s -DGPIO_LEG=6 -fno-zero-initialized-in-bss $(ING_DIRS) -I$(ARM_CC)/Sourcery_G++_Lite/arm-none-eabi/include 
+CC_FLAGS 		 = -g -Wall -fPIC $(INC_DIRS)  -std=c99
 
-BUILDER          = $(GAR)
+#-std=c99 -fno-exceptions -Wall -O0 -mcpu=arm1176jzf-s -DGPIO_LEG=6 -fno-zero-initialized-in-bss $(ING_DIRS) 
+
+BUILDER          = $(AR)
 BUILDER_FLAGS    = rcs $(TARGET)
 
 
 #--------------  Header dependence parsing -------------------------
 ifdef HAVE_gcc
-PREPROCESS_ASM_DEP = $(CROSS_COMPILE)gcc -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
-PREPROCESS_CPP_DEP = $(CROSS_COMPILE)gcc -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
+PREPROCESS_ASM_DEP = $(ARM_CC)gcc -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
+PREPROCESS_CPP_DEP = $(ARM_CC)gcc -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 endif
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================

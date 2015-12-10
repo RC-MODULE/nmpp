@@ -17,7 +17,6 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-
 #include "nmplv.h"
 
 
@@ -28,12 +27,18 @@ void nmppsMax_8s(
 				int			nSize,		// buffer size in 8-bit words	:nSize=[512,768,1024.....]
 				int8b*		pMaxValue)	// Maximum
 {
+	#ifdef RPC
+	RPC_HOST_PIR32("nmppsMax_8s",pSrcVec,nSize,pMaxValue,1);
+	#else
+
 	int i;
 	*pMaxValue=pSrcVec[0];
 	for(i=1; i<nSize; i++){
 		if(	*pMaxValue<pSrcVec[i])
 			*pMaxValue= pSrcVec[i];
 	}
+
+	#endif
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of maximum value in 16-bit buffer
@@ -42,12 +47,18 @@ void nmppsMax_16s(
 				int			nSize,		// buffer size in 16-bit words	:nSize=[256,384,512...]
 				int16b*		pMaxValue)	// Maximum
 {
+	#ifdef RPC
+	RPC_HOST_PIR32("nmppsMax_16s",pSrcVec,nSize,pMaxValue,2);
+	#else
+
 	int i;
 	*pMaxValue=pSrcVec[0];
 	for(i=1; i<nSize; i++){
 		if(	*pMaxValue<pSrcVec[i])
 			*pMaxValue= pSrcVec[i];
 	}
+
+	#endif
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of maximum value in 32-bit buffer
@@ -56,26 +67,38 @@ void nmppsMax_32s(
 				int			nSize,		// buffer size in 32-bit words	:nSize=[128,192,256..]
 				int*		pMaxValue)	// Maximum
 {
+	#ifdef RPC
+	RPC_HOST_PIR32("nmppsMax_32s",pSrcVec,nSize,pMaxValue,4);
+	#else
+
 	int i;
 	*pMaxValue=pSrcVec[0];
 	for(i=1; i<nSize; i++){
 		if(	*pMaxValue<pSrcVec[i])
 			*pMaxValue= pSrcVec[i];
 	}
+
+	#endif
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of maximum value in 64-bit buffer
 void nmppsMax_64s(
-				nm64s63b*		pSrcVec,	// input buffer					:long Local [Size/2]
+				nm64s63b*	pSrcVec,	// input buffer					:long Local [Size/2]
 				int			nSize,		// buffer size in 32-bit words	:nSize=[128,192,256..]
 				int64b*		pMaxValue)	// Maximum
 {
+	#ifdef RPC
+	RPC_HOST_PIR64("nmppsMax_64s",pSrcVec,nSize,pMaxValue,8);
+	#else
+
 	int i;
 	*pMaxValue=pSrcVec[0];
 	for(i=1; i<nSize; i++){
 		if( *pMaxValue<pSrcVec[i])
 			*pMaxValue= pSrcVec[i];
 	}
+
+	#endif
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////

@@ -19,10 +19,16 @@
 //------------------------------------------------------------------------
 int nmppsFirstZeroPos(int* pSrcVec, int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for(i=0;i<nSize;i++){
 		if (pSrcVec[i]==0)
 			return i;
 	}
 	return -1;
+
+	#endif
 }

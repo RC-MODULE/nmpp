@@ -29,6 +29,10 @@ void nmppsCmpLt0_64s(
 	int			nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i]=pSrcVec[i]>>63;
@@ -36,6 +40,8 @@ void nmppsCmpLt0_64s(
 		//	pDstVec[i] = -1;
 		//else
 		//	pDstVec[i] = 0;
+
+	#endif
 }
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 32-bit elements by setting 
@@ -46,6 +52,10 @@ void nmppsCmpLt0_32s(
 	int			nSize		// size of input buffer in 32 bit elements. nSize={2,4,..,n*2}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i]=pSrcVec[i]>>31;
@@ -53,6 +63,8 @@ void nmppsCmpLt0_32s(
 		//	pDstVec[i] = -1;
 		//else
 		//	pDstVec[i] = 0;
+
+	#endif
 }
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 16-bit elements by setting 
@@ -63,6 +75,10 @@ void nmppsCmpLt0_16s(
 	int			nSize		// size of input buffer in 16 bit elements. nSize={4,8,..,n*4}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i]=pSrcVec[i]>>15;
@@ -70,6 +86,8 @@ void nmppsCmpLt0_16s(
 		//	pDstVec[i] = -1;
 		//else
 		//	pDstVec[i] = 0;
+
+	#endif
 }
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 8-bit elements by setting 
@@ -80,6 +98,10 @@ void nmppsCmpLt0_8s(
 	int			nSize		// size of input buffer in 8 bit elements. nSize={8,16,..,n*8}
 	)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i]=pSrcVec[i]>>7;
@@ -87,5 +109,7 @@ void nmppsCmpLt0_8s(
 		//	pDstVec[i] = -1;
 		//else
 		//	pDstVec[i] = 0;
+
+	#endif
 }
 

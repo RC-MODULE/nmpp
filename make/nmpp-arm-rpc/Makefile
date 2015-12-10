@@ -94,7 +94,8 @@ SRC_DIRS         =  ../../src/nmplv/Arithmetics/pc \
 					../../src/nmplv/Stat/pc \
 					../../src/nmplv/Init/common \
 					../../src/nmplv/Init/pc \
-					../../src/nmplv/Bitwise/pc 
+					../../src/nmplv/Bitwise/pc \
+					../../src/nmplv/Select/pc
 					
 #					../../src/nmpls/FFT/FFT0256/common
 					

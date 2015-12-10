@@ -2,7 +2,11 @@
 //
 void nmppsClipArshCnv_AddC( nm32s* pSrcVec, int nClipFactor,
     int nShift, int8b nAddValue,nm8s* pDstVec, int nSize)
-{  
+{
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+  
 	int i;
 	int	ClipPos=(1<<nClipFactor)-1;	
 	int ClipNeg=-ClipPos-1;
@@ -54,4 +58,6 @@ void nmppsClipArshCnv_AddC( nm32s* pSrcVec, int nClipFactor,
 		   pop ebp;
 		}
 	}*/
+
+	#endif
 }

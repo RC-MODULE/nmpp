@@ -87,5 +87,30 @@ extern struct aura_node *n;
 	aura_buffer_release(n, retbuf); \
 	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
 
+#define RPC_HOST_PIR32(func,src,size,res,k) \
+	int ret;	\
+    struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k);	\
+	memcpy(iobuf_src->data,src,size*k);	\
+	struct aura_buffer *retbuf; \
+	ret = aura_call(n, func, &retbuf,  iobuf_src, size); \
+	if (ret != 0) \
+	    BUG(n, "Call " #func " failed!"); \
+	aura_buffer_release(n, iobuf_src); \
+	aura_buffer_release(n, retbuf); \
+	*res = aura_get_u32();\
+	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+
+#define RPC_HOST_PIR64(func,src,size,res,k) \
+	int ret;	\
+    struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k);	\
+	memcpy(iobuf_src->data,src,size*k);	\
+	struct aura_buffer *retbuf; \
+	ret = aura_call(n, func, &retbuf,  iobuf_src, size); \
+	if (ret != 0) \
+	    BUG(n, "Call " #func " failed!"); \
+	aura_buffer_release(n, iobuf_src); \
+	aura_buffer_release(n, retbuf); \
+	*res = aura_get_u64();\
+	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
 	
 #endif

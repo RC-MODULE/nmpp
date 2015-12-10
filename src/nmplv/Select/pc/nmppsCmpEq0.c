@@ -31,6 +31,10 @@ void nmppsCmpEq0_32u(
 			int		nTrueFlag				//if invFlab == -1 (0xffffffff) then result is invert.
 			)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
     nm32s* src = (nm32s*)pSrcVec;
 	nm32u* dst = (nm32u*)pDstVec;
 	int i, j, k, s, rem;
@@ -64,6 +68,8 @@ void nmppsCmpEq0_32u(
 		}
 		dst[i] ^= nTrueFlag;
 	}
+
+	#endif
 }
 //******************************************************************************
 //	Logical conversion from 16-bit buffer to 1-bit(binary) buffer by 
@@ -77,6 +83,10 @@ void nmppsCmpEq0_16u(
 			int		nTrueFlag				//if invFlab == -1 (0xffffffff) then result is invert.
 			)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
     nm16s* src = (nm16s*)pSrcVec;
 	nm32u* dst = (nm32u*)pDstVec;
 	int i, j, k, s, rem;
@@ -109,6 +119,8 @@ void nmppsCmpEq0_16u(
 		}
 		dst[i] ^= nTrueFlag;
 	}
+
+	#endif
 }
 //******************************************************************************
 //	Logical conversion from 8-bit buffer to 1-bit(binary) buffer by 
@@ -122,6 +134,10 @@ void nmppsCmpEq0_8u(
 			int		nTrueFlag				//if invFlab == -1 (0xffffffff) then result is invert.
 			)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
     nm8s* src = (nm8s*) pSrcVec;
 	nm32u* dst = (nm32u*)pDstVec;
 	int i, j, k, s, rem;
@@ -155,4 +171,6 @@ void nmppsCmpEq0_8u(
 		}
 		dst[i] ^= nTrueFlag;
 	}
+
+	#endif
 }

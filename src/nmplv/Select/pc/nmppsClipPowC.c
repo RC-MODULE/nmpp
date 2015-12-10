@@ -37,6 +37,10 @@
 // 31         
 void nmppsClipPowC_64s(nm64s*pSrcVec, int ClipEdgeIndx, nm64s*pDstVec, int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int idx;
 	long long  MaxValue,MinValue,Tmp;
 	//ASSERTE(0<ClipEdgeIndx&&ClipEdgeIndx<64);
@@ -54,6 +58,8 @@ void nmppsClipPowC_64s(nm64s*pSrcVec, int ClipEdgeIndx, nm64s*pDstVec, int nSize
 			else 
 				pDstVec[idx]=Tmp;
 	}
+
+	#endif
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -74,6 +80,10 @@ void nmppsClipPowC_64s(nm64s*pSrcVec, int ClipEdgeIndx, nm64s*pDstVec, int nSize
 // 31         
 void nmppsClipPowC_32s(nm32s*pSrcVec, int ClipEdgeIndx, nm32s*pDstVec, int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	//ASSERTE(0<ClipEdgeIndx&&ClipEdgeIndx<32);
 	int  MaxValue,MinValue,Tmp, idx;
 	MaxValue=0xFFFFFFFF>>(32-ClipEdgeIndx);
@@ -90,6 +100,8 @@ void nmppsClipPowC_32s(nm32s*pSrcVec, int ClipEdgeIndx, nm32s*pDstVec, int nSize
 			else 
 				pDstVec[idx]=Tmp;
 	}
+
+	#endif
 }
 /////////////////////////////////////////////////////////////////////
 
@@ -109,6 +121,10 @@ void nmppsClipPowC_32s(nm32s*pSrcVec, int ClipEdgeIndx, nm32s*pDstVec, int nSize
 // 16           0..0xFFFF
 void nmppsClipPowC0_32s(nm32s*pSrcVec, int ClipEdgeIndx, nm32u* pDstVec,  int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int Tmp, idx;	
 	unsigned int  Mask;
 	ASSERTE(0<ClipEdgeIndx&&ClipEdgeIndx<32);
@@ -128,6 +144,8 @@ void nmppsClipPowC0_32s(nm32s*pSrcVec, int ClipEdgeIndx, nm32u* pDstVec,  int nS
 			else
 				pDstVec[idx]=Tmp;
 	}
+
+	#endif
 }
 /////////////////////////////////////////////////////////////////////
 // ClipEdgeIndx	ClippingRange
@@ -147,6 +165,10 @@ void nmppsClipPowC0_32s(nm32s*pSrcVec, int ClipEdgeIndx, nm32u* pDstVec,  int nS
    
 void nmppsClipPowC_16s(nm16s*pSrcVec, int ClipEdgeIndx, nm16s*pDstVec, int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	short  MaxValue,MinValue,Tmp;
 	int idx;
 	ASSERTE(0<ClipEdgeIndx&&ClipEdgeIndx<16);
@@ -165,6 +187,8 @@ void nmppsClipPowC_16s(nm16s*pSrcVec, int ClipEdgeIndx, nm16s*pDstVec, int nSize
 			else 
 				pDstVec[idx]=Tmp;
 	}
+
+	#endif
 }
 /////////////////////////////////////////////////////////////////////
 // ClipEdgeIndx	ClippingRange
@@ -183,6 +207,10 @@ void nmppsClipPowC_16s(nm16s*pSrcVec, int ClipEdgeIndx, nm16s*pDstVec, int nSize
 // 15			0..32767
 void nmppsClipPowC0_16s(nm16s*pSrcVec, int ClipEdgeIndx, nm16u*pDstVec,  int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	short Tmp;
 	unsigned short  Mask;
 	int idx;
@@ -204,6 +232,8 @@ void nmppsClipPowC0_16s(nm16s*pSrcVec, int ClipEdgeIndx, nm16u*pDstVec,  int nSi
 			else
 				pDstVec[idx]=Tmp;
 	}
+
+	#endif
 }
 /////////////////////////////////////////////////////////////////////////////////
 // Clippig of 8 bit signed integer values to the range -2^ClipEdgeIndx to 2^ClipEdgeIndx-1
@@ -222,6 +252,10 @@ void nmppsClipPowC_8s(
 			)
 
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	char  MaxValue,MinValue,Tmp;
 	int idx;
 	ASSERTE(0<ClipEdgeIndx&&ClipEdgeIndx<8);
@@ -239,6 +273,8 @@ void nmppsClipPowC_8s(
 			else 
 				pDstVec[idx]=Tmp;
 	}
+
+	#endif
 }
 /////////////////////////////////////////////////////////////////////
 // ClipEdgeIndx	ClippingRange
@@ -251,6 +287,10 @@ void nmppsClipPowC_8s(
 // 7			0..127
 void nmppsClipPowC0_8s(nm8s*pSrcVec, int ClipEdgeIndx, nm8u*pDstVec,  int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	unsigned char  Mask;
 	char Tmp;
 	int idx;
@@ -271,6 +311,8 @@ void nmppsClipPowC0_8s(nm8s*pSrcVec, int ClipEdgeIndx, nm8u*pDstVec,  int nSize)
 			else
 				pDstVec[idx]=Tmp;
 	}
+
+	#endif
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -283,6 +325,10 @@ void nmppsClipCC_32s(
 			int		nSize		// nSize of vec 32 bit elements. nSize=[0,2,4,6...]
 			)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int v;
 	int i;
 	for (i=0;i<nSize;i++)
@@ -296,12 +342,18 @@ void nmppsClipCC_32s(
 			else
 				pDstVec[i]=v;
 	}
+
+	#endif
 }
 
 /////////////////////////////////////////////////////////////////////
 
 void nmppsClipArshCnv_AddC_16s8s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int i;
 	nm16s* pTmp=nmppsMalloc_16s(nSize);
     nmppsClipPowC_16s(pSrcVec, nClipFactor, pTmp, nSize);
@@ -315,4 +367,6 @@ void nmppsClipArshCnv_AddC_16s8s(nm16s* pSrcVec, int nClipFactor,int nShift, int
     }
 	
 	nmppsFree(pTmp);
+
+	#endif
 }

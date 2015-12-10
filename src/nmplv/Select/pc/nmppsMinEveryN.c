@@ -29,6 +29,10 @@ void nmppsMinNV_64s(nm64s63b** pSrcVecs, int numVecs, nm64s63b* pDstMinVec, int 
 
 void nmppsMinNV_8s(nm8s7b**  pSrcVecs, int numVecs,  nm8s7b*  pDstMinVec, int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int s1,s2,mask;
 	int i,k;
 	nm8s * pVec0=pSrcVecs[0];
@@ -54,10 +58,16 @@ void nmppsMinNV_8s(nm8s7b**  pSrcVecs, int numVecs,  nm8s7b*  pDstMinVec, int nS
 		}
 	}
 	
+
+	#endif
 }
 // test2test s1<=>s2
 void nmppsMinNV_16s(nm16s15b**  pSrcVecs, int numVecs,  nm16s15b*  pDstMinVec, int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int i,k;
 	int s1,s2,mask;
 	nm16s * pVec0=pSrcVecs[0];
@@ -83,9 +93,15 @@ void nmppsMinNV_16s(nm16s15b**  pSrcVecs, int numVecs,  nm16s15b*  pDstMinVec, i
 		}
 	}
 	
+
+	#endif
 }
 void nmppsMinNV_32s(nm32s31b**  pSrcVecs, int numVecs,  nm32s31b*  pDstMinVec, int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	int s1,s2,mask;
 	int i,k;
 	nm32s * pVec0=pSrcVecs[0];
@@ -110,9 +126,15 @@ void nmppsMinNV_32s(nm32s31b**  pSrcVecs, int numVecs,  nm32s31b*  pDstMinVec, i
 		}
 	}
 	
+
+	#endif
 }
 void nmppsMinNV_64s(nm64s63b**  pSrcVecs, int numVecs,  nm64s63b*  pDstMinVec, int nSize)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
 	nm64s s1,s2,mask;
 	int i,k;
 	nm64s * pVec0=pSrcVecs[0];
@@ -136,4 +158,6 @@ void nmppsMinNV_64s(nm64s63b**  pSrcVecs, int numVecs,  nm64s63b*  pDstMinVec, i
 		}
 	}
 	
+
+	#endif
 }

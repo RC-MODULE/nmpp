@@ -25,12 +25,18 @@ void nmppsMin_8s(
 				int			nSize,		// buffer size in 8-bit words	:nSize=[8,16,24.....]
 				int8b*		pMinValue)	// Minimum
 {
+	#ifdef RPC
+	RPC_HOST_PIR32("nmppsMin_8s",pSrcVec,nSize,pMinValue,1);
+	#else
+
 	int i;
 	*pMinValue=pSrcVec[0];
 	for(i=1; i<nSize; i++){
 		if( *pMinValue>pSrcVec[i])
 			*pMinValue= pSrcVec[i];
 	}
+
+	#endif
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of minimum value in 16-bit buffer
@@ -39,6 +45,10 @@ void nmppsMin_16s(
 				int			nSize,		// buffer size in 16-bit words	:nSize=[4,8,12....]
 				int16b*		pMinValue)	// Minimum
 {
+	#ifdef RPC
+	RPC_HOST_PIR32("nmppsMin_16s",pSrcVec,nSize,pMinValue,2);
+	#else
+
 	int i;
 	*pMinValue=pSrcVec[0];
 	for(i=1; i<nSize; i++){
@@ -46,6 +56,8 @@ void nmppsMin_16s(
 			*pMinValue= pSrcVec[i];
 	}
 
+
+	#endif
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of minimum value in 32-bit buffer
@@ -54,6 +66,10 @@ void nmppsMin_32s(
 				int			nSize,		// buffer size in 32-bit words	:nSize=[2,4,6....]
 				int*		pMinValue)	// Minimum
 {
+	#ifdef RPC
+	RPC_HOST_PIR32("nmppsMin_32s",pSrcVec,nSize,pMinValue,4);
+	#else
+
 	int i;
 	*pMinValue=pSrcVec[0];
 	for(i=1; i<nSize; i++){
@@ -62,6 +78,8 @@ void nmppsMin_32s(
 	}
 
 
+
+	#endif
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Function searches Minimum of array,

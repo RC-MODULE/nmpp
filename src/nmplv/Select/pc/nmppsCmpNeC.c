@@ -3,6 +3,10 @@
     //--------------------------------------------------------------------
 void nmppsCmpNeC_16u(nm16u15b* pSrcVec, uint15b shCmpVal, nm16s* pDstVec, int nSize, int16b shTrueFlag)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
     int i;
     for (i=0; i<nSize; i++)
     {
@@ -15,10 +19,16 @@ void nmppsCmpNeC_16u(nm16u15b* pSrcVec, uint15b shCmpVal, nm16s* pDstVec, int nS
             pDstVec[i] = 0;
         }
     }
+
+	#endif
 }
     //--------------------------------------------------------------------
 void nmppsCmpNeC_8u(nm8u7b* pSrcVec, uint7b chCmpVal, nm8s* pDstVec, int nSize, int8b chTrueFlag)
 {
+	#ifdef RPC
+	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);
+	#else
+
     
     int i;
     
@@ -33,5 +43,7 @@ void nmppsCmpNeC_8u(nm8u7b* pSrcVec, uint7b chCmpVal, nm8s* pDstVec, int nSize, 
             pDstVec[i] = 0;
         }
     }
+
+	#endif
 }
     //---------------------

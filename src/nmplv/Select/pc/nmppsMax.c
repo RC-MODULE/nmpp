@@ -17,6 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
+#include "rpc-host.h"
 #include "nmplv.h"
 
 
@@ -28,7 +29,7 @@ void nmppsMax_8s(
 				int8b*		pMaxValue)	// Maximum
 {
 	#ifdef RPC
-	RPC_HOST_PIR32("nmppsMax_8s",pSrcVec,nSize,pMaxValue,1);
+	RPC_HOST_PIR("nmppsMax_8s",pSrcVec,nSize,pMaxValue,1);
 	#else
 
 	int i;
@@ -48,7 +49,7 @@ void nmppsMax_16s(
 				int16b*		pMaxValue)	// Maximum
 {
 	#ifdef RPC
-	RPC_HOST_PIR32("nmppsMax_16s",pSrcVec,nSize,pMaxValue,2);
+	RPC_HOST_PIR("nmppsMax_16s",pSrcVec,nSize,pMaxValue,2);
 	#else
 
 	int i;
@@ -68,7 +69,7 @@ void nmppsMax_32s(
 				int*		pMaxValue)	// Maximum
 {
 	#ifdef RPC
-	RPC_HOST_PIR32("nmppsMax_32s",pSrcVec,nSize,pMaxValue,4);
+	RPC_HOST_PIR("nmppsMax_32s",pSrcVec,nSize,pMaxValue,4);
 	#else
 
 	int i;

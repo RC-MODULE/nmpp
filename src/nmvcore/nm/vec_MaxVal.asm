@@ -33,8 +33,9 @@ global vec_MaxVal:label;
 	if =0 delayed goto CompareIn32V;
 		nul;
 		nul;
-	if < delayed return with gr7--;
-		gr0=2;
+	if < delayed goto CompareLT32 with gr7--;
+		rep 1 ram=[ar0];
+		nul;
 
 //	Begin Compare by rep32
 	rep 32 data=[ar0++gr0]		with data;
@@ -77,10 +78,29 @@ global vec_MaxVal:label;
 	// Buble maximum search by rep 1
 	rep 1 data=[--ar4]		with data;
 	rep 1 data,ram =[--ar4]		with data - afifo;	.align; 
-delayed return;
+
 	rep 1					with activate afifo and afifo;
 	rep 1					with ram - afifo;
-	rep 1 [ar6]=afifo;
+	rep 1 [ar6],ram =afifo;
+	
+<CompareLT32>
+	with gr7=gr5<<27;
+	with gr7>>=27;
+	with gr7--;
+	if <  return;
+
+	rep 1 with ram;
+	<Next_Compare_rep1>									
+		nul;
+		rep 1 data,ram =[ar0++gr0]	with data - afifo;
+	if <>0 delayed goto Next_Compare_rep1 with gr7--;
+		rep 1					with activate afifo and afifo;
+		rep 1					with ram - afifo;
+
+	delayed return;			
+		rep 1 [ar6]=afifo;
+		nul;
+		nul;
 .wait;
 
 

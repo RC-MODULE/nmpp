@@ -72,7 +72,7 @@ $(TARGET).lib: $(OBJECTS)
 	-$(SILENT_LIBRARIAN)libr -c $(@) $(^) > /dev/null
 
 #$(ROOT)/lib/nmpp-nmc3-rpc.lib 
-$(TARGET).abs: $(OBJECTS) 
+$(TARGET).abs: $(OBJECTS) $(NMPP)/lib/nmpp-nmc3.lib
 	-$(SILENT_LINKER)linker  $(BUILDER_FLAGS) -o$(@) $(OBJECTS) $(LIBS) $(LIBDIR)
 
 $(TARGET).dump: $(TARGET).abs

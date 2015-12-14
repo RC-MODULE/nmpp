@@ -3,6 +3,7 @@ typedef void*(func_i_p_t)(int);
 typedef void (func_ppi_t)(void*,void*,int);
 typedef void (func_pppi_t)(void*,void*,void*,int);
 typedef void (func_pipi_t)(void*,int,void*,int);
+typedef void (func_pip_t)(void*,int,void*);
 typedef void (func_ppp_t)(void*,void*,void*);
 typedef int  (func_ppp_i_t)(void*,void*,void*);
 
@@ -85,6 +86,34 @@ void rpc_ ## func(void *in, void *out) \
 	int ret = unifunc(src0,src1,dst); \
 	aura_put_u32(ret); \
 }
+
+
+#define NMC_RPC_PIR(func) \
+void rpc_ ## func(void *in, void *out) \
+{ \
+	aura_buffer buf_src0 = aura_get_buf(); \
+	int *src0  = aura_buffer_to_ptr(buf_src0); \
+	unsigned size = aura_get_u32(); \
+	func_pip_t *unifunc=(func_pip_t*)func; \
+	int ret ; \
+	unifunc(src0,size,&ret); \
+	aura_put_u32(ret); \
+	printf("NMC: %d %d\t\n",size,ret); \
+}
+
+
+#define NMC_RPC_PIR64(func) \
+void rpc_ ## func(void *in, void *out) \
+{ \
+	aura_buffer buf_src0 = aura_get_buf(); \
+	int *src0  = aura_buffer_to_ptr(buf_src0); \
+	unsigned size = aura_get_u32(); \
+	func_ppp_t *unifunc=(func_ppp_t*)func; \
+	long ret ; \
+	unifunc(src0,size,&ret); \
+	aura_put_u64(ret); \
+}
+
 
 //--------------------------
 #ifdef RPC_nmppsAbs_64s
@@ -214,4 +243,36 @@ NMC_RPC_P(nmppsFFTFree);
 NMC_RPC_I_P(nmppsMalloc);
 #endif
 
+//--------------------------
+#ifdef RPC_nmppsMin_8s
+NMC_RPC_PIR(nmppsMin_8s);
+#endif 
 
+#ifdef RPC_nmppsMin_16s
+NMC_RPC_PIR(nmppsMin_16s);
+#endif 
+
+#ifdef RPC_nmppsMin_32s
+NMC_RPC_PIR(nmppsMin_32s);
+#endif 
+
+#ifdef RPC_nmppsMin_64s
+//NMC_RPC_PIR64(nmppsMin_64s);
+#endif 
+
+//--------------------------
+#ifdef RPC_nmppsMax_8s
+NMC_RPC_PIR(nmppsMax_8s);
+#endif 
+
+#ifdef RPC_nmppsMax_16s
+NMC_RPC_PIR(nmppsMax_16s);
+#endif 
+
+#ifdef RPC_nmppsMax_32s
+NMC_RPC_PIR(nmppsMax_32s);
+#endif 
+
+#ifdef RPC_nmppsMax_64s
+//NMC_RPC_PIR64(nmppsMax_64s);
+#endif 

@@ -17,6 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
+#include "rpc-host.h"
 #include "nmplv.h"
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of minimum value in 8-bit buffer
@@ -26,7 +27,7 @@ void nmppsMin_8s(
 				int8b*		pMinValue)	// Minimum
 {
 	#ifdef RPC
-	RPC_HOST_PIR32("nmppsMin_8s",pSrcVec,nSize,pMinValue,1);
+	RPC_HOST_PIR("nmppsMin_8s",pSrcVec,nSize,pMinValue,1);
 	#else
 
 	int i;
@@ -46,7 +47,7 @@ void nmppsMin_16s(
 				int16b*		pMinValue)	// Minimum
 {
 	#ifdef RPC
-	RPC_HOST_PIR32("nmppsMin_16s",pSrcVec,nSize,pMinValue,2);
+	RPC_HOST_PIR("nmppsMin_16s",pSrcVec,nSize,pMinValue,2);
 	#else
 
 	int i;
@@ -67,7 +68,7 @@ void nmppsMin_32s(
 				int*		pMinValue)	// Minimum
 {
 	#ifdef RPC
-	RPC_HOST_PIR32("nmppsMin_32s",pSrcVec,nSize,pMinValue,4);
+	RPC_HOST_PIR("nmppsMin_32s",pSrcVec,nSize,pMinValue,4);
 	#else
 
 	int i;

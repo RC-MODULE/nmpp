@@ -120,7 +120,7 @@ void nmppsMax_64s(nm64s63b *pSrcVec, int nSize, int64b *nMaxValue);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsMin_ nmppsMin_
+    \defgroup nmppsMin nmppsMin
     \ingroup vSelect
     \brief
         \ru ѕоиск значени€ минимального элемента вектора. 
@@ -175,8 +175,6 @@ void nmppsMax_64s(nm64s63b *pSrcVec, int nSize, int64b *nMaxValue);
     //! \{
 /**
 \restr
-	\ru ‘изический размер вектора должен быть кратен блоку из 32-х 64р. слов 
-	\en Actual size of vec should be divisible by block of 32 64bit words.
 
 		\~
     \ru ћаксимальный и минимальный элементы массива должны отличатс€ не более чем на 127. \n

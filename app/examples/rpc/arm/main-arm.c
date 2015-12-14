@@ -17,13 +17,13 @@ int main() {
 	aura_wait_status(n, AURA_STATUS_ONLINE);
 
 	
-	int src0[512];
-	int src1[16];
-	int dst[512];
+	int src0_32s[512];
+	int src1_32s[16];
+	int dst_32s[512];
 	int i=0;
 	for(i=0; i<16; i++){
-		src0[i]=i;
-		src1[i]=i-15;
+		src0_32s[i]=i-7;
+		src1_32s[i]=i-15;
 	}
 
 	signed char src0_8s[32];
@@ -32,44 +32,38 @@ int main() {
 	signed char dst_8s[32];
 	signed short dst_16s[32];
 	for(i=0; i<32; i++){
-		src0_8s[i]=41;//i-7;
-		src0_16s[i]=4036;//i-7;
-		dst_8s[i]=0;
+		src0_8s[i]=i-7;
+		src0_16s[i]=i-7;
+		src0_32s[i]=i-7;
 	}
 
-//	nmppsAdd_8s ((nm8s* )src0,(nm8s* )src1,(nm8s* )dst,16);	
-//	nmppsAdd_16s((nm16s*)src0,(nm16s*)src1,(nm16s*)dst,16);
-//	nmppsAdd_32s((nm32s*)src0,(nm32s*)src1,(nm32s*)dst,16);
-//	nmppsAdd_64s((nm64s*)src0,(nm64s*)src1,(nm64s*)dst,16);
-//	
-//	nmppsSub_8s ((nm8s* )src0,(nm8s* )src1,(nm8s* )dst,16);
-//	nmppsSub_16s((nm16s*)src0,(nm16s*)src1,(nm16s*)dst,16);
-//	nmppsSub_32s((nm32s*)src0,(nm32s*)src1,(nm32s*)dst,16);
-//	nmppsSub_64s((nm64s*)src0,(nm64s*)src1,(nm64s*)dst,16);
 	
-	
-	nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,8);
-//	nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,16);
-//	nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,24);
-//	nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,32);
-	
-	
-	
+//	nmppsAbs_8s ((nm8s* )src0_8s,(nm8s* )dst_8s,8);
 //	nmppsAbs_16s((nm16s*)dst,(nm16s*)dst,16);
 //	nmppsAbs_32s((nm32s*)dst,(nm32s*)dst,16);
 //	nmppsAbs_64s((nm64s*)dst,(nm64s*)dst,16);
 //	
-	nmppsAddC_8s ((nm8s* )src0_8s,10,(nm8s* )dst_8s,16);	
-	for(i=0; i<16; i++){
-		printf("[ARM] addC_8s: %d %d\r\n",src0_8s[i],dst_8s[i]);
-	}
-	
-	nmppsAddC_16s((nm16s*)src0_16s,100,(nm16s*)dst_16s,16);
-	
-	for(i=0; i<16; i++){
-		printf("[ARM] addC_16s: %d %d\r\n",src0_16s[i],dst_16s[i]);
-	}
+//	nmppsAddC_8s ((nm8s* )src0_8s,10,(nm8s* )dst_8s,16);	
+//	for(i=0; i<16; i++){
+//		printf("[ARM] addC_8s: %d %d\r\n",src0_8s[i],dst_8s[i]);
+//	}
+//	
+//	nmppsAddC_16s((nm16s*)src0_16s,100,(nm16s*)dst_16s,16);
+//	
+//	for(i=0; i<16; i++){
+//		printf("[ARM] addC_16s: %d %d\r\n",src0_16s[i],dst_16s[i]);
+//	}
 
+	int min;
+	nmppsMin_8s ((nm16s*)src0_8s,32, &min);printf("min=%d\r\n",min);
+	nmppsMin_16s((nm16s*)src0_16s,32,&min);printf("min=%d\r\n",min);
+	nmppsMin_32s((nm16s*)src0_32s,32,&min);printf("min=%d\r\n",min);
+	//nmppsMin_64s((nm16s*)src0_16s,16,&min);
+
+	nmppsMax_8s ((nm16s*)src0_8s,32, &min);printf("max=%d\r\n",min);
+	nmppsMax_16s((nm16s*)src0_16s,32,&min);printf("max=%d\r\n",min);
+	nmppsMax_32s((nm16s*)src0_32s,32,&min);printf("max=%d\r\n",min);
+	//nmppsMin_64s((nm16s*)src0_16s,16,&min);
 
 	
 //	nmppsAddC_16s((nm16s*)src0,1,(nm16s*)dst,16);

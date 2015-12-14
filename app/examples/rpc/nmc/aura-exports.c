@@ -178,6 +178,56 @@ AURA_METHOD(rpc_nmppsRShiftC_64s, nmppsRShiftC_64s,
 #endif 
 //-----------------------------------
 
+#ifdef RPC_nmppsMin_8s
+AURA_METHOD(rpc_nmppsMin_8s, nmppsMin_8s, 
+	    BUFFER U32,
+		U32);
+#endif 
+
+#ifdef RPC_nmppsMin_16s
+AURA_METHOD(rpc_nmppsMin_16s, nmppsMin_16s, 
+	    BUFFER U32,
+		U32);
+#endif 
+
+#ifdef RPC_nmppsMin_32s
+AURA_METHOD(rpc_nmppsMin_32s, nmppsMin_32s, 
+	    BUFFER U32,
+		U32);
+#endif 
+		
+#ifdef RPC_nmppsMin_64s
+AURA_METHOD(rpc_nmppsMin_64s, nmppsMin_64s, 
+	    BUFFER U32,
+		U64);
+#endif 
+
+
+#ifdef RPC_nmppsMax_8s
+AURA_METHOD(rpc_nmppsMax_8s, nmppsMax_8s, 
+	    BUFFER U32,
+		U32);
+#endif 
+
+#ifdef RPC_nmppsMax_16s
+AURA_METHOD(rpc_nmppsMax_16s, nmppsMax_16s, 
+	    BUFFER U32,
+		U32);
+#endif 
+
+#ifdef RPC_nmppsMax_32s
+AURA_METHOD(rpc_nmppsMax_32s, nmppsMax_32s, 
+	    BUFFER U32,
+		U32);
+#endif 
+		
+#ifdef RPC_nmppsMax_64s
+AURA_METHOD(rpc_nmppsMax_64s, nmppsMax_64s, 
+	    BUFFER U32,
+		U64);
+#endif 
+
+//----------------------------------------
 
 // int  nmppsFFT256FwdInitAlloc(Malloc32Func* allocate,  Free32Func* free, NmppsFFTSpec* spec);
 #ifdef RPC_nmppsFFT256Fwd

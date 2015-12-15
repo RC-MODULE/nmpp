@@ -27,12 +27,12 @@ LIB_DIRS         =-L"$(NMPP)/lib"
 #--------------  RELEASE/ALL config -------------------
 TMP_DIR          =Release
 TARGET           =$(TMP_DIR)\$(PROJECT).exe
-LIBS             =vs13.lib 
+LIBS             =nmpp-vs13.lib 
 RUN_COMMAND      =$(TARGET)
 #--------------  DEBUG config -------------------------
 TMP_DIRD         =Debug
 TARGETD          =$(TMP_DIRD)\$(PROJECT).exe
-LIBSD            =vs13d.lib
+LIBSD            =nmpp-vs13d.lib
 RUND_COMMAND     =$(TARGETD)
 #--------------  Visual Studio config (for vs8.mk)--
 HEADER_DIRS      =$(NMPP)/nmplv/include

@@ -1,3 +1,4 @@
+/*
 #define RPC_nmppsAbs_32s
 #define RPC_nmppsAbs_64s
 #define RPC_nmppsAbs_16s
@@ -43,5 +44,7 @@
 #define RPC_nmppsMax_16s
 #define RPC_nmppsMax_32s
 //#define RPC_nmppsMax_64s
+*/
 
+#define RPC_nmppsFFT256Fwd
 

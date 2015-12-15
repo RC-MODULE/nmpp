@@ -55,14 +55,14 @@ int main() {
 //	}
 
 	int min;
-	nmppsMin_8s ((nm16s*)src0_8s,32, &min);printf("min=%d\r\n",min);
-	nmppsMin_16s((nm16s*)src0_16s,32,&min);printf("min=%d\r\n",min);
-	nmppsMin_32s((nm16s*)src0_32s,32,&min);printf("min=%d\r\n",min);
-	//nmppsMin_64s((nm16s*)src0_16s,16,&min);
-
-	nmppsMax_8s ((nm16s*)src0_8s,32, &min);printf("max=%d\r\n",min);
-	nmppsMax_16s((nm16s*)src0_16s,32,&min);printf("max=%d\r\n",min);
-	nmppsMax_32s((nm16s*)src0_32s,32,&min);printf("max=%d\r\n",min);
+//	nmppsMin_8s ((nm16s*)src0_8s,32, &min);printf("min=%d\r\n",min);
+//	nmppsMin_16s((nm16s*)src0_16s,32,&min);printf("min=%d\r\n",min);
+//	nmppsMin_32s((nm16s*)src0_32s,32,&min);printf("min=%d\r\n",min);
+//	//nmppsMin_64s((nm16s*)src0_16s,16,&min);
+//
+//	nmppsMax_8s ((nm16s*)src0_8s,32, &min);printf("max=%d\r\n",min);
+//	nmppsMax_16s((nm16s*)src0_16s,32,&min);printf("max=%d\r\n",min);
+//	nmppsMax_32s((nm16s*)src0_32s,32,&min);printf("max=%d\r\n",min);
 	//nmppsMin_64s((nm16s*)src0_16s,16,&min);
 
 	
@@ -85,16 +85,10 @@ int main() {
 //	}
 //	
 	//=====================
-	/*
-	NmppsFFTSpec spec;
-	fseq64 route;
-	nmppsFFT256FwdOptimize((nm32sc*)src0,(nm32sc*)dst, &route);
-	
-	nmppsMallocSetRouteMode(route);
-	nmppsFFT256FwdInitAlloc(nmppsMalloc32, nmppsFree, &spec);
-	nmppsFFT256Fwd((nm32sc*)src0,(nm32sc*)dst,&spec);
-	nmppsFFTFree(&spec);
-	*/
+	int handleFwd256;
+	nmppsFFT256FwdInitAllocH(src0_32s, dst_32s, &handleFwd256);
+	nmppsFFT256FwdH((nm32sc*)src0_32s,(nm32sc*)dst_32s,handleFwd256);
+	nmppsFFTFreeH(handleFwd256);
 	//====================
 	
 	printf("===========\n");

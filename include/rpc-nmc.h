@@ -1,6 +1,8 @@
 typedef void (func_p_t)(void*);
 typedef void*(func_i_p_t)(int);
 typedef void (func_ppi_t)(void*,void*,int);
+typedef int (func_ppi_i_t)(void*,void*,int);
+typedef int (func_ppr_i_t)(void*,void*,int*);
 typedef void (func_pppi_t)(void*,void*,void*,int);
 typedef void (func_pipi_t)(void*,int,void*,int);
 typedef void (func_pip_t)(void*,int,void*);
@@ -16,6 +18,14 @@ void rpc_ ## func(void *in, void *out) \
 	aura_put_u32((int)p); \
 }
 
+#define NMC_RPC_I(func) \
+void rpc_ ## func(void *in, void *out) \
+{ \
+	unsigned i = aura_get_u32(); \
+	func_i_p_t *unifunc=(func_i_p_t*)func; \
+	unifunc(i); \
+}
+
 
 #define NMC_RPC_PPI(func) \
 void rpc_ ## func(void *in, void *out) \
@@ -28,6 +38,20 @@ void rpc_ ## func(void *in, void *out) \
 	func_ppi_t *unifunc=(func_ppi_t*)func; \
 	unifunc(src,dst,size); \
 }
+
+#define NMC_RPC_PPI_I(func) \
+void rpc_ ## func(void *in, void *out) \
+{ \
+	aura_buffer buf_src = aura_get_buf(); \
+	aura_buffer buf_dst = aura_get_buf(); \
+	int *src = aura_buffer_to_ptr(buf_src); \
+	int *dst = aura_buffer_to_ptr(buf_dst);	 \
+	unsigned size = aura_get_u32(); \
+	func_ppi_i_t *unifunc=(func_ppi_i_t*)func; \
+	int ret=unifunc(src,dst,size); \
+	aura_put_u32(ret); \
+}
+
 	
 	
 #define NMC_RPC_PPPI(func) \
@@ -99,6 +123,20 @@ void rpc_ ## func(void *in, void *out) \
 	unifunc(src0,size,&ret); \
 	aura_put_u32(ret); \
 	printf("NMC: %d %d\t\n",size,ret); \
+}
+
+#define NMC_RPC_PPR_I(func) \
+void rpc_ ## func(void *in, void *out) \
+{ \
+	int handle; \
+	aura_buffer buf_src  = aura_get_buf(); \
+	aura_buffer buf_dst  = aura_get_buf(); \
+	int *src   = aura_buffer_to_ptr(buf_src); \
+	int *dst   = aura_buffer_to_ptr(buf_dst);  \
+	func_ppr_i_t *unifunc=(func_ppr_i_t*)func; \
+	int ret = unifunc(src,dst,&handle); \
+	aura_put_u32(handle); \
+	aura_put_u32(ret); \
 }
 
 
@@ -233,10 +271,9 @@ NMC_RPC_PIPI(nmppsRShiftC_64s);
 
 
 #ifdef RPC_nmppsFFT256Fwd
-NMC_RPC_PPP(nmppsFFT256FwdOptimize);
-NMC_RPC_PPP_I(nmppsFFT256FwdInitAlloc);
-NMC_RPC_PPP(nmppsFFT256Fwd);
-NMC_RPC_P(nmppsFFTFree);
+NMC_RPC_PPR_I(nmppsFFT256FwdInitAllocH);
+NMC_RPC_PPI(nmppsFFT256FwdH);
+NMC_RPC_I(nmppsFFTFreeH);
 #endif 
 
 #ifdef RPC_nmppsMalloc

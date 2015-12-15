@@ -1,23 +1,44 @@
-#include "rpc-host.h"
+#include "fft.h"
 #include "time.h"
 #include "malloc32.h"
-#include "fft.h"
+
 #include "fft2.h"
 
 
-//extern "C" {
 
+extern "C" {
+#include "rpc-host.h"	
 
 	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
 	{
+		#ifdef __NM__
 		FFT_Fwd256(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
+		#endif
 	}
 
 	void nmppsFFT256FwdH(nm32sc* src, nm32sc* dst, int specHandle)
 	{
-		#ifdef RPC
-		//RPC_HOST_PPI("nmppsFFT256Fwd",src,dst,specHandle,4);
-		#endif
+	#ifdef RPC
+		int ret;	
+		int size=256;
+		int k=8;
+		struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k);	
+		struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*k);	
+		memcpy(iobuf_src->data,src,size*k);	
+		struct aura_buffer *retbuf; 
+		ret = aura_call(n, "nmppsFFT256FwdH", &retbuf,  iobuf_src, iobuf_dst, specHandle); 
+		if (ret != 0) 
+			BUG(n, "Call nmppsFFT256FwdH failed!"); 
+		memcpy(dst,iobuf_dst->data,size*k);
+		aura_buffer_release(n, iobuf_dst); 
+		aura_buffer_release(n, iobuf_src); 
+		aura_buffer_release(n, retbuf); 
+		slog(0, SLOG_INFO, "ARM: Call nmppsFFT256FwdH -ok"); 
+	#else 
+		NmppsFFTSpec* spec= (NmppsFFTSpec*) specHandle;
+		FFT_Fwd256(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
+		//nmppsFFT256Fwd(src,dst,(NmppsFFTSpec*) specHandle);
+	#endif
 	
 	}
 
@@ -47,7 +68,9 @@
 	{
 #ifdef RPC
 		
-		//RPC_HOST_I("NmppsFFTSpec",specHandle);	
+		RPC_HOST_I("nmppsFFTFreeH",specHandle);	
+#else 
+		nmppsFFTFree((NmppsFFTSpec*) specHandle );
 #endif
 	}	
 
@@ -106,26 +129,27 @@
 
 	}
 
-	int nmppsFFT256FwdInitAllocH(void* src, void* dst, int specHandle){
+	int nmppsFFT256FwdInitAllocH(void* src, void* dst, int* specHandle){
 		int ret;		
-		/*
 		#ifdef RPC
 		struct aura_buffer *iobuf_src = aura_buffer_request(n, 256*8);	
 		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 256*8);	
 		memcpy(iobuf_src->data,src,256*8);	
 		memcpy(iobuf_dst->data,dst,256*8);	
 		struct aura_buffer *retbuf; 
-		ret =  aura_call(n, "nmppsFFT256FwdInitAlloc", &retbuf,  iobuf_src, iobuf_dst, specHandle); 
+		ret =  aura_call(n, "nmppsFFT256FwdInitAllocH", &retbuf,  iobuf_src, iobuf_dst); 
 		if (ret != 0) 
 			BUG(n, "Call nmppsFFT256FwdInitAllocH failed!"); 
-		*ret = aura_buffer_get_u32(retbuf);
+		*specHandle = aura_buffer_get_u32(retbuf);
+		ret         = aura_buffer_get_u32(retbuf);
 		aura_buffer_release(n, iobuf_src); 
 		aura_buffer_release(n, iobuf_dst); 
 		aura_buffer_release(n, retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT256FwdInitAllocH -ok"); 
 
+		#else 
+		nmppsFFT256FwdInitAlloc(src, dst, (NmppsFFTSpec*) specHandle );
 		#endif
-		*/
 		return ret;
 	}
 
@@ -136,5 +160,5 @@
 
 
 
-//};
+};
 

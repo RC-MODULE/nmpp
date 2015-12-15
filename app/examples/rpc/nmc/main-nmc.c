@@ -4,6 +4,7 @@
 #include <easynmc/easynmc.h>
 #include <easynmc/aura.h>
 #include <nmpp.h>
+#include <fft2.h>
 
 
 #include "aura-exports.h"
@@ -42,4 +43,6 @@ int main(int argc, char **argv)
 
 	g_aura_eof.id=1;
 }
+
+
 

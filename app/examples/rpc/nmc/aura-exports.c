@@ -232,16 +232,21 @@ AURA_METHOD(rpc_nmppsMax_64s, nmppsMax_64s,
 // int  nmppsFFT256FwdInitAlloc(Malloc32Func* allocate,  Free32Func* free, NmppsFFTSpec* spec);
 #ifdef RPC_nmppsFFT256Fwd
 
-AURA_METHOD(rpc_nmppsFFT256FwdOptimize, nmppsFFT256FwdInitAlloc, 
-		BUFFER BUFFER BUFFER,
-	    U32);
+//AURA_METHOD(rpc_nmppsFFT256FwdOptimize, nmppsFFT256FwdInitAlloc, 
+//		BUFFER BUFFER BUFFER,
+//	    U32);
+
+AURA_METHOD(nmppsFFT256FwdInitAllocH, nmppsFFT256FwdInitAllocH, 
+		BUFFER BUFFER,
+	    U32 U32);
 		
-AURA_METHOD(rpc_nmppsFFT256Fwd, nmppsFFT256Fwd, 
-	    BUFFER BUFFER BUFFER,
+		
+AURA_METHOD(rpc_nmppsFFT256FwdH, nmppsFFT256FwdH, 
+	    BUFFER BUFFER U32,
 	    "");
 		
-AURA_METHOD(rpc_nmppsFFTFree, nmppsFFTFree, 
-	    BUFFER,
+AURA_METHOD(rpc_nmppsFFTFreeH, nmppsFFTFreeH, 
+	    U32,
 	    "");
 		
 #endif 

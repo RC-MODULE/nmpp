@@ -86,7 +86,8 @@ PROJECT          = libnmpp-arm-rpc
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a
 #INC_DIRS         = -I../../include -I../../include/nmpls
-INC_DIRS         = -I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include
+INC_DIRS         = -I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include 
+#-I../../include/nmpls
 SRC_DIRS         =  ../../src/nmplv/Arithmetics/pc \
 					../../src/nmplv/Support/common \
 					../../src/nmplv/Support/pc \
@@ -95,9 +96,9 @@ SRC_DIRS         =  ../../src/nmplv/Arithmetics/pc \
 					../../src/nmplv/Init/common \
 					../../src/nmplv/Init/pc \
 					../../src/nmplv/Bitwise/pc \
-					../../src/nmplv/Select/pc
+					../../src/nmplv/Select/pc \
+					../../src/nmpls/FFT/FFT0256/common 
 					
-#					../../src/nmpls/FFT/FFT0256/common
 					
 TMP_DIR          = Release
 #------------------------------------------------

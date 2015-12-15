@@ -128,7 +128,7 @@ void rpc_ ## func(void *in, void *out) \
 #define NMC_RPC_PPR_I(func) \
 void rpc_ ## func(void *in, void *out) \
 { \
-	int handle; \
+	int handle=123; \
 	aura_buffer buf_src  = aura_get_buf(); \
 	aura_buffer buf_dst  = aura_get_buf(); \
 	int *src   = aura_buffer_to_ptr(buf_src); \
@@ -139,6 +139,7 @@ void rpc_ ## func(void *in, void *out) \
 	aura_put_u32(ret); \
 }
 
+	
 
 #define NMC_RPC_PIR64(func) \
 void rpc_ ## func(void *in, void *out) \
@@ -271,6 +272,7 @@ NMC_RPC_PIPI(nmppsRShiftC_64s);
 
 
 #ifdef RPC_nmppsFFT256Fwd
+
 NMC_RPC_PPR_I(nmppsFFT256FwdInitAllocH);
 NMC_RPC_PPI(nmppsFFT256FwdH);
 NMC_RPC_I(nmppsFFTFreeH);
@@ -313,3 +315,4 @@ NMC_RPC_PIR(nmppsMax_32s);
 #ifdef RPC_nmppsMax_64s
 //NMC_RPC_PIR64(nmppsMax_64s);
 #endif 
+

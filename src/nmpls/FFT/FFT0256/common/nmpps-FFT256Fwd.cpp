@@ -27,8 +27,10 @@ extern "C" {
 		memcpy(iobuf_src->data,src,size*k);	
 		struct aura_buffer *retbuf; 
 		ret = aura_call(n, "nmppsFFT256FwdH", &retbuf,  iobuf_src, iobuf_dst, specHandle); 
-		if (ret != 0) 
+		if (ret != 0) {
+			slog(0, SLOG_ERROR, "call failed, reason: %d\n", ret);
 			BUG(n, "Call nmppsFFT256FwdH failed!"); 
+		}
 		memcpy(dst,iobuf_dst->data,size*k);
 		aura_buffer_release(n, iobuf_dst); 
 		aura_buffer_release(n, iobuf_src); 
@@ -71,6 +73,7 @@ extern "C" {
 		RPC_HOST_I("nmppsFFTFreeH",specHandle);	
 #else 
 		nmppsFFTFree((NmppsFFTSpec*) specHandle );
+		free((NmppsFFTSpec*) specHandle);
 #endif
 	}	
 
@@ -130,12 +133,12 @@ extern "C" {
 	}
 
 	int nmppsFFT256FwdInitAllocH(void* src, void* dst, int* specHandle){
-		int ret;		
+		int ret=-1;		
 		#ifdef RPC
 		struct aura_buffer *iobuf_src = aura_buffer_request(n, 256*8);	
 		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 256*8);	
-		memcpy(iobuf_src->data,src,256*8);	
-		memcpy(iobuf_dst->data,dst,256*8);	
+		//memcpy(iobuf_src->data,src,256*8);	
+		//memcpy(iobuf_dst->data,dst,256*8);	
 		struct aura_buffer *retbuf; 
 		ret =  aura_call(n, "nmppsFFT256FwdInitAllocH", &retbuf,  iobuf_src, iobuf_dst); 
 		if (ret != 0) 
@@ -148,17 +151,12 @@ extern "C" {
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT256FwdInitAllocH -ok"); 
 
 		#else 
-		nmppsFFT256FwdInitAlloc(src, dst, (NmppsFFTSpec*) specHandle );
+		*specHandle = (int) malloc(sizeof(NmppsFFTSpec));
+		if (*specHandle==0) return -1;
+		nmppsFFT256FwdInitAlloc(src, dst, (NmppsFFTSpec*) *specHandle );
 		#endif
 		return ret;
 	}
-
-
-
-
-
-
-
 
 };
 

@@ -39,7 +39,7 @@ extern struct aura_node *n;
 	struct aura_buffer *retbuf; \
 	ret = aura_call(n, func, &retbuf, val); \
 	if (ret != 0) \
-	    BUG(n, "Call func failed!"); \
+	    BUG(n, "Call" #func "failed!"); \
 	aura_buffer_release(n, retbuf); \
 	slog(0, SLOG_INFO, "ARM: Call func ok"); 
 	

@@ -236,7 +236,7 @@ AURA_METHOD(rpc_nmppsMax_64s, nmppsMax_64s,
 //		BUFFER BUFFER BUFFER,
 //	    U32);
 
-AURA_METHOD(nmppsFFT256FwdInitAllocH, nmppsFFT256FwdInitAllocH, 
+AURA_METHOD(rpc_nmppsFFT256FwdInitAllocH, nmppsFFT256FwdInitAllocH, 
 		BUFFER BUFFER,
 	    U32 U32);
 		

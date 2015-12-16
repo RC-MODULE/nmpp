@@ -56,10 +56,9 @@ int main() {
 
 	int min;
 	nmppsMin_8s ((nm16s*)src0_8s,32, &min);printf("min=%d\r\n",min);
-	printf("Min %d\r\n", min);
-//	nmppsMin_16s((nm16s*)src0_16s,32,&min);printf("min=%d\r\n",min);
-//	nmppsMin_32s((nm16s*)src0_32s,32,&min);printf("min=%d\r\n",min);
-//	//nmppsMin_64s((nm16s*)src0_16s,16,&min);
+	nmppsMin_16s((nm16s*)src0_16s,32,&min);printf("min=%d\r\n",min);
+	nmppsMin_32s((nm16s*)src0_32s,32,&min);printf("min=%d\r\n",min);
+	//nmppsMin_64s((nm16s*)src0_16s,16,&min);
 //
 //	nmppsMax_8s ((nm16s*)src0_8s,32, &min);printf("max=%d\r\n",min);
 //	nmppsMax_16s((nm16s*)src0_16s,32,&min);printf("max=%d\r\n",min);
@@ -86,7 +85,7 @@ int main() {
 //	}
 //	
 	//=====================
-	int handleFwd256;
+	
 	for(i=0; i<512; i++){
 		src0_32s[i]=1;
 		dst_32s[i]=0;
@@ -100,15 +99,27 @@ int main() {
 	src0_32s[5]=1000;
 	src0_32s[6]=1000;
 	src0_32s[7]=1000;
-	ret=nmppsFFT256FwdInitAllocH(src0_32s, dst_32s, &handleFwd256);
-	printf("****** ret=%d Handle=%x\r\n",ret ,handleFwd256);
-	nmppsFFT256FwdH((nm32sc*)src0_32s,(nm32sc*)dst_32s,handleFwd256);
-	nmppsFFTFreeH(handleFwd256);
+	NmppsFFTSpec* specFwd256;
+	ret=nmppsFFT256FwdInitAlloc(&specFwd256, src0_32s, dst_32s, 0,0);
+	printf("****** ret=%d Handle=%x\r\n",ret ,specFwd256);
+	nmppsFFT256Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd256);
+	nmppsFFTFree(specFwd256);
 	
 	for(i=0; i<64; i++){
-		printf("[fft:] %d %d\r\n",dst_32s[i*2] ,dst_32s[i*2+1]);
+		printf("[fwd:] %d %d\r\n",dst_32s[i*2] ,dst_32s[i*2+1]);
 	}
 
+	NmppsFFTSpec *specFFTInv256;
+	ret=nmppsFFT256InvInitAlloc(&specFFTInv256, src0_32s, dst_32s, 0,0);
+	printf("****** ret=%d specFFTInv256=%x\r\n",ret ,(int)specFFTInv256);
+	nmppsFFT256Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv256);
+	nmppsFFTFree(specFFTInv256);
+	
+	for(i=0; i<64; i++){
+		printf("[inv:] %d %d\r\n",src0_32s[i*2] ,src0_32s[i*2+1]);
+	}
+
+	
 	//====================
 	
 	printf("===========\n");

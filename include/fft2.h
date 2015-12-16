@@ -22,8 +22,8 @@
 
 
 
-#ifndef _SFFT_H_INCLUDED_
-#define _SFFT_H_INCLUDED_
+#ifndef _SFFT2_H_INCLUDED_
+#define _SFFT2_H_INCLUDED_
 
 
 #include "nmtype.h"
@@ -134,20 +134,27 @@
 	
 	
 
-	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
-	void nmppsFFT256FwdH(nm32sc* src, nm32sc* dst, int specHandle);
-	int  nmppsFFT256FwdInitCustomAlloc(Malloc32Func* allocate, Free32Func* free,  NmppsFFTSpec* spec);
-	void nmppsFFTFree(NmppsFFTSpec* spec );
-	void nmppsFFTFreeH(int specHandle );
-	void nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder) ;
-	int  nmppsFFT256FwdInitAlloc(void* src, void* dst, NmppsFFTSpec* spec );
-	int  nmppsFFT256FwdInitAllocH(void* src, void* dst, int* specHandle);
+#ifdef __NM__
+#define sizeof32(t) sizeof(t)
+#else
+#define sizeof32(t) (sizeof(t)*4)
+#endif
 
+
+
+	void nmppsFFTFree(NmppsFFTSpec* spec );
+	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+	void nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder) ;
+	int  nmppsFFT256FwdInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int optimizeAllocation,  int settings);
+	int  nmppsFFT256FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings);
+	
+	
 
 	void nmppsFFT256Inv(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
-	int  nmppsFFT256InvInitAllocM(NmppsFFTSpec** spec, Malloc32Func* allocate, Free32Func* free );
-	int  nmppsFFT256InvInitAlloc (NmppsFFTSpec** spec, void* src, void* dst);
 	void nmppsFFT256InvOptimize  (void* src, void* dst, fseq64* allocOrder) ;
+	int  nmppsFFT256InvInitAlloc (NmppsFFTSpec** spec, void* src, void* dst, int optimizeAllocation,  int settings);
+	int  nmppsFFT256InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free,  int settings);
+	
 	
 
 

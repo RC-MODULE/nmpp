@@ -258,15 +258,6 @@ void  FFT_Fwd256(
 	
 
 
-	typedef struct {
-		
-		int shift[4];
-		int round[4];
-		void* fftTable[2];
-		void* buffer[4];
-		Free32Func* free;
-		//NmppsAllocation allocOrder;
-	} NmppsFFTSpec;
 
 	
 

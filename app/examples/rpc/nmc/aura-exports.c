@@ -236,22 +236,33 @@ AURA_METHOD(rpc_nmppsMax_64s, nmppsMax_64s,
 //		BUFFER BUFFER BUFFER,
 //	    U32);
 
-AURA_METHOD(rpc_nmppsFFT256FwdInitAllocH, nmppsFFT256FwdInitAllocH, 
-		BUFFER BUFFER,
+AURA_METHOD(rpc_nmppsFFT256FwdInitAlloc, nmppsFFT256FwdInitAlloc, 
+		BUFFER BUFFER U32,
 	    U32 U32);
+	
 		
-		
-AURA_METHOD(rpc_nmppsFFT256FwdH, nmppsFFT256FwdH, 
+AURA_METHOD(rpc_nmppsFFT256Fwd, nmppsFFT256Fwd, 
 	    BUFFER BUFFER U32,
 	    "");
 		
-AURA_METHOD(rpc_nmppsFFTFreeH, nmppsFFTFreeH, 
+AURA_METHOD(rpc_nmppsFFTFree, nmppsFFTFree, 
 	    U32,
 	    "");
+
+#endif 		
+
+
+#ifdef RPC_nmppsFFT256Inv
+
+AURA_METHOD(rpc_nmppsFFT256InvInitAlloc, nmppsFFT256InvInitAlloc, 
+		BUFFER BUFFER U32,
+	    U32 U32);
+
+AURA_METHOD(rpc_nmppsFFT256Inv, nmppsFFT256Inv, 
+	    BUFFER BUFFER U32,
+	    "");
+
 		
 #endif 
-
-
-
 
 struct aura_object g_aura_eof;

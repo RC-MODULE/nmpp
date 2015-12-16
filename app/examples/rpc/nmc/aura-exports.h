@@ -36,9 +36,10 @@
 #define RPC_nmppsRShiftC_64s
 */
 #define RPC_nmppsMin_8s
-/*
+
 #define RPC_nmppsMin_16s
 #define RPC_nmppsMin_32s
+/*
 //#define RPC_nmppsMin_64s
 
 #define RPC_nmppsMax_8s
@@ -48,4 +49,5 @@
 */
 
 #define RPC_nmppsFFT256Fwd
+#define RPC_nmppsFFT256Inv
 

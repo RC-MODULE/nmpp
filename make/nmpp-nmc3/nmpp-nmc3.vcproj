@@ -540,6 +540,10 @@
 				>
 			</File>
 			<File
+				RelativePath="../../src/nmpls/FFT/FFT0256/common/nmpps-FFT256Inv.cpp"
+				>
+			</File>
+			<File
 				RelativePath="../../src/nmpls/FFT/FFT0256/nm/FFT_Fwd256_16x16.asm"
 				>
 			</File>

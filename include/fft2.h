@@ -145,14 +145,14 @@
 	void nmppsFFTFree(NmppsFFTSpec* spec );
 	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
 	void nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder) ;
-	int  nmppsFFT256FwdInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int optimizeAllocation,  int settings);
+	int  nmppsFFT256FwdInitAlloc( NmppsFFTSpec** spec, void* src, void* dst,  int settings);
 	int  nmppsFFT256FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings);
 	
 	
 
 	void nmppsFFT256Inv(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
 	void nmppsFFT256InvOptimize  (void* src, void* dst, fseq64* allocOrder) ;
-	int  nmppsFFT256InvInitAlloc (NmppsFFTSpec** spec, void* src, void* dst, int optimizeAllocation,  int settings);
+	int  nmppsFFT256InvInitAlloc (NmppsFFTSpec** spec, void* src, void* dst,  int settings);
 	int  nmppsFFT256InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free,  int settings);
 	
 	

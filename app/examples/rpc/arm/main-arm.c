@@ -100,7 +100,7 @@ int main() {
 	src0_32s[6]=1000;
 	src0_32s[7]=1000;
 	NmppsFFTSpec* specFwd256;
-	ret=nmppsFFT256FwdInitAlloc(&specFwd256, src0_32s, dst_32s, 0,0);
+	ret=nmppsFFT256FwdInitAlloc(&specFwd256, src0_32s, dst_32s, 0);
 	printf("****** ret=%d Handle=%x\r\n",ret ,specFwd256);
 	nmppsFFT256Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd256);
 	nmppsFFTFree(specFwd256);
@@ -110,7 +110,7 @@ int main() {
 	}
 
 	NmppsFFTSpec *specFFTInv256;
-	ret=nmppsFFT256InvInitAlloc(&specFFTInv256, src0_32s, dst_32s, 0,0);
+	ret=nmppsFFT256InvInitAlloc(&specFFTInv256, src0_32s, dst_32s, 0);
 	printf("****** ret=%d specFFTInv256=%x\r\n",ret ,(int)specFFTInv256);
 	nmppsFFT256Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv256);
 	nmppsFFTFree(specFFTInv256);

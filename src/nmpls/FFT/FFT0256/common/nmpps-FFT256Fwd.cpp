@@ -71,7 +71,7 @@ extern "C" {
 				nmppsMallocSetRouteMode(route);
 
 				NmppsFFTSpec* spec;
-				nmppsFFT256FwdInitAlloc(&spec,src,dst, 0 , 0 );
+				nmppsFFT256FwdInitAlloc(&spec,src,dst, 0 );
 
 				if (nmppsMallocSpec.status==0){
 					t0=clock();
@@ -110,8 +110,9 @@ extern "C" {
 	}
 
 
-	int nmppsFFT256FwdInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int optimizeAllocation, int settings)
+	int nmppsFFT256FwdInitAlloc( NmppsFFTSpec** spec, void* src, void* dst,  int settings)
 	{
+		int optimizeAllocation=settings&1;
 #ifdef RPC
 		struct aura_buffer *iobuf_src = aura_buffer_request(n, 256*8);	
 		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 256*8);	

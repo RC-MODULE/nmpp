@@ -282,7 +282,7 @@ void rpc_nmppsFFT256FwdInitAlloc(void *in, void *out)
 	int opt = aura_get_u32(); 
 	int *src   = aura_buffer_to_ptr(buf_src); 
 	int *dst   = aura_buffer_to_ptr(buf_dst);  
-	int ret = nmppsFFT256FwdInitAlloc(&spec,src,dst,opt,0);
+	int ret = nmppsFFT256FwdInitAlloc(&spec,src,dst,opt);
 	aura_put_u32((int)spec); 
 	aura_put_u32(ret); 
 }
@@ -302,7 +302,7 @@ void rpc_nmppsFFT256InvInitAlloc(void *in, void *out)
 	int opt = aura_get_u32(); 
 	int *src   = aura_buffer_to_ptr(buf_src); 
 	int *dst   = aura_buffer_to_ptr(buf_dst);  
-	int ret = nmppsFFT256InvInitAlloc(&spec,src,dst,opt,0);
+	int ret = nmppsFFT256InvInitAlloc(&spec,src,dst,opt);
 	aura_put_u32((int)spec); 
 	aura_put_u32(ret); 
 }

@@ -144,6 +144,11 @@
 	int  nmppsFFT256FwdInitAllocH(void* src, void* dst, int* specHandle);
 
 
+	void nmppsFFT256Inv(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+	int  nmppsFFT256InvInitAllocM(NmppsFFTSpec** spec, Malloc32Func* allocate, Free32Func* free );
+	int  nmppsFFT256InvInitAlloc (NmppsFFTSpec** spec, void* src, void* dst);
+	void nmppsFFT256InvOptimize  (void* src, void* dst, fseq64* allocOrder) ;
+	
 
 
 #ifdef __cplusplus

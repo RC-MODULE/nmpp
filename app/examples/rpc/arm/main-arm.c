@@ -101,12 +101,12 @@ int main() {
 	src0_32s[6]=1000;
 	src0_32s[7]=1000;
 	ret=nmppsFFT256FwdInitAllocH(src0_32s, dst_32s, &handleFwd256);
-	printf("****** ret=%d Handle=%x\r\n",ret,handleFwd256);
+	printf("****** ret=%d Handle=%x\r\n",ret ,handleFwd256);
 	nmppsFFT256FwdH((nm32sc*)src0_32s,(nm32sc*)dst_32s,handleFwd256);
 	nmppsFFTFreeH(handleFwd256);
 	
 	for(i=0; i<64; i++){
-		printf("[fft:] %d\r\n",dst_32s[i]);
+		printf("[fft:] %d %d\r\n",dst_32s[i*2] ,dst_32s[i*2+1]);
 	}
 
 	//====================

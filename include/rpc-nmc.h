@@ -273,7 +273,19 @@ NMC_RPC_PIPI(nmppsRShiftC_64s);
 
 #ifdef RPC_nmppsFFT256Fwd
 
-NMC_RPC_PPR_I(nmppsFFT256FwdInitAllocH);
+//NMC_RPC_PPR_I(nmppsFFT256FwdInitAllocH);
+void rpc_nmppsFFT256FwdInitAllocH(void *in, void *out) 
+{
+	int handle=123;
+	aura_buffer buf_src  = aura_get_buf(); 
+	aura_buffer buf_dst  = aura_get_buf(); 
+	int *src   = aura_buffer_to_ptr(buf_src); 
+	int *dst   = aura_buffer_to_ptr(buf_dst);  
+	int ret = nmppsFFT256FwdInitAllocH(src,dst,&handle);
+	aura_put_u32(handle); 
+	aura_put_u32(ret); 
+}
+	
 NMC_RPC_PPI(nmppsFFT256FwdH);
 NMC_RPC_I(nmppsFFTFreeH);
 #endif 

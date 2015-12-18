@@ -38,7 +38,7 @@ extern "C" {
 
 	int nmppsFFT256InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings)
 	{
-		NmppsFFTSpec* spec=(NmppsFFTSpec*)allocate(sizeof32(NmppsFFTSpec));
+		NmppsFFTSpec* spec=(NmppsFFTSpec*)malloc(sizeof(NmppsFFTSpec));
 		*specFFT = spec;
 		if (spec==0) return -1;
 		spec->buffer[0]=allocate(256*2*3);
@@ -58,7 +58,39 @@ extern "C" {
 	}
 
 
-	void nmppsFFT256InvOptimize(void* src, void* dst, fseq64* allocOrder) 
+
+
+	int nmppsFFT256InvInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int settings)
+	{
+#ifdef RPC
+		struct aura_buffer *iobuf_src = aura_buffer_request(n, 256*8);	
+		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 256*8);	
+		struct aura_buffer *retbuf; 
+		int ret =  aura_call(n, "nmppsFFT256InvInitAlloc", &retbuf,  iobuf_src, iobuf_dst, settings); 
+		if (ret != 0) {
+			slog(0, SLOG_ERROR, "call failed, reason: %d\n", ret);
+			BUG(n, "Call nmppsFFT256InvInitAlloc failed!"); 
+		}
+		*spec = (NmppsFFTSpec*) aura_buffer_get_u32(retbuf);
+		ret   = aura_buffer_get_u32(retbuf);
+		aura_buffer_release(n, iobuf_src); 
+		aura_buffer_release(n, iobuf_dst); 
+		aura_buffer_release(n, retbuf); 
+		slog(0, SLOG_INFO, "ARM: Call nmppsFFT256InvInitAlloc -ok"); 
+		return ret;
+#else
+		int ret;
+		if (settings&NMPP_OPTIMIZE_DISABLE){}
+		else {
+			fseq64 allocRoute;
+			ret=nmppsFFT256InvOptimize(src, dst, &allocRoute);
+			nmppsMallocSetRouteMode(allocRoute); 
+		}
+		ret = nmppsFFT256InvInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
+		return ret;
+	#endif
+	}
+	int nmppsFFT256InvOptimize(void* src, void* dst, fseq64* allocOrder) 
 	{
 		unsigned heapIndx0;
 		unsigned heapIndx1;
@@ -70,12 +102,10 @@ extern "C" {
 			for(heapIndx1=0; heapIndx1<4; heapIndx1++){
 
 
-				route =0xF000|(heapIndx1<<8)|(heapIndx0<<4)|(0); 
+				route =0xF00|(heapIndx1<<4)|(heapIndx0); 
 				nmppsMallocSetRouteMode(route);
 				NmppsFFTSpec* spec;
-				nmppsFFT256InvInitAlloc(&spec, src, dst, 0 );
-
-				if (nmppsMallocSpec.status==0){
+				if (nmppsFFT256InvInitAllocCustom(&spec, nmppsMalloc32, nmppsFree, NMPP_OPTIMIZE_DISABLE )==NMPP_OK){
 					t0=clock();
 					nmppsFFT256Inv((nm32sc*)src, (nm32sc*)dst, spec);
 					t1=clock();
@@ -89,34 +119,8 @@ extern "C" {
 				nmppsFFTFree(spec);
 			}
 		}
-	}
-
-	int nmppsFFT256InvInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int settings)
-	{
-		int optimizeAllocation=settings&1;
-	#ifdef RPC
-		struct aura_buffer *iobuf_src = aura_buffer_request(n, 256*8);	
-		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 256*8);	
-		struct aura_buffer *retbuf; 
-		int ret =  aura_call(n, "nmppsFFT256InvInitAlloc", &retbuf,  iobuf_src, iobuf_dst, optimizeAllocation); 
-		if (ret != 0) 
-			BUG(n, "Call nmppsFFT256FwdInitAllocH failed!"); 
-		*spec = (NmppsFFTSpec*) aura_buffer_get_u32(retbuf);
-		ret   = aura_buffer_get_u32(retbuf);
-		aura_buffer_release(n, iobuf_src); 
-		aura_buffer_release(n, iobuf_dst); 
-		aura_buffer_release(n, retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT256InvInitAlloc -ok"); 
-		return ret;
-	#else
-		if (optimizeAllocation){
-			fseq64 allocRoute;
-			nmppsFFT256FwdOptimize(src, dst, &allocRoute);
-			nmppsMallocSetRouteMode(allocRoute);
-		}
-		int ret = nmppsFFT256InvInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
-		return ret;
-	#endif
+		if (bestTime<0x1000000)	return NMPP_OK;
+		else					return NMPP_ERROR;
 	}
 
 };

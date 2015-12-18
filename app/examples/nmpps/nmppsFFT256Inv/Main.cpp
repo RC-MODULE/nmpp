@@ -24,7 +24,7 @@ int main()
 	//fseq64 route=0xF10;
 	//nmppsFFT256FwdOptimize(src,dst,&route);
 	//nmppsMallocSetRouteMode(route);
-	if (nmppsFFT256InvInitAlloc(&spec, src,dst, 1))
+	if (nmppsFFT256InvInitAlloc(&spec, src,dst, 0))
 		return -1;
 		
 	t0=clock();

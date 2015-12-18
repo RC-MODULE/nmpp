@@ -227,15 +227,13 @@ AURA_METHOD(rpc_nmppsMax_64s, nmppsMax_64s,
 		U64);
 #endif 
 
-//----------------------------------------
+AURA_METHOD(rpc_nmppsFFTFree, nmppsFFTFree, 
+	    U32,
+	    "");
 
-// int  nmppsFFT256FwdInitAlloc(Malloc32Func* allocate,  Free32Func* free, NmppsFFTSpec* spec);
+//--256--------------------------------------
+
 #ifdef RPC_nmppsFFT256Fwd
-
-//AURA_METHOD(rpc_nmppsFFT256FwdOptimize, nmppsFFT256FwdInitAlloc, 
-//		BUFFER BUFFER BUFFER,
-//	    U32);
-
 AURA_METHOD(rpc_nmppsFFT256FwdInitAlloc, nmppsFFT256FwdInitAlloc, 
 		BUFFER BUFFER U32,
 	    U32 U32);
@@ -244,16 +242,10 @@ AURA_METHOD(rpc_nmppsFFT256FwdInitAlloc, nmppsFFT256FwdInitAlloc,
 AURA_METHOD(rpc_nmppsFFT256Fwd, nmppsFFT256Fwd, 
 	    BUFFER BUFFER U32,
 	    "");
-		
-AURA_METHOD(rpc_nmppsFFTFree, nmppsFFTFree, 
-	    U32,
-	    "");
-
 #endif 		
 
 
 #ifdef RPC_nmppsFFT256Inv
-
 AURA_METHOD(rpc_nmppsFFT256InvInitAlloc, nmppsFFT256InvInitAlloc, 
 		BUFFER BUFFER U32,
 	    U32 U32);
@@ -261,8 +253,73 @@ AURA_METHOD(rpc_nmppsFFT256InvInitAlloc, nmppsFFT256InvInitAlloc,
 AURA_METHOD(rpc_nmppsFFT256Inv, nmppsFFT256Inv, 
 	    BUFFER BUFFER U32,
 	    "");
-
-		
 #endif 
+//--512--------------------------------------
+#ifdef RPC_nmppsFFT512Fwd
+AURA_METHOD(rpc_nmppsFFT512FwdInitAlloc, nmppsFFT512FwdInitAlloc, 
+		BUFFER BUFFER U32,
+	    U32 U32);
+	
+		
+AURA_METHOD(rpc_nmppsFFT512Fwd, nmppsFFT512Fwd, 
+	    BUFFER BUFFER U32,
+	    "");
+#endif 		
+
+
+#ifdef RPC_nmppsFFT512Inv
+AURA_METHOD(rpc_nmppsFFT512InvInitAlloc, nmppsFFT512InvInitAlloc, 
+		BUFFER BUFFER U32,
+	    U32 U32);
+
+AURA_METHOD(rpc_nmppsFFT512Inv, nmppsFFT512Inv, 
+	    BUFFER BUFFER U32,
+	    "");
+#endif 
+//--1024--------------------------------------
+#ifdef RPC_nmppsFFT1024Fwd
+AURA_METHOD(rpc_nmppsFFT1024FwdInitAlloc, nmppsFFT1024FwdInitAlloc, 
+		BUFFER BUFFER U32,
+	    U32 U32);
+	
+		
+AURA_METHOD(rpc_nmppsFFT1024Fwd, nmppsFFT1024Fwd, 
+	    BUFFER BUFFER U32,
+	    "");
+#endif 		
+
+
+#ifdef RPC_nmppsFFT1024Inv
+AURA_METHOD(rpc_nmppsFFT1024InvInitAlloc, nmppsFFT1024InvInitAlloc, 
+		BUFFER BUFFER U32,
+	    U32 U32);
+
+AURA_METHOD(rpc_nmppsFFT1024Inv, nmppsFFT1024Inv, 
+	    BUFFER BUFFER U32,
+	    "");
+#endif 
+//--2048--------------------------------------
+#ifdef RPC_nmppsFFT2048Fwd
+AURA_METHOD(rpc_nmppsFFT2048FwdInitAlloc, nmppsFFT2048FwdInitAlloc, 
+		BUFFER BUFFER U32,
+	    U32 U32);
+	
+		
+AURA_METHOD(rpc_nmppsFFT2048Fwd, nmppsFFT2048Fwd, 
+	    BUFFER BUFFER U32,
+	    "");
+#endif 		
+
+
+#ifdef RPC_nmppsFFT2048Inv
+AURA_METHOD(rpc_nmppsFFT2048InvInitAlloc, nmppsFFT2048InvInitAlloc, 
+		BUFFER BUFFER U32,
+	    U32 U32);
+
+AURA_METHOD(rpc_nmppsFFT2048Inv, nmppsFFT2048Inv, 
+	    BUFFER BUFFER U32,
+	    "");
+#endif 
+
 
 struct aura_object g_aura_eof;

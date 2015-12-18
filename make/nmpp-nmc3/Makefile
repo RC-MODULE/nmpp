@@ -106,8 +106,11 @@ SRC_DIRS         = 	 \
 					../../src/nmpls/FFT/FFT0256/nm \
 					../../src/nmpls/FFT/FFT0256/common \
 					../../src/nmpls/FFT/FFT0512/nm \
+					../../src/nmpls/FFT/FFT0512/common \
 					../../src/nmpls/FFT/FFT1024/nm \
+					../../src/nmpls/FFT/FFT1024/common \
 					../../src/nmpls/FFT/FFT2048/nm \
+					../../src/nmpls/FFT/FFT2048/common \
 					../../src/nmpls/FFT/FFT4096/nm \
 					../../src/nmpls/FFT/FFT8192/nm \
 					../../src/nmpls/FFT/IFFT0256/nm \

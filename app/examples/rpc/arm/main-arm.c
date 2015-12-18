@@ -17,9 +17,9 @@ int main() {
 	aura_wait_status(n, AURA_STATUS_ONLINE);
 
 	
-	int src0_32s[512];
+	int src0_32s[2*2048];
 	int src1_32s[16];
-	int dst_32s[512];
+	int dst_32s[2*2048];
 	int i=0;
 	for(i=0; i<16; i++){
 		src0_32s[i]=i-7;
@@ -86,7 +86,7 @@ int main() {
 //	
 	//=====================
 	
-	for(i=0; i<512; i++){
+	for(i=0; i<2048*2; i++){
 		src0_32s[i]=1;
 		dst_32s[i]=0;
 	}
@@ -99,8 +99,9 @@ int main() {
 	src0_32s[5]=1000;
 	src0_32s[6]=1000;
 	src0_32s[7]=1000;
+	/*
 	NmppsFFTSpec* specFwd256;
-	ret=nmppsFFT256FwdInitAlloc(&specFwd256, src0_32s, dst_32s, 0);
+	ret=nmppsFFT256FwdInitAlloc(&specFwd256, src0_32s, dst_32s, NMPP_OPTIMIZE_ALLOCATION_OFF);
 	printf("****** ret=%d Handle=%x\r\n",ret ,specFwd256);
 	nmppsFFT256Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd256);
 	nmppsFFTFree(specFwd256);
@@ -110,7 +111,7 @@ int main() {
 	}
 
 	NmppsFFTSpec *specFFTInv256;
-	ret=nmppsFFT256InvInitAlloc(&specFFTInv256, src0_32s, dst_32s, 0);
+	ret=nmppsFFT256InvInitAlloc(&specFFTInv256, src0_32s, dst_32s, NMPP_OPTIMIZE_ALLOCATION_OFF);
 	printf("****** ret=%d specFFTInv256=%x\r\n",ret ,(int)specFFTInv256);
 	nmppsFFT256Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv256);
 	nmppsFFTFree(specFFTInv256);
@@ -118,8 +119,73 @@ int main() {
 	for(i=0; i<64; i++){
 		printf("[inv:] %d %d\r\n",src0_32s[i*2] ,src0_32s[i*2+1]);
 	}
-
+	*/
+	//==================================================
+	/*
+	NmppsFFTSpec* specFwd512;
+	ret=nmppsFFT512FwdInitAlloc(&specFwd512, src0_32s, dst_32s, 0);
+	printf("****** ret=%d Handle=%x\r\n",ret ,specFwd512);
+	nmppsFFT512Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd512);
+	nmppsFFTFree(specFwd512);
 	
+	for(i=0; i<64; i++){
+		printf("[fwd:] %d %d\r\n",dst_32s[i*2] ,dst_32s[i*2+1]);
+	}
+
+	NmppsFFTSpec *specFFTInv512;
+	ret=nmppsFFT512InvInitAlloc(&specFFTInv512, src0_32s, dst_32s, NMPP_OPTIMIZE_DISABLE);
+	printf("****** ret=%d specFFTInv512=%x\r\n",ret ,(int)specFFTInv512);
+	nmppsFFT512Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv512);
+	nmppsFFTFree(specFFTInv512);
+	
+	for(i=0; i<64; i++){
+		printf("[inv:] %d %d\r\n",src0_32s[i*2] ,src0_32s[i*2+1]);
+	}
+	*/
+	//==================================================
+
+	NmppsFFTSpec* specFwd1024;
+	ret=nmppsFFT1024FwdInitAlloc(&specFwd1024, src0_32s, dst_32s, 0);
+	printf("****** ret=%d Handle=%x\r\n",ret ,specFwd1024);
+	nmppsFFT1024Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd1024);
+	nmppsFFTFree(specFwd1024);
+	
+	for(i=0; i<64; i++){
+		printf("[fwd:] %d %d\r\n",dst_32s[i*2] ,dst_32s[i*2+1]);
+	}
+
+	NmppsFFTSpec *specFFTInv1024;
+	ret=nmppsFFT1024InvInitAlloc(&specFFTInv1024, src0_32s, dst_32s, NMPP_OPTIMIZE_DISABLE);
+	printf("****** ret=%d specFFTInv1024=%x\r\n",ret ,(int)specFFTInv1024);
+	nmppsFFT1024Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv1024);
+	nmppsFFTFree(specFFTInv1024);
+	
+	for(i=0; i<64; i++){
+		printf("[inv:] %d %d\r\n",src0_32s[i*2] ,src0_32s[i*2+1]);
+	}
+
+	//==================================================
+	/*
+	NmppsFFTSpec* specFwd2048;
+	ret=nmppsFFT2048FwdInitAlloc(&specFwd2048, src0_32s, dst_32s, 0);
+	printf("****** ret=%d Handle=%x\r\n",ret ,specFwd2048);
+	nmppsFFT2048Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd2048);
+	nmppsFFTFree(specFwd2048);
+	
+	for(i=0; i<64; i++){
+		printf("[fwd:] %d %d\r\n",dst_32s[i*2] ,dst_32s[i*2+1]);
+	}
+
+	NmppsFFTSpec *specFFTInv2048;
+	ret=nmppsFFT2048InvInitAlloc(&specFFTInv2048, src0_32s, dst_32s, NMPP_OPTIMIZE_DISABLE);
+	printf("****** ret=%d specFFTInv2048=%x\r\n",ret ,(int)specFFTInv2048);
+	nmppsFFT2048Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv2048);
+	nmppsFFTFree(specFFTInv2048);
+	
+	for(i=0; i<64; i++){
+		printf("[inv:] %d %d\r\n",src0_32s[i*2] ,src0_32s[i*2+1]);
+	}
+*/
 	//====================
 	
 	printf("===========\n");

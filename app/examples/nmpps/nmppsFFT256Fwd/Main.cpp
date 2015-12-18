@@ -33,10 +33,10 @@ int main()
 	//fseq64 route=0xF10;
 	//nmppsFFT256FwdOptimize(src,dst,&route);
 	//nmppsMallocSetRouteMode(route);
-	nmppsFFT256InvInitAlloc(&specFFT256Inv,src,dst,0);
-	t0=clock();
-	nmppsFFT256Inv(dst,src,specFFT256Inv);
-	t1=clock();
+	//nmppsFFT256InvInitAlloc(&specFFT256Inv,src,dst,0);
+	//t0=clock();
+	//nmppsFFT256Inv(dst,src,specFFT256Inv);
+	//t1=clock();
 
 	
 	//return route;
@@ -45,6 +45,6 @@ int main()
 	nmppsFree(src);
 	nmppsFree(dst);
 	nmppsFFTFree(specFFT256Fwd);
-	return crc;
+	//return crc;
 	return t1-t0;
 }

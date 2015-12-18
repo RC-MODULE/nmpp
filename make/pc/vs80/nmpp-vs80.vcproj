@@ -125,10 +125,12 @@
  			<File RelativePath="..\..\..\src\nmpls\Correlation\pc\SIG_XCorr.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\pcFFT256.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\W256Tbl.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-FFT256Fwd.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256fwd.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-FFT256Inv.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\pc\pcFFT512.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\pc\W512tbl.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Fwd.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Inv.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT1024\pc\pcFFT1024.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT1024\pc\W1024Tbl.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT2048\pc\pcFFT2048.cpp" > </File> 

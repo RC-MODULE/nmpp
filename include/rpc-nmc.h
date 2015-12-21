@@ -271,9 +271,9 @@ NMC_RPC_PIPI(nmppsRShiftC_64s);
 #endif 
 
 
+NMC_RPC_I(nmppsFFTFree);
 #ifdef RPC_nmppsFFT256Fwd
 
-//NMC_RPC_PPR_I(nmppsFFT256FwdInitAllocH);
 void rpc_nmppsFFT256FwdInitAlloc(void *in, void *out) 
 {
 	NmppsFFTSpec* spec;
@@ -288,7 +288,6 @@ void rpc_nmppsFFT256FwdInitAlloc(void *in, void *out)
 }
 	
 NMC_RPC_PPI(nmppsFFT256Fwd);
-NMC_RPC_I(nmppsFFTFree);
 #endif 
 
 
@@ -331,7 +330,6 @@ void rpc_nmppsFFT512FwdInitAlloc(void *in, void *out)
 }
 	
 NMC_RPC_PPI(nmppsFFT512Fwd);
-NMC_RPC_I(nmppsFFTFree);
 #endif 
 
 
@@ -372,7 +370,6 @@ void rpc_nmppsFFT1024FwdInitAlloc(void *in, void *out)
 }
 	
 NMC_RPC_PPI(nmppsFFT1024Fwd);
-NMC_RPC_I(nmppsFFTFree);
 #endif 
 
 
@@ -411,7 +408,6 @@ void rpc_nmppsFFT2048FwdInitAlloc(void *in, void *out)
 }
 	
 NMC_RPC_PPI(nmppsFFT2048Fwd);
-NMC_RPC_I(nmppsFFTFree);
 #endif 
 
 

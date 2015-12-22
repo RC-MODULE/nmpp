@@ -279,7 +279,7 @@ void nmppsAddC_64s(
 	#else
 
 	int i;
-	for (i=0; i<nSize; i++)
+	for (i=0; i<size; i++)
 		dst[i] = src[i] + val;
 
 	#endif

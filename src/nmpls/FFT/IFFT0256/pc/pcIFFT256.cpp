@@ -225,7 +225,9 @@ int IFFT256(
 				Summ+=IW256((16*p+k)*n)*S[16*k+n];
 			Y[16*p+k]=Summ;
 		}
-	Y>>=8;
+	//Y>>=8;
+	Y/=256;
+	
 	return 0;
 }
 

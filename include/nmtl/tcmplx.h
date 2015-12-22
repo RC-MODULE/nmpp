@@ -216,7 +216,7 @@ template <class T> cmplx<T> cmplx<T>::operator- (void) const
 //------- Z/=Y -------------------------------------------------------------
 template <class T> cmplx<T>& cmplx<T>::operator/=(const cmplx<T>& y)
 {
-	_ASSERTE((y.re!=(T)0)||(y.im!=(T)0));
+	//_ASSERTE((y.re!=(T)0)||(y.im!=(T)0));
 	//cmplx<T> Conjg;
 	//Conjg=y.conjg();
 	if (y.im==(T)0)

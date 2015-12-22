@@ -289,7 +289,7 @@ public:
 //#endif
 
 	// inplace multiplication by constant value 
-	mtr<T>& operator*= (const T& val)
+	mtr<T>& operator*= (const T val)
 	{
 		for(int y=0;y<m_height;y++)
 			getvec(y)*=val;

@@ -86,14 +86,32 @@ extern struct aura_node *n;
 	memcpy(iobuf_src->data,src,size*k);	\
 	struct aura_buffer *retbuf; \
 	ret = aura_call(n, func, &retbuf,  iobuf_src, val, iobuf_dst, size); \
-	if (ret != 0) \
-	    BUG(n, "Call " #func " failed!"); \
+	if (ret != 0) {\
+		printf ("bug = %d\r\n",ret);\
+		BUG(n, "Call " #func " failed!"); }\
 	memcpy(dst,iobuf_dst->data,size*k); \
 	aura_buffer_release(n, iobuf_dst); \
 	aura_buffer_release(n, iobuf_src); \
 	aura_buffer_release(n, retbuf); \
 	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
 
+#define RPC_HOST_PPLI(func,src,val,dst,size,k) \
+	int ret;	\
+    struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k);	\
+	struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*k);	\
+	memcpy(iobuf_src->data,src,size*k);	\
+	struct aura_buffer *retbuf; \
+	ret = aura_call(n, func, &retbuf,  iobuf_src, iobuf_dst, val, size); \
+	if (ret != 0) {\
+		printf ("bug = %d\r\n",ret);\
+		BUG(n, "Call " #func " failed!"); }\
+	memcpy(dst,iobuf_dst->data,size*k); \
+	aura_buffer_release(n, iobuf_dst); \
+	aura_buffer_release(n, iobuf_src); \
+	aura_buffer_release(n, retbuf); \
+	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+
+	
 #define RPC_HOST_PIR(func,src,size,res,k) \
 	int ret;	\
 	slog(0, SLOG_INFO, "ARM: Enter Call " #func " -ok"); \

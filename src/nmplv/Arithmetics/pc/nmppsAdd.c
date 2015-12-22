@@ -267,6 +267,26 @@ void nmppsAddC_32s(
 	#endif
 }
 
+void nmppsAddC_64s(
+		nm64s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
+		int64b			nVal,				// increment		:Increment=[-128...+127]
+		nm64s*			pDstVec,			// output buffer	:long Global[VecSize/8]
+		int				nSize			// size of input buffer in 8 bit elements. nSize=[8,16,32...]
+		)
+{
+	#ifdef RPC
+	//RPC_HOST_PIPI("nmppsAddC_64s",pSrcVec,nVal,pDstVec,nSize,8);
+	int n=(int)nVal;
+	RPC_HOST_PIPI("nmppsAddC_64s",pSrcVec,n,pDstVec,nSize,8);
+	#else
+
+	int i;
+	for (i=0; i<nSize; i++)
+		pDstVec[i] = pSrcVec[i] + nVal;
+
+	#endif
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of two int vectors with addition of constant
@@ -313,7 +333,7 @@ void nmppsAddC_32s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Increment of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]+Increment
-void nmppsAddC_64s(
+void nmppsAddC_p64s(
 		nm64s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		nm64s*			nVal,				// increment		:Increment=[-128...+127]
 		nm64s*			pDstVec,			// output buffer	:long Global[VecSize/8]
@@ -321,7 +341,7 @@ void nmppsAddC_64s(
 		)
 {
 	#ifdef RPC
-	RPC_HOST_PIPI(nmppsAddC_64s,pSrcVec,nVal,pDstVec,nSize,16);
+	RPC_HOST_PIPI("nmppsAddC_p64s",pSrcVec,nVal,pDstVec,nSize,16);
 	#else
 
 	int i;
@@ -330,5 +350,6 @@ void nmppsAddC_64s(
 
 	#endif
 }
+
 
 

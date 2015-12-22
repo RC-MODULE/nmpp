@@ -6,7 +6,7 @@
 struct aura_node *n;
 int main() {
 
-	slog_init(NULL, 0);
+	slog_init(NULL, 30);
 
 	int ret; 
 	n = aura_open("nmc", "./rpc-demo.abs");
@@ -19,7 +19,9 @@ int main() {
 	
 	int src0_32s[2*2048];
 	int src1_32s[16];
+	int src0_64s[16];
 	int dst_32s[2*2048];
+	int dst_64s[16];
 	int i=0;
 	for(i=0; i<16; i++){
 		src0_32s[i]=i-7;
@@ -68,7 +70,7 @@ int main() {
 	
 //	nmppsAddC_16s((nm16s*)src0,1,(nm16s*)dst,16);
 //	nmppsAddC_32s((nm32s*)src0,1,(nm32s*)dst,16);
-//	//nmppsAddC_64s((nm64s*)src0,1,(nm64s*)dst,16);
+	nmppsAddC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,32);
 //	
 //	nmppsSubC_8s ((nm8s* )src0,1,(nm8s* )dst,16);
 //	nmppsSubC_16s((nm16s*)src0,1,(nm16s*)dst,16);

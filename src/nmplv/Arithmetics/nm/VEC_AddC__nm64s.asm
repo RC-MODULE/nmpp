@@ -26,13 +26,13 @@ begin ".text_nmplv"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void nmppsAddC (nm64s *pSrcVec, int64b *pnVal, nm64s *pDstVec, int nSize) 
+//! \fn void _nmppsAddC_p64s (nm64s *pSrcVec, int64b *pnVal, nm64s *pDstVec, int nSize) 
 //!
 //! \perfinclude _nmppsAddC_64s.html
 
-global _nmppsAddC_64s:label;
+global _nmppsAddC_p64s:label;
 
-<_nmppsAddC_64s>
+<_nmppsAddC_p64s>
 .branch;
 	ar5 = sp - 2;
 

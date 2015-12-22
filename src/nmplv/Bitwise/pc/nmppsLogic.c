@@ -56,6 +56,8 @@ int i;
 
 	#endif
 }
+
+
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = Src1[i] & Src2[i];
 void nmppsAndNotV_64u(nm64u*	Src1,		// Input Buffer
@@ -76,25 +78,8 @@ int i;
 	#endif
 }
 
-///////////////////////////////////////////////////////////////////////////////
-// pDstVec[i] = pSrcVec[i] & Mask 
-void nmppsAndC_64u(nm64u*	Src1,		// Input Buffer
-	nm64u*	Mask,		// Input mask
-	nm64u*	pDstVec,		// Output Buffer
-	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
-	)
-{
-	#ifdef RPC
-	//RPC_HOST_PPI("nmppsAndC_64u",pSrcVec,pDstVec,nSize,8);
-	#else
 
 
-int i;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = Src1[i] & Mask[0];
-
-	#endif
-}
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = Src1[i] | Src2[i];
 void nmppsOr_64u(nm64u*	Src1,		// Input Buffer

@@ -203,6 +203,7 @@
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsSum.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsWadd2V.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\Quant.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsAndC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsAndNV.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsd4V.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsLogic.c" > </File> 

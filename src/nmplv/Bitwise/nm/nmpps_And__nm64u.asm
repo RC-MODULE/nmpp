@@ -24,13 +24,13 @@ begin ".text_nmplv"
 
 ///////////////////////////////////////////////////////////
 
-//! \fn void nmppsAnd_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+//! \fn void nmppsAnd_p64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
 //!
-//! \perfinclude _nmppsAnd_64u.html
+//! \perfinclude _nmppsAnd_p64u.html
 
 
-global _nmppsAnd_64u:label;
-<_nmppsAnd_64u>
+global _nmppsAnd_p64u:label;
+<_nmppsAnd_p64u>
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0,gr0	with gr7++;
 	push ar1,gr1	with gr7++;

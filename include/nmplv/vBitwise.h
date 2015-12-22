@@ -87,7 +87,7 @@ void nmppsNot_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsAndC_ nmppsAndC_
+    \defgroup nmppsAndC nmppsAndC
     \ingroup vBitwise
     \brief
         \ru Функция логического "И" между вектором и константой. 
@@ -141,7 +141,8 @@ void nmppsNot_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsAndC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
+void nmppsAndC_p64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
+void nmppsAndC_64u(nm64u* pSrcVec, nm64u nVal, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************

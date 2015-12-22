@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{42D1F973-A2F8-4044-B1EC-0ECD841FA764}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>vs13</RootNamespace>
+    <RootNamespace>nmpp_vs13</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -54,7 +54,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
 	 <Lib>
-      <OutputFile>../../../lib/vs13d.lib</OutputFile>
+      <OutputFile>../../../lib/nmpp-vs13d.lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -75,7 +75,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
 	<Lib>
-      <OutputFile>../../../lib/vs13.lib</OutputFile>
+      <OutputFile>../../../lib/nmpp-vs13.lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -134,8 +134,12 @@
  	<ClCompile Include="../../../src/nmpls/Correlation/pc/SIG_XCorr.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT0256/pc/pcFFT256.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT0256/pc/W256Tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0256/common/nmpps-fft256fwd.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0256/common/nmpps-FFT256Inv.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT0512/pc/pcFFT512.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT0512/pc/W512tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0512/common/nmpps-FFT512Fwd.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0512/common/nmpps-FFT512Inv.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT1024/pc/pcFFT1024.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT1024/pc/W1024Tbl.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT2048/pc/pcFFT2048.cpp" /> 
@@ -172,14 +176,13 @@
  	<ClCompile Include="../../../src/nmplv/Arithmetics/common/VEC_DivC__nm64sc_nm64sc.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Init/common/Rand.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/nmtl_spec/pc/tcmplx_spec.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_LastNonZeroPos.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_LastZeroPos.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MaxPos_nm16s.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MaxPos_nm32s.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MaxPos_nm8s.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MinPos_nm16s.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MinPos_nm32s.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Select/common/VEC_MinPos_nm8s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsClip_Arsh_Cnv_AddC_Ext.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsClipPowArshCnvAddC.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinPos1024.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinPos16.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinPos25.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinPos256.cpp" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinPos9.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/32Ini.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/VEC_SadV16.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_Addr.cpp" /> 
@@ -209,6 +212,7 @@
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/nmppsSum.c" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/nmppsWadd2V.c" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/Quant.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsAndC.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsAndNV.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsd4V.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsLogic.c" /> 
@@ -223,7 +227,32 @@
  	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsRand.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsSet.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsSwap.c" /> 
- 	<ClCompile Include="../../../src/nmplv/Stat/common/nmppsCrc.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/nmppsLastNonZeroIndx.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/nmppsLastZeroIndx.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/nmppsMaxIndx_nm16s.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/nmppsMaxIndx_nm32s.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/nmppsMaxIndx_nm8s.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/nmppsMinIndx_nm16s.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/nmppsMinIndx_nm32s.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/nmppsMinIndx_nm8s.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Stat/common/nmpps_Crc.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsClipPowC.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsClipPowCRShiftCnv_AddC.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpEq0.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpEqC.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpEqV.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpLt0.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpMinMaxEvery.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpNeC.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpNeV.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsFirstNonZeroIndx.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsFirstZeroIndx.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMax.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMaxEvery.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMin.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinCmpLtV.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinEvery.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinEveryN.c" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/CRC32_Table.c" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/VEC_Crc.c" /> 
  	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_Malloc64s.c" /> 

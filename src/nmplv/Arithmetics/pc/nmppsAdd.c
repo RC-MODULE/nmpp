@@ -268,21 +268,19 @@ void nmppsAddC_32s(
 }
 
 void nmppsAddC_64s(
-		nm64s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
-		int64b			nVal,				// increment		:Increment=[-128...+127]
-		nm64s*			pDstVec,			// output buffer	:long Global[VecSize/8]
-		int				nSize			// size of input buffer in 8 bit elements. nSize=[8,16,32...]
+		nm64s*			src,				// input buffer		:long Local [VecSize/8]
+		int64b			val,				// increment		:Increment=[-128...+127]
+		nm64s*			dst,				// output buffer	:long Global[VecSize/8]
+		int				size				// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
 	#ifdef RPC
-	//RPC_HOST_PIPI("nmppsAddC_64s",pSrcVec,nVal,pDstVec,nSize,8);
-	int n=(int)nVal;
-	RPC_HOST_PIPI("nmppsAddC_64s",pSrcVec,n,pDstVec,nSize,8);
+	RPC_HOST_PIPI("nmppsAddC_64s",src,val,dst,size,8);
 	#else
 
 	int i;
 	for (i=0; i<nSize; i++)
-		pDstVec[i] = pSrcVec[i] + nVal;
+		dst[i] = src[i] + val;
 
 	#endif
 }
@@ -329,7 +327,7 @@ void nmppsAddC_32s(
 	#endif
 }
 
-*/
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // Increment of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]+Increment
@@ -350,6 +348,6 @@ void nmppsAddC_p64s(
 
 	#endif
 }
-
+*/
 
 

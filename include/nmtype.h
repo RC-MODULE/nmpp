@@ -30,25 +30,12 @@
 #define __int64 long long
 #endif
 // if new compiler
-#ifdef __NM6403__
-	typedef long INT64;
-	typedef unsigned long UINT64;
+#ifdef __NM__
+	//typedef long __int64;
 #endif
+	typedef long long  INT64;
+	typedef unsigned long long UINT64;
 
-// if old compiler
-#ifdef NM6403 
-	#ifndef __NM6403__
-		typedef long __int64;
-		typedef long INT64;
-		typedef unsigned long UINT64;
-	#endif
-#endif
-
-// if win32 compiler
-#ifndef NM6403 
-		typedef __int64 INT64;
-		typedef unsigned __int64 UINT64;
-#endif
 
 
 
@@ -329,7 +316,7 @@ struct int30in32x2{
 	\~	\f$[-2^{63},\ldots,^+2^{63}-1]\f$
 	*/
 //typedef __int64 nm64s;
-typedef INT64 nm64s;
+typedef long long nm64s;
 
 
 //-----------------------------------------------------------------------------
@@ -497,7 +484,7 @@ typedef unsigned int nm32u31b;
 		\~
 	\~	\f$[0,\ldots,2^{64}-1]\f$.
 	*/
-typedef UINT64 nm64u;
+typedef unsigned long long nm64u;
 //=============================================================================
 
 

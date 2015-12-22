@@ -19,9 +19,9 @@ int main() {
 	
 	int src0_32s[2*2048];
 	int src1_32s[16];
-	int src0_64s[16];
+	long long src0_64s[32];
 	int dst_32s[2*2048];
-	int dst_64s[16];
+	long long dst_64s[16];
 	int i=0;
 	for(i=0; i<16; i++){
 		src0_32s[i]=i-7;
@@ -37,6 +37,7 @@ int main() {
 		src0_8s[i]=i-7;
 		src0_16s[i]=i-7;
 		src0_32s[i]=i-7;
+		src0_64s[i]=i-7;
 	}
 
 	
@@ -57,9 +58,9 @@ int main() {
 //	}
 
 	int min;
-	nmppsMin_8s ((nm16s*)src0_8s,32, &min);printf("min=%d\r\n",min);
-	nmppsMin_16s((nm16s*)src0_16s,32,&min);printf("min=%d\r\n",min);
-	nmppsMin_32s((nm16s*)src0_32s,32,&min);printf("min=%d\r\n",min);
+	//nmppsMin_8s ((nm16s*)src0_8s,32, &min);printf("min=%d\r\n",min);
+	//nmppsMin_16s((nm16s*)src0_16s,32,&min);printf("min=%d\r\n",min);
+	//nmppsMin_32s((nm16s*)src0_32s,32,&min);printf("min=%d\r\n",min);
 	//nmppsMin_64s((nm16s*)src0_16s,16,&min);
 //
 //	nmppsMax_8s ((nm16s*)src0_8s,32, &min);printf("max=%d\r\n",min);
@@ -69,8 +70,10 @@ int main() {
 
 	
 //	nmppsAddC_16s((nm16s*)src0,1,(nm16s*)dst,16);
-//	nmppsAddC_32s((nm32s*)src0,1,(nm32s*)dst,16);
-	nmppsAddC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,32);
+//	nmppsAddC_32s((nm32s*)src0_32s,1,(nm32s*)dst_32s,16);
+//	nmppsAddC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,32);
+	nmppsSubC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,32);
+//	nmppsSubC_64s((nm64s*)dst_64s,1,(nm64s*)src0_64s,32);
 //	
 //	nmppsSubC_8s ((nm8s* )src0,1,(nm8s* )dst,16);
 //	nmppsSubC_16s((nm16s*)src0,1,(nm16s*)dst,16);
@@ -82,10 +85,10 @@ int main() {
 //    nmppsRShiftC_32s((nm32s*)src0,1,(nm32s*)dst,16);
 //	nmppsRShiftC_64s((nm64s*)src0,1,(nm64s*)dst,16);
 //	
-//	for(i=0; i<16; i++){
-//		printf("%d\r\n",dst[i]);
-//	}
-//	
+	for(i=0; i<16; i++){
+		printf("%d %d\r\n", (int)src0_64s[i],(int)dst_64s[i]);
+	}
+	
 	//=====================
 	
 	for(i=0; i<2048*2; i++){
@@ -143,7 +146,7 @@ int main() {
 	for(i=0; i<64; i++){
 		printf("[inv:] %d %d\r\n",src0_32s[i*2] ,src0_32s[i*2+1]);
 	}
-	*/
+	
 	//==================================================
 
 	NmppsFFTSpec* specFwd1024;
@@ -165,7 +168,7 @@ int main() {
 	for(i=0; i<64; i++){
 		printf("[inv:] %d %d\r\n",src0_32s[i*2] ,src0_32s[i*2+1]);
 	}
-
+*/
 	//==================================================
 	/*
 	NmppsFFTSpec* specFwd2048;

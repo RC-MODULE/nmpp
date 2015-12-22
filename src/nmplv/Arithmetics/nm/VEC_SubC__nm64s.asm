@@ -25,7 +25,7 @@ begin ".text_nmplv"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void nmppsSubC (nm64s *pSrcVec, int64b *pnVal, nm64s *pDstVec, int nSize) 
+//! \fn void nmppsSubC (nm64s *pSrcVec, int64b Val, nm64s *pDstVec, int nSize) 
 //!
 //! \perfinclude _nmppsSubC_64s.html
 
@@ -38,7 +38,10 @@ global _nmppsSubC_64s:label;
 	push ar5,gr5	with gr0=gr7;
 	push ar6,gr6	with gr6=gr7;
 	ar0 = [--ar5];						// pSrcVec
-	ar1 = [--ar5];						// SrcN
+	ar1 = ar5-3;
+	ar5 = ar1;
+	
+	//ar1 = [--ar5];						// SrcN
 	ar6 = [--ar5];						// pDstVec
 	gr5 = [--ar5];						// nSize
 	

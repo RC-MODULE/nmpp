@@ -5,6 +5,7 @@ typedef int (func_ppi_i_t)(void*,void*,int);
 typedef int (func_ppr_i_t)(void*,void*,int*);
 typedef void (func_pppi_t)(void*,void*,void*,int);
 typedef void (func_pipi_t)(void*,int,void*,int);
+typedef void (func_plpi_t)(void*,long,void*,int);
 typedef void (func_pip_t)(void*,int,void*);
 typedef void (func_ppp_t)(void*,void*,void*);
 typedef int  (func_ppp_i_t)(void*,void*,void*);
@@ -81,6 +82,8 @@ void rpc_ ## func(void *in, void *out) \
 	unifunc(src,val,dst,size); \
 }
 
+
+
 #define NMC_RPC_PLPI(func) \
 void rpc_ ## func(void *in, void *out) \
 { \
@@ -90,8 +93,7 @@ void rpc_ ## func(void *in, void *out) \
 	int *src   = aura_buffer_to_ptr(buf_src); \
 	int *dst   = aura_buffer_to_ptr(buf_dst);  \
 	unsigned size = aura_get_u32(); \
-	printf("[NMC:]%x %x %x %x\r\n",src,val,dst,size);\
-	func_pipi_t *unifunc=(func_pipi_t*)func; \
+	func_plpi_t *unifunc=(func_plpi_t*)func; \
 	unifunc(src,val,dst,size); \
 }
 
@@ -261,7 +263,7 @@ NMC_RPC_PIPI(nmppsAddC_32s);
 #endif 
 
 #ifdef RPC_nmppsAddC_64s
-NMC_RPC_PIPI(nmppsAddC_64s);
+NMC_RPC_PLPI(nmppsAddC_64s);
 #endif 
 
 //--------------------------
@@ -511,6 +513,16 @@ NMC_RPC_PIPI(nmppsAndC_32s);
 #endif 
 
 #ifdef RPC_nmppsAndC_64s
-NMC_RPC_PIPI(nmppsAndC_64s);
+//NMC_RPC_PIPI(nmppsAndC_64s);
 //NMC_RPC_PPLI(nmppsAndC_64s);
+void rpc_nmppsAndC_64s(void *in, void *out) 
+{ 
+	aura_buffer buf_src  = aura_get_buf(); 
+	int val  = aura_get_u32(); 
+	aura_buffer buf_dst  = aura_get_buf(); 
+	int *src   = aura_buffer_to_ptr(buf_src); 
+	int *dst   = aura_buffer_to_ptr(buf_dst);  
+	unsigned size = aura_get_u32(); 
+	nmppsAndC_64s(src,val,dst,size);
+}
 #endif 

@@ -120,7 +120,7 @@ AURA_METHOD(rpc_nmppsAddC_32s, nmppsAddC_32s,
 
 #ifdef RPC_nmppsAddC_64s		
 AURA_METHOD(rpc_nmppsAddC_64s, nmppsAddC_64s, 
-		BUFFER U32 BUFFER U32,"");
+		BUFFER U64 BUFFER U32,"");
 #endif 
 
 //--------------------------------

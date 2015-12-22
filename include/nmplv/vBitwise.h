@@ -142,7 +142,10 @@ void nmppsNot_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
     */
     //! \{
 void nmppsAndC_p64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
-void nmppsAndC_64u(nm64u* pSrcVec, nm64u nVal, nm64u* pDstVec, int nSize);
+void nmppsAndC_8u (nm8u* pSrcVec,  uint8b nVal,  nm8u*  pDstVec, int nSize);
+void nmppsAndC_16u(nm16u* pSrcVec, uint16b nVal, nm16u* pDstVec, int nSize);
+void nmppsAndC_32u(nm32u* pSrcVec, uint32b nVal, nm32u* pDstVec, int nSize);
+void nmppsAndC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -324,7 +327,7 @@ void nmppsAndNotV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSiz
 //*****************************************************************************
 
     /**
-    \defgroup nmppsOrC_ nmppsOrC_
+    \defgroup nmppsOrC nmppsOrC
     \ingroup vBitwise
     \brief
         \ru Функция логического "ИЛИ" между вектором и константой. 
@@ -378,7 +381,10 @@ void nmppsAndNotV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSiz
     \endxmlonly
     */
     //! \{
-void nmppsOrC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
+void nmppsOrC_8u (nm8u*  pSrcVec, uint8b  nVal,  nm8u* pDstVec, int nSize);
+void nmppsOrC_16u(nm16u* pSrcVec, uint16b nVal, nm16u* pDstVec, int nSize);
+void nmppsOrC_32u(nm32u* pSrcVec, uint32b nVal, nm32u* pDstVec, int nSize);
+void nmppsOrC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************

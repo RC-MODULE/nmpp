@@ -500,29 +500,34 @@ NMC_RPC_PIR(nmppsMax_32s);
 #endif 
 
 //--------------------------
-#ifdef RPC_nmppsAndC_8s
-NMC_RPC_PIPI(nmppsAndC_8s);
+#ifdef RPC_nmppsAndC_8u
+NMC_RPC_PIPI(nmppsAndC_8u);
 #endif 
 
-#ifdef RPC_nmppsAndC_16s
-NMC_RPC_PIPI(nmppsAndC_16s);
+#ifdef RPC_nmppsAndC_16u
+NMC_RPC_PIPI(nmppsAndC_16u);
 #endif 
 
-#ifdef RPC_nmppsAndC_32s
-NMC_RPC_PIPI(nmppsAndC_32s);
+#ifdef RPC_nmppsAndC_32u
+NMC_RPC_PIPI(nmppsAndC_32u);
 #endif 
 
-#ifdef RPC_nmppsAndC_64s
-//NMC_RPC_PIPI(nmppsAndC_64s);
-//NMC_RPC_PPLI(nmppsAndC_64s);
-void rpc_nmppsAndC_64s(void *in, void *out) 
-{ 
-	aura_buffer buf_src  = aura_get_buf(); 
-	int val  = aura_get_u32(); 
-	aura_buffer buf_dst  = aura_get_buf(); 
-	int *src   = aura_buffer_to_ptr(buf_src); 
-	int *dst   = aura_buffer_to_ptr(buf_dst);  
-	unsigned size = aura_get_u32(); 
-	nmppsAndC_64s(src,val,dst,size);
-}
+#ifdef RPC_nmppsAndC_64u
+NMC_RPC_PLPI(nmppsAndC_64u);
+#endif
+//--------------------------
+#ifdef RPC_nmppsOrC_8u
+NMC_RPC_PIPI(nmppsOrC_8u);
+#endif 
+
+#ifdef RPC_nmppsOrC_16u
+NMC_RPC_PIPI(nmppsOrC_16u);
+#endif 
+
+#ifdef RPC_nmppsOrC_32u
+NMC_RPC_PIPI(nmppsOrC_32u);
+#endif 
+
+#ifdef RPC_nmppsOrC_64u
+NMC_RPC_PLPI(nmppsOrC_64u);
 #endif 

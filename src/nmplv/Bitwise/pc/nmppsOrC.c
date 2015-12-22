@@ -4,14 +4,14 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 // pDstVec[i] = pSrcVec[i] & Mask 
-void nmppsAndC_p64u(nm64u*	Src1,		// Input Buffer
+void nmppsOrC_p64u(nm64u*	Src1,		// Input Buffer
 	nm64u*	Mask,		// Input mask
 	nm64u*	pDstVec,		// Output Buffer
 	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
 	#ifdef RPC
-	//RPC_HOST_PPI("nmppsAndC_p64u",pSrcVec,pDstVec,nSize,8);
+	//RPC_HOST_PPI("nmppsOrC_p64u",pSrcVec,pDstVec,nSize,8);
 	#else
 
 
@@ -22,7 +22,7 @@ int i;
 	#endif
 }
 
-void nmppsAndC_64u(
+void nmppsOrC_64u(
 	nm64u*	Src,		// Input Buffer
 	uint64b	Mask,		// Input mask
 	nm64u*	Dst,		// Output Buffer
@@ -30,7 +30,7 @@ void nmppsAndC_64u(
 	)
 {
 	#ifdef RPC
-	RPC_HOST_PIPI("nmppsAndC_64u",Src,Mask,Dst,Size,8);
+	RPC_HOST_PIPI("nmppsOrC_64u",Src,Mask,Dst,Size,8);
 	#else
 	int i;
 	for (i=0; i<Size; i++)
@@ -38,7 +38,7 @@ void nmppsAndC_64u(
 	#endif
 }
 
-void nmppsAndC_32u(
+void nmppsOrC_32u(
 	nm32u*	Src,		// Input Buffer
 	uint32b	Mask,		// Input mask
 	nm32u*	Dst,		// Output Buffer
@@ -46,7 +46,7 @@ void nmppsAndC_32u(
 	)
 {
 	#ifdef RPC
-	RPC_HOST_PIPI("nmppsAndC_32u",Src,Mask,Dst,Size,4);
+	RPC_HOST_PIPI("nmppsOrC_32u",Src,Mask,Dst,Size,4);
 	#else
 	int i;
 	for (i=0; i<Size; i++)
@@ -54,7 +54,7 @@ void nmppsAndC_32u(
 	#endif
 }
 
-void nmppsAndC_16u(
+void nmppsOrC_16u(
 	nm16u*	Src,		// Input Buffer
 	uint16b	Mask,		// Input mask
 	nm16u*	Dst,		// Output Buffer
@@ -62,7 +62,7 @@ void nmppsAndC_16u(
 	)
 {
 	#ifdef RPC
-	RPC_HOST_PIPI("nmppsAndC_16u",Src,Mask,Dst,Size,2);
+	RPC_HOST_PIPI("nmppsOrC_16u",Src,Mask,Dst,Size,2);
 	#else
 	int i;
 	for (i=0; i<Size; i++)
@@ -70,7 +70,7 @@ void nmppsAndC_16u(
 	#endif
 }
 
-void nmppsAndC_8u(
+void nmppsOrC_8u(
 	nm8u*	Src,		// Input Buffer
 	uint8b	Mask,		// Input mask
 	nm8u*	Dst,		// Output Buffer
@@ -78,7 +78,7 @@ void nmppsAndC_8u(
 	)
 {
 	#ifdef RPC
-	RPC_HOST_PIPI("nmppsAndC_8u",Src,Mask,Dst,Size,1);
+	RPC_HOST_PIPI("nmppsOrC_8u",Src,Mask,Dst,Size,1);
 	#else
 	int i;
 	for (i=0; i<Size; i++)

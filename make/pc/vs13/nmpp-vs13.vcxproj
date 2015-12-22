@@ -218,6 +218,7 @@
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsLogic.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsOr3V.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsOr4V.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsOrC.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsOrNV.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsShift.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/common/nmppsRamp.c" /> 

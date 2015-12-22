@@ -209,6 +209,7 @@
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsLogic.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOr3V.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOr4V.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOrC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOrNV.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsShift.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\common\nmppsRamp.c" > </File> 

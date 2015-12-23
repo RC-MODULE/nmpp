@@ -168,8 +168,8 @@ AURA_METHOD(rpc_nmppsRShiftC_64s, nmppsRShiftC_64s,
 		BUFFER U32 BUFFER U32,
 	    "");
 #endif 
-//-----------------------------------
 
+//-----------------------------------
 #ifdef RPC_nmppsMin_8s
 AURA_METHOD(rpc_nmppsMin_8s, nmppsMin_8s, 
 	    BUFFER U32,
@@ -473,4 +473,50 @@ AURA_METHOD(rpc_nmppsXor_64u, nmppsXor_64u,
 	    "");
 #endif 
 
+//--------------------------------
+#ifdef RPC_nmppsRShiftC_8u		
+AURA_METHOD(rpc_nmppsRShiftC_8u, nmppsRShiftC_8u, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsRShiftC_16u		
+AURA_METHOD(rpc_nmppsRShiftC_16u, nmppsRShiftC_16u, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsRShiftC_32u		
+AURA_METHOD(rpc_nmppsRShiftC_32u, nmppsRShiftC_32u, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsRShiftC_64u
+AURA_METHOD(rpc_nmppsRShiftC_64u, nmppsRShiftC_64u, 
+		BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+
+//-----------------------------------
+#ifdef RPC_nmppsSum_8s
+AURA_METHOD(rpc_nmppsSum_8s, nmppsSum_8s, 
+	    BUFFER U32, U32);
+#endif 
+
+#ifdef RPC_nmppsSum_16s
+AURA_METHOD(rpc_nmppsSum_16s, nmppsSum_16s, 
+	    BUFFER U32,	U64);
+#endif 
+
+#ifdef RPC_nmppsSum_32s
+AURA_METHOD(rpc_nmppsSum_32s, nmppsSum_32s, 
+	    BUFFER U32,	U64);
+#endif 
+		
+#ifdef RPC_nmppsSum_64s
+AURA_METHOD(rpc_nmppsSum_64s, nmppsSum_64s, 
+	    BUFFER U32,	U64);
+#endif 
 struct aura_object g_aura_eof;

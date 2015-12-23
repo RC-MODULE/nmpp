@@ -1276,7 +1276,7 @@ void nmppsDivC_32s(nm32s* pSrcVec, int nDivisor, nm32s* pDstVec, int nSize, void
     */
     //! \{
 void nmppsSum_1s(nm1* pSrcVec, int nSize, int32b *pnRes, void* pTmpBuf);
-void nmppsSum_8s(nm8s* pSrcVec, int nSize, int32b *pnRes);
+void nmppsSum_8s (nm8s*  pSrcVec, int nSize, int32b *pnRes);
 void nmppsSum_16s(nm16s* pSrcVec, int nSize, int64b *pnRes);
 void nmppsSum_32s(nm32s* pSrcVec, int nSize, int64b *pnRes);
 void nmppsSum_64s(nm64s* pSrcVec, int nSize, int64b *pnRes);

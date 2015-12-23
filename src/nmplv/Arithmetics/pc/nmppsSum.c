@@ -19,8 +19,8 @@
 //------------------------------------------------------------------------
 
 //#include "vec.h"
-#undef RPC
 
+#include "rpc-host.h"
 #include "nmpp.h"
 
 
@@ -63,7 +63,7 @@ unsigned ByteArray[256]={0, 1, 1, 2, 1, 2, 2, 3,
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Count bits in 64-bit vectors. Each amount store in the 64 bit vec. 
-void		nmppsSum(
+void		nmppsSum_1s(
 	nm1*			pSrcVec,			// input buffer		:long Local [nSize]
 		int				nSize,			// size of input buffer in 64-bit elements. nSize=[0,1,2,3...]
 		int *   pnRes, 
@@ -71,7 +71,7 @@ void		nmppsSum(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	//RPC_PPI(pSrcVec,pDstVec,nSize);
 	#else
 
 	int sum=0;
@@ -120,7 +120,7 @@ void nmppsSum_8s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	RPC_HOST_PIR("nmppsSum_8s",pSrcVec,nSize,pnRes,1);
 	#else
 
 	int sum = 0;
@@ -142,7 +142,7 @@ void nmppsSum_16s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	RPC_HOST_PIR64("nmppsSum_16s",pSrcVec,nSize,pnRes,2);
 	#else
 
 	__int64 sum = 0;
@@ -163,7 +163,7 @@ void nmppsSum_32s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	RPC_HOST_PIR64("nmppsSum_32s",pSrcVec,nSize,pnRes,4);
 	#else
 
 	__int64 sum = 0;
@@ -184,7 +184,7 @@ void nmppsSum_64s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	RPC_HOST_PIR64("nmppsSum_64s",pSrcVec,nSize,pnRes,8);
 	#else
 
 	__int64 sum = 0;

@@ -89,3 +89,13 @@
 #define RPC_nmppsXor_16u
 #define RPC_nmppsXor_32u
 #define RPC_nmppsXor_64u
+
+#define RPC_nmppsRShiftC_8u
+#define RPC_nmppsRShiftC_16u
+#define RPC_nmppsRShiftC_32u
+#define RPC_nmppsRShiftC_64u
+
+#define RPC_nmppsSum_8s
+#define RPC_nmppsSum_16s
+#define RPC_nmppsSum_32s
+#define RPC_nmppsSum_64s

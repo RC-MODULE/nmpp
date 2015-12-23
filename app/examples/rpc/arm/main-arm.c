@@ -6,7 +6,7 @@
 struct aura_node *n;
 int main() {
 
-	slog_init(NULL, 30);
+	slog_init(NULL, 0);
 
 	int ret; 
 	n = aura_open("nmc", "./rpc-demo.abs");
@@ -32,10 +32,10 @@ int main() {
 	}
 
 	for(i=0; i<32; i++){
-		src0_8s[i]=i-7;
-		src0_16s[i]=i-7;
-		src0_32s[i]=i-7;
-		src0_64s[i]=i-7;
+		src0_8s[i] =1;//i-7;
+		src0_16s[i]=1;//i-7;
+		src0_32s[i]=1;//i-7;
+		src0_64s[i]=1;//i-7;
 	}
 
 	
@@ -71,7 +71,7 @@ int main() {
 //	nmppsAddC_32s((nm32s*)src0_32s,1,(nm32s*)dst_32s,16);
 //	nmppsAddC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,32);
 //	nmppsSubC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,32);
-
+/*
 	nmppsAndC_8u((nm8u*)  src0_8s,1, (nm8s*) dst_8s,16);
 	nmppsAndC_16u((nm16u*)src0_16s,1,(nm16u*)dst_16s,16);
 	nmppsAndC_32u((nm32u*)src0_32s,1,(nm32u*)dst_32s,16);
@@ -107,7 +107,17 @@ int main() {
 	nmppsXor_32u((nm32u*)src0_32s,(nm32u*)src1_32s,(nm32u*)dst_32s,16);
 	nmppsXor_64u((nm64u*)src0_64s,(nm64u*)src1_64s,(nm64u*)dst_64s,32);
 	
-
+	nmppsRShiftC_8u ((nm8u* )src0_8s ,1,(nm8u* )dst_8s ,16);
+	nmppsRShiftC_16u((nm16u*)src0_16s,1,(nm16u*)dst_16s,16);
+    nmppsRShiftC_32u((nm32u*)src0_32s,1,(nm32u*)dst_32s,16);
+	nmppsRShiftC_64u((nm64u*)src0_64s,1,(nm64u*)dst_64s,16);
+*/
+	int sum;
+	long long sum64;
+	nmppsSum_8s ((nm8s*) src0_8s,32, &sum);  printf("sum=%d\r\n",sum);
+	nmppsSum_16s((nm16s*)src0_16s,32,&sum64);printf("sum=%d\r\n",(int)sum64);
+	nmppsSum_32s((nm32s*)src0_32s,32,&sum64);printf("sum=%d\r\n",(int)sum64);
+	nmppsSum_64s((nm64s*)src0_64s,16,&sum64);printf("sum=%d\r\n",(int)sum64);
 	
 //	
 //	nmppsSubC_8s ((nm8s* )src0,1,(nm8s* )dst,16);
@@ -117,7 +127,7 @@ int main() {
 //	
 //	nmppsRShiftC_8s ((nm8s* )src0,1,(nm8s* )dst,16);
 //	nmppsRShiftC_16s((nm16s*)src0,1,(nm16s*)dst,16);
-//    nmppsRShiftC_32s((nm32s*)src0,1,(nm32s*)dst,16);
+//  nmppsRShiftC_32s((nm32s*)src0,1,(nm32s*)dst,16);
 //	nmppsRShiftC_64s((nm64s*)src0,1,(nm64s*)dst,16);
 //	
 	for(i=0; i<16; i++){

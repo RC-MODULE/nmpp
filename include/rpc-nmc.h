@@ -177,7 +177,7 @@ void rpc_ ## func(void *in, void *out) \
 	aura_buffer buf_src0 = aura_get_buf(); \
 	int *src0  = aura_buffer_to_ptr(buf_src0); \
 	unsigned size = aura_get_u32(); \
-	func_ppp_t *unifunc=(func_ppp_t*)func; \
+	func_pip_t *unifunc=(func_pip_t*)func; \
 	long ret ; \
 	unifunc(src0,size,&ret); \
 	aura_put_u64(ret); \
@@ -610,4 +610,37 @@ NMC_RPC_PPPI(nmppsXor_16u);
 
 #ifdef RPC_nmppsXor_8u
 NMC_RPC_PPPI(nmppsXor_8u);
+#endif 
+//--------------------------
+#ifdef RPC_nmppsRShiftC_8u
+NMC_RPC_PIPI(nmppsRShiftC_8u);
+#endif 
+
+#ifdef RPC_nmppsRShiftC_16u
+NMC_RPC_PIPI(nmppsRShiftC_16u);
+#endif 
+
+#ifdef RPC_nmppsRShiftC_32u
+NMC_RPC_PIPI(nmppsRShiftC_32u);
+#endif 
+
+#ifdef RPC_nmppsRShiftC_64u
+NMC_RPC_PIPI(nmppsRShiftC_64u);
+#endif 
+
+//--------------------------
+#ifdef RPC_nmppsSum_8s
+NMC_RPC_PIR(nmppsSum_8s);
+#endif 
+
+#ifdef RPC_nmppsSum_16s
+NMC_RPC_PIR64(nmppsSum_16s);
+#endif 
+
+#ifdef RPC_nmppsSum_32s
+NMC_RPC_PIR64(nmppsSum_32s);
+#endif 
+
+#ifdef RPC_nmppsSum_64s
+NMC_RPC_PIR64(nmppsSum_64s);
 #endif 

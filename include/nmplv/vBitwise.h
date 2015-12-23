@@ -390,7 +390,7 @@ void nmppsOrC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsOr_ nmppsOr_
+    \defgroup nmppsOr nmppsOr
     \ingroup vBitwise
     \brief
         \ru Функция логического "ИЛИ" между двумя векторами. 
@@ -569,7 +569,7 @@ void nmppsOrNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsXorC_ nmppsXorC_
+    \defgroup nmppsXorC nmppsXorC
     \ingroup vBitwise
     \brief
         \ru Функция логического "Исключающего ИЛИ" между вектором и константой. 
@@ -624,7 +624,10 @@ void nmppsOrNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
     */
     //--------------------------------------------------------------------
     //! \{
-void nmppsXorC_64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
+void nmppsXorC_8u (nm8u*  pSrcVec, uint8b  nVal,  nm8u* pDstVec, int nSize);
+void nmppsXorC_16u(nm16u* pSrcVec, uint16b nVal, nm16u* pDstVec, int nSize);
+void nmppsXorC_32u(nm32u* pSrcVec, uint32b nVal, nm32u* pDstVec, int nSize);		
+void nmppsXorC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************

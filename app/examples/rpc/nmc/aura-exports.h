@@ -64,3 +64,8 @@
 #define RPC_nmppsOrC_16u
 #define RPC_nmppsOrC_32u
 #define RPC_nmppsOrC_64u
+
+#define RPC_nmppsXorC_8u
+#define RPC_nmppsXorC_16u
+#define RPC_nmppsXorC_32u
+#define RPC_nmppsXorC_64u

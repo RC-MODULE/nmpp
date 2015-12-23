@@ -531,3 +531,19 @@ NMC_RPC_PIPI(nmppsOrC_32u);
 #ifdef RPC_nmppsOrC_64u
 NMC_RPC_PLPI(nmppsOrC_64u);
 #endif 
+//--------------------------
+#ifdef RPC_nmppsXorC_8u
+NMC_RPC_PIPI(nmppsXorC_8u);
+#endif 
+
+#ifdef RPC_nmppsXorC_16u
+NMC_RPC_PIPI(nmppsXorC_16u);
+#endif 
+
+#ifdef RPC_nmppsXorC_32u
+NMC_RPC_PIPI(nmppsXorC_32u);
+#endif 
+
+#ifdef RPC_nmppsXorC_64u
+NMC_RPC_PLPI(nmppsXorC_64u);
+#endif 

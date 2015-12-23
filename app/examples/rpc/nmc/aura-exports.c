@@ -354,5 +354,25 @@ AURA_METHOD(rpc_nmppsOrC_32u, nmppsOrC_32u,
 AURA_METHOD(rpc_nmppsOrC_64u, nmppsOrC_64u, 
 		BUFFER U64 BUFFER U32,"");
 #endif 
+//--------------------------------
+#ifdef RPC_nmppsXorC_8u		
+AURA_METHOD(rpc_nmppsXorC_8u, nmppsXorC_8u, 
+		BUFFER U32 BUFFER U32,"");
+#endif 
+
+#ifdef RPC_nmppsXorC_16u		
+AURA_METHOD(rpc_nmppsXorC_16u, nmppsXorC_16u, 
+		BUFFER U32 BUFFER U32,"");
+#endif 
+
+#ifdef RPC_nmppsXorC_32u		
+AURA_METHOD(rpc_nmppsXorC_32u, nmppsXorC_32u, 
+		BUFFER U32 BUFFER U32,"");
+#endif 
+
+#ifdef RPC_nmppsXorC_64u		
+AURA_METHOD(rpc_nmppsXorC_64u, nmppsXorC_64u, 
+		BUFFER U64 BUFFER U32,"");
+#endif 
 
 struct aura_object g_aura_eof;

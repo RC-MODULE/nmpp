@@ -216,11 +216,13 @@
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsAndNV.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsd4V.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsLogic.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsNot.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsOr3V.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsOr4V.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsOrC.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsOrNV.c" /> 
  	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsShift.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Bitwise/pc/nmppsXorC.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/common/nmppsRamp.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/common/nmppsRand32u.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsCnv.c" /> 

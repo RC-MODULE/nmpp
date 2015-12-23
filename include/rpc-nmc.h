@@ -547,3 +547,67 @@ NMC_RPC_PIPI(nmppsXorC_32u);
 #ifdef RPC_nmppsXorC_64u
 NMC_RPC_PLPI(nmppsXorC_64u);
 #endif 
+//--------------------------
+#ifdef RPC_nmppsNot_64u
+NMC_RPC_PPI(nmppsNot_64u);
+#endif 
+
+#ifdef RPC_nmppsNot_32u
+NMC_RPC_PPI(nmppsNot_32u);
+#endif 
+
+#ifdef RPC_nmppsNot_16u
+NMC_RPC_PPI(nmppsNot_16u);
+#endif 
+
+#ifdef RPC_nmppsNot_8u
+NMC_RPC_PPI(nmppsNot_8u);
+#endif 
+//--------------------------
+#ifdef RPC_nmppsAnd_64u
+NMC_RPC_PPPI(nmppsAnd_64u);
+#endif 
+
+#ifdef RPC_nmppsAnd_32u
+NMC_RPC_PPPI(nmppsAnd_32u);
+#endif 
+
+#ifdef RPC_nmppsAnd_16u
+NMC_RPC_PPPI(nmppsAnd_16u);
+#endif 
+
+#ifdef RPC_nmppsAnd_8u
+NMC_RPC_PPPI(nmppsAnd_8u);
+#endif 
+//--------------------------
+#ifdef RPC_nmppsOr_64u
+NMC_RPC_PPPI(nmppsOr_64u);
+#endif 
+
+#ifdef RPC_nmppsOr_32u
+NMC_RPC_PPPI(nmppsOr_32u);
+#endif 
+
+#ifdef RPC_nmppsOr_16u
+NMC_RPC_PPPI(nmppsOr_16u);
+#endif 
+
+#ifdef RPC_nmppsOr_8u
+NMC_RPC_PPPI(nmppsOr_8u);
+#endif 
+//--------------------------
+#ifdef RPC_nmppsXor_64u
+NMC_RPC_PPPI(nmppsXor_64u);
+#endif 
+
+#ifdef RPC_nmppsXor_32u
+NMC_RPC_PPPI(nmppsXor_32u);
+#endif 
+
+#ifdef RPC_nmppsXor_16u
+NMC_RPC_PPPI(nmppsXor_16u);
+#endif 
+
+#ifdef RPC_nmppsXor_8u
+NMC_RPC_PPPI(nmppsXor_8u);
+#endif 

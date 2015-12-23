@@ -207,11 +207,13 @@
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsAndNV.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsd4V.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsLogic.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsNot.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOr3V.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOr4V.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOrC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOrNV.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsShift.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsXorC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\common\nmppsRamp.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\common\nmppsRand32u.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsCnv.c" > </File> 

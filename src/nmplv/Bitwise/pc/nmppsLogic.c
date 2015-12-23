@@ -19,43 +19,6 @@
 //------------------------------------------------------------------------
 #include "rpc-host.h"
 #include "nmpp.h"
-///////////////////////////////////////////////////////////
-// pDstVec[i] = !pSrcVec[i]; 
-void nmppsNot_64u(nm64u*	pSrcVec,		// Input Buffer
-	nm64u*	pDstVec,		// Output Buffer
-	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
-	)
-{
-	#ifdef RPC
-	//RPC_HOST_PPI("nmppsNot_64u",pSrcVec,pDstVec,nSize,8);
-	#else
-
-
-int i;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = ~pSrcVec[i];
-
-	#endif
-}
-///////////////////////////////////////////////////////////////////////////////
-// pDstVec[i] = Src1[i] & Src2[i];
-void nmppsAnd_64u(nm64u*	Src1,		// Input Buffer
-	nm64u*	Src2,		// Input Buffer
-	nm64u*	pDstVec,		// Output Buffer
-	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
-	)
-{
-	#ifdef RPC
-	//RPC_HOST_PPI("nmppsAnd_64u",pSrcVec,pDstVec,nSize,8);
-	#else
-
-
-int i;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = Src1[i] & Src2[i];
-
-	#endif
-}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -79,47 +42,6 @@ int i;
 }
 
 
-
-///////////////////////////////////////////////////////////////////////////////
-// pDstVec[i] = Src1[i] | Src2[i];
-void nmppsOr_64u(nm64u*	Src1,		// Input Buffer
-	nm64u*	Src2,		// Input Buffer
-	nm64u*	pDstVec,		// Output Buffer
-	int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
-	)
-{
-	#ifdef RPC
-	//RPC_HOST_PPI("nmppsRShiftC_s",pSrcVec,pDstVec,nSize,8);
-	#else
-
-
-int i;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = Src1[i] | Src2[i];
-
-	#endif
-}
-
-///////////////////////////////////////////////////////////////////////////////
-//	Bitwise XOR operation 
-//	pDstVec[i] = pSrcVec1[i] ^ pSrcVec2[i];
-void nmppsXor_64u(nm64u*		pSrcVec1,	// Input Buffer					:long Local[nSize]
-			nm64u*		pSrcVec2,	// Input Buffer					:long Local[nSize]
-			nm64u*		pDstVec,		// Output Buffer				:long Global[nSize]
-			int			nSize		// Vector size in 64-bit words	:nSize=[0,1,2,..,n]
-			)
-{
-	#ifdef RPC
-	//RPC_HOST_PPI("nmppsRShiftC_s",pSrcVec,pDstVec,nSize,8);
-	#else
-
-
-int i;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = pSrcVec1[i] ^ pSrcVec2[i];
-
-	#endif
-}
 
 
 ///////////////////////////////////////////////////////////////////////////////

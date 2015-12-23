@@ -81,6 +81,9 @@
     \endxmlonly
     */
     //! \{
+void nmppsNot_8u (nm8u* pSrcVec,  nm8u*  pDstVec, int nSize);
+void nmppsNot_16u(nm16u* pSrcVec, nm16u* pDstVec, int nSize);
+void nmppsNot_32u(nm32u* pSrcVec, nm32u* pDstVec, int nSize);
 void nmppsNot_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
     //! \}
 
@@ -151,7 +154,7 @@ void nmppsAndC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsAnd_ nmppsAnd_
+    \defgroup nmppsAnd nmppsAnd
     \ingroup vBitwise
     \brief
         \ru Функция логического "И" между двумя векторами. 
@@ -201,6 +204,9 @@ void nmppsAndC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
+void nmppsAnd_8u (nm8u*  pSrcVec1, nm8u* pSrcVec2,  nm8u*  pDstVec, int nSize);
+void nmppsAnd_16u(nm16u* pSrcVec1, nm16u* pSrcVec2, nm16u* pDstVec, int nSize);
+void nmppsAnd_32u(nm32u* pSrcVec1, nm32u* pSrcVec2, nm32u* pDstVec, int nSize);		
 void nmppsAnd_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 	
@@ -440,6 +446,9 @@ void nmppsOrC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
+void nmppsOr_8u (nm8u*  pSrcVec1, nm8u* pSrcVec2,  nm8u*  pDstVec, int nSize);
+void nmppsOr_16u(nm16u* pSrcVec1, nm16u* pSrcVec2, nm16u* pDstVec, int nSize);
+void nmppsOr_32u(nm32u* pSrcVec1, nm32u* pSrcVec2, nm32u* pDstVec, int nSize);		
 void nmppsOr_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 	
@@ -633,7 +642,7 @@ void nmppsXorC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsXor_ nmppsXor_
+    \defgroup nmppsXor nmppsXor
     \ingroup vBitwise
     \brief
         \ru Функция логического "Исключающего ИЛИ" между двумя векторами. 
@@ -683,6 +692,9 @@ void nmppsXorC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
+void nmppsXor_8u (nm8u*  pSrcVec1, nm8u* pSrcVec2,  nm8u*  pDstVec, int nSize);
+void nmppsXor_16u(nm16u* pSrcVec1, nm16u* pSrcVec2, nm16u* pDstVec, int nSize);
+void nmppsXor_32u(nm32u* pSrcVec1, nm32u* pSrcVec2, nm32u* pDstVec, int nSize);		
 void nmppsXor_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 

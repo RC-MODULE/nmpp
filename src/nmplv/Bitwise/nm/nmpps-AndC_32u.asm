@@ -37,15 +37,14 @@ global _nmppsAndC_32u:label;
 	push ar0,gr0	with gr7++;
 	push ar1,gr1	with gr7++;
 	push ar5,gr5	with gr0=gr7;
-	push ar6,gr6	with gr6=gr7;
+	push ar6,gr6	;
 
 	ar0 = [--ar5];		//	nm64*		pSrcVec,		// Input Buffer					:long Local[nSize]
 	ar6 = [--ar5];
 	gr6 = ar6;
 	ar1 = ar7;
-	push ar6,gr6;
-	//ar1 = [--ar5];		//	nm64*		SrcN,		// Input Buffer					:long Local[1]
-	ar6 = [--ar5];	//	nm64*		pDstVec,		// Output Buffer				:long Global[nSize
+	push ar6,gr6 with gr6=gr7;
+	ar6 = [--ar5];			//	nm64*		pDstVec,		// Output Buffer				:long Global[nSize
 	delayed call vec_data_and_ram;	
 		gr5 = [--ar5];	//	int			nSize		// Vector size in 64-bit words	:nSize=[0,1,2,..,n
 		with gr5>>=1;

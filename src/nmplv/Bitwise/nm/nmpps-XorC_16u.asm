@@ -37,17 +37,17 @@ global _nmppsXorC_16u:label;
 	push ar0,gr0	with gr7++;
 	push ar1,gr1	with gr7++;
 	push ar5,gr5	with gr0=gr7;
-	push ar6,gr6	with gr6=gr7;
+	push ar6,gr6	;
 
 	ar0 = [--ar5];		//	nm64*		pSrcVec,		// Input Buffer					:long Local[nSize]
 	gr6 = [--ar5];
 	gr7 = gr6<<16;
-	gr7>>=16;
-	gr6|=gr7;
+	gr6 = gr7>>16;
+	gr6 = gr6 or gr7;
 	ar6 = gr6;
 	ar1 = ar7;
-	push ar6,gr6;
-	//ar1 = [--ar5];		//	nm64*		SrcN,		// Input Buffer					:long Local[1]
+	
+	push ar6,gr6 	with gr6=gr0;
 	ar6 = [--ar5];	//	nm64*		pDstVec,		// Output Buffer				:long Global[nSize
 	delayed call vec_data_xor_ram;
 		gr5 = [--ar5];	//	int			nSize		// Vector size in 64-bit words	:nSize=[0,1,2,..,n

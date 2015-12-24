@@ -39,7 +39,7 @@ void nmppsMaxIndx_16s(nm16s15b *pSrcVec, int nSize, int* pIndex, int16b* pMaxVal
 
 	nmppsMax_16s(pSrcVec, nSize, pMaxValue);
 	nmppsSubCRev_16s(pSrcVec,*pMaxValue,(nm16s*)pTmp1,nSize);
-	nmppsCmpEq0_16u((nm16u15b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create Max bitmap
+	nmppsCmpEq0_16u15b((nm16u15b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create Max bitmap
 
 	
 	if(nSearchDir > 0){

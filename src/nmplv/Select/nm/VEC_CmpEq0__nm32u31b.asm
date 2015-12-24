@@ -31,11 +31,10 @@ begin ".text_nmplv"
 
 //! \fn void  nmppsCmpEq0_32u(nm32u31b *pSrcVec, nm1 *pDstVec, int nSize, int nTrueFlag);
 //!
-//! \perfinclude _nmppsCmpEq0_32u.html
+//! \perfinclude _nmppsCmpEq0_32u31b.html
 
-global _nmppsCmpEq0_32u:	label;
-global _nmppsCmpEq0_32u:label;
-<_nmppsCmpEq0_32u>
+global _nmppsCmpEq0_32u31b:label;
+<_nmppsCmpEq0_32u31b>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0 with gr0 = false;

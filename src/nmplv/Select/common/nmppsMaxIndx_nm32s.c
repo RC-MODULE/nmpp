@@ -38,7 +38,7 @@ void nmppsMaxIndx_32s(nm32s31b *pSrcVec, int nSize, int* pIndex, int32b* pMaxVal
 
 	nmppsMax_32s(pSrcVec, nSize, pMaxValue);
 	nmppsSubCRev_32s(pSrcVec,*pMaxValue,(nm32s*)pTmp1,nSize);
-	nmppsCmpEq0_32u((nm32u31b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create Max bitmap
+	nmppsCmpEq0_32u31b((nm32u31b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create Max bitmap
 
 	if(nSearchDir > 0){
 		nPos  =nmppsFirstNonZeroIndx_32s((int*)pTmp2,nSize>>5);

@@ -38,7 +38,7 @@ void nmppsMinIndx_16s(nm16s15b *pSrcVec, int nSize, int* pIndex, int16b* pMinVal
 
 	nmppsMin_16s(pSrcVec, nSize, pMinValue);
 	nmppsSubC_16s(pSrcVec,*pMinValue,(nm16s*)pTmp1,nSize);
-	nmppsCmpEq0_16u((nm16u15b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create min bitmap
+	nmppsCmpEq0_16u15b((nm16u15b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create min bitmap
 
 	if(nSearchDir > 0){
 		nPos  =nmppsFirstNonZeroIndx_32s((int*)pTmp2,nSize>>5);

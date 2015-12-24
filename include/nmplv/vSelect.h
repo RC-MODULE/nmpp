@@ -905,7 +905,7 @@ void nmppsCmpLt0_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsCmpEq0_ nmppsCmpEq0_
+    \defgroup nmppsCmpEq0 nmppsCmpEq0
     \ingroup vSelect
     \brief
         \ru Сравнивает элементы массива на признак равенства нулю. 
@@ -975,15 +975,21 @@ void nmppsCmpLt0_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 /**
 	\note nSize =[1,2,3,4...]
 */
-void nmppsCmpEq0_8u(nm8u7b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
+void nmppsCmpEq0_8u7b(nm8u7b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
 /**
 	\note nSize =[1,2,3,4...]
 */
-void nmppsCmpEq0_16u(nm16u15b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
+void nmppsCmpEq0_16u15b(nm16u15b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
 /**
 	\note nSize =[1,2,3,4...]
 */
-void nmppsCmpEq0_32u(nm32u31b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
+void nmppsCmpEq0_32u31b(nm32u31b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
+
+void nmppsCmpNe0_8s (nm8s*  pSrcVec, nm8s* pDstVec,  int nSize);
+void nmppsCmpNe0_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+void nmppsCmpNe0_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsCmpNe0_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+
     //! \}
 
     /**
@@ -1519,15 +1525,15 @@ void nmppsClipRShiftConvert_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v
     */
 
   //! \{
-void nmppsCmpEqC_16u(nm16u15b* pSrcVec,  uint15b nCmpVal,   nm16s* pDstVec, int nSize, int16b nTrueFlag);
-void nmppsCmpEqC_8u(nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSize, int8b nTrueFlag);
+void nmppsCmpEqC_16u15b(nm16u15b* pSrcVec,  uint15b nCmpVal,   nm16s* pDstVec, int nSize, int16b nTrueFlag);
+void nmppsCmpEqC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSize, int8b nTrueFlag);
   //! \}
 
 
 //******************************************************************************************
 
   /**
-	\defgroup nmppsCmpNeC_ nmppsCmpNeC_
+	\defgroup nmppsCmpNeC nmppsCmpNeC
     \ingroup vSelect
     \brief
         \ru Сравнивает элементы массива на признак неравенства константе. 
@@ -1580,8 +1586,9 @@ void nmppsCmpEqC_8u(nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSize, 
       \endxmlonly
     */
 	//! \{
-void nmppsCmpNeC_16u(nm16u15b* pSrcVec,  uint15b nCmpVal,   nm16s* pDstVec, int nSize, int16b nTrueFlag);
-void nmppsCmpNeC_8u(nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSize, int8b nTrueFlag);
+	void nmppsCmpNeC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSize, int8b nTrueFlag);
+	void nmppsCmpNeC_16u15b(nm16u15b* pSrcVec,  uint15b nCmpVal,   nm16s* pDstVec, int nSize, int16b nTrueFlag);
+
 	//! \}
 
 //******************************************************************************************
@@ -1639,8 +1646,8 @@ void nmppsCmpNeC_8u(nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSize, 
       \endxmlonly
     */
 	//! \{
-void nmppsCmpEqV_16u(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int nSize, int16b nTrueFlag);
-void nmppsCmpEqV_8u(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b nTrueFlag);
+void nmppsCmpEqV_16u15b(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int nSize, int16b nTrueFlag);
+void nmppsCmpEqV_8u7b(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b nTrueFlag);
 	//! \}
 
 //******************************************************************************************

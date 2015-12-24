@@ -42,7 +42,7 @@ global _nmppsAnd_32u:label;
 	ar6 = [--ar5];		//	nm32u*		pDstVec,		// Output Buffer				:long Global[nSize
 	delayed call vec_And with gr6=gr7;
 		gr5 = [--ar5];	//	int			nSize		// Vector size in 64-bit words	:nSize=[0,1,2,..,n
-		gr5>>=3;
+		gr5>>=1;
 		
 	pop ar6,gr6;
 	pop ar5,gr5;

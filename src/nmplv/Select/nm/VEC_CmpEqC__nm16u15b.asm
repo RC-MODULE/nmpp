@@ -4,11 +4,11 @@ extern nmppsDataXorRamN_ActivateAfifoVr_: label;
 extern _nmppsTmpBuffer64_L_: word;
 
 begin ".text_nmplv"
-	//! \fn void nmppsCmpEqC_16u(nm16u15b* pSrcVec,  uint15b shCmpVal,   nm16s* pDstVec, int nSize, int16b shTrueFlag);
+	//! \fn void nmppsCmpEqC_16u15b(nm16u15b* pSrcVec,  uint15b shCmpVal,   nm16s* pDstVec, int nSize, int16b shTrueFlag);
 	//!
-	//! \perfinclude _nmppsCmpEqC_16u.html
-global _nmppsCmpEqC_16u:label;
-<_nmppsCmpEqC_16u>
+	//! \perfinclude _nmppsCmpEqC_16u15b.html
+global _nmppsCmpEqC_16u15b:label;
+<_nmppsCmpEqC_16u15b>
 .branch;    
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;

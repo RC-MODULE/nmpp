@@ -13,12 +13,12 @@ end ".data_nmplv_G";
     //--------------------------------------------------------------------
 begin ".text_nmplv"
 
-	//! \fn void nmppsCmpEqC_8u(nm8u7b* pSrcVec,  uint7b chCmpVal,  nm8s* pDstVec, int nSize, int8b chTrueFlag);
+	//! \fn void nmppsCmpEqC_8u7b(nm8u7b* pSrcVec,  uint7b chCmpVal,  nm8s* pDstVec, int nSize, int8b chTrueFlag);
 	//!
-	//! \perfinclude _nmppsCmpEqC_8u.html
+	//! \perfinclude _nmppsCmpEqC_8u7b.html
 
-global _nmppsCmpEqC_8u:label;
-<_nmppsCmpEqC_8u>
+global _nmppsCmpEqC_8u7b:label;
+<_nmppsCmpEqC_8u7b>
  
 .branch;    
     ar5 = sp - 2;

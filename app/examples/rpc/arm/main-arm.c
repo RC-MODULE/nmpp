@@ -18,12 +18,12 @@ int main() {
 
 	signed char  src0_8s[32] , src1_8s[32];
 	signed short src0_16s[32], src1_16s[32];
-	signed int   src0_32s[2*2048] , src1_32s[16];
+	signed int   src0_32s[2*2048] , src1_32s[32];
 	long long    src0_64s[32], src1_64s[32];
 	signed char  dst_8s[32];
 	signed short dst_16s[32];
 	signed int 	 dst_32s[2*2048];
-	signed long long dst_64s[16];
+	signed long long dst_64s[32];
 	
 	int i=0;
 	for(i=0; i<16; i++){
@@ -32,10 +32,15 @@ int main() {
 	}
 
 	for(i=0; i<32; i++){
-		src0_8s[i] =1;//i-7;
-		src0_16s[i]=1;//i-7;
-		src0_32s[i]=1;//i-7;
-		src0_64s[i]=1;//i-7;
+		src0_8s[i] =2;//i-7;
+		src0_16s[i]=2;//i-7;
+		src0_32s[i]=2;//i-7;
+		src0_64s[i]=2;//i-7;
+		
+		src1_8s[i] =3;//i-7;
+		src1_16s[i]=3;//i-7;
+		src1_32s[i]=3;//i-7;
+		src1_64s[i]=3;//i-7;
 	}
 
 	
@@ -91,12 +96,12 @@ int main() {
 	nmppsNot_16u((nm16u*)src0_16s,(nm16s*)dst_16s,16);
 	nmppsNot_32u((nm32u*)src0_32s,(nm32s*)dst_32s,16);
 	nmppsNot_64u((nm64u*)src0_64s,(nm64s*)dst_64s,16);
-	
+*/	
 	nmppsAnd_8u ((nm8u*) src0_8s, (nm8u*) src1_8s, (nm8s*) dst_8s,16);
 	nmppsAnd_16u((nm16u*)src0_16s,(nm16u*)src1_16s,(nm16u*)dst_16s,16);
 	nmppsAnd_32u((nm32u*)src0_32s,(nm32u*)src1_32s,(nm32u*)dst_32s,16);
 	nmppsAnd_64u((nm64u*)src0_64s,(nm64u*)src1_64s,(nm64u*)dst_64s,32);
-
+/*
 	nmppsOr_8u ((nm8u*) src0_8s, (nm8u*) src1_8s, (nm8s*) dst_8s,16);
 	nmppsOr_16u((nm16u*)src0_16s,(nm16u*)src1_16s,(nm16u*)dst_16s,16);
 	nmppsOr_32u((nm32u*)src0_32s,(nm32u*)src1_32s,(nm32u*)dst_32s,16);
@@ -131,7 +136,19 @@ int main() {
 //	nmppsRShiftC_64s((nm64s*)src0,1,(nm64s*)dst,16);
 //	
 	for(i=0; i<16; i++){
-		printf("%d %d\r\n", (int)src0_64s[i],(int)dst_64s[i]);
+		printf("8s: %d %d\r\n", (int)src0_8s[i],(int)dst_8s[i]);
+	}
+
+	for(i=0; i<16; i++){
+		printf("16s: %d %d\r\n", (int)src0_16s[i],(int)dst_16s[i]);
+	}
+
+	for(i=0; i<16; i++){
+		printf("32s: %d %d\r\n", (int)src0_32s[i],(int)dst_32s[i]);
+	}
+
+	for(i=0; i<16; i++){
+		printf("64s: %d %d\r\n", (int)src0_64s[i],(int)dst_64s[i]);
 	}
 	
 	//=====================

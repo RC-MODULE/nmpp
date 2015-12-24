@@ -136,14 +136,14 @@ begin ".text_nmplv"
 
 
 //--------------------------------------------------------------------
-//! \fn void nmppsCmpEq0_8u(nm8u7b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
+//! \fn void nmppsCmpEq0_8u7b(nm8u7b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
 //!
 //! \perfinclude _nmppsCmpEq0__FUcP3nm1Pii_.html
 //--------------------------------------------------------------------
 
-    global _nmppsCmpEq0_8u:	label;
-global _nmppsCmpEq0_8u:label;
-<_nmppsCmpEq0_8u>
+    global _nmppsCmpEq0_8u7b:	label;
+global _nmppsCmpEq0_8u7b:label;
+<_nmppsCmpEq0_8u7b>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0 with gr0 = false;

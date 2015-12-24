@@ -30,13 +30,12 @@ import from macros.mlb;
 //////////////////////////////////////////////////////////////////////
 begin ".text_nmplv"
 
-//! \fn void nmppsCmpEq0_16u(nm16u15b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
+//! \fn void nmppsCmpEq0_16u15b(nm16u15b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
 //!
-//! \perfinclude _nmppsCmpEq0_16u.html
+//! \perfinclude _nmppsCmpEq0_16u15b.html
 
-global _nmppsCmpEq0_16u:	label;
-global _nmppsCmpEq0_16u:label;
-<_nmppsCmpEq0_16u>
+global _nmppsCmpEq0_16u15b:label;
+<_nmppsCmpEq0_16u15b>
 .branch;
 	ar5 = ar7 - 2;
 	push ar0, gr0 with gr0 = false;

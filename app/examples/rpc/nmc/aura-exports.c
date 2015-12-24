@@ -401,75 +401,75 @@ AURA_METHOD(rpc_nmppsNot_64u, nmppsNot_64u,
 //-------------------------------------------
 #ifdef RPC_nmppsAnd_8u
 AURA_METHOD(rpc_nmppsAnd_8u, nmppsAnd_8u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 
 #ifdef RPC_nmppsAnd_16u
 AURA_METHOD(rpc_nmppsAnd_16u, nmppsAnd_16u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 
 #ifdef RPC_nmppsAnd_32u
 AURA_METHOD(rpc_nmppsAnd_32u, nmppsAnd_32u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 		
 #ifdef RPC_nmppsAnd_64u
 AURA_METHOD(rpc_nmppsAnd_64u, nmppsAnd_64u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 
 //-------------------------------------------
 #ifdef RPC_nmppsOr_8u
 AURA_METHOD(rpc_nmppsOr_8u, nmppsOr_8u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 
 #ifdef RPC_nmppsOr_16u
 AURA_METHOD(rpc_nmppsOr_16u, nmppsOr_16u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 
 #ifdef RPC_nmppsOr_32u
 AURA_METHOD(rpc_nmppsOr_32u, nmppsOr_32u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 		
 #ifdef RPC_nmppsOr_64u
 AURA_METHOD(rpc_nmppsOr_64u, nmppsOr_64u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 
 //-------------------------------------------
 #ifdef RPC_nmppsXor_8u
 AURA_METHOD(rpc_nmppsXor_8u, nmppsXor_8u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 
 #ifdef RPC_nmppsXor_16u
 AURA_METHOD(rpc_nmppsXor_16u, nmppsXor_16u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 
 #ifdef RPC_nmppsXor_32u
 AURA_METHOD(rpc_nmppsXor_32u, nmppsXor_32u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 		
 #ifdef RPC_nmppsXor_64u
 AURA_METHOD(rpc_nmppsXor_64u, nmppsXor_64u, 
-	    BUFFER BUFFER U32,
+	    BUFFER BUFFER BUFFER U32,
 	    "");
 #endif 
 

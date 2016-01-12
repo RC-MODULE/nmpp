@@ -1,3 +1,4 @@
+#define __STDC_FORMAT_MACROS
 #include <aura/aura.h>
 #include <ion/ion.h>
 #include "nmpp.h"
@@ -6,8 +7,8 @@
 struct aura_node *n;
 int main() {
 
-	slog_init(NULL, 0);
-
+	slog_init(NULL, 99);
+       sleep(1);
 	int ret; 
 	n = aura_open("nmc", "./rpc-demo.abs");
 	if (!n) {
@@ -112,7 +113,7 @@ int main() {
 	nmppsXor_16u((nm16u*)src0_16s,(nm16u*)src1_16s,(nm16u*)dst_16s,16);
 	nmppsXor_32u((nm32u*)src0_32s,(nm32u*)src1_32s,(nm32u*)dst_32s,16);
 	nmppsXor_64u((nm64u*)src0_64s,(nm64u*)src1_64s,(nm64u*)dst_64s,32);
-*/
+
 	
 	nmppsRShiftC_8u ((nm8u* )src0_8s ,1,(nm8u* )dst_8s ,16);
 	nmppsRShiftC_16u((nm16u*)src0_16s,1,(nm16u*)dst_16s,16);
@@ -125,7 +126,7 @@ int main() {
 	nmppsSum_16s((nm16s*)src0_16s,32,&sum64);printf("sum=%d\r\n",(int)sum64);
 	nmppsSum_32s((nm32s*)src0_32s,32,&sum64);printf("sum=%d\r\n",(int)sum64);
 	nmppsSum_64s((nm64s*)src0_64s,16,&sum64);printf("sum=%d\r\n",(int)sum64);
-	
+*/	
 //	
 //	nmppsSubC_8s ((nm8s* )src0,1,(nm8s* )dst,16);
 //	nmppsSubC_16s((nm16s*)src0,1,(nm16s*)dst,16);
@@ -137,6 +138,7 @@ int main() {
 //  nmppsRShiftC_32s((nm32s*)src0,1,(nm32s*)dst,16);
 //	nmppsRShiftC_64s((nm64s*)src0,1,(nm64s*)dst,16);
 //	
+/*
 	for(i=0; i<16; i++){
 		printf("8s: %d %d\r\n", (int)src0_8s[i],(int)dst_8s[i]);
 	}
@@ -152,7 +154,7 @@ int main() {
 	for(i=0; i<16; i++){
 		printf("64s: %d %d\r\n", (int)src0_64s[i],(int)dst_64s[i]);
 	}
-	
+	*/
 	//=====================
 	
 	for(i=0; i<2048*2; i++){
@@ -168,17 +170,24 @@ int main() {
 	src0_32s[5]=1000;
 	src0_32s[6]=1000;
 	src0_32s[7]=1000;
-	/*
+	
 	NmppsFFTSpec* specFwd256;
-	ret=nmppsFFT256FwdInitAlloc(&specFwd256, src0_32s, dst_32s, NMPP_OPTIMIZE_ALLOCATION_OFF);
+	ret=nmppsFFT256FwdInitAlloc(&specFwd256, src0_32s, dst_32s, 0);
 	printf("****** ret=%d Handle=%x\r\n",ret ,specFwd256);
+	//clock_t t0,t1;
+	uint64_t t0,t1;
+	//t0=clock();
+	t0=aura_platform_timestamp();
 	nmppsFFT256Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd256);
+	//t1=clock();
+	t1=aura_platform_timestamp();
+	printf("[fwd fft:] time=%llu\r\n",t1-t0);
 	nmppsFFTFree(specFwd256);
 	
 	for(i=0; i<64; i++){
 		printf("[fwd:] %d %d\r\n",dst_32s[i*2] ,dst_32s[i*2+1]);
 	}
-
+/*
 	NmppsFFTSpec *specFFTInv256;
 	ret=nmppsFFT256InvInitAlloc(&specFFTInv256, src0_32s, dst_32s, NMPP_OPTIMIZE_ALLOCATION_OFF);
 	printf("****** ret=%d specFFTInv256=%x\r\n",ret ,(int)specFFTInv256);

@@ -15,8 +15,8 @@ INC_DIRS+= -I./include  -I./include/linux
 
 TARGET  =  rpc-demo
 
-CC_FLAGS = -g -Wall -fPIC $(INC_DIRS)
-LD_FLAGS+=-rdynamic -g  -lelf -L$(ROOT)/lib -lnmpp-arm-rpc
+CC_FLAGS = -g -Wall -fPIC $(INC_DIRS) -pg
+LD_FLAGS+=-rdynamic -g  -lelf -L$(ROOT)/lib -lnmpp-arm-rpc -pg
 
 #-L$(NMPP)/lib
 #INC_DIRS+= -I$(NMPP)/include

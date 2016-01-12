@@ -30,6 +30,8 @@ extern "C" {
 	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
 	{
 	#ifdef RPC
+		clock_t t0,t1,t2,t3;
+		t0=clock();
 		int ret;	
 		int size=256;
 		int k=8;
@@ -37,7 +39,9 @@ extern "C" {
 		struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*k);	
 		memcpy(iobuf_src->data,src,size*k);	
 		struct aura_buffer *retbuf; 
-		ret = aura_call(n, "nmppsFFT256Fwd", &retbuf,  iobuf_src, iobuf_dst, spec); 
+		t1=clock();
+		ret = aura_call_raw(n, 2, &retbuf,  iobuf_src, iobuf_dst, spec); 
+		t2=clock();
 		if (ret != 0) {
 			slog(0, SLOG_ERROR, "call failed, reason: %d\n", ret);
 			BUG(n, "Call nmppsFFT256Fwd failed!"); 
@@ -46,6 +50,8 @@ extern "C" {
 		aura_buffer_release(n, iobuf_dst); 
 		aura_buffer_release(n, iobuf_src); 
 		aura_buffer_release(n, retbuf); 
+		t3=clock();
+		printf("[ARM: NMC] wrap=%d call=%d\r\n",t1-t0+t3-t2,t2-t1);
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT256Fwd -ok"); 
 	#else 
 		FFT_Fwd256(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);

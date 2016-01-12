@@ -10,6 +10,8 @@ typedef void (func_pip_t)(void*,int,void*);
 typedef void (func_ppp_t)(void*,void*,void*);
 typedef int  (func_ppp_i_t)(void*,void*,void*);
 
+#include <time.h>
+
 #define NMC_RPC_I_P(func) \
 void rpc_ ## func(void *in, void *out) \
 { \
@@ -31,13 +33,18 @@ void rpc_ ## func(void *in, void *out) \
 #define NMC_RPC_PPI(func) \
 void rpc_ ## func(void *in, void *out) \
 { \
+	clock_t t0,t1,t2; \
+	t0=clock(); \
 	aura_buffer buf_src = aura_get_buf(); \
 	aura_buffer buf_dst = aura_get_buf(); \
 	int *src = aura_buffer_to_ptr(buf_src); \
 	int *dst = aura_buffer_to_ptr(buf_dst);	 \
 	unsigned size = aura_get_u32(); \
 	func_ppi_t *unifunc=(func_ppi_t*)func; \
+	t1=clock(); \
 	unifunc(src,dst,size); \
+	t2=clock(); \
+	printf("[NMC:]wrap=%d fft=%d\r\n",t1-t0,t2-t1); \
 }
 
 #define NMC_RPC_PPI_I(func) \

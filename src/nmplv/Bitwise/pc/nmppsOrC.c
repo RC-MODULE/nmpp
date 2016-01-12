@@ -17,7 +17,7 @@ void nmppsOrC_p64u(nm64u*	Src1,		// Input Buffer
 
 int i;
 	for (i=0; i<nSize; i++)
-		pDstVec[i] = Src1[i] & Mask[0];
+		pDstVec[i] = Src1[i] | Mask[0];
 
 	#endif
 }
@@ -34,7 +34,7 @@ void nmppsOrC_64u(
 	#else
 	int i;
 	for (i=0; i<Size; i++)
-		Dst[i] = Src[i] & Mask;
+		Dst[i] = Src[i] | Mask;
 	#endif
 }
 
@@ -50,7 +50,7 @@ void nmppsOrC_32u(
 	#else
 	int i;
 	for (i=0; i<Size; i++)
-		Dst[i] = Src[i] & Mask;
+		Dst[i] = Src[i] | Mask;
 	#endif
 }
 
@@ -66,7 +66,7 @@ void nmppsOrC_16u(
 	#else
 	int i;
 	for (i=0; i<Size; i++)
-		Dst[i] = Src[i] & Mask;
+		Dst[i] = Src[i] | Mask;
 	#endif
 }
 
@@ -82,6 +82,6 @@ void nmppsOrC_8u(
 	#else
 	int i;
 	for (i=0; i<Size; i++)
-		Dst[i] = Src[i] & Mask;
+		Dst[i] = Src[i] | Mask;
 	#endif
 }

@@ -203,16 +203,19 @@
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsSum.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsWadd2V.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\Quant.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsAnd.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsAndC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsAndNV.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsd4V.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsLogic.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsNot.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOr.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOr3V.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOr4V.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOrC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOrNV.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsShift.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsXor.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsXorC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\common\nmppsRamp.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\common\nmppsRand32u.c" > </File> 
@@ -229,6 +232,7 @@
  			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsMinIndx_nm16s.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsMinIndx_nm32s.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsMinIndx_nm8s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmpps-CmpNe0.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsClipPowC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsClipPowCRShiftCnv_AddC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEq0.c" > </File> 

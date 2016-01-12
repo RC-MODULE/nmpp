@@ -36,7 +36,10 @@ global _nmppsSubCRev_64s:label;
 	push ar5,gr5	with gr0=gr7;
 	push ar6,gr6	with gr6=gr7;
 	ar0 = [--ar5];						// pSrcVec
-	ar1 = [--ar5];						// SrcN
+	ar1 = ar5-3;
+	ar5 = ar1;
+	
+	//ar1 = [--ar5];						// SrcN
 	ar6 = [--ar5];						// pDstVec
 	gr5 = [--ar5];						// nSize
 	
@@ -45,14 +48,13 @@ global _nmppsSubCRev_64s:label;
 	delayed call vec_ram_sub_data 	with gr5;		// nSize in 64-bit longs
 		nul;
 		nul;
-	
+		
 	pop ar6,gr6;
 	pop ar5,gr5;
 	pop ar1,gr1;
 	pop ar0,gr0;
 return;
 .wait;
-
 
 
 end ".text_nmplv";

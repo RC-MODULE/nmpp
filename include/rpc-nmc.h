@@ -291,6 +291,23 @@ NMC_RPC_PLPI(nmppsSubC_64s);
 #endif 
 
 //--------------------------
+#ifdef RPC_nmppsSubCRev_8s
+NMC_RPC_PIPI(nmppsSubCRev_8s);
+#endif 
+
+#ifdef RPC_nmppsSubCRev_16s
+NMC_RPC_PIPI(nmppsSubCRev_16s);
+#endif 
+
+#ifdef RPC_nmppsSubCRev_32s
+NMC_RPC_PIPI(nmppsSubCRev_32s);
+#endif 
+
+#ifdef RPC_nmppsSubCRev_64s
+NMC_RPC_PLPI(nmppsSubCRev_64s);
+#endif 
+
+//--------------------------
 #ifdef RPC_nmppsRShiftC_8s
 NMC_RPC_PIPI(nmppsRShiftC_8s);
 #endif 
@@ -650,4 +667,36 @@ NMC_RPC_PIR64(nmppsSum_32s);
 
 #ifdef RPC_nmppsSum_64s
 NMC_RPC_PIR64(nmppsSum_64s);
+#endif 
+//--------------------------
+#ifdef RPC_nmppsCmpNe0_64s
+NMC_RPC_PPI(nmppsCmpNe0_64s);
+#endif 
+
+#ifdef RPC_nmppsCmpNe0_32s
+NMC_RPC_PPI(nmppsCmpNe0_32s);
+#endif 
+
+#ifdef RPC_nmppsCmpNe0_16s
+NMC_RPC_PPI(nmppsCmpNe0_16s);
+#endif 
+
+#ifdef RPC_nmppsCmpNe0_8s
+NMC_RPC_PPI(nmppsCmpNe0_8s);
+#endif 
+//--------------------------
+#ifdef RPC_nmppsCmpLt0_64s
+NMC_RPC_PPI(nmppsCmpLt0_64s);
+#endif 
+
+#ifdef RPC_nmppsCmpLt0_32s
+NMC_RPC_PPI(nmppsCmpLt0_32s);
+#endif 
+
+#ifdef RPC_nmppsCmpLt0_16s
+NMC_RPC_PPI(nmppsCmpLt0_16s);
+#endif 
+
+#ifdef RPC_nmppsCmpLt0_8s
+NMC_RPC_PPI(nmppsCmpLt0_8s);
 #endif 

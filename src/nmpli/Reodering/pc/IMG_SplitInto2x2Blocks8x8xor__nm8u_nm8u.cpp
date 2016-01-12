@@ -32,5 +32,5 @@ void IMG_SplitInto2x2Blocks8x8xor(
 			n3=m3;
 		}
 	}
-	nmppsXorC_64u((nm64u*)pDstBlockSeq,(nm64u*)pXorMask,(nm64u*)pDstBlockSeq,nWidth*nHeight/8);
+	nmppsXorC_64u((nm64u*)pDstBlockSeq,*pXorMask,(nm64u*)pDstBlockSeq,nWidth*nHeight/8);
 }

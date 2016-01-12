@@ -303,18 +303,18 @@ void nmppsSubCRev_32s(
 // pDstVec[i]=Decrement-pSrcVec[i]
 void nmppsSubCRev_64s(
 		nm64s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
-		nm64s*			pnVal,				// decrement		:
+		int64b			nVal,				// decrement		:
 		nm64s*			pDstVec,			// output buffer	:long Global[VecSize/2]
 		int				nSize		// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
 {
 	#ifdef RPC
-	//RPC_HOST_PIPI(pSrcVec,pDstVec,nSize,8);
+	RPC_HOST_PIPI("nmppsSubCRev_64s",pSrcVec,nVal,pDstVec,nSize,8);
 	#else
 
 	int i;
 	for (i=0; i<nSize; i++)
-		pDstVec[i] = *pnVal-pSrcVec[i];
+		pDstVec[i] = nVal-pSrcVec[i];
 
 	#endif
 }

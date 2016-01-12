@@ -7,7 +7,7 @@
 struct aura_node *n;
 int main() {
 
-	slog_init(NULL, 99);
+	slog_init(NULL, 0);
        sleep(1);
 	int ret; 
 	n = aura_open("nmc", "./rpc-demo.abs");
@@ -33,15 +33,15 @@ int main() {
 	}
 
 	for(i=0; i<32; i++){
-		src0_8s[i] =4;//i-7;
-		src0_16s[i]=4;//i-7;
-		src0_32s[i]=4;//i-7;
-		src0_64s[i]=4;//i-7;
+		src0_8s[i] =i-7;
+		src0_16s[i]=i-7;
+		src0_32s[i]=i-7;
+		src0_64s[i]=i-7;
 		
-		src1_8s[i] =3;//i-7;
-		src1_16s[i]=3;//i-7;
-		src1_32s[i]=3;//i-7;
-		src1_64s[i]=3;//i-7;
+		src1_8s[i] =i-7;
+		src1_16s[i]=i-7;
+		src1_32s[i]=i-7;
+		src1_64s[i]=i-7;
 	}
 
 	
@@ -77,6 +77,22 @@ int main() {
 //	nmppsAddC_32s((nm32s*)src0_32s,1,(nm32s*)dst_32s,16);
 //	nmppsAddC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,32);
 //	nmppsSubC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,32);
+
+//	nmppsSubCRev_8s ((nm8s*) src0_8s, 1,(nm8s*) dst_8s, 16);
+//	nmppsSubCRev_16s((nm16s*)src0_16s,1,(nm16s*)dst_16s,16);
+//	nmppsSubCRev_32s((nm32s*)src0_32s,1,(nm32s*)dst_32s,16);
+//	nmppsSubCRev_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,16);
+
+//	nmppsAbs_8s    ((nm8s*) src0_8s ,(nm8s*) dst_8s, 16);
+	nmppsCmpNe0_8s ((nm8s*) src0_8s ,(nm8s*) dst_8s, 16);
+	nmppsCmpNe0_16s((nm16s*)src0_16s,(nm16s*)dst_16s,16);
+	nmppsCmpNe0_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
+	nmppsCmpNe0_64s((nm64s*)src0_64s,(nm64s*)dst_64s,16);
+//	nmppsCmpLt0_8s ((nm8s*) src0_8s ,(nm8s*) dst_8s, 16);
+//	nmppsCmpLt0_16s((nm16s*)src0_16s,(nm16s*)dst_16s,16);
+//	nmppsCmpLt0_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
+//	nmppsCmpLt0_64s((nm64s*)src0_64s,(nm64s*)dst_64s,16);
+
 /*
 
 	nmppsAndC_8u((nm8u*)  src0_8s, 5, (nm8s*) dst_8s,16);
@@ -138,7 +154,7 @@ int main() {
 //  nmppsRShiftC_32s((nm32s*)src0,1,(nm32s*)dst,16);
 //	nmppsRShiftC_64s((nm64s*)src0,1,(nm64s*)dst,16);
 //	
-/*
+/**/
 	for(i=0; i<16; i++){
 		printf("8s: %d %d\r\n", (int)src0_8s[i],(int)dst_8s[i]);
 	}
@@ -154,9 +170,9 @@ int main() {
 	for(i=0; i<16; i++){
 		printf("64s: %d %d\r\n", (int)src0_64s[i],(int)dst_64s[i]);
 	}
-	*/
-	//=====================
 	
+	//=====================
+/*	
 	for(i=0; i<2048*2; i++){
 		src0_32s[i]=1;
 		dst_32s[i]=0;
@@ -187,6 +203,8 @@ int main() {
 	for(i=0; i<64; i++){
 		printf("[fwd:] %d %d\r\n",dst_32s[i*2] ,dst_32s[i*2+1]);
 	}
+	
+*/	
 /*
 	NmppsFFTSpec *specFFTInv256;
 	ret=nmppsFFT256InvInitAlloc(&specFFTInv256, src0_32s, dst_32s, NMPP_OPTIMIZE_ALLOCATION_OFF);

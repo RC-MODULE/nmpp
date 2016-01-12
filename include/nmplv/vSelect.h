@@ -1533,6 +1533,68 @@ void nmppsCmpEqC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSi
 //******************************************************************************************
 
   /**
+	\defgroup nmppsCmpNe0 nmppsCmpNe0
+    \ingroup vSelect
+    \brief
+        \ru Сравнивает элементы массива на признак неравенства нулю. 
+        \en Compare vec elements to zero nonequality. 
+    
+		\~
+    
+	\f[
+        pDstVec(i)  =  \{ \begin{array}{*{20}c}
+            nTrueFlag,		&  if &  pSrcVec(i) \neq 0  \\
+            0,				&  if &  pSrcVec(i) = 0   \\
+        \end{array}
+    \f]
+	
+    
+	\f[ i = \overline{0 \ldots nSize-1} \f]
+    
+		\~
+    \param pSrcVec  
+        \ru Входной вектор. 
+        \en Input vec. 
+		\~
+	\param nCmpVal
+		\ru	Значение константы для сравнияе 
+		\en Comparision constant value 
+		\~
+    \param nSize   
+		\ru Размер векторов в элементах. 
+        \en Vector size in elements. 
+		\~
+    \param nTrueFlag
+		\ru Значние флага, устанавливаемого при выполнении условия  
+        \en Flag value, being set if condition is true. 
+		\~
+    \retval pDstVec 
+        \ru Результирующий вектор. 
+        \en Destination vec. 
+		\~
+    \return \e void 
+    
+    \par
+    \xmlonly
+        <testperf> 
+             <param> pSrcVec </param> <values> L G </values>
+             <param> pDstVec </param> <values> L G </values>
+             <param> nCmpVal </param> <values> 0 </values>
+             <param> nSize </param> <values> 10240 </values>
+			 <param> nTrueFlag </param> <values> 1 </values>
+        </testperf>
+      \endxmlonly
+    */
+	//! \{
+		
+	void nmppsCmpNe0_8s (nm8s* pSrcVec,   nm8s* pDstVec, int nSize);
+	void nmppsCmpNe0_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+	void nmppsCmpNe0_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+	void nmppsCmpNe0_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+
+	//! \}
+	
+  /**
 	\defgroup nmppsCmpNeC nmppsCmpNeC
     \ingroup vSelect
     \brief

@@ -1,9 +1,9 @@
-/*
+
 #define RPC_nmppsAbs_32s
 #define RPC_nmppsAbs_64s
 #define RPC_nmppsAbs_16s
 #define RPC_nmppsAbs_8s
-
+/*
 #define RPC_nmppsAbs1_32s
 #define RPC_nmppsAbs1_64s
 #define RPC_nmppsAbs1_16s
@@ -29,6 +29,12 @@
 //#define RPC_nmppsSubC_16s
 //#define RPC_nmppsSubC_32s
 //#define RPC_nmppsSubC_64s
+
+//#define RPC_nmppsSubCRev_8s
+//#define RPC_nmppsSubCRev_16s
+//#define RPC_nmppsSubCRev_32s
+//#define RPC_nmppsSubCRev_64s
+
    
 //#define RPC_nmppsRShiftC_8s
 //#define RPC_nmppsRShiftC_16s
@@ -99,3 +105,13 @@
 //#define RPC_nmppsSum_16s
 //#define RPC_nmppsSum_32s
 //#define RPC_nmppsSum_64s
+
+#define RPC_nmppsCmpNe0_8s
+#define RPC_nmppsCmpNe0_16s
+#define RPC_nmppsCmpNe0_32s
+#define RPC_nmppsCmpNe0_64s
+                 
+#define RPC_nmppsCmpLt0_8s
+#define RPC_nmppsCmpLt0_16s
+#define RPC_nmppsCmpLt0_32s
+#define RPC_nmppsCmpLt0_64s

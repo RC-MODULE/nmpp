@@ -27,7 +27,7 @@ endif
 #---------------------------------------------------------------------------------------------
 #function of recurse search for *.h in argument directory
 define recurse_scan_h
-ALL_H+=$$(subst \,/,$$(shell find $(1) -name "*.h"   2>nul))	
+ALL_H+=$$(subst \,/,$$(shell find $(1) -name "*.h"   2>null))	
 endef
 
 #---------------------------------------------------------------------------------------------

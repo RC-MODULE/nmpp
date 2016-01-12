@@ -50,8 +50,9 @@ extern struct aura_node *n;
 	memcpy(iobuf_src->data,src,size*k);	\
 	struct aura_buffer *retbuf; \
 	ret = aura_call(n, func, &retbuf,  iobuf_src, iobuf_dst, size); \
-	if (ret != 0) \
-	    BUG(n, "Call " #func " failed!"); \
+	if (ret != 0) {\
+		printf ("bug = %d\r\n",ret);\
+		BUG(n, "Call " #func " failed!"); }\
 	memcpy(dst,iobuf_dst->data,size*k); \
 	aura_buffer_release(n, iobuf_dst); \
 	aura_buffer_release(n, iobuf_src); \

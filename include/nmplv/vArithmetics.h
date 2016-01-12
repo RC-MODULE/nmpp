@@ -529,7 +529,8 @@ void nmppsSubC_64s(nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
 void nmppsSubCRev_8s (nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
 void nmppsSubCRev_16s(nm16s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
 void nmppsSubCRev_32s(nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
-void nmppsSubCRev_64s(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
+void nmppsSubCRev_64s(nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
+//void nmppsSubCRev_64s(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************

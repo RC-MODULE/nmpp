@@ -83,15 +83,16 @@ int main() {
 //	nmppsSubCRev_32s((nm32s*)src0_32s,1,(nm32s*)dst_32s,16);
 //	nmppsSubCRev_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,16);
 
-//	nmppsAbs_8s    ((nm8s*) src0_8s ,(nm8s*) dst_8s, 16);
-	nmppsCmpNe0_8s ((nm8s*) src0_8s ,(nm8s*) dst_8s, 16);
-	nmppsCmpNe0_16s((nm16s*)src0_16s,(nm16s*)dst_16s,16);
-	nmppsCmpNe0_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
-	nmppsCmpNe0_64s((nm64s*)src0_64s,(nm64s*)dst_64s,16);
-//	nmppsCmpLt0_8s ((nm8s*) src0_8s ,(nm8s*) dst_8s, 16);
-//	nmppsCmpLt0_16s((nm16s*)src0_16s,(nm16s*)dst_16s,16);
-//	nmppsCmpLt0_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
-//	nmppsCmpLt0_64s((nm64s*)src0_64s,(nm64s*)dst_64s,16);
+
+
+//	nmppsCmpNe0_8s ((nm8s*) src0_8s ,(nm8s*) dst_8s, 16);
+//	nmppsCmpNe0_16s((nm16s*)src0_16s,(nm16s*)dst_16s,16);
+//	nmppsCmpNe0_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
+//	nmppsCmpNe0_64s((nm64s*)src0_64s,(nm64s*)dst_64s,16);
+	nmppsCmpLt0_8s ((nm8s*) src0_8s ,(nm8s*) dst_8s, 16);
+	nmppsCmpLt0_16s((nm16s*)src0_16s,(nm16s*)dst_16s,16);
+	nmppsCmpLt0_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
+	nmppsCmpLt0_64s((nm64s*)src0_64s,(nm64s*)dst_64s,16);
 
 /*
 

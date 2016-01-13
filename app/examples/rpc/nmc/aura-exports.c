@@ -590,4 +590,57 @@ AURA_METHOD(rpc_nmppsCmpLt0_64s, nmppsCmpLt0_64s,
 	    "");
 #endif 
 
+
+
+//----------------------------------------
+#ifdef RPC_nmppsCmpNeC_8s
+AURA_METHOD(rpc_nmppsCmpNeC_8s, nmppsCmpNeC_8s, 
+	    BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsCmpNeC_16s
+AURA_METHOD(rpc_nmppsCmpNeC_16s, nmppsCmpNeC_16s, 
+	    BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsCmpNeC_32s
+AURA_METHOD(rpc_nmppsCmpNeC_32s, nmppsCmpNeC_32s, 
+	    BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+		
+#ifdef RPC_nmppsCmpNeC_64s
+AURA_METHOD(rpc_nmppsCmpNeC_64s, nmppsCmpNeC_64s, 
+	    BUFFER U64 BUFFER U32,
+	    "");
+#endif 
+
+//----------------------------------------
+#ifdef RPC_nmppsCmpLtC_8s
+AURA_METHOD(rpc_nmppsCmpLtC_8s, nmppsCmpLtC_8s, 
+	    BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsCmpLtC_16s
+AURA_METHOD(rpc_nmppsCmpLtC_16s, nmppsCmpLtC_16s, 
+	    BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsCmpLtC_32s
+AURA_METHOD(rpc_nmppsCmpLtC_32s, nmppsCmpLtC_32s, 
+	    BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+		
+#ifdef RPC_nmppsCmpLtC_64s
+AURA_METHOD(rpc_nmppsCmpLtC_64s, nmppsCmpLtC_64s, 
+	    BUFFER U64 BUFFER U32,
+	    "");
+#endif 
+
+
 struct aura_object g_aura_eof;

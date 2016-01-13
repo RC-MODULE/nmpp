@@ -22,33 +22,36 @@
 begin ".text_nmvcore"
 
 
-macro VEC_CMP_NE_0(N)
+macro VEC_CMP_NE_C(N)
+	rep N data= [ar0++gr0] with vsum ,data,vr;
+	rep N [ar7],ram = afifo with 0-afifo ;
 	delayed return;
-		rep N ram = [ar0++gr0] with 0-ram ;
 		rep N  with activate afifo or activate ram;
 		rep N [ar6++gr6] = afifo;
-end   VEC_CMP_NE_0;
+		nul;
+	nul;
+	nul;
+end   VEC_CMP_NE_C;
 
 Cmp_rep0:label;
 
     //------------------------------------------------------------------------
-    //! \fn void vec_CmpNe0(nmreg nb1, nmreg ar0, nmreg gr0, nmreg ar1, nmreg gr1, nmreg gr5, nmreg ar6, nmreg gr6)
+    //! \fn void vec_CmpNeC(nmreg nb1,nmreg sb, nmreg vr, nmreg ar0, nmreg gr0, nmreg gr5, nmreg ar6, nmreg gr6 )
     //!
     //------------------------------------------------------------------------
 
-global vec_CmpNe0_ :label;
-<vec_CmpNe0_>
+global vec_CmpNeC :label;
+<vec_CmpNeC>
 .branch;
 	push ar2,gr2 with gr2=gr5<<27 ;
 	push ar5,gr5 with gr5>>=5;	
-	if =0 delayed goto Cmp_repN with gr2>>=25;
+	if =0 delayed goto Cmp_repN with gr2>>=24;
 		ar2 = Cmp_rep0 with gr5--;
-	rep 32 ram = [ar0] ;		
 	<next_Cmp_rep32>
-		nul;
-		rep 32 ram = [ar1++gr1] with  data;
+		rep 32 data= [ar0++gr0] with vsum ,data,vr;
+		rep 32 [ar7],ram = afifo with 0-afifo;
 	if <>0 delayed goto next_Cmp_rep32 with gr5--;
-		rep 32 with  activate afifo or activate afifo;
+		rep 32 with  activate afifo or activate ram;
 		rep 32 [ar6++gr6] = afifo;
 	<Cmp_repN>
 	ar2+=gr2;
@@ -60,37 +63,41 @@ global vec_CmpNe0_ :label;
 		nul;
 		nul;
 		nul;
-	VEC_CMP_NE_0(1);
-	VEC_CMP_NE_0(2);
-	VEC_CMP_NE_0(3);
-	VEC_CMP_NE_0(4);
-	VEC_CMP_NE_0(5);
-	VEC_CMP_NE_0(6);
-	VEC_CMP_NE_0(7);
-	VEC_CMP_NE_0(8);
-	VEC_CMP_NE_0(9);
-	VEC_CMP_NE_0(10);
-	VEC_CMP_NE_0(11);
-	VEC_CMP_NE_0(12);
-	VEC_CMP_NE_0(13);
-	VEC_CMP_NE_0(14);
-	VEC_CMP_NE_0(15);
-	VEC_CMP_NE_0(16);
-	VEC_CMP_NE_0(17);
-	VEC_CMP_NE_0(18);
-	VEC_CMP_NE_0(19);
-	VEC_CMP_NE_0(20);
-	VEC_CMP_NE_0(21);
-	VEC_CMP_NE_0(22);
-	VEC_CMP_NE_0(23);
-	VEC_CMP_NE_0(24);
-	VEC_CMP_NE_0(25);
-	VEC_CMP_NE_0(26);
-	VEC_CMP_NE_0(27);
-	VEC_CMP_NE_0(28);
-	VEC_CMP_NE_0(29);
-	VEC_CMP_NE_0(30);
-	VEC_CMP_NE_0(31);
+	nul;
+	nul;
+	nul;
+	nul;
+	VEC_CMP_NE_C(1);
+	VEC_CMP_NE_C(2);
+	VEC_CMP_NE_C(3);
+	VEC_CMP_NE_C(4);
+	VEC_CMP_NE_C(5);
+	VEC_CMP_NE_C(6);
+	VEC_CMP_NE_C(7);
+	VEC_CMP_NE_C(8);
+	VEC_CMP_NE_C(9);
+	VEC_CMP_NE_C(10);
+	VEC_CMP_NE_C(11);
+	VEC_CMP_NE_C(12);
+	VEC_CMP_NE_C(13);
+	VEC_CMP_NE_C(14);
+	VEC_CMP_NE_C(15);
+	VEC_CMP_NE_C(16);
+	VEC_CMP_NE_C(17);
+	VEC_CMP_NE_C(18);
+	VEC_CMP_NE_C(19);
+	VEC_CMP_NE_C(20);
+	VEC_CMP_NE_C(21);
+	VEC_CMP_NE_C(22);
+	VEC_CMP_NE_C(23);
+	VEC_CMP_NE_C(24);
+	VEC_CMP_NE_C(25);
+	VEC_CMP_NE_C(26);
+	VEC_CMP_NE_C(27);
+	VEC_CMP_NE_C(28);
+	VEC_CMP_NE_C(29);
+	VEC_CMP_NE_C(30);
+	VEC_CMP_NE_C(31);
 return;
 .wait;
 

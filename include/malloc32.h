@@ -95,6 +95,8 @@ int   nmppsMallocStopRouteRec  ();
 void  nmppsMallocSetBoundary  (int size, int fill );
 int   nmppsMallocCheckBoundary(void*);
 int   nmppsMallocIsErrorStatus();
+int   nmppsMallocSuccess();
+int   nmppsMallocStatus();
 void  nmppsMallocResetStatus  ();
 int   nmppsMallocGetHistory   (fseq64*  heapSeq, int seqSize);
 

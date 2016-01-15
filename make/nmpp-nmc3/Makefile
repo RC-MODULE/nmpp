@@ -96,6 +96,7 @@ SRC_DIRS         = 	 \
 					../../src/nmpli/Resample/common \
 					../../src/nmpli/Resample/nm \
 					../../src/nmpli/Select/nm \
+					../../src/nmpli/Select/common \
 					../../src/nmpli/Support/common \
 					../../src/nmplm/Core/nm \
 					../../src/nmplm/Init/nm \

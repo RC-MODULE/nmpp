@@ -117,12 +117,12 @@
 //#define RPC_nmppsCmpLt0_64s
 
 
-#define RPC_nmppsCmpNeC_8s
-#define RPC_nmppsCmpNeC_16s
-#define RPC_nmppsCmpNeC_32s
-#define RPC_nmppsCmpNeC_64s
+//#define RPC_nmppsCmpNeC_8s
+//#define RPC_nmppsCmpNeC_16s
+//#define RPC_nmppsCmpNeC_32s
+//#define RPC_nmppsCmpNeC_64s
 
-//#define RPC_nmppsCmpLtC_8s
-//#define RPC_nmppsCmpLtC_16s
-//#define RPC_nmppsCmpLtC_32s
-//#define RPC_nmppsCmpLtC_64s
+#define RPC_nmppsCmpLtC_8s
+#define RPC_nmppsCmpLtC_16s
+#define RPC_nmppsCmpLtC_32s
+#define RPC_nmppsCmpLtC_64s

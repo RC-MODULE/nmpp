@@ -224,6 +224,7 @@
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsRand.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSet.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSwap.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpLtC_8s.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsLastNonZeroIndx.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsLastZeroIndx.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsMaxIndx_nm16s.c" > </File> 
@@ -239,6 +240,7 @@
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEqC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEqV.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpLt0.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpLtC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpMinMaxEvery.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpNeC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpNeV.c" > </File> 

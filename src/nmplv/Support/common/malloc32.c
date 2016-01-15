@@ -175,9 +175,19 @@ int  nmppsMallocIsErrorStatus()
 {
 	return nmppsMallocSpec.status;
 }
+int  nmppsMallocSuccess()
+{
+	return nmppsMallocSpec.status==0;
+}
+
 void  nmppsMallocResetStatus()
 {
 	nmppsMallocSpec.status=0;
+}
+
+int  nmppsMallocStatus()
+{
+	return nmppsMallocSpec.status;
 }
 
 

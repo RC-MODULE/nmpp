@@ -14,6 +14,7 @@
 #ifndef VSELECT_H
 #define VSELECT_H
 
+#include "malloc32.h"
 #ifdef __cplusplus
 		extern "C" {
 #endif
@@ -1652,11 +1653,43 @@ void nmppsCmpEqC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSi
 	void nmppsCmpNeC_16s   (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize);
 	void nmppsCmpNeC_32s   (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
 	void nmppsCmpNeC_64s   (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
+	
+	
 	void nmppsCmpNeC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSize, int8b nTrueFlag);
 	void nmppsCmpNeC_16u15b(nm16u15b* pSrcVec,  uint15b nCmpVal,   nm16s* pDstVec, int nSize, int16b nTrueFlag);
 
 	//! \}
+	typedef struct {
+		void* buffer0;
+		void* buffer1;
+		fseq64  route;
+		int mode;
+		int status;
+	} Tmp2BuffSpec;
 
+	//spec.mode=ONE_TIME_ALLOC|ROUTE_ALLOC|OPTIMIZE_ROUTE;
+	
+	int nmppsCmpLtC_8s      (nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int nSize, Tmp2BuffSpec *spec);
+	int nmppsCmpLtC_16s     (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize, Tmp2BuffSpec *spec);
+	int nmppsCmpLtC_32s     (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize, Tmp2BuffSpec *spec);
+	int nmppsCmpLtC_64s     (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize, Tmp2BuffSpec *spec);
+/*	                                                                                   
+	void nmppsCmpGtC_8s      (nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int nSize, Tmp2BuffSpec *spec);
+	void nmppsCmpGtC_16s     (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize, Tmp2BuffSpec *spec);
+	void nmppsCmpGtC_32s     (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize, Tmp2BuffSpec *spec);
+	void nmppsCmpGtC_64s     (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize, Tmp2BuffSpec *spec);
+*/	
+	void nmppsCmpLtC_8s7b    (nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int nSize);
+	void nmppsCmpLtC_16s15b  (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize);
+	void nmppsCmpLtC_32s31b  (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
+	void nmppsCmpLtC_64s63b  (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
+	
+	void nmppsCmpGtC_8s7b    (nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int nSize);
+	void nmppsCmpGtC_16s15b  (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize);
+	void nmppsCmpGtC_32s31b  (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
+	void nmppsCmpGtC_64s63b  (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
+	
+	
 //******************************************************************************************
   
 	/**

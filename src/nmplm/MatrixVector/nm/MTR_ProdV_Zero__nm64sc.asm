@@ -9,15 +9,15 @@ begin ".text_nmplm"
 // time=W*H*16 тактов
 
 //------------------------------------------------------------------------------------------------
-//! \fn void MTR_ProdV_Zero( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int nStart, int nQuantity, int nHeight, int nWidth, void*tmp)
+//! \fn void nmppmMul_mv__Zero( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int nStart, int nQuantity, int nHeight, int nWidth, void*tmp)
 //! 
-//! \perfinclude _MTR_ProdV_Zero__F6nm64scPC6nm64scPC6nm64scPiiiiPv.html 
+//! \perfinclude _nmppmMul_mv__Zero__F6nm64scPC6nm64scPC6nm64scPiiiiPv.html 
 //------------------------------------------------------------------------------------------------
 
-global _MTR_ProdV_Zero__F6nm64scPC6nm64scPC6nm64scPiiiiPv:label;
-global _void._.8.8MTR_ProdV_Zero.1class._nm64sc._const._.0.9._class._nm64sc._const._.0.9._class._nm64sc._.0.9._int.9._int.9._int.9._int.9._void._.0.2 :label;
-<_MTR_ProdV_Zero__F6nm64scPC6nm64scPC6nm64scPiiiiPv>
-<_void._.8.8MTR_ProdV_Zero.1class._nm64sc._const._.0.9._class._nm64sc._const._.0.9._class._nm64sc._.0.9._int.9._int.9._int.9._int.9._void._.0.2>
+global _nmppmMul_mv__Zero__F6nm64scPC6nm64scPC6nm64scPiiiiPv:label;
+global _void._.8.8nmppmMul_mv__Zero.1class._nm64sc._const._.0.9._class._nm64sc._const._.0.9._class._nm64sc._.0.9._int.9._int.9._int.9._int.9._void._.0.2 :label;
+<_nmppmMul_mv__Zero__F6nm64scPC6nm64scPC6nm64scPiiiiPv>
+<_void._.8.8nmppmMul_mv__Zero.1class._nm64sc._const._.0.9._class._nm64sc._const._.0.9._class._nm64sc._.0.9._int.9._int.9._int.9._int.9._void._.0.2>
     ar5=ar7-2 with gr7=false; // gr7 for nb1
     push ar0,gr0;
 	push ar1,gr1;

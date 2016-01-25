@@ -641,6 +641,79 @@ AURA_METHOD(rpc_nmppsCmpLtC_64s, nmppsCmpLtC_64s,
 	    BUFFER U64 BUFFER U32,
 	    "");
 #endif 
+//-----------------------------------
+//void nmppmMul_mm_8s8s  ( nm8s* pSrcMtr1,  int nHeight1, int nWidth1,  nm8s* pSrcMtr2,  nm8s*  pDstMtr, int nWidth2);
+#ifdef RPC_nmppmMul_mm_8s8s
+AURA_METHOD(rpc_nmppmMul_mm_8s8s, nmppmMul_mm_8s8s, 
+		BUFFER U32 U32 BUFFER BUFFER U32,
+	    "");
+#endif 
 
+#ifdef RPC_nmppmMul_mm_8s16s
+AURA_METHOD(rpc_nmppmMul_mm_8s16s, nmppmMul_mm_8s16s, 
+		BUFFER U32 U32 BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppmMul_mm_8s32s
+AURA_METHOD(rpc_nmppmMul_mm_8s32s, nmppmMul_mm_8s32s, 
+		BUFFER U32 U32 BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppmMul_mm_8s64s
+AURA_METHOD(rpc_nmppmMul_mm_8s64s, nmppmMul_mm_8s64s, 
+		BUFFER U32 U32 BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppmMul_mm_16s16s
+AURA_METHOD(rpc_nmppmMul_mm_16s16s, nmppmMul_mm_16s16s, 
+		BUFFER U32 U32 BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppmMul_mm_16s32s
+AURA_METHOD(rpc_nmppmMul_mm_16s32s, nmppmMul_mm_16s32s, 
+		BUFFER U32 U32 BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppmMul_mm_16s64s
+AURA_METHOD(rpc_nmppmMul_mm_16s64s, nmppmMul_mm_16s64s, 
+		BUFFER U32 U32 BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppmMul_mm_32s32s
+AURA_METHOD(rpc_nmppmMul_mm_32s32s, nmppmMul_mm_32s32s, 
+		BUFFER U32 U32 BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppmMul_mm_32s64s
+AURA_METHOD(rpc_nmppmMul_mm_32s64s, nmppmMul_mm_32s64s, 
+		BUFFER U32 U32 BUFFER BUFFER U32,
+	    "");
+#endif 
+
+
+#ifdef RPC_nmppmMul_mv_8s64s
+AURA_METHOD(rpc_nmppmMul_mv_8s64s, nmppmMul_mv_8s64s, 
+		BUFFER BUFFER BUFFER U32 U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppmMul_mv_16s64s
+AURA_METHOD(rpc_nmppmMul_mv_16s64s, nmppmMul_mv_16s64s, 
+		BUFFER BUFFER BUFFER U32 U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppmMul_mv_32s64s
+AURA_METHOD(rpc_nmppmMul_mv_32s64s, nmppmMul_mv_32s64s, 
+		BUFFER BUFFER BUFFER U32 U32,
+	    "");
+#endif 
 
 struct aura_object g_aura_eof;

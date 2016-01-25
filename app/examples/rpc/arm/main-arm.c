@@ -7,6 +7,7 @@
 struct aura_node *n;
 int main() {
 
+	printf("start");
 	slog_init(NULL, 0);
        sleep(1);
 	int ret; 
@@ -17,14 +18,14 @@ int main() {
 	}
 	aura_wait_status(n, AURA_STATUS_ONLINE);
 
-	signed char  src0_8s[32] , src1_8s[32];
-	signed short src0_16s[32], src1_16s[32];
-	signed int   src0_32s[2*2048] , src1_32s[32];
-	long long    src0_64s[32], src1_64s[32];
-	signed char  dst_8s[32];
-	signed short dst_16s[32];
+	static signed char  src0_8s[256] , src1_8s[256];
+	static signed short src0_16s[256], src1_16s[256];
+	static signed int   src0_32s[2*2048] , src1_32s[256];
+	long long    src0_64s[256], src1_64s[256];
+	static signed char  dst_8s[256];
+	signed short dst_16s[256];
 	signed int 	 dst_32s[2*2048];
-	signed long long dst_64s[32];
+	signed long long dst_64s[256];
 	
 	int i=0;
 	for(i=0; i<16; i++){
@@ -34,7 +35,7 @@ int main() {
 
 	for(i=0; i<32; i++){
 		src0_8s[i] =i-7;
-		src0_16s[i]=i-7;
+		src0_16s[i]=i-7+1200;
 		src0_32s[i]=i-7;
 		src0_64s[i]=i-7;
 		
@@ -94,16 +95,31 @@ int main() {
 //	nmppsCmpLt0_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
 //	nmppsCmpLt0_64s((nm64s*)src0_64s,(nm64s*)dst_64s,16);
 
-//	nmppsCmpNeC_8s ((nm8s*) src0_8s ,1,(nm8s*) dst_8s, 16);
-//	nmppsCmpNeC_16s((nm16s*)src0_16s,1,(nm16s*)dst_16s,16);
-//	nmppsCmpNeC_32s((nm32s*)src0_32s,1,(nm32s*)dst_32s,16);
-//	nmppsCmpNeC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,16);
-	nmppsCmpLtC_8s ((nm8s*) src0_8s ,1,(nm8s*) dst_8s, 16, 0);
-	nmppsCmpLtC_16s((nm16s*)src0_16s,1,(nm16s*)dst_16s,16, 0);
-	nmppsCmpLtC_32s((nm32s*)src0_32s,1,(nm32s*)dst_32s,16, 0);
-	nmppsCmpLtC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,16, 0);
+	nmppsCmpNeC_8s ((nm8s*) src0_8s ,1200,(nm8s*) dst_8s, 256);
+	nmppsCmpNeC_16s((nm16s*)src0_16s,1200,(nm16s*)dst_16s,256);
+	nmppsCmpNeC_32s((nm32s*)src0_32s,0,(nm32s*)dst_32s,256);
+	nmppsCmpNeC_64s((nm64s*)src0_64s,0,(nm64s*)dst_64s,256);
 
+//	nmppsCmpLtC_8s ((nm8s*) src0_8s ,1,(nm8s*) dst_8s, 16, 0);
+//	nmppsCmpLtC_16s((nm16s*)src0_16s,1,(nm16s*)dst_16s,16, 0);
+//	nmppsCmpLtC_32s((nm32s*)src0_32s,1,(nm32s*)dst_32s,16, 0);
+//	nmppsCmpLtC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,16, 0);
 
+//	nmppmMul_mm_8s8s  (src0_8s,8,8,src1_8s, dst_8s, 8);
+//	nmppmMul_mm_8s16s (src0_8s,8,8,src1_16s,dst_16s,8);
+//	nmppmMul_mm_8s32s (src0_8s,8,8,src1_32s,dst_32s,8);
+//	nmppmMul_mm_8s64s (src0_8s,8,8,src1_64s,dst_64s,8);
+//	
+//	nmppmMul_mm_16s16s(src0_16s,8,8,src1_16s,dst_16s,8);
+//	nmppmMul_mm_16s32s(src0_16s,8,8,src1_32s,dst_32s,8);
+//	nmppmMul_mm_16s64s(src0_16s,8,8,src1_64s,dst_64s,8);
+//	
+//	nmppmMul_mm_32s32s(src0_32s,8,8,src1_32s,dst_32s,8);
+//	nmppmMul_mm_32s64s(src0_32s,8,8,src1_64s,dst_64s,8);
+//	
+//	nmppmMul_mv_8s64s (src0_8s, src1_64s,dst_64s,8,8);
+//	nmppmMul_mv_16s64s(src0_16s,src1_64s,dst_64s,8,8);
+//	nmppmMul_mv_32s64s(src0_32s,src1_64s,dst_64s,8,8);
 /*
 
 	nmppsAndC_8u((nm8u*)  src0_8s, 5, (nm8s*) dst_8s,16);

@@ -24,14 +24,14 @@ extern _nmppsTmpBuffer64_G_:long;
 extern _nmppsTmpBuffer64_L_:long;
 
 //--------------------------------------------------------------------
-//! \fn void MTR_ProdV_AddC(v2nm32s* pSrcMtr, v2nm32s* pSrcVec2, int nAddVal, nm32s* pDstVec, int nHeight);
+//! \fn void nmppmMul_mv__AddC(v2nm32s* pSrcMtr, v2nm32s* pSrcVec2, int nAddVal, nm32s* pDstVec, int nHeight);
 //!
-//! \perfinclude _MTR_ProdV_AddC__F7v2nm32sP7v2nm32sPiPii.html
+//! \perfinclude _nmppmMul_mv__AddC__F7v2nm32sP7v2nm32sPiPii.html
 //--------------------------------------------------------------------
-global _MTR_ProdV_AddC__F7v2nm32sP7v2nm32sPiPii:label;
-global _void._.8.8MTR_ProdV_AddC.1class._v2nm32s._.0.9._class._v2nm32s._.0.9._int.9._int._.0.9._int.2 :label;
-<_MTR_ProdV_AddC__F7v2nm32sP7v2nm32sPiPii>
-<_void._.8.8MTR_ProdV_AddC.1class._v2nm32s._.0.9._class._v2nm32s._.0.9._int.9._int._.0.9._int.2>
+global _nmppmMul_mv__AddC__F7v2nm32sP7v2nm32sPiPii:label;
+global _void._.8.8nmppmMul_mv__AddC.1class._v2nm32s._.0.9._class._v2nm32s._.0.9._int.9._int._.0.9._int.2 :label;
+<_nmppmMul_mv__AddC__F7v2nm32sP7v2nm32sPiPii>
+<_void._.8.8nmppmMul_mv__AddC.1class._v2nm32s._.0.9._class._v2nm32s._.0.9._int.9._int._.0.9._int.2>
  
 
 

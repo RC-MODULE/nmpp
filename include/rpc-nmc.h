@@ -9,7 +9,8 @@ typedef void (func_plpi_t)(void*,long,void*,int);
 typedef void (func_pip_t)(void*,int,void*);
 typedef void (func_ppp_t)(void*,void*,void*);
 typedef int  (func_ppp_i_t)(void*,void*,void*);
-
+typedef void (func_pppii_t) (void*,void*,void*,int,int);
+typedef void (func_piippi_t) (void*,int,int,void*,void*,int);
 #include <time.h>
 
 #define NMC_RPC_I_P(func) \
@@ -190,6 +191,36 @@ void rpc_ ## func(void *in, void *out) \
 	aura_put_u64(ret); \
 }
 
+#define NMC_RPC_PPPII(func) \
+void rpc_ ## func(void *in, void *out) \
+{ \
+	aura_buffer buf_src0 = aura_get_buf(); \
+	aura_buffer buf_src1 = aura_get_buf(); \
+	aura_buffer buf_dst  = aura_get_buf(); \
+	int *src0  = aura_buffer_to_ptr(buf_src0); \
+	int *src1  = aura_buffer_to_ptr(buf_src1); \
+	int *dst   = aura_buffer_to_ptr(buf_dst); \
+	unsigned height = aura_get_u32(); \
+	unsigned width = aura_get_u32(); \
+	func_pppii_t *unifunc=(func_pppii_t*)func; \
+	unifunc(src0,src1,dst,height,width); \
+}
+
+#define NMC_RPC_PIIPPI(func) \
+void rpc_ ## func(void *in, void *out) \
+{ \
+	aura_buffer buf_src0 = aura_get_buf(); \
+	unsigned height = aura_get_u32(); \
+	unsigned width0 = aura_get_u32(); \
+	aura_buffer buf_src1 = aura_get_buf(); \
+	aura_buffer buf_dst  = aura_get_buf(); \
+	unsigned width1 = aura_get_u32(); \
+	int *src0  = aura_buffer_to_ptr(buf_src0); \
+	int *src1  = aura_buffer_to_ptr(buf_src1); \
+	int *dst   = aura_buffer_to_ptr(buf_dst); \
+	func_piippi_t *unifunc=(func_piippi_t*)func; \
+	unifunc(src0,height,width0,src1,dst,width1); \
+}
 
 //--------------------------
 #ifdef RPC_nmppsAbs_64s
@@ -733,3 +764,92 @@ NMC_RPC_PIPI(nmppsCmpLtC_16s);
 #ifdef RPC_nmppsCmpLtC_8s
 NMC_RPC_PIPI(nmppsCmpLtC_8s);
 #endif 
+
+//--------------------------
+#ifdef    RPC_nmppsMul_mm_8s8s
+NMC_RPC_PPPII(nmppsMul_mm_8s8s);
+#endif 
+
+#ifdef    RPC_nmppsMul_mm_8s16s
+NMC_RPC_PPPII(nmppsMul_mm_8s16s);
+#endif 
+
+#ifdef    RPC_nmppsMul_mm_8s32s
+NMC_RPC_PPPII(nmppsMul_mm_8s32s);
+#endif 
+
+#ifdef    RPC_nmppsMul_mm_8s64s
+NMC_RPC_PPPII(nmppsMul_mm_8s64s);
+#endif 
+
+#ifdef    RPC_nmppsMul_mm_16s16s
+NMC_RPC_PPPII(nmppsMul_mm_16s16s);
+#endif 
+
+#ifdef    RPC_nmppsMul_mm_16s32s
+NMC_RPC_PPPII(nmppsMul_mm_16s32s);
+#endif 
+
+#ifdef    RPC_nmppsMul_mm_16s64s
+NMC_RPC_PPPII(nmppsMul_mm_16s64s);
+#endif 
+
+#ifdef    RPC_nmppsMul_mm_32s32s
+NMC_RPC_PPPII(nmppsMul_mm_32s32s);
+#endif 
+
+#ifdef    RPC_nmppsMul_mm_32s64s
+NMC_RPC_PPPII(nmppsMul_mm_32s64s);
+#endif 
+
+//-----------------------------
+#ifdef     RPC_nmppmMul_mm_8s8s
+NMC_RPC_PIIPPI(nmppmMul_mm_8s8s);
+#endif 
+
+#ifdef     RPC_nmppmMul_mm_8s16s
+NMC_RPC_PIIPPI(nmppmMul_mm_8s16s);
+#endif 
+
+#ifdef     RPC_nmppmMul_mm_8s32s
+NMC_RPC_PIIPPI(nmppmMul_mm_8s32s);
+#endif 
+
+#ifdef     RPC_nmppmMul_mm_8s64s
+NMC_RPC_PIIPPI(nmppmMul_mm_8s64s);
+#endif 
+
+#ifdef     RPC_nmppmMul_mm_16s16s
+NMC_RPC_PIIPPI(nmppmMul_mm_16s16s);
+#endif 
+
+#ifdef     RPC_nmppmMul_mm_16s32s
+NMC_RPC_PIIPPI(nmppmMul_mm_16s32s);
+#endif 
+
+#ifdef     RPC_nmppmMul_mm_16s64s
+NMC_RPC_PIIPPI(nmppmMul_mm_16s64s);
+#endif 
+
+#ifdef     RPC_nmppmMul_mm_32s32s
+NMC_RPC_PIIPPI(nmppmMul_mm_32s32s);
+#endif 
+
+#ifdef     RPC_nmppmMul_mm_32s64s
+NMC_RPC_PIIPPI(nmppmMul_mm_32s64s);
+#endif 
+
+//--------------------------
+#ifdef    RPC_nmppmMul_mv_8s64s
+NMC_RPC_PPPII(nmppmMul_mv_8s64s);
+#endif 
+
+#ifdef    RPC_nmppmMul_mv_16s64s
+NMC_RPC_PPPII(nmppmMul_mv_16s64s);
+#endif 
+
+#ifdef    RPC_nmppmMul_mv_32s64s
+NMC_RPC_PPPII(nmppmMul_mv_32s64s);
+#endif 
+
+

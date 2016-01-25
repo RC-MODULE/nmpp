@@ -111,9 +111,9 @@
     \endxmlonly
     */
     //! \{
-void MTR_Copyua(  nm8s* pSrcMtr, int nSrcStride, int nSrcOffset, nm8s* pDstMtr,  int nDstStride,int nHeight, int nWidth);
-void MTR_Copyua( nm16s* pSrcMtr, int nSrcStride, int nSrcOffset, nm16s* pDstMtr, int nDstStride,int nHeight, int nWidth);
-void MTR_Copyua( nm32s* pSrcMtr, int nSrcStride, int nSrcOffset, nm32s* pDstMtr, int nDstStride,int nHeight, int nWidth);
+void MTR_Copyua_8s (  nm8s* pSrcMtr, int nSrcStride, int nSrcOffset, nm8s* pDstMtr,  int nDstStride,int nHeight, int nWidth);
+void MTR_Copyua_16s( nm16s* pSrcMtr, int nSrcStride, int nSrcOffset, nm16s* pDstMtr, int nDstStride,int nHeight, int nWidth);
+void MTR_Copyua_32s( nm32s* pSrcMtr, int nSrcStride, int nSrcOffset, nm32s* pDstMtr, int nDstStride,int nHeight, int nWidth);
     //! \}
 
 
@@ -192,9 +192,9 @@ void MTR_Copyua( nm32s* pSrcMtr, int nSrcStride, int nSrcOffset, nm32s* pDstMtr,
      
     */
     //! \{
-void MTR_Copyau(  nm8s* pSrcMtr, int nSrcStride, nm8s* pDstMtr,  int nDstStride, int nDstOffset,int nHeight, int nWidth);
-void MTR_Copyau( nm16s* pSrcMtr, int nSrcStride, nm16s* pDstMtr, int nDstStride, int nDstOffset,int nHeight, int nWidth);
-void MTR_Copyau( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nDstOffset,int nHeight, int nWidth);
+void MTR_Copyau_8s (  nm8s* pSrcMtr, int nSrcStride, nm8s* pDstMtr,  int nDstStride, int nDstOffset,int nHeight, int nWidth);
+void MTR_Copyau_16s( nm16s* pSrcMtr, int nSrcStride, nm16s* pDstMtr, int nDstStride, int nDstOffset,int nHeight, int nWidth);
+void MTR_Copyau_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nDstOffset,int nHeight, int nWidth);
     //! \}
 
 
@@ -264,10 +264,10 @@ void MTR_Copyau( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride,
        
     */
     //! \{
-void MTR_Copy(  nm8s* pSrcMtr, int nSrcStride,  nm8s* pDstMtr, int nDstStride, int nHeight, int nWidth);
-void MTR_Copy( nm16s* pSrcMtr, int nSrcStride, nm16s* pDstMtr, int nDstStride, int nHeight, int nWidth);
-void MTR_Copy( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nHeight, int nWidth);
-void MTR_Copy( nm64s* pSrcMtr, int nSrcStride, nm64s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+void MTR_Copy_8s (  nm8s* pSrcMtr, int nSrcStride,  nm8s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+void MTR_Copy_16s( nm16s* pSrcMtr, int nSrcStride, nm16s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+void MTR_Copy_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+void MTR_Copy_64s( nm64s* pSrcMtr, int nSrcStride, nm64s* pDstMtr, int nDstStride, int nHeight, int nWidth);
     //! \}
 
 
@@ -320,7 +320,7 @@ void MTR_Copy( nm64s* pSrcMtr, int nSrcStride, nm64s* pDstMtr, int nDstStride, i
 
 	*/
     //! \{
-void MTR_Fill(nm8s* pMtr,  int8b nVal, int nMtrStride, int nMtrHeight, int nMtrWidth);
+void MTR_Fill_8s(nm8s* pMtr,  int8b nVal, int nMtrStride, int nMtrHeight, int nMtrWidth);
     //! \}
     
 

@@ -19,6 +19,7 @@
 //------------------------------------------------------------------------
 #ifndef _TNMVEC_H_INCLUDED_
 #define _TNMVEC_H_INCLUDED_
+#ifdef __cplusplus
 
 #include <string.h>
 #include "tnmint.h"
@@ -428,4 +429,5 @@ typedef  nmvec<unsigned int>	nmvec32u;
 typedef  nmvec<unsigned long long> nmvec64u;
 
 
+#endif
 #endif

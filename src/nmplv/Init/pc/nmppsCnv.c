@@ -134,7 +134,8 @@ void nmppsConvert_16s64s(
 //*******************************************************************************
 //	Converts each 32 bit word of the pSrcVec to the 8 bytes by sign propagation
 //	leading zero byte and stores the result in the pDstVec buffer.
-void nmppsConvert_32s64s(nm32s*			pSrcVec,	// input buffer		:long Local [Size/2]
+void nmppsConvert_32s64s(
+			nm32s*			pSrcVec,	// input buffer		:long Local [Size/2]
 			nm64s*			pDstVec,	// output buffer	:long Global[Size/1]
 			int				nSize		// size of input buffer in 16 bit elements. nSize=[64,128,...]
 			)

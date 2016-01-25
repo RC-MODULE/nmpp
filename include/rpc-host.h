@@ -173,4 +173,62 @@ extern struct aura_node *n;
 	aura_buffer_release(n, retbuf); \
 	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
 	
+
+#define RPC_HOST_PPPII(func,pSrcMtr,pSrcVec,pDstVec,nHeight,nWidth,k1,k2) \
+	int ret;	\
+    struct aura_buffer *iobuf_src1 = aura_buffer_request(n, nHeight*nWidth*k1);	\
+	struct aura_buffer *iobuf_src2 = aura_buffer_request(n, nWidth*k2 );	\
+	struct aura_buffer *iobuf_dst  = aura_buffer_request(n, nHeight*k2);	\
+	memcpy(iobuf_src1->data,pSrcMtr,nHeight*nWidth*k1);	\
+	memcpy(iobuf_src2->data,pSrcVec,nWidth*k2 );	\
+	struct aura_buffer *retbuf; \
+	ret = aura_call(n, func, &retbuf,  iobuf_src1, iobuf_src2 ,iobuf_dst, nHeight, nWidth); \
+	if (ret != 0) {\
+		slog(0, SLOG_ERROR, "bug = %d", ret);\
+		BUG(n, "Call " #func " failed!"); } \
+	memcpy(pDstVec, iobuf_dst->data, nHeight*k2);	\
+	aura_buffer_release(n, iobuf_src1); \
+	aura_buffer_release(n, iobuf_src2); \
+	aura_buffer_release(n, iobuf_dst); \
+	aura_buffer_release(n, retbuf); \
+	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	
+
+#define	RPC_HOST_PIIPPI(func,pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,k1,k2) \
+	int ret;	\
+    struct aura_buffer *iobuf_src1 = aura_buffer_request(n, nHeight1*nWidth1*k1);	\
+	struct aura_buffer *iobuf_src2 = aura_buffer_request(n, nWidth1 *nWidth2*k2 );	\
+	struct aura_buffer *iobuf_dst  = aura_buffer_request(n, nHeight1*nWidth2*k2);	\
+	memcpy(iobuf_src1->data,pSrcMtr1,nHeight1*nWidth1*k1);	\
+	memcpy(iobuf_src2->data,pSrcMtr2,nWidth1*nWidth2*k2 );	\
+	struct aura_buffer *retbuf; \
+	ret = aura_call(n, func, &retbuf,  iobuf_src1, nHeight1, nWidth1, iobuf_src2 ,iobuf_dst, nWidth2); \
+	if (ret != 0) {\
+		slog(0, SLOG_ERROR, "bug = %d", ret);\
+		BUG(n, "Call " #func " failed!"); } \
+	memcpy(pDstMtr, iobuf_dst->data, nHeight1*nWidth2*k2);	\
+	aura_buffer_release(n, iobuf_src1); \
+	aura_buffer_release(n, iobuf_src2); \
+	aura_buffer_release(n, iobuf_dst); \
+	aura_buffer_release(n, retbuf); \
+	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	
+#define	RPC_HOST_PPIR64(func,srcVec0,srcVec1, size, dst,k1,k2) \
+	int ret;	\
+    struct aura_buffer *iobuf_src1 = aura_buffer_request(n, size*k1);	\
+	struct aura_buffer *iobuf_src2 = aura_buffer_request(n, size*k2 );	\
+	memcpy(iobuf_src1->data,srcVec0,size*k1);	\
+	memcpy(iobuf_src2->data,srcVec1,size*k2);	\
+	struct aura_buffer *retbuf; \
+	ret = aura_call(n, func, &retbuf,  iobuf_src1, iobuf_src2, size); \
+	if (ret != 0) {\
+		slog(0, SLOG_ERROR, "bug = %d", ret);\
+		BUG(n, "Call " #func " failed!"); } \
+	*dst = aura_buffer_get_u64(retbuf); \
+	aura_buffer_release(n, iobuf_src1); \
+	aura_buffer_release(n, iobuf_src2); \
+	aura_buffer_release(n, retbuf); \
+	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+
+	
 #endif

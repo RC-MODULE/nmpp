@@ -117,9 +117,10 @@
  			<File RelativePath="..\..\..\src\nmplm\Init\pc\MTR_Fill.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplm\Inverse\common\mtrResolve.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\MTR_MulC_AddVsVc__int.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\MTR_ProdM.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\MTR_ProdUnitV.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\MTR_ProdV.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mm.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mv.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mv_ext.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplm\Support\common\mtrSetMatrix.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplm\Support\pc\MTR_GetCol.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\Correlation\pc\SIG_XCorr.cpp" > </File> 
@@ -189,6 +190,7 @@
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_FixDiv32__int.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_FixMul32__int.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\scl_fixsqrt32__int.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_8s32s.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\DivTable_1_145_18.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\DivTable_1_145_19.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsAbs.c" > </File> 
@@ -224,6 +226,9 @@
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsRand.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSet.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSwap.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpLtC_16s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpLtC_32s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpLtC_64s.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpLtC_8s.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsLastNonZeroIndx.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsLastZeroIndx.c" > </File> 

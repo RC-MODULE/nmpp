@@ -8,6 +8,8 @@
 #ifndef _TCMPLX_H_INCLUDED_
 #define _TCMPLX_H_INCLUDED_
 
+#ifdef __cplusplus
+
 #include <assert.h>
 #include <math.h>
 
@@ -309,4 +311,6 @@ template <class T> cmplx<T> exp(const cmplx<T> &arg)
 	Res.im=ExpRe*sin(arg.im);
 	return Res;
 }
+#endif
+
 #endif

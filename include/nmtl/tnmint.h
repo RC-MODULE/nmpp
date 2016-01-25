@@ -22,6 +22,7 @@
 #ifndef _TNMINT_H_INCLUDED_
 #define _TNMINT_H_INCLUDED_
 
+#ifdef __cplusplus
 //#include "tnmvecpack.h"
 
 
@@ -298,3 +299,4 @@ typedef  nmint<long long>	nmint64s;
 
 #endif
 
+#endif

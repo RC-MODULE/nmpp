@@ -20,6 +20,8 @@
 #ifndef _Tnmcvec_H_INCLUDED_
 #define _Tnmcvec_H_INCLUDED_
 
+#ifdef __cplusplus
+
 #ifdef ENABLE_ASSERTE
 #include <crtdbg.h>
 #define ASSERTE _ASSERTE
@@ -272,5 +274,7 @@ typedef  nmcvec<short >	nmvec16sc;
 #endif
 typedef  nmcvec<int >		nmvec32sc;
 typedef  nmcvec<long long> nmvec64sc;
+
+#endif
 
 #endif

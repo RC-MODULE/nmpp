@@ -23,9 +23,9 @@ begin ".text_nmplm"
 /////////////////////////////////////////////////////////////////////////////////////////
 
 //--------------------------------------------------------------------
-//! \fn void MTR_ProdM( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2)
+//! \fn void nmppmMul_mm_8s64s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2)
 //!
-//! \perfinclude _MTR_ProdM__FPciiPlPli.html
+//! \perfinclude nmppmMul_mm_8s64s.html
 //--------------------------------------------------------------------
 
 extern rep_n_Mul_M8V64:label;
@@ -33,10 +33,8 @@ extern _nmppsTmpBuffer64_G_: long[64];
 const LongColumns=_nmppsTmpBuffer64_G_;
 
 
-global _MTR_ProdM__FPciiPlPli:label;
-global _void._.8.8MTR_ProdM.1char._.0.9._int.9._int.9._long._.0.9._long._.0.9._int.2 :label;
-<_MTR_ProdM__FPciiPlPli>
-<_void._.8.8MTR_ProdM.1char._.0.9._int.9._int.9._long._.0.9._long._.0.9._int.2>
+global _nmppmMul_mm_8s64s:label;
+<_nmppmMul_mm_8s64s>
 .branch;
 
 

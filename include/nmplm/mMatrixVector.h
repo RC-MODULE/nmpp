@@ -20,6 +20,9 @@
 #ifndef _MMATRIXVECTOR_H_INCLUDED_
 #define _MMATRIXVECTOR_H_INCLUDED_
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
 
 //*****************************************************************************
 
@@ -37,7 +40,7 @@
 //*****************************************************************************
 
     /**
-    \defgroup MTR_ProdM MTR_ProdM
+    \defgroup nmppmMul_mm nmppmMul_mm
     \ingroup mMatrixVector
     \brief
         \ru Умножение матрицы на матрицу. 
@@ -92,24 +95,24 @@
     \endxmlonly
     */
     //! \{
-void MTR_ProdM( nm8s* pSrcMtr1,  int nHeight1, int nWidth1,  nm8s* pSrcMtr2,  nm8s*  pDstMtr, int nWidth2);
-void MTR_ProdM( nm8s* pSrcMtr1,  int nHeight1, int nWidth1,  nm16s* pSrcMtr2, nm16s* pDstMtr, int nWidth2);
-void MTR_ProdM( nm8s* pSrcMtr1,  int nHeight1, int nWidth1,  nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
-void MTR_ProdM( nm8s* pSrcMtr1,  int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
+void nmppmMul_mm_8s8s  ( nm8s* pSrcMtr1,  int nHeight1, int nWidth1,  nm8s* pSrcMtr2,  nm8s*  pDstMtr, int nWidth2);
+void nmppmMul_mm_8s16s ( nm8s* pSrcMtr1,  int nHeight1, int nWidth1,  nm16s* pSrcMtr2, nm16s* pDstMtr, int nWidth2);
+void nmppmMul_mm_8s32s ( nm8s* pSrcMtr1,  int nHeight1, int nWidth1,  nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
+void nmppmMul_mm_8s64s ( nm8s* pSrcMtr1,  int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
 
-void MTR_ProdM( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm16s* pSrcMtr2, nm16s* pDstMtr, int nWidth2);
-void MTR_ProdM( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
-void MTR_ProdM( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
+void nmppmMul_mm_16s16s( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm16s* pSrcMtr2, nm16s* pDstMtr, int nWidth2);
+void nmppmMul_mm_16s32s( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
+void nmppmMul_mm_16s64s( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
 
-void MTR_ProdM( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
-void MTR_ProdM( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
+void nmppmMul_mm_32s32s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
+void nmppmMul_mm_32s64s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
     //! \}
 
 
 	//*****************************************************************************
 
     /**
-    \defgroup MTR_ProdV MTR_ProdV
+    \defgroup nmppmMul_mv_ nmppmMul_mv_
     \ingroup mMatrixVector
     \brief
         \ru Умножение матрицы на вектор. 
@@ -165,17 +168,17 @@ void MTR_ProdM( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm
     \endxmlonly
     */
     //! \{
-void MTR_ProdV( nm8s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
-void MTR_ProdV( nm16s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
-void MTR_ProdV( nm32s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
-void MTR_ProdV( v8nm8s* pSrcMtr,  v8nm16s* pSrcVec, nm16s* pDstVec, int nHeight);
-void MTR_ProdV( v8nm16s* pSrcMtr,  v8nm16s* pSrcVec, nm16s* pDstVec, int nHeight);
+void nmppmMul_mv_8s64s( nm8s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
+void nmppmMul_mv_16s64s( nm16s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
+void nmppmMul_mv_32s64s( nm32s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
+void nmppmMul_mv_8s16s_8xH( v8nm8s* pSrcMtr,  v8nm16s* pSrcVec, nm16s* pDstVec, int nHeight);
+void nmppmMul_mv_16s16s_8xH( v8nm16s* pSrcMtr,  v8nm16s* pSrcVec, nm16s* pDstVec, int nHeight);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup MTR_ProdV_AddC MTR_ProdV_AddC
+    \defgroup nmppmMul_mv__AddC nmppmMul_mv__AddC
     \ingroup mMatrixVector
 
  	\~
@@ -236,7 +239,7 @@ void MTR_ProdV( v8nm16s* pSrcMtr,  v8nm16s* pSrcVec, nm16s* pDstVec, int nHeight
     \endxmlonly
     */
     //! \{
-void MTR_ProdV_AddC(v2nm32s* pSrcMtr, v2nm32s* pnSrcVec, int nAddVal, nm32s* pDstVec, int nHeight);
+void nmppmMul_mv__AddC(v2nm32s* pSrcMtr, v2nm32s* pnSrcVec, int nAddVal, nm32s* pDstVec, int nHeight);
     //! \}
 
 
@@ -291,8 +294,8 @@ void MTR_ProdV_AddC(v2nm32s* pSrcMtr, v2nm32s* pnSrcVec, int nAddVal, nm32s* pDs
     \endxmlonly
     */
     //! \{    
-void MTR_ProdUnitV( v4nm16s* pSrcMtr, nm16s* pDstVec, int nHeight);
-void MTR_ProdUnitV( v16nm8s* pSrcMtr, nm16s* pDstVec, int nHeight);
+void MTR_ProdUnitV_16s_4xH ( v4nm16s* pSrcMtr, nm16s* pDstVec, int nHeight);
+void MTR_ProdUnitV_16s_16xH( v16nm8s* pSrcMtr, nm16s* pDstVec, int nHeight);
     //! \}
 
 //*****************************************************************************
@@ -341,6 +344,10 @@ void MTR_ProdUnitV( v16nm8s* pSrcMtr, nm16s* pDstVec, int nHeight);
     //! \{
 void MTR_MulC_AddVsVc(int MulN, nm32s* pSrcMtr, nm32s* pSrcVecStr, nm32s* pSrcVecCol, nm32s* pDstMtr, int nHeight, int nWidth);
     //! \}
+
+#ifdef __cplusplus
+		};
+#endif
 
 #endif // _MMATRIXVECTOR_H_INCLUDED_
 

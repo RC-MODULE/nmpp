@@ -21,18 +21,16 @@
 
 begin ".text_nmplm"
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void MTR_ProdV( nm32s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
+//! \fn void nmppmMul_mv_32s64s( nm32s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
 //!
-//! \perfinclude _MTR_ProdV__FPiPlPlii.html
+//! \perfinclude nmppmMul_mv_32s64s.html
 
 extern rep_n_Mul_M32V64:label;
 extern _nmppsTmpBuffer64_G_: long;
 extern _nmppsTmpBuffer64_L_: long;
 
-global _MTR_ProdV__FPiPlPlii:label;
-global _void._.8.8MTR_ProdV.1int._.0.9._long._.0.9._long._.0.9._int.9._int.2 :label;
-<_MTR_ProdV__FPiPlPlii>
-<_void._.8.8MTR_ProdV.1int._.0.9._long._.0.9._long._.0.9._int.9._int.2>
+global _nmppmMul_mv_32s64s:label;
+<_nmppmMul_mv_32s64s>
 .branch;
 
 

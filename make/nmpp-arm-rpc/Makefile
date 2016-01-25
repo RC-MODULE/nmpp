@@ -89,6 +89,7 @@ TARGET           = $(OUT_DIR)/$(PROJECT).a
 INC_DIRS         = -I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include 
 #-I../../include/nmpls
 SRC_DIRS         =  ../../src/nmplv/Arithmetics/pc \
+					../../src/nmplv/Arithmetics/common \
 					../../src/nmplv/Support/common \
 					../../src/nmplv/Support/pc \
 					../../src/nmplv/Stat/common \
@@ -101,7 +102,8 @@ SRC_DIRS         =  ../../src/nmplv/Arithmetics/pc \
 					../../src/nmpls/FFT/FFT0256/common \
 					../../src/nmpls/FFT/FFT0512/common \
 					../../src/nmpls/FFT/FFT1024/common \
-					../../src/nmpls/FFT/FFT2048/common 
+					../../src/nmpls/FFT/FFT2048/common \
+					../../src/nmplm/MatrixVector/pc
 					
 					
 TMP_DIR          = Release

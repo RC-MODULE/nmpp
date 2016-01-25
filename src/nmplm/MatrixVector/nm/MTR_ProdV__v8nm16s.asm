@@ -80,15 +80,15 @@ begin ".text_nmplm"
 
 
 //------------------------------------------------------------------------
-//! \fn void MTR_ProdV ( v8nm16s *pSrcMtr,  v8nm16s *pSrcVec8, nm16s *pDstVec, int nHeight);
+//! \fn void nmppmMul_mv_ ( v8nm16s *pSrcMtr,  v8nm16s *pSrcVec8, nm16s *pDstVec, int nHeight);
 //!
-//! \perfinclude _MTR_ProdV__F7v8nm16sP7v8nm16sPPSsi.html
+//! \perfinclude _nmppmMul_mv___F7v8nm16sP7v8nm16sPPSsi.html
 //------------------------------------------------------------------------
 
-global _MTR_ProdV__F7v8nm16sP7v8nm16sPPSsi:label;
-global _void._.8.8MTR_ProdV.1class._v8nm16s._.0.9._class._v8nm16s._.0.9._short._.0.9._int.2 :label;
-<_MTR_ProdV__F7v8nm16sP7v8nm16sPPSsi>
-<_void._.8.8MTR_ProdV.1class._v8nm16s._.0.9._class._v8nm16s._.0.9._short._.0.9._int.2>
+global _nmppmMul_mv___F7v8nm16sP7v8nm16sPPSsi:label;
+global _void._.8.8nmppmMul_mv_.1class._v8nm16s._.0.9._class._v8nm16s._.0.9._short._.0.9._int.2 :label;
+<_nmppmMul_mv___F7v8nm16sP7v8nm16sPPSsi>
+<_void._.8.8nmppmMul_mv_.1class._v8nm16s._.0.9._class._v8nm16s._.0.9._short._.0.9._int.2>
 .branch;
 	ar5 = sp - 2;
 

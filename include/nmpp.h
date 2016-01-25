@@ -12,7 +12,7 @@
     *
     *     \defgroup MTR_Group Матричные функции 
     */
-//#include "./nmplm/nmplm.h"	
+#include "./nmplm/nmplm.h"	
 	/**
     *
     *     \defgroup SIG_Group Функции обработки сигналов 

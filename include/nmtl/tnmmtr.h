@@ -6,7 +6,7 @@
 #ifndef _TNMMTR_H_INCLUDED_
 #define _TNMMTR_H_INCLUDED_
 
-
+//#ifdef __cplusplus
 
 
 #include "tnmvec.h"
@@ -646,3 +646,6 @@ inline ostream& AsmArray (ostream& s,  nmmtr8s& mtr)
 //				pResData[x]=pData[x];
 //		return mRes;
 //	}
+
+
+//#endif

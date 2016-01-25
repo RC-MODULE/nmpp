@@ -24,19 +24,17 @@ begin ".text_nmplm"
 	
 
 //--------------------------------------------------------------------
-//! \fn void MTR_ProdM( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
+//! \fn void nmppmMul_mm_32s64s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
 //!
-//! \perfinclude _MTR_ProdM__FPiiiPlPli.html
+//! \perfinclude nmppmMul_mm_32s64s.html
 //--------------------------------------------------------------------
 extern rep_n_Mul_M32V64:label;
 extern _nmppsTmpBuffer64_G_: long[64];
 const LongColumns=_nmppsTmpBuffer64_G_;
 
 
-global _MTR_ProdM__FPiiiPlPli:label;
-global _void._.8.8MTR_ProdM.1int._.0.9._int.9._int.9._long._.0.9._long._.0.9._int.2 :label;
-<_MTR_ProdM__FPiiiPlPli>
-<_void._.8.8MTR_ProdM.1int._.0.9._int.9._int.9._long._.0.9._long._.0.9._int.2>
+global _nmppmMul_mm_32s64s:label;
+<_nmppmMul_mm_32s64s>
 .branch;
 
 

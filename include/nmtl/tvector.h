@@ -31,6 +31,11 @@
 #include<string.h>
 #include "nmtype.h"
 
+
+
+
+
+
 template <class T> class mtr;
 
 
@@ -577,6 +582,8 @@ template <class T>	void Clear(vec<T>& A)
 	for (int idx=0;idx<A.size;idx++)
 		A[idx]=0;
 }
+
+
 
 
 #endif

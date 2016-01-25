@@ -6,6 +6,8 @@
 #ifndef _TMATRIX_H_INCLUDED_
 #define _TMATRIX_H_INCLUDED_
 
+//#ifdef __cplusplus
+
 #include "crtdbg2.h"
 
 #include <stdio.h>

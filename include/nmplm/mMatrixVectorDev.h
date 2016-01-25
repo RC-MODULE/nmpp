@@ -16,10 +16,10 @@
 
 	/**
 		\internal
-		\addtogroup MTR_ProdV
+		\addtogroup nmppmMul_mv_
 	*/
 	//! \{
-void MTR_ProdV( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int nHeight, int nWidth, void*tmp);
+void nmppmMul_mv_( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int nHeight, int nWidth, void*tmp);
 	//! \}
 
     /**
@@ -77,7 +77,7 @@ void MTR_ProdSelfV( nm64sc *pSrcVec, nm64sc *pDstMtr, int nSize, void* pTmp);
 
     /**
 	\internal
-    \defgroup MTR_ProdV_Zero MTR_ProdV_Zero
+    \defgroup nmppmMul_mv__Zero nmppmMul_mv__Zero
     \ingroup mMatrixVector
     \brief
         \ru Вычисляет произведение матрицы на вектор-столбец, в котором nQuantity ненулевых элементов,
@@ -144,7 +144,7 @@ void MTR_ProdSelfV( nm64sc *pSrcVec, nm64sc *pDstMtr, int nSize, void* pTmp);
     */
 
     //! \{
-void MTR_ProdV_Zero( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int nStart, int nQuantity, int nHeight, int nWidth, void *tmp);
+void nmppmMul_mv__Zero( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int nStart, int nQuantity, int nHeight, int nWidth, void *tmp);
     //! \}
 
     //--------------------------------------------------------------------

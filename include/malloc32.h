@@ -80,8 +80,22 @@ nm64s* nmppsMalloc_64s(unsigned sizeInt64);
 nm64u* nmppsMalloc_64u(unsigned sizeInt64);
 void   nmppsFree32(void* buffer);
 
+
+
+
+
 typedef uint64  seq64;
 typedef uint64 fseq64;
+
+typedef struct {
+	void* 	buffer;
+	int   	status;
+	int 	mode;
+	fseq64  route;
+} SpecTmp1;
+
+void*  nmppsMallocSpec1(SpecTmp1* spc,int sizeBuf0,int , int);
+void*  nmppsFreeSpec1  (SpecTmp1* spc);
 
 void  nmppsMallocSetRouteMode (fseq64  heapSeq);
 void  nmppsMallocSetBigRouteMode(seq64*  heapSeq,  int heapCount);

@@ -25,8 +25,10 @@
 
 #ifndef RPC
 //#include "nmtl.h"
-#include "nmtl/tmatrix.h"
+
 #endif
+#include "nmtl/tmatrix.h"
+#include "nmtl/tnmmtr.h"
 //extern "C" {
 
 //#ifdef USE_IPP

@@ -51,8 +51,8 @@
 //#define RPC_nmppsMax_32s
 //#define RPC_nmppsMax_64s
 
-#define RPC_nmppsFFT256Fwd
-#define RPC_nmppsFFT256Inv
+//#define RPC_nmppsFFT256Fwd
+//#define RPC_nmppsFFT256Inv
 //#define RPC_nmppsFFT512Fwd
 //#define RPC_nmppsFFT512Inv
 
@@ -117,12 +117,26 @@
 //#define RPC_nmppsCmpLt0_64s
 
 
-//#define RPC_nmppsCmpNeC_8s
-//#define RPC_nmppsCmpNeC_16s
-//#define RPC_nmppsCmpNeC_32s
-//#define RPC_nmppsCmpNeC_64s
+#define RPC_nmppsCmpNeC_8s
+#define RPC_nmppsCmpNeC_16s
+#define RPC_nmppsCmpNeC_32s
+#define RPC_nmppsCmpNeC_64s
 
 #define RPC_nmppsCmpLtC_8s
-#define RPC_nmppsCmpLtC_16s
-#define RPC_nmppsCmpLtC_32s
-#define RPC_nmppsCmpLtC_64s
+//#define RPC_nmppsCmpLtC_16s
+//#define RPC_nmppsCmpLtC_32s
+//#define RPC_nmppsCmpLtC_64s
+
+
+#define RPC_nmppmMul_mm_8s8s
+#define RPC_nmppmMul_mm_8s16s
+#define RPC_nmppmMul_mm_8s32s
+#define RPC_nmppmMul_mm_8s64s
+#define RPC_nmppmMul_mm_16s16s
+#define RPC_nmppmMul_mm_16s32s
+#define RPC_nmppmMul_mm_16s64s
+#define RPC_nmppmMul_mm_32s32s
+#define RPC_nmppmMul_mm_32s64s
+#define RPC_nmppmMul_mv_8s64s
+#define RPC_nmppmMul_mv_16s64s
+#define RPC_nmppmMul_mv_32s64s

@@ -7,13 +7,13 @@ begin ".text_nmplm"
 // time=W*H*16 тактов
 
 //------------------------------------------------------------------------------------------------
-//! \fn void  MTR_ProdV ( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int nHeight, int nWidth, void * tmp) 
+//! \fn void  nmppmMul_mv_64sc ( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int nHeight, int nWidth, void * tmp) 
 //! 
-//! \perfinclude _MTR_ProdV__F6nm64scPC6nm64scPC6nm64scPiiPv.html 
+//! \perfinclude _nmppmMul_mv___F6nm64scPC6nm64scPC6nm64scPiiPv.html 
 //------------------------------------------------------------------------------------------------
 
-global _MTR_ProdV__F6nm64scPC6nm64scPC6nm64scPiiPv:label;
-global _void._.8.8MTR_ProdV.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._int.9._void._.0.2 :label;
+global _nmppmMul_mv___F6nm64scPC6nm64scPC6nm64scPiiPv:label;
+global _void._.8.8nmppmMul_mv_.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._int.9._void._.0.2 :label;
 
 MTRtmpArray: long; 
 
@@ -59,8 +59,8 @@ LsTbl: word[18]=(// таблица модифицируемых кодов:
   Ls5,  9c4ffb16h, //rep data=[ar1++]with afifo+data
   Ls5+1,9c8ffb16h  //rep data=[ar2++]with afifo+data
    );
-<_MTR_ProdV__F6nm64scPC6nm64scPC6nm64scPiiPv>
-<_void._.8.8MTR_ProdV.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._int.9._void._.0.2>
+<_nmppmMul_mv___F6nm64scPC6nm64scPC6nm64scPiiPv>
+<_void._.8.8nmppmMul_mv_.1class._nm64sc._.0.9._class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._int.9._void._.0.2>
     ar5=ar7-2 with gr7=false; // gr7 for nb1
     push ar0,gr0;
 	push ar1,gr1;
@@ -237,6 +237,6 @@ global ProdVjobStart:label;
 <LsRet0> delayed return;
 <Ls0> Vsum0(4); // modified command;
       nul;
-//======= fin of MTR_ProdV ===================
+//======= fin of nmppmMul_mv_ ===================
 
 end ".text_nmplm";

@@ -21,14 +21,15 @@
 //#include "tnmvector.h"
 //#include "tnmmatrix.h"
 #include "rpc-host.h"
-#include "nmplm.h"
+#include "nmtype.h"
+//#include "nmplm.h"
 
 #ifndef RPC
 //#include "nmtl.h"
-
-#endif
 #include "nmtl/tmatrix.h"
 #include "nmtl/tnmmtr.h"
+
+#endif
 //extern "C" {
 
 //#ifdef USE_IPP

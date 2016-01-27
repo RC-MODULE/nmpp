@@ -79,12 +79,20 @@ OBJCOPY = $(ARM_CC)-objcopy
 OBJDUMP = $(ARM_CC)-objdump
 
 
+define OS_PATH
+$(eval $(subst /,\,$(1)))
+endef
+
 #--------------  target & input dirs -------------------
 ROOT             = ../..
 include $(ROOT)/setenv.mk
 PROJECT          = libnmpp-arm-rpc
 OUT_DIR          = ../../lib
+ifeq ($(OS),Windows_NT)
+TARGET           = $(subst /,\,$(OUT_DIR)/$(PROJECT).a)
+else 
 TARGET           = $(OUT_DIR)/$(PROJECT).a
+endif
 #INC_DIRS         = -I../../include -I../../include/nmpls
 INC_DIRS         = -I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include 
 #-I../../include/nmpls

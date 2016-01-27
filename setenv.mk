@@ -15,9 +15,12 @@ ifeq ($(OS),Windows_NT)
   AURA     = d:/GIT/matlab/aura
   ARM_CC   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-gcc
   ARM_AR   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-ar
+
+
   
   SHELL    = cmd
   OS_RM    = del /Q
+#  OS_RM    = rm -f -r
   OS_RD    = rd /Q /S 
   OS_WHICH =$(windir)/system32/where
  #OS_WGET  = wget
@@ -33,6 +36,9 @@ ifeq ($(OS),Windows_NT)
   MB7707_MAC ?= 1A-2B-3C-4D-5E-6F
 else
   ARM_CC   = arm-module-linux-gnueabi-gcc 
+  define OS_PATH
+	$(1)
+  endef 
   OS_RM    = rm -f -r
   OS_RD    = rm -d -r
   OS_WHICH = which

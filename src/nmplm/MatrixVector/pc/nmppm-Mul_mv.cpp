@@ -17,18 +17,20 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-//#include "vec.h"
-//#include "tnmvector.h"
-//#include "tnmmatrix.h"
-
-
+extern "C" {
 
 #include "rpc-host.h"
-#include "nmplm.h"
 #include "nmtype.h"
+
 #ifndef RPC
-#include "nmtl.h"
+#include "nmtl/tmatrix.h"
+#include "nmtl/tnmmtr.h"
 #endif
+
+
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 32-bit mtr  by vec of 8 shorts
@@ -43,6 +45,7 @@ void nmppmMul_mv_8s64s(
 {
 	#ifdef RPC
 	RPC_HOST_PPPII("nmppmMul_mv_8s64s",pSrcMtr,pSrcVec,pDstVec,nHeight,nWidth,1,8);
+	//RPC_HOST_PIIPPI("nmppmMul_mm_16s16s",pSrcMtr,nHeight, nWidth, pSrcMtr,pDstVec,nWidth,2,2);
 	#else
 	nmmtr8s SrcMtr((nm8s*)pSrcMtr,nHeight,nWidth);
 	nmvec64s SrcVec((nm64s*)pSrcVec,nWidth);
@@ -108,6 +111,8 @@ void MTR_ProdSelfV( nm64sc *pSrcVec, nm64sc *pDstMtr, int nSize, void* pTmp)
 		}
 	}
 }
+
+};
 /*
 void nmppmMul_mv_AddC_32s(v2nm32s* pSrcMtr, v2nm32s* pSrcVec, int nAddVal, nm32s* pDstVec, int nHeight)
 {

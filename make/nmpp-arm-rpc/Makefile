@@ -175,7 +175,7 @@ $(TMP_DIR)/%.o: %.cpp
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 	
 clean:
-	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
+	-$(OS_RM) $(TARGET) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
 	-$(OS_RD) Debug Release
  
 cleanall:

@@ -1,5 +1,8 @@
+#include "rpc-host.h"
 #include "nmtype.h"
-#include "nmtl.h"
+
+#ifndef RPC
+
 
 void nmppmMul_mv_8s16s_8xH(
 		v8nm8s*		pSrcMtr,
@@ -69,3 +72,5 @@ void nmppmMul_mv__Zero( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int 
 		}
 	}
 }
+
+#endif

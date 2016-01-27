@@ -105,21 +105,23 @@ int main() {
 //	nmppsCmpLtC_32s((nm32s*)src0_32s,1,(nm32s*)dst_32s,16, 0);
 //	nmppsCmpLtC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,16, 0);
 
-//	nmppmMul_mm_8s8s  (src0_8s,8,8,src1_8s, dst_8s, 8);
-//	nmppmMul_mm_8s16s (src0_8s,8,8,src1_16s,dst_16s,8);
-//	nmppmMul_mm_8s32s (src0_8s,8,8,src1_32s,dst_32s,8);
-//	nmppmMul_mm_8s64s (src0_8s,8,8,src1_64s,dst_64s,8);
-//	
-//	nmppmMul_mm_16s16s(src0_16s,8,8,src1_16s,dst_16s,8);
-//	nmppmMul_mm_16s32s(src0_16s,8,8,src1_32s,dst_32s,8);
-//	nmppmMul_mm_16s64s(src0_16s,8,8,src1_64s,dst_64s,8);
-//	
-//	nmppmMul_mm_32s32s(src0_32s,8,8,src1_32s,dst_32s,8);
-//	nmppmMul_mm_32s64s(src0_32s,8,8,src1_64s,dst_64s,8);
-//	
-//	nmppmMul_mv_8s64s (src0_8s, src1_64s,dst_64s,8,8);
-//	nmppmMul_mv_16s64s(src0_16s,src1_64s,dst_64s,8,8);
-//	nmppmMul_mv_32s64s(src0_32s,src1_64s,dst_64s,8,8);
+	nmppmMul_mm_8s8s  (src0_8s,8,8,src1_8s, dst_8s, 8);
+	nmppmMul_mm_8s16s (src0_8s,8,8,src1_16s,dst_16s,8);
+	nmppmMul_mm_8s32s (src0_8s,8,8,src1_32s,dst_32s,8);
+	nmppmMul_mm_8s64s (src0_8s,8,8,src1_64s,dst_64s,8);
+	
+	nmppmMul_mm_16s16s(src0_16s,8,8,src1_16s,dst_16s,8);
+	nmppmMul_mm_16s32s(src0_16s,8,8,src1_32s,dst_32s,8);
+	nmppmMul_mm_16s64s(src0_16s,8,8,src1_64s,dst_64s,8);
+	
+	nmppmMul_mm_32s32s(src0_32s,8,8,src1_32s,dst_32s,8);
+	nmppmMul_mm_32s64s(src0_32s,8,8,src1_64s,dst_64s,8);
+	
+	nmppmMul_mv_8s64s (src0_8s, src1_64s,dst_64s,8,8);
+	nmppmMul_mv_16s64s(src0_16s,src1_64s,dst_64s,8,8);
+	nmppmMul_mv_32s64s(src0_32s,src1_64s,dst_64s,8,8);
+	nmppsCmpNeC_8s ((nm8s*) src0_8s ,1200,(nm8s*) dst_8s, 256);
+	
 /*
 
 	nmppsAndC_8u((nm8u*)  src0_8s, 5, (nm8s*) dst_8s,16);

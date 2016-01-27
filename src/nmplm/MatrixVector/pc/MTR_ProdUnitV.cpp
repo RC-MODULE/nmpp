@@ -20,18 +20,28 @@
 //#include "vec.h"
 //#include "tnmvector.h"
 //#include "tnmmatrix.h"
-
+#include "rpc-host.h"
 #include "nmtype.h"
-#include "nmtl.h"
 
-void MTR_ProdUnitV( v4nm16s* pSrcMtr, nm16s* pDstVec, int nHeight)
+#ifndef RPC
+#include "nmtl/tmatrix.h"
+#include "nmtl/tnmmtr.h"
+#endif
+
+extern "C" {
+
+void MTR_ProdUnitV_4x16s( v4nm16s* pSrcMtr, nm16s* pDstVec, int nHeight)
 {
+	#ifdef RPC 
+	
+	#else
 	nmmtr16s SrcMtr((nm16s*)pSrcMtr,nHeight,4);
 	nmvec16s SrcVec(4);
 	nmvec16s DstVec((nm16s*)pDstVec,nHeight);
     for (int i = 0; i < 4; i++)
     	SrcVec[i] = 1;
 	DstVec=SrcMtr*SrcVec;
+	#endif
 }
 
 /*
@@ -46,12 +56,18 @@ void MTR_ProdUnitV( nm16s* pSrcMtr, nm16s* pDstVec, int nHeight)
 }
 */
 
-void MTR_ProdUnitV( v16nm8s* pSrcMtr, nm16s* pDstVec, int nHeight)
+void MTR_ProdUnitV_16x8s( v16nm8s* pSrcMtr, nm16s* pDstVec, int nHeight)
 {
+	#ifdef RPC 
+	
+	#else
 	nmmtr8s  SrcMtr((nm8s*)pSrcMtr,nHeight,16);
 	nmvec16s SrcVec(16);
 	nmvec16s DstVec((nm16s*)pDstVec,nHeight);
     for (int i = 0; i < 16; i++)
     	SrcVec[i] = 1;
 	DstVec=SrcMtr*SrcVec;
+	#endif
 }
+
+};

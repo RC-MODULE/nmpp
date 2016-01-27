@@ -94,6 +94,15 @@ typedef struct {
 	fseq64  route;
 } SpecTmp1;
 
+typedef struct {
+	nm8s* 	buffer0;
+	nm8s* 	buffer1;
+	int   	status;
+	int 	mode;
+	fseq64  route;
+} Spec8s;
+
+void*  nmppsMallocSpec_8s(SpecTmp1* spec,int size, int mode);
 void*  nmppsMallocSpec1(SpecTmp1* spc,int sizeBuf0,int , int);
 void*  nmppsFreeSpec1  (SpecTmp1* spc);
 

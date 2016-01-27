@@ -17,26 +17,17 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-//#include "vec.h"
-//#include "tnmvector.h"
-//#include "tnmmatrix.h"
+extern "C" {
+	
 #include "rpc-host.h"
 #include "nmtype.h"
-//#include "nmplm.h"
 
 #ifndef RPC
-//#include "nmtl.h"
 #include "nmtl/tmatrix.h"
 #include "nmtl/tnmmtr.h"
-
 #endif
-//extern "C" {
 
-//#ifdef USE_IPP
-//#include "ipp.h"
-//#endif
 
-//#include "stdlib.h"
 
 
 
@@ -212,4 +203,4 @@ void nmppmMul_mv_(
 */
 
 
-//};
+};

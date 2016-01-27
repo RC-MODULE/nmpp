@@ -161,6 +161,7 @@ $(TMP_DIR):
 	-mkdir "$(@)"
 
 $(TARGET): $(TMP_DIR) $(OBJECTS) 
+	-$(OS_RM) $(TARGET)
 	$(BUILDER) $(BUILDER_FLAGS) $(OBJECTS) 
 
 $(OUT_DIR): 

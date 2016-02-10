@@ -82,3 +82,44 @@ void nmppsCmpLtC_Free  (Tmp2BuffSpec *spec)
 	void nmppsCmpLtC_32s     (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize, Tmp2BuffSpec *spec);
 	void nmppsCmpLtC_64s     (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize, Tmp2BuffSpec *spec);
 	*/
+	
+int nmppsCmpLtC_8s8u (nm8s* src,  int32b  nCmpVal, nm8u* dst,  int size)
+{
+	#ifdef RPC
+		int ret;	
+		struct aura_buffer *iobuf_src = aura_buffer_request(n, size*1);	
+		struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*1);	
+		memcpy(iobuf_src->data,src,size*1);	
+		struct aura_buffer *retbuf; 
+		ret = aura_call(n, "nmppsCmpLtC_8s8u", &retbuf,  iobuf_src, nCmpVal, iobuf_dst, size); 
+		if (ret != 0) {
+			printf ("bug = %d\r\n",ret);
+			BUG(n, "Call:nmppsCmpLtC_8s8u failed!"); 
+		}
+		memcpy(dst,iobuf_dst->data,size); 
+		aura_buffer_release(n, iobuf_dst); 
+		aura_buffer_release(n, iobuf_src);
+		aura_buffer_release(n, retbuf); 
+		slog(0, SLOG_INFO, "ARM: Call nmppsCmpLtC_8s8u -ok"); 
+	#else
+
+		Tmp2BuffSpec s;
+		Tmp2BuffSpec* spec=&s;
+		
+		spec->buffer0=nmppsMalloc_16s(size);
+		spec->buffer1=nmppsMalloc_16s(size);
+		
+		if (nmppsMallocSuccess()){
+			nmppsConvert_8s16s (src, (nm16s*)spec->buffer0, size);
+			nmppsCmpLtC_16s15b ((nm16s*)spec->buffer0,nCmpVal,(nm16s*)spec->buffer1,size);
+			nmppsConvert_16s8s ((nm16s*)spec->buffer1,(nm8s*)spec->buffer0,size);
+			nmppsSubCRev_8s    ((nm8s*)spec->buffer0,0,(nm8s*)dst,size);
+		}
+		
+		nmppsFree(spec->buffer0);
+		nmppsFree(spec->buffer1);
+			
+	#endif
+	
+	return 0;
+}	

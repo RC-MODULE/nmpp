@@ -641,6 +641,31 @@ AURA_METHOD(rpc_nmppsCmpLtC_64s, nmppsCmpLtC_64s,
 	    BUFFER U64 BUFFER U32,
 	    "");
 #endif 
+//----------------------------------------
+#ifdef RPC_nmppsCmpLtC_8s8u
+AURA_METHOD(rpc_nmppsCmpLtC_8s8u, nmppsCmpLtC_8s8u, 
+	    BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsCmpLtC_16s8u
+AURA_METHOD(rpc_nmppsCmpLtC_16s8u, nmppsCmpLtC_16s8u, 
+	    BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsCmpLtC_32s8u
+AURA_METHOD(rpc_nmppsCmpLtC_32s8u, nmppsCmpLtC_32s8u, 
+	    BUFFER U32 BUFFER U32,
+	    "");
+#endif 
+		
+#ifdef RPC_nmppsCmpLtC_64s8u
+AURA_METHOD(rpc_nmppsCmpLtC_64s8u, nmppsCmpLtC_64s8u, 
+	    BUFFER U64 BUFFER U32,
+	    "");
+#endif 
+
 //-----------------------------------
 //void nmppmMul_mm_8s8s  ( nm8s* pSrcMtr1,  int nHeight1, int nWidth1,  nm8s* pSrcMtr2,  nm8s*  pDstMtr, int nWidth2);
 #ifdef RPC_nmppmMul_mm_8s8s

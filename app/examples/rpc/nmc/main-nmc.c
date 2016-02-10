@@ -42,6 +42,7 @@ int main(int argc, char **argv)
 	aura_loop_forever();
 
 	g_aura_eof.id=1;
+	
 }
 
 

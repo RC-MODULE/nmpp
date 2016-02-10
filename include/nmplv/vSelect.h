@@ -1673,6 +1673,12 @@ void nmppsCmpEqC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSi
 	int nmppsCmpLtC_16s     (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize, Tmp2BuffSpec *spec);
 	int nmppsCmpLtC_32s     (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize, Tmp2BuffSpec *spec);
 	int nmppsCmpLtC_64s     (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize, Tmp2BuffSpec *spec);
+	
+	int nmppsCmpLtC_8s8u   (nm8s* pSrcVec,  int8b  nCmpVal, nm8u* pDstVec, int nSize);
+	int nmppsCmpLtC_16s8u  (nm16s* pSrcVec, int16b nCmpVal, nm8u* pDstVec, int nSize);
+	int nmppsCmpLtC_32s8u  (nm32s* pSrcVec, int32b nCmpVal, nm8u* pDstVec, int nSize);
+	int nmppsCmpLtC_64s8u  (nm64s* pSrcVec, int64b nCmpVal, nm8u* pDstVec, int nSize);
+	
 /*	                                                                                   
 	void nmppsCmpGtC_8s      (nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int nSize, Tmp2BuffSpec *spec);
 	void nmppsCmpGtC_16s     (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize, Tmp2BuffSpec *spec);

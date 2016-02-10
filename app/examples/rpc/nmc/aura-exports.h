@@ -131,6 +131,11 @@
 #define RPC_nmppsCmpLtC_32s8u
 #define RPC_nmppsCmpLtC_64s8u
 
+#define RPC_nmppsCmpNeC_8s8u
+#define RPC_nmppsCmpNeC_16s8u
+#define RPC_nmppsCmpNeC_32s8u
+#define RPC_nmppsCmpNeC_64s8u
+
 
 
 //#define RPC_nmppmMul_mm_8s8s

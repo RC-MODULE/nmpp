@@ -1770,6 +1770,16 @@ int nmppsCmpNe_8s8u (nm8s*  pSrcVec1,  nm8s* pSrcVec2, nm8u* pDstVec, int nSize)
 int nmppsCmpNe_16s8u(nm16s* pSrcVec1, nm16s* pSrcVec2, nm8u* pDstVec, int nSize);
 int nmppsCmpNe_32s8u(nm32s* pSrcVec1, nm32s* pSrcVec2, nm8u* pDstVec, int nSize);
 int nmppsCmpNe_64s8u(nm64s* pSrcVec1, nm64s* pSrcVec2, nm8u* pDstVec, int nSize);
+
+void nmppsCmpLt_8s (nm8s*  pSrcVec1,  nm8s* pSrcVec2, nm8s*  pDstVec, int nSize);
+void nmppsCmpLt_16s(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
+void nmppsCmpLt_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
+void nmppsCmpLt_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+
+int nmppsCmpLt_8s8u (nm8s*  pSrcVec1,  nm8s* pSrcVec2, nm8u* pDstVec, int nSize);
+int nmppsCmpLt_16s8u(nm16s* pSrcVec1, nm16s* pSrcVec2, nm8u* pDstVec, int nSize);
+int nmppsCmpLt_32s8u(nm32s* pSrcVec1, nm32s* pSrcVec2, nm8u* pDstVec, int nSize);
+int nmppsCmpLt_64s8u(nm64s* pSrcVec1, nm64s* pSrcVec2, nm8u* pDstVec, int nSize);
 	
 //******************************************************************************************
 

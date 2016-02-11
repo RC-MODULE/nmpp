@@ -1761,6 +1761,16 @@ void nmppsCmpEqV_16u15b(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, 
 void nmppsCmpEqV_8u7b(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b nTrueFlag);
 	//! \}
 
+void nmppsCmpNe_8s (nm8s*  pSrcVec1,  nm8s* pSrcVec2, nm8s*  pDstVec, int nSize);
+void nmppsCmpNe_16s(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
+void nmppsCmpNe_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
+void nmppsCmpNe_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+
+int nmppsCmpNe_8s8u (nm8s*  pSrcVec1,  nm8s* pSrcVec2, nm8u* pDstVec, int nSize);
+int nmppsCmpNe_16s8u(nm16s* pSrcVec1, nm16s* pSrcVec2, nm8u* pDstVec, int nSize);
+int nmppsCmpNe_32s8u(nm32s* pSrcVec1, nm32s* pSrcVec2, nm8u* pDstVec, int nSize);
+int nmppsCmpNe_64s8u(nm64s* pSrcVec1, nm64s* pSrcVec2, nm8u* pDstVec, int nSize);
+	
 //******************************************************************************************
 
 	/**
@@ -1820,6 +1830,9 @@ void nmppsCmpNeV_16u(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int
 void nmppsCmpNeV_8u(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b nTrueFlag);
 	//! \}
 
+	
+void nmppsCmpNeV_8s8u(nm8s* src1, nm8s* src2, nm8u* dst, int nSize, int8b nTrueFlag);
+	
 //******************************************************************************************
 	
 

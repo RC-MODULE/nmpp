@@ -20,7 +20,7 @@
 
 begin ".text_nmplv"
 
-extern vec_CompareMin:label;
+extern vec_CmpNeV:label;
 /////////////////////////////////////////////////////////////////////////////////////////
 
 //! \fn void nmppsCmpNe_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstMax, int nSize);
@@ -44,7 +44,7 @@ global _nmppsCmpNe_32s:label;
 	f1cr = 0FFFFFFFEh;
     f2cr = 0FFFFFFFEh;
 	nb1  = 080000000h with gr5>>=1;
-	delayed call vec_CmpNeV
+	delayed call vec_CmpNeV;
 		wtw;
 		nul;
 		

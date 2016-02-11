@@ -766,6 +766,25 @@ NMC_RPC_PIPI(nmppsCmpNeC_8s8u);
 #endif 
 
 //--------------------------
+#ifdef RPC_nmppsCmpNe_64s8u
+NMC_RPC_PPPI(nmppsCmpNe_64s8u);
+#endif 
+
+#ifdef RPC_nmppsCmpNe_32s8u
+NMC_RPC_PPPI(nmppsCmpNe_32s8u);
+#endif 
+
+#ifdef RPC_nmppsCmpNe_16s8u
+NMC_RPC_PPPI(nmppsCmpNe_16s8u);
+#endif 
+
+#ifdef RPC_nmppsCmpNe_8s8u
+NMC_RPC_PPPI(nmppsCmpNe_8s8u);
+#endif 
+
+
+
+//--------------------------
 #ifdef RPC_nmppsCmpLtC_64s
 NMC_RPC_PLPI(nmppsCmpLtC_64s);
 #endif 

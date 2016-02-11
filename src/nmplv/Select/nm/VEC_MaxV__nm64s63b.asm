@@ -27,7 +27,6 @@ extern vec_CompareMax:label;
 //!
 //! \perfinclude _nmppsMaxEvery_64s.html
 
-global _nmppsMaxEvery__FPlPlPli_ :label;
 global _nmppsMaxEvery_64s:label;
 <_nmppsMaxEvery_64s>
 .branch;

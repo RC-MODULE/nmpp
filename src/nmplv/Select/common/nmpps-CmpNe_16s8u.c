@@ -5,7 +5,7 @@
 #include "stdio.h"
 
 
-int nmppsCmpNeC_16s8u (nm16s* src1, nm16s* src2, nm8u* dst,  int size)
+int nmppsCmpNe_16s8u (nm16s* src1, nm16s* src2, nm8u* dst,  int size)
 {
 	#ifdef RPC
 		int ret;	
@@ -15,17 +15,17 @@ int nmppsCmpNeC_16s8u (nm16s* src1, nm16s* src2, nm8u* dst,  int size)
 		memcpy(iobuf_src1->data,src1,size*2);	
 		memcpy(iobuf_src2->data,src2,size*2);	
 		struct aura_buffer *retbuf; 
-		ret = aura_call(n, "nmppsCmpNeC_16s8u", &retbuf,  iobuf_src1,  iobuf_src2, iobuf_dst, size); 
+		ret = aura_call(n, "nmppsCmpNe_16s8u", &retbuf,  iobuf_src1,  iobuf_src2, iobuf_dst, size); 
 		if (ret != 0) {
 			printf ("bug = %d\r\n",ret);
-			BUG(n, "Call:nmppsCmpNeC_16s8u failed!"); 
+			BUG(n, "Call nmppsCmpNe_16s8u failed!"); 
 		}
 		memcpy(dst,iobuf_dst->data,size*1); 
 		aura_buffer_release(n, iobuf_dst); 
 		aura_buffer_release(n, iobuf_src2);
 		aura_buffer_release(n, iobuf_src1);
 		aura_buffer_release(n, retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsCmpNeC_16s8u -ok"); 
+		slog(0, SLOG_INFO, "ARM: Call nmppsCmpNe_16s8u -ok"); 
 	#else
 
 	Tmp2BuffSpec s;

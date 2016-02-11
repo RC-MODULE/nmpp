@@ -20,7 +20,7 @@
 
 begin ".text_nmplv"
 
-extern vec_CompareMin:label;
+extern vec_CmpNeV:label;
 /////////////////////////////////////////////////////////////////////////////////////////
 
 //! \fn void nmppsCmpNe_8s(nm8s*  pSrcVec1, nm8s* pSrcVec2,  nm8s*  pDstMin, int nSize);

@@ -8,7 +8,7 @@ int nmppsCmpNeC_8s8u (nm8s* src,  int8b  nCmpVal, nm8u* dst,  int size)
 		int ret;	
 		struct aura_buffer *iobuf_src = aura_buffer_request(n, size*1);	
 		struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*1);	
-		memcpy(iobuf_src->data,src,size*8);	
+		memcpy(iobuf_src->data,src,size*1);	
 		struct aura_buffer *retbuf; 
 		ret = aura_call(n, "nmppsCmpNeC_8s8u", &retbuf,  iobuf_src, nCmpVal, iobuf_dst, size); 
 		if (ret != 0) {

@@ -690,6 +690,31 @@ AURA_METHOD(rpc_nmppsCmpNeC_64s8u, nmppsCmpNeC_64s8u,
 	    "");
 #endif 
 
+//----------------------------------------
+#ifdef RPC_nmppsCmpNe_8s8u
+AURA_METHOD(rpc_nmppsCmpNe_8s8u, nmppsCmpNe_8s8u, 
+	    BUFFER BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsCmpNe_16s8u
+AURA_METHOD(rpc_nmppsCmpNe_16s8u, nmppsCmpNe_16s8u, 
+	    BUFFER BUFFER BUFFER U32,
+	    "");
+#endif 
+
+#ifdef RPC_nmppsCmpNe_32s8u
+AURA_METHOD(rpc_nmppsCmpNe_32s8u, nmppsCmpNe_32s8u, 
+	    BUFFER BUFFER BUFFER U32,
+	    "");
+#endif 
+		
+#ifdef RPC_nmppsCmpNe_64s8u
+AURA_METHOD(rpc_nmppsCmpNe_64s8u, nmppsCmpNe_64s8u, 
+	    BUFFER BUFFER BUFFER U32,
+	    "");
+#endif 
+
 //-----------------------------------
 //void nmppmMul_mm_8s8s  ( nm8s* pSrcMtr1,  int nHeight1, int nWidth1,  nm8s* pSrcMtr2,  nm8s*  pDstMtr, int nWidth2);
 #ifdef RPC_nmppmMul_mm_8s8s

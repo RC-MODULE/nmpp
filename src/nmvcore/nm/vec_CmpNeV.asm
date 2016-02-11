@@ -23,8 +23,8 @@ begin ".text_nmvcore"
 
 
 macro VEC_CMP_NE_V(N)
-	rep 32 data= [ar0++gr0] with data;
-	rep 32 data= [ar1++gr1] with afifo xor data;
+	rep N data= [ar0++gr0] with data;
+	rep N data= [ar1++gr1] with afifo xor data;
 	rep N [ar7],ram = afifo with 0-afifo ;
 	delayed return;
 		rep N  with activate afifo or activate ram;

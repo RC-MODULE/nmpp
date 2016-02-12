@@ -159,3 +159,18 @@
 //#define RPC_nmppmMul_mv_8s64s
 //#define RPC_nmppmMul_mv_16s64s
 //#define RPC_nmppmMul_mv_32s64s
+
+
+#define RPC_nmppsDotProd_8s8s
+#define RPC_nmppsDotProd_8s16s
+#define RPC_nmppsDotProd_8s32s
+#define RPC_nmppsDotProd_8s64s
+#define RPC_nmppsDotProd_16s16s
+#define RPC_nmppsDotProd_16s32s
+#define RPC_nmppsDotProd_16s64s
+#define RPC_nmppsDotProd_32s32s
+#define RPC_nmppsDotProd_32s64s
+#define RPC_nmppsDotProd_8s64s
+#define RPC_nmppsDotProd_16s64s
+#define RPC_nmppsDotProd_32s64s
+#define RPC_nmppsDotProd_64s64s

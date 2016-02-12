@@ -58,13 +58,26 @@ void nmppsDotProd_64s64s(
 	)
 {
 	#ifdef RPC
-	RPC_HOST_PPIP("nmppsDotProd_64s64s",srcVec0,srcVec1,size,dst,8,8);
+		struct aura_buffer *iobuf_src0 = aura_buffer_request(n, size*8);	
+		struct aura_buffer *iobuf_src1 = aura_buffer_request(n, size*8);	
+		memcpy(iobuf_src0->data,srcVec0,size*8);	
+		memcpy(iobuf_src1->data,srcVec1,size*8);	
+		struct aura_buffer *retbuf; 
+		int ret = aura_call(n, "nmppsDotProd_64s64s", &retbuf,  iobuf_src0,iobuf_src1, size); 
+		if (ret != 0) {
+			printf ("bug = %d\r\n",ret);
+			BUG(n, "Call nmppsDotProd_64s64s failed!"); }
+		*dst = aura_buffer_get_u64(retbuf);
+		aura_buffer_release(n, iobuf_src0); 
+		aura_buffer_release(n, iobuf_src1); 
+		aura_buffer_release(n, retbuf); 
+		slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_64s64s -ok");
 	#else
 
-	int i;
-	*dst=0;
-	for (i=0; i<size; i++)
-		*dst += ((nm64s)srcVec0[i])*((nm64s)srcVec1[i]);
+		int i;
+		*dst=0;
+		for (i=0; i<size; i++)
+			*dst += ((nm64s)srcVec0[i])*((nm64s)srcVec1[i]);
 
 	#endif
 }
@@ -78,7 +91,20 @@ void nmppsDotProd_32s64s(
 	)
 {
 	#ifdef RPC
-	RPC_HOST_PPIP("nmppsDotProd_32s64s",srcVec0,srcVec1,size,dst,4,8);
+		struct aura_buffer *iobuf_src0 = aura_buffer_request(n, size*4);	
+		struct aura_buffer *iobuf_src1 = aura_buffer_request(n, size*8);	
+		memcpy(iobuf_src0->data,srcVec0,size*4);	
+		memcpy(iobuf_src1->data,srcVec1,size*8);	
+		struct aura_buffer *retbuf; 
+		int ret = aura_call(n, "nmppsDotProd_32s64s", &retbuf,  iobuf_src0,iobuf_src1, size); 
+		if (ret != 0) {
+			printf ("bug = %d\r\n",ret);
+			BUG(n, "Call nmppsDotProd_32s64s failed!"); }
+		*dst = aura_buffer_get_u64(retbuf);
+		aura_buffer_release(n, iobuf_src0); 
+		aura_buffer_release(n, iobuf_src1); 
+		aura_buffer_release(n, retbuf); 
+		slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_32s64s -ok");
 	#else
 
 	int i;
@@ -98,12 +124,25 @@ void nmppsDotProd_16s64s(
 	)
 {
 	#ifdef RPC
-	RPC_HOST_PPIP("nmppsDotProd_16s64s",srcVec0,srcVec1,size,dst,2,8);
+		struct aura_buffer *iobuf_src0 = aura_buffer_request(n, size*2);	
+		struct aura_buffer *iobuf_src1 = aura_buffer_request(n, size*8);	
+		memcpy(iobuf_src0->data,srcVec0,size*2);	
+		memcpy(iobuf_src1->data,srcVec1,size*8);	
+		struct aura_buffer *retbuf; 
+		int ret = aura_call(n, "nmppsDotProd_16s64s", &retbuf,  iobuf_src0,iobuf_src1, size); 
+		if (ret != 0) {
+			printf ("bug = %d\r\n",ret);
+			BUG(n, "Call nmppsDotProd_16s64s failed!"); }
+		*dst = aura_buffer_get_u64(retbuf);
+		aura_buffer_release(n, iobuf_src0); 
+		aura_buffer_release(n, iobuf_src1); 
+		aura_buffer_release(n, retbuf); 
+		slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_16s64s -ok");
 	#else
-	int i;
-	*dst = 0;
-	for (i=0; i<size; i++)
-		*dst += ((nm64s)srcVec0[i])*((nm64s)srcVec1[i]);
+		int i;
+		*dst = 0;
+		for (i=0; i<size; i++)
+			*dst += ((nm64s)srcVec0[i])*((nm64s)srcVec1[i]);
 
 	#endif
 }
@@ -117,7 +156,20 @@ void nmppsDotProd_8s64s(
 	)
 {
 	#ifdef RPC
-	RPC_HOST_PPIP("nmppsDotProd_8s64s",srcVec0,srcVec1,size,dst,1,8);
+		struct aura_buffer *iobuf_src0 = aura_buffer_request(n, size*1);	
+		struct aura_buffer *iobuf_src1 = aura_buffer_request(n, size*8);	
+		memcpy(iobuf_src0->data,srcVec0,size*1);	
+		memcpy(iobuf_src1->data,srcVec1,size*8);	
+		struct aura_buffer *retbuf; 
+		int ret = aura_call(n, "nmppsDotProd_8s64s", &retbuf,  iobuf_src0,iobuf_src1, size); 
+		if (ret != 0) {
+			printf ("bug = %d\r\n",ret);
+			BUG(n, "Call nmppsDotProd_8s64s failed!"); }
+		*dst = aura_buffer_get_u64(retbuf);
+		aura_buffer_release(n, iobuf_src0); 
+		aura_buffer_release(n, iobuf_src1); 
+		aura_buffer_release(n, retbuf); 
+		slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_8s64s -ok");
 	#else
 	int i;
 	*dst = 0;

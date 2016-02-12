@@ -32,6 +32,7 @@ global _nmppsDotProd_64s64s:label;
 <_nmppsDotProd_64s64s>
 	ar5 = sp - 2;
 
+	
 	PUSH_REGS();
 
 	ar0 = [--ar5];	// Input0 buffer

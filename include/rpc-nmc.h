@@ -11,6 +11,8 @@ typedef void (func_ppp_t)(void*,void*,void*);
 typedef int  (func_ppp_i_t)(void*,void*,void*);
 typedef void (func_pppii_t) (void*,void*,void*,int,int);
 typedef void (func_piippi_t) (void*,int,int,void*,void*,int);
+typedef void (func_ppip_t) (void*,void*,int,void*); 
+
 #include <time.h>
 
 #define NMC_RPC_I_P(func) \
@@ -188,6 +190,20 @@ void rpc_ ## func(void *in, void *out) \
 	func_pip_t *unifunc=(func_pip_t*)func; \
 	long ret ; \
 	unifunc(src0,size,&ret); \
+	aura_put_u64(ret); \
+}
+
+#define NMC_RPC_PPIR64(func) \
+void rpc_ ## func(void *in, void *out) \
+{ \
+	aura_buffer buf_src0 = aura_get_buf(); \
+	aura_buffer buf_src1 = aura_get_buf(); \
+	int *src0  = aura_buffer_to_ptr(buf_src0); \
+	int *src1  = aura_buffer_to_ptr(buf_src1); \
+	unsigned size = aura_get_u32(); \
+	func_ppip_t *unifunc=(func_ppip_t*)func; \
+	long ret ; \
+	unifunc(src0,src1,size,&ret); \
 	aura_put_u64(ret); \
 }
 
@@ -909,6 +925,47 @@ NMC_RPC_PIIPPI(nmppmMul_mm_32s32s);
 
 #ifdef     RPC_nmppmMul_mm_32s64s
 NMC_RPC_PIIPPI(nmppmMul_mm_32s64s);
+#endif 
+
+//-----------------------------
+#ifdef     RPC_nmppsDotProd_8s8s
+NMC_RPC_PPIR64(nmppsDotProd_8s8s);
+#endif 
+
+#ifdef     RPC_nmppsDotProd_8s16s
+NMC_RPC_PPIR64(nmppsDotProd_8s16s);
+#endif 
+
+#ifdef     RPC_nmppsDotProd_8s32s
+NMC_RPC_PPIR64(nmppsDotProd_8s32s);
+#endif 
+
+#ifdef     RPC_nmppsDotProd_8s64s
+NMC_RPC_PPIR64(nmppsDotProd_8s64s);
+#endif 
+
+#ifdef     RPC_nmppsDotProd_16s16s
+NMC_RPC_PPIR64(nmppsDotProd_16s16s);
+#endif 
+
+#ifdef     RPC_nmppsDotProd_16s32s
+NMC_RPC_PPIR64(nmppsDotProd_16s32s);
+#endif 
+
+#ifdef     RPC_nmppsDotProd_16s64s
+NMC_RPC_PPIR64(nmppsDotProd_16s64s);
+#endif 
+
+#ifdef     RPC_nmppsDotProd_32s32s
+NMC_RPC_PPIR64(nmppsDotProd_32s32s);
+#endif 
+
+#ifdef     RPC_nmppsDotProd_32s64s
+NMC_RPC_PPIR64(nmppsDotProd_32s64s);
+#endif 
+
+#ifdef     RPC_nmppsDotProd_64s64s
+NMC_RPC_PPIR64(nmppsDotProd_64s64s);
 #endif 
 
 //--------------------------

@@ -59,6 +59,23 @@ extern struct aura_node *n;
 	aura_buffer_release(n, retbuf); \
 	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
 
+#define RPC_HOST_PPI_R64_k0k1(func,src0,src1,size,ret,k0,k1) \
+	int ret;	\
+    struct aura_buffer *iobuf_src0 = aura_buffer_request(n, size*k0);	\
+	struct aura_buffer *iobuf_src1 = aura_buffer_request(n, size*k1);	\
+	memcpy(iobuf_src0->data,src0,size*k0);	\
+	memcpy(iobuf_src1->data,src1,size*k1);	\
+	struct aura_buffer *retbuf; \
+	ret = aura_call(n, func, &retbuf,  iobuf_src0,iobuf_src1, size); \
+	if (ret != 0) {\
+		printf ("bug = %d\r\n",ret);\
+		BUG(n, "Call " #func " failed!"); }\
+	*res = aura_buffer_get_u32(retbuf);\
+	aura_buffer_release(n, iobuf_src0); \
+	aura_buffer_release(n, iobuf_src1); \
+	aura_buffer_release(n, retbuf); \
+	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	
 
 
 #define RPC_HOST_PPPI(func,src0,src1,dst,size,k) \

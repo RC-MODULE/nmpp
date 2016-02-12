@@ -33,6 +33,7 @@ global _nmppsDotProd_32s64s:label;
 <_nmppsDotProd_32s64s>
 	ar5 = sp - 2;
 
+	//return;
 	PUSH_REGS();
 
 	ar0 = [--ar5];	// Input0 buffer
@@ -46,19 +47,15 @@ global _nmppsDotProd_32s64s:label;
 
 
 	rep 2 wfifo=[ar4++],ftw;
-	.wait;
-		nb1 = gr7 with gr6--;
-		rep 1 wtw with vfalse;
-	.branch;
+	nb1 = gr7 with gr6--;
+	rep 1 wtw with vfalse;
 
 <NextMul32>
 	rep 1 data=[ar0++] with vsum, data,afifo;
 	rep 2 wfifo=[ar4++],ftw;
 	if > delayed goto NextMul32;
-		.wait;
-			nb1 = gr7 with gr6--;
-			wtw;
-		.branch;
+		nb1 = gr7 with gr6--;
+		wtw;
 	
 	rep 1 [ar6] = afifo;
 

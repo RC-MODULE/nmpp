@@ -1344,7 +1344,7 @@ void nmppsSum_64s(nm64s* pSrcVec, int nSize, int64b *pnRes);
 
 
 
-	
+/*	
 void nmppsDotProd_8s8s (nm8s*  pSrcVec1,  nm8s* pSrcVec2, int nSize, int64b* pnRes,  SpecTmp1* spec);
 void nmppsDotProd_8s16s(nm8s*  pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes,  SpecTmp1* spec);
 void nmppsDotProd_8s32s(nm8s*  pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes,  SpecTmp1* spec);
@@ -1358,6 +1358,21 @@ void nmppsDotProd_32s32s(nm32s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pn
 void nmppsDotProd_32s64s(nm32s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
 
 void nmppsDotProd_64s64s(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+*/
+void nmppsDotProd_8s8s  (nm8s*  pSrcVec1,  nm8s* pSrcVec2, int nSize, int64b* pnRes);
+void nmppsDotProd_8s16s (nm8s*  pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes);
+void nmppsDotProd_8s32s (nm8s*  pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes);
+void nmppsDotProd_8s64s (nm8s*  pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+
+void nmppsDotProd_16s16s(nm16s* pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes);
+void nmppsDotProd_16s32s(nm16s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes);
+void nmppsDotProd_16s64s(nm16s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+
+void nmppsDotProd_32s32s(nm32s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes);
+void nmppsDotProd_32s64s(nm32s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+
+void nmppsDotProd_64s64s(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+
     //! \}
 
 	/**

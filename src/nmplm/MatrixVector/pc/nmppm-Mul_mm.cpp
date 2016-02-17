@@ -17,15 +17,21 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-extern "C" {
-	
 #include "rpc-host.h"
 #include "nmtype.h"
 
-#ifndef RPC
+#ifdef RPC
+extern "C" {
+#else
+
 #include "nmtl/tmatrix.h"
 #include "nmtl/tnmmtr.h"
+
 #endif
+
+
+	
+
 
 
 
@@ -201,6 +207,6 @@ void nmppmMul_mv_(
 }
 
 */
-
-
+#ifdef RPC
 };
+#endif

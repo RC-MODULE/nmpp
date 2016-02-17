@@ -38,5 +38,48 @@ int main()
 
 	return crc;
 
+	nmppsMallocCreateRoute(RANDOM, BANK0|BANK1|BANK2|BANK3,route,10);
+	nmppsMallocCreateRoute(REGULAR,BANK0|BANK1|BANK2|BANK3,route,10);
+	nmppsMallocSetMode(RANDOM,BANK0|BANK1|BANK2|BANK3);
+	nmppsMallocSetMode(RANDOM);
+	for(int i=0; i<16;i++){
+		
+	nmppsSetCurrentMalloc32();
+		
+	NMPPS_OPTIMIZE_ROUTE_BEGIN(L10,100);
+		nmppsMallocRouteBegin();
+		NmppsFIRState* state;
+		src=nmppsMalloc_8s(size);
+		dst=nmppsMalloc_16s(size);
+		nmppsFIRInitAlloc_8s16s(w,h,&state);
+		
+		NMPPS_MALLOC_TIMER_START();
+		nmppsFIR_8s16s(src,dst,size,state);
+		NMPPS_MALLOC_TIMER_STOP();
+		
+		NMPPS_MALLOC_TIMER_RESUME();
+		nmppsFIR_8s16s(src,dst,size,state);
+		NMPPS_MALLOC_TIMER_STOP();
+		
+		nmppsFIRFree(state);
+		nmppsFree(src);
+		nmppsFree(dst);
+		nmppsMallocRouteEnd();
+	
+	NMPPS_OPTIMIZE_ROUTE_BEGIN(L10);
+	
+	nmppsMallocGetBestRoute(route);
+	nmppsMallocSetRoute(route);
+	nmppsFIRInitAlloc_8s16s(w,h,malloc32,free32,&state);
+	while(1){
+		src=nmppsMalloc_8s(size);
+		dst=nmppsMalloc_16s(size);
+		nmppsFIR_8s16s(src,dst,size,state);
+		nmppsFIR_8s16s(src,dst,size,state);
+		nmppsFree(src);
+		nmppsFree(dst);
+	}		
+	
+	
 }
 

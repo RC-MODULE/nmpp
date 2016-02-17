@@ -106,7 +106,8 @@ void*  nmppsMallocSpec_8s(SpecTmp1* spec,int size, int mode);
 void*  nmppsMallocSpec1(SpecTmp1* spc,int sizeBuf0,int , int);
 void*  nmppsFreeSpec1  (SpecTmp1* spc);
 
-void  nmppsMallocSetRouteMode (fseq64  heapSeq);
+void  nmppsMallocSetRouteMode  (fseq64  heapSeq);
+void  nmppsMallocSetRouteModeEx(seq64*  heapSeq,  int heapCount);
 void  nmppsMallocSetBigRouteMode(seq64*  heapSeq,  int heapCount);
 void  nmppsMallocSetRandomMode(uint32  heapSet,  int heapCount);
 void  nmppsMallocSetPriorityMode (seq64   heapSeq,  int heapCount);

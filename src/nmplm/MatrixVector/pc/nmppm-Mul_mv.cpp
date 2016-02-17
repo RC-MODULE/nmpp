@@ -17,16 +17,17 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-extern "C" {
-
 #include "rpc-host.h"
 #include "nmtype.h"
 
-#ifndef RPC
+#ifdef RPC
+extern "C" {
+#else
+
 #include "nmtl/tmatrix.h"
 #include "nmtl/tnmmtr.h"
-#endif
 
+#endif
 
 
 
@@ -112,7 +113,7 @@ void MTR_ProdSelfV( nm64sc *pSrcVec, nm64sc *pDstMtr, int nSize, void* pTmp)
 	}
 }
 
-};
+
 /*
 void nmppmMul_mv_AddC_32s(v2nm32s* pSrcMtr, v2nm32s* pSrcVec, int nAddVal, nm32s* pDstVec, int nHeight)
 {
@@ -134,3 +135,7 @@ void nmppmMul_mv_AddC_32s(v2nm32s* pSrcMtr, v2nm32s* pSrcVec, int nAddVal, nm32s
 //    }
 }
 */
+
+#ifdef RPC
+};
+#endif

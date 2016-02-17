@@ -26,7 +26,7 @@ ifeq ($(OS),Windows_NT)
  #OS_WGET  = wget
   OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(ROOT)/deps/wget.ps1 
  #OS_UNZIP = unzip 
-  OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(ROOT)/seps/unzip.ps1 
+  OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(ROOT)/deps/unzip.ps1 
   OS_TODIR = -d
   OS_TAR   = $(OS_UNZIP)
   PATH    := $(NEURO)/bin;$(MC5103)/bin;$(MB7707)/bin;$(MC7601)/bin;$(ROOT)/deps/gnuwin32/bin;$(VSHELL32)/bin;$(PATH)

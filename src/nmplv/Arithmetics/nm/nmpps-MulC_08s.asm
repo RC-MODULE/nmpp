@@ -34,9 +34,9 @@ global _nmppsMulC_8s:label;
 	push ar5,gr5;	
 	push ar6,gr6		with gr0++;			// gr0=2;
 
-	ar0 = [--ar5];						// pSrcVec
-	gr6 = [--ar5];						// SrcN
-	ar6 = gr7			with gr6 = gr6<<24;	// pDstVec
+	gr5 = [--ar5];							// pSrcVec
+	gr6 = [--ar5];							// N
+	ar6 = gr7			with gr6 = gr6<<24;	// pDstVec; ar6=0;
 	ar0 = ar7			with gr7 = gr0<< 3;	// gr7=16;
 	ar7+= gr7			with gr6 = gr6>>24;	// ar6=0; gr6= N
 	[ar0++] = gr6		with gr6 = gr6<<8;
@@ -56,7 +56,8 @@ global _nmppsMulC_8s:label;
 	nb1 = 80808080h;
 	sb  = 02020202h;
 	rep 8 wfifo=[ar0++],ftw,wtw;
-	ar6 = [--ar5];								// dst
+	ar0 = gr5;
+	ar6 = [--ar5] 		with gr6=gr0;			// dst
 	delayed call vec_vsum_data_0 ;		
 		gr5 = [--ar5];							// size
 		gr5 = gr5>>3;							// size in 64-bit longs

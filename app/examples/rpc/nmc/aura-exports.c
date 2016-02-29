@@ -797,23 +797,7 @@ AURA_METHOD(rpc_nmppmMul_mm_32s64s, nmppmMul_mm_32s64s,
 #endif 
 
 
-#ifdef RPC_nmppmMul_mv_8s64s
-AURA_METHOD(rpc_nmppmMul_mv_8s64s, nmppmMul_mv_8s64s, 
-		BUFFER BUFFER BUFFER U32 U32,
-	    "");
-#endif 
 
-#ifdef RPC_nmppmMul_mv_16s64s
-AURA_METHOD(rpc_nmppmMul_mv_16s64s, nmppmMul_mv_16s64s, 
-		BUFFER BUFFER BUFFER U32 U32,
-	    "");
-#endif 
-
-#ifdef RPC_nmppmMul_mv_32s64s
-AURA_METHOD(rpc_nmppmMul_mv_32s64s, nmppmMul_mv_32s64s, 
-		BUFFER BUFFER BUFFER U32 U32,
-	    "");
-#endif 
 
 
 //-----------------------------------

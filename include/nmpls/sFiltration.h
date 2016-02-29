@@ -21,7 +21,7 @@
 #ifndef _SFILTRATION_H_INCLUDED_
 #define _SFILTRATION_H_INCLUDED_
 
-
+#include "nmtype.h"
   
 
 //*****************************************************************************

@@ -36,7 +36,11 @@
 	typedef long long  INT64;
 	typedef unsigned long long UINT64;
 
-
+#ifdef __NM__
+#define sizeof32(t) sizeof(t)
+#else
+#define sizeof32(t) (sizeof(t)*4)
+#endif
 
 
 

@@ -196,7 +196,7 @@ VPATH    = $(SRC_DIRS)
 
 
 #======================== BUILD RULES ====================================
-.PHONY: $(TARGET) $(TARGETD) all clean cleanall kill vs8 vs8stdout skip
+.PHONY: $(TARGET) $(TARGETD) all clean cleanall kill vs13 vs8stdout skip $(PROJECT).vcxproj
 
 .DEFAULT_GOAL=all
 	

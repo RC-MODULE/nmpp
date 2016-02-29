@@ -330,12 +330,20 @@ void nmppsAddC_p64s(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsAdd_8s (nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
+void nmppsAdd_8s (nm8s*  pSrcVec1, nm8s*  pSrcVec2, nm8s*  pDstVec, int nSize);
 void nmppsAdd_16s(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
 void nmppsAdd_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
 void nmppsAdd_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+
+
     //! \}
 
+void nmppsAdd4V_16s(
+		nm16s**			Vectors,		// array of pointers to buffers	:nm8s*  Any  [NumberOfBuffer]
+		nm16s*			pDstVec,		// result buffer				:long Local  [VecSize/4]
+		int				nSize			// buffer size in 8-bit elements:nSize    =[256,512,..]
+		);	
+			
 
 //*****************************************************************************
 

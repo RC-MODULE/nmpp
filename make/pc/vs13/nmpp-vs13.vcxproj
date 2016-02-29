@@ -98,16 +98,7 @@
  	<ClCompile Include="../../../src/nmpli/Filtration/common/IMG_CreateFilter_8s32s__int.cpp" /> 
  	<ClCompile Include="../../../src/nmpli/Filtration/common/IMG_CreateFilter_8s8s__int.cpp" /> 
  	<ClCompile Include="../../../src/nmpli/Filtration/common/IMG_ReleaseObject__nm64s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm08s_nm08s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm08s_nm16s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm08s_nm32s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm16s_nm16s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm16s_nm32s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter__nm32s_nm32s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter1x9__nm16s_nm16s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Filter3x3__nm16s_nm16s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_Median3x3__nm8s7b_nm8s7b.cpp" /> 
- 	<ClCompile Include="../../../src/nmpli/Filtration/pc/IMG_SetFilter1x9_16s16s__nm08s.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/pc/nmppi-Filter_08s16s.cpp" /> 
  	<ClCompile Include="../../../src/nmpli/Floodfill/common/FFill32b.cpp" /> 
  	<ClCompile Include="../../../src/nmpli/Init/common/CreateComplexTexture__char.cpp" /> 
  	<ClCompile Include="../../../src/nmpli/Reodering/pc/DeinterlaceBlend.cpp" /> 
@@ -157,14 +148,6 @@
  	<ClCompile Include="../../../src/nmpls/FFT/IFFT2048/pc/pcIFFT2048.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/IFFT4096/pc/pcIFFT4096.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/IFFT8192/pc/pcIFFT8192.cpp" /> 
- 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_Filter__nm08sc_nm32sc.cpp" /> 
- 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_SetFilter_16s16s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_SetFilter_16s32s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_SetFilter_32s32s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpls/Filter/common/sig_setfilter_8s16s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_SetFilter_8s32s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpls/Filter/common/SIG_SetFilter_8s8s.cpp" /> 
- 	<ClCompile Include="../../../src/nmpls/Filtration/pc/SIG_Filter.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/Filtration/pc/SIG_MedainV3.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/Filtration/pc/SIG_MedainV9.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/Resample/common/SIG_CreateResampleDown2_16u16u.cpp" /> 
@@ -187,8 +170,6 @@
  	<ClCompile Include="../../../src/nmplv/Stat/pc/32Ini.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/VEC_SadV16.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_Addr.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_GetVal.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_SetVal.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Transform/common/VEC_Remap_nm8u.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Transform/pc/VEC_QSort.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Transform/pc/VEC_Remap.cpp" /> 
@@ -199,6 +180,9 @@
  	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/SCL_FixDiv32__int.c" /> 
  	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/SCL_FixMul32__int.c" /> 
  	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/scl_fixsqrt32__int.c" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/common/nmppi-FilterInitAlloc_08s16s.c" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filter/common/nmpps-firinitalloc_8s16s.c" /> 
+ 	<ClCompile Include="../../../src/nmpls/Filtration/pc/nmpps-fir.c" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/common/nmpps-DotProd_16s16s.c" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/common/nmpps-DotProd_16s32s.c" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/common/nmpps-DotProd_32s32s.c" /> 
@@ -237,9 +221,10 @@
  	<ClCompile Include="../../../src/nmplv/Init/common/nmppsRand32u.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsCnv.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsCopy.c" /> 
- 	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsRand.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsrand.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsSet.c" /> 
  	<ClCompile Include="../../../src/nmplv/Init/pc/nmppsSwap.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/common/nmpps-clipconvertaddcinitalloc_16s8s.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/common/nmpps-CmpLt_16s8u.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/common/nmpps-CmpLt_32s8u.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/common/nmpps-CmpLt_64s8u.c" /> 
@@ -265,6 +250,7 @@
  	<ClCompile Include="../../../src/nmplv/Select/common/nmppsMinIndx_nm32s.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/common/nmppsMinIndx_nm8s.c" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/common/nmpps_Crc.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmpps-ClipConvertAddC.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmpps-CmpNe0.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsClipPowC.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsClipPowCRShiftCnv_AddC.c" /> 
@@ -286,6 +272,8 @@
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinEveryN.c" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/CRC32_Table.c" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/VEC_Crc.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Support/pc/nmpps-Get.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Support/pc/nmpps-Put.c" /> 
  	<ClCompile Include="../../../src/nmplv/Support/pc/VEC_Malloc64s.c" /> 
  	<ClCompile Include="../../../src/nmplv/Support/common/malloc32.c" /> 
    </ItemGroup>

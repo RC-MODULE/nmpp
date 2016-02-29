@@ -21,6 +21,7 @@
 
 #include "nmpli.h"
 //#include "internal.h"
+#include "nmpli/iCellTexture.h"
 #include "nmplc.h"
 
 

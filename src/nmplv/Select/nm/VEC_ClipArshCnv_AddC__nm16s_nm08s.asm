@@ -85,13 +85,13 @@ end ".data_nmplv_G";
 begin ".text_nmplv"
     
     //--------------------------------------------------------------------
-    //! \fn void nmppsClipRShiftConvert_AddC_16s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
+    //! \fn void nmppsClipRShiftConvertAddC_16s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
 	//!
-	//! \perfinclude _nmppsClipRShiftConvert_AddC_16s.html
+	//! \perfinclude _nmppsClipRShiftConvertAddC_16s.html
     //--------------------------------------------------------------------
 
-global _nmppsClipRShiftConvert_AddC_16s:label;
-<_nmppsClipRShiftConvert_AddC_16s>
+global _nmppsClipRShiftConvertAddC_16s8s:label;
+<_nmppsClipRShiftConvertAddC_16s8s>
 .branch;
 	ar5 = sp - 2	with gr7=false;
 	push ar0,gr0	with gr7++;

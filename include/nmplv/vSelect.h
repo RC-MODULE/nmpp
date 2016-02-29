@@ -1308,8 +1308,8 @@ void nmppsClipCC_32s(nm32s30b* pSrcVec, int30b nNegThresh, int30b nPosThresh, nm
     \endxmlonly
     */
     //! \{
-void nmppsClipRShiftConvert_AddC_16s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
-void nmppsClipRShiftConvert_AddC_32s(nm32s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
+void nmppsClipRShiftConvertAddC_16s8s(nm16s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
+void nmppsClipRShiftConvertAddC_32s8s(nm32s* pSrcVec, int nClipFactor,int nShift, int8b nAddValue,nm8s* pDstVec, int nSize);
     //! \}
 
 //extern "C" nm64u VEC_TBL_Diagonal_01h_G[8];
@@ -1365,7 +1365,11 @@ void nmppsClipRShiftConvert_AddC_32s(nm32s* pSrcVec, int nClipFactor,int nShift,
     \par
     */
     //! \{
-void nmppsClipConvert_AddC_16s(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s* pDstVec, int nSize, nm64u* weights); //=VEC_TBL_Diagonal_01h_G
+//void nmppsClipConvertAddC_16s8s(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s* pDstVec, int nSize, nm64u* weights); //=VEC_TBL_Diagonal_01h_G
+typedef nm64u NmppsWeightState;
+void nmppsClipConvertAddCInitAlloc_16s8s(NmppsWeightState** ppState); 
+void nmppsClipConvertAddC_16s8s(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s* pDstVec, int nSize, NmppsWeightState* pState); //=VEC_TBL_Diagonal_01h_G
+void nmppsClipConvertAddCFree(NmppsWeightState* pState); 
     //! \}
 
 	

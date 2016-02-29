@@ -126,7 +126,7 @@ void nmppsAdd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSiz
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiple Summation of several arrays with accumulation of result
-void nmppsSum4_16s(
+void nmppsAdd4V_16s(
 		nm16s**			Vectors,		// array of pointers to buffers	:nm8s*  Any  [NumberOfBuffer]
 		nm16s*			pDstVec,		// result buffer				:long Local  [VecSize/4]
 		int				nSize			// buffer size in 8-bit elements:nSize    =[256,512,..]

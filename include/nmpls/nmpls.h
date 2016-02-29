@@ -5,6 +5,7 @@
 //#include "nmtype.h"
 //#include "nmdef.h"
 //#include "nmpp.h"
+#include "sfir.h"
 
 /*! \ru 
 	\page intro ¬ведение 
@@ -54,7 +55,7 @@ For convenience of application programs development the library has implementati
 	* \ingroup SIG_Group
 	*/
 
-#include "sFiltration.h"
+//#include "sFiltration.h"
 
 
 //*****************************************************************************

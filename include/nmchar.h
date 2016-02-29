@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 //extern unsigned int crc;
+#define __INLINE__
 class uint8ptr;
 class nmchar{
 public:

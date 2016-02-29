@@ -41,7 +41,7 @@ int nmppsCmpLtC_8sAlloc  (nm8s* pSrcVec, nm8s* pDstVec,int nSize, Tmp2BuffSpec *
 		for(heapIndx0=0; heapIndx0<4; heapIndx0++){
 			for(heapIndx1=0; heapIndx1<4; heapIndx1++){
 				testRoute =0xF0|(heapIndx1<<4)|(heapIndx0); 
-				nmppsMallocSetRouteMode(testRoute);
+				//!!nmppsMallocSetRouteMode(testRoute);
 				spec->buffer0=nmppsMalloc_16s(nSize);
 				spec->buffer1=nmppsMalloc_16s(nSize);
 				if (nmppsMallocSuccess()){
@@ -50,7 +50,7 @@ int nmppsCmpLtC_8sAlloc  (nm8s* pSrcVec, nm8s* pDstVec,int nSize, Tmp2BuffSpec *
 					t1=clock();
 					if (bestTime>t1-t0){
 						bestTime=t1-t0;
-						nmppsMallocGetHistory(&spec->route,2);
+						//!!!nmppsMallocGetHistory(&spec->route,2);
 						//spec->optimized=1;
 					}
 				}
@@ -62,7 +62,7 @@ int nmppsCmpLtC_8sAlloc  (nm8s* pSrcVec, nm8s* pDstVec,int nSize, Tmp2BuffSpec *
 		}
 	}
 	if (spec->status )
-	nmppsMallocSetRouteMode(spec->route);
+	//!!nmppsMallocSetRouteMode(spec->route);
 	spec->buffer0=nmppsMalloc_16s(nSize);
 	spec->buffer1=nmppsMalloc_16s(nSize);
 	//spec->isAllocated=nmppsMallocSucces();

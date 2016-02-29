@@ -77,9 +77,9 @@ extern "C" {
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
 		else {
-			fseq64 allocRoute;
-			ret=nmppsFFT512FwdOptimize(src, dst, &allocRoute);
-			nmppsMallocSetRouteMode(allocRoute); 
+			//!fseq64 allocRoute;
+			//!ret=nmppsFFT512FwdOptimize(src, dst, &allocRoute);
+			//!nmppsMallocSetRouteMode(allocRoute); 
 		}
 		ret = nmppsFFT512FwdInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
 		return ret;
@@ -88,6 +88,7 @@ extern "C" {
 
 	int nmppsFFT512FwdOptimize(void* src, void* dst, fseq64* allocOrder) 
 	{
+
 		unsigned heapIndx0;
 		unsigned heapIndx1;
 		fseq64   route;
@@ -99,7 +100,7 @@ extern "C" {
 
 
 				route =0xF00|(heapIndx1<<4)|(heapIndx0); 
-				nmppsMallocSetRouteMode(route);
+				//!nmppsMallocSetRouteMode(route);
 				NmppsFFTSpec* spec;
 				if (nmppsFFT512FwdInitAllocCustom(&spec, nmppsMalloc32, nmppsFree, NMPP_OPTIMIZE_DISABLE )==NMPP_OK){
 					t0=clock();
@@ -108,7 +109,7 @@ extern "C" {
 
 					if (bestTime>t1-t0){
 						bestTime=t1-t0;
-						nmppsMallocGetHistory(allocOrder,2);
+						//!!nmppsMallocGetHistory(allocOrder,2);
 					}
 				}
 				nmppsMallocSpec.status=0;

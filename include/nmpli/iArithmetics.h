@@ -1,5 +1,6 @@
  #ifndef __IARITHMETICS_H
 #define __IARITHMETICS_H
+#ifdef ARITHM
 #include "iDef.h"
 
 
@@ -571,4 +572,5 @@ void IMG_WAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int 
 	//! \{ 
 void IMG_Rsh2(RGB32_nm10u* pSrcImg, RGB32_nm10u* pDstImg, int nSize);
 	//! \}
+#endif
 #endif

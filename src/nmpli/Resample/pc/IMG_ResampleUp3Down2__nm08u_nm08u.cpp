@@ -190,7 +190,7 @@ void IMG_ResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDs
 	SIG_ResampleUp3Down2((nm8s*)pSrc8s,pHResample16s+nSrcWidth*50,nSrcSize,pKernel);
 	nmppsRShiftC_16s(pHResample16s+nSrcWidth*50,6,pHResample16s+nSrcWidth*50,nSrcSize*3/2);
 	IMG_VResample3div2_RShift0(pHResample16s+nSrcWidth*50,nSrcWidth*3/2,nSrcHeight,pVResample16s+nSrcWidth*50);
-	nmppsClipRShiftConvert_AddC_16s(pVResample16s+nSrcWidth*50, 6+7,6,128,(nm8s*)pDstImg, nSrcSize*3*3/2/2);
+	nmppsClipRShiftConvertAddC_16s8s(pVResample16s+nSrcWidth*50, 6+7,6,128,(nm8s*)pDstImg, nSrcSize*3*3/2/2);
 	
 	nmppsFree(pKernel);
 	nmppsFree(pVResample16s);

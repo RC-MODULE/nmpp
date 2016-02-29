@@ -52,7 +52,9 @@ end SETVAL;
 
 
 global _nmppsPut_4s:	label;
+global _nmppsPut_4u:	label;
 <_nmppsPut_4s> 
+<_nmppsPut_4u> 
 .branch;
 	ar5 = ar7 - 5;
 	push ar1,gr1;

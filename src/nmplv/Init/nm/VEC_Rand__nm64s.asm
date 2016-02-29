@@ -26,7 +26,8 @@ data ".data_nmplv_L"
 end ".data_nmplv_L";
 
 data ".data_nmplv_G"
-	nRandomize:long=01L;
+	//nRandomize:long=0FFFFFFFFhl;
+	nRandomize:long=0;//0100000001hl;
 	RandMul:long=1664525L;
 	RandAdd:long=1013904223L;
 end ".data_nmplv_G";
@@ -69,15 +70,16 @@ global _nmppsRandUniform_64s:label;
 		nul;
 		
 	if =0 delayed goto last_Random_rep1 with gr7--;
-		rep 1 data=[ar5] with vsum ,data,vr;
+		rep 1 data=[ar5] with vsum ,shift data,vr;
 		nul;
 	<next_Random_rep1>
 	if <>0 delayed goto next_Random_rep1 with gr7--;
-		rep 1 [ar6++]=afifo with vsum ,afifo,vr;
+		rep 1 [ar6++]=afifo with vsum ,shift afifo,vr;
 		nul;
 	
 	<last_Random_rep1>
-	rep 1 [ar6++]	=afifo;
+	rep 1 [ar6++]	=afifo with afifo;
+	rep 1 [ar5] = afifo;
 	<end_Random>
 	pop ar6,gr6;
 	return;

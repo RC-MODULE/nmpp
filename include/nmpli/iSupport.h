@@ -20,6 +20,7 @@
 #ifndef __IMALLOC_H
 #define __IMALLOC_H
 
+
 __INLINE__ int nmppsSizeOf_8s(nm8s*, int nCount){
 	return nCount>>2;
 }

@@ -196,7 +196,7 @@ VPATH    = $(SRC_DIRS)
   OS_RM   = del /Q
   OS_RD   = rd /Q /S
 #======================== BUILD RULES ====================================
-.PHONY: $(TARGET) $(TARGETD) all clean cleanall kill vs8 vs8stdout skip
+.PHONY: $(TARGET) $(TARGETD) all clean cleanall kill vs8 vs8stdout skip $(PROJECT).vcproj
 
 #.DEFAULT_GOAL=default
 default: $(TMP_DIR) $(TARGET) $(TARGETD)
@@ -233,4 +233,7 @@ $(PROJECT).vcproj: Makefile
 	
 skip:
 	@echo SDK missing. Compilation is skipped!
+	
+
+
 	

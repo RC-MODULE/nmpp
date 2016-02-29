@@ -125,4 +125,6 @@ For convenience of application programs development the library has implementati
 	*/
 #include "iPrint.h"
 
+#include "filter.h"
+
 #endif

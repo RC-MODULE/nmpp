@@ -1,3 +1,4 @@
+
 #include "nmpp.h"
 #define IMG_AT_BUFFER 1
 #define WARP_AT_BUFFER 2
@@ -22,7 +23,7 @@ public:
 		nWarpSize=width*warpHeight;
 		pImg=0;
 		isAllocated=false;
-		pWarp=(T*)malloc32(nmppsSize32_(pWarp,nWarpSize));
+		pWarp=(T*)malloc32(nmppsSize32(pWarp,nWarpSize));
 		pfFree32=free32;
 		if (pWarp){
 			pImg=nmppsAddr_(pWarp,border*width);

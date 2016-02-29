@@ -20,6 +20,7 @@ ifeq ($(OS),Windows_NT)
 
   
   SHELL    = cmd
+  OS_MV    = rename
   OS_RM    = del /Q
 #  OS_RM    = rm -f -r
   OS_RD    = rd /Q /S 

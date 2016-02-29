@@ -199,7 +199,7 @@ OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM
 
 
 #======================== BUILD RULES ====================================
-.PHONY:all  clean cleanall vs8  skip
+.PHONY:all  clean cleanall vs8  skip $(PROJECT).vcproj
 
 #.DEFAULT_GOAL=default
 default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)

@@ -1,7 +1,9 @@
-#include "nmpls.h"
+//#include "nmpls.h"
 #include "nmpp.h"
-#include "string.h"
-
+//#include "string.h"
+#include "nmpls/sfir.h"
+#include "nmplv/vSupport.h"
+#include "malloc32.h"
 //	nSize=3  nDisp=1,5 
 //  nSize=5  nDisp=2,6 
 //  nSize=7  nDisp=3,7 
@@ -11,12 +13,12 @@
 
 
 
-__INLINE__ int GetDisp0(int nSize)
+static int GetDisp0(int nSize)
 {
 	return ((nSize-3)/2%8+1);
 }
 
-__INLINE__ int GetDisp1(int nSize)
+static int GetDisp1(int nSize)
 {
 	return ((nSize+5)/2)%8+1;
 }
@@ -223,8 +225,9 @@ __INLINE__ int GetDisp1(int nSize)
 //	return 6+(18+nSize)/8+1+(18+nSize)*2;
 //}
 
-int SIG_SetFilter_8s16s(int* pWeights, int nSize, nm64s* pKernel)
+int nmppsFIRInit_8s16s(NmppsFIRState* ppState, int* pWeights, int nSize)
 {
+	int* pKernel=(int*)ppState;
 #ifndef __NM__
 	pKernel[0]=nSize;
 	memcpy(pKernel+1,pWeights,nSize<<2);
@@ -286,7 +289,7 @@ int SIG_SetFilter_8s16s(int* pWeights, int nSize, nm64s* pKernel)
 #endif
 }
 
-int SIG_GetFilterKernelSize_8s16s(int nSize){
+int nmppsFIRGetStateSize_8s16s(int nSize){
 	int nWeightsSize=(8+nSize+3+7)*2; //Size in int32 words
 		
 	int nDisp0=GetDisp0(nSize);
@@ -295,131 +298,32 @@ int SIG_GetFilterKernelSize_8s16s(int nSize){
 	int nNumberOfArrays0=(8+nSize+3-nDisp0+7)/8;
 	int nNumberOfArrays1=(8+nSize+3-nDisp1+7)/8;
 
-	int nDispArraySize=nNumberOfArrays0+nNumberOfArrays1;
-	nDispArraySize+=nDispArraySize&1;
+	int nDispArraySize=nNumberOfArrays0+nNumberOfArrays1+(nDispArraySize&1);
+	
 
 	int nSrcDisp0=(((nSize/2)-0)+7)/8;
 	int nSrcDisp1=(((nSize/2)-4)+7)/8;
 
-	nSrcDisp0*=-2;
-	nSrcDisp1*=-2;
-
 	int AllocSize=6+nDispArraySize+nWeightsSize;
-	return AllocSize;
-}
-
-/*
-int SIG_GetFilterKernelSize_8s16s(int nSize)
-{
-	// pKernal
-	//  .....
-	//  pDispArray+6
-	//  .....
-	//  pWeightMatrix
-	//  ...
-	//  pWeightMatrix0
-	//  ...
-	//  pWeightMatrix1
-	//  ...
-	
-	
-	int nWeightsSize=(8+nSize+3+7)*2; //Size in int32 words
-		
-	int nDisp0=GetDisp0(nSize);
-	int nDisp1=GetDisp1(nSize);
-
-	int nNumberOfArrays0=(8+nSize+3-nDisp0+7)/8;
-	int nNumberOfArrays1=(8+nSize+3-nDisp1+7)/8;
-
-	int nDispArraySize=nNumberOfArrays0+nNumberOfArrays1;
-	nDispArraySize+=nDispArraySize&1;
-
-	nm32s* pDispArray	=((nm32s*)pKernel)+6;
-	nm16s* pWeightMatrix =(nm16s*)nmppsAddr_32s((nm32s*)pDispArray,nDispArraySize);	
-	nm16s* pWeightMatrix0=(nm16s*)nmppsAddr_32s((nm32s*)pWeightMatrix,nDisp0*2);	
-	nm16s* pWeightMatrix1=(nm16s*)nmppsAddr_32s((nm32s*)pWeightMatrix,nDisp1*2);	
-	//nmppsPut_32s(((nm32s*)pKernel),0,(int) nNumberOfArrays0);		// Number of arrays
-	//nmppsPut_32s(((nm32s*)pKernel),2,(int) pWeightMatrix0);		// weights for first array
-	//nmppsPut_32s(((nm32s*)pKernel),3,(int) nNumberOfArrays1);		// Number of arrays
-	//nmppsPut_32s(((nm32s*)pKernel),5,(int) pWeightMatrix1);		// weights for first array
-
-	int nSrcDisp0=(((nSize/2)-0)+7)/8;
-	int nSrcDisp1=(((nSize/2)-4)+7)/8;
 
 	nSrcDisp0*=-2;
 	nSrcDisp1*=-2;
 
-	//----------- Disp array 0 --------------------
-	//nmppsPut_32s(((nm32s*)pKernel),1,(int)pDispArray);	
-	for(int i=0;i< nNumberOfArrays0; i++){
-		//*pDispArray=(i<<1)+nSrcDisp0;
-		pDispArray++;
-	}
-	//----------- Disp array 1 --------------------
-	//nmppsPut_32s(((nm32s*)pKernel),4,(int)pDispArray);	
-	for(int i=0;i< nNumberOfArrays1; i++){
-		//*pDispArray=(i<<1)+nSrcDisp1;
-		pDispArray++;
-	}
 	
-	//nmppsSet_32s((nm32s*)pWeightMatrix,0,nWeightsSize);
-
-	//----------- Weight array 0,1 ----------------
-	
-	for(int i=0; i<nSize;i++){
-		//nmppsPut_(pWeightMatrix,8*4+i*4 ,	 pWeights[i]);
-		//nmppsPut_(pWeightMatrix,8*4+i*4+5,	 pWeights[i]);
-		//nmppsPut_(pWeightMatrix,8*4+i*4+10 , pWeights[i]);
-		//nmppsPut_(pWeightMatrix,8*4+i*4+15 , pWeights[i]);
-	}
-	// Total size	= 6+(18+nSize)/8*2+1+(18+nSize)*2=
-	//				= 7+(18+nSize)*5/4
-	int AllocSize=(int)nmppsAddr_(nmppsPut_(pWeightMatrix,8*4+i*4+15)-(int)pKernel;
 	return AllocSize;
-#endif
 }
-*/
-/*
-void SIG_CreateFilter_8s16s(int* pWeights, int nSize, nm64s** pKernel, int hint)
+
+int nmppsFIRInitAlloc_8s16s(NmppsFIRState** ppState, int* pTaps, int tapsLen)
 {
-	int nWeightsSize=(8+nSize+3+7)*2; //Size in int32 words
-	int nDisp0=GetDisp0(nSize);
-	int nDisp1=GetDisp1(nSize);
-	int nNumberOfArrays0=(8+nSize+3-nDisp0+7)/8;
-	int nNumberOfArrays1=(8+nSize+3-nDisp1+7)/8;
-	int nDispArraySize=nNumberOfArrays0+nNumberOfArrays1;
-	nDispArraySize+=nDispArraySize&1;
-	int AllocSize=6+nDispArraySize+nWeightsSize;
-	nmppsMalloc_32s((nm32s**)pKernel,AllocSize,hint);
-	if (*pKernel==0) return;
-	//nmppsSet_32s((nm32s*)*pKernel,5,AllocSize);
-	SIG_SetFilter_8s16s(pWeights, nSize, *pKernel);
+	int stateSize=nmppsFIRGetStateSize_8s16s(tapsLen);
+	*ppState=(void*)nmppsMalloc_32s(stateSize);
+	if (*ppState){
+		nmppsFIRInit_8s16s(*ppState, pTaps, tapsLen);
+		return 0;
+	}
+	return -1;
 }
-*/
-
-//--------------------------------------------------------------------------------------------------------------
-
-template<> int CSIG_FIR<nm8s,nm16s>::init(int NumWeights, void* (*malloc32_func)(unsigned),void (*free32_func)(void*)){
-	pfFree32=free32_func;
-	nWeights=NumWeights;
-	int KernelSize=SIG_GetFilterKernelSize_8s16s(nWeights);
-	pKernel=(nm64s*)malloc32_func(KernelSize);
-	return (pKernel!=0);
-}
-template<> CSIG_FIR<nm8s,nm16s>::CSIG_FIR(int NumWeights, void* (*malloc32_func)(unsigned),void (*free32_func)(void*)){
-	init(NumWeights, malloc32_func, free32_func);
-}
-
-
-template<> void* CSIG_FIR<nm8s,nm16s>::setWeights(int* pWeights){
-	if (pKernel)
-		SIG_SetFilter_8s16s(pWeights, nWeights, pKernel);
-	return pWeights;
-}
-template<> void CSIG_FIR<nm8s,nm16s>::filter(nm8s* pSrcVec, nm16s* pDstVec, int nSize){
-	SIG_Filter(pSrcVec,pDstVec,nSize,pKernel);
-}
-template<> CSIG_FIR<nm8s,nm16s>::~CSIG_FIR(){
-	if (pKernel) 
-		pfFree32(pKernel);
+void nmppsFIRFree(NmppsFIRState* pState)
+{
+	nmppsFree(pState);
 }

@@ -106,18 +106,18 @@ __INLINE__ nm64u* nmppsAddr_32u(nm32u* pVec, int nIndex) {return (nm64u*)pVec+(n
 __INLINE__ nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nIndex;}
 */
 
- __INLINE__ nm1  * nmppsAddr_1  (nm1*   pVec, int nIndex) {return (nm1*  )((nm64u*)pVec+(nIndex>>6));}
- __INLINE__ nm2s * nmppsAddr_2s (nm2s*  pVec, int nIndex) {return (nm2s* )((nm64u*)pVec+(nIndex>>5));}
- __INLINE__ nm4s * nmppsAddr_4s (nm4s*  pVec, int nIndex) {return (nm4s* )((nm64u*)pVec+(nIndex>>4));}
- __INLINE__ nm8s * nmppsAddr_8s (nm8s*  pVec, int nIndex) {return (nm8s* )((nm64u*)pVec+(nIndex>>3));}
- __INLINE__ nm16s* nmppsAddr_16s(nm16s* pVec, int nIndex) {return (nm16s*)((nm64u*)pVec+(nIndex>>2));}
- __INLINE__ nm32s* nmppsAddr_32s(nm32s* pVec, int nIndex) {return (nm32s*)((nm64u*)pVec+(nIndex>>1));}
- __INLINE__ nm64s* nmppsAddr_64s(nm64s* pVec, int nIndex) {return (nm64s*)((nm64u*)pVec+nIndex)     ;}
+ __INLINE__ nm1  * nmppsAddr_1  (const nm1*   pVec, int nIndex) {return (nm1*  )((nm64u*)pVec+(nIndex>>6));}
+ __INLINE__ nm2s * nmppsAddr_2s (const nm2s*  pVec, int nIndex) {return (nm2s* )((nm64u*)pVec+(nIndex>>5));}
+ __INLINE__ nm4s * nmppsAddr_4s (const nm4s*  pVec, int nIndex) {return (nm4s* )((nm64u*)pVec+(nIndex>>4));}
+ __INLINE__ nm8s * nmppsAddr_8s (const nm8s*  pVec, int nIndex) {return (nm8s* )((nm64u*)pVec+(nIndex>>3));}
+ __INLINE__ nm16s* nmppsAddr_16s(const nm16s* pVec, int nIndex) {return (nm16s*)((nm64u*)pVec+(nIndex>>2));}
+ __INLINE__ nm32s* nmppsAddr_32s(const nm32s* pVec, int nIndex) {return (nm32s*)((nm64u*)pVec+(nIndex>>1));}
+ __INLINE__ nm64s* nmppsAddr_64s(const nm64s* pVec, int nIndex) {return (nm64s*)((nm64u*)pVec+nIndex)     ;}
                                                        
- __INLINE__ nm8u * nmppsAddr_8u (nm8u*  pVec, int nIndex) {return (nm8u* )((nm64u*)pVec+(nIndex>>3));}
- __INLINE__ nm16u* nmppsAddr_16u(nm16u* pVec, int nIndex) {return (nm16u*)((nm64u*)pVec+(nIndex>>2));}
- __INLINE__ nm32u* nmppsAddr_32u(nm32u* pVec, int nIndex) {return (nm32u*)((nm64u*)pVec+(nIndex>>1));}
- __INLINE__ nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)((nm64u*)pVec+nIndex     );}
+ __INLINE__ nm8u * nmppsAddr_8u (const nm8u*  pVec, int nIndex) {return (nm8u* )((nm64u*)pVec+(nIndex>>3));}
+ __INLINE__ nm16u* nmppsAddr_16u(const nm16u* pVec, int nIndex) {return (nm16u*)((nm64u*)pVec+(nIndex>>2));}
+ __INLINE__ nm32u* nmppsAddr_32u(const nm32u* pVec, int nIndex) {return (nm32u*)((nm64u*)pVec+(nIndex>>1));}
+ __INLINE__ nm64u* nmppsAddr_64u(const nm64u* pVec, int nIndex) {return (nm64u*)((nm64u*)pVec+nIndex     );}
 
 
     //! \}
@@ -171,7 +171,7 @@ __INLINE__ void nmppsPut_32s(nm32s* pVec, int nIndex,  int32b nVal)	{pVec[nIndex
 __INLINE__ void nmppsPut_64s(nm64s* pVec, int nIndex,  int64b nVal)	{pVec[nIndex]=nVal;}
 
 __INLINE__ void	nmppsPut_2u(nm2u* pVec,  int nIndex, uint2b  nVal)   	{nmppsPut_2s((nm2s*)pVec,nIndex,(int2b)nVal);}
-__INLINE__ void	nmppsPut_4u(nm4u* pVec,  int nIndex, uint4b  nVal)   	{nmppsPut_4s((nm4s*)pVec,nIndex,(int4b)nVal);}
+__INLINE__ void	nmppsPut_4u(nm4u* pVec,  int nIndex, uint4b  nVal)		{nmppsPut_4s((nm4s*)pVec,nIndex,(int4b)nVal);}
 __INLINE__ void	nmppsPut_8u(nm8u* pVec,  int nIndex, uint8b nVal)		{nmppsPut_8s((nm8s*)pVec,nIndex,(int8b)nVal);}
 __INLINE__ void	nmppsPut_16u(nm16u* pVec, int nIndex, uint16b nVal)   	{nmppsPut_16s((nm16s*)pVec,nIndex,(int16b)nVal);}
 __INLINE__ void nmppsPut_32u(nm32u* pVec, int nIndex, uint32b nVal)	{pVec[nIndex]=nVal;}

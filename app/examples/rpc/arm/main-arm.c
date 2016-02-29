@@ -35,9 +35,9 @@ int main() {
 
 	for(i=0; i<32; i++){
 		src0_8s[i] =1;  
-		src0_16s[i]=1;  
-		src0_32s[i]=1;  
-		src0_64s[i]=1;  
+		src0_16s[i]=i;  
+		src0_32s[i]=i;  
+		src0_64s[i]=i;  
 		            
 		src1_8s[i] =1;
 		src1_16s[i]=1;
@@ -101,6 +101,13 @@ int main() {
 //	nmppsCmpNeC_64s((nm64s*)src0_64s,0,(nm64s*)dst_64s,256);
 
 
+//	nmppsMulC_8s 	((nm8s*) src0_8s ,2,(nm8s*) dst_8s, 16);
+//	nmppsMulC_8s16s	((nm8s*) src0_8s ,2,(nm8s*) dst_16s, 16);
+//	nmppsMulC_16s	((nm16s*)src0_16s,3,(nm16s*)dst_16s,16);
+//	nmppsMulC_16s32s((nm16s*)src0_16s,3,(nm32s*)dst_32s,16);
+//	nmppsMulC_32s	((nm32s*)src0_32s,4,(nm32s*)dst_32s,16);
+//	nmppsMulC_32s64s((nm32s*)src0_32s,4,(nm64s*)dst_64s,16);
+//	nmppsMulC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,16);
 
 //	nmppsCmpLtC_8s ((nm8s*) src0_8s ,1,(nm8s*) dst_8s, 16, 0);
 //	nmppsCmpLtC_16s((nm16s*)src0_16s,1,(nm16s*)dst_16s,16, 0);
@@ -187,44 +194,44 @@ int main() {
 //	
 /**/
 	long long ret64;
-	nmppsDotProd_8s8s  ((nm8s*) src0_8s ,(nm8s *)src1_8s , 16 , &ret64);      printf("%d\n",(int)ret64);
-	nmppsDotProd_8s16s ((nm8s*) src0_8s ,(nm16s*)src1_16s, 16 , &ret64);      printf("%d\n",(int)ret64);
-	nmppsDotProd_8s32s ((nm8s*) src0_8s ,(nm32s*)src1_32s, 16 , &ret64);      printf("%d\n",(int)ret64);
+	nmppsDotProd_8s8sm  ((nm8s*) src0_8s ,(nm8s *)src1_8s , 16 , &ret64);      printf("%d\n",(int)ret64);
+	nmppsDotProd_8s16sm ((nm8s*) src0_8s ,(nm16s*)src1_16s, 16 , &ret64);      printf("%d\n",(int)ret64);
+	nmppsDotProd_8s32sm ((nm8s*) src0_8s ,(nm32s*)src1_32s, 16 , &ret64);      printf("%d\n",(int)ret64);
 	nmppsDotProd_8s64s ((nm8s*) src0_8s ,(nm64s*)src1_64s, 16 , &ret64);      printf("%d\n",(int)ret64);
                                                                                           
-	nmppsDotProd_16s16s ((nm16s*) src0_16s ,(nm16s*)src1_16s, 16 , &ret64);   printf("%d\n",(int)ret64);
-	nmppsDotProd_16s32s ((nm16s*) src0_16s ,(nm32s*)src1_32s, 16 , &ret64);   printf("%d\n",(int)ret64);
+	nmppsDotProd_16s16sm ((nm16s*) src0_16s ,(nm16s*)src1_16s, 16 , &ret64);   printf("%d\n",(int)ret64);
+	nmppsDotProd_16s32sm ((nm16s*) src0_16s ,(nm32s*)src1_32s, 16 , &ret64);   printf("%d\n",(int)ret64);
 	nmppsDotProd_16s64s ((nm16s*) src0_16s ,(nm64s*)src1_64s, 16 , &ret64);   printf("%d\n",(int)ret64);
-                                                                                       
-	nmppsDotProd_32s32s ((nm32s*) src0_32s ,(nm32s*)src1_32s, 16 , &ret64);   printf("%d\n",(int)ret64);
+//                                                                                       
+	nmppsDotProd_32s32sm ((nm32s*) src0_32s ,(nm32s*)src1_32s, 16 , &ret64);   printf("%d\n",(int)ret64);
 	nmppsDotProd_32s64s ((nm32s*) src0_32s ,(nm64s*)src1_64s, 16 , &ret64);   printf("%d\n",(int)ret64);
-	                                                
+//	                                                
 	nmppsDotProd_64s64s ((nm64s*) src0_32s ,(nm64s*)src1_64s, 16 , &ret64);   printf("%d\n",(int)ret64);
 	
 	//nmppsCmpNeC_8s8u ((nm8s*) src0_8s ,1,(nm8u*)dst_8s, 16);
-	//nmppsCmpNe_8s8u ((nm8s*) src0_8s ,(nm8s*) src1_8s ,(nm8u*)dst_8s, 16);
-	nmppsCmpLt_8s8u ((nm8s*) src0_8s ,(nm8s*) src1_8s ,(nm8u*)dst_8s, 16);
+	//nmppsCmpNe_8s8um ((nm8s*) src0_8s ,(nm8s*) src1_8s ,(nm8u*)dst_8s, 16);
+	//nmppsCmpLt_8s8um ((nm8s*) src0_8s ,(nm8s*) src1_8s ,(nm8u*)dst_8s, 16);
 	for(i=0; i<16; i++){
 		printf("8s: %d %d\r\n", (int)src0_8s[i],(int)dst_8s[i]);
 	}
 
 
 	//nmppsCmpNeC_16s8u((nm16s*)src0_16s,1,(nm8u*)dst_8s,16);
-	//nmppsCmpNe_16s8u ((nm16s*) src0_16s ,(nm16s*) src1_16s ,(nm8u*)dst_8s, 16);
-	nmppsCmpLt_16s8u ((nm16s*) src0_16s ,(nm16s*) src1_16s ,(nm8u*)dst_8s, 16);
-for(i=0; i<16; i++){
-		printf("8s: %d %d\r\n", (int)src0_8s[i],(int)dst_8s[i]);
-	}
+	//nmppsCmpNe_16s8um ((nm16s*) src0_16s ,(nm16s*) src1_16s ,(nm8u*)dst_8s, 16);
+	//nmppsCmpLt_16s8um ((nm16s*) src0_16s ,(nm16s*) src1_16s ,(nm8u*)dst_8s, 16);
+	//for(i=0; i<16; i++){
+	//	printf("8s: %d %d\r\n", (int)src0_8s[i],(int)dst_8s[i]);
+	//}
 
 	//nmppsCmpNeC_32s8u((nm32s*)src0_32s,1,(nm8u*)dst_8s,16);
-	//nmppsCmpNe_32s8u ((nm32s*) src0_32s ,(nm32s*) src1_32s ,(nm8u*)dst_8s, 16);
-	nmppsCmpLt_32s8u ((nm32s*) src0_32s ,(nm32s*) src1_32s ,(nm8u*)dst_8s, 16);
-for(i=0; i<16; i++){
-		printf("8s: %d %d\r\n", (int)src0_8s[i],(int)dst_8s[i]);
-	}
+	//nmppsCmpNe_32s8um ((nm32s*) src0_32s ,(nm32s*) src1_32s ,(nm8u*)dst_8s, 16);
+	//nmppsCmpLt_32s8um ((nm32s*) src0_32s ,(nm32s*) src1_32s ,(nm8u*)dst_8s, 16);
+	//for(i=0; i<16; i++){
+	//	printf("8s: %d %d\r\n", (int)src0_8s[i],(int)dst_8s[i]);
+	//}
 	
 	//nmppsCmpNeC_64s8u((nm64s*)src0_64s,1,(nm8u*)dst_8s,16);
-	//nmppsCmpNe_64s8u ((nm64s*) src0_64s ,(nm64s*) src1_64s ,(nm8u*)dst_8s, 16);
+	//nmppsCmpNe_64s8um ((nm64s*) src0_64s ,(nm64s*) src1_64s ,(nm8u*)dst_8s, 16);
 	
 	for(i=0; i<16; i++){
 		printf("8s: %d %d\r\n", (int)src0_8s[i],(int)dst_8s[i]);

@@ -30,7 +30,7 @@ void nmppsMulC_64s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	RPC_PLPI(pSrcVec,MulN,pDstVec,nSize);
 	#else
 
 	int i;
@@ -50,7 +50,7 @@ void nmppsMulC_32s64s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	RPC_PLPI(pSrcVec,MulN,pDstVec,nSize);
 	#else
 
 	int i;
@@ -59,6 +59,27 @@ void nmppsMulC_32s64s(
 
 	#endif
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// Multiplying 16-bit buffer elements by 16-bit scalar value
+void nmppsMulC_16s(
+			nm16s*		pSrcVec,		// input  buffer		:long Local  [VecSize/4]
+			int			MulN,			// 32-bit scalar value
+			nm16s*		pDstVec,		// output buffer		:long Global [VecSize/2]
+			int			nSize			// size of input buffer in 16-bit elements. nSize=[0,4,8...]
+		)
+{
+	#ifdef RPC
+	RPC_PIPI(pSrcVec,MulN,pDstVec,nSize);
+	#else
+
+	int i;
+	for (i=0;i<nSize;i++)
+		pDstVec[i]=pSrcVec[i]*MulN;
+
+	#endif
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 16-bit buffer elements by 32-bit scalar value
@@ -70,7 +91,7 @@ void nmppsMulC_16s32s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	RPC_PIPI(pSrcVec,MulN,pDstVec,nSize);
 	#else
 
 	int i;
@@ -91,7 +112,7 @@ void nmppsMulC_32s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	RPC_PIPI(pSrcVec,MulN,pDstVec,nSize);
 	#else
 
 	int i;
@@ -113,7 +134,7 @@ void nmppsMulC_8s16s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	RPC_PIPI(pSrcVec,MulN,pDstVec,nSize);
 	#else
 
 	int i;
@@ -135,7 +156,7 @@ void nmppsMulC_8s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	RPC_PIPI(pSrcVec,MulN,pDstVec,nSize);
 	#else
 
 	int i;

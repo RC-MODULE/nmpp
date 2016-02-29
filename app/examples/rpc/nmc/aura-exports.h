@@ -136,15 +136,15 @@
 //#define RPC_nmppsCmpNeC_32s8u
 //#define RPC_nmppsCmpNeC_64s8u
 
-//#define RPC_nmppsCmpNe_8s8u
-//#define RPC_nmppsCmpNe_16s8u
-//#define RPC_nmppsCmpNe_32s8u
-//#define RPC_nmppsCmpNe_64s8u
+//#define RPC_nmppsCmpNe_8s8um
+//#define RPC_nmppsCmpNe_16s8um
+//#define RPC_nmppsCmpNe_32s8um
+//#define RPC_nmppsCmpNe_64s8um
 
-#define RPC_nmppsCmpLt_8s8u
-#define RPC_nmppsCmpLt_16s8u
-#define RPC_nmppsCmpLt_32s8u
-//#define RPC_nmppsCmpNe_64s8u
+//#define RPC_nmppsCmpLt_8s8um
+//#define RPC_nmppsCmpLt_16s8um
+//#define RPC_nmppsCmpLt_32s8um
+//#define RPC_nmppsCmpNe_64s8um
 
 
 //#define RPC_nmppmMul_mm_8s8s
@@ -161,16 +161,29 @@
 //#define RPC_nmppmMul_mv_32s64s
 
 
-#define RPC_nmppsDotProd_8s8s
-#define RPC_nmppsDotProd_8s16s
-#define RPC_nmppsDotProd_8s32s
+#define RPC_nmppsDotProd_8s8sm
+#define RPC_nmppsDotProd_8s16sm
+#define RPC_nmppsDotProd_8s32sm
 #define RPC_nmppsDotProd_8s64s
-#define RPC_nmppsDotProd_16s16s
-#define RPC_nmppsDotProd_16s32s
+#define RPC_nmppsDotProd_16s16sm
+#define RPC_nmppsDotProd_16s32sm
 #define RPC_nmppsDotProd_16s64s
-#define RPC_nmppsDotProd_32s32s
+#define RPC_nmppsDotProd_32s32sm
 #define RPC_nmppsDotProd_32s64s
 #define RPC_nmppsDotProd_8s64s
 #define RPC_nmppsDotProd_16s64s
 #define RPC_nmppsDotProd_32s64s
 #define RPC_nmppsDotProd_64s64s
+
+
+//#define RPC_nmppsMulC_8s
+//#define RPC_nmppsMulC_8s16s
+//#define RPC_nmppsMulC_8s32s -- not implemented
+//#define RPC_nmppsMulC_8s64s -- not implemented
+//#define RPC_nmppsMulC_16s
+//#define RPC_nmppsMulC_16s32s
+//#define RPC_nmppsMulC_16s64s -- not implemented
+//#define RPC_nmppsMulC_32s
+//#define RPC_nmppsMulC_32s64s
+//#define RPC_nmppsMulC_64s
+

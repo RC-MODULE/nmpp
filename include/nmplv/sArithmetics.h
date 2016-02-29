@@ -21,12 +21,8 @@
 #ifndef _VARITHM_H_INCLUDED_
 #define _VARITHM_H_INCLUDED_
 
-#include "malloc32.h"
 
-#ifdef __cplusplus
-		extern "C" {
-#endif
-
+#include "nmtype.h"
     /**
     \defgroup nmppsAbs nmppsAbs
     \ingroup vArithmetics
@@ -87,13 +83,12 @@
     
     */
     //! \{
-
-void nmppsAbs_8s(nm8s* pSrcVec, nm8s* pDstVec, int nSize);
+void nmppsAbs_8s (nm8s* pSrcVec, nm8s* pDstVec, int nSize);
 void nmppsAbs_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 void nmppsAbs_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
 void nmppsAbs_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
-void nmppsAbs_4s(nm4s* pSrcVec, nm4s* pDstVec, int nSize);
+void nmppsAbs_4s( nm4s* pSrcVec,  nm4s* pDstVec, int nSize);
 
 
  /**
@@ -145,11 +140,11 @@ void nmppsAbs_4s(nm4s* pSrcVec, nm4s* pDstVec, int nSize);
     
     */
     //! \{
-void nmppsAbs1_4s (nm4s* pSrcVec, nm4s* pDstVec, int nSize);
-void nmppsAbs1_8s (nm8s* pSrcVec, nm8s* pDstVec, int nSize);
-void nmppsAbs1_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
-void nmppsAbs1_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
-void nmppsAbs1_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+//void nmppsAbs1(nm4s* pSrcVec, nm4s* pDstVec, int nSize);
+//void nmppsAbs1(nm8s* pSrcVec, nm8s* pDstVec, int nSize);
+//void nmppsAbs1(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+//void nmppsAbs1(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+//void nmppsAbs1(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
 
 
@@ -271,8 +266,7 @@ void nmppsNeg_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 void nmppsAddC_8s (nm8s* pSrcVec,  int8b nVal,    nm8s* pDstVec,  int nSize);
 void nmppsAddC_16s(nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSize);
 void nmppsAddC_32s(nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
-void nmppsAddC_64s(nm64s* pSrcVec, int64b pnVal,  nm64s* pDstVec, int nSize);
-void nmppsAddC_p64s(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
+void nmppsAddC_64s(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -330,20 +324,15 @@ void nmppsAddC_p64s(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsAdd_8s (nm8s*  pSrcVec1, nm8s*  pSrcVec2, nm8s*  pDstVec, int nSize);
+void nmppsAdd_8s (nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
 void nmppsAdd_16s(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
 void nmppsAdd_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
 void nmppsAdd_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
 
+		
 
     //! \}
 
-void nmppsAdd4V_16s(
-		nm16s**			Vectors,		// array of pointers to buffers	:nm8s*  Any  [NumberOfBuffer]
-		nm16s*			pDstVec,		// result buffer				:long Local  [VecSize/4]
-		int				nSize			// buffer size in 8-bit elements:nSize    =[256,512,..]
-		);	
-			
 
 //*****************************************************************************
 
@@ -405,7 +394,7 @@ void nmppsAdd4V_16s(
     \endxmlonly
     */
     //! \{
-void nmppsAdd_AddC_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVec, int nSize);
+//void nmppsAdd_AddC(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -469,10 +458,10 @@ void nmppsAdd_AddC_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVe
     \endxmlonly
     */
     //! \{
-void nmppsSubC_8s(nm8s* pSrcVec,  int8b nVal,    nm8s*  pDstVec,  int nSize);
+void nmppsSubC_8s (nm8s* pSrcVec,  int8b nVal,    nm8s*  pDstVec,  int nSize);
 void nmppsSubC_16s(nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSize);
 void nmppsSubC_32s(nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
-void nmppsSubC_64s(nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
+void nmppsSubC_64s(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -536,11 +525,10 @@ void nmppsSubC_64s(nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsSubCRev_8s (nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
-void nmppsSubCRev_16s(nm16s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
-void nmppsSubCRev_32s(nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
-void nmppsSubCRev_64s(nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
-//void nmppsSubCRev_64s(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
+		void nmppsSubCRev_8s (nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
+		void nmppsSubCRev_16s(nm16s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
+		void nmppsSubCRev_32s(nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
+		void nmppsSubCRev_64s(nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -671,10 +659,10 @@ void nmppsSub_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
     
     */
     //! \{
-void nmppsAbsDiff_8s (nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
-void nmppsAbsDiff_16s(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
-void nmppsAbsDiff_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
-void nmppsAbsDiff_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+	void nmppsAbsDiff_8s (nm8s* pSrcVec1,  nm8s* pSrcVec2,  nm8s* pDstVec,  int nSize);
+	void nmppsAbsDiff_16s(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
+	void nmppsAbsDiff_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
+	void nmppsAbsDiff_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
     //! \}
 	
 //*****************************************************************************
@@ -746,7 +734,7 @@ void nmppsAbsDiff_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSiz
     
     */
     //! \{
-void nmppsAbsDiff1_8s(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
+		void nmppsAbs1Diff_8s(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
     //! \}	
 
 //*****************************************************************************
@@ -805,20 +793,20 @@ void nmppsAbsDiff1_8s(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsMulC_8s   (nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
-void nmppsMulC_8s16s(nm8s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
-void nmppsMulC_16s		(nm16s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
-void nmppsMulC_16s32s(nm16s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
-void nmppsMulC_32s   (nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
-void nmppsMulC_32s64s(nm32s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
-void nmppsMulC_64s   (nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
+//void nmppsMulC_8s8s		(nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
+//void nmppsMulC_8s16s 	(nm8s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
+//void nmppsMulC_16s		(nm16s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
+//void nmppsMulC_16s32s	(nm16s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
+//void nmppsMulC_32s		(nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
+//void nmppsMulC_32s64s	(nm32s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
+//void nmppsMulC_64s		(nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
     //! \}
 
 
 //*****************************************************************************
 
     /**
-    \defgroup nmppsMul_AddC nmppsMul_AddC
+    \defgroup nmppsMulV_AddC nmppsMulV_AddC
     \ingroup vArithmetics
     \brief
         \ru Поэлементное умножение векторов с прибавлением константы. 
@@ -876,7 +864,7 @@ void nmppsMulC_64s   (nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsMul_AddC_64s(nm64s* pSrcVec1,nm64s* pSrcVec2, nm64s* pnVal, nm64s* pDstVec, int nSize);
+//void nmppsMulV_AddC(nm64s* pSrcVec1,nm64s* pSrcVec2, nm64s* pnVal, nm64s* pDstVec, int nSize);
     //! \}
 //*****************************************************************************
 
@@ -890,7 +878,7 @@ void nmppsMul_AddC_64s(nm64s* pSrcVec1,nm64s* pSrcVec2, nm64s* pnVal, nm64s* pDs
 		\~
     
 	\f[
-        pDstVec[i]  =  nMulVal \cdot pSrcVec[i] + nAddVal,
+        pDstVec[i]  =  nMulVal \cdot pSrcVec[i] + nAddal,
     \f]
     
 	\f[
@@ -905,7 +893,7 @@ void nmppsMul_AddC_64s(nm64s* pSrcVec1,nm64s* pSrcVec2, nm64s* pnVal, nm64s* pDs
         \ru Константа-множитель. 
         \en Multiplier constant. 
 		\~
-    \param nAddVal   
+    \param nAddal   
         \ru Добавляемая константа.
         \en Addition constant. 
 		\~
@@ -924,21 +912,21 @@ void nmppsMul_AddC_64s(nm64s* pSrcVec1,nm64s* pSrcVec2, nm64s* pnVal, nm64s* pDs
         <testperf> 
              <param> pSrcVec </param> <values> L G </values>
              <param> nMulVal </param> <values> m </values>
-             <param> nAddVal </param> <values>  n </values>
+             <param> nAddal </param> <values>  n </values>
              <param> pDstVec </param> <values> L G </values>
              <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf> 
              <param> pSrcVec </param> <values> L </values>
              <param> nMulVal </param> <values> m </values>
-             <param> nAddVal </param> <values>  n </values>
+             <param> nAddal </param> <values>  n </values>
              <param> pDstVec </param> <values> G </values>
              <param> nSize </param> <values> 8 128 1024 10240 </values>
         </testperf>
     \endxmlonly
     */
     //! \{
-void nmppsMulC_AddC_32s(nm32s* pSrcVec, int nMulVal, int nAddVal, nm32s* pDstVec, int nSize);
+//void nmppsMulC_AddC(nm32s* pSrcVec, int nMulVal, int nAddal, nm32s* pDstVec, int nSize);
     //! \}
 
 	
@@ -968,7 +956,7 @@ void nmppsMulC_AddC_32s(nm32s* pSrcVec, int nMulVal, int nAddVal, nm32s* pDstVec
  *  \details 
  */
 //! \{
-void nmppsMulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst);
+//void nmppsMulC_AddC(int32x2* dataSparseSrc,  int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc=1, int stepSparseDst=1);
 //! \}
 
 
@@ -998,14 +986,14 @@ void nmppsMulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* mulArg, int32x2* add
  *  \details 
  */
 //! \{
-void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg, int32x2* mulArg, int32x2* addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc, int stepSparseDst);
+//void nmppsRShiftC_MulC_AddC(int32x2* dataSparseSrc,  int32x2& preshiftArg, int32x2& mulArg, int32x2& addArg, int32x2 *dataSparseDst,  int size, int stepSparseSrc=1, int stepSparseDst=1);
 //! \}
 	
 
 //*****************************************************************************
 
     /**
-    \defgroup nmppsMulC_AddV_AddC nmppsMulC_AddV_AddC
+    \defgroup nmppsMulC_Add_AddC nmppsMulC_Add_AddC
     \ingroup vArithmetics
     \brief
         \ru Умножение вектора на константу с прибавлением вектора и константы. 
@@ -1014,7 +1002,7 @@ void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg,
 		\~
     
 	\f[
-        pDstVec[i]  =  nMulVal \cdot pSrcVec1[i] + pSrcVec2[i] +  nAddVal,
+        pDstVec[i]  =  nMulVal \cdot pSrcVec1[i] + pSrcVec2[i] +  nAddal,
     \f]
     
 	\f[
@@ -1033,7 +1021,7 @@ void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg,
         \ru Второй входной вектор. 
         \en The second input vec. 
 		\~
-    \param nAddVal   
+    \param nAddal   
         \ru Добавляемая константа.
         \en Addition constant. 
 		\~
@@ -1053,7 +1041,7 @@ void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg,
              <param> pSrcVec1 </param> <values> L G </values>
              <param> nMulVal </param> <values> m </values>
              <param> pSrcVec2 </param> <values> L G </values>
-             <param> nAddVal </param> <values>  n </values>
+             <param> nAddal </param> <values>  n </values>
              <param> pDstVec </param> <values> L G </values>
              <param> nSize </param> <values> 10240 </values>
         </testperf>
@@ -1061,20 +1049,20 @@ void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg,
              <param> pSrcVec1 </param> <values> L </values>
              <param> nMulVal </param> <values> m </values>
              <param> pSrcVec2 </param> <values> G </values>
-             <param> nAddVal </param> <values>  n </values>
+             <param> nAddal </param> <values>  n </values>
              <param> pDstVec </param> <values> G </values>
              <param> nSize </param> <values> 8 128 1024 10240 </values>
         </testperf>
     \endxmlonly
     */
     //! \{
-void nmppsMulC_AddV_AddC_32s(nm32s* pSrcVec1, int nMulVal, nm32s* pSrcVec2, int nAddVal, nm32s* pDstVec, int nSize);
+//void nmppsMulC_Add_AddC(nm32s* pSrcVec1, int nMulVal, nm32s* pSrcVec2, int nAddal, nm32s* pDstVec, int nSize);
     //! \}
  
 //*****************************************************************************
 
     /**
-    \defgroup nmppsSumN nmppsSumN
+    \defgroup nmppsAddNV nmppsAddNV
     \ingroup vArithmetics
     \brief
         \ru Сложение нескольких векторов. 
@@ -1130,16 +1118,11 @@ void nmppsMulC_AddV_AddC_32s(nm32s* pSrcVec1, int nMulVal, nm32s* pSrcVec2, int 
 
     */
     //! \{
-void nmppsSumN_8s16s(nm8s  ** ppSrcVec, nm16s* pDstVec, int nSize, int nNumberOfVectors);
-void nmppsSumN_16s  (nm16s ** ppSrcVec, nm16s* pDstVec, int nSize, int nNumberOfVectors);
+//void nmppsAddNV_8s(nm8s  ** ppSrcVec, nm16s* pDstVec, int nSize, int nNumberOfVectors);
+//void nmppsAddNV_16s(nm16s ** ppSrcVec, nm16s* pDstVec, int nSize, int nNumberOfVectors);
     //! \}
 
-		
-void nmppsSum4_16s(
-		nm16s**			Vectors,		// array of pointers to buffers	:nm8s*  Any  [NumberOfBuffer]
-		nm16s*			pDstVec,		// result buffer				:long Local  [VecSize/4]
-		int				nSize			// buffer size in 8-bit elements:nSize    =[256,512,..]
-		);	
+
 		
 //*****************************************************************************
 
@@ -1206,8 +1189,8 @@ void nmppsSum4_16s(
     	    pTmpBuf2		=> pDstVec		(2cpl:L<=>G)		- Result correction	(in-place is supported)\n\n
     	\ru Примеры использования in-place параметров:\n
     	\en Examples of in-place parameters use: \n
-        \~  nmppsDiv_(L0,G0,10240,3,G0,L0);\n
-    	    nmppsDiv_(L0,L0,10240,3,L0,L0);\n
+        \~  nmppsDiv(L0,G0,10240,3,G0,L0);\n
+    	    nmppsDiv(L0,L0,10240,3,L0,L0);\n
     
          
     \par
@@ -1233,7 +1216,7 @@ void nmppsSum4_16s(
     \endxmlonly
     \{
     */
-void nmppsDivC_32s(nm32s* pSrcVec, int nDivisor, nm32s* pDstVec, int nSize, void* pTmpBuf1, void* pTmpBuf2);
+//void nmppsDivC_32s(nm32s* pSrcVec, int nDivisor, nm32s* pDstVec, int nSize, void* pTmpBuf1, void* pTmpBuf2);
     //! \}
 
 //*****************************************************************************
@@ -1287,8 +1270,8 @@ void nmppsDivC_32s(nm32s* pSrcVec, int nDivisor, nm32s* pDstVec, int nSize, void
     
     */
     //! \{
-void nmppsSum_1s(nm1* pSrcVec, int nSize, int32b *pnRes, void* pTmpBuf);
-void nmppsSum_8s (nm8s*  pSrcVec, int nSize, int32b *pnRes);
+void nmppsSum_1s (struct nm1* pSrcVec, int nSize, int32b *pnRes, void* pTmpBuf);
+void nmppsSum_8s (nm8s* pSrcVec, int nSize, int32b *pnRes);
 void nmppsSum_16s(nm16s* pSrcVec, int nSize, int64b *pnRes);
 void nmppsSum_32s(nm32s* pSrcVec, int nSize, int64b *pnRes);
 void nmppsSum_64s(nm64s* pSrcVec, int nSize, int64b *pnRes);
@@ -1297,7 +1280,7 @@ void nmppsSum_64s(nm64s* pSrcVec, int nSize, int64b *pnRes);
 //*****************************************************************************
 
     /**
-    \defgroup nmppsDotProd nmppsDotProd
+    \defgroup nmppsDot nmppsDot
     \ingroup vArithmetics
     \brief
         \ru Скалярное умножение двух векторов. 
@@ -1350,52 +1333,33 @@ void nmppsSum_64s(nm64s* pSrcVec, int nSize, int64b *pnRes);
     \endxmlonly
     */
     //! \{
-
-
-
-/*	
-void nmppsDotProd_8s8sm (nm8s*  pSrcVec1,  nm8s* pSrcVec2, int nSize, int64b* pnRes,  SpecTmp1* spec);
-void nmppsDotProd_8s16sm(nm8s*  pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes,  SpecTmp1* spec);
-void nmppsDotProd_8s32sm(nm8s*  pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes,  SpecTmp1* spec);
-void nmppsDotProd_8s64s(nm8s*  pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
-
-void nmppsDotProd_16s16sm(nm16s* pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes, SpecTmp1* spec);
-void nmppsDotProd_16s32sm(nm16s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, SpecTmp1* spec);
-void nmppsDotProd_16s64s(nm16s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
-
-void nmppsDotProd_32s32sm(nm32s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, SpecTmp1* spec);
-void nmppsDotProd_32s64s(nm32s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
-
-void nmppsDotProd_64s64s(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
-*/
-void nmppsDotProd_8s8sm  (nm8s*  pSrcVec1,  nm8s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_8s16sm (nm8s*  pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_8s32sm (nm8s*  pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_8s64s (nm8s*  pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
-
-void nmppsDotProd_16s16sm(nm16s* pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_16s32sm(nm16s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_16s64s(nm16s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
-
-void nmppsDotProd_32s32sm(nm32s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_32s64s(nm32s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
-
-void nmppsDotProd_64s64s(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
-
+//void nmppsDot_8s(nm8s*  pSrcVec1,  nm8s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+//void nmppsDot_8s(nm8s*  pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+//void nmppsDot_8s(nm8s*  pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+//void nmppsDot_8s(nm8s*  pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+//
+//void nmppsDot_16s(nm16s* pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+//void nmppsDot_16s(nm16s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+//void nmppsDot_16s(nm16s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+//
+//void nmppsDot_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, void* pTmpBuff);
+//void nmppsDot_32s(nm32s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+//
+//void nmppsDot_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
     //! \}
 
 	/**
 	\internal
-	\addtogroup nmppsDotProd
+	\addtogroup nmppsDot
 	*/
 	//! \{
-//void nmppsDotProd_16sc(nm16sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pnRes);//pc version is not available
-void nmppsDotProd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pnRes);
+//void nmppsDot_16sc(nm16sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pnRes);//pc version is not available
+//void nmppsDot_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pnRes);
 	//! \}
 
 //*****************************************************************************
 	/**
-	\defgroup nmppsWeightedSum nmppsWeightedSum
+	\defgroup nmppsWAdd2V nmppsWAdd2V
 	\ingroup vArithmetics
 	\brief
 		\ru Поэлементное взвешенное суммирование элементов двух векторов
@@ -1453,13 +1417,10 @@ void nmppsDotProd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pn
 	*/
 
    //! \{    
-void nmppsWeightedSum_8s16s(nm8s* pSrcVec1,int nW1,nm8s* pSrcVec2,int nW2, nm16s* pDstVec, int nSize);
-void nmppsWeightedSum_16s32s(nm16s* pSrcVec1,int nW1,nm16s* pSrcVec2,int nW2, nm32s* pDstVec, int nSize);
-void nmppsWeightedSum_32s64s(nm32s* pSrcVec1,nm64s nW1,nm32s* pSrcVec2,nm64s nW2, nm64s* pDstVec, int nSize);
+//void nmppsWAdd2V(nm8s* pSrcVec1,int nW1,nm8s* pSrcVec2,int nW2, nm16s* pDstVec, int nSize);
+//void nmppsWAdd2V(nm16s* pSrcVec1,int nW1,nm16s* pSrcVec2,int nW2, nm32s* pDstVec, int nSize);
+//void nmppsWAdd2V(nm32s* pSrcVec1,nm64s nW1,nm32s* pSrcVec2,nm64s nW2, nm64s* pDstVec, int nSize);
     //! \}
 
-#ifdef __cplusplus
-		};
-#endif
 
 #endif // _VECARITM_H_INCLUDED_

@@ -782,20 +782,20 @@ NMC_RPC_PIPI(nmppsCmpNeC_8s8u);
 #endif 
 
 //--------------------------
-#ifdef RPC_nmppsCmpNe_64s8u
-NMC_RPC_PPPI(nmppsCmpNe_64s8u);
+#ifdef RPC_nmppsCmpNe_64s8um
+NMC_RPC_PPPI(nmppsCmpNe_64s8um);
 #endif 
 
-#ifdef RPC_nmppsCmpNe_32s8u
-NMC_RPC_PPPI(nmppsCmpNe_32s8u);
+#ifdef RPC_nmppsCmpNe_32s8um
+NMC_RPC_PPPI(nmppsCmpNe_32s8um);
 #endif 
 
-#ifdef RPC_nmppsCmpNe_16s8u
-NMC_RPC_PPPI(nmppsCmpNe_16s8u);
+#ifdef RPC_nmppsCmpNe_16s8um
+NMC_RPC_PPPI(nmppsCmpNe_16s8um);
 #endif 
 
-#ifdef RPC_nmppsCmpNe_8s8u
-NMC_RPC_PPPI(nmppsCmpNe_8s8u);
+#ifdef RPC_nmppsCmpNe_8s8um
+NMC_RPC_PPPI(nmppsCmpNe_8s8um);
 #endif 
 
 
@@ -835,20 +835,20 @@ NMC_RPC_PIPI(nmppsCmpLtC_8s8u);
 #endif 
 
 //--------------------------
-//#ifdef RPC_nmppsCmpLt_64s8u
-//NMC_RPC_PPPI(nmppsCmpLt_64s8u);
+//#ifdef RPC_nmppsCmpLt_64s8um
+//NMC_RPC_PPPI(nmppsCmpLt_64s8um);
 //#endif 
 
-#ifdef RPC_nmppsCmpLt_32s8u
-NMC_RPC_PPPI(nmppsCmpLt_32s8u);
+#ifdef RPC_nmppsCmpLt_32s8um
+NMC_RPC_PPPI(nmppsCmpLt_32s8um);
 #endif 
 
-#ifdef RPC_nmppsCmpLt_16s8u
-NMC_RPC_PPPI(nmppsCmpLt_16s8u);
+#ifdef RPC_nmppsCmpLt_16s8um
+NMC_RPC_PPPI(nmppsCmpLt_16s8um);
 #endif 
 
-#ifdef RPC_nmppsCmpLt_8s8u
-NMC_RPC_PPPI(nmppsCmpLt_8s8u);
+#ifdef RPC_nmppsCmpLt_8s8um
+NMC_RPC_PPPI(nmppsCmpLt_8s8um);
 #endif 
 
 
@@ -928,36 +928,36 @@ NMC_RPC_PIIPPI(nmppmMul_mm_32s64s);
 #endif 
 
 //-----------------------------
-#ifdef     RPC_nmppsDotProd_8s8s
-NMC_RPC_PPIR64(nmppsDotProd_8s8s);
+#ifdef     RPC_nmppsDotProd_8s8sm
+NMC_RPC_PPIR64(nmppsDotProd_8s8sm);
 #endif 
 
-#ifdef     RPC_nmppsDotProd_8s16s
-NMC_RPC_PPIR64(nmppsDotProd_8s16s);
+#ifdef     RPC_nmppsDotProd_8s16sm
+NMC_RPC_PPIR64(nmppsDotProd_8s16sm);
 #endif 
 
-#ifdef     RPC_nmppsDotProd_8s32s
-NMC_RPC_PPIR64(nmppsDotProd_8s32s);
+#ifdef     RPC_nmppsDotProd_8s32sm
+NMC_RPC_PPIR64(nmppsDotProd_8s32sm);
 #endif 
 
 #ifdef     RPC_nmppsDotProd_8s64s
 NMC_RPC_PPIR64(nmppsDotProd_8s64s);
 #endif 
 
-#ifdef     RPC_nmppsDotProd_16s16s
-NMC_RPC_PPIR64(nmppsDotProd_16s16s);
+#ifdef     RPC_nmppsDotProd_16s16sm
+NMC_RPC_PPIR64(nmppsDotProd_16s16sm);
 #endif 
 
-#ifdef     RPC_nmppsDotProd_16s32s
-NMC_RPC_PPIR64(nmppsDotProd_16s32s);
+#ifdef     RPC_nmppsDotProd_16s32sm
+NMC_RPC_PPIR64(nmppsDotProd_16s32sm);
 #endif 
 
 #ifdef     RPC_nmppsDotProd_16s64s
 NMC_RPC_PPIR64(nmppsDotProd_16s64s);
 #endif 
 
-#ifdef     RPC_nmppsDotProd_32s32s
-NMC_RPC_PPIR64(nmppsDotProd_32s32s);
+#ifdef     RPC_nmppsDotProd_32s32sm
+NMC_RPC_PPIR64(nmppsDotProd_32s32sm);
 #endif 
 
 #ifdef     RPC_nmppsDotProd_32s64s
@@ -980,5 +980,35 @@ NMC_RPC_PPPII(nmppmMul_mv_16s64s);
 #ifdef    RPC_nmppmMul_mv_32s64s
 NMC_RPC_PPPII(nmppmMul_mv_32s64s);
 #endif 
-
+//----------------------------
+#ifdef RPC_nmppsMulC_8s			
+NMC_RPC_PIPI(nmppsMulC_8s		); 
+#endif
+#ifdef RPC_nmppsMulC_8s16s		
+NMC_RPC_PIPI(nmppsMulC_8s16s	); 
+#endif
+#ifdef RPC_nmppsMulC_8s32s		
+NMC_RPC_PIPI(nmppsMulC_8s32s	); 
+#endif
+#ifdef RPC_nmppsMulC_8s64s		
+NMC_RPC_PIPI(nmppsMulC_8s64s	); 
+#endif
+#ifdef RPC_nmppsMulC_16s		
+NMC_RPC_PIPI(nmppsMulC_16s		); 
+#endif
+#ifdef RPC_nmppsMulC_16s32s		
+NMC_RPC_PIPI(nmppsMulC_16s32s	); 
+#endif
+#ifdef RPC_nmppsMulC_16s64s		
+NMC_RPC_PIPI(nmppsMulC_16s64s	); 
+#endif
+#ifdef RPC_nmppsMulC_32s		
+NMC_RPC_PIPI(nmppsMulC_32s		); 
+#endif
+#ifdef RPC_nmppsMulC_32s64s		
+NMC_RPC_PIPI(nmppsMulC_32s64s	); 
+#endif
+#ifdef RPC_nmppsMulC_64s		
+NMC_RPC_PIPI(nmppsMulC_64s		); 
+#endif
 

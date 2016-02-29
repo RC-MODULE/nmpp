@@ -4,7 +4,7 @@
 #include "malloc32.h"
 #include "time.h"
 
-int nmppsCmpNe_64s8u (nm64s* src1,nm64s* src2, nm8u* dst,  int size)
+int nmppsCmpNe_64s8um (nm64s* src1,nm64s* src2, nm8u* dst,  int size)
 {
 	#ifdef RPC
 		int ret;	
@@ -14,17 +14,17 @@ int nmppsCmpNe_64s8u (nm64s* src1,nm64s* src2, nm8u* dst,  int size)
 		memcpy(iobuf_src1->data,src1,size*8);	
 		memcpy(iobuf_src2->data,src2,size*8);	
 		struct aura_buffer *retbuf; 
-		ret = aura_call(n, "nmppsCmpNe_64s8u", &retbuf,  iobuf_src1, iobuf_src2, iobuf_dst, size); 
+		ret = aura_call(n, "nmppsCmpNe_64s8um", &retbuf,  iobuf_src1, iobuf_src2, iobuf_dst, size); 
 		if (ret != 0) {
 			printf ("bug = %d\r\n",ret);
-			BUG(n, "Call:nmppsCmpNe_64s8u failed!"); 
+			BUG(n, "Call:nmppsCmpNe_64s8um failed!"); 
 		}
 		memcpy(dst,iobuf_dst->data,size); 
 		aura_buffer_release(n, iobuf_dst); 
 		aura_buffer_release(n, iobuf_src1);
 		aura_buffer_release(n, iobuf_src2);
 		aura_buffer_release(n, retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsCmpNe_64s8u -ok"); 
+		slog(0, SLOG_INFO, "ARM: Call nmppsCmpNe_64s8um -ok"); 
 	#else
 
 		Tmp2BuffSpec s;

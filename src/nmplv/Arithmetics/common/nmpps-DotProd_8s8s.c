@@ -27,7 +27,7 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////
-void nmppsDotProd_8s8s(
+void nmppsDotProd_8s8sm(
 	nm8s*		srcVec0,	//Input0 buffer		:long Local [Size].
 	nm8s*		srcVec1,	//Input1 buffer		:long Global[Size].
 	int			size,		//Size of input vec
@@ -40,15 +40,15 @@ void nmppsDotProd_8s8s(
 		memcpy(iobuf_src0->data,srcVec0,size*1);	
 		memcpy(iobuf_src1->data,srcVec1,size*1);	
 		struct aura_buffer *retbuf; 
-		int ret = aura_call(n, "nmppsDotProd_8s8s", &retbuf,  iobuf_src0,iobuf_src1, size); 
+		int ret = aura_call(n, "nmppsDotProd_8s8sm", &retbuf,  iobuf_src0,iobuf_src1, size); 
 		if (ret != 0) {
 			printf ("bug = %d\r\n",ret);
-			BUG(n, "Call nmppsDotProd_8s8s failed!"); }
+			BUG(n, "Call nmppsDotProd_8s8sm failed!"); }
 		*dst = aura_buffer_get_u64(retbuf);
 		aura_buffer_release(n, iobuf_src0); 
 		aura_buffer_release(n, iobuf_src1); 
 		aura_buffer_release(n, retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_8s8s -ok"); 
+		slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_8s8sm -ok"); 
 	#else
 		Tmp2BuffSpec s;
 		Tmp2BuffSpec* spec=&s;

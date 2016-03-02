@@ -864,20 +864,20 @@ AURA_METHOD(rpc_nmppsDotProd_64s64s, nmppsDotProd_64s64s,
 //-----------------------------------------------------
 #ifdef RPC_nmppmMul_mv_8s64s
 AURA_METHOD(rpc_nmppmMul_mv_8s64s, nmppmMul_mv_8s64s, 
-		BUFFER BUFFER U32,
-	    U64);
+		BUFFER BUFFER BUFFER U32 U32,
+	    "");
 #endif 
 
 #ifdef RPC_nmppmMul_mv_16s64s
 AURA_METHOD(rpc_nmppmMul_mv_16s64s, nmppmMul_mv_16s64s, 
-		BUFFER BUFFER U32,
-	    U64);
+		BUFFER BUFFER BUFFER U32 U32,
+	    "");
 #endif 
 
 #ifdef RPC_nmppmMul_mv_32s64s
 AURA_METHOD(rpc_nmppmMul_mv_32s64s, nmppmMul_mv_32s64s, 
-		BUFFER BUFFER U32,
-	    U64);
+		BUFFER BUFFER BUFFER U32 U32,
+	    "");
 #endif 
 
 //----------------------------------------------------

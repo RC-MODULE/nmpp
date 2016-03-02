@@ -17,12 +17,15 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-#include "rpc-host.h"
-#include "nmtype.h"
+
 
 #ifdef RPC
 extern "C" {
+#include "rpc-host.h"
+#include "nmtype.h"
 #else
+#include "rpc-host.h"
+#include "nmtype.h"
 
 #include "nmtl/tmatrix.h"
 #include "nmtl/tnmmtr.h"

@@ -113,7 +113,7 @@ void nmppsMulC_32s(
 		)
 {
 	#ifdef RPC
-	RPC_HOST_PIPI2("nmppsMulC_16s32s",pSrcVec,MulN,pDstVec,nSize,4,4);
+	RPC_HOST_PIPI2("nmppsMulC_32s",pSrcVec,MulN,pDstVec,nSize,4,4);
 	#else
 
 	int i;

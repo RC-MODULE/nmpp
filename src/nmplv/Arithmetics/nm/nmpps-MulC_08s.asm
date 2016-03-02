@@ -40,22 +40,22 @@ global _nmppsMulC_8s:label;
 	ar0 = ar7			with gr7 = gr0<< 3;	// gr7=16;
 	ar7+= gr7			with gr6 = gr6>>24;	// ar6=0; gr6= N
 	[ar0++] = gr6		with gr6 = gr6<<8;
-	[ar0++] = gr7;
+	[ar0++] = ar6;
 	[ar0++] = gr6		with gr6 = gr6<<8; 
-	[ar0++] = gr7;	
+	[ar0++] = ar6;	
 	[ar0++] = gr6		with gr6 = gr6<<8;
-	[ar0++] = gr7;	
+	[ar0++] = ar6;	
 	[ar0++] = gr6		with gr6 = gr6>>24; 
-	[ar0++] = gr7;
+	[ar0++] = ar6;
 	[ar0++] = ar6,gr6	with gr6 = gr6<<8;
 	[ar0++] = ar6,gr6	with gr6 = gr6<<8; 
 	[ar0++] = ar6,gr6	with gr6 = gr6<<8;
 	[ar0++] = ar6,gr6	with gr7 = -gr7; 
-	ar7 = ar7+gr7;
-	ar0 = ar7;
+	ar0 = ar7+gr7;
 	nb1 = 80808080h;
 	sb  = 02020202h;
 	rep 8 wfifo=[ar0++],ftw,wtw;
+	ar7 = ar7+gr7;
 	ar0 = gr5;
 	ar6 = [--ar5] 		with gr6=gr0;			// dst
 	delayed call vec_vsum_data_0 ;		

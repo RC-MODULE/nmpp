@@ -56,6 +56,7 @@ global _nmppsMulC_32s:label;
 	ar6 = [--ar5] with gr0++;			// pDstVec
     gr5 = [--ar5] with gr0++;			// nSize
 
+	
 	delayed call vec_vsum_data_0 with gr5 >>= 1;
 		with gr6=gr0;
 		wtw;

@@ -76,8 +76,10 @@ $(TARGET): $(OBJECTS_C) $(ROOT)/lib/libnmpp-arm-rpc.a
 
 clean:
 	-$(OS_RM) *.o $(TARGET)
-	-cd nmc-utils && make clean
+	$(MAKE) -C ../nmc clean
 
-#	$(MAKE) -C ../nmc clean
+#	make -cd nmc-utils && make clean
+
+
 
 	

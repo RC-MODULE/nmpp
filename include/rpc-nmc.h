@@ -991,7 +991,7 @@ NMC_RPC_PIPI(nmppsMulC_8s16s	);
 NMC_RPC_PIPI(nmppsMulC_8s32s	); 
 #endif
 #ifdef RPC_nmppsMulC_8s64s		
-NMC_RPC_PIPI(nmppsMulC_8s64s	); 
+NMC_RPC_PLPI(nmppsMulC_8s64s	); 
 #endif
 #ifdef RPC_nmppsMulC_16s		
 NMC_RPC_PIPI(nmppsMulC_16s		); 
@@ -1000,15 +1000,15 @@ NMC_RPC_PIPI(nmppsMulC_16s		);
 NMC_RPC_PIPI(nmppsMulC_16s32s	); 
 #endif
 #ifdef RPC_nmppsMulC_16s64s		
-NMC_RPC_PIPI(nmppsMulC_16s64s	); 
+NMC_RPC_PLPI(nmppsMulC_16s64s	); 
 #endif
 #ifdef RPC_nmppsMulC_32s		
 NMC_RPC_PIPI(nmppsMulC_32s		); 
 #endif
 #ifdef RPC_nmppsMulC_32s64s		
-NMC_RPC_PIPI(nmppsMulC_32s64s	); 
+NMC_RPC_PLPI(nmppsMulC_32s64s	); 
 #endif
 #ifdef RPC_nmppsMulC_64s		
-NMC_RPC_PIPI(nmppsMulC_64s		); 
+NMC_RPC_PLPI(nmppsMulC_64s		); 
 #endif
 

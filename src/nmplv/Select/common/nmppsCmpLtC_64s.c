@@ -8,7 +8,7 @@
 int nmppsCmpLtC_64s (nm64s* pSrcVec,  int64b  nCmpVal, nm64s* pDstVec,  int nSize, Tmp2BuffSpec *pspec)
 {
 	#ifdef RPC
-	RPC_HOST_PLPI("nmppsCmpLtC_64s",pSrcVec,nCmpVal,pDstVec,nSize,8);
+	RPC_HOST_PLPI("nmppsCmpLtC_64s",pSrcVec,nCmpVal,pDstVec,nSize,8,8);
 	#else
 
 	nmppsCmpLtC_64s63b(pSrcVec,nCmpVal,pDstVec,nSize);

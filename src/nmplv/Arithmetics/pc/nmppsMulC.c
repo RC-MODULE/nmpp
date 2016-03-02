@@ -31,7 +31,7 @@ void nmppsMulC_64s(
 		)
 {
 	#ifdef RPC
-	RPC_PLPI(pSrcVec,MulN,pDstVec,nSize);
+	RPC_HOST_PLPI("nmppsMulC_64s",pSrcVec,MulN,pDstVec,nSize,8,8);
 	#else
 
 	int i;
@@ -51,7 +51,7 @@ void nmppsMulC_32s64s(
 		)
 {
 	#ifdef RPC
-	RPC_PLPI(pSrcVec,MulN,pDstVec,nSize);
+	RPC_HOST_PLPI("nmppsMulC_32s64s",pSrcVec,MulN,pDstVec,nSize,4,8);
 	#else
 
 	int i;
@@ -71,7 +71,7 @@ void nmppsMulC_16s(
 		)
 {
 	#ifdef RPC
-	RPC_PIPI(pSrcVec,MulN,pDstVec,nSize);
+	RPC_HOST_PIPI2("nmppsMulC_16s",pSrcVec,MulN,pDstVec,nSize,2,2);
 	#else
 
 	int i;
@@ -92,7 +92,7 @@ void nmppsMulC_16s32s(
 		)
 {
 	#ifdef RPC
-	RPC_PIPI(pSrcVec,MulN,pDstVec,nSize);
+	RPC_HOST_PIPI2("nmppsMulC_16s32s",pSrcVec,MulN,pDstVec,nSize,2,4);
 	#else
 
 	int i;
@@ -113,7 +113,7 @@ void nmppsMulC_32s(
 		)
 {
 	#ifdef RPC
-	RPC_PIPI(pSrcVec,MulN,pDstVec,nSize);
+	RPC_HOST_PIPI2("nmppsMulC_16s32s",pSrcVec,MulN,pDstVec,nSize,4,4);
 	#else
 
 	int i;
@@ -135,7 +135,7 @@ void nmppsMulC_8s16s(
 		)
 {
 	#ifdef RPC
-	RPC_PIPI(pSrcVec,MulN,pDstVec,nSize);
+	RPC_HOST_PIPI2("nmppsMulC_8s16s",pSrcVec,MulN,pDstVec,nSize,1,2);
 	#else
 
 	int i;
@@ -157,7 +157,7 @@ void nmppsMulC_8s(
 		)
 {
 	#ifdef RPC
-	RPC_PIPI(pSrcVec,MulN,pDstVec,nSize);
+	RPC_HOST_PIPI2("nmppsMulC_8s",pSrcVec,MulN,pDstVec,nSize,1,1);
 	#else
 
 	int i;
@@ -182,7 +182,7 @@ void nmppsMulC_AddC_32s(
 		)
 {
 	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
+	//RPC_PPI(pSrcVec,pDstVec,nSize);
 	#else
 
 	nmppsMulC_32s(pSrcVec,MulN,pDstVec,nSize);

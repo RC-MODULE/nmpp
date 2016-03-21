@@ -104,6 +104,8 @@ SRC_DIRS         = 	 \
 					../../src/nmplm/MatrixVector/nm \
 					../../src/nmplm/Support/common \
 					../../src/nmpls/Correlation/nm \
+					../../src/nmpls/FFT/FFT0032/nm \
+					../../src/nmpls/FFT/FFT0032/common \
 					../../src/nmpls/FFT/FFT0256/nm \
 					../../src/nmpls/FFT/FFT0256/common \
 					../../src/nmpls/FFT/FFT0512/nm \

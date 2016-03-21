@@ -46,9 +46,9 @@ int nmppsCmpLtC_16s8u (nm16s* src,  int16b  nCmpVal, nm8u* dst,  int size)
 			BUG(n, "Call:nmppsCmpLtC_16s8u failed!"); 
 		}
 		memcpy(dst,iobuf_dst->data,size); 
-		aura_buffer_release(n, iobuf_dst); 
-		aura_buffer_release(n, iobuf_src);
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_dst); 
+		aura_buffer_release( iobuf_src);
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsCmpLtC_16s8u -ok"); 
 	#else
 

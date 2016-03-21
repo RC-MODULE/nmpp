@@ -23,7 +23,7 @@
 	extern vec_vsum_data_0:label;
 
 data ".data_nmplv_G"
-		vec_tbl_w_char_ARSH:long[24*8]=(
+	global	vec_tbl_w_char_ARSH:long[24*8]=(
 
 				00000000000000001hl,//arshift 0
 				00000000000000010hl,
@@ -227,7 +227,7 @@ data ".data_nmplv_G"
 				);
 
 
-		vec_tbl_nb_sb_char_ARSH:long[16]=(
+	global	vec_tbl_nb_sb_char_ARSH:long[16]=(
 			
 				0a8a8a8a8a8a8a8a8hl,//nb shr 0
 				0a2a2a2a2a2a2a2a2hl,//sb shr 0

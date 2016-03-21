@@ -15,7 +15,7 @@ INC_DIRS+= -I./include  -I./include/linux
 
 TARGET  =  rpc-demo
 
-CC_FLAGS = -g -Wall -fPIC $(INC_DIRS) -pg
+CC_FLAGS = -g -Wall -fPIC $(INC_DIRS) -pg -DAURA_USE_BUFFER_POOL=y
 LD_FLAGS+=-rdynamic -g  -lelf -L$(ROOT)/lib -lnmpp-arm-rpc -pg
 
 #-L$(NMPP)/lib
@@ -32,7 +32,6 @@ ALL_C   = ./main-arm.c
 ALL_C   += ./test.c 
 ALL_C   += $(AURA)/aura.c 
 ALL_C   += $(AURA)/buffer.c 
-ALL_C   += $(AURA)/buffer-dummy.c 
 ALL_C   += $(AURA)/eventloop.c 
 ALL_C   += $(AURA)/eventsys-epoll.c 
 ALL_C   += $(AURA)/export.c 

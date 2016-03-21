@@ -107,6 +107,8 @@ SRC_DIRS         = 	\
 				../../../src/nmplm/Support/common \
 				../../../src/nmplm/Support/pc \
 				../../../src/nmpls/Correlation/pc \
+				../../../src/nmpls/FFT/FFT0032/pc \
+				../../../src/nmpls/FFT/FFT0032/common \
 				../../../src/nmpls/FFT/FFT0256/pc \
 				../../../src/nmpls/FFT/FFT0256/common \
 				../../../src/nmpls/FFT/FFT0512/pc \

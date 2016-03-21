@@ -114,10 +114,12 @@
 
 	typedef struct {
 		
+		void* buffer[2];
+		void* fftTable[2];
 		int shift[4];
 		int round[4];
-		void* fftTable[2];
-		void* buffer[4];
+		
+		
 		Free32Func* free;
 		//NmppsAllocation allocOrder;
 	} NmppsFFTSpec;
@@ -148,6 +150,14 @@
 	#define NMPP_ERROR -1
 
 	void nmppsFFTFree(NmppsFFTSpec* spec );
+	
+	void nmppsFFT32FwdRaw(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+	void nmppsFFT32Fwd   (nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+	//int  nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder) ;
+	int  nmppsFFT32FwdInitAlloc( NmppsFFTSpec* spec, int settings);
+	void  nmppsFFT32Free( NmppsFFTSpec* spec);
+	//int  nmppsFFT32FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings);
+	//void nmppsFFT32FwdRawRef2x16( nm32sc* src, nm32sc* dst);
 	
 	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
 	int  nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder) ;

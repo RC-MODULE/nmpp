@@ -20,10 +20,10 @@ int nmppsCmpNe_64s8um (nm64s* src1,nm64s* src2, nm8u* dst,  int size)
 			BUG(n, "Call:nmppsCmpNe_64s8um failed!"); 
 		}
 		memcpy(dst,iobuf_dst->data,size); 
-		aura_buffer_release(n, iobuf_dst); 
-		aura_buffer_release(n, iobuf_src1);
-		aura_buffer_release(n, iobuf_src2);
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_dst); 
+		aura_buffer_release( iobuf_src1);
+		aura_buffer_release( iobuf_src2);
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsCmpNe_64s8um -ok"); 
 	#else
 

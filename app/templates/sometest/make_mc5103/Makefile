@@ -16,8 +16,8 @@ $(error *** ERROR: 'NMPP' environment variable is not defined!  )
 endif 
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MC5103)/include"
-LIB_DIRS = -L"$(NMPP)/lib"  -L"$(MC5103)/lib"
-LIBS     = mc5103lib.lib nmpp-nmc3d.lib libint05.lib  
+LIB_DIRS = -L"$(NMPP)/lib"  -L"$(MC5103)/lib" -L$(ROOT)/deps/stdio/lib
+LIBS     = nm_io.lib mc5103lib.lib nmpp-nmc3d.lib libint05.lib  
 TARGET   = main.abs
 CFG      = mc5103brd.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))

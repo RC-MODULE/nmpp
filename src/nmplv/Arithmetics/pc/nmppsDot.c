@@ -68,9 +68,9 @@ void nmppsDotProd_64s64s(
 			printf ("bug = %d\r\n",ret);
 			BUG(n, "Call nmppsDotProd_64s64s failed!"); }
 		*dst = aura_buffer_get_u64(retbuf);
-		aura_buffer_release(n, iobuf_src0); 
-		aura_buffer_release(n, iobuf_src1); 
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_src0); 
+		aura_buffer_release( iobuf_src1); 
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_64s64s -ok");
 	#else
 
@@ -101,9 +101,9 @@ void nmppsDotProd_32s64s(
 			printf ("bug = %d\r\n",ret);
 			BUG(n, "Call nmppsDotProd_32s64s failed!"); }
 		*dst = aura_buffer_get_u64(retbuf);
-		aura_buffer_release(n, iobuf_src0); 
-		aura_buffer_release(n, iobuf_src1); 
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_src0); 
+		aura_buffer_release( iobuf_src1); 
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_32s64s -ok");
 	#else
 
@@ -134,9 +134,9 @@ void nmppsDotProd_16s64s(
 			printf ("bug = %d\r\n",ret);
 			BUG(n, "Call nmppsDotProd_16s64s failed!"); }
 		*dst = aura_buffer_get_u64(retbuf);
-		aura_buffer_release(n, iobuf_src0); 
-		aura_buffer_release(n, iobuf_src1); 
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_src0); 
+		aura_buffer_release( iobuf_src1); 
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_16s64s -ok");
 	#else
 		int i;
@@ -166,9 +166,9 @@ void nmppsDotProd_8s64s(
 			printf ("bug = %d\r\n",ret);
 			BUG(n, "Call nmppsDotProd_8s64s failed!"); }
 		*dst = aura_buffer_get_u64(retbuf);
-		aura_buffer_release(n, iobuf_src0); 
-		aura_buffer_release(n, iobuf_src1); 
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_src0); 
+		aura_buffer_release( iobuf_src1); 
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_8s64s -ok");
 	#else
 	int i;

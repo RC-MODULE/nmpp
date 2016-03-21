@@ -24,9 +24,9 @@ extern "C" {
 			BUG(n, "Call nmppsFFT2048Fwd failed!"); 
 		}
 		memcpy(dst,iobuf_dst->data,size*k);
-		aura_buffer_release(n, iobuf_dst); 
-		aura_buffer_release(n, iobuf_src); 
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_dst); 
+		aura_buffer_release( iobuf_src); 
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT2048Fwd -ok"); 
 	#else 
 		FFT_Fwd2048(src,dst,spec->buffer[0],spec->shift[0]);
@@ -67,9 +67,9 @@ extern "C" {
 		}
 		*spec = (NmppsFFTSpec*) aura_buffer_get_u32(retbuf);
 		ret   = aura_buffer_get_u32(retbuf);
-		aura_buffer_release(n, iobuf_src); 
-		aura_buffer_release(n, iobuf_dst); 
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_src); 
+		aura_buffer_release( iobuf_dst); 
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT2048FwdInitAlloc -ok"); 
 		return ret;
 #else

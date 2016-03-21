@@ -24,10 +24,10 @@ int nmppsCmpNe_8s8um (nm8s* src1,nm8s* src2, nm8u* dst, int size)
 		printf ("ARM in nmppsCmpNe_8s8um 3\r\n");
 		memcpy(dst,iobuf_dst->data,size); 
 		printf ("ARM in nmppsCmpNe_8s8um 4\r\n");
-		aura_buffer_release(n, iobuf_dst); 
-		aura_buffer_release(n, iobuf_src2);
-		aura_buffer_release(n, iobuf_src1);
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_dst); 
+		aura_buffer_release( iobuf_src2);
+		aura_buffer_release( iobuf_src1);
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsCmpNe_8s8um -ok"); 
 	#else
 		

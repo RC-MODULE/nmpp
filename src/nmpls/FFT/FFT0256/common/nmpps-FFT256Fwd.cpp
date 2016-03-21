@@ -47,9 +47,9 @@ extern "C" {
 			BUG(n, "Call nmppsFFT256Fwd failed!"); 
 		}
 		memcpy(dst,iobuf_dst->data,size*k);
-		aura_buffer_release(n, iobuf_dst); 
-		aura_buffer_release(n, iobuf_src); 
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_dst); 
+		aura_buffer_release( iobuf_src); 
+		aura_buffer_release( retbuf); 
 		t3=clock();
 		printf("[ARM: NMC] wrap=%d call=%d\r\n",t1-t0+t3-t2,t2-t1);
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT256Fwd -ok"); 
@@ -100,9 +100,9 @@ extern "C" {
 		}
 		*spec = (NmppsFFTSpec*) aura_buffer_get_u32(retbuf);
 		ret   = aura_buffer_get_u32(retbuf);
-		aura_buffer_release(n, iobuf_src); 
-		aura_buffer_release(n, iobuf_dst); 
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_src); 
+		aura_buffer_release( iobuf_dst); 
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT256FwdInitAlloc -ok"); 
 		return ret;
 #else

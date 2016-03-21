@@ -45,9 +45,9 @@ void nmppsDotProd_8s8sm(
 			printf ("bug = %d\r\n",ret);
 			BUG(n, "Call nmppsDotProd_8s8sm failed!"); }
 		*dst = aura_buffer_get_u64(retbuf);
-		aura_buffer_release(n, iobuf_src0); 
-		aura_buffer_release(n, iobuf_src1); 
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_src0); 
+		aura_buffer_release( iobuf_src1); 
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_8s8sm -ok"); 
 	#else
 		Tmp2BuffSpec s;

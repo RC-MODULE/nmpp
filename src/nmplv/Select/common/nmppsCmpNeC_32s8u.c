@@ -20,9 +20,9 @@ int nmppsCmpNeC_32s8u (nm32s* src,  int32b  nCmpVal, nm8u* dst,  int size)
 			BUG(n, "Call:nmppsCmpNeC_32s8u failed!"); 
 		}
 		memcpy(dst,iobuf_dst->data,size); 
-		aura_buffer_release(n, iobuf_dst); 
-		aura_buffer_release(n, iobuf_src);
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_dst); 
+		aura_buffer_release( iobuf_src);
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsCmpNeC_32s8u -ok"); 
 	#else
 

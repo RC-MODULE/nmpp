@@ -24,9 +24,9 @@ extern "C" {
 			BUG(n, "Call nmppsFFT512Fwd failed!"); 
 		}
 		memcpy(dst,iobuf_dst->data,size*k);
-		aura_buffer_release(n, iobuf_dst); 
-		aura_buffer_release(n, iobuf_src); 
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_dst); 
+		aura_buffer_release( iobuf_src); 
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT512Fwd -ok"); 
 	#else 
 		FFT_Fwd512(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
@@ -68,9 +68,9 @@ extern "C" {
 		}
 		*spec = (NmppsFFTSpec*) aura_buffer_get_u32(retbuf);
 		ret   = aura_buffer_get_u32(retbuf);
-		aura_buffer_release(n, iobuf_src); 
-		aura_buffer_release(n, iobuf_dst); 
-		aura_buffer_release(n, retbuf); 
+		aura_buffer_release( iobuf_src); 
+		aura_buffer_release( iobuf_dst); 
+		aura_buffer_release( retbuf); 
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT512FwdInitAlloc -ok"); 
 		return ret;
 #else

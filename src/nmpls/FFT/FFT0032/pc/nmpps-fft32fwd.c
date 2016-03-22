@@ -116,4 +116,17 @@ void nmppsFFT32FwdRaw(nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
 	}
 }
 
+void nmppsFFT32Fwd(nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
+{
+	int k;
+	nmppsFFT32FwdRaw(src, dst, spec);
+	
+	for(k=0; k<32; k++){
+		dst[k].re+=64;
+		dst[k].im+=64;
+		dst[k].re>>=7;
+		dst[k].im>>=7;
+	}
+}
+
 

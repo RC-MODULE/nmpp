@@ -21,6 +21,7 @@
 #include "fft.h"
 //#include "fftext.h"
 #include "nmtl/tcmplx_spec.h"
+#include <math.h>
 
 #ifndef PI
 #define PI 3.14159265359
@@ -40,13 +41,51 @@ cmplx<int > toFix(cmplx<double> X,double Ampl)
 	cmplx<int > Y;
 	X.re*=Ampl;
 	X.im*=Ampl;
-	X+=Rounder;
-	Y.re=X.re;	
-	Y.im=X.im;	
+//	X+=Rounder;
+	Y.re=floor(X.re+0.5);	
+	Y.im=floor(X.im+0.5);	
+	//Y.re=X.re;	
+	//Y.im=X.im;	
 	return Y;
 }
 
-void nmppsFFT32FwdRawRef2x16( nm32sc* src, nm32sc* dst)
+void nmppsFFT32FwdRef2x16( nm32sc* src, nm32sc* dst)
+{
+	int MAX=127;
+	vec<cmplx<int> > x((cmplx<int>*)src,32);
+	vec<cmplx<int> > y((cmplx<int>*)dst,32);
+	vec<cmplx<int> > sum(16);
+	vec<cmplx<int> > dif(16);
+	
+	for(int i=0; i<16; i++){
+		sum[i]=x[i]+x[i+16];
+		dif[i]=x[i]-x[i+16];
+	}
+	
+	for(int k=0; k<32; k+=2){
+		y[k]=toFix(W32(0),MAX)*sum[0];
+		for(int p=1; p<16; p++){
+			y[k]+=toFix(W32(p*k),MAX)*sum[p];
+		}
+		y[k].re+=MAX/2;
+		y[k].im+=MAX/2;
+		y[k].re>>=7;
+		y[k].im>>=7;
+	}
+
+	for(int k=1; k<32; k+=2){
+		y[k]=toFix(W32(0),MAX)*dif[0];
+		for(int p=1; p<16; p++){
+			y[k]+=toFix(W32(p*k),MAX)*dif[p];
+		}
+		y[k].re+=MAX/2;
+		y[k].im+=MAX/2;
+		y[k].re>>=7;
+		y[k].im>>=7;
+	}
+}
+/*
+void nmppsFFT32FwdRef2x16( nm32sc* src, nm32sc* dst)
 {
 	vec<cmplx<int> > x((cmplx<int>*)src,32);
 	vec<cmplx<int> > y((cmplx<int>*)dst,32);
@@ -71,6 +110,44 @@ void nmppsFFT32FwdRawRef2x16( nm32sc* src, nm32sc* dst)
 			y[k]+=toFix(W32(p*k),127)*dif[p];
 		}
 	}
-}
+}*/
 
+
+void nmppsFFT32FwdRef2x16_f( nm32sc* src, nm32sc* dst)
+{
+	vec<cmplx<double> > x(32);
+	vec<cmplx<double> > y(32);
+	vec<cmplx<double> > sum(16);
+	vec<cmplx<double> > dif(16);
+	
+	for(int i=0; i<32; i++){
+		x[i].re=src[i].re;
+		x[i].im=src[i].im;
+	}
+	
+	
+	for(int i=0; i<16; i++){
+		sum[i]=x[i]+x[i+16];
+		dif[i]=x[i]-x[i+16];
+	}
+	
+	for(int k=0; k<32; k+=2){
+		y[k]=W32(0)*sum[0];
+		for(int p=1; p<16; p++){
+			y[k]+=W32(p*k)*sum[p];
+		}
+	}
+
+	for(int k=1; k<32; k+=2){
+		y[k]=W32(0)*dif[0];
+		for(int p=1; p<16; p++){
+			y[k]+=W32(p*k)*dif[p];
+		}
+	}
+	
+	for(int i=0; i<32; i++){
+		dst[i].re=floor(y[i].re+0.5);
+		dst[i].im=floor(y[i].im+0.5);
+	}
+}
 

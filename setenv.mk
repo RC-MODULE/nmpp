@@ -13,7 +13,7 @@ MB7707   = $(realpath $(ROOT))/deps/mb7707sdk
 
 
 ifeq ($(OS),Windows_NT)
-  AURA     = d:/GIT/matlab/aura
+  AURA     = d:/GIT/matlab/aura_master
   ARM_CC   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-gcc
   ARM_AR   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-ar
 

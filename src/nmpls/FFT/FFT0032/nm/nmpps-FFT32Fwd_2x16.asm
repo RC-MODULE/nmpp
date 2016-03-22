@@ -87,9 +87,9 @@ global _nmppsFFT32Fwd:label;
 	ar1 = gr1;	// ar1=[ar1:lo]
 	nb1 = 80000000h;
 	sb  = 02020202h;
-	vr  = 32;
+	vr  = 64;
 	ar2 = gr2;	// ar2=[ar2:lo]
-	rep 16 ram =[ar0++], wtw;							// stage[0] X[0..255]  
+	rep 16 ram =[ar0++],wtw;							// stage[0] X[0..255]  
 	ar5 = ar0;
 	rep 16 data=[ar0++] with ram+data;					// stage[1] S[0..255]=X[0..255]+X[256..511]
 	rep 16 [ar1++]=afifo;								// stage[1]		
@@ -109,7 +109,7 @@ global _nmppsFFT32Fwd:label;
 	ar1 = gr1; 	// in :ar1=[ar1:lo]
 				// out:ar1=[ar1:hi]
 	rep 16 wfifo=[ar1++],ftw,wtw;							// stage[4]
-	rep 16 data =[ar4++],ftw,wtw  	with vsum ,data,vr;		// stage[5]
+	rep 16 data =[ar4++],ftw,wtw  	with vsum ,data,0;		// stage[5]
 	rep 16 data =[ar4++]		  	with vsum ,data,afifo;	// stage[6]
 	rep 16 [ar1++]=afifo;									// stage[6] W.Re*X[0..15]
 		
@@ -125,7 +125,7 @@ global _nmppsFFT32Fwd:label;
 	ar5 = gr2;	// out:ar5=[ar2:lo]
 	// (-) * W.im
 	rep 16 wfifo=[ar2++],ftw,wtw;							// stage[8]
-	rep 16 data =[ar4++],ftw,wtw  	with vsum ,data,vr;		// stage[9]
+	rep 16 data =[ar4++],ftw,wtw  	with vsum ,data,0;		// stage[9]
 	rep 16 data =[ar4++]			with vsum ,data,afifo;	// stage[10]
 	rep 16 [ar5++]=afifo;									// stage[10] W.Im*X[16..31]
 	

@@ -153,11 +153,15 @@
 	
 	void nmppsFFT32FwdRaw(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
 	void nmppsFFT32Fwd   (nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
-	//int  nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder) ;
 	int  nmppsFFT32FwdInitAlloc( NmppsFFTSpec* spec, int settings);
-	void  nmppsFFT32Free( NmppsFFTSpec* spec);
-	//int  nmppsFFT32FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings);
+	void nmppsFFT32Free( NmppsFFTSpec* spec);
 	//void nmppsFFT32FwdRawRef2x16( nm32sc* src, nm32sc* dst);
+	
+	void nmppsFFT64FwdRaw(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+	void nmppsFFT64Fwd   (nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+	int  nmppsFFT64FwdInitAlloc( NmppsFFTSpec* spec, int settings);
+	void nmppsFFT64Free( NmppsFFTSpec* spec);
+	//void nmppsFFT64FwdRawRef2x4x8( nm32sc* src, nm32sc* dst);
 	
 	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
 	int  nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder) ;

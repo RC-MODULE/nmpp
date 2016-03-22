@@ -1,12 +1,26 @@
 #include "fft2.h"
 #include "nmpp.h"
+
+
+void nmppsFFT32FwdRef2x16( nm32sc* src, nm32sc* dst);
+void nmppsFFT32FwdRef2x16_f( nm32sc* src, nm32sc* dst);
 #include <time.h>
 #include <stdio.h>
 
 
 #define FFT_SIZE 32
 
-void nmppsFFT32FwdRawRef2x16( nm32sc* src, nm32sc* dst);
+double MSD(nm32sc* x0,nm32sc* x1, int size){
+
+	double msd=0;
+	for(int i=0; i<size; i++){
+		msd+=(x0[i].re-x1[i].re)*(x0[i].re-x1[i].re);
+		msd+=(x0[i].im-x1[i].im)*(x0[i].im-x1[i].im);
+	}
+	msd/=size;
+	return msd;
+}
+
 int main()
 {
 	
@@ -20,8 +34,12 @@ int main()
 	//while (1)
 	{
 		nmppsMallocResetPos();
+		nm32sc* srcf =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
+		nm32sc* dstf =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
+		
 		nm32sc* src   =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
 		nm32sc* dst	  =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
+		
 		NmppsFFTSpec spec;
 		nmppsFFT32FwdInitAlloc(&spec,0);
 		
@@ -29,14 +47,25 @@ int main()
 			
 			return -2;
 		}
-		//nmppsRandUniform_64s((nm64s*)src,FFT_SIZE);
-		nmppsSet_64s((nm64s*)src,0,FFT_SIZE);
-		src[0].re=100;
-		src[1].re=100;
+		nmppsRandUniform_64s((nm64s*)src,FFT_SIZE);
+		nmppsRShiftC_32s((nm32s*)src,24,(nm32s*)src,2*FFT_SIZE);
+		//nmppsSet_64s((nm64s*)src,0,FFT_SIZE);
+		//src[0].re=100;
+		//src[1].re=100;
 		nmppsRandUniform_64s((nm64s*)dst,FFT_SIZE);
 		
+		nmppsFFT32FwdRef2x16  (src,dst);
+		nmppsFFT32FwdRef2x16_f(src,dstf);
+		
+		double msd=MSD(dst,dstf,32);
+	
+		//   w round    out round 
+		//   -           -    10.21
+		//   +           -    7.938
+		//   -           +    10.218
+		//   +           +    7.343
 		t0=clock();
-		nmppsFFT32FwdRawRef2x16(src,dst);
+		//nmppsFFT32FwdRawRef2x16(src,dst);
 		for(int i=0; i<32; i++){
 			dst[i].re/=127;
 			dst[i].im/=127;

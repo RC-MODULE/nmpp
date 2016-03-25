@@ -1,26 +1,32 @@
 $webclient = new-object System.Net.WebClient
-$IsBypassed=$webClient.Proxy.IsBypassed("http://module.ru")
-if ($IsBypassed){
-	Import-Module BitsTransfer
-}
-else {
-	netsh winhttp import proxy source=ie
-	$creds=Get-Credential
-	$webclient.Proxy.Credentials=$creds
-}
-
+Import-Module BitsTransfer
 foreach ($url in $args)  
 {
 	$filename = [System.IO.Path]::GetFileName($url)
-	$str = "downloading " + $url 
-	echo $str
+	$IsBypassed=$webClient.Proxy.IsBypassed($url)
 	if ($IsBypassed){
+		$str = "Downloading (bypass proxy) : " + $url
+		echo $str
 		Start-BitsTransfer -DisplayName $filename -Source $url -Destination $filename 
 	}
 	else {
+		if (!$webclient.Proxy.Credentials){
+			netsh winhttp import proxy source=ie
+			$webclient.Proxy.Credentials=Get-Credential
+		}
+		$str ="Downloading (through proxy): " + $url
+		echo $str
 		$webclient.DownloadFile($url,$filename)
 	}
 }
+
+
+
+
+
+
+
+
 
 
 #param ($url=$Args[0])

@@ -14,9 +14,11 @@ MB7707   = $(realpath $(ROOT))/deps/mb7707sdk
 
 ifeq ($(OS),Windows_NT)
   AURA     = d:/GIT/matlab/aura_master
-  ARM_CC   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-gcc
-  ARM_AR   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-ar
-
+#  ARM_CC   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-gcc
+   ARM_CC   = d:/GIT/matlab/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/bin/arm-linux-gnueabi-gcc.exe
+#  ARM_AR   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-ar
+   ARM_AR   = d:/GIT/matlab/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/bin/arm-linux-gnueabi-ar.exe
+   ARM_LD   = d:/GIT/matlab/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/bin/arm-linux-gnueabi-ld.exe
 
   
   SHELL    = cmd

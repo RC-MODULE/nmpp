@@ -1,6 +1,6 @@
 ROOT = ..
+#-include $(ROOT)/environment.mk
 -include $(ROOT)/setenv.mk
-#-include $(ROOT)/proxy.mk
 #http_proxy ?=http://username:password@proxy:80/
 
 
@@ -28,8 +28,9 @@ ifeq ($(OS),Windows_NT)
   VSHELL32_DIST  = http://www.module.ru/mb7707/NeuroMatrix/VSHELL32_1.0.0.26.exe
   COREUTILS_URL	 = http://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-bin.zip
   COREDEPS_URL	 = http://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-dep.zip
+  FIND_URL       = https://sourceforge.net/projects/gnuwin32/files/findutils/4.2.20-2/findutils-4.2.20-2-bin.zip
   DOWNLOADS-LIBS = $(notdir $(VSHELL32_URL)) 
-  DOWNLOADS-SDK  = $(notdir $(SDK_MB7707_URL)) $(notdir $(SDK_MC5103_URL)) $(notdir $(SDK_MC7601_URL)) $(notdir $(NMSDK_URL)) $(notdir $(COREUTILS_URL)) $(notdir $(COREDEPS_URL))
+  DOWNLOADS-SDK  = $(notdir $(SDK_MB7707_URL)) $(notdir $(SDK_MC5103_URL)) $(notdir $(SDK_MC7601_URL)) $(notdir $(NMSDK_URL)) $(notdir $(COREUTILS_URL)) $(notdir $(FIND_URL)) $(notdir $(FINDDEP_URL)) $(notdir $(COREDEPS_URL))
 
 
 install-libs: vshell32
@@ -87,6 +88,8 @@ gnuwin32: $(notdir $(COREUTILS_URL)) $(notdir $(COREDEPS_URL))
 	-mkdir gnuwin32
 	$(OS_TAR) $(notdir $(COREUTILS_URL)) $(OS_TODIR) gnuwin32
 	$(OS_TAR) $(notdir $(COREDEPS_URL))  $(OS_TODIR) gnuwin32
+	$(OS_TAR) $(notdir $(FIND_URL))      $(OS_TODIR) gnuwin32
+	$(OS_TAR) $(notdir $(FINDDEP_URL))   $(OS_TODIR) gnuwin32
 
 #------------------------- download of depended URLs from www.module.ru --------------------
 
@@ -101,6 +104,8 @@ $(DOWNLOADS):
 		$(NMSDK_URL)      \
 		$(COREUTILS_URL)  \
 		$(COREDEPS_URL)   \
+		$(FIND_URL)  \
+		$(FINDDEP_URL)   \
 		$(VSHELL32_URL)   \
 		$(VSHELL32_DIST)  	
 	

@@ -46,11 +46,11 @@ int main()
 		nmppsPut_16s(pSrcVec,i,-i);
 	
 	}
-	nmppsPut_16s(pSrcVec,13,1000);
+	nmppsPut_16s(pSrcVec,13,-1000);
 	nmppsSet_16s( pTmpL, 0xCCCC, nSize);		// Constant initialization of the output array
 	int nIndex;
 	int16b nMaxValue;
-	nmppsMaxIndx_16s(pSrcVec, nSize, &nIndex , &nMaxValue, pTmpL, pTmpG,1 ); 
+	nmppsMinIndx_16s(pSrcVec, nSize, &nIndex , &nMaxValue, pTmpL, pTmpG,1 ); 
 	
 //	printf("Maximum value : %x at %d position\n", nMaxValue, nIndex);
 	

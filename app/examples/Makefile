@@ -43,8 +43,8 @@ kill:
 	
 define configure_makefile
 $(1)/Makefile:
-	-find $(1)/*.cpp && echo ROOT=../$(ROOT)| cat - "$(ROOT)/app/templates/sometest/Makefile" > $(1)/Makefile
-	-find $(1)/*.cpp || echo ROOT=../$(ROOT)| cat - "$(ROOT)/app/templates/Makefile" > $(1)/Makefile
+	-$(ROOT)\deps\gnuwin32\bin\find $(1)/*.cpp && echo ROOT=../$(ROOT)| cat - "$(ROOT)/app/templates/sometest/Makefile" > $(1)/Makefile
+	-$(ROOT)\deps\gnuwin32\bin\find $(1)/*.cpp || echo ROOT=../$(ROOT)| cat - "$(ROOT)/app/templates/Makefile" > $(1)/Makefile
 endef
 	
 $(foreach dir,$(SUB_DIRS), $(eval $(call configure_makefile,$(dir))) )	

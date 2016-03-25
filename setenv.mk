@@ -28,14 +28,15 @@ ifeq ($(OS),Windows_NT)
   OS_RD    = rd /Q /S 
   OS_WHICH =$(windir)/system32/where
  #OS_WGET  = wget
-  OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(ROOT)/deps/wget.ps1 
+#  OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(ROOT)/deps/wget.ps1 
+  OS_WGET  = powershell  -ExecutionPolicy Bypass -file wget.ps1 
  #OS_UNZIP = unzip 
   OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(ROOT)/deps/unzip.ps1 
   OS_TODIR = -d
   OS_TAR   = $(OS_UNZIP)
   PATH    := $(NEURO)/bin;$(MC5103)/bin;$(MB7707)/bin;$(MC7601)/bin;$(ROOT)/deps/gnuwin32/bin;$(VSHELL32)/bin;$(PATH)
   #prevents call of embedded 'find.exe' in Windows and GNU make becomes callable
-  PATH:= $(subst $(SystemRoot),,$(PATH))	
+  #PATH:= $(subst $(SystemRoot),,$(PATH))	
 
   MB7707_MAC ?= 1A-2B-3C-4D-5E-6F
 else

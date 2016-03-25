@@ -29,36 +29,67 @@ begin ".text_nmvcore"
 .branch;
 global vec_MaxVal_v4nm16s:label;
 <vec_MaxVal_v4nm16s>
+//	// ------------------ Поиск максимума среди 4-х 16р. элементов пузырька ----------------------------
+
 	// ------------------ Поиск максимума среди 4-х 16р. элементов пузырька ----------------------------
-	ar5,gr5 =[ar0];
-	gr7 = 0FFFF0000h;							//  маска для выделения старшего элемента
-	gr0 = gr5 and gr7;							//  выделение 3-го элемента, MAX=gr0=[3]
-	gr5<<=16;									//  сдвиг 2-го элемента влево
-	gr1 = gr5 and gr7;							//  выделение 2-го элемента
-	gr5 = ar5 with gr2=gr0-gr1;					//  сравнение MAX=[3] и [2] элемента
-	if carry delayed skip 4 ;					// если MAX=[3]>[2]
-		gr3=gr5 and gr7;						//  выделение 1-го элемента (MAX=[3])	
-		gr2=gr0-gr3;							//  сравнение MAX=[3] и [1] элемента
-	gr0 = gr1;									//  ,иначе MAX=[2]
-	gr2 = gr0-gr3;								//  ,сравнение MAX=[2] и [1] элемента
-	if carry delayed skip 4 with gr5<<=16;		// если MAX=[3|2]>[1],сдвиг 0-го элемента влево
-		gr1 = gr5 and gr7;						//  выделение 0-го элемента (MAX=[3|2])	
-		gr2 = gr0-gr1;							//  сравнение MAX=[3|2] и [0] элемента
-	gr0 = gr3;									//  ,иначе MAX=[1]
-	gr2 = gr0-gr1;								//  ,сравнение MAX=[1] и [0] элемента
+	//	ar5,gr5 =[ar0];
+	//	gr7 = 0FFFF0000h;							//  маска для выделения старшего элемента
+	//	gr0 = gr5 and gr7;			// gr0 =[0]
+	//	gr1 = gr5 <<16;				// gr1 =[1]
+	//	gr5 = ar5;
+	//	gr2 = gr5 and gr7;			// gr2 =[2]
+	//	gr7 = gr5 <<16; 			// gr7 =[3] let it be max
+	//	gr7 - gr0;
+	//	if carry delayed skip 4; 	// skip if gr3<gr0
+	//		nul;
+	//		gr7 - gr1;
+	//	gr7 = gr0;
+	//	gr7 - gr1;
+	//	if carry delayed skip 4; //skip if gr0<gr1
+	//		nul;
+	//		gr7 - gr2;
+	//	gr7 = gr1;
+	//	gr7 - gr2;
+	//	if not carry delayed return ; 	//skip if gr0<gr1
+	//		nul;
+	//		nul;
+	//		nul;
+	//	delayed return;
+	//		gr7 = gr2 A>>16;
+	//		nul;
+	//		nul;
+	//		
+	//.wait;
+
+	
+	ar5, gr5 = [ar0];
+	gr0 = gr5<<16;
+	gr1 = gr5>>16;
+	gr1 = gr1<<16;
+	gr5 = gr0-gr1;
+	gr5 = gr5 A>>31;
+	gr0 = gr0 and not gr5;
+	gr7 = gr1 and gr5;
+	gr5 = ar5 with	gr7 = gr7 or gr0;
+
+
+	gr0 = gr5<<16;
+	gr1 = gr5>>16;
+	gr1 = gr1<<16;
+	gr5 = gr0-gr7;
+	gr5 = gr5 A>>31;
+	gr0 = gr0 and not gr5;
+	gr7 = gr7 and gr5;
+	gr7 = gr7 or  gr0;
+
+
+	gr5 = gr1-gr7;
+	gr5 = gr5 A>>31;
 	.align;
-	if carry delayed return with gr0 A>>=16;	// если MAX=[3|2|1]>[0] ; сдвиг MAX вправо до младших 16 бит
-		gr7=gr0;								//  запись MAX=[3|2|1] в приемник(в младшее 32р. слово)
-		nul;
-		nul;
-	delayed return;
-		with gr1 A>>=16;						//  ,иначе MAX=[0] ; сдвиг MAX вправо до младших 16 бит
-		gr7=gr1;								//  ,запись MAX=[0] в приемник(в младшее 32р. слово)
-		nul;
-.wait;
-
-
-
-
-
-end ".text_nmvcore";
+	gr1 = gr1 and not gr5;
+	delayed return with	
+		gr7 = gr7 and gr5;
+		gr7 = gr7 or  gr1;
+		gr7 = gr7 A>>16;
+end ".text_nmvcore";		
+	

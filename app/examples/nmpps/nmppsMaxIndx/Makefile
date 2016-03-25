@@ -20,6 +20,7 @@ ifeq ($(wildcard config.mk),config.mk)
 include config.mk
 endif
 
+PATH := $(ROOT)\deps\gnuwin32\bin
 
 #all: $(addsuffix /Makefile,$(addprefix make_,$(PLATFORMS))) $(addprefix build_,$(PLATFORMS))
 #	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) 					$(newline))

@@ -1,4 +1,4 @@
-#include "fft.h"
+//#include "fft.h"
 #include "time.h"
 #include "malloc32.h"
 #include "math.h"
@@ -11,10 +11,11 @@
 #endif
 
 
-extern "C" {
+
 #include "rpc-host.h"	
 
 
+	
 	void nmppsFFT32Free(NmppsFFTSpec* spec )
 	{
 	#ifdef RPC
@@ -79,42 +80,44 @@ extern "C" {
 
 	int nmppsFFT32FwdInitAlloc(  NmppsFFTSpec* spec, int settings)
 	{
+		int i,k,p;
 		spec->buffer[0]  =nmppsMalloc_64s(32);
 		spec->buffer[1]  =nmppsMalloc_64s(32);
 		spec->fftTable[0]=nmppsMalloc_8s(16*16*2*2);
 		spec->shift [0]=-1;
 		spec->free=free;
+		
 		if (spec->fftTable[0]==0) 	return -1;
 		if (spec->buffer[0]==0) 	return -1;
 		if (spec->buffer[1]==0) 	return -1;
-		int i=0;
+		i=0;
 		if (settings==-1)
 			return 0;
-		for(int k=0; k<32; k+=2){
-			for(int p=0; p<8; p++,i++){
+		for(k=0; k<32; k+=2){
+			for(p=0; p<8; p++,i++){
 				nm32sc w=fixW32(p*k,127);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i,w.re);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256,w.im);
 			}
 		}
-		for(int k=0; k<32; k+=2){
-			for(int p=8; p<16; p++,i++){
+		for(k=0; k<32; k+=2){
+			for(p=8; p<16; p++,i++){
 				nm32sc w=fixW32(p*k,127);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i,w.re);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256,w.im);
 			}
 		}
 
-		for(int k=1; k<32; k+=2){
-			for(int p=0; p<8; p++,i++){
+		for(k=1; k<32; k+=2){
+			for(p=0; p<8; p++,i++){
 				nm32sc w=fixW32(p*k,127);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256,w.re);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256+256,w.im);
 			}
 		}
 		
-		for(int k=1; k<32; k+=2){
-			for(int p=8; p<16; p++,i++){
+		for(k=1; k<32; k+=2){
+			for(p=8; p<16; p++,i++){
 				nm32sc w=fixW32(p*k,127);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256,w.re);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256+256,w.im);
@@ -190,7 +193,7 @@ extern "C" {
 		else					return NMPP_ERROR;
 	}
 */	
-};
+
 
 
 

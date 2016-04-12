@@ -27,8 +27,8 @@ TARGET=rpc-demo
 
 # Set this to libeasynmc-nmc dir. Relative or absolute. 
 # Make sure you build it prior to building the actual project. 
-EASYNMC_DIR     = $(AURA)/nmc-utils/libeasynmc-nmc
-
+#EASYNMC_DIR     = $(AURA)/nmc-utils/libeasynmc-nmc
+EASYNMC_DIR     = d:\GIT\matlab\nmc-utils-0.1.1\libeasynmc-nmc
 CROSS_COMPILE   =
 NMCPP_FLAGS     = -DNEURO -OPT2 -inline -I$(EASYNMC_DIR)/include
 ASM_FLAGS       = -soc -Sc -Stmp -X-q -I$(EASYNMC_DIR)/include
@@ -44,6 +44,7 @@ LIBS            = easynmc.lib libc05.lib nmpp-nmc3.lib  libint_soc.lib
 BUILDER_FLAGS	= -cK1879.cfg -m -heap=4000 -heap1=26384 -heap2=6384 -heap3=6384 -stack=2000 -full_names
 IDIRS           = -I. -I"$(NEURO)/include" -I"$(NMPP)/include"
 LIBDIR		= -l"$(NEURO)/lib" -l"$(EASYNMC_DIR)" -l$(NMPP)/lib
+
 
 .DEFAULT_GOAL=all
 

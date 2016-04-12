@@ -28,11 +28,11 @@ struct S_nmppsWeightedSum
           \  w1a=w1<<16,w1b=w1<<32,w1c=w1<<48; и аналогично  для w2.
 */
    //! \{    
-extern "C"  {
-void nmppsWeightedSum_Set8(int W1,int W2, S_nmppsWeightedSum* kerW);
-void nmppsWeightedSum_Set16(int W1,int W2, S_nmppsWeightedSum* kerW);
-void nmppsWeightedSum_Set32(nm64s W1,nm64s W2, S_nmppsWeightedSum* kerW);
-};
+
+void nmppsWeightedSum_Set8(int W1,int W2, struct S_nmppsWeightedSum* kerW);
+void nmppsWeightedSum_Set16(int W1,int W2, struct S_nmppsWeightedSum* kerW);
+void nmppsWeightedSum_Set32(nm64s W1,nm64s W2, struct S_nmppsWeightedSum* kerW);
+
    //! \}
 
 
@@ -81,22 +81,22 @@ void nmppsWeightedSum_Set32(nm64s W1,nm64s W2, S_nmppsWeightedSum* kerW);
     pDstVec[i]=W1*pSrcVec1[i]+W2*pSrcVec2[i] где W1 и W2 аргументы предварительно вызывавшейся
     nmppsWeightedSum_Set8( W1, W2, kerW);
 */
-extern "C" {
-void nmppsWeightedSum_Exe_8s16s(nm8s* pSrcVec1,nm8s* pSrcVec2, S_nmppsWeightedSum* kerW, nm16s* pDstVec, int nSize);
+
+void nmppsWeightedSum_Exe_8s16s(nm8s* pSrcVec1,nm8s* pSrcVec2, struct S_nmppsWeightedSum* kerW, nm16s* pDstVec, int nSize);
 
 // Расчёт линейной комбинации Vec1 и Vec2 по предварительно сформированной матрице с w1,w2
-void nmppsWeightedSum_Exe_16s32s(nm16s* pSrcVec1,nm16s* pSrcVec2, S_nmppsWeightedSum* kerW, nm32s* pDstVec, int nSize);
+void nmppsWeightedSum_Exe_16s32s(nm16s* pSrcVec1,nm16s* pSrcVec2, struct S_nmppsWeightedSum* kerW, nm32s* pDstVec, int nSize);
 // Расчёт линейной комбинации Vec1 и Vec2 по предварительно сформированной матрице с w1,w2
-void nmppsWeightedSum_Exe_32s64s(nm32s* pSrcVec1,nm32s* pSrcVec2, S_nmppsWeightedSum* kerW, nm64s* pDstVec, int nSize);
+void nmppsWeightedSum_Exe_32s64s(nm32s* pSrcVec1,nm32s* pSrcVec2, struct S_nmppsWeightedSum* kerW, nm64s* pDstVec, int nSize);
    //! \}
-   };
+
 
 //! 
 //! \perfinclude _nmppsWeightedSum__FPciPciPSsi.html
 //!				 
 void nmppsWeightedSum_8s16s(nm8s* pSrcVec1,int W1,nm8s* pSrcVec2,int W2, nm16s* pDstVec, int nSize)
 {
-	S_nmppsWeightedSum kerW;
+	struct S_nmppsWeightedSum kerW;
 	nmppsWeightedSum_Set8(W1,W2,&kerW);
 	nmppsWeightedSum_Exe_8s16s(pSrcVec1,pSrcVec2, &kerW, pDstVec, nSize);
 }
@@ -106,7 +106,7 @@ void nmppsWeightedSum_8s16s(nm8s* pSrcVec1,int W1,nm8s* pSrcVec2,int W2, nm16s* 
 //! 
 void nmppsWeightedSum_16s32s(nm16s* pSrcVec1,int W1,nm16s* pSrcVec2,int W2, nm32s* pDstVec, int nSize)
 {
-	S_nmppsWeightedSum kerW;
+	struct S_nmppsWeightedSum kerW;
 	nmppsWeightedSum_Set16(W1,W2,&kerW);
 	nmppsWeightedSum_Exe_16s32s(pSrcVec1,pSrcVec2, &kerW, pDstVec, nSize);
 }
@@ -115,7 +115,7 @@ void nmppsWeightedSum_16s32s(nm16s* pSrcVec1,int W1,nm16s* pSrcVec2,int W2, nm32
 //! 
 void nmppsWeightedSum_32s64s(nm32s* pSrcVec1, nm64s W1,nm32s* pSrcVec2, nm64s W2, nm64s* pDstVec, int nSize)
 {
-	S_nmppsWeightedSum kerW;
+	struct S_nmppsWeightedSum kerW;
 	nmppsWeightedSum_Set32(W1,W2, &kerW);
 	nmppsWeightedSum_Exe_32s64s(pSrcVec1,pSrcVec2, &kerW, pDstVec, nSize);
 }

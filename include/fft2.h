@@ -209,5 +209,8 @@
 		};
 #endif
 
+void nmppsFFT32FwdRef2x16  ( nm32sc* src, nm32sc* dst); // C++
+void nmppsFFT32FwdRef2x16_f( nm32sc* src, nm32sc* dst);	// C++
+
 #endif 
 		

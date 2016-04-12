@@ -34,6 +34,7 @@
     */
 	
 #include "./malloc32.h"
+#include "./metric.h"
 #include "./nmplv/vStat.h"		
 
 

@@ -7,17 +7,21 @@
 struct aura_node *n;
 int main() {
 
-	printf("start");
-	slog_init(NULL, 0);
+	printf("START\n");
+	slog_init(NULL, 99);
        sleep(1);
 	int ret; 
+	printf("START-010101\n");
 	n = aura_open("nmc", "./rpc-demo.abs");
 	if (!n) {
+		printf("ERROR:Failed to open node\n");
 		slog (0, SLOG_ERROR, "Failed to open node");
 		exit(1);
 	}
+	printf("START-1\n");
 	aura_wait_status(n, AURA_STATUS_ONLINE);
 
+	printf("START-2\n");
 	static signed char  src0_8s[256] , src1_8s[256];
 	static signed short src0_16s[256], src1_16s[256];
 	static signed int   src0_32s[2*2048] , src1_32s[256];
@@ -76,7 +80,10 @@ int main() {
 
 	
 //	nmppsAddC_16s((nm16s*)src0,1,(nm16s*)dst,16);
-//	nmppsAddC_32s((nm32s*)src0_32s,1,(nm32s*)dst_32s,16);
+	printf("------/n");
+	nmppsAddC_32s((nm32s*)src0_32s,1,(nm32s*)dst_32s,16);
+	printf("------/n");
+	
 //	nmppsAddC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,32);
 //	nmppsSubC_64s((nm64s*)src0_64s,1,(nm64s*)dst_64s,32);
 
@@ -128,7 +135,10 @@ int main() {
 //	nmppmMul_mm_32s64s(src0_32s,8,8,src1_64s,dst_64s,8);
 //	
 //	nmppmMul_mv_8s64s (src0_8s, src1_64s,dst_64s,8,8);
-	nmppmMul_mv_16s64s(src0_16s,src1_64s,dst_64s,8,8);
+	long t0;//=current_time();
+//	nmppmMul_mv_16s64s(src0_16s,src1_64s,dst_64s,8,8);
+	long t1;//=current_time();
+	printf("msec %d\n", (int)t1-(int)t0);
 //	nmppmMul_mv_32s64s(src0_32s,src1_64s,dst_64s,8,8);
 //	nmppsCmpNeC_8s ((nm8s*) src0_8s ,1200,(nm8s*) dst_8s, 256);
 	

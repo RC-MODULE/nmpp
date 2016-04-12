@@ -22,7 +22,7 @@
 */
 //#define RPC_nmppsAddC_8s
 //#define RPC_nmppsAddC_16s
-//#define RPC_nmppsAddC_32s
+#define RPC_nmppsAddC_32s
 //#define RPC_nmppsAddC_64s
                  
 //#define RPC_nmppsSubC_8s

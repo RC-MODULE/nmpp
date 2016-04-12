@@ -274,7 +274,8 @@ __INLINE__ void nmppsMalloc_64u(nm64u** pptr, int nSize, int hint) { nmppsMalloc
     //! \{
 
 
- __INLINE__  void nmppsFree(void* ptr) {nmppsFree32((void*)ptr);}
+   void nmppsFree(void* ptr); 
+    
     //! \}
     
     

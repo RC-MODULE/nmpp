@@ -34,9 +34,12 @@ void nmppsAdd_8s(
 		)
 {
 	#ifdef RPC
+	
+	
 	RPC_HOST_PPPI("nmppsAdd_8s",pSrcVec1,pSrcVec2,pDstVec,nSize,1);
 	#else
 
+		
 	int i;
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
@@ -74,10 +77,12 @@ void nmppsAdd_32s(
 		)
 {
 	#ifdef RPC
+	
 	RPC_HOST_PPPI("nmppsAdd_32s",pSrcVec1,pSrcVec2,pDstVec,nSize,4);
 	#else
 
 	int i;
+	while(1);
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
 

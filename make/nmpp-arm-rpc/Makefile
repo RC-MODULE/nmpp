@@ -94,7 +94,13 @@ else
 TARGET           = $(OUT_DIR)/$(PROJECT).a
 endif
 #INC_DIRS         = -I../../include -I../../include/nmpls
-INC_DIRS         = -I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include 
+INC_DIRS         = \
+-I$(ROOTFS)/usr/include/arm-linux-gnueabi/aura-0.1.2/ \
+-I$(ROOTFS)/usr/include/ \
+-I$(ROOTFS)/usr/include/arm-linux-gnueabi/ \
+-I$(NMPP)/include 
+
+#-I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include 
 #-I../../include/nmpls
 SRC_DIRS         =  ../../src/nmplv/Arithmetics/pc \
 					../../src/nmplv/Arithmetics/common \
@@ -117,7 +123,11 @@ SRC_DIRS         =  ../../src/nmplv/Arithmetics/pc \
 TMP_DIR          = Release
 #------------------------------------------------
 AS_FLAGS         = $(INC_DIRS)
-CC_FLAGS 		 = -g -Wall -fPIC $(INC_DIRS) -DRPC=y -std=c99
+#CC_FLAGS 		 = -g -Wall -fPIC $(INC_DIRS) -DRPC=y -std=c99
+CC_FLAGS = -DRPC=y -std=c99 -marm -march=armv4t -mfloat-abi=soft \
+-marm -march=armv4t -mfloat-abi=soft \
+--sysroot=$(ROOTFS) 
+
 
 #-std=c99 -fno-exceptions -Wall -O0 -mcpu=arm1176jzf-s -DGPIO_LEG=6 -fno-zero-initialized-in-bss $(ING_DIRS) 
 

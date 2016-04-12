@@ -12,8 +12,8 @@ endif
 
 
 INC_DIRS = -I"$(NMPP)/include"
-LIB_DIRS = -L"$(NMPP)/lib"  
-LIBS     = nmpp-nmc3d.lib libint05.lib  
+LIB_DIRS = -L"$(NMPP)/lib"  -L$(ROOT)/deps/nm_io/lib
+LIBS     = nm_io_dummy.lib nmpp-nmc3d.lib libint05.lib  
 TARGET   = main.abs
 CFG      = emu6405.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))

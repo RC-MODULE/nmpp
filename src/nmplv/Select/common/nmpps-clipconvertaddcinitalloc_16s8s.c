@@ -4,7 +4,7 @@
 #include "string.h"
 
 #ifdef __NM__
-extern "C" nm64u VEC_TBL_Diagonal_01h_G[8];		
+extern nm64u VEC_TBL_Diagonal_01h_G[8];		
 #endif
 
 void nmppsClipConvertAddCInitAlloc_16s8s(NmppsWeightState** ppState)

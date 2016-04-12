@@ -132,7 +132,9 @@ void nmppsFree32(void* buffer){
 	}
 	nmppsMallocTimerResume();
 }
-
+void nmppsFree(void* ptr) {
+	nmppsFree32((void*)ptr);
+}
 
 int nmppsMallocWipe(){
 	int allocIndx;

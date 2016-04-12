@@ -22,12 +22,13 @@
 //#include "fftext.h"
 #include "nmtl/tcmplx_spec.h"
 #include <math.h>
+#include "nmpp.h"
 
 #ifndef PI
 #define PI 3.14159265359
 #endif
 
-static cmplx<double> Rounder(0.5,0.5);
+//static cmplx<double> Rounder(0.5,0.5);
 
 cmplx<double> W32(int power)
 {
@@ -36,18 +37,7 @@ cmplx<double> W32(int power)
 	return exp(z);
 }
 
-cmplx<int > toFix(cmplx<double> X,double Ampl)
-{
-	cmplx<int > Y;
-	X.re*=Ampl;
-	X.im*=Ampl;
-//	X+=Rounder;
-	Y.re=floor(X.re+0.5);	
-	Y.im=floor(X.im+0.5);	
-	//Y.re=X.re;	
-	//Y.im=X.im;	
-	return Y;
-}
+cmplx<int > toFix(cmplx<double> X,double Ampl);
 
 void nmppsFFT32FwdRef2x16( nm32sc* src, nm32sc* dst)
 {
@@ -61,10 +51,10 @@ void nmppsFFT32FwdRef2x16( nm32sc* src, nm32sc* dst)
 		sum[i]=x[i]+x[i+16];
 		dif[i]=x[i]-x[i+16];
 	}
+	nmppsSet_64s((nm64s*)dst,0,32);
 	
 	for(int k=0; k<32; k+=2){
-		y[k]=toFix(W32(0),MAX)*sum[0];
-		for(int p=1; p<16; p++){
+		for(int p=0; p<16; p++){
 			y[k]+=toFix(W32(p*k),MAX)*sum[p];
 		}
 		y[k].re+=MAX/2;
@@ -74,8 +64,7 @@ void nmppsFFT32FwdRef2x16( nm32sc* src, nm32sc* dst)
 	}
 
 	for(int k=1; k<32; k+=2){
-		y[k]=toFix(W32(0),MAX)*dif[0];
-		for(int p=1; p<16; p++){
+		for(int p=0; p<16; p++){
 			y[k]+=toFix(W32(p*k),MAX)*dif[p];
 		}
 		y[k].re+=MAX/2;

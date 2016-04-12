@@ -115,10 +115,10 @@
  			<File RelativePath="..\..\..\src\nmplm\Support\common\mtrSetMatrix.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmplm\Support\pc\MTR_GetCol.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\Correlation\pc\SIG_XCorr.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0032\common\nmpps-fft32fwdinit.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\common\nmpps-common.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0032\common\nmpps-fft32fwdref.cpp" > </File> 
- 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0064\common\nmpps-fft64fwdinit.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0064\common\nmpps-fft64fwdref.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0128\common\nmpps-fft128fwdref.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\pcFFT256.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\W256Tbl.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256fwd.cpp" > </File> 
@@ -176,8 +176,13 @@
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_FixMul32__int.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\scl_fixsqrt32__int.c" > </File> 
  			<File RelativePath="..\..\..\src\nmpli\Filtration\common\nmppi-FilterInitAlloc_08s16s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Metric\msd.c" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0032\pc\nmpps-fft32fwd.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0032\common\nmpps-fft32fwdinit.c" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0064\pc\nmpps-fft64fwd.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0064\common\nmpps-fft64fwdinit.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0128\pc\nmpps-fft128fwd.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0128\common\nmpps-fft128fwdinit.c" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\Filter\common\nmpps-firinitalloc_8s16s.c" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\Filtration\pc\nmpps-fir.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_16s16s.c" > </File> 
@@ -283,6 +288,7 @@
  			<File RelativePath="../../../include/fft.h" > </File> 
  			<File RelativePath="../../../include/fft2.h" > </File> 
  			<File RelativePath="../../../include/malloc32.h" > </File> 
+ 			<File RelativePath="../../../include/metric.h" > </File> 
  			<File RelativePath="../../../include/multiheap.h" > </File> 
  			<File RelativePath="../../../include/nmchar.h" > </File> 
  			<File RelativePath="../../../include/nmdef.h" > </File> 

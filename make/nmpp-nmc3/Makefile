@@ -83,29 +83,18 @@ SRC_DIRS         = 	 \
 					../../src/nmplc/fixpoint64/nm \
 					../../src/nmplc/init/common \
 					../../src/nmplc/integer/nm \
-					../../src/nmpli/Arithmetics/nm \
-					../../src/nmpli/Convert/common \
-					../../src/nmpli/Convert/nm \
-					../../src/nmpli/Filtration/common \
-					../../src/nmpli/Filtration/nm \
-					../../src/nmpli/Floodfill/common \
-					../../src/nmpli/Floodfill/nm \
-					../../src/nmpli/Init/common \
-					../../src/nmpli/Print/nm \
-					../../src/nmpli/Reodering/nm \
-					../../src/nmpli/Resample/common \
-					../../src/nmpli/Resample/nm \
-					../../src/nmpli/Select/nm \
-					../../src/nmpli/Select/common \
-					../../src/nmpli/Support/common \
 					../../src/nmplm/Core/nm \
 					../../src/nmplm/Init/nm \
 					../../src/nmplm/Inverse/common \
 					../../src/nmplm/MatrixVector/nm \
 					../../src/nmplm/Support/common \
 					../../src/nmpls/Correlation/nm \
+					../../src/nmpls/Metric \
+					../../src/nmpls/FFT/common \
 					../../src/nmpls/FFT/FFT0032/nm \
 					../../src/nmpls/FFT/FFT0032/common \
+					../../src/nmpls/FFT/FFT0064/nm \
+					../../src/nmpls/FFT/FFT0064/common \
 					../../src/nmpls/FFT/FFT0256/nm \
 					../../src/nmpls/FFT/FFT0256/common \
 					../../src/nmpls/FFT/FFT0512/nm \
@@ -140,7 +129,22 @@ SRC_DIRS         = 	 \
 					../../src/nmplv/Tables/nm \
 					../../src/nmplv/Transform/common \
 					../../src/nmplv/Transform/nm \
-					../../src/nmvcore/nm
+					../../src/nmvcore/nm \
+					../../src/nmpli/Arithmetics/nm \
+					../../src/nmpli/Convert/common \
+					../../src/nmpli/Convert/nm \
+					../../src/nmpli/Filtration/common \
+					../../src/nmpli/Filtration/nm \
+					../../src/nmpli/Floodfill/common \
+					../../src/nmpli/Floodfill/nm \
+					../../src/nmpli/Init/common \
+					../../src/nmpli/Print/nm \
+					../../src/nmpli/Reodering/nm \
+					../../src/nmpli/Resample/common \
+					../../src/nmpli/Resample/nm \
+					../../src/nmpli/Select/nm \
+					../../src/nmpli/Select/common \
+					../../src/nmpli/Support/common 
 
 LIB_DIRS         = 
 TMP_DIR          =Release
@@ -152,13 +156,16 @@ AS_FLAGS         =-nmc3 -nm2ms  $(INC_DIRS)
 AS_FLAGS_C2ASM   =-nmc3 -nm2ms  $(INC_DIRS)
 LIBS             =
 CC               =nmcpp
-CC_FLAGS         =-6405 -DNEURO -OPT2 -inline 
+
+CCPP_FLAGS       =-6405 -DNEURO -OPT2 -inline 
+CC_FLAGS         =$(CCPP_FLAGS) -Tc99
 BUILDER          =libr
 BUILDER_FLAGS    =-c $(TARGET)
 #--------------  DEBUG config -------------------------
 ifdef DEBUG      
 TARGET           =$(OUT_DIR)/$(PROJECT)d.lib
-CC_FLAGS         =-6405 -DNEURO -OPT0 -inline -debug 
+CCPP_FLAGS       =-6405 -DNEURO -OPT0 -inline -debug 
+CC_FLAGS         =$(CCPP_FLAGS) -Tc99
 LIBS            :=
 AS_FLAGS        +=-ga
 BUILDER_FLAGS   +=-d0
@@ -229,7 +236,7 @@ $(TMP_DIR)/%.o: $(TMP_DIR)/%.asmx
 
 $(TMP_DIR)/%.asmx: %.cpp 
 	$(PREPROCESS_CPP_DEP)
-	$(CC) $(CC_FLAGS) $(<) -O$(@) $(INC_DIRS) 
+	$(CC) $(CCPP_FLAGS) $(<) -O$(@) $(INC_DIRS) 
 
 $(TMP_DIR)/%.asmx: %.c
 	$(PREPROCESS_CPP_DEP)

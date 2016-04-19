@@ -22,13 +22,13 @@
 nmpp-library supports nmc3-core processor family : NM6405,NM6406, and SOCs  
   /lib/nmpp_nmc3.lib   (Release)  
   /lib/nmpp_nmc3d.lib  (Debug)  
-supported boards:    
+'Supported boards':    
   MC5101 board  
   MC5103 board  
   M77601 board  
   MB7707 board  
  
-It also have emulation libraries for x86:  
+It is also provided by emulation libraries for x86:  
   /lib/libnmpp_gcc.a  - compiled by GNU GCC under Windows  
   /lib/nmpp_vs80.lib  - (Release) compiled by Microsoft Visual Studio 8.0  
   /lib/nmpp_vs80d.lib - (Debug)  
@@ -39,39 +39,40 @@ It also have emulation libraries for x86:
   Run command 'make' to build all (nmc3, gcc , vs80 and vs13 ) libraries from ./make folder.  Or run command 'make' from sub-folder with corresponding platform 
  
 ###USAGE:  
-  Use NMPP environment variable in your makefile to specify a location of library. 
-  You can set NMPP variable manually to path were it installed or by 'make install' command from ./make folder.
+  Use 'NMPP' environment variable in your makefile to specify a location of library. 
+  You can set 'NMPP' variable manually to path were it has been installed or by 'make install' command from ./make folder.
  
 ###REQUIREMENTS:  
-	For WINDOWS:
-  1. To build library and attached examples 'GNU make' must be installed . http://gnuwin32.sourceforge.net/packages/make.htm  
+  1. (OS WINDOWS) To build library and attached examples 'GNU' 'make' must be installed . http://gnuwin32.sourceforge.net/packages/make.htm  
      Download and install [Gnu make installer](http://gnuwin32.sourceforge.net/downlinks/make.php)  
      Note: You should use GNU **make** only. Microsoft **nmake** cannot parse attached makefiles 
-  2. Installed NeuroMatrix SDK . Check for new version at http://www.module.ru/mb7707/toolchains-neuromatrix/
-  3. Installed GnuWin32 utils  (Optional). Recommended for building of examples  http://sourceforge.net/projects/unxutils/ 
-  4. Board SDK: (necessary  to build examples)
+  2. Installed NeuroMatrix SDK
+  3. (Optional) Installed GnuWin32 utils  . It enhances 'Makefile' functionality and make it to be cross-platform . It may be necessary to build examples in some cases http://sourceforge.net/projects/unxutils/ 
+  4. (Optional) Board SDK: (necessary  to build examples)
     - mc5103sdk (MC5103 Board support SDK)
     - mc7601sdk (MC7601 Board support SDK)
-    - mb7707sdk (MB77.07 Board support SDK)  
+    - mb7707sdk (MB77.07 Board support SDK) + WinPCap
     *Is is assumed that board drivers installed by user*
   4. (Optional) Installed Gnu GCC. Recommended for header dependency parcing build gcc-version of library build of gcc-examples http://www.mingw.org/
   5. (Optional) Installed Visual Studio 8  [Visual Studio 2005 Express](http://apdubey.blogspot.ru/2009/04/microsoft-visual-studio-2005-express.html)
   6. (Optional) Installed Visual Studio 13 [Visual Studio 2013 Express](https://www.microsoft.com/en-US/download/details.aspx?id=44914)  
-  
->For version compatibility and path settings it is recommended to download and locally install [2-4] components at once by next commands from **/deps** folder
+
+> To prevent version mismatch between different components and provide successful compilation of examples
+it is recommended to download and install locally depended (2,3,4) components by next commands from **/deps** folder
 ```bat
 make download 
 make install
 ```
-**NOTE!** If enviroment variables like **NEURO, MC5103 , MB7707** defined by **?=** in **setenv.mk** then system value would be used (if exist), othewise (by **=**) they will be overrided by local pathes!  
-By swithcing between **?=** and **=** you can select what SDK installaition to use (system or local).
+  
+**NOTE!** If environment variables like **NEURO, MC5103 , MB7707** defined by **?=** in **global.mk** then system value would be used (if exist), otherwise (by **=**) they will be overrided by local pathes!  
+By switching between **?=** and **=** you can select what SDK installation to use (system or local).
 
  
 ###WARNING:  
-  GCC-version builds will be skipped if 'CROSS_COMPILE' enviroment variable is not defined in your system.  
+  GCC-version builds will be skipped if 'CROSS_COMPILE' environment variable is not defined in your system.  
   Where 'CROSS_COMPILE' variable should contain prefix of your GCC cross-compiler.  
-  VS80-version build will be skipped if 'VS80COMNTOOLS'  enviroment variable is not defined in your system.   
-  VS13-version build will be skipped if 'VS120COMNTOOLS' enviroment variable is not defined in your system.   
+  VS80-version build will be skipped if 'VS80COMNTOOLS'  environment variable is not defined in your system.   
+  VS13-version build will be skipped if 'VS120COMNTOOLS' environment variable is not defined in your system.   
   
   
 ###EXAMPLES:  

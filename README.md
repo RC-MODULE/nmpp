@@ -43,9 +43,9 @@ It is also provided by emulation libraries for x86:
   You can set 'NMPP' variable manually to path were it has been installed or by 'make install' command from ./make folder.
  
 ###REQUIREMENTS:  
-  1. (OS WINDOWS) To build library and attached examples 'GNU' 'make' must be installed . http://gnuwin32.sourceforge.net/packages/make.htm  
+  1. (OS WINDOWS) To build library and attached examples **GNU make** must be installed . http://gnuwin32.sourceforge.net/packages/make.htm  
      Download and install [Gnu make installer](http://gnuwin32.sourceforge.net/downlinks/make.php)  
-     Note: You should use GNU **make** only. Microsoft **nmake** cannot parse attached makefiles 
+     Note: You should use **GNU make** only. Microsoft **nmake** cannot parse attached makefiles 
   2. Installed NeuroMatrix SDK
   3. (Optional) Installed GnuWin32 utils  . It enhances 'Makefile' functionality and make it to be cross-platform . It may be necessary to build examples in some cases http://sourceforge.net/projects/unxutils/ 
   4. (Optional) Board SDK: (necessary  to build examples)

@@ -4,7 +4,7 @@
   PDF: http://rc-module.github.io/nmpp/nmpp.pdf  
 
 ###DESCRIPTION:  
-  NMPP is "Neuro Matrix Performance Primitives" library 
+  NMPP is "Neuro Matrix Performance Primitives" C/C++ library 
   which consists of scalar, vector-matrix  , signal and 
   image processing functions for Neuro Matrix architecture. 
 
@@ -36,16 +36,17 @@ It also have emulation libraries for x86:
   /lib/nmpp_vs13d.lib - (Debug)  
 
 ###BUILDING LIBRARY:  
-  Run command 'make' to build all (nmc3, gcc , vs80 and vs13 ) libraries from ./make folder.  Or run command 'make' from folder with corresponding platform 
+  Run command 'make' to build all (nmc3, gcc , vs80 and vs13 ) libraries from ./make folder.  Or run command 'make' from sub-folder with corresponding platform 
  
-###INSTALLATION:  
-  All you need to use library after building is to set NMPP enviroment variable. It is automaticly set by installer or 
-  you can do it manually by 'make install' from ./make folder.
+###USAGE:  
+  Use NMPP environment variable in your makefile to specify a location of library. 
+  You can set NMPP variable manually to path were it installed or by 'make install' command from ./make folder.
  
 ###REQUIREMENTS:  
-  1. (for Windows) Installed GNU make . http://gnuwin32.sourceforge.net/packages/make.htm  
-     Dowloand [Gnu make installer](http://gnuwin32.sourceforge.net/downlinks/make.php)  
-    Note: You should use GNU **make** only. Microsoft **nmake** cannot parse attached makefiles 
+	For WINDOWS:
+  1. To build library and attached examples 'GNU make' must be installed . http://gnuwin32.sourceforge.net/packages/make.htm  
+     Download and install [Gnu make installer](http://gnuwin32.sourceforge.net/downlinks/make.php)  
+     Note: You should use GNU **make** only. Microsoft **nmake** cannot parse attached makefiles 
   2. Installed NeuroMatrix SDK . Check for new version at http://www.module.ru/mb7707/toolchains-neuromatrix/
   3. Installed GnuWin32 utils  (Optional). Recommended for building of examples  http://sourceforge.net/projects/unxutils/ 
   4. Board SDK: (necessary  to build examples)
@@ -57,7 +58,7 @@ It also have emulation libraries for x86:
   5. (Optional) Installed Visual Studio 8  [Visual Studio 2005 Express](http://apdubey.blogspot.ru/2009/04/microsoft-visual-studio-2005-express.html)
   6. (Optional) Installed Visual Studio 13 [Visual Studio 2013 Express](https://www.microsoft.com/en-US/download/details.aspx?id=44914)  
   
->For version compatibility and path settings it is recomended to download and locally install [2-4] components at once by next commands from **/deps** folder
+>For version compatibility and path settings it is recommended to download and locally install [2-4] components at once by next commands from **/deps** folder
 ```bat
 make download 
 make install

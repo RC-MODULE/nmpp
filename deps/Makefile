@@ -1,6 +1,6 @@
 ROOT = ..
 #-include $(ROOT)/environment.mk
--include $(ROOT)/setenv.mk
+-include $(ROOT)/global.mk
 #http_proxy ?=http://username:password@proxy:80/
 
 

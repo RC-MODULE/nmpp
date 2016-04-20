@@ -1,4 +1,4 @@
-include $(ROOT)/setenv.mk
+include $(ROOT)/global.mk
 # TEST-MAKEFILE
 # This Makefile is for testing purpose
 # It builds and runs two applications built from common cpp-source but for different platforms and compares their exit codes
@@ -39,8 +39,8 @@ kill:
 	
 
 test: make_$(TARGET1)/Makefile make_$(TARGET2)/Makefile
-	$(MAKE) -C./make_$(TARGET1) run 
-	$(MAKE) -C./make_$(TARGET2) run
+	$(MAKE) -C./make_$(TARGET1) test 
+	$(MAKE) -C./make_$(TARGET2) test
 	diff make_$(TARGET1)/.exitcode make_$(TARGET2)/.exitcode
 	
 

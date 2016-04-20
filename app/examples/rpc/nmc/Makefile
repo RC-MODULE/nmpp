@@ -41,7 +41,7 @@ LIBS            = easynmc.lib libc05.lib nmpp-nmc3.lib  libint_soc.lib
 
 #nmpp-nmc3-rpc.lib
 
-BUILDER_FLAGS	= -cK1879.cfg -m -heap=4000 -heap1=26384 -heap2=6384 -heap3=6384 -stack=2000 -full_names
+BUILDER_FLAGS	= -cK1879.cfg -m -heap=4000 -heap1=6384 -heap2=6384 -heap3=6384 -stack=2000 -full_names
 IDIRS           = -I. -I"$(NEURO)/include" -I"$(NMPP)/include"
 LIBDIR		= -l"$(NEURO)/lib" -l"$(EASYNMC_DIR)" -l$(NMPP)/lib
 
@@ -50,6 +50,8 @@ LIBDIR		= -l"$(NEURO)/lib" -l"$(EASYNMC_DIR)" -l$(NMPP)/lib
 
 all:  $(EASYNMC_DIR)/easynmc.lib $(TARGET).abs
 
+lib:
+	$(MAKE) -C $(NMPP)/make/nmpp-nmc3 
 #rpc:
 #	$(MAKE) -C $(ROOT)/make/nmpp-nmc3-rpc
 	

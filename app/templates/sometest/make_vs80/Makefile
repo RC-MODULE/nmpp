@@ -1,4 +1,4 @@
-include $(ROOT)/setenv.mk
+include $(ROOT)/global.mk
 # This makefile builds simple win32-application containing single cpp-file  
 # Rule 'run' executes the application under Windows OS and stores return code in ".exitcode"  file
 
@@ -53,18 +53,22 @@ $(TARGETD): $(PROJECT).vcproj $(ALL_CPP) $(NMPP)/lib/$(LIBSD)
 	rm -f -r $(@)
 	"$(VS80COMNTOOLS)vsvars32" && vcbuild $(PROJECT).vcproj
 
-run: .exitcode
+run:	$(TARGETD)
+	$(TARGETD)
+
+test: .exitcode
 	
 
-.exitcode: $(TARGETD) .exitrun.bat
-	.exitrun.bat 
+.exitcode: $(TARGETD) .test.bat
+	.test.bat 
 	
-.exitrun.bat: 
-	@echo $(TARGETD) >.exitrun.bat
-	@echo @echo %%errorlevel%% ^>.exitcode >>.exitrun.bat
+.test.bat: 
+	@echo $(TARGETD) >.test.bat
+	@echo @echo %%errorlevel%% ^>.exitcode >>.test.bat
 
 clean:
-	-rm -f -r .* *.o *.ncb *.ilk $(TARGET) $(TARGETD) *.dep *.ac *.map *.suo *.ncb *.user $(TMP_DIR) $(TMP_DIRD)
+	-$(OS_RM) -f -r .* *.o *.ncb *.ilk $(TARGET) $(TARGETD) *.dep *.ac *.map *.suo *.ncb *.user null
+	-$(OS_RD) $(TMP_DIR) $(TMP_DIRD)
 	
 export HEADER_DIRS
 export INC_DIRS LIB_DIRS

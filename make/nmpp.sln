@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nmpp-vs80", "pc\vs80\nmpp-v
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nmpp-nmc3", "nmpp-nmc3\nmpp-nmc3.vcproj", "{4CEC77FB-E193-4341-A3BF-C83449DFE67B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nmpp-nmc3-nmcc", "nmpp-nmc3-nmcc\nmpp-nmc3-nmcc.vcproj", "{2AE9024F-00C6-4165-BE96-B90CC78CC0F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +21,10 @@ Global
 		{4CEC77FB-E193-4341-A3BF-C83449DFE67B}.Debug|Win32.Build.0 = Debug|Win32
 		{4CEC77FB-E193-4341-A3BF-C83449DFE67B}.Release|Win32.ActiveCfg = Release|Win32
 		{4CEC77FB-E193-4341-A3BF-C83449DFE67B}.Release|Win32.Build.0 = Release|Win32
+		{2AE9024F-00C6-4165-BE96-B90CC78CC0F5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2AE9024F-00C6-4165-BE96-B90CC78CC0F5}.Debug|Win32.Build.0 = Debug|Win32
+		{2AE9024F-00C6-4165-BE96-B90CC78CC0F5}.Release|Win32.ActiveCfg = Release|Win32
+		{2AE9024F-00C6-4165-BE96-B90CC78CC0F5}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

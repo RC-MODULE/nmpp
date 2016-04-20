@@ -73,8 +73,10 @@
 		double argIm= -2.0*PI/32.0*arg;
 		double expRe= cos(argIm)*max+0.5;
 		double expIm= sin(argIm)*max+0.5;
-		res.re= expRe;
-		res.im= expIm;
+		res.re= floor(expRe);
+		res.im= floor(expIm);
+		res.re= res.re > (max-1) ? (max-1):res.re;
+		res.im= res.im > (max-1) ? (max-1):res.im;
 		return res;
 	}
 
@@ -84,7 +86,8 @@
 		spec->buffer[0]  =nmppsMalloc_64s(32);
 		spec->buffer[1]  =nmppsMalloc_64s(32);
 		spec->fftTable[0]=nmppsMalloc_8s(16*16*2*2);
-		spec->shift [0]=-1;
+		spec->shift [0]=7;
+		spec->round [0]=64;
 		spec->free=free;
 		
 		if (spec->fftTable[0]==0) 	return -1;
@@ -95,14 +98,14 @@
 			return 0;
 		for(k=0; k<32; k+=2){
 			for(p=0; p<8; p++,i++){
-				nm32sc w=fixW32(p*k,127);
+				nm32sc w=fixW32(p*k,128);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i,w.re);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256,w.im);
 			}
 		}
 		for(k=0; k<32; k+=2){
 			for(p=8; p<16; p++,i++){
-				nm32sc w=fixW32(p*k,127);
+				nm32sc w=fixW32(p*k,128);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i,w.re);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256,w.im);
 			}
@@ -110,7 +113,7 @@
 
 		for(k=1; k<32; k+=2){
 			for(p=0; p<8; p++,i++){
-				nm32sc w=fixW32(p*k,127);
+				nm32sc w=fixW32(p*k,128);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256,w.re);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256+256,w.im);
 			}
@@ -118,7 +121,7 @@
 		
 		for(k=1; k<32; k+=2){
 			for(p=8; p<16; p++,i++){
-				nm32sc w=fixW32(p*k,127);
+				nm32sc w=fixW32(p*k,128);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256,w.re);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256+256,w.im);
 			}

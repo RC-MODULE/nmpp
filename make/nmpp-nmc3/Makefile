@@ -73,78 +73,11 @@
 #--------------  target & input dirs -------------------
 ROOT             = ../..
 include $(ROOT)/setenv.mk
+include ../src.mk
 PROJECT          = nmpp-nmc3
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib
 INC_DIRS         = -I"$(NEURO)/include" -I../../include
-SRC_DIRS         = 	 \
-					../../src/nmplc/arithmetic/common \
-					../../src/nmplc/fixpoint32/nm \
-					../../src/nmplc/fixpoint64/nm \
-					../../src/nmplc/init/common \
-					../../src/nmplc/integer/nm \
-					../../src/nmplm/Core/nm \
-					../../src/nmplm/Init/nm \
-					../../src/nmplm/Inverse/common \
-					../../src/nmplm/MatrixVector/nm \
-					../../src/nmplm/Support/common \
-					../../src/nmpls/Correlation/nm \
-					../../src/nmpls/Metric \
-					../../src/nmpls/FFT/common \
-					../../src/nmpls/FFT/FFT0032/nm \
-					../../src/nmpls/FFT/FFT0032/common \
-					../../src/nmpls/FFT/FFT0064/nm \
-					../../src/nmpls/FFT/FFT0064/common \
-					../../src/nmpls/FFT/FFT0256/nm \
-					../../src/nmpls/FFT/FFT0256/common \
-					../../src/nmpls/FFT/FFT0512/nm \
-					../../src/nmpls/FFT/FFT0512/common \
-					../../src/nmpls/FFT/FFT1024/nm \
-					../../src/nmpls/FFT/FFT1024/common \
-					../../src/nmpls/FFT/FFT2048/nm \
-					../../src/nmpls/FFT/FFT2048/common \
-					../../src/nmpls/FFT/FFT4096/nm \
-					../../src/nmpls/FFT/FFT8192/nm \
-					../../src/nmpls/FFT/IFFT0256/nm \
-					../../src/nmpls/FFT/IFFT0512/nm \
-					../../src/nmpls/FFT/IFFT1024/nm \
-					../../src/nmpls/FFT/IFFT2048/nm \
-					../../src/nmpls/FFT/IFFT4096/nm \
-					../../src/nmpls/FFT/IFFT8192/nm \
-					../../src/nmpls/Filter/common \
-					../../src/nmpls/Filtration/nm \
-					../../src/nmpls/Resample/common \
-					../../src/nmpls/Resample/nm \
-					../../src/nmplv/Arithmetics/common \
-					../../src/nmplv/Arithmetics/nm \
-					../../src/nmplv/Bitwise/nm \
-					../../src/nmplv/Init/common \
-					../../src/nmplv/Init/nm \
-					../../src/nmplv/Select/common \
-					../../src/nmplv/Select/nm \
-					../../src/nmplv/Stat/common \
-					../../src/nmplv/Stat/nm \
-					../../src/nmplv/Support/nm \
-					../../src/nmplv/Support/common \
-					../../src/nmplv/Tables/nm \
-					../../src/nmplv/Transform/common \
-					../../src/nmplv/Transform/nm \
-					../../src/nmvcore/nm \
-					../../src/nmpli/Arithmetics/nm \
-					../../src/nmpli/Convert/common \
-					../../src/nmpli/Convert/nm \
-					../../src/nmpli/Filtration/common \
-					../../src/nmpli/Filtration/nm \
-					../../src/nmpli/Floodfill/common \
-					../../src/nmpli/Floodfill/nm \
-					../../src/nmpli/Init/common \
-					../../src/nmpli/Print/nm \
-					../../src/nmpli/Reodering/nm \
-					../../src/nmpli/Resample/common \
-					../../src/nmpli/Resample/nm \
-					../../src/nmpli/Select/nm \
-					../../src/nmpli/Select/common \
-					../../src/nmpli/Support/common 
 
 LIB_DIRS         = 
 TMP_DIR          =Release
@@ -243,7 +176,7 @@ $(TMP_DIR)/%.asmx: %.c
 	$(CC) $(CC_FLAGS) $(<) -O$(@) $(INC_DIRS) 
 
 clean:
-	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
+	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk null
 	-$(OS_RD) Debug Release
  
 cleanall:

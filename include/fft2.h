@@ -158,7 +158,8 @@
 	//void nmppsFFT32FwdRawRef2x16( nm32sc* src, nm32sc* dst);
 	
 	void nmppsFFT64FwdRaw(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
-	void nmppsFFT64Fwd   (nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+	void nmppsFFT64Fwd   	(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+	void nmppsFFT64Fwd2x4x8	(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
 	int  nmppsFFT64FwdInitAlloc( NmppsFFTSpec* spec, int settings);
 	void nmppsFFT64Free( NmppsFFTSpec* spec);
 	//void nmppsFFT64FwdRawRef2x4x8( nm32sc* src, nm32sc* dst);

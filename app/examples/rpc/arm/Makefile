@@ -33,6 +33,7 @@ TARGET  =  rpc-demo
 CC_FLAGS = \
 -marm -march=armv4t -mfloat-abi=soft \
 --sysroot=$(ROOTFS) \
+-D_GNU_SOURCE \
 -I$(ROOTFS)/usr/include/arm-linux-gnueabi/aura-0.1.2/ \
 -I$(ROOTFS)/usr/include/ \
 -I$(ROOTFS)/usr/include/arm-linux-gnueabi/ \

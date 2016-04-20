@@ -43,7 +43,7 @@ begin ".text_fft"
 //                                                                          //
 //////////////////////////////////////////////////////////////////////////////
 //
-// total  instructions = 425 ticks
+// total  instructions = 425 ticks / 422 - best time
 // scalar instructions = 192 ticks
 // vector instructions = 425-192 = 233 ticks
 // vector stages       = 12

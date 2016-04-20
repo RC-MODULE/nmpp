@@ -124,7 +124,7 @@ TMP_DIR          = Release
 #------------------------------------------------
 AS_FLAGS         = $(INC_DIRS)
 #CC_FLAGS 		 = -g -Wall -fPIC $(INC_DIRS) -DRPC=y -std=c99
-CC_FLAGS = -DRPC=y -std=c99 -marm -march=armv4t -mfloat-abi=soft \
+CC_FLAGS = -DRPC=y -D_GNU_SOURCE -std=c99 -marm -march=armv4t -mfloat-abi=soft \
 -marm -march=armv4t -mfloat-abi=soft \
 --sysroot=$(ROOTFS) 
 

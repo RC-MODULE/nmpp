@@ -32,9 +32,9 @@ ifeq ($(OS),Windows_NT)
   OS_RD    = rd /Q /S 
   OS_WHICH =$(windir)/system32/where
  #OS_WGET  = wget
-  OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(NMPP)/deps/wget.ps1 
+  OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\wget.ps1 
  #OS_UNZIP = unzip 
-  OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)/deps/unzip.ps1 
+  OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\unzip.ps1 
   OS_TODIR = -d
   OS_TAR   = $(OS_UNZIP)
   PATH    := $(NEURO)/bin;$(MC5103)/bin;$(MB7707)/bin;$(MC7601)/bin;$(NMPP)/deps/gnuwin32/bin;$(VSHELL32)/bin;$(PATH)

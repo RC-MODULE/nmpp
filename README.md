@@ -67,7 +67,7 @@ You can download and locally install all latest actual components (board SDKs, v
 make download 
 make install
 ```
-It is recommended to do to prevent version mismatch between different components. It provides successful compilation and running of examples.
+It is recommended to do it to prevent version mismatch between different components. It provides successful compilation and running of examples.
 No any variables would be created or modified in global system environment, so your NMPP installation would be fully standalone (except installed board drivers)
 
 > FOR WINDOWS XP: PowerShell 2.0 is required to provide Internet downloading and unziping by 'make download'/'make install' commands . 
@@ -219,6 +219,6 @@ L---src                           - Sources
 
 
 ###FEEDBACK:  
-Please send comments, suggestions, and bug reports to Sergey Mushkaev<mushkaev@module.ru>
+Please send comments, suggestions, and bug reports to Sergey Mushkaev <mushkaev@module.ru>
 
 

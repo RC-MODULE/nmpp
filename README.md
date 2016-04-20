@@ -39,12 +39,7 @@ NMPP also provides emulation libraries for x86:
   Use **NMPP** environment variable in your own projects to specify a location of library. 
   You can set **NMPP** variable manually with the path were it has been installed or by 'make install' command from ./make folder.
 
-###EXAMPLES:
-  '/app/examples' contains different examples for emulator and next supported boards:
-  MC5101 board  
-  MC5103 board  
-  M77601 board  
-  MB7707 board  
+
 
 ###REQUIREMENTS  
 ####MAIN REQUIREMENTS TO BUILD NMC-LIBRARY:  
@@ -52,6 +47,8 @@ NMPP also provides emulation libraries for x86:
      Download, install [Gnu make installer](http://gnuwin32.sourceforge.net/downlinks/make.php)  and add **make.exe** location to the **PATH** variable.  
      Note: You should use **GNU make** only. Microsoft **nmake** cannot parse attached makefiles 
   2. Installed NeuroMatrix SDK
+  3. GnuWin32 utils. To become 'Makefile' fully crossplatformed on Windows OS and to enhances functionality with tests and examples you should have [GnuWin32 utils](http://sourceforge.net/projects/unxutils/) installed. 
+  In some cases gnu utils also needed to build examples  
 
 ####ADDITIONAL SDK REQUIREMENTS FOR EMULATION-LIBRARIES AND EXAMPLES:    
   3. Board SDK: (necessary  to build and run examples)
@@ -62,21 +59,18 @@ NMPP also provides emulation libraries for x86:
   4. VSHELL - graphic shell
   5. Installed Visual Studio 8  [Visual Studio 2005 Express](http://apdubey.blogspot.ru/2009/04/microsoft-visual-studio-2005-express.html)
   6. Installed Visual Studio 13 [Visual Studio 2013 Express](https://www.microsoft.com/en-US/download/details.aspx?id=44914)  
-
-####SYSTEM REQUIREMENTS TO WORK WITH EMULATION-LIBRARIES AND EXAMPLES:      
-  7. GnuWin32 utils. To become 'Makefile' fully crossplatformed on Windows OS and to enhances functionality with tests and examples you should have [GnuWin32 utils](http://sourceforge.net/projects/unxutils/) installed. 
-  In some cases gnu utils also needed to build examples  
+  7. Installed Gnu GCC.  http://www.mingw.org/ 
 
 ####DOWNLOADING DEPENDENCIES
-You can download and locally install all latest actual components (except Vsisual Studio) into **/deps** folder by two commands from **/deps** folder:
+You can download and locally install all latest actual components (board SDKs, vshell, GnuWin32 utils) into **/deps** folder by two commands from **/deps** folder:
 ```bat
 make download 
 make install
 ```
-It is recommended to do it to prevent version mismatch between different components. It provides successful compilation and running of examples.
+It is recommended to do to prevent version mismatch between different components. It provides successful compilation and running of examples.
 No any variables would be created or modified in global system environment, so your NMPP installation would be fully standalone (except installed board drivers)
 
-> FOR WINDOWS XP: PowerShell 2.0 is required to provide Internet downloading. 
+> FOR WINDOWS XP: PowerShell 2.0 is required to provide Internet downloading and unziping by 'make download'/'make install' commands . 
   To install Windows Powershell 2.0 on an XP machine, you must have Windows XP Service Pack 3 installed. Powershell is included in the Windows Management Framework which you can download at https://support.microsoft.com/ru-ru/kb/968929
   Also [Microsoft .NET Framework 2.0 Service Pack 1 (x86)](https://www.microsoft.com/ru-RU/download/details.aspx?id=16614) may be required
   
@@ -90,7 +84,6 @@ No any variables would be created or modified in global system environment, so y
   Where 'CROSS_COMPILE' variable should contain prefix of your GCC cross-compiler.  
   VS80-version build will be skipped if 'VS80COMNTOOLS'  environment variable is not defined in your system.   
   VS13-version build will be skipped if 'VS120COMNTOOLS' environment variable is not defined in your system.   
-  
   
 ###EXAMPLES:  
 Each library component contains several examples in /app/examples  

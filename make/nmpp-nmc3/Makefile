@@ -187,7 +187,7 @@ cleanall:
 #	$(MAKE) -f checktools.mk
 
 #========================== Visual Studio 8 support ===================
-export ALL_CPP ALL_ASM ALL_C ALL_H
+#export ALL_CPP ALL_ASM ALL_C ALL_H
 
 vs8: $(PROJECT).vcproj
 

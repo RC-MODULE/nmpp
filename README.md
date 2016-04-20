@@ -22,13 +22,13 @@
 nmpp-library supports nmc3-core processor family : NM6405,NM6406, and SOCs  
   /lib/nmpp_nmc3.lib   (Release)  
   /lib/nmpp_nmc3d.lib  (Debug)  
-'Supported boards':    
+'Supported boards in examples':    
   MC5101 board  
   MC5103 board  
   M77601 board  
   MB7707 board  
  
-It is also provided by emulation libraries for x86:  
+NMPP also provides emulation libraries for x86:  
   /lib/libnmpp_gcc.a  - compiled by GNU GCC under Windows  
   /lib/nmpp_vs80.lib  - (Release) compiled by Microsoft Visual Studio 8.0  
   /lib/nmpp_vs80d.lib - (Debug)  
@@ -47,7 +47,7 @@ It is also provided by emulation libraries for x86:
      Download and install [Gnu make installer](http://gnuwin32.sourceforge.net/downlinks/make.php)  
      Note: You should use **GNU make** only. Microsoft **nmake** cannot parse attached makefiles 
   2. Installed NeuroMatrix SDK
-  3. (Optional) Installed GnuWin32 utils  . It enhances 'Makefile' functionality and make it to be cross-platform . It may be necessary to build examples in some cases http://sourceforge.net/projects/unxutils/ 
+  3. (Optional) Installed [GnuWin32 utils](http://sourceforge.net/projects/unxutils/)  . It enhances 'Makefile' functionality and make it to be cross-platform. In some cases it also needed to build examples  
   4. (Optional) Board SDK: (necessary  to build examples)
     - mc5103sdk (MC5103 Board support SDK)
     - mc7601sdk (MC7601 Board support SDK)

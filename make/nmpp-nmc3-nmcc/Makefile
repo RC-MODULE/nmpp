@@ -72,12 +72,12 @@
 
 #--------------  target & input dirs -------------------
 ROOT             = ../..
-include 		$(ROOT)/setenv.mk
-include 		../src.mk
+include 		$(ROOT)/global.mk
+include 		$(ROOT)/make/src.mk
 PROJECT          = nmpp-nmc3
-OUT_DIR          = ../../lib
+OUT_DIR          = $(ROOT)/lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib
-INC_DIRS         = -I"$(NEURO)/include" -I../../include
+INC_DIRS         = -I"$(NEURO)/include" -I$(ROOT)/include
 
 
 

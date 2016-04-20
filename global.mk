@@ -1,9 +1,10 @@
 
-#NMPP             = $(ROOT)/deps/nmpp
+NMPP      = $(ROOT)
 #NMPROFILER       = $(ROOT)/deps/nmprofiler
 #http_proxy        = http://user:pass@proxy:80/       (for wget usage)
 
-NEURO    ?= $(realpath $(NMPP))/deps/nmsdk
+#NEURO    ?= $(realpath $(NMPP))/deps/nmsdk
+NEURO    = $(NMPP)/deps/nmsdk
 #VSHELL32 = $(realpath $(ROOT))/deps/vshell32
 MC5103   = $(NMPP)/deps/mc5103sdk
 MC7601   = $(NMPP)/deps/mc7601sdk
@@ -13,12 +14,15 @@ MB7707   = $(NMPP)/deps/mb7707sdk
 
 
 ifeq ($(OS),Windows_NT)
-  AURA     = d:/GIT/matlab/aura_master
+#  AURA     = d:/GIT/matlab/aura_master
+#  AURA    = d:/GIT/matlab/aura
+   ROOTFS  = d:/GIT/matlab/rootfs
+   AURA    = $(ROOTFS)/usr/include/arm-linux-gnueabi/aura-0.1.2/aura
 #  ARM_CC   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-gcc
-   ARM_CC   = d:/GIT/matlab/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/bin/arm-linux-gnueabi-gcc.exe
+   ARM_CC   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-gcc.exe
 #  ARM_AR   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-ar
-   ARM_AR   = d:/GIT/matlab/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/bin/arm-linux-gnueabi-ar.exe
-   ARM_LD   = d:/GIT/matlab/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/gcc-linaro-5.3-2016.02-i686-mingw32_arm-linux-gnueabi/bin/arm-linux-gnueabi-ld.exe
+   ARM_AR   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ar.exe
+   ARM_LD   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ld.exe
 
   
   SHELL    = cmd

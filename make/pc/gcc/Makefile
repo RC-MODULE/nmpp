@@ -76,68 +76,13 @@
 
 #--------------  target & input dirs -------------------
 ROOT             = ../../..
+include          $(ROOT)/global.mk
+include          $(ROOT)/make/src.mk
+SRC_DIRS        := $(subst /nm ,/pc ,$(SRC_DIRS))
 PROJECT          = nmpp-gcc
 OUT_DIR          = $(ROOT)/lib
 TARGET           = $(OUT_DIR)/lib$(PROJECT).a
 INC_DIRS         = -I"$(NEURO)/include" -I$(ROOT)/include -I$(ROOT)/include/nmpls
-SRC_DIRS         =  \
-				../../../src/nmplc/arithmetic/common \
-				../../../src/nmplc/fixpoint32/pc \
-				../../../src/nmplc/fixpoint64/pc \
-				../../../src/nmplc/init/common \
-				../../../src/nmplc/integer/pc \
-				../../../src/nmpli/Arithmetics/pc \
-				../../../src/nmpli/Convert/common \
-				../../../src/nmpli/Convert/pc \
-				../../../src/nmpli/Filtration/common \
-				../../../src/nmpli/Filtration/pc \
-				../../../src/nmpli/Floodfill/common \
-				../../../src/nmpli/Floodfill/pc \
-				../../../src/nmpli/Init/common \
-				../../../src/nmpli/Reodering/pc \
-				../../../src/nmpli/Resample/common \
-				../../../src/nmpli/Resample/pc \
-				../../../src/nmpli/Select/pc \
-				../../../src/nmpli/Support/common \
-				../../../src/nmplm/Core/pc \
-				../../../src/nmplm/Init/pc \
-				../../../src/nmplm/Inverse/common \
-				../../../src/nmplm/MatrixVector/pc \
-				../../../src/nmplm/Support/common \
-				../../../src/nmplm/Support/pc \
-				../../../src/nmpls/Correlation/pc \
-				../../../src/nmpls/FFT/FFT0256/pc \
-				../../../src/nmpls/FFT/FFT0512/pc \
-				../../../src/nmpls/FFT/FFT1024/pc \
-				../../../src/nmpls/FFT/FFT2048/pc \
-				../../../src/nmpls/FFT/FFT4096/pc \
-				../../../src/nmpls/FFT/FFT8192/pc \
-				../../../src/nmpls/FFT/IFFT0256/pc \
-				../../../src/nmpls/FFT/IFFT0512/pc \
-				../../../src/nmpls/FFT/IFFT1024/pc \
-				../../../src/nmpls/FFT/IFFT2048/pc \
-				../../../src/nmpls/FFT/IFFT4096/pc \
-				../../../src/nmpls/FFT/IFFT8192/pc \
-				../../../src/nmpls/Filter/common \
-				../../../src/nmpls/Filtration/pc \
-				../../../src/nmpls/Resample/common \
-				../../../src/nmpls/Resample/pc \
-				../../../src/nmplv/Arithmetics/common \
-				../../../src/nmplv/Arithmetics/pc \
-				../../../src/nmplv/Bitwise/pc \
-				../../../src/nmplv/Init/common \
-				../../../src/nmplv/Init/pc \
-				../../../src/nmplv/nmtl_spec/pc \
-				../../../src/nmplv/Select/common \
-				../../../src/nmplv/Stat/common \
-				../../../src/nmplv/Select/pc \
-				../../../src/nmplv/Stat/pc \
-				../../../src/nmplv/Support/pc \
-				../../../src/nmplv/Support/common \
-				../../../src/nmplv/Transform/common \
-				../../../src/nmplv/Transform/pc
-
-					
 
 LIB_DIRS         = 
 TMP_DIR          =Release
@@ -153,7 +98,7 @@ CC_FLAGS         =-std=c99 -c
 BUILDER          =ar
 BUILDER_FLAGS    =rcs $(TARGET)
 #--------------  Visual Studio config (for vs8.mk)--
-HEADER_DIRS      =$(ROOT)/include $(ROOT)/source
+HEADER_DIRS      =$(ROOT)/include $(ROOT)/include/nmplv $(ROOT)/include/nmpli $(ROOT)/include/nmpls $(ROOT)/include/nmplm $(ROOT)/include/nmplc
 RESOURCES        =Makefile
 
 
@@ -186,18 +131,15 @@ endif
 
 # regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)
 ALL_CPP =$(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
-ALL_ASM =$(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
 ALL_C   =$(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
-
+ALL_H   =$(wildcard $(addsuffix /*.h,$(HEADER_DIRS)))
 
 VPATH    = $(SRC_DIRS)
 
 # collecting of objects
 OBJECTS_CPP = $(notdir $(patsubst %.cpp,%.o,$(ALL_CPP)))
-OBJECTS_ASM = $(notdir $(patsubst %.asm,%.o,$(ALL_ASM)))
 OBJECTS_C   = $(notdir $(patsubst %.c,%.o,$(ALL_C)))
 OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM))
-
 
 
 #======================== BUILD RULES ====================================
@@ -228,15 +170,15 @@ $(TMP_DIR)/%.o: %.c
 	$(CC) $(CC_FLAGS) $(<) -o $(@) $(INC_DIRS) 
 
 clean:
-	-rm -f -r *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb 
-	-rm -f -r Release Debug
+	-$(OS_RM) *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb 
+	-$(OS_RD) Release Debug
  
 cleanall:
 	$(MAKE) clean
 	$(MAKE) clean DEBUG=y
 	
-.toolchecked.mk:
-	$(MAKE) -f checktools.mk
+#.toolchecked.mk:
+#	$(MAKE) -f checktools.mk
 	
 #========================== Visual Studio 8 support ===================
 export ALL_CPP ALL_ASM ALL_C ALL_H
@@ -253,4 +195,3 @@ $(PROJECT).vcxproj: Makefile
 
 skip:
 	@echo SDK missing. Compilation is skipped!
-	

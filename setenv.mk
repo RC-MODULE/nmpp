@@ -18,10 +18,10 @@ ifeq ($(OS),Windows_NT)
    ROOTFS  = d:/GIT/matlab/rootfs
    AURA    = $(ROOTFS)/usr/include/arm-linux-gnueabi/aura-0.1.2/aura
 #  ARM_CC   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-gcc
-   ARM_CC   = d:\GIT\matlab\gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32\bin\arm-linux-gnueabihf-gcc.exe
+   ARM_CC   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-gcc.exe
 #  ARM_AR   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-ar
-   ARM_AR   = d:\GIT\matlab\gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32\bin\arm-linux-gnueabihf-ar.exe
-   ARM_LD   = d:\GIT\matlab\gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32\bin\arm-linux-gnueabihf-ld.exe
+   ARM_AR   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ar.exe
+   ARM_LD   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ld.exe
 
   
   SHELL    = cmd
@@ -31,13 +31,12 @@ ifeq ($(OS),Windows_NT)
   OS_RD    = rd /Q /S 
   OS_WHICH =$(windir)/system32/where
  #OS_WGET  = wget
-#  OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(ROOT)/deps/wget.ps1 
-  OS_WGET  = powershell  -ExecutionPolicy Bypass -file  $(ROOT)/deps/wget.ps1 
+  OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(NMPP)/deps/wget.ps1 
  #OS_UNZIP = unzip 
-  OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(ROOT)/deps/unzip.ps1 
+  OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)/deps/unzip.ps1 
   OS_TODIR = -d
   OS_TAR   = $(OS_UNZIP)
-  PATH    := $(NEURO)/bin;$(MC5103)/bin;$(MB7707)/bin;$(MC7601)/bin;$(ROOT)/deps/gnuwin32/bin;$(VSHELL32)/bin;$(PATH)
+  PATH    := $(NEURO)/bin;$(MC5103)/bin;$(MB7707)/bin;$(MC7601)/bin;$(NMPP)/deps/gnuwin32/bin;$(VSHELL32)/bin;$(PATH)
   #prevents call of embedded 'find.exe' in Windows and GNU make becomes callable
   #PATH:= $(subst $(SystemRoot),,$(PATH))	
 

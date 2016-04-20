@@ -70,7 +70,7 @@
 #endif
 
 ROOT = ../..
-include $(ROOT)/setenv.mk
+include $(ROOT)/global.mk
 
 CC =$(ARM_CC)
 LD =$(ARM_CC)
@@ -85,7 +85,6 @@ endef
 
 #--------------  target & input dirs -------------------
 ROOT             = ../..
-include $(ROOT)/setenv.mk
 PROJECT          = libnmpp-arm-rpc
 OUT_DIR          = ../../lib
 ifeq ($(OS),Windows_NT)

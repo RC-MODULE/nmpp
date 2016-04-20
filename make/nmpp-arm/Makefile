@@ -70,7 +70,7 @@
 #endif
 
 ROOT = ../..
-include $(ROOT)/setenv.mk
+include $(ROOT)/global.mk
 
 CC =$(ARM_CC)
 LD =$(ARM_CC)
@@ -81,7 +81,7 @@ OBJDUMP = $(ARM_CC)-objdump
 
 #--------------  target & input dirs -------------------
 ROOT             = ../..
-include $(ROOT)/setenv.mk
+include $(ROOT)/global.mk
 PROJECT          = arm
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a

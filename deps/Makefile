@@ -119,5 +119,5 @@ $(DOWNLOADS):
 #------------------------------------------------------------------------------------	
 clean:
 	-$(OS_RM) *.zip *.exe
-	-$(OS_RD) mb7707sdk mc5103sdk mc7601sdk nmsdk vshell32 gnuwin32
+	-$(OS_RD) mb7707sdk mc5103sdk mc7601sdk nmsdk vshell32 gnuwin32 nm_io
 	

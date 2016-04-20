@@ -72,12 +72,12 @@
 
 #--------------  target & input dirs -------------------
 ROOT             = ../..
-include $(ROOT)/setenv.mk
-include ../src.mk
+include          $(ROOT)/global.mk
+include          $(ROOT)/make/src.mk
 PROJECT          = nmpp-nmc3
-OUT_DIR          = ../../lib
+OUT_DIR          = $(ROOT)/lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib
-INC_DIRS         = -I"$(NEURO)/include" -I../../include
+INC_DIRS         = -I"$(NEURO)/include"  -I$(ROOT)/include
 
 LIB_DIRS         = 
 TMP_DIR          =Release
@@ -105,7 +105,7 @@ BUILDER_FLAGS   +=-d0
 TMP_DIR          =Debug
 endif 
 #--------------  Visual Studio config (for vs8.mk)--
-HEADER_DIRS      =../../include ../../include/nmplv ../../include/nmpli ../../include/nmpls ../../include/nmplm ../../include/nmplc
+HEADER_DIRS      =$(ROOT)/include $(ROOT)/include/nmplv $(ROOT)/include/nmpli $(ROOT)/include/nmpls $(ROOT)/include/nmplm $(ROOT)/include/nmplc
 RESOURCES        =Makefile
 
 

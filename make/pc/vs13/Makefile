@@ -76,74 +76,20 @@ endif
 
 #--------------  target & input dirs -------------------
 ROOT             = ../../..
+include $(ROOT)/global.mk
+include $(ROOT)/make/src.mk
+SRC_DIRS        := $(subst /nm ,/pc ,$(SRC_DIRS))
 PROJECT          = nmpp-vs13
 OUT_DIR          = $(ROOT)/lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib
 TARGETD          = $(OUT_DIR)/$(PROJECT)d.lib
 INC_DIRS         = -I$(ROOT)/include -I$(ROOT)/include/nmpls
-SRC_DIRS         = 	\
-				../../../src/nmplc/arithmetic/common \
-				../../../src/nmplc/fixpoint32/pc \
-				../../../src/nmplc/fixpoint64/pc \
-				../../../src/nmplc/init/common \
-				../../../src/nmplc/integer/pc \
-				../../../src/nmpli/Arithmetics/pc \
-				../../../src/nmpli/Convert/common \
-				../../../src/nmpli/Convert/pc \
-				../../../src/nmpli/Filtration/common \
-				../../../src/nmpli/Filtration/pc \
-				../../../src/nmpli/Floodfill/common \
-				../../../src/nmpli/Floodfill/pc \
-				../../../src/nmpli/Init/common \
-				../../../src/nmpli/Reodering/pc \
-				../../../src/nmpli/Resample/common \
-				../../../src/nmpli/Resample/pc \
-				../../../src/nmpli/Select/pc \
-				../../../src/nmpli/Support/common \
-				../../../src/nmplm/Core/pc \
-				../../../src/nmplm/Init/pc \
-				../../../src/nmplm/Inverse/common \
-				../../../src/nmplm/MatrixVector/pc \
-				../../../src/nmplm/Support/common \
-				../../../src/nmplm/Support/pc \
-				../../../src/nmpls/Correlation/pc \
-				../../../src/nmpls/FFT/FFT0256/pc \
-				../../../src/nmpls/FFT/FFT0256/common \
-				../../../src/nmpls/FFT/FFT0512/pc \
-				../../../src/nmpls/FFT/FFT0512/common \
-				../../../src/nmpls/FFT/FFT1024/pc \
-				../../../src/nmpls/FFT/FFT2048/pc \
-				../../../src/nmpls/FFT/FFT4096/pc \
-				../../../src/nmpls/FFT/FFT8192/pc \
-				../../../src/nmpls/FFT/IFFT0256/pc \
-				../../../src/nmpls/FFT/IFFT0512/pc \
-				../../../src/nmpls/FFT/IFFT1024/pc \
-				../../../src/nmpls/FFT/IFFT2048/pc \
-				../../../src/nmpls/FFT/IFFT4096/pc \
-				../../../src/nmpls/FFT/IFFT8192/pc \
-				../../../src/nmpls/Filter/common \
-				../../../src/nmpls/Filtration/pc \
-				../../../src/nmpls/Resample/common \
-				../../../src/nmpls/Resample/pc \
-				../../../src/nmplv/Arithmetics/common \
-				../../../src/nmplv/Arithmetics/pc \
-				../../../src/nmplv/Bitwise/pc \
-				../../../src/nmplv/Init/common \
-				../../../src/nmplv/Init/pc \
-				../../../src/nmplv/nmtl_spec/pc \
-				../../../src/nmplv/Select/common \
-				../../../src/nmplv/Stat/common \
-				../../../src/nmplv/Select/pc \
-				../../../src/nmplv/Stat/pc \
-				../../../src/nmplv/Support/pc \
-				../../../src/nmplv/Support/common \
-				../../../src/nmplv/Transform/common \
-				../../../src/nmplv/Transform/pc
+
 
 					
 
 LIB_DIRS         =
-TMP_DIR          =Release
+TMP_DIR          = Release
 LIBS             = 
 #--------------  RELEASE/ALL config -------------------
 CROSS_COMPILE   ?=
@@ -162,7 +108,10 @@ BUILDER_FLAGS    =
 
 
 
-
+#--------------  DEBUG config -------------------------
+ifdef DEBUG      
+TMP_DIR          =Debug
+endif 
 #--------------  Visual Studio config (for vs8.mk)--
 HEADER_DIRS      =$(ROOT)/source $(ROOT)/include $(ROOT)/include/nmplv $(ROOT)/include/nmpli $(ROOT)/include/nmpls $(ROOT)/include/nmplm $(ROOT)/include/nmplc
 RESOURCES        =Makefile 
@@ -183,16 +132,8 @@ ALL_C   =$(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
 ALL_H   =$(wildcard $(addsuffix /*.h,$(HEADER_DIRS)))
 
 
-
 VPATH    = $(SRC_DIRS)
 
-
-
-
-#==================== Handle OS Specifics ==========================
-  OS_WHICH= where
-  OS_RM   = del /Q
-  OS_RD   = rd /Q /S
 
 
 #======================== BUILD RULES ====================================
@@ -216,7 +157,7 @@ $(TARGET): $(PROJECT).vcxproj
  
 
 clean:
-	-$(OS_RM) *.exe *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk
+	-$(OS_RM) *.exe *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk null
 	-$(OS_RD) Debug Release
  
 .toolchecked.mk:

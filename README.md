@@ -39,32 +39,38 @@ NMPP also provides emulation libraries for x86:
   Run command 'make' to build all (nmc3, gcc , vs80 and vs13 ) libraries from ./make folder.  Or run command 'make' from sub-folder with corresponding platform 
  
 ###USAGE:  
-  Use 'NMPP' environment variable in your makefile to specify a location of library. 
-  You can set 'NMPP' variable manually to path were it has been installed or by 'make install' command from ./make folder.
+  Use 'NMPP' environment variable in your own projects to specify a location of library. 
+  You can set 'NMPP' variable manually with the path were it has been installed or by 'make install' command from ./make folder.
  
 ###REQUIREMENTS:  
-  1. (OS WINDOWS) To build library and attached examples **GNU make** must be installed . http://gnuwin32.sourceforge.net/packages/make.htm  
-     Download and install [Gnu make installer](http://gnuwin32.sourceforge.net/downlinks/make.php)  
+  1. FOR WINDOWS OS: To compile library and attached examples **GNU make** must be installed . http://gnuwin32.sourceforge.net/packages/make.htm  
+     Download, install [Gnu make installer](http://gnuwin32.sourceforge.net/downlinks/make.php)  and add **make.exe** location to the **PATH** variable
      Note: You should use **GNU make** only. Microsoft **nmake** cannot parse attached makefiles 
   2. Installed NeuroMatrix SDK
-  3. (Optional) Installed [GnuWin32 utils](http://sourceforge.net/projects/unxutils/)  . It enhances 'Makefile' functionality and make it to be cross-platform. In some cases it also needed to build examples  
-  4. (Optional) Board SDK: (necessary  to build examples)
+  3. (Optional) Installed [GnuWin32 utils](http://sourceforge.net/projects/unxutils/)  . It enhances 'Makefile' functionality and makes it crossplatformed. In some cases gnu utils also needed to build examples  
+  4. (Optional) Board SDK: (necessary  to build and run examples)
     - mc5103sdk (MC5103 Board support SDK)
     - mc7601sdk (MC7601 Board support SDK)
     - mb7707sdk (MB77.07 Board support SDK) + WinPCap
     *Is is assumed that board drivers installed by user*
-  4. (Optional) Installed Gnu GCC. Recommended for header dependency parcing build gcc-version of library build of gcc-examples http://www.mingw.org/
   5. (Optional) Installed Visual Studio 8  [Visual Studio 2005 Express](http://apdubey.blogspot.ru/2009/04/microsoft-visual-studio-2005-express.html)
   6. (Optional) Installed Visual Studio 13 [Visual Studio 2013 Express](https://www.microsoft.com/en-US/download/details.aspx?id=44914)  
+  7. FOR WINDOWS XP: PowerShell 2.0 is required to download dependencies from Internet. 
+  To install Windows Powershell 2.0 on an XP machine, you must have Windows XP Service Pack 3 installed. Powershell is included in the Windows Management Framework which you can download at https://support.microsoft.com/ru-ru/kb/968929
+  It also [Microsoft .NET Framework 2.0 Service Pack 1 (x86)](https://www.microsoft.com/ru-RU/download/details.aspx?id=16614) may be required
+  [comment]:  (Optional) Installed Gnu GCC. Recommended for header dependency parcing and build the gcc-version of library build of gcc-examples http://www.mingw.org/
 
-> To prevent version mismatch between different components and provide successful compilation of examples
-it is recommended to download and install locally depended (2,3,4) components by next commands from **/deps** folder
+
+> You can download and locally install latest actual and verified components (2,3,4) into **/deps** folder by two commands from **/deps** folder:
 ```bat
 make download 
 make install
 ```
+It is recommended to do it to prevent version mismatch between different components. It provides successful compilation and running of examples.
+No any variables would be created or modified in global system environment, so your NMPP installing would be fully standalone (except installed board drivers)
+
   
-**NOTE!** If environment variables like **NEURO, MC5103 , MB7707** defined by **?=** in **global.mk** then system value would be used (if exist), otherwise (by **=**) they will be overrided by local pathes!  
+**NOTE!** If environment variables like **NEURO, MC5103 , MB7707** defined like **?=** in **global.mk** then system value would be used (if exist), otherwise (by **=**) they will be overrided by local pathes!  
 By switching between **?=** and **=** you can select what SDK installation to use (system or local).
 
  

@@ -47,7 +47,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>;../../../include;../../../include/nmpls</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>;$(NMPP)/include;$(NMPP)/include/nmpls</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -66,7 +66,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-	  <AdditionalIncludeDirectories>;../../../include;../../../include/nmpls</AdditionalIncludeDirectories>
+	  <AdditionalIncludeDirectories>;$(NMPP)/include;$(NMPP)/include/nmpls</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -122,8 +122,10 @@
  	<ClCompile Include="../../../src/nmplm/MatrixVector/pc/nmppm-Mul_mv.cpp" /> 
  	<ClCompile Include="../../../src/nmplm/MatrixVector/pc/nmppm-Mul_mv_ext.cpp" /> 
  	<ClCompile Include="../../../src/nmplm/Support/common/mtrSetMatrix.cpp" /> 
- 	<ClCompile Include="../../../src/nmplm/Support/pc/MTR_GetCol.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/Correlation/pc/SIG_XCorr.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/common/nmpps-common.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0032/common/nmpps-fft32fwdref.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0064/common/nmpps-fft64fwdref.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT0256/pc/pcFFT256.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT0256/pc/W256Tbl.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT0256/common/nmpps-fft256fwd.cpp" /> 
@@ -134,8 +136,12 @@
  	<ClCompile Include="../../../src/nmpls/FFT/FFT0512/common/nmpps-FFT512Inv.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT1024/pc/pcFFT1024.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT1024/pc/W1024Tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT1024/common/nmpps-FFT1024Fwd.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT1024/common/nmpps-FFT1024Inv.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT2048/pc/pcFFT2048.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT2048/pc/W2048Tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT2048/common/nmpps-FFT2048Fwd.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT2048/common/nmpps-FFT2048Inv.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT4096/pc/pcFFT4096.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/FFT8192/pc/pcFFT8192.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/IFFT0256/pc/iW256Tbl.cpp" /> 
@@ -159,7 +165,6 @@
  	<ClCompile Include="../../../src/nmpls/Resample/pc/SIG_ResizeDown2.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/common/VEC_DivC__nm64sc_nm64sc.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Init/common/Rand.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/nmtl_spec/pc/tcmplx_spec.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsClip_Arsh_Cnv_AddC_Ext.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsClipPowArshCnvAddC.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinPos1024.cpp" /> 
@@ -181,6 +186,11 @@
  	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/SCL_FixMul32__int.c" /> 
  	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/scl_fixsqrt32__int.c" /> 
  	<ClCompile Include="../../../src/nmpli/Filtration/common/nmppi-FilterInitAlloc_08s16s.c" /> 
+ 	<ClCompile Include="../../../src/nmpls/Metric/msd.c" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0032/pc/nmpps-fft32fwd.c" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0032/common/nmpps-fft32fwdinit.c" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0064/pc/nmpps-fft64fwd.c" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/FFT0064/common/nmpps-fft64fwdinit.c" /> 
  	<ClCompile Include="../../../src/nmpls/Filter/common/nmpps-firinitalloc_8s16s.c" /> 
  	<ClCompile Include="../../../src/nmpls/Filtration/pc/nmpps-fir.c" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/common/nmpps-DotProd_16s16s.c" /> 
@@ -249,7 +259,6 @@
  	<ClCompile Include="../../../src/nmplv/Select/common/nmppsMinIndx_nm16s.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/common/nmppsMinIndx_nm32s.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/common/nmppsMinIndx_nm8s.c" /> 
- 	<ClCompile Include="../../../src/nmplv/Stat/common/nmpps_Crc.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmpps-ClipConvertAddC.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmpps-CmpNe0.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsClipPowC.c" /> 
@@ -270,6 +279,7 @@
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinCmpLtV.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinEvery.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinEveryN.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Stat/common/nmpps_Crc.c" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/CRC32_Table.c" /> 
  	<ClCompile Include="../../../src/nmplv/Stat/pc/VEC_Crc.c" /> 
  	<ClCompile Include="../../../src/nmplv/Support/pc/nmpps-Get.c" /> 

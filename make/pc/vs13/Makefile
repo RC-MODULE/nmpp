@@ -163,16 +163,11 @@ clean:
 .toolchecked.mk:
 	$(MAKE) -f checktools.mk	
 #========================== Visual Studio 8 support ===================
-export HEADER_DIRS
-export INC_DIRS LIB_DIRS
-export LIBS LIBSD
-export ALL_CPP ALL_ASM ALL_C ALL_H
-export TARGET TARGETD
 
 vs13: $(PROJECT).vcxproj
 
 $(PROJECT).vcxproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs13.mk vc-lib --silent >$(@)	
+	make --file=$(ROOT)/deps/projector/vs13.mk vc-lib MAK=$(realpath .)/Makefile --silent >$(@)
 
 skip:
 	@echo SDK missing. Compilation is skipped!

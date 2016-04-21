@@ -4,6 +4,7 @@
 	Version="8,00"
 	Name="nmpp-nmc3"
 	ProjectGUID="{4CEC77FB-E193-4341-A3BF-C83449DFE67B}"
+	RootNamespace="nmpp-nmc3"
 	Keyword="MakeFileProj"
 	>
 	<Platforms>
@@ -27,7 +28,7 @@
 				CleanCommandLine="make DEBUG=y clean"
 				Output="see makefile"
 				PreprocessorDefinitions="NEURO;_DEBUG"
-				IncludeSearchPath=""
+				IncludeSearchPath=";$(NEURO)/include;../../include"
 				ForcedIncludes=""
 				AssemblySearchPath=""
 				ForcedUsingAssemblies=""
@@ -47,7 +48,7 @@
 				CleanCommandLine="make clean"
 				Output="see makefile"
 				PreprocessorDefinitions="WIN32;NDEBUG"
-				IncludeSearchPath=""
+				IncludeSearchPath=";$(NEURO)/include;../../include"
 				ForcedIncludes=""
 				AssemblySearchPath=""
 				ForcedUsingAssemblies=""
@@ -512,6 +513,42 @@
 				>
 			</File>
 			<File
+				RelativePath="../../src/nmpls/FFT/common/nmpps-common.cpp"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/FFT0032/common/nmpps-fft32fwdinit.c"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/FFT0032/common/nmpps-fft32fwdref.cpp"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/FFT0032/nm/nmpps-FFT32Fwd_2x16.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/FFT0032/nm/nmpps-FFT32FwdRaw_2x16.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/FFT0064/common/nmpps-fft64fwdinit.c"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/FFT0064/common/nmpps-fft64fwdref.cpp"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/FFT0064/nm/nmpps-FFT64Fwd_2x4x8.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/FFT0064/nm/nmpps-FFT64FwdRaw_2x16.asm"
+				>
+			</File>
+			<File
 				RelativePath="../../src/nmpls/FFT/FFT0256/common/nmpps-fft256fwd.cpp"
 				>
 			</File>
@@ -788,6 +825,10 @@
 				>
 			</File>
 			<File
+				RelativePath="../../src/nmpls/Metric/msd.c"
+				>
+			</File>
+			<File
 				RelativePath="../../src/nmpls/Resample/common/SIG_CreateResampleDown2_16u16u.cpp"
 				>
 			</File>
@@ -857,6 +898,14 @@
 			</File>
 			<File
 				RelativePath="../../src/nmplv/Arithmetics/nm/nmpps-AddC_64s.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmplv/Arithmetics/nm/nmpps-MulC_08s.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmplv/Arithmetics/nm/nmpps-MulC_16s.asm"
 				>
 			</File>
 			<File
@@ -1289,10 +1338,6 @@
 			</File>
 			<File
 				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_RShiftC_AddC__nm16u.asm"
-				>
-			</File>
-			<File
-				RelativePath="../../src/nmplv/Bitwise/nm/nmpps_XorC__nm64u.asm"
 				>
 			</File>
 			<File
@@ -2482,7 +2527,27 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath="../../include/arm/nmplv.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/arm/nmtype.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/arm/vArithmetics.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/crtdbg2.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/crtdbg2.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/fft.h"
 				>
 			</File>
 			<File
@@ -2494,7 +2559,27 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/fft2.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/malloc32.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/malloc32.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/metric.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/metric.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/multiheap.h"
 				>
 			</File>
 			<File
@@ -2506,7 +2591,19 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmchar.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmdef.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmdef.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplc.h"
 				>
 			</File>
 			<File
@@ -2518,7 +2615,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmplc/cArithmetic.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplc/cArithmetic.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmplc/cfixpnt32.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplc/cfixpnt32.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplc/cfixpnt32.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplc/cfixpnt64.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplc/cfixpnt64.h"
 				>
 			</File>
 			<File
@@ -2530,7 +2651,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmplc/cInit.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplc/cInit.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmplc/cInteger.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplc/cInteger.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplc/cInteger.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplc/nmplc.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplc/nmplc.h"
 				>
 			</File>
 			<File
@@ -2542,7 +2687,27 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmpli.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmpli/filter.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/filter.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/filter.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iArithmetics.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iArithmetics.h"
 				>
 			</File>
 			<File
@@ -2554,7 +2719,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmpli/iCellTexture.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iCellTexture.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmpli/iDef.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iDef.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iDef.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iDeinterlace.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iDeinterlace.h"
 				>
 			</File>
 			<File
@@ -2566,7 +2755,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmpli/iFilter.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iFilter.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmpli/iFiltration.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iFiltration.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iFiltration.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iFloodFill.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iFloodFill.h"
 				>
 			</File>
 			<File
@@ -2578,7 +2791,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmpli/iInit.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iInit.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmpli/iPlessy.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iPlessy.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iPlessy.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iPlessyDetector.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iPlessyDetector.h"
 				>
 			</File>
 			<File
@@ -2590,7 +2827,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmpli/iPrint.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iPrint.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmpli/iReodering.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iReodering.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iReodering.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iResample.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iResample.h"
 				>
 			</File>
 			<File
@@ -2602,7 +2863,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmpli/iSelect.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iSelect.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmpli/isubpixel2d.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/isubpixel2d.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/isubpixel2d.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/isubpixel2dimpl.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/isubpixel2dimpl.h"
 				>
 			</File>
 			<File
@@ -2614,7 +2899,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmpli/iSupport.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/iSupport.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmpli/nmpli.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/nmpli.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/nmpli.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/warpimg.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpli/warpimg.h"
 				>
 			</File>
 			<File
@@ -2626,7 +2935,27 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmplm.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmplm/mInit.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplm/mInit.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplm/mInit.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplm/mInverse.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplm/mInverse.h"
 				>
 			</File>
 			<File
@@ -2638,7 +2967,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmplm/mMatrixVector.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplm/mMatrixVector.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmplm/mMatrixVectorDev.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplm/mMatrixVectorDev.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplm/mMatrixVectorDev.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplm/mSupport.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplm/mSupport.h"
 				>
 			</File>
 			<File
@@ -2650,7 +3003,27 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmplm/nmplm.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplm/nmplm.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmpls.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/fft.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/fft.h"
 				>
 			</File>
 			<File
@@ -2662,7 +3035,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmpls/fftext.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/fftext.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmpls/nmpls.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/nmpls.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/nmpls.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/sCorrelation.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/sCorrelation.h"
 				>
 			</File>
 			<File
@@ -2674,7 +3071,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmpls/sFiltration.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/sFiltration.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmpls/sfir.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/sfir.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/sfir.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/sResample.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpls/sResample.h"
 				>
 			</File>
 			<File
@@ -2686,7 +3107,27 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmplv.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmplv/nmplv.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/nmplv.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/nmplv.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/nmtl.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/nmtl.h"
 				>
 			</File>
 			<File
@@ -2698,7 +3139,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmplv/sArithmetics.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/sArithmetics.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmplv/vArithmetics.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vArithmetics.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vArithmetics.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vArithmeticsDev.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vArithmeticsDev.h"
 				>
 			</File>
 			<File
@@ -2710,7 +3175,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmplv/vBitwise.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vBitwise.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmplv/vInit.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vInit.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vInit.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vInitDev.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vInitDev.h"
 				>
 			</File>
 			<File
@@ -2722,7 +3211,31 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmplv/vSelect.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vSelect.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmplv/vStat.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vStat.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vStat.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vSupport.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vSupport.h"
 				>
 			</File>
 			<File
@@ -2734,7 +3247,23 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmplv/vTransform.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmplv/vTransform.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmpp.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmpp.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmshort.h"
 				>
 			</File>
 			<File
@@ -2746,7 +3275,91 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/nmtl.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/nmtl.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/nmtlio.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tcmplx.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tcmplx_spec.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tfixpoint.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tfixpointmath.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tmatrix.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tmatrix_spec.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tnmcvec.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tnmint.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tnmmtr.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tnmmtrpack.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tnmvec.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tnmvecpack.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtl/tvector.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/nmtype.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmtype.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/nmvcore/vCore.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/ownmalloc.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/ownmalloc.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/ringbuffer.h"
 				>
 			</File>
 			<File
@@ -2758,7 +3371,19 @@
 				>
 			</File>
 			<File
+				RelativePath="../../include/ringremote.h"
+				>
+			</File>
+			<File
 				RelativePath="../../include/rpc-host.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/rpc-host.h"
+				>
+			</File>
+			<File
+				RelativePath="../../include/rpc-nmc.h"
 				>
 			</File>
 			<File
@@ -2769,7 +3394,15 @@
 				RelativePath="../../include/tfixpoint.h"
 				>
 			</File>
+			<File
+				RelativePath="../../include/tfixpoint.h"
+				>
+			</File>
 		</Filter>
+		<File
+			RelativePath="Makefile"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

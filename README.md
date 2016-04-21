@@ -7,25 +7,27 @@
   NMPP is "Neuro Matrix Performance Primitives" C/C++ library 
   which consists of high-performance scalar, vector-matrix  , signal and 
   image processing functions for Neuro Matrix architecture. 
-  NMPP-library supports nmc3-core processor family : NM6405,NM6406, and SOCs.
+  NMPP-library supports nmc3-core processor family : NM6405,NM6406, and SOCs.  
+
+    Current version : 1.1 (2016.04.21)
   
 ###COMPONENTS:  
   NMPP library contains next components:  
-  -nmvcore- basic low-level vector-cooprocessor functions  
-  -nmplc  - scalar functions  
-  -nmplv  - vector functions  
-  -nmplm  - matrix functions  
-  -nmpls  - signal processing functions  
-  -nmpli  - image  processing functions  
+  - nmvcore- basic low-level vector-cooprocessor functions  
+  - nmplc  - scalar functions  
+  - nmplv  - vector functions  
+  - nmplm  - matrix functions  
+  - nmpls  - signal processing functions  
+  - nmpli  - image  processing functions  
 
   
 ###LIBARY CONTENT :  
-Main nmc3 librires:  
+- Main **NMC3** librires:  
   /lib/nmpp_nmc3.lib   (Release)  
   /lib/nmpp_nmc3d.lib  (Debug)  
  
-NMPP also provides emulation libraries for x86:  
-  /lib/libnmpp_gcc.a  - compiled by GNU GCC under Windows
+- x86 PC emulator libraries:   
+  /lib/libnmpp_gcc.a  - compiled by GNU GCC under Windows  
   /lib/nmpp_vs80.lib  - (Release) compiled by Microsoft Visual Studio 8.0  
   /lib/nmpp_vs80d.lib - (Debug)  
   /lib/nmpp_vs13.lib  - (Release) compiled by Microsoft Visual Studio 13.0  
@@ -33,11 +35,11 @@ NMPP also provides emulation libraries for x86:
 
   
 ###BUILDING LIBRARY:  
-  Run command 'make' to build all (nmc3, gcc , vs80 and vs13 ) libraries from ./make folder.  Or run command 'make' from sub-folder with corresponding platform 
+  Run **make** command to build all (nmc3, gcc , vs80 and vs13 ) libraries from *./make* folder.  Or run **make** from appropriate sub-folder.
  
 ###USAGE:  
   Use **NMPP** environment variable in your own projects to specify a location of library. 
-  You can set **NMPP** variable manually with the path were it has been installed or by *make install* command from ./make folder.
+  You can set **NMPP** variable manually to the path were it has been installed or by **make install** command from *./make* folder.
 
 
 
@@ -51,16 +53,17 @@ NMPP also provides emulation libraries for x86:
   In some cases gnu utils also needed to build examples  
 
 ####ADDITIONAL SDK REQUIREMENTS FOR EMULATION-LIBRARIES AND EXAMPLES:    
-  3. Board SDK: (necessary  to build and run examples)
+  3. Board SDK with installed drivers: (necessary  to build and run examples)
     - mc5103sdk (MC5103 Board support SDK)
     - mc7601sdk (MC7601 Board support SDK)
     - mb7707sdk (MB77.07 Board support SDK) + WinPCap  
-    >It is assumed that board drivers already installed by user
   4. VSHELL - graphic shell
   5. Installed Visual Studio 8  [Visual Studio 2005 Express](http://apdubey.blogspot.ru/2009/04/microsoft-visual-studio-2005-express.html)
   6. Installed Visual Studio 13 [Visual Studio 2013 Express](https://www.microsoft.com/en-US/download/details.aspx?id=44914)  
   7. Installed Gnu GCC.  http://www.mingw.org/ 
 
+
+	
 ####DOWNLOADING DEPENDENCIES
 You can download and locally install all latest actual components (board SDKs, vshell, GnuWin32 utils) into */deps* folder by two commands from */deps* folder:
 ```bat
@@ -72,43 +75,45 @@ No any variables would be created or modified in global system environment, so y
 
 > FOR WINDOWS XP: PowerShell 2.0 is required to provide Internet downloading and unzipping by **make download** and **make install** commands . 
   To install Windows Powershell 2.0 on an XP machine, you must have Windows XP Service Pack 3 installed. Powershell is included in the Windows Management Framework which you can download at https://support.microsoft.com/ru-ru/kb/968929
-  Also [Microsoft .NET Framework 2.0 Service Pack 1 (x86)](https://www.microsoft.com/ru-RU/download/details.aspx?id=16614) may be required
+  Also [Microsoft .NET Framework 2.0 Service Pack 1 (x86)](https://www.microsoft.com/ru-RU/download/details.aspx?id=16614) may be required.
   
-[comment]:  (Optional) Installed Gnu GCC. Recommended for header dependency parcing and build the gcc-version of library build of gcc-examples http://www.mingw.org/
+<!--  Installed Gnu GCC is recommended for header dependency parcing and build the gcc-version of library build of gcc-examples http://www.mingw.org/ -->
 
 ###WARNING:   
- If environment variables like **NEURO, MC5103 , MB7707** defined like **?=** in **global.mk** then system value would be used (if exist), otherwise (by **=**) they will be overrided by local pathes!  
+ - If environment variables like **NEURO, MC5103 , MB7707** defined like **?=** in **global.mk** then system value would be used (if exist), otherwise (by **=**) they will be overrided by local pathes!  
  By switching between **?=** and **=** you can select what SDK installation to use (system or local).
  
-  GCC-version builds will be skipped if 'CROSS_COMPILE' environment variable is not defined in your system.  
-  Where 'CROSS_COMPILE' variable should contain prefix of your GCC cross-compiler.  
-  VS80-version build will be skipped if 'VS80COMNTOOLS'  environment variable is not defined in your system.   
-  VS13-version build will be skipped if 'VS120COMNTOOLS' environment variable is not defined in your system.   
+ - GCC-version build will be skipped if **CROSS_COMPILE** environment variable is not defined in your system.  Where **CROSS_COMPILE** variable should contain prefix of your GCC cross-compiler.  
+ - VS80-version build will be skipped if **VS80COMNTOOLS**  environment variable is not defined in your system.   
+ - VS13-version build will be skipped if **VS120COMNTOOLS** environment variable is not defined in your system.   
   
 ###EXAMPLES:  
-Each library component contains several examples in '/app/examples' 
+Each library component contains several examples in *./app/examples*.
 Each example can be built for different targets.  
-There are next supported targets:  
-  NM6405 emulator  
-  MC5103 board  
-  M77601 board  
-  MB7707 board (Specify MAC-address of your Ethernet adapter in /app/templates/sometest/make_mb7707/Makefile )  
-  x86(gcc)  host  
-  x86(vs80) host   
-  x86(vs13) host  
 
-  Run command 'make examples' to generate makefiles and build all examples  
-  Run command 'make run'      to run all examples  
-  Run command 'make kill'     to delete all generated makefiles, binary and temporary files  
+There are next supported targets:
+ - NM6405 emulator  
+ - MC5103 board  
+ - M77601 board  
+ - MB7707 board (Specify MAC-address of your Ethernet adapter in /app/templates/sometest/make_mb7707/Makefile )  
+ - x86(gcc)  host  
+ - x86(vs80) host   
+ - x86(vs13) host  
+
+List of actual target platforms is specified by **PLATFORMS** variable in **global.mk**.
+Action of **global.mk** may be overriden by **local.mk** if exists.
+
+  Run  **make** command from *./app/examples* folder to generate Makefiles and build all examples  
+  Run  **make run**  command    to run all examples  
+  Run  **make kill** command     to delete all generated Makefiles, binary and temporary files  
 
   
-WARNING:  
-  Building and running of examples for some targets may be skipped if appropriate  
-  environment variable ('MC5103','MB7707','MC7601','VS80COMNTOOLS','VS120COMNTOOLS','CROSS_COMPILE') 
+>WARNING:  
+  Building and running of examples for some targets may be skipped if appropriate environment    variables (**VS80COMNTOOLS**,**VS120COMNTOOLS**,**CROSS_COMPILE**)
   containing path to according SDK  is not defined in your system.
   
 ###STRUCTURE OF LIBRARY:  
-
+```bat
 NMPP    
 ¦    
 +---app                         -Applications    
@@ -215,7 +220,7 @@ L---src                           - Sources
     +---nmpls                        - Signal  
     +---nmplv                        - Vector  
     L---nmvcore                      - Vector core   
-          
+```
 
 
 ###FEEDBACK:  

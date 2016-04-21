@@ -138,7 +138,7 @@ VPATH    = $(SRC_DIRS)
 
 
 #======================== BUILD RULES ====================================
-.PHONY: $(TARGET) $(TARGETD) all clean cleanall kill vs8 vs8stdout skip $(PROJECT).vcproj
+.PHONY: $(TARGET) $(TARGETD) all clean kill vs8 skip $(PROJECT).vcproj
 
 #.DEFAULT_GOAL=default
 default: $(TMP_DIR) $(TARGET) $(TARGETD)
@@ -170,7 +170,7 @@ export TARGET TARGETD
 vs8: $(PROJECT).vcproj
 
 $(PROJECT).vcproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs8.mk vc-lib --silent >$(@)
+	make --file=$(ROOT)/deps/projector/vs8.mk vc-lib MAK=$(realpath .)/Makefile --silent >$(@)
 
 	
 skip:

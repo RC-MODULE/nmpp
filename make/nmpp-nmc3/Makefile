@@ -179,25 +179,17 @@ clean:
 	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk null
 	-$(OS_RD) Debug Release
  
-cleanall:
-	$(MAKE) clean
-	$(MAKE) clean DEBUG=y
-	
-#.toolchecked.mk:
-#	$(MAKE) -f checktools.mk
-
 #========================== Visual Studio 8 support ===================
-#export ALL_CPP ALL_ASM ALL_C ALL_H
 
 vs8: $(PROJECT).vcproj
 
 $(PROJECT).vcproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs8.mk nmc-app --silent >$(@)
+	make --file=$(ROOT)/deps/projector/vs8.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(@)
 
 vs13: $(PROJECT).vcxproj
 
 $(PROJECT).vcxproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs13.mk nmc-app --silent >$(@)
+	make --file=$(ROOT)/deps/projector/vs13.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(@)
 
 skip:
 	@echo SDK missing. Compilation is skipped!

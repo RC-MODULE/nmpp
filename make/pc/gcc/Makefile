@@ -107,19 +107,6 @@ RESOURCES        =Makefile
 PREPROCESS_ASM_DEP = $(CROSS_COMPILE)gcc -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
 PREPROCESS_CPP_DEP = $(CROSS_COMPILE)gcc -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 
-#==================== Handle OS Specifics ==========================
-ifeq ($(OS),Windows_NT)
-  OS_WHICH= where
-  OS_RM   = del /Q
-  OS_RD   = rd /Q /S
-  SHELL   = cmd
-else
-  OS_WHICH= which
-  OS_RM   = rm -f -r
-  OS_RD   = rm -f -r
-endif
-
-
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 
 #-include colorizer.mk
@@ -143,7 +130,7 @@ OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM
 
 
 #======================== BUILD RULES ====================================
-.PHONY:all clean cleanall kill vs8 vs8stdout skip
+.PHONY:all clean kill vs8 vs8stdout skip
 
 #.DEFAULT_GOAL=default
 default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
@@ -173,25 +160,18 @@ clean:
 	-$(OS_RM) *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb 
 	-$(OS_RD) Release Debug
  
-cleanall:
-	$(MAKE) clean
-	$(MAKE) clean DEBUG=y
-	
-#.toolchecked.mk:
-#	$(MAKE) -f checktools.mk
 	
 #========================== Visual Studio 8 support ===================
-#export ALL_CPP ALL_ASM ALL_C ALL_H
 
 vs8: $(PROJECT).vcproj
 
 $(PROJECT).vcproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs8.mk nmc-app --silent >$(@)
+	make --file=$(ROOT)/deps/projector/vs8.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(@)
 
 vs13: $(PROJECT).vcxproj
 
 $(PROJECT).vcxproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs13.mk nmc-app --silent >$(@)
+	make --file=$(ROOT)/deps/projector/vs13.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(@)
 
 skip:
 	@echo SDK missing. Compilation is skipped!

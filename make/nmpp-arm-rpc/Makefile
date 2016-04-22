@@ -101,21 +101,13 @@ INC_DIRS         = \
 
 #-I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include 
 #-I../../include/nmpls
-SRC_DIRS         =  ../../src/nmplv/Arithmetics/pc \
-					../../src/nmplv/Arithmetics/common \
-					../../src/nmplv/Support/common \
-					../../src/nmplv/Support/pc \
-					../../src/nmplv/Stat/common \
-					../../src/nmplv/Stat/pc \
-					../../src/nmplv/Init/common \
-					../../src/nmplv/Init/pc \
-					../../src/nmplv/Bitwise/pc \
-					../../src/nmplv/Select/pc \
-					../../src/nmplv/Select/common \
-					../../src/nmpls/FFT/FFT0256/common \
-					../../src/nmpls/FFT/FFT0512/common \
-					../../src/nmpls/FFT/FFT1024/common \
-					../../src/nmpls/FFT/FFT2048/common \
+SRC_DIRS         =  ../../src/nmplv/Arithmetics/rpc-arm \
+					../../src/nmplv/Bitwise/rpc-arm \
+					../../src/nmplv/Select/rpc-arm \
+					../../src/nmpls/FFT/FFT0256/rpc-arm \
+					../../src/nmpls/FFT/FFT0512/rpc-arm \
+					../../src/nmpls/FFT/FFT1024/rpc-arm \
+					../../src/nmpls/FFT/FFT2048/rpc-arm \
 					../../src/nmplm/MatrixVector/pc
 					
 					

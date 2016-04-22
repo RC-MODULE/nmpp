@@ -1,36 +1,19 @@
-#include "time.h"
-#include "malloc32.h"
-
+//#include "fft.h"
 #include "fft2.h"
+void FFT_Fwd1024Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
+void  FFT_Fwd1024(
+			nm32sc*	GSrcBuffer,	// Source buffer :long[1024]
+			nm32sc*	LDstBuffer,	// Result FFT    :long[1024]
+			void*		LBuffer,	// Temp buffer   :long[1024*3]
+			void*		GBuffer,	// Temp buffer   :long[1024]
+			int			ShiftR	// Right shift normalization
+			);
+			
 
-
-
-#include "rpc-host.h"	
 
 	void nmppsFFT1024Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
 	{
-	#ifdef RPC
-		int ret;	
-		int size=1024;
-		int k=8;
-		struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k);	
-		struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*k);	
-		memcpy(iobuf_src->data,src,size*k);	
-		struct aura_buffer *retbuf; 
-		ret = aura_call(n, "nmppsFFT1024Fwd", &retbuf,  iobuf_src, iobuf_dst, spec); 
-		if (ret != 0) {
-			slog(0, SLOG_ERROR, "call failed, reason: %d\n", ret);
-			BUG(n, "Call nmppsFFT1024Fwd failed!"); 
-		}
-		memcpy(dst,iobuf_dst->data,size*k);
-		aura_buffer_release( iobuf_dst); 
-		aura_buffer_release( iobuf_src); 
-		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT1024Fwd -ok"); 
-	#else 
 		FFT_Fwd1024(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
-	#endif
-
 	
 	}
 
@@ -47,32 +30,13 @@
 		spec->free=free;
 		if (spec->buffer[0]==0) return -1;
 		if (spec->buffer[1]==0) return -1;
-#ifndef RPC		
 		FFT_Fwd1024Set7bit();
-#endif
 		return 0;
 	}
 
 
 	int nmppsFFT1024FwdInitAlloc( NmppsFFTSpec** spec, void* src, void* dst,  int settings)
 	{
-#ifdef RPC
-		struct aura_buffer *iobuf_src = aura_buffer_request(n, 1024*8);	
-		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 1024*8);	
-		struct aura_buffer *retbuf; 
-		int ret =  aura_call(n, "nmppsFFT1024FwdInitAlloc", &retbuf,  iobuf_src, iobuf_dst, settings); 
-		if (ret != 0) {
-			slog(0, SLOG_ERROR, "call failed, reason: %d\n", ret);
-			BUG(n, "Call nmppsFFT1024FwdInitAlloc failed!"); 
-		}
-		*spec = (NmppsFFTSpec*) aura_buffer_get_u32(retbuf);
-		ret   = aura_buffer_get_u32(retbuf);
-		aura_buffer_release( iobuf_src); 
-		aura_buffer_release( iobuf_dst); 
-		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT1024FwdInitAlloc -ok"); 
-		return ret;
-#else
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
 		else {
@@ -82,7 +46,6 @@
 		}
 		ret = nmppsFFT1024FwdInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
 		return ret;
-#endif
 	}
 
 	int nmppsFFT1024FwdOptimize(void* src, void* dst, fseq64* allocOrder) 

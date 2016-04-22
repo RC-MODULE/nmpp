@@ -1,37 +1,20 @@
-#include "time.h"
 #include "malloc32.h"
-
-
-
-
-
-
-	#include "fft2.h"
-	#include "rpc-host.h"	
+//#include "fft.h"
+void FFT_Inv2048Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
+void  FFT_Inv2048(
+			nm32sc*	GSrcBuffer,	// Source buffer :long[2048]
+			nm32sc*	LDstBuffer,	// Result FFT    :long[2048]
+			void*		LBuffer,	// Temp buffer   :long[2048*4]
+			void*		GBuffer,	// Temp buffer   :long[2048*4]
+			int			ShiftR1,	// First Right shift normalization
+			int			ShiftR2	// Final Right shift normalization
+			);
+			
+#include "fft2.h"
 
 	void nmppsFFT2048Inv(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
 	{
-	#ifdef RPC
-		int ret;	
-		int size=2048;
-		int k=8;
-		struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k);	
-		struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*k);	
-		memcpy(iobuf_src->data,src,size*k);	
-		struct aura_buffer *retbuf; 
-		ret = aura_call(n, "nmppsFFT2048Inv", &retbuf,  iobuf_src, iobuf_dst, spec); 
-		if (ret != 0) {
-			slog(0, SLOG_ERROR, "call nmppsFFT2048Inv  failed, reason: %d\n", ret);
-			BUG(n, "Call nmppsFFT2048Inv failed!"); 
-		}
-		memcpy(dst,iobuf_dst->data,size*k);
-		aura_buffer_release( iobuf_dst); 
-		aura_buffer_release( iobuf_src); 
-		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT2048Inv -ok"); 
-	#else 
 		FFT_Inv2048(src, dst, spec->buffer[0], spec->buffer[1], spec->shift[0], spec->shift[1] );
-	#endif
 	}
 
 	int nmppsFFT2048InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings)
@@ -49,9 +32,7 @@
 		if (spec->buffer[0]==0) return -1;
 		if (spec->buffer[1]==0) return -1;
 		
-		#ifndef RPC		
 		FFT_Inv2048Set7bit();
-		#endif
 		return 0;
 	}
 
@@ -60,23 +41,6 @@
 
 	int nmppsFFT2048InvInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int settings)
 	{
-#ifdef RPC
-		struct aura_buffer *iobuf_src = aura_buffer_request(n, 2048*8);	
-		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 2048*8);	
-		struct aura_buffer *retbuf; 
-		int ret =  aura_call(n, "nmppsFFT2048InvInitAlloc", &retbuf,  iobuf_src, iobuf_dst, settings); 
-		if (ret != 0) {
-			slog(0, SLOG_ERROR, "call failed, reason: %d\n", ret);
-			BUG(n, "Call nmppsFFT2048InvInitAlloc failed!"); 
-		}
-		*spec = (NmppsFFTSpec*) aura_buffer_get_u32(retbuf);
-		ret   = aura_buffer_get_u32(retbuf);
-		aura_buffer_release( iobuf_src); 
-		aura_buffer_release( iobuf_dst); 
-		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT2048InvInitAlloc -ok"); 
-		return ret;
-#else
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
 		else {
@@ -86,7 +50,6 @@
 		}
 		ret = nmppsFFT2048InvInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
 		return ret;
-	#endif
 	}
 	int nmppsFFT2048InvOptimize(void* src, void* dst, fseq64* allocOrder) 
 	{

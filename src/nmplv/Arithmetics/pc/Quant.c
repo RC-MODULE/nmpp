@@ -18,7 +18,6 @@
 //!
 //------------------------------------------------------------------------
 /////////////////////////////////////////////////////////////////////////////////////////
-#undef RPC
 #include "nmpp.h"
 /////////////////////////////////////////////////////////////////////////////////
 //	Quantization in pairs of 32-bit signed words
@@ -34,10 +33,6 @@ void nmppsQuant_By2Int_32s(nm32s*	pSrcVec,			// Input array 					:long Global[Co
 			)						
 
 {
-	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
-	#else
-
 	int i, j, k;
 
 
@@ -61,8 +56,6 @@ void nmppsQuant_By2Int_32s(nm32s*	pSrcVec,			// Input array 					:long Global[Co
 		j += DstWriteStep;
 		k += SrcReadStep;
 	}
-
-	#endif
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -74,10 +67,6 @@ void nmppsDequant_By2Int_32s(nm32s*	pSrcVec,			// Input array 					:long Global[
 			int		DstWriteStep		// Writing step (in 32-bit words) between two output quantized pairs:      =[2,4,6...] 
 			)
 {
-	#ifdef RPC
-	RPC_PPI(pSrcVec,pDstVec,nSize);
-	#else
-
 	int i, j, k;
 
 	j = k = 0;
@@ -88,7 +77,5 @@ void nmppsDequant_By2Int_32s(nm32s*	pSrcVec,			// Input array 					:long Global[
 		j += DstWriteStep;
 		k += SrcReadStep;
 	}
-
-	#endif
 }
 

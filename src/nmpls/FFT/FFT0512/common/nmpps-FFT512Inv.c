@@ -1,38 +1,21 @@
-#include "time.h"
+//#include "fft.h"
 #include "malloc32.h"
+#include "fft2.h"
 
-
-
-
-
-
-
-	#include "fft2.h"
-	#include "rpc-host.h"	
+void FFT_Inv512Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
+void  FFT_Inv512(
+			nm32sc*	GSrcBuffer,	// Source buffer :long[512]
+			nm32sc*	LDstBuffer,	// Result FFT    :long[512]
+			void*		LBuffer,	// Temp buffer   :long[512*3]
+			void*		GBuffer,	// Temp buffer	 :long[512*3]	
+			int			ShiftR1,	// First shift normalization
+			int			ShiftR2	// Final shift normalization
+			);
+			
 
 	void nmppsFFT512Inv(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
 	{
-	#ifdef RPC
-		int ret;	
-		int size=512;
-		int k=8;
-		struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k);	
-		struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*k);	
-		memcpy(iobuf_src->data,src,size*k);	
-		struct aura_buffer *retbuf; 
-		ret = aura_call(n, "nmppsFFT512Inv", &retbuf,  iobuf_src, iobuf_dst, spec); 
-		if (ret != 0) {
-			slog(0, SLOG_ERROR, "call nmppsFFT512Inv  failed, reason: %d\n", ret);
-			BUG(n, "Call nmppsFFT512Inv failed!"); 
-		}
-		memcpy(dst,iobuf_dst->data,size*k);
-		aura_buffer_release( iobuf_dst); 
-		aura_buffer_release( iobuf_src); 
-		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT512Inv -ok"); 
-	#else 
 		FFT_Inv512(src, dst, spec->buffer[0], spec->buffer[1], spec->shift[0], spec->shift[1] );
-	#endif
 	}
 
 	int nmppsFFT512InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings)
@@ -50,9 +33,7 @@
 		if (spec->buffer[0]==0) return -1;
 		if (spec->buffer[1]==0) return -1;
 		
-		#ifndef RPC		
 		FFT_Inv512Set7bit();
-		#endif
 		return 0;
 	}
 
@@ -61,23 +42,6 @@
 
 	int nmppsFFT512InvInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int settings)
 	{
-#ifdef RPC
-		struct aura_buffer *iobuf_src = aura_buffer_request(n, 512*8);	
-		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 512*8);	
-		struct aura_buffer *retbuf; 
-		int ret =  aura_call(n, "nmppsFFT512InvInitAlloc", &retbuf,  iobuf_src, iobuf_dst, settings); 
-		if (ret != 0) {
-			slog(0, SLOG_ERROR, "call failed, reason: %d\n", ret);
-			BUG(n, "Call nmppsFFT512InvInitAlloc failed!"); 
-		}
-		*spec = (NmppsFFTSpec*) aura_buffer_get_u32(retbuf);
-		ret   = aura_buffer_get_u32(retbuf);
-		aura_buffer_release( iobuf_src); 
-		aura_buffer_release( iobuf_dst); 
-		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT512InvInitAlloc -ok"); 
-		return ret;
-#else
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
 		else {
@@ -87,7 +51,6 @@
 		}
 		ret = nmppsFFT512InvInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
 		return ret;
-	#endif
 	}
 	int nmppsFFT512InvOptimize(void* src, void* dst, fseq64* allocOrder) 
 	{

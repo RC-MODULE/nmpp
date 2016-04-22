@@ -350,15 +350,55 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mm.cpp"
+				RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mm.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mv.cpp"
+				RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mv.c"
 				>
 			</File>
 			<File
 				RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mv_ext.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Abs.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Abs1.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AbsDiff.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Add.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AddC.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AddExt.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-And.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-And4V.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-AndC.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-AndNV.c"
 				>
 			</File>
 			<File
@@ -386,6 +426,22 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_16s.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_32s.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_64s.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_8s.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\src\nmplv\Select\pc\nmpps-CmpNe0.c"
 				>
 			</File>
@@ -406,7 +462,31 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_16s8u.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_32s8u.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_64s8u.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_8s8u.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\src\nmpls\FFT\common\nmpps-common.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-DivC.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Dot.c"
 				>
 			</File>
 			<File
@@ -434,27 +514,27 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT1024\common\nmpps-FFT1024Fwd.cpp"
+				RelativePath="..\..\..\src\nmpls\FFT\FFT1024\common\nmpps-FFT1024Fwd.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT1024\common\nmpps-FFT1024Inv.cpp"
+				RelativePath="..\..\..\src\nmpls\FFT\FFT1024\common\nmpps-FFT1024Inv.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048Fwd.cpp"
+				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048Fwd.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048Inv.cpp"
+				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048Inv.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256fwd.cpp"
+				RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256fwd.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-FFT256Inv.cpp"
+				RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256inv.c"
 				>
 			</File>
 			<File
@@ -470,11 +550,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Fwd.cpp"
+				RelativePath="..\..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Fwd.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Inv.cpp"
+				RelativePath="..\..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Inv.c"
 				>
 			</File>
 			<File
@@ -502,35 +582,75 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Logic.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-MulC.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Neg.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Not.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Or.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Or3V.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Or4V.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-OrC.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-OrNV.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\src\nmplv\Support\pc\nmpps-Put.c"
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-RShiftC.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Sub.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-SubC.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-SubCRev.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Sum.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Xor.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-XorC.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\src\nmplv\Stat\common\nmpps_Crc.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsAbs.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsAbs1.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsAdd.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsAnd.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsAndC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsAndNV.c"
 				>
 			</File>
 			<File
@@ -570,43 +690,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpLtC_16s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpLtC_32s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpLtC_64s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpLtC_8s.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpMinMaxEvery.c"
 				>
 			</File>
 			<File
 				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpNeC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpNeC_16s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpNeC_32s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpNeC_64s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsCmpNeC_8s8u.c"
 				>
 			</File>
 			<File
@@ -619,18 +707,6 @@
 			</File>
 			<File
 				RelativePath="..\..\..\src\nmplv\Init\pc\nmppsCopy.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsd4V.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsDivC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsDot.c"
 				>
 			</File>
 			<File
@@ -647,10 +723,6 @@
 			</File>
 			<File
 				RelativePath="..\..\..\src\nmplv\Select\common\nmppsLastZeroIndx.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsLogic.c"
 				>
 			</File>
 			<File
@@ -722,39 +794,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsMulC.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsMulV.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsNeg.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsNot.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOr.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOr3V.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOr4V.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOrC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsOrNV.c"
 				>
 			</File>
 			<File
@@ -774,31 +814,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsShift.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsSub.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsSum.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSwap.c"
 				>
 			</File>
 			<File
 				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsWadd2V.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsXor.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmppsXorC.c"
 				>
 			</File>
 			<File

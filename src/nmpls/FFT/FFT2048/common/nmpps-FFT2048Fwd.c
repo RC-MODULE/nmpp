@@ -1,36 +1,18 @@
-#include "time.h"
 #include "malloc32.h"
-
+//#include "fft.h"
+void FFT_Fwd2048Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
+void  FFT_Fwd2048(
+			nm32sc*	GSrcBuffer,	// Source buffer :long[2048]
+			nm32sc*	GDstBuffer,	// Result FFT    :long[2048]
+			void*		LBuffer,	// Temp buffer   :long[2048*4]
+			int			ShiftR	// Right shift normalization
+			);
+			
 #include "fft2.h"
-
-
-#include "rpc-host.h"	
 
 	void nmppsFFT2048Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
 	{
-	#ifdef RPC
-		int ret;	
-		int size=2048;
-		int k=8;
-		struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k);	
-		struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*k);	
-		memcpy(iobuf_src->data,src,size*k);	
-		struct aura_buffer *retbuf; 
-		ret = aura_call(n, "nmppsFFT2048Fwd", &retbuf,  iobuf_src, iobuf_dst, spec); 
-		if (ret != 0) {
-			slog(0, SLOG_ERROR, "call failed, reason: %d\n", ret);
-			BUG(n, "Call nmppsFFT2048Fwd failed!"); 
-		}
-		memcpy(dst,iobuf_dst->data,size*k);
-		aura_buffer_release( iobuf_dst); 
-		aura_buffer_release( iobuf_src); 
-		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT2048Fwd -ok"); 
-	#else 
 		FFT_Fwd2048(src,dst,spec->buffer[0],spec->shift[0]);
-	#endif
-
-	
 	}
 
 	int nmppsFFT2048FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings)
@@ -45,32 +27,13 @@
 		spec->shift [0]=-1;
 		spec->free=free;
 		if (spec->buffer[0]==0) return -1;
-#ifndef RPC		
 		FFT_Fwd2048Set7bit();
-#endif
 		return 0;
 	}
 
 
 	int nmppsFFT2048FwdInitAlloc( NmppsFFTSpec** spec, void* src, void* dst,  int settings)
 	{
-#ifdef RPC
-		struct aura_buffer *iobuf_src = aura_buffer_request(n, 2048*8);	
-		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 2048*8);	
-		struct aura_buffer *retbuf; 
-		int ret =  aura_call(n, "nmppsFFT2048FwdInitAlloc", &retbuf,  iobuf_src, iobuf_dst, settings); 
-		if (ret != 0) {
-			slog(0, SLOG_ERROR, "call failed, reason: %d\n", ret);
-			BUG(n, "Call nmppsFFT2048FwdInitAlloc failed!"); 
-		}
-		*spec = (NmppsFFTSpec*) aura_buffer_get_u32(retbuf);
-		ret   = aura_buffer_get_u32(retbuf);
-		aura_buffer_release( iobuf_src); 
-		aura_buffer_release( iobuf_dst); 
-		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT2048FwdInitAlloc -ok"); 
-		return ret;
-#else
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
 		else {
@@ -80,7 +43,6 @@
 		}
 		ret = nmppsFFT2048FwdInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
 		return ret;
-#endif
 	}
 
 	int nmppsFFT2048FwdOptimize(void* src, void* dst, fseq64* allocOrder) 

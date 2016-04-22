@@ -1,39 +1,25 @@
 //#include "fft.h"
 #include "time.h"
 #include "malloc32.h"
+#include "fft2.h"
 
+void FFT_Inv256Set7bit();	
 
-
-
-
-
-
-	#include "fft2.h"
-	#include "rpc-host.h"	
+void  FFT_Inv256(
+			nm32sc*	GSrcBuffer,	// Source buffer :long[256]
+			nm32sc*	GDstBuffer,	// Result FFT    :long[256]
+			void*		LBuffer,	// Temp buffer   :long[256*3]
+			void*		GBuffer,	// Temp buffer   :long[256*3]
+			int			ShiftR1,	// Intermediate shift normalization
+			int			ShiftR2		// Final shift normalization
+									// by default it means ShiftR2=14 at 7 bit precision
+									//				 and   ShiftR2=12 at 6 bit precision
+			);
+			
 
 	void nmppsFFT256Inv(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
 	{
-	#ifdef RPC
-		int ret;	
-		int size=256;
-		int k=8;
-		struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k);	
-		struct aura_buffer *iobuf_dst = aura_buffer_request(n, size*k);	
-		memcpy(iobuf_src->data,src,size*k);	
-		struct aura_buffer *retbuf; 
-		ret = aura_call(n, "nmppsFFT256Inv", &retbuf,  iobuf_src, iobuf_dst, spec); 
-		if (ret != 0) {
-			slog(0, SLOG_ERROR, "call nmppsFFT256Inv  failed, reason: %d\n", ret);
-			BUG(n, "Call nmppsFFT256Inv failed!"); 
-		}
-		memcpy(dst,iobuf_dst->data,size*k);
-		aura_buffer_release( iobuf_dst); 
-		aura_buffer_release( iobuf_src); 
-		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT256Inv -ok"); 
-	#else 
 		FFT_Inv256(src, dst, spec->buffer[0], spec->buffer[1], spec->shift[0], spec->shift[1] );
-	#endif
 	}
 
 	int nmppsFFT256InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings)
@@ -51,9 +37,7 @@
 		if (spec->buffer[0]==0) return -1;
 		if (spec->buffer[1]==0) return -1;
 		
-		#ifndef RPC		
 		FFT_Inv256Set7bit();
-		#endif
 		return 0;
 	}
 
@@ -62,23 +46,6 @@
 
 	int nmppsFFT256InvInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int settings)
 	{
-#ifdef RPC
-		struct aura_buffer *iobuf_src = aura_buffer_request(n, 256*8);	
-		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 256*8);	
-		struct aura_buffer *retbuf; 
-		int ret =  aura_call(n, "nmppsFFT256InvInitAlloc", &retbuf,  iobuf_src, iobuf_dst, settings); 
-		if (ret != 0) {
-			slog(0, SLOG_ERROR, "call failed, reason: %d\n", ret);
-			BUG(n, "Call nmppsFFT256InvInitAlloc failed!"); 
-		}
-		*spec = (NmppsFFTSpec*) aura_buffer_get_u32(retbuf);
-		ret   = aura_buffer_get_u32(retbuf);
-		aura_buffer_release( iobuf_src); 
-		aura_buffer_release( iobuf_dst); 
-		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT256InvInitAlloc -ok"); 
-		return ret;
-#else
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
 		else {
@@ -88,7 +55,6 @@
 		}
 		ret = nmppsFFT256InvInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
 		return ret;
-	#endif
 	}
 	int nmppsFFT256InvOptimize(void* src, void* dst, fseq64* allocOrder) 
 	{

@@ -3,8 +3,7 @@ NMPP      = $(ROOT)
 #NMPROFILER       = $(ROOT)/deps/nmprofiler
 #http_proxy        = http://user:pass@proxy:80/       (for wget usage)
 
-#NEURO    ?= $(realpath $(NMPP))/deps/nmsdk
-NEURO    = $(NMPP)/deps/nmsdk
+NEURO    ?= $(NMPP)/deps/nmsdk
 #VSHELL32 = $(realpath $(ROOT))/deps/vshell32
 MC5103   = $(NMPP)/deps/mc5103sdk
 MC7601   = $(NMPP)/deps/mc7601sdk

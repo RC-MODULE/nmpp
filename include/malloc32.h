@@ -19,24 +19,12 @@ typedef void (*t_free_func)(void*);
 
 //void* malloc32 (unsigned size_int32, unsigned bank_mask);
 //void  free32(void* p);
-#ifndef uint64 
-typedef unsigned long long uint64;
-#endif 
-
-#ifndef uint32
-typedef unsigned int uint32;
-#endif 
 
 
 typedef void (Free32Func)(void*);
 typedef void* (Malloc32Func)(unsigned int);
 
-typedef uint64 fifo64;
-typedef uint32 fseq32;
 
-
-typedef uint64  seq64;
-typedef uint64 fseq64;
 
 #define  ENABLE_HISTORY 1 
 #define  ENABLE_RANDOM 1

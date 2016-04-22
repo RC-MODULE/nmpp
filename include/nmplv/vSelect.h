@@ -1668,14 +1668,7 @@ void nmppsCmpEqC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSi
 	void nmppsCmpNeC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSize, int8b nTrueFlag);
 	void nmppsCmpNeC_16u15b(nm16u15b* pSrcVec,  uint15b nCmpVal,   nm16s* pDstVec, int nSize, int16b nTrueFlag);
 
-	//! \}
-	typedef struct {
-		void* buffer0;
-		void* buffer1;
-		fseq64  route;
-		int mode;
-		int status;
-	} Tmp2BuffSpec;
+	
 
 	//spec.mode=ONE_TIME_ALLOC|ROUTE_ALLOC|OPTIMIZE_ROUTE;
 	

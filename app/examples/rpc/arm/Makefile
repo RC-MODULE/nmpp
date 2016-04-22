@@ -95,6 +95,10 @@ OBJECTS_C= $(notdir $(patsubst %.c,%.o,$(ALL_C)))
 all : rpc $(TARGET)
 	$(MAKE) -C ../nmc
 
+nmlib : 
+	$(MAKE) -C $(ROOT)/make/nmpp-nmc3
+
+	
 rpc:
 	$(MAKE) -C $(ROOT)/make/nmpp-arm-rpc
 	

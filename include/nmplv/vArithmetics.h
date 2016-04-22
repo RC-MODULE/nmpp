@@ -1368,19 +1368,19 @@ void nmppsDotProd_32s64s(nm32s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pn
 
 void nmppsDotProd_64s64s(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
 */
-void nmppsDotProd_8s8sm  (nm8s*  pSrcVec1,  nm8s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_8s16sm (nm8s*  pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_8s32sm (nm8s*  pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_8s64s (nm8s*  pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+int  nmppsDotProd_8s8sm  (nm8s*  pSrcVec1,  nm8s* pSrcVec2, int nSize, int64b* pnRes, nm64s* tmp);
+int  nmppsDotProd_8s16sm (nm8s*  pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes, nm64s* tmp);
+int  nmppsDotProd_8s32sm (nm8s*  pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, nm64s* tmp);
+void nmppsDotProd_8s64s  (nm8s*  pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
 
-void nmppsDotProd_16s16sm(nm16s* pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_16s32sm(nm16s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_16s64s(nm16s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+int  nmppsDotProd_16s16sm(nm16s* pSrcVec1, nm16s* pSrcVec2, int nSize, int64b* pnRes, nm64s* tmp);
+int  nmppsDotProd_16s32sm(nm16s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, nm64s* tmp);
+void nmppsDotProd_16s64s (nm16s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
 
-void nmppsDotProd_32s32sm(nm32s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes);
-void nmppsDotProd_32s64s(nm32s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+int  nmppsDotProd_32s32sm(nm32s* pSrcVec1, nm32s* pSrcVec2, int nSize, int64b* pnRes, nm64s* tmp);
+void nmppsDotProd_32s64s (nm32s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
 
-void nmppsDotProd_64s64s(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
+void nmppsDotProd_64s64s (nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize, int64b* pnRes);
 
     //! \}
 

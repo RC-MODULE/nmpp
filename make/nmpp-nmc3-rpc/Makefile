@@ -72,7 +72,7 @@
 EASYNMC_DIR     = $(AURA)/nmc-utils/libeasynmc-nmc
 #--------------  target & input dirs -------------------
 ROOT             = ../..
-include $(ROOT)/setenv.mk
+include $(ROOT)/global.mk
 PROJECT          = nmpp-nmc3-rpc
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib

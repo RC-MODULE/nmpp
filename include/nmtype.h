@@ -1298,6 +1298,32 @@ typedef struct s_nm64sc
 //	int Print();
 //
 } nm64sc;
+
+//! \}
+#ifndef uint64 
+typedef unsigned long long uint64;
+#endif 
+
+#ifndef uint32
+typedef unsigned int uint32;
+#endif 
+
+
+typedef uint64 fifo64;
+typedef uint32 fseq32;
+
+
+typedef uint64  seq64;
+typedef uint64 fseq64;
+
+	typedef struct {
+		void* buffer0;
+		void* buffer1;
+		fseq64  route;
+		int mode;
+		int status;
+	} Tmp2BuffSpec;
+	
 //
 ///*
 //__INLINE__ int NM_CAPACITY(nm1*)  {return 64;}

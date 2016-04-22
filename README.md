@@ -74,13 +74,13 @@ It is recommended to do it to prevent version mismatch between different compone
 No any variables would be created or modified in global system environment, so your NMPP installation would be fully standalone (except installed board drivers)
 
 > FOR WINDOWS XP: PowerShell 2.0 is required to provide Internet downloading and unzipping by **make download** and **make install** commands . 
-  To install Windows Powershell 2.0 on an XP machine, you must have Windows XP Service Pack 3 installed. Powershell is included in the Windows Management Framework which you can download at https://support.microsoft.com/ru-ru/kb/968929
-  Also [Microsoft .NET Framework 2.0 Service Pack 1 (x86)](https://www.microsoft.com/ru-RU/download/details.aspx?id=16614) may be required.
+  To install Windows Powershell 2.0 on an XP machine, you must have Windows XP Service Pack 3 installed. Powershell is included in the Windows Management Framework which you can download at https://support.microsoft.com/ru-ru/kb/968929 .  
+  [Microsoft .NET Framework 2.0 Service Pack 1 (x86)](https://www.microsoft.com/ru-RU/download/details.aspx?id=16614) may be also required.
   
 <!--  Installed Gnu GCC is recommended for header dependency parcing and build the gcc-version of library build of gcc-examples http://www.mingw.org/ -->
 
 ###WARNING:   
- - If environment variables like **NEURO, MC5103 , MB7707** defined like **?=** in **global.mk** then system value would be used (if exist), otherwise (by **=**) they will be overrided by local pathes!  
+ - If environment variables like **NEURO, MC5103 , MB7707** defined using **?=** in **global.mk** then system value would be used (if exists), otherwise (using **=**) they will be overrided by local pathes!  
  By switching between **?=** and **=** you can select what SDK installation to use (system or local).
  
  - GCC-version build will be skipped if **CROSS_COMPILE** environment variable is not defined in your system.  Where **CROSS_COMPILE** variable should contain prefix of your GCC cross-compiler.  
@@ -109,7 +109,7 @@ Action of **global.mk** may be overriden by **local.mk** if exists.
 
   
 >WARNING:  
-  Building and running of examples for some targets may be skipped if appropriate environment    variables (**VS80COMNTOOLS**,**VS120COMNTOOLS**,**CROSS_COMPILE**)
+  Building and running of examples for some targets may be skipped if appropriate environment    variable (**VS80COMNTOOLS**,**VS120COMNTOOLS**,**CROSS_COMPILE**)
   containing path to according SDK  is not defined in your system.
   
 ###STRUCTURE OF LIBRARY:  

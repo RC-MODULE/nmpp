@@ -17,18 +17,9 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-
+#include "nmtype.h"
 #ifdef RPC
-extern "C" {
 #include "rpc-host.h"
-#include "nmtype.h"
-	
-#else
-#include "rpc-host.h"
-#include "nmtype.h"
-#include "nmtl/tmatrix.h"
-#include "nmtl/tnmmtr.h"
-
 #endif
 
 
@@ -50,10 +41,16 @@ void nmppmMul_mv_8s64s(
 	RPC_HOST_PPPII("nmppmMul_mv_8s64s",pSrcMtr,pSrcVec,pDstVec,nHeight,nWidth,1,8);
 	//RPC_HOST_PIIPPI("nmppmMul_mm_16s16s",pSrcMtr,nHeight, nWidth, pSrcMtr,pDstVec,nWidth,2,2);
 	#else
-	nmmtr8s SrcMtr((nm8s*)pSrcMtr,nHeight,nWidth);
-	nmvec64s SrcVec((nm64s*)pSrcVec,nWidth);
-	nmvec64s DstVec((nm64s*)pDstVec,nHeight);
-	DstVec=SrcMtr*SrcVec;
+	int i,j;
+	long long p;
+	nm8s* row  =pSrcMtr;
+	for(i=0; i<nHeight; i++, row+=nWidth){
+		p=0;
+		for(j=0; j<nWidth; j++){
+			p+=row[j]*pSrcVec[j];
+		}
+		pDstVec[i]=p;
+	}
 	#endif	
 }
 
@@ -69,10 +66,16 @@ void nmppmMul_mv_16s64s(
 	#ifdef RPC
 	RPC_HOST_PPPII("nmppmMul_mv_16s64s",pSrcMtr,pSrcVec,pDstVec,nHeight,nWidth,2,8);
 	#else
-	nmmtr16s SrcMtr((nm16s*)pSrcMtr,nHeight,nWidth);
-	nmvec64s SrcVec((nm64s*)pSrcVec,nWidth);
-	nmvec64s DstVec((nm64s*)pDstVec,nHeight);
-	DstVec=SrcMtr*SrcVec;
+	int i,j;
+	long long p;
+	nm16s* row  =pSrcMtr;
+	for(i=0; i<nHeight; i++, row+=nWidth){
+		p=0;
+		for(j=0; j<nWidth; j++){
+			p+=row[j]*pSrcVec[j];
+		}
+		pDstVec[i]=p;
+	}
 	#endif	
 	
 	
@@ -90,10 +93,16 @@ void nmppmMul_mv_32s64s(
 	#ifdef RPC
 	RPC_HOST_PPPII("nmppmMul_mv_32s64s",pSrcMtr,pSrcVec,pDstVec,nHeight,nWidth,4,8);
 	#else
-	nmmtr32s SrcMtr((nm32s*)pSrcMtr,nHeight,nWidth);
-	nmvec64s SrcVec((nm64s*)pSrcVec,nWidth);
-	nmvec64s DstVec((nm64s*)pDstVec,nHeight);
-	DstVec=SrcMtr*SrcVec;
+	int i,j;
+	long long p;
+	nm32s* row  =pSrcMtr;
+	for(i=0; i<nHeight; i++, row+=nWidth){
+		p=0;
+		for(j=0; j<nWidth; j++){
+			p+=row[j]*pSrcVec[j];
+		}
+		pDstVec[i]=p;
+	}
 	#endif	
 }
 
@@ -107,7 +116,6 @@ void MTR_ProdSelfV( nm64sc *pSrcVec, nm64sc *pDstMtr, int nSize, void* pTmp)
 			#ifdef FLOAT_BASE
 			#else
 //				if(IsMultOverflow(&pSrcVec[i].re, &pSrcVec[j].re))
-//					printf("nmppmMul_mm_ overflow(r1, r2)\n");
 			#endif
 			pDstMtr[i*nSize+j].re = (+ pSrcVec[i].re * pSrcVec[j].re + pSrcVec[i].im * pSrcVec[j].im);
 			pDstMtr[i*nSize+j].im = (- pSrcVec[i].re * pSrcVec[j].im + pSrcVec[i].im * pSrcVec[j].re);
@@ -138,6 +146,3 @@ void nmppmMul_mv_AddC_32s(v2nm32s* pSrcMtr, v2nm32s* pSrcVec, int nAddVal, nm32s
 }
 */
 
-#ifdef RPC
-};
-#endif

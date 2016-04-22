@@ -1,4 +1,3 @@
-#include "fft.h"
 #include "time.h"
 #include "malloc32.h"
 
@@ -7,7 +6,7 @@
 
 
 
-extern "C" {
+
 	#include "fft2.h"
 	#include "rpc-host.h"	
 
@@ -95,8 +94,10 @@ extern "C" {
 		unsigned heapIndx0;
 		unsigned heapIndx1;
 		fseq64   route;
+		NmppsFFTSpec* spec;
+		clock_t t0,t1;
+		clock_t bestTime=0x1000000;
 		*allocOrder=0xFFFFFF00;
-		clock_t t0,t1,bestTime=0x1000000;
 
 		for(heapIndx0=0; heapIndx0<4; heapIndx0++){
 			for(heapIndx1=0; heapIndx1<4; heapIndx1++){
@@ -104,7 +105,7 @@ extern "C" {
 
 				route =0xF00|(heapIndx1<<4)|(heapIndx0); 
 				//!nmppsMallocSetRouteMode(route);
-				NmppsFFTSpec* spec;
+				
 				if (nmppsFFT512InvInitAllocCustom(&spec, nmppsMalloc32, nmppsFree, NMPP_OPTIMIZE_DISABLE )==NMPP_OK){
 					t0=clock();
 					nmppsFFT512Inv((nm32sc*)src, (nm32sc*)dst, spec);
@@ -123,5 +124,4 @@ extern "C" {
 		else					return NMPP_ERROR;
 	}
 
-};
 

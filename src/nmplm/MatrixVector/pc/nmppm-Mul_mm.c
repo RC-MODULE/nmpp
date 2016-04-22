@@ -18,17 +18,16 @@
 //!
 //------------------------------------------------------------------------
 
-
+#include "nmtype.h"
 #ifdef RPC
-extern "C" {
 #include "rpc-host.h"
-#include "nmtype.h"
-#else
-#include "rpc-host.h"
-#include "nmtype.h"
 
-#include "nmtl/tmatrix.h"
-#include "nmtl/tnmmtr.h"
+#else
+//#include "rpc-host.h"
+//#include "nmtype.h"
+
+//#include "nmtl/tmatrix.h"
+//#include "nmtl/tnmmtr.h"
 
 #endif
 
@@ -46,10 +45,26 @@ void nmppmMul_mm_8s8s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm8s* pSrcMtr
 	#ifdef RPC
 	RPC_HOST_PIIPPI("nmppmMul_mm_8s8s",pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,1,1);
 	#else
-	nmmtr8s SrcMtrA((nm8s*)pSrcMtr1,nHeight1,nWidth1);
-	nmmtr8s SrcMtrB((nm8s*)pSrcMtr2,nWidth1,nWidth2);
-	nmmtr8s DstMtr(pDstMtr,nHeight1,nWidth2);
-	DstMtr=SrcMtrA*SrcMtrB;
+	
+	int i;
+	int j;
+	int k;
+	int p;
+	nm8s* col2;
+	nm8s* row1  =pSrcMtr1;
+	nm8s* rowDst=pDstMtr;
+	
+	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
+		for(j=0; j<nWidth2; j++){
+			col2=pSrcMtr2+j;
+			p=0;
+			for(k=0; k<nWidth2; k++){
+				p+=row1[k]*col2[k*nWidth2];
+			}
+			rowDst[j]=p;
+		}
+	}
+	
 	#endif	
 }
 void nmppmMul_mm_8s16s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm16s* pSrcMtr2, nm16s* pDstMtr, int nWidth2)
@@ -57,10 +72,24 @@ void nmppmMul_mm_8s16s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm16s* pSrcM
 	#ifdef RPC
 	RPC_HOST_PIIPPI("nmppmMul_mm_8s16s",pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,1,2);
 	#else
-	nmmtr8s SrcMtrA((nm8s*)pSrcMtr1,nHeight1,nWidth1);
-	nmmtr16s SrcMtrB((nm16s*)pSrcMtr2,nWidth1,nWidth2);
-	nmmtr16s DstMtr(pDstMtr,nHeight1,nWidth2);
-	DstMtr=SrcMtrA*SrcMtrB;
+	int i;
+	int j;
+	int k;
+	int p;
+	nm16s* col2;
+	nm8s* row1  =pSrcMtr1;
+	nm16s* rowDst=pDstMtr;
+
+	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
+		for(j=0; j<nWidth2; j++){
+			col2=pSrcMtr2+j;
+			p=0;
+			for(k=0; k<nWidth2; k++){
+				p+=row1[k]*col2[k*nWidth2];
+			}
+			rowDst[j]=p;
+		}
+	}
 	#endif	
 	
 	
@@ -70,10 +99,24 @@ void nmppmMul_mm_8s32s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSrcM
 	#ifdef RPC
 	RPC_HOST_PIIPPI("nmppmMul_mm_8s32s",pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,1,4);
 	#else
-	nmmtr8s SrcMtrA((nm8s*)pSrcMtr1,nHeight1,nWidth1);
-	nmmtr32s SrcMtrB((nm32s*)pSrcMtr2,nWidth1,nWidth2);
-	nmmtr32s DstMtr(pDstMtr,nHeight1,nWidth2);
-	DstMtr=SrcMtrA*SrcMtrB;
+	int i;
+	int j;
+	int k;
+	int p;
+	nm32s* col2;
+	nm8s* row1  =pSrcMtr1;
+	nm32s* rowDst=pDstMtr;
+
+	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
+		for(j=0; j<nWidth2; j++){
+			col2=pSrcMtr2+j;
+			p=0;
+			for(k=0; k<nWidth2; k++){
+				p+=row1[k]*col2[k*nWidth2];
+			}
+			rowDst[j]=p;
+		}
+	}
 	#endif	
 
 }
@@ -83,10 +126,24 @@ void nmppmMul_mm_8s64s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcM
 	#ifdef RPC
 	RPC_HOST_PIIPPI("nmppmMul_mm_8s64s",pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,1,8);
 	#else
-	nmmtr8s SrcMtrA((nm8s*)pSrcMtr1,nHeight1,nWidth1);
-	nmmtr64s SrcMtrB((nm64s*)pSrcMtr2,nWidth1,nWidth2);
-	nmmtr64s DstMtr(pDstMtr,nHeight1,nWidth2);
-	DstMtr=SrcMtrA*SrcMtrB;
+	int i;
+	int j;
+	int k;
+	long long p;
+	nm64s* col2;
+	nm8s* row1  =pSrcMtr1;
+	nm64s* rowDst=pDstMtr;
+
+	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
+		for(j=0; j<nWidth2; j++){
+			col2=pSrcMtr2+j;
+			p=0;
+			for(k=0; k<nWidth2; k++){
+				p+=row1[k]*col2[k*nWidth2];
+			}
+			rowDst[j]=p;
+		}
+	}
 	#endif	
 }
 
@@ -95,10 +152,21 @@ void nmppmMul_mm_16s16s( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm16s* pSr
 	#ifdef RPC
 	RPC_HOST_PIIPPI("nmppmMul_mm_16s16s",pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,2,2);
 	#else
-	nmmtr16s SrcMtrA((nm16s*)pSrcMtr1,nHeight1,nWidth1);
-	nmmtr16s SrcMtrB((nm16s*)pSrcMtr2,nWidth1,nWidth2);
-	nmmtr16s DstMtr(pDstMtr,nHeight1,nWidth2);
-	DstMtr=SrcMtrA*SrcMtrB;
+	int i,j,k,p;
+	nm16s* col2;
+	nm16s* row1  =pSrcMtr1;
+	nm16s* rowDst=pDstMtr;
+
+	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
+		for(j=0; j<nWidth2; j++){
+			col2=pSrcMtr2+j;
+			p=0;
+			for(k=0; k<nWidth2; k++){
+				p+=row1[k]*col2[k*nWidth2];
+			}
+			rowDst[j]=p;
+		}
+	}
 	#endif	
 
 
@@ -109,10 +177,21 @@ void nmppmMul_mm_16s32s( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSr
 	#ifdef RPC
 	RPC_HOST_PIIPPI("nmppmMul_mm_16s32s",pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,2,4);
 	#else
-	nmmtr16s SrcMtrA((nm16s*)pSrcMtr1,nHeight1,nWidth1);
-	nmmtr32s SrcMtrB((nm32s*)pSrcMtr2,nWidth1,nWidth2);
-	nmmtr32s DstMtr(pDstMtr,nHeight1,nWidth2);
-	DstMtr=SrcMtrA*SrcMtrB;
+	int i,j,k,p;
+	nm32s* col2;
+	nm16s* row1  =pSrcMtr1;
+	nm32s* rowDst=pDstMtr;
+
+	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
+		for(j=0; j<nWidth2; j++){
+			col2=pSrcMtr2+j;
+			p=0;
+			for(k=0; k<nWidth2; k++){
+				p+=row1[k]*col2[k*nWidth2];
+			}
+			rowDst[j]=p;
+		}
+	}
 	#endif	
 
 	
@@ -124,10 +203,23 @@ void nmppmMul_mm_16s64s( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSr
 	#ifdef RPC
 	RPC_HOST_PIIPPI("nmppmMul_mm_16s64s",pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,2,8);
 	#else
-	nmmtr16s SrcMtrA((nm16s*)pSrcMtr1,nHeight1,nWidth1);
-	nmmtr64s SrcMtrB((nm64s*)pSrcMtr2,nWidth1,nWidth2);
-	nmmtr64s DstMtr(pDstMtr,nHeight1,nWidth2);
-	DstMtr=SrcMtrA*SrcMtrB;
+	int i,j,k;
+	long long p;
+	nm64s* col2;
+	nm16s* row1  =pSrcMtr1;
+	nm64s* rowDst=pDstMtr;
+
+	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
+		for(j=0; j<nWidth2; j++){
+			col2=pSrcMtr2+j;
+			p=0;
+			for(k=0; k<nWidth2; k++){
+				p+=row1[k]*col2[k*nWidth2];
+			}
+			rowDst[j]=p;
+		}
+	}
+
 	#endif	
 
 }
@@ -137,10 +229,22 @@ void nmppmMul_mm_32s32s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSr
 	#ifdef RPC
 	RPC_HOST_PIIPPI("nmppmMul_mm_32s32s",pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,4,4);
 	#else
-	nmmtr32s SrcMtrA((nm32s*)pSrcMtr1,nHeight1,nWidth1);
-	nmmtr32s SrcMtrB((nm32s*)pSrcMtr2,nWidth1,nWidth2);
-	nmmtr32s DstMtr(pDstMtr,nHeight1,nWidth2);
-	DstMtr=SrcMtrA*SrcMtrB;
+	int i,j,k,p;
+	nm32s* col2;
+	nm32s* row1  =pSrcMtr1;
+	nm32s* rowDst=pDstMtr;
+
+	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
+		for(j=0; j<nWidth2; j++){
+			col2=pSrcMtr2+j;
+			p=0;
+			for(k=0; k<nWidth2; k++){
+				p+=row1[k]*col2[k*nWidth2];
+			}
+			rowDst[j]=p;
+		}
+	}
+
 	#endif	
 }
 
@@ -149,10 +253,23 @@ void nmppmMul_mm_32s64s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSr
 	#ifdef RPC
 	RPC_HOST_PIIPPI("nmppmMul_mm_32s64s",pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,4,8);
 	#else
-	nmmtr32s SrcMtrA((nm32s*)pSrcMtr1,nHeight1,nWidth1);
-	nmmtr64s SrcMtrB((nm64s*)pSrcMtr2,nWidth1,nWidth2);
-	nmmtr64s DstMtr(pDstMtr,nHeight1,nWidth2);
-	DstMtr=SrcMtrA*SrcMtrB;
+	int i,j,k;
+	long long p;
+	nm64s* col2;
+	nm32s* row1  =pSrcMtr1;
+	nm64s* rowDst=pDstMtr;
+
+	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
+		for(j=0; j<nWidth2; j++){
+			col2=pSrcMtr2+j;
+			p=0;
+			for(k=0; k<nWidth2; k++){
+				p+=row1[k]*col2[k*nWidth2];
+			}
+			rowDst[j]=p;
+		}
+	}
+
 	#endif	
 }
 
@@ -210,6 +327,3 @@ void nmppmMul_mv_(
 }
 
 */
-#ifdef RPC
-};
-#endif

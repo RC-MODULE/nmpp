@@ -1,11 +1,9 @@
-#include "fft.h"
 #include "time.h"
 #include "malloc32.h"
 
 #include "fft2.h"
 
 
-extern "C" {
 #include "rpc-host.h"	
 
 	void nmppsFFT2048Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
@@ -90,8 +88,10 @@ extern "C" {
 		unsigned heapIndx0;
 		unsigned heapIndx1;
 		fseq64   route;
+		NmppsFFTSpec* spec;
+		clock_t t0,t1;
+		clock_t bestTime=0x1000000;
 		*allocOrder=0xFFFFFF00;
-		clock_t t0,t1,bestTime=0x1000000;
 
 		for(heapIndx0=0; heapIndx0<4; heapIndx0++){
 			for(heapIndx1=0; heapIndx1<4; heapIndx1++){
@@ -99,7 +99,7 @@ extern "C" {
 
 				route =0xF00|(heapIndx1<<4)|(heapIndx0); 
 				//!!!nmppsMallocSetRouteMode(route);
-				NmppsFFTSpec* spec;
+				
 				if (nmppsFFT2048FwdInitAllocCustom(&spec, nmppsMalloc32, nmppsFree, NMPP_OPTIMIZE_DISABLE )==NMPP_OK){
 					t0=clock();
 					nmppsFFT2048Fwd((nm32sc*)src, (nm32sc*)dst, spec);
@@ -120,5 +120,5 @@ extern "C" {
 
 
 
-};
+
 

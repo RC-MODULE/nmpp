@@ -65,7 +65,6 @@ void nmppsDotProd_64s64s(
 		struct aura_buffer *retbuf; 
 		int ret = aura_call(n, "nmppsDotProd_64s64s", &retbuf,  iobuf_src0,iobuf_src1, size); 
 		if (ret != 0) {
-			printf ("bug = %d\r\n",ret);
 			BUG(n, "Call nmppsDotProd_64s64s failed!"); }
 		*dst = aura_buffer_get_u64(retbuf);
 		aura_buffer_release( iobuf_src0); 

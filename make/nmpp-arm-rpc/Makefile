@@ -97,7 +97,8 @@ INC_DIRS         = \
 -I$(ROOTFS)/usr/include/arm-linux-gnueabi/aura-0.1.2/ \
 -I$(ROOTFS)/usr/include/ \
 -I$(ROOTFS)/usr/include/arm-linux-gnueabi/ \
--I$(NMPP)/include 
+-I$(NMPP)/include \
+-I$(NMPP)/include/rpc
 
 #-I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include 
 #-I../../include/nmpls

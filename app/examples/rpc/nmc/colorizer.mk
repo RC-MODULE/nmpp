@@ -76,10 +76,11 @@ col_rst=$(shell $(ECHOC)[0m')
 endif
 
 
-ifeq ($(DEBUG),)
+ifeq ($(VERBOSE),)
 SILENT_CONFIG    = @$(OS_ECHO) '  $(tb_cyn)[CONF]$(col_rst)      '$(subst \,/,$(@)) && 
 SILENT_DEP       = @$(OS_ECHO) '  $(tb_wht)[DEP]$(col_rst)       '$(subst \,/,$(@)).dep && 
 SILENT_NMCPP     = @$(OS_ECHO) '  $(tb_ylw)[NMCPP]$(col_rst)     '$(subst \,/,$(@)) && 
+SILENT_NMCC      = @$(OS_ECHO) '  $(tb_ylw)[NMCPP]$(col_rst)     '$(subst \,/,$(@)) && 
 SILENT_ASM       = @$(OS_ECHO) '  $(tb_grn)[ASM]$(col_rst)       '$(subst \,/,$(@)) && 
 SILENT_LINKER    = @$(OS_ECHO) '  $(tb_pur)[LINKER]$(col_rst)    '$(subst \,/,$(@)) && 
 SILENT_AR        = @$(OS_ECHO) '  $(tb_cyn)[AR]$(col_rst)        '$(subst \,/,$(@)) && 

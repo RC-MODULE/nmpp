@@ -12,15 +12,15 @@
 
 
 
-#include "rpc-host.h"	
+//#include "rpc-host.h"	
 
 
 	
 	void nmppsFFT32Free(NmppsFFTSpec* spec )
 	{
-	#ifdef RPC
-		RPC_HOST_I("nmppsFFTFree",(int)spec);	
-	#else
+	//#ifdef RPC
+		//RPC_HOST_I("nmppsFFTFree",(int)spec);	
+	//#else
 		if (spec){
 			nmppsFree(spec->buffer[0]);
 			nmppsFree(spec->buffer[1]);
@@ -28,7 +28,7 @@
 			//spec->free(spec->buffer[3]);
 			nmppsFree(spec->fftTable[0]);
 		}
-	#endif
+	//#endif
 		
 	}	
 

@@ -51,9 +51,9 @@ int main() {
 	}
 
 	
-//	nmppsAbs_8s ((nm8s* )src0_8s ,(nm8s* )dst_8s ,8);
-//	nmppsAbs_16s((nm16s*)src0_16s,(nm16s*)dst_16s,16);
-//	nmppsAbs_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
+	nmppsAbs_8s ((nm8s* )src0_8s ,(nm8s* )dst_8s ,8);
+	nmppsAbs_16s((nm16s*)src0_16s,(nm16s*)dst_16s,16);
+	nmppsAbs_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
 //	nmppsAbs_64s((nm64s*)src0_16s,(nm64s*)dst_64s,16);
 //	
 //	nmppsAdd_8s ((nm8s* )src0_8s ,(nm8s* )src1_8s ,(nm8s* )dst_8s ,8);
@@ -204,15 +204,15 @@ int main() {
 //	nmppsDotProd_64s64s ((nm64s*) src0_32s ,(nm64s*)src1_64s, 16 , &ret64);   printf("%d\n",(int)ret64);
 	
 	
-//	NmppsFFTSpec* specFwd256;
-//	ret=nmppsFFT256FwdInitAlloc(&specFwd256, src0_32s, dst_32s, 0);
-//	nmppsFFT256Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd256);
-//	nmppsFFTFree(specFwd256);
-//
-//	NmppsFFTSpec *specFFTInv256;
-//	ret=nmppsFFT256InvInitAlloc(&specFFTInv256, src0_32s, dst_32s, 0);
-//	nmppsFFT256Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv256);
-//	nmppsFFTFree(specFFTInv256);
+	NmppsFFTSpec* specFwd256;
+	ret=nmppsFFT256FwdInitAlloc(&specFwd256, src0_32s, dst_32s, 0);
+	nmppsFFT256Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd256);
+	nmppsFFTFree(specFwd256);
+
+	NmppsFFTSpec *specFFTInv256;
+	ret=nmppsFFT256InvInitAlloc(&specFFTInv256, src0_32s, dst_32s, 0);
+	nmppsFFT256Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv256);
+	nmppsFFTFree(specFFTInv256);
 	
 	
 //	NmppsFFTSpec* specFwd512;
@@ -225,10 +225,10 @@ int main() {
 //	nmppsFFT512Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv512);
 //	nmppsFFTFree(specFFTInv512);
 	
-	NmppsFFTSpec* specFwd1024;
-	ret=nmppsFFT1024FwdInitAlloc(&specFwd1024, src0_32s, dst_32s, 0);
-	nmppsFFT1024Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd1024);
-	nmppsFFTFree(specFwd1024);
+//	NmppsFFTSpec* specFwd1024;
+//	ret=nmppsFFT1024FwdInitAlloc(&specFwd1024, src0_32s, dst_32s, 0);
+//	nmppsFFT1024Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd1024);
+//	nmppsFFTFree(specFwd1024);
 	
 //	NmppsFFTSpec *specFFTInv1024;
 //	ret=nmppsFFT1024InvInitAlloc(&specFFTInv1024, src0_32s, dst_32s, 0);

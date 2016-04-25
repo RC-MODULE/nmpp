@@ -72,14 +72,20 @@
 EASYNMC_DIR     = $(AURA)/nmc-utils/libeasynmc-nmc
 #--------------  target & input dirs -------------------
 ROOT             = ../..
-include $(ROOT)/global.mk
+include 		$(ROOT)/global.mk
+include 		$(ROOT)/make/src.mk
 PROJECT          = nmpp-nmc3-rpc
-OUT_DIR          = ../../lib
+OUT_DIR          = $(ROOT)/lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib
-INC_DIRS         = -I"$(NEURO)/include" -I../../include -I$(AURA)/include -I$(EASYNMC_DIR)/include
+INC_DIRS         = -I"$(NEURO)/include" -I$(ROOT)/include -I$(EASYNMC)/include
 
-#	 \
-#					$(ROOT)/src/nmplv/Arithmetics/nm-rpc
+#SRC_DIRS        := $(subst /nm ,/rpc-nmc ,$(SRC_DIRS))
+SRC_DIRS 		 = \
+				$(ROOT)/src/nmpls/FFT/FFT0256/rpc-nmc \
+				$(ROOT)/src/nmpls/FFT/rpc-nmc \
+				$(ROOT)/src/nmplv/Support/rpc-nmc 
+				
+
 
 LIB_DIRS         = 
 TMP_DIR          =Release

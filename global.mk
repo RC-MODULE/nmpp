@@ -4,35 +4,35 @@ NMPP      = $(ROOT)
 #http_proxy        = http://user:pass@proxy:80/       (for wget usage)
 
 NEURO    ?= $(NMPP)/deps/nmsdk
-#VSHELL32 = $(realpath $(ROOT))/deps/vshell32
-MC5103   = $(NMPP)/deps/mc5103sdk
-MC7601   = $(NMPP)/deps/mc7601sdk
-MB7707   = $(NMPP)/deps/mb7707sdk
+VSHELL32 ?= $(NMPP)/deps/vshell32
+MC5103    = $(NMPP)/deps/mc5103sdk
+MC7601    = $(NMPP)/deps/mc7601sdk
+MB7707    = $(NMPP)/deps/mb7707sdk
+GNUWIN32  = $(NMPP)/deps/gnuwin32/bin
 
 
 
 
 ifeq ($(OS),Windows_NT)
-#  AURA     = d:/GIT/matlab/aura_master
-#  AURA    = d:/GIT/matlab/aura
    ROOTFS  = d:/GIT/matlab/rootfs
    AURA    = $(ROOTFS)/usr/include/arm-linux-gnueabi/aura-0.1.2/aura
-#  ARM_CC   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-gcc
+   EASYNMC = d:/GIT/matlab/nmc-utils-0.1.1/libeasynmc-nmc
+
    ARM_CC   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-gcc.exe
-#  ARM_AR   = d:/SDK/arm-module-linux-gnueabi/bin/arm-module-linux-gnueabi-ar
    ARM_AR   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ar.exe
    ARM_LD   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ld.exe
 
   
   SHELL    = cmd
+  OS_SCP   = pscp   
   OS_MV    = rename
   OS_RM    = del /Q
-#  OS_RM    = rm -f -r
+# OS_RM    = rm -f -r
   OS_RD    = rd /Q /S 
   OS_WHICH =$(windir)/system32/where
- #OS_WGET  = wget
+# OS_WGET  = wget
   OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\wget.ps1 
- #OS_UNZIP = unzip 
+# OS_UNZIP = unzip 
   OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\unzip.ps1 
   OS_TODIR = -d
   OS_TAR   = $(OS_UNZIP)
@@ -46,6 +46,7 @@ else
   define OS_PATH
 	$(1)
   endef 
+  OS_SCP   = scp
   OS_RM    = rm -f -r
   OS_RD    = rm -d -r
   OS_WHICH = which

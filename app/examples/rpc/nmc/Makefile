@@ -6,86 +6,63 @@
 # * Host GCC (Since nmcpp doesn't support generating deps, 
 #	       we use $(CROSS_COMPILE)gcc for that) 
 #
-# For verbose build run 'make VERBOSE=y'
+# To disable colorizer run 'make VERBOSE=y'
 #
 ROOT = ../../../..
-include $(ROOT)/setenv.mk
+include $(ROOT)/global.mk
 -include colorizer.mk
 -include *.dep
 
 .SUFFIXES:
 
 OBJECTS :=  \
-	test.o \
 	main-nmc.o \
 	easyconf.o \
 	aura-exports.o
 
 TARGET=rpc-demo
 
+NMCPP_FLAGS     = -DNEURO -OPT2 -inline 
+NMCC_FLAGS      = -nmc3 -DNEURO -O2 -Snolink
+ASM_FLAGS       = -soc -Snolink -X-q 
+BUILDER_FLAGS	= -cK1879.cfg -m -heap=4000 -heap1=6384 -heap2=6384 -heap3=6384 -stack=2000 -full_names
 
-
-# Set this to libeasynmc-nmc dir. Relative or absolute. 
-# Make sure you build it prior to building the actual project. 
-#EASYNMC_DIR     = $(AURA)/nmc-utils/libeasynmc-nmc
-EASYNMC_DIR     = d:\GIT\matlab\nmc-utils-0.1.1\libeasynmc-nmc
-CROSS_COMPILE   =
-NMCPP_FLAGS     = -DNEURO -OPT2 -inline -I$(EASYNMC_DIR)/include
-ASM_FLAGS       = -soc -Sc -Stmp -X-q -I$(EASYNMC_DIR)/include
-C2ASM_FLAGS     = -soc -q 
+INC_DIRS        = -I. -I"$(NEURO)/include" -I"$(NMPP)/include" -I"$(EASYNMC)/include"
+LIB_DIRS		= -L"$(NEURO)/lib" -L"$(EASYNMC)" -L$(NMPP)/lib
 
 #BIG FAT WARNING: easynmc.lib MUST go BEFORE libc
 #BIG FAT WARNING: Otherwise argc/argv won't work 
-
-LIBS            = easynmc.lib libc05.lib nmpp-nmc3.lib  libint_soc.lib
-
-#nmpp-nmc3-rpc.lib
-
-BUILDER_FLAGS	= -cK1879.cfg -m -heap=4000 -heap1=6384 -heap2=6384 -heap3=6384 -stack=2000 -full_names
-IDIRS           = -I. -I"$(NEURO)/include" -I"$(NMPP)/include"
-LIBDIR		= -l"$(NEURO)/lib" -l"$(EASYNMC_DIR)" -l$(NMPP)/lib
-
+LIBS            = easynmc.lib libc05.lib nmpp-nmc3.lib  libint_soc.lib nmpp-nmc3-rpc.lib
 
 .DEFAULT_GOAL=all
 
-all:  $(EASYNMC_DIR)/easynmc.lib $(TARGET).abs
+all:   $(TARGET).abs
 
-lib:
-	$(MAKE) -C $(NMPP)/make/nmpp-nmc3 
-#rpc:
-#	$(MAKE) -C $(ROOT)/make/nmpp-nmc3-rpc
-	
-%.asmx: %.cpp
-	$(SILENT_DEP)$(CROSS_COMPILE)gcc -E -MM $(<) -o$(@).dep $(IDIRS) 
-	$(SILENT_NMCPP)nmcpp -Tp $(NMCPP_FLAGS) $(<) -O$(@) $(IDIRS) 
+.PHONY libs: $(LIBS)
 
-%.asmx: %.c
-	$(SILENT_DEP)$(CROSS_COMPILE)gcc -E -MM $(<) -o$(@).dep $(IDIRS) 
-	$(SILENT_NMCPP)nmcpp -Tc99 $(NMCPP_FLAGS) $(<) -O$(@) $(IDIRS) 
-
-%.o: %.asmx
-	$(SILENT_ASM)asm $(C2ASM_FLAGS) $(<) -o$(@)
+%.o: %.c
+	$(SILENT_DEP)$(CROSS_COMPILE)gcc -E -MM $(<) -o$(@).dep $(INC_DIRS) 
+	$(SILENT_NMCC)nmcc -Tc99 $(NMCC_FLAGS) $(<) -o$(@) $(INC_DIRS) 
 
 %.o: %.asm
-	$(SILENT_DEP)$(CROSS_COMPILE)gcc -E -MM -xassembler-with-cpp $(<) -o$(@).dep
-	$(SILENT_ASM)nmcc $(ASM_FLAGS) $(<) -o$(@)
+	$(SILENT_NMCC)nmcc $(ASM_FLAGS) $(<) -o$(@) $(INC_DIRS)
 
-$(TARGET).lib: $(OBJECTS) 
-	-$(SILENT_LIBRARIAN)libr -c $(@) $(^) > /dev/null
-
-#$(ROOT)/lib/nmpp-nmc3-rpc.lib 
-$(TARGET).abs: $(OBJECTS) $(NMPP)/lib/nmpp-nmc3.lib
-	-$(SILENT_LINKER)linker  $(BUILDER_FLAGS) -o$(@) $(OBJECTS) $(LIBS) $(LIBDIR)
+$(TARGET).abs: $(OBJECTS) 
+	$(SILENT_LINKER)linker  $(BUILDER_FLAGS) -o$(@) $(OBJECTS) $(LIBS) $(LIB_DIRS)
 
 $(TARGET).dump: $(TARGET).abs
-	-$(SILENT_NMDUMP)nmdump -f $(^) > $(@)
-
-run: $(TARGET).abs
-	edcltool -f run_nmc_code.edcl -i eth1
+	$(SILENT_NMDUMP)nmdump -f $(^) > $(@)
 
 clean:
-	-$(SILENT_CLEAN)$(OS_RM) *.o $(TARGET).abs $(TARGET).dump *.dep *.ac *.map *~ *.abs *.lib *.asmx
+	-$(OS_RM) *.o $(TARGET).abs $(TARGET).dump *.dep *.ac *.map *~ *.abs *.lib *.asmx
 
+
+$(EASYNMC)/easynmc.lib:
+	$(MAKE) -C $(EASYNMC)
 	
-$(EASYNMC_DIR)/easynmc.lib:
-	$(MAKE) -C $(EASYNMC_DIR)
+$(NMPP)/lib/nmpp-nmc3.lib:
+	$(MAKE) -C $(NMPP)/make/nmpp-nmc3
+	
+$(NMPP)/lib/nmpp-nmc3-rpc.lib:
+	$(MAKE) -C $(NMPP)/make/nmpp-nmc3-rpc
+	

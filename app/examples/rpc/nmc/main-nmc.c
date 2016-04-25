@@ -1,17 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <easynmc/easynmc.h>
-#include <easynmc/aura.h>
-#include <nmpp.h>
-#include <fft2.h>
-
-
+#include "nmpp.h"
 #include "aura-exports.h"
-#include <rpc-nmc.h>
-
-
-
+#include "rpc/rpc-nmc-func.h"
 
 unsigned int *pinmux  = (unsigned int *) 0x0800CC21;
 unsigned int *port    = (unsigned int *) 0x0800A403;

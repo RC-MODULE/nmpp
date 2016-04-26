@@ -64,8 +64,8 @@ ifeq ($(OS),Windows_NT)
   ARM_URLS = \
 	  $(SYSROOT_URL) \
 	  $(NMC_UTILS_URL) \
-	  $(PUTTY_URL)	  
-#	  $(SDK_ARM_URL) 
+	  $(PUTTY_URL)	  \
+	  $(SDK_ARM_URL) 
 	  
   ARC_URLS = \
       $(TAR_URL) \
@@ -101,11 +101,11 @@ PACKAGES_NMC:= $(subst master.zip,nmc-utils.zip,$(PACKAGES_NMC))
 
 install-nmc: nmsdk nm_io mc5103sdk mb7707sdk mc7601sdk vshell32 
 
-install-arm: putty rootfs nmc-utils-master gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32
+install-arm: gnuwin32/bin/tar.exe gnuwin32/bin/putty.exe rootfs nmc-utils-master gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32 
 
-install-gnu: core-utils cecho arc
+install-gnu: core-utils gnuwin32/bin/cecho.exe gnuwin32/bin/tar.exe
 
-install-arc: arc
+install-arc: gnuwin32/bin/tar.exe
 
 
 #------------------------- package downloading of depended URLs --------------------
@@ -164,14 +164,12 @@ core-utils: $(notdir $(COREUTILS_URL)) gnuwin32
 	$(OS_UNPACK) $(notdir $(COREDEPS_URL))  $(OS_TODIR) gnuwin32
 	$(OS_UNPACK) $(notdir $(FIND_URL))      $(OS_TODIR) gnuwin32
 
-putty: $(notdir $(PUTTY_URL)) gnuwin32
+gnuwin32/bin/putty.exe: $(notdir $(PUTTY_URL)) gnuwin32
 	$(OS_UNPACK) $(notdir $(PUTTY_URL)) $(OS_TODIR) gnuwin32\bin
 	
-cecho: cecho.zip gnuwin32
+gnuwin32/bin/cecho.exe: cecho.zip gnuwin32
 	$(OS_UNPACK) cecho.zip $(OS_TODIR) gnuwin32
 	copy .\gnuwin32\cecho-master\cecho\bin\Release\cecho.exe .\gnuwin32\bin
-
-arc: gnuwin32/bin/tar.exe
 
 gnuwin32/bin/tar.exe: $(PACKAGES_ARC) gnuwin32\bin
 	$(OS_UNPACK) $(notdir $(ZIP7_URL))   $(OS_TODIR) gnuwin32\bin
@@ -182,8 +180,8 @@ rootfs: $(notdir $(SYSROOT_URL))
 	$(GNUWIN32)/7za  e $(<)
 	$(GNUWIN32)/tar  -vxf armhf-sdk-sysroot.tar -C rootfs
 	
-nmc-util-master: $(notdir $(NMC_UTILS_URL))
-	$(GNUWIN32)/7za  e $(<)
+nmc-utils-master: nmc-utils.zip
+	$(OS_UNPACK) nmc-utils.zip 
 	
 gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32: $(nodir $(SDK_ARL_URL))
 	$(GNUWIN32)/7za  e $(<)

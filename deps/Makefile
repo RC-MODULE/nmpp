@@ -59,18 +59,19 @@ ifeq ($(OS),Windows_NT)
 	  $(COREUTILS_URL)	 \
 	  $(COREDEPS_URL)	 \
 	  $(FIND_URL)       \
-	  $(CECHO_URL) 	 \
-	  $(PUTTY_URL)      
+	  $(CECHO_URL) 	 
   
   ARM_URLS = \
 	  $(SYSROOT_URL) \
 	  $(NMC_UTILS_URL) \
-	  $(SDK_ARM_URL) 
+	  $(PUTTY_URL)	  
+#	  $(SDK_ARM_URL) 
 	  
   ARC_URLS = \
       $(TAR_URL) \
       $(TARDEP_URL) \
-      $(ZIP7_URL)
+      $(ZIP7_URL) 
+      
 	   
   
    
@@ -91,43 +92,45 @@ else
 endif
 	
 PACKAGES_NMC = $(notdir $(NMC_URLS))
-PACKAGES_ARM = $(notdir $(ARM_URLS))
+PACKAGES_ARM = $(notdir $(ARM_URLS)) 
 PACKAGES_GNU = $(notdir $(GNU_URLS))
 PACKAGES_ARC = $(notdir $(ARC_URLS))
 
+PACKAGES_GNU:= $(subst master.zip,cecho.zip,$(PACKAGES_GNU))
+PACKAGES_NMC:= $(subst master.zip,nmc-utils.zip,$(PACKAGES_NMC))
 
 install-nmc: nmsdk nm_io mc5103sdk mb7707sdk mc7601sdk vshell32 
 
-install-arm: rootfs nmc-utils-master gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32
+install-arm: putty rootfs nmc-utils-master gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32
 
-install-gnu: gnuwin32 putty cecho install-arc
+install-gnu: core-utils cecho arc
 
 install-arc: arc
 
 
 #------------------------- package downloading of depended URLs --------------------
 
-download-nmc: $(PACKAGES_NMC)
+get-nmc: $(PACKAGES_NMC)
 
 $(PACKAGES_NMC):
 	$(OS_WGET) $(NMC_URLS)
 	
 #.....................................................
-download-arm: 	$(PACKAGES_ARM)
+get-arm: 	$(PACKAGES_ARM)
 
 $(PACKAGES_ARM): 
 	$(OS_WGET) $(ARM_URLS)
-	$(OS_CP) master.zip nmc-utils.zip	
+	ren master.zip nmc-utils.zip	
 	
 #.....................................................
-download-gnu: 	$(PACKAGES_GNU) $(PACKAGES_ARC)
+get-gnu: 	$(PACKAGES_GNU) $(PACKAGES_ARC)
 
-$(DOWNLOADS_GNU) cecho.zip: 
-	$(OS_WGET) $(GNU_URLS) $(GNU_URLS)
-	$(OS_CP) master.zip cecho.zip	
+$(PACKAGES_GNU): 
+	$(OS_WGET) $(GNU_URLS) $(ARC_URLS)
+	ren master.zip cecho.zip	
 
 #.....................................................
-download-arc: 	$(PACKAGES_ARC)
+get-arc: 	$(PACKAGES_ARC)
 
 $(PACKAGES_ARC): 
 	$(OS_WGET) $(ARC_URLS)
@@ -148,47 +151,49 @@ mc7601sdk: $(notdir $(SDK_MC7601_URL))
 
 nmsdk: $(notdir $(NMSDK_URL))
 	-mkdir $(@)
-	$(PACKAGES) $(<) $(OS_TODIR) $(@)
+	$(OS_UNPACK) $(<) $(OS_TODIR) $(@)
 
 vshell32: $(notdir $(VSHELL32_URL))
-	$(OS_UNZIP) $(<) 
+	$(OS_UNPACK) $(<) 
 
 nm_io: $(notdir $(NM_IO_URL))
-	$(OS_UNZIP) $(<)
+	$(OS_UNPACK) $(<)
 	
-gnuwin32: $(notdir $(COREUTILS_URL)) $(notdir $(COREDEPS_URL))
-	-mkdir gnuwin32
+core-utils: $(notdir $(COREUTILS_URL)) gnuwin32
 	$(OS_UNPACK) $(notdir $(COREUTILS_URL)) $(OS_TODIR) gnuwin32
 	$(OS_UNPACK) $(notdir $(COREDEPS_URL))  $(OS_TODIR) gnuwin32
 	$(OS_UNPACK) $(notdir $(FIND_URL))      $(OS_TODIR) gnuwin32
 
-putty: $(notdir $(PUTTY_URL))
-	-mkdir gnuwin32
+putty: $(notdir $(PUTTY_URL)) gnuwin32
 	$(OS_UNPACK) $(notdir $(PUTTY_URL)) $(OS_TODIR) gnuwin32\bin
 	
-cecho: cecho.zip
-	-mkdir gnuwin32
-	$(OS_UNPACK) $(notdir $(CECHO_URL)) $(OS_TODIR) gnuwin32
+cecho: cecho.zip gnuwin32
+	$(OS_UNPACK) cecho.zip $(OS_TODIR) gnuwin32
 	copy .\gnuwin32\cecho-master\cecho\bin\Release\cecho.exe .\gnuwin32\bin
 
-arc: $(GNUWIN32)/bin/tar.exe $(GNUWIN32)/bin/7za.exe
+arc: gnuwin32/bin/tar.exe
 
-$(GNUWIN32)/bin/tar.exe $(GNUWIN32)/bin/7za.exe: $(notdir $(PACKAGES_ARC))
+gnuwin32/bin/tar.exe: $(PACKAGES_ARC) gnuwin32\bin
 	$(OS_UNPACK) $(notdir $(ZIP7_URL))   $(OS_TODIR) gnuwin32\bin
-	$(OS_UNPACK) $(notdir $(TAR_URL))  	 $(OS_TODIR) gnuwin32\bin
-	$(OS_UNPACK) $(notdir $(TARDEP_URL)) $(OS_TODIR) gnuwin32\bin
+	$(OS_UNPACK) $(notdir $(TAR_URL))  	 $(OS_TODIR) gnuwin32
+	$(OS_UNPACK) $(notdir $(TARDEP_URL)) $(OS_TODIR) gnuwin32
 
 rootfs: $(notdir $(SYSROOT_URL))
 	$(GNUWIN32)/7za  e $(<)
-	$(GNUWIN32)/tar  -vxf armhf-sdk-sysroot.tar -orootfs
+	$(GNUWIN32)/tar  -vxf armhf-sdk-sysroot.tar -C rootfs
 	
 nmc-util-master: $(notdir $(NMC_UTILS_URL))
 	$(GNUWIN32)/7za  e $(<)
 	
 gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32: $(nodir $(SDK_ARL_URL))
 	$(GNUWIN32)/7za  e $(<)
-	
 
+gnuwin32\bin:
+	-mkdir gnuwin32
+	-mkdir gnuwin32\bin
+
+gnuwin32:	
+	-mkdir gnuwin32
 #------------------------------------------------------------------------------------	
 clean:
 	-$(OS_RM) *.zip *.exe

@@ -28,6 +28,9 @@ ifeq ($(OS),Windows_NT)
   NM_IO_URL      = http://www.module.ru/mb7707/NeuroMatrix/nm_io.zip
   VSHELL32_URL   = http://www.module.ru/mb7707/NeuroMatrix/VSHELL32.ZIP
   VSHELL32_DIST  = http://www.module.ru/mb7707/NeuroMatrix/VSHELL32_1.0.0.26.exe
+  NMC_UTILS_URL  = https://github.com/RC-MODULE/nmc-utils/archive/master.zip
+  SYSROOT_URL    = http://www.module.ru/mb7707/random/matlab-dev/armhf-sdk-sysroot.tgz
+  
  # 3rd party production packages 
   COREUTILS_URL	 = http://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-bin.zip
   COREDEPS_URL	 = http://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-dep.zip
@@ -36,23 +39,42 @@ ifeq ($(OS),Windows_NT)
   PUTTY_URL      = http://tartarus.org/~simon/putty-snapshots/x86/putty.zip
   # PUTTY's homepage http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   
-  URLS = \
+  TAR_URL        = http://downloads.sourceforge.net/project/gnuwin32/tar/1.13-1/tar-1.13-1-bin.zip
+  TARDEP_URL     = http://downloads.sourceforge.net/project/gnuwin32/tar/1.13-1/tar-1.13-1-dep.zip
+  ZIP7_URL       = http://www.7-zip.org/a/7za920.zip
+
+  SDK_ARM_URL    = https://launchpad.net/linaro-toolchain-binaries/trunk/2013.10/+download/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32.zip
+  
+  
+  NMC_URLS = \
 	  $(SDK_MC5103_URL) \
 	  $(SDK_MB7707_URL) \
 	  $(SDK_MC7601_URL) \
 	  $(NMSDK_URL)      \
 	  $(NM_IO_URL)      \
 	  $(VSHELL32_URL)   \
-	  $(VSHELL32_DIST)  \
+	  $(VSHELL32_DIST)  
+	  
+  GNU_URLS =\
 	  $(COREUTILS_URL)	 \
 	  $(COREDEPS_URL)	 \
 	  $(FIND_URL)       \
 	  $(CECHO_URL) 	 \
 	  $(PUTTY_URL)      
   
-  DOWNLOADS = $(notdir $(URLS))
-
-install: nmsdk nm_io mc5103sdk mb7707sdk mc7601sdk vshell32 gnuwin32 putty cecho
+  ARM_URLS = \
+	  $(SYSROOT_URL) \
+	  $(NMC_UTILS_URL) \
+	  $(SDK_ARM_URL) 
+	  
+  ARC_URLS = \
+      $(TAR_URL) \
+      $(TARDEP_URL) \
+      $(ZIP7_URL)
+	   
+  
+   
+  
 
 else
   SDK_MC5103_URL = http://www.module.ru/mb7707/NeuroMatrix/boards/mc5103_distrib_v_01_01.tar.gz
@@ -65,37 +87,69 @@ else
 	  $(SDK_MB7707_URL) \
 	  $(NMSDK_URL)      \
 	  $(NM_IO_URL)      
-	  
-  DOWNLOADS = $(notdir $(URLS))
-
-install: nmsdk nm_io mc5103sdk mb7707sdk  
-
+	
 endif
+	
+PACKAGES_NMC = $(notdir $(NMC_URLS))
+PACKAGES_ARM = $(notdir $(ARM_URLS))
+PACKAGES_GNU = $(notdir $(GNU_URLS))
+PACKAGES_ARC = $(notdir $(ARC_URLS))
+
+
+install-nmc: nmsdk nm_io mc5103sdk mb7707sdk mc7601sdk vshell32 
+
+install-arm: rootfs nmc-utils-master gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32
+
+install-gnu: gnuwin32 putty cecho install-arc
+
+install-arc: arc
+
 
 #------------------------- package downloading of depended URLs --------------------
 
-download: $(DOWNLOADS)
+download-nmc: $(PACKAGES_NMC)
 
-$(DOWNLOADS): 
-	$(OS_WGET) $(URLS)
+PACKAGES_NMC = $(notdir $(NMC_URLS))
+	$(OS_WGET) $(NMC_URLS)
 	
+#.....................................................
+download-arm: 	$(PACKAGES_ARM)
+
+$(PACKAGES_ARM): 
+	$(OS_WGET) $(ARM_URLS)
+	$(OS_CP) master.zip nmc-utils.zip	
+	
+#.....................................................
+download-gnu: 	$(PACKAGES_GNU) $(PACKAGES_ARC)
+
+$(DOWNLOADS_GNU) cecho.zip: 
+	$(OS_WGET) $(GNU_URLS) $(GNU_URLS)
+	$(OS_CP) master.zip cecho.zip	
+
+#.....................................................
+download-arc: 	$(PACKAGES_ARC)
+
+$(PACKAGES_GNU): 
+	$(OS_WGET) $(GNU_URLS)
+	$(OS_CP) master.zip cecho.zip	
+
 #------------------------- package installation  --------------------
 
 mc5103sdk: $(notdir $(SDK_MC5103_URL))
 	-mkdir $(@)
-	$(OS_TAR) $(<) $(OS_TODIR) $(@)
+	$(OS_UNPACK) $(<) $(OS_TODIR) $(@)
 	
 mb7707sdk: $(notdir $(SDK_MB7707_URL))
 	-mkdir $(@)
-	$(OS_TAR) $(<) $(OS_TODIR) $(@) 
+	$(OS_UNPACK) $(<) $(OS_TODIR) $(@) 
 
 mc7601sdk: $(notdir $(SDK_MC7601_URL))
 	-mkdir $(@)
-	$(OS_TAR) $(<) $(OS_TODIR) $(@) 
+	$(OS_UNPACK) $(<) $(OS_TODIR) $(@) 
 
 nmsdk: $(notdir $(NMSDK_URL))
 	-mkdir $(@)
-	$(OS_TAR) $(<) $(OS_TODIR) $(@)
+	$(PACKAGES) $(<) $(OS_TODIR) $(@)
 
 vshell32: $(notdir $(VSHELL32_URL))
 	$(OS_UNZIP) $(<) 
@@ -105,20 +159,35 @@ nm_io: $(notdir $(NM_IO_URL))
 	
 gnuwin32: $(notdir $(COREUTILS_URL)) $(notdir $(COREDEPS_URL))
 	-mkdir gnuwin32
-	$(OS_TAR) $(notdir $(COREUTILS_URL)) $(OS_TODIR) gnuwin32
-	$(OS_TAR) $(notdir $(COREDEPS_URL))  $(OS_TODIR) gnuwin32
-	$(OS_TAR) $(notdir $(FIND_URL))      $(OS_TODIR) gnuwin32
+	$(OS_UNPACK) $(notdir $(COREUTILS_URL)) $(OS_TODIR) gnuwin32
+	$(OS_UNPACK) $(notdir $(COREDEPS_URL))  $(OS_TODIR) gnuwin32
+	$(OS_UNPACK) $(notdir $(FIND_URL))      $(OS_TODIR) gnuwin32
 
 putty: $(notdir $(PUTTY_URL))
 	-mkdir gnuwin32
-	$(OS_TAR) $(notdir $(PUTTY_URL)) $(OS_TODIR) gnuwin32\bin
+	$(OS_UNPACK) $(notdir $(PUTTY_URL)) $(OS_TODIR) gnuwin32\bin
 	
-cecho: $(notdir $(CECHO_URL))
+cecho: cecho.zip
 	-mkdir gnuwin32
-	$(OS_TAR) $(notdir $(CECHO_URL)) $(OS_TODIR) gnuwin32
+	$(OS_UNPACK) $(notdir $(CECHO_URL)) $(OS_TODIR) gnuwin32
 	copy .\gnuwin32\cecho-master\cecho\bin\Release\cecho.exe .\gnuwin32\bin
-	
 
+arc: $(GNUWIN32)/bin/tar.exe $(GNUWIN32)/bin/7za.exe
+
+$(GNUWIN32)/bin/tar.exe $(GNUWIN32)/bin/7za.exe: $(notdir $(PACKAGES_ARC))
+	$(OS_UNPACK) $(notdir $(ZIP7_URL))   $(OS_TODIR) gnuwin32\bin
+	$(OS_UNPACK) $(notdir $(TAR_URL))  	 $(OS_TODIR) gnuwin32\bin
+	$(OS_UNPACK) $(notdir $(TARDEP_URL)) $(OS_TODIR) gnuwin32\bin
+
+rootfs: $(notdir $(SYSROOT_URL))
+	$(GNUWIN32)/7za  e $(<)
+	$(GNUWIN32)/tar  -vxf armhf-sdk-sysroot.tar -orootfs
+	
+nmc-util-master: $(notdir $(NMC_UTILS_URL))
+	$(GNUWIN32)/7za  e $(<)
+	
+gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32: $(nodir $(SDK_ARL_URL))
+	$(GNUWIN32)/7za  e $(<)
 	
 
 #------------------------------------------------------------------------------------	

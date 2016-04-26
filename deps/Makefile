@@ -109,7 +109,7 @@ install-arc: arc
 
 download-nmc: $(PACKAGES_NMC)
 
-PACKAGES_NMC = $(notdir $(NMC_URLS))
+$(PACKAGES_NMC):
 	$(OS_WGET) $(NMC_URLS)
 	
 #.....................................................
@@ -129,9 +129,8 @@ $(DOWNLOADS_GNU) cecho.zip:
 #.....................................................
 download-arc: 	$(PACKAGES_ARC)
 
-$(PACKAGES_GNU): 
-	$(OS_WGET) $(GNU_URLS)
-	$(OS_CP) master.zip cecho.zip	
+$(PACKAGES_ARC): 
+	$(OS_WGET) $(ARC_URLS)
 
 #------------------------- package installation  --------------------
 

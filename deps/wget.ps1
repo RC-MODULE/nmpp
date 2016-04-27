@@ -3,20 +3,27 @@ Import-Module BitsTransfer
 foreach ($url in $args)  
 {
 	$filename = [System.IO.Path]::GetFileName($url)
-	$IsBypassed=$webClient.Proxy.IsBypassed($url)
-	if ($IsBypassed){
-		$str = "Downloading (bypass proxy) : " + $url
+	if (Test-Path $filename) {
+		$str = "File [" + $filename + "] already exists. Downloading skipped"
 		echo $str
-		Start-BitsTransfer -DisplayName $filename -Source $url -Destination $filename 
 	}
-	else {
-		if (!$webclient.Proxy.Credentials){
-			netsh winhttp import proxy source=ie
-			$webclient.Proxy.Credentials=Get-Credential
+	else 
+	{
+		$IsBypassed=$webClient.Proxy.IsBypassed($url)
+		if ($IsBypassed){
+			$str = "Downloading (bypass proxy) : " + $url
+			echo $str
+			Start-BitsTransfer -DisplayName $filename -Source $url -Destination $filename 
 		}
-		$str ="Downloading (through proxy): " + $url
-		echo $str
-		$webclient.DownloadFile($url,$filename)
+		else {
+			if (!$webclient.Proxy.Credentials){
+				netsh winhttp import proxy source=ie
+				$webclient.Proxy.Credentials=Get-Credential
+			}
+			$str ="Downloading (through proxy): " + $url
+			echo $str
+			$webclient.DownloadFile($url,$filename)
+		}
 	}
 }
 

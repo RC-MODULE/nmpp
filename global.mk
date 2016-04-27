@@ -1,6 +1,5 @@
 
 NMPP      = $(ROOT)
-#NMPROFILER       = $(ROOT)/deps/nmprofiler
 #http_proxy        = http://user:pass@proxy:80/       (for wget usage)
 
 NEURO    ?= $(NMPP)/deps/nmsdk

@@ -83,7 +83,7 @@ else
   NMSDK_URL      = http://www.module.ru/mb7707/toolchains-neuromatrix/nmsdk.tar.gz
   NM_IO_URL      = http://www.module.ru/mb7707/NeuroMatrix/nm_io.zip
   
-  URLS = \
+  NMC_URLS = \
 	  $(SDK_MC5103_URL) \
 	  $(SDK_MB7707_URL) \
 	  $(NMSDK_URL)      \
@@ -97,7 +97,7 @@ PACKAGES_GNU = $(notdir $(GNU_URLS))
 PACKAGES_ARC = $(notdir $(ARC_URLS))
 
 PACKAGES_GNU:= $(subst master.zip,cecho.zip,$(PACKAGES_GNU))
-PACKAGES_NMC:= $(subst master.zip,nmc-utils.zip,$(PACKAGES_NMC))
+PACKAGES_ARM:= $(subst master.zip,nmc-utils.zip,$(PACKAGES_ARM))
 
 install-nmc: nmsdk nm_io mc5103sdk mb7707sdk mc7601sdk vshell32 
 
@@ -177,6 +177,7 @@ gnuwin32/bin/tar.exe: $(PACKAGES_ARC) gnuwin32\bin
 	$(OS_UNPACK) $(notdir $(TARDEP_URL)) $(OS_TODIR) gnuwin32
 
 rootfs: $(notdir $(SYSROOT_URL))
+	-mkdir rootfs
 	$(GNUWIN32)/7za  e $(<)
 	$(GNUWIN32)/tar  -vxf armhf-sdk-sysroot.tar -C rootfs
 	

@@ -14,14 +14,20 @@ GNUWIN32  = $(NMPP)/deps/gnuwin32/bin
 
 
 ifeq ($(OS),Windows_NT)
-   ROOTFS  = d:/GIT/matlab/rootfs
-   AURA    = $(ROOTFS)/usr/include/arm-linux-gnueabi/aura-0.1.2/aura
-   EASYNMC = d:/GIT/matlab/nmc-utils-0.1.1/libeasynmc-nmc
+   #ROOTFS  = d:/GIT/matlab/rootfs
+   ROOTFS  = $(ROOT)/deps/rootfs
+   #AURA    = $(ROOTFS)/usr/include/arm-linux-gnueabihf/aura-0.1.2/aura
+   #EASYNMC = d:/GIT/matlab/nmc-utils-0.1.1/libeasynmc-nmc
+   EASYNMC = $(ROOT)/deps/nmc-utils-0.1.1/libeasynmc-nmc
 
-   ARM_CC   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-gcc.exe
-   ARM_AR   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ar.exe
-   ARM_LD   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ld.exe
-
+   #ARM_CC   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-gcc.exe
+   #ARM_AR   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ar.exe
+   #ARM_LD   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ld.exe
+   
+   ARM_CC   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-gcc.exe
+   ARM_AR   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-ar.exe
+   ARM_LD   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-ld.exe
+				
   
   SHELL    = cmd
   OS_SCP   = pscp   
@@ -35,10 +41,14 @@ ifeq ($(OS),Windows_NT)
 # OS_UNZIP = unzip 
   OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\unzip.ps1 
   OS_TODIR = -d
-  OS_TAR   = $(OS_UNZIP)
+  OS_UNPACK= $(OS_UNZIP)
   PATH    := $(NEURO)/bin;$(MC5103)/bin;$(MB7707)/bin;$(MC7601)/bin;$(NMPP)/deps/gnuwin32/bin;$(VSHELL32)/bin;$(PATH)
   #prevents call of embedded 'find.exe' in Windows and GNU make becomes callable
   #PATH:= $(subst $(SystemRoot),,$(PATH))	
+  
+  define OS_PATH
+	$(subst /,\,$(1))
+  endef
 
   MB7707_MAC ?= 1A-2B-3C-4D-5E-6F
 else
@@ -52,7 +62,7 @@ else
   OS_WHICH = which
   OS_WGET  = wget  
   OS_UNZIP = unzip
-  OS_TAR   = tar xvzf 
+  OS_UNPACK= tar xvzf 
   OS_TODIR = -C
   PATH    := $(NEURO)/bin:$(MC5103)/bin:$(MB7707)/bin:$(PATH)
   LD_LIBRARY_PATH = $(MC5103)/bin:$(MB7707)/bin

@@ -47,7 +47,7 @@ all:   $(TARGET).abs
 %.o: %.asm
 	$(SILENT_NMCC)nmcc $(ASM_FLAGS) $(<) -o$(@) $(INC_DIRS)
 
-$(TARGET).abs: $(OBJECTS) 
+$(TARGET).abs: $(OBJECTS) $(EASYNMC)/easynmc.lib
 	$(SILENT_LINKER)linker  $(BUILDER_FLAGS) -o$(@) $(OBJECTS) $(LIBS) $(LIB_DIRS)
 
 $(TARGET).dump: $(TARGET).abs

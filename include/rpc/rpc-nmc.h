@@ -1,6 +1,7 @@
-#include "easynmc/aura.h"
+#include "easynmc\aura.h"
 
-typedef void (func_p_t)(void*);
+
+//typedef void (func_p_t)(void*);
 //typedef void*(func_i_p_t)(int);
 typedef void (func_ppi_t)(void*,void*,int);
 typedef int (func_ppi_i_t)(void*,void*,int);

@@ -11,7 +11,7 @@
 //	negative numbers to "-1" and positive numbers to "0"
 void nmppsCmpNeC_64s   (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize)
 {
-	RPC_HOST_PLPI("nmppsCmpNeC_64s",pSrcVec,nCmpVal,pDstVec,nSize,8);
+	RPC_HOST_PLPI("nmppsCmpNeC_64s",pSrcVec,nCmpVal,pDstVec,nSize,8,8);
 }
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 32-bit elements by setting 

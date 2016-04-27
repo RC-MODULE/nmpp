@@ -62,13 +62,6 @@
 #
 #include .toolchecked.mk
 
-#ifdef NEURO
-#  .DEFAULT_GOAL := default
-#else 
-#  $(error *** ERROR: 'NEURO' environment variable is not defined! NMSDK might not have installed correctly. )
-#  .DEFAULT_GOAL := skip
-#endif
-
 ROOT = ../..
 include $(ROOT)/global.mk
 
@@ -79,29 +72,19 @@ OBJCOPY = $(ARM_CC)-objcopy
 OBJDUMP = $(ARM_CC)-objdump
 
 
-define OS_PATH
-$(eval $(subst /,\,$(1)))
-endef
-
 #--------------  target & input dirs -------------------
 ROOT             = ../..
 PROJECT          = libnmpp-arm-rpc
 OUT_DIR          = ../../lib
-ifeq ($(OS),Windows_NT)
-TARGET           = $(subst /,\,$(OUT_DIR)/$(PROJECT).a)
-else 
 TARGET           = $(OUT_DIR)/$(PROJECT).a
-endif
-#INC_DIRS         = -I../../include -I../../include/nmpls
+OS_TARGET		 = $(call OS_PATH,$(TARGET))
 INC_DIRS         = \
--I$(ROOTFS)/usr/include/arm-linux-gnueabi/aura-0.1.2/ \
--I$(ROOTFS)/usr/include/ \
--I$(ROOTFS)/usr/include/arm-linux-gnueabi/ \
--I$(NMPP)/include \
--I$(NMPP)/include/rpc
+  -I$(ROOTFS)/usr/include/arm-linux-gnueabihf/aura-0.1.2/ \
+  -I$(ROOTFS)/usr/include/ \
+  -I$(ROOTFS)/usr/include/arm-linux-gnueabihf/ \
+  -I$(NMPP)/include \
+  -I$(NMPP)/include/rpc
 
-#-I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include 
-#-I../../include/nmpls
 SRC_DIRS         =  ../../src/nmplv/Arithmetics/rpc-arm \
 					../../src/nmplv/Bitwise/rpc-arm \
 					../../src/nmplv/Select/rpc-arm \
@@ -109,23 +92,20 @@ SRC_DIRS         =  ../../src/nmplv/Arithmetics/rpc-arm \
 					../../src/nmpls/FFT/FFT0512/rpc-arm \
 					../../src/nmpls/FFT/FFT1024/rpc-arm \
 					../../src/nmpls/FFT/FFT2048/rpc-arm \
-					../../src/nmplm/MatrixVector/pc
+					../../src/nmplm/MatrixVector/rpc-arm
 					
 					
 TMP_DIR          = Release
 #------------------------------------------------
 AS_FLAGS         = $(INC_DIRS)
 #CC_FLAGS 		 = -g -Wall -fPIC $(INC_DIRS) -DRPC=y -std=c99
-CC_FLAGS = -DRPC=y -D_GNU_SOURCE -std=c99 -marm -march=armv4t -mfloat-abi=soft \
--marm -march=armv4t -mfloat-abi=soft \
---sysroot=$(ROOTFS) 
+CC_FLAGS = -DRPC=y -D_GNU_SOURCE -std=c99 -marm -march=armv4t -mfloat-abi=hard -marm -march=armv4t -mfloat-abi=hard --sysroot=$(ROOTFS) 
 
 
 #-std=c99 -fno-exceptions -Wall -O0 -mcpu=arm1176jzf-s -DGPIO_LEG=6 -fno-zero-initialized-in-bss $(ING_DIRS) 
 
 BUILDER          = $(AR)
 BUILDER_FLAGS    = rcs $(TARGET)
-
 
 #--------------  Header dependence parsing -------------------------
 ifdef HAVE_gcc
@@ -138,9 +118,6 @@ endif
 #-include colorizer.mk
 -include $(TMP_DIR)/*.dep
 .SUFFIXES:
-
-
-
 
 # regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)
 ALL_CPP =$(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
@@ -171,7 +148,7 @@ $(TMP_DIR):
 	-mkdir "$(@)"
 
 $(TARGET): $(TMP_DIR) $(OBJECTS) 
-	-$(OS_RM) $(TARGET)
+	-$(OS_RM) $(OS_TARGET)	
 	$(BUILDER) $(BUILDER_FLAGS) $(OBJECTS) 
 
 $(OUT_DIR): 
@@ -186,9 +163,7 @@ $(TMP_DIR)/%.o: %.cpp
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 	
 clean:
-	-$(OS_RM) $(TARGET) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
+	-$(OS_RM) $(OS_TARGET) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
 	-$(OS_RD) Debug Release
  
-cleanall:
-	$(MAKE) clean
-	
+

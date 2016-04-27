@@ -4,37 +4,33 @@ ROOT 		= ../../../..
 include 	$(ROOT)/global.mk
 TARGET  	=  rpc-demo
 CC_FLAGS 	= \
-	-marm -march=armv4t -mfloat-abi=soft \
+	-marm -march=armv4t -mfloat-abi=hard \
 	--sysroot=$(ROOTFS) \
 	-D_GNU_SOURCE \
-	-I$(ROOTFS)/usr/include/arm-linux-gnueabi/aura-0.1.2/ \
+	-I$(ROOTFS)/usr/include/arm-linux-gnueabihf/aura-0.1.2/ \
 	-I$(ROOTFS)/usr/include/ \
-	-I$(ROOTFS)/usr/include/arm-linux-gnueabi/ \
+	-I$(ROOTFS)/usr/include/arm-linux-gnueabihf/ \
 	-I$(NMPP)/include 
 
 LD_FLAGS = \
-	-marm -march=armv4t -mfloat-abi=soft \
+	-marm -march=armv4t -mfloat-abi=hard \
 	-Wl,--sysroot=$(ROOTFS) \
 	-Wl,-unresolved-symbols=ignore-in-shared-libs \
-	-Wl,-Ld:/GIT/matlab/rootfs/lib \
-	-Wl,-Ld:/GIT/matlab/rootfs/lib/arm-linux-gnueabi \
-	-Wl,-Ld:\GIT\matlab\rootfs\usr\lib\arm-linux-gnueabi \
+	-Wl,-L$(ROOTFS)/lib \
+	-Wl,-L$(ROOTFS)/lib/arm-linux-gnueabihf \
+	-Wl,-L$(ROOTFS)/usr/lib/arm-linux-gnueabihf \
 	-Wl,-L$(NMPP)/lib 
 
-VPATH    = $(AURA) $(AURA)/nmc-utils
+#VPATH    = $(AURA) $(AURA)/nmc-utils
 ALL_C    = ./main-arm.c 
 OBJECTS_C= $(notdir $(patsubst %.c,%.o,$(ALL_C)))
 
 
-all : lib $(TARGET) ../nmc/rpc-demo.abs
-	$(MAKE) -C ../nmc
+all: $(TARGET) ../nmc/rpc-demo.abs
 
 lib: 
 	$(MAKE) -C $(ROOT)/make/nmpp-arm-rpc
 
-#$(MAKE) -C $(ROOT)/make/nmpp-nmc3
-	
-	
 upload: ./$(TARGET) ../nmc/rpc-demo.abs
 	$(OS_SCP) -pw 12345678 ../nmc/rpc-demo.abs root@192.168.20.9: 
 	$(OS_SCP) -pw 12345678 ./$(TARGET) root@192.168.20.9: 

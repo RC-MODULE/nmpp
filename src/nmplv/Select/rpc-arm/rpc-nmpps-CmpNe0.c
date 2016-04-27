@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-#include "rpv/rpc-host.h"
+#include "rpc/rpc-host.h"
 #include "nmplv.h"
 
 

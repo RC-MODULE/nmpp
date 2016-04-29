@@ -38,6 +38,9 @@ ifeq ($(OS),Windows_NT)
   FIND_URL       = https://sourceforge.net/projects/gnuwin32/files/findutils/4.2.20-2/findutils-4.2.20-2-bin.zip
   CECHO_URL 	 = https://github.com/elisherer/cecho/archive/master.zip
   PUTTY_URL      = http://tartarus.org/~simon/putty-snapshots/x86/putty.zip
+  GNUMAKE_URL	 = http://downloads.sourceforge.net/project/gnuwin32/make/3.81/make-3.81-bin.zip 
+  GNUMAKEDEPS_URL= http://downloads.sourceforge.net/project/gnuwin32/make/3.81/make-3.81-dep.zip
+
   # PUTTY's homepage http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   
  # archivators (7z+tar) 
@@ -65,7 +68,10 @@ ifeq ($(OS),Windows_NT)
 	  $(COREUTILS_URL)	 \
 	  $(COREDEPS_URL)	 \
 	  $(FIND_URL)       \
-	  $(CECHO_URL) 	 
+	  $(CECHO_URL) 	 \
+	  $(GNUMAKE_URL) \
+	  $(GNUMAKEDEPS_URL)
+	  
   
   ARM_URLS = \
 	  $(SYSROOT_URL) \
@@ -107,7 +113,7 @@ install-nmc: nmsdk nm_io mc5103sdk mb7707sdk mc7601sdk vshell32
 
 install-arm: rootfs nmc-utils-0.1.1 raspbian-jessie-matlab arm-toolchain
 
-install-gnu: gnuwin32/bin/.gnu_installed 
+install-gnu: gnuwin32/bin/.gnu_installed gnumake
 	
 install-arc: gnuwin32/bin/.arc_installed
 
@@ -183,6 +189,11 @@ gnuwin32/bin/.arc_installed: $(PACKAGES_ARC) gnuwin32
 	$(OS_UNPACK) $(notdir $(TARDEP_URL)) $(OS_TODIR) gnuwin32
 	@echo "tar & 7z are installed" >> $(@)
 
+gnumake: make-3.81-bin.zip make-3.81-dep.zip 
+	-mkdir gnumake
+	$(OS_UNPACK) make-3.81-bin.zip    $(OS_TODIR) gnumake
+	$(OS_UNPACK) make-3.81-dep.zip    $(OS_TODIR) gnumake
+	
 rootfs: armhf-sdk-sysroot.tar install-arc
 	-mkdir $(@)
 	$(GNUWIN32)/tar -vxf $(<) -C $(@)

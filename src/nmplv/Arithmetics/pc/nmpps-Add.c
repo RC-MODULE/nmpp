@@ -60,7 +60,6 @@ void nmppsAdd_32s(
 		)
 {
 	int i;
-	while(1);
 	for (i=0; i<nSize; i++)
 		pDstVec[i] = pSrcVec1[i] + pSrcVec2[i];
 

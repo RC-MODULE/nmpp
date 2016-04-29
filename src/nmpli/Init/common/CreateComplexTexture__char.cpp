@@ -103,12 +103,12 @@ void IMG_CreateRandomCellTexture(unsigned char *texture_img, int width, int heig
 	int i, j=0, di, dj;
 	while(j<height)
 	{
-		dj=nmppcRand(20,59);//%40+20;
+		dj=nmppcRandMinMax(20,59);//%40+20;
 		i=0;
 		while(i<width)
 		{
-			di=nmppcRand(20,59);
-			int color=nmppcRand(0,255);
+			di=nmppcRandMinMax(20,59);
+			int color=nmppcRandMinMax(0,255);
 			for(int l=0; l<dj; l++)
 				for(int k=0; k<di; k++) {
 					int m1 = (j+l < height-1)? j+l : height-1;
@@ -143,10 +143,10 @@ void IMG_CreateComplexTexture(unsigned char *texture_img, int width, int height)
 		{
 			for(int n=0; n<4; n++)
 				y[n]=nmppcRand();
-			border[0]=RPoint(nmppcRand(0,side4-1)+i, y[0]%side4+j);
-			border[1]=RPoint(nmppcRand(0,side4-1)+i, y[1]%side4+j+side2+side4);
-			border[2]=RPoint(nmppcRand(0,side4-1)+i+side2+side4, y[1]%side4+j+side2+side4);
-			border[3]=RPoint(nmppcRand(0,side4-1)+i+side2+side4, y[0]%side4+j);
+			border[0]=RPoint(nmppcRandMinMax(0,side4-1)+i, y[0]%side4+j);
+			border[1]=RPoint(nmppcRandMinMax(0,side4-1)+i, y[1]%side4+j+side2+side4);
+			border[2]=RPoint(nmppcRandMinMax(0,side4-1)+i+side2+side4, y[1]%side4+j+side2+side4);
+			border[3]=RPoint(nmppcRandMinMax(0,side4-1)+i+side2+side4, y[0]%side4+j);
 			int color=100+nmppcRand()%156;
 			for(int l=0; l<side; l++)
 				for(int k=0; k<side; k++)

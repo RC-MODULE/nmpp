@@ -897,10 +897,10 @@ void nmppsMinCmpLtV_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMi
     \endxmlonly
     */
     //! \{
-void nmppsCmpLt0_8s(nm8s* pSrcVec,  nm8s* pDstVec,  int nSize);
-void nmppsCmpLt0_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
-void nmppsCmpLt0_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
-void nmppsCmpLt0_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+void nmppsCmpLt0_8s (const nm8s* pSrcVec,  nm8s* pDstVec,  int nSize);
+void nmppsCmpLt0_16s(const nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+void nmppsCmpLt0_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsCmpLt0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -986,10 +986,10 @@ void nmppsCmpEq0_16u15b(nm16u15b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFla
 */
 void nmppsCmpEq0_32u31b(nm32u31b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFlag);
 
-void nmppsCmpNe0_8s (nm8s*  pSrcVec, nm8s* pDstVec,  int nSize);
-void nmppsCmpNe0_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
-void nmppsCmpNe0_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
-void nmppsCmpNe0_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+//void nmppsCmpNe0_8s (const nm8s*  pSrcVec, nm8s* pDstVec,  int nSize);
+//void nmppsCmpNe0_16s(const nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+//void nmppsCmpNe0_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+//void nmppsCmpNe0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 
     //! \}
 
@@ -1592,10 +1592,10 @@ void nmppsCmpEqC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSi
     */
 	//! \{
 		
-	void nmppsCmpNe0_8s (nm8s* pSrcVec,   nm8s* pDstVec, int nSize);
-	void nmppsCmpNe0_16s(nm16s* pSrcVec, nm16s* pDstVec, int nSize);
-	void nmppsCmpNe0_32s(nm32s* pSrcVec, nm32s* pDstVec, int nSize);
-	void nmppsCmpNe0_64s(nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+	void nmppsCmpNe0_8s (const nm8s* pSrcVec,   nm8s* pDstVec, int nSize);
+	void nmppsCmpNe0_16s(const nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+	void nmppsCmpNe0_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+	void nmppsCmpNe0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 
 	//! \}
 	
@@ -1653,15 +1653,15 @@ void nmppsCmpEqC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSi
       \endxmlonly
     */
 	//! \{
-	void nmppsCmpNeC_8s    (nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec, int nSize);
-	void nmppsCmpNeC_16s   (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize);
-	void nmppsCmpNeC_32s   (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
-	void nmppsCmpNeC_64s   (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
-	
-	int nmppsCmpNeC_8s8u    (nm8s* pSrcVec,  int8b  nCmpVal, nm8u* pDstVec, int nSize);
-	int nmppsCmpNeC_16s8u   (nm16s* pSrcVec, int16b nCmpVal, nm8u* pDstVec, int nSize);
-	int nmppsCmpNeC_32s8u   (nm32s* pSrcVec, int32b nCmpVal, nm8u* pDstVec, int nSize);
-	int nmppsCmpNeC_64s8u   (nm64s* pSrcVec, int64b nCmpVal, nm8u* pDstVec, int nSize);
+	void nmppsCmpNeC_8s     (const nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec, int nSize);
+	void nmppsCmpNeC_16s    (const nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize);
+	void nmppsCmpNeC_32s    (const nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
+	void nmppsCmpNeC_64s    (const nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
+	                         
+	int nmppsCmpNeC_8s8u    (const nm8s* pSrcVec,  int8b  nCmpVal, nm8u* pDstVec, int nSize);
+	int nmppsCmpNeC_16s8u   (const nm16s* pSrcVec, int16b nCmpVal, nm8u* pDstVec, int nSize);
+	int nmppsCmpNeC_32s8u   (const nm32s* pSrcVec, int32b nCmpVal, nm8u* pDstVec, int nSize);
+	int nmppsCmpNeC_64s8u   (const nm64s* pSrcVec, int64b nCmpVal, nm8u* pDstVec, int nSize);
 	
 	
 	
@@ -1672,15 +1672,15 @@ void nmppsCmpEqC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSi
 
 	//spec.mode=ONE_TIME_ALLOC|ROUTE_ALLOC|OPTIMIZE_ROUTE;
 	
-	int nmppsCmpLtC_8s      (nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int nSize, Tmp2BuffSpec *spec);
-	int nmppsCmpLtC_16s     (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize, Tmp2BuffSpec *spec);
-	int nmppsCmpLtC_32s     (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize, Tmp2BuffSpec *spec);
-	int nmppsCmpLtC_64s     (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize, Tmp2BuffSpec *spec);
-	
-	int nmppsCmpLtC_8s8u   (nm8s* pSrcVec,  int8b  nCmpVal, nm8u* pDstVec, int nSize);
-	int nmppsCmpLtC_16s8u  (nm16s* pSrcVec, int16b nCmpVal, nm8u* pDstVec, int nSize);
-	int nmppsCmpLtC_32s8u  (nm32s* pSrcVec, int32b nCmpVal, nm8u* pDstVec, int nSize);
-	int nmppsCmpLtC_64s8u  (nm64s* pSrcVec, int64b nCmpVal, nm8u* pDstVec, int nSize);
+	//int nmppsCmpLtC_8s      (const nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int nSize, Tmp2BuffSpec *spec);
+	//int nmppsCmpLtC_16s     (const nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize, Tmp2BuffSpec *spec);
+	//int nmppsCmpLtC_32s     (const nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize, Tmp2BuffSpec *spec);
+	//int nmppsCmpLtC_64s     (const nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize, Tmp2BuffSpec *spec);
+	//
+	//int nmppsCmpLtC_8s8u   (nm8s* pSrcVec,  int8b  nCmpVal, nm8u* pDstVec, int nSize);
+	//int nmppsCmpLtC_16s8u  (nm16s* pSrcVec, int16b nCmpVal, nm8u* pDstVec, int nSize);
+	//int nmppsCmpLtC_32s8u  (nm32s* pSrcVec, int32b nCmpVal, nm8u* pDstVec, int nSize);
+	//int nmppsCmpLtC_64s8u  (nm64s* pSrcVec, int64b nCmpVal, nm8u* pDstVec, int nSize);
 	
 /*	                                                                                   
 	void nmppsCmpGtC_8s      (nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int nSize, Tmp2BuffSpec *spec);
@@ -1758,25 +1758,25 @@ void nmppsCmpEqV_16u15b(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, 
 void nmppsCmpEqV_8u7b(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b nTrueFlag);
 	//! \}
 
-void nmppsCmpNe_8s (nm8s*  pSrcVec1,  nm8s* pSrcVec2, nm8s*  pDstVec, int nSize);
-void nmppsCmpNe_16s(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
-void nmppsCmpNe_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
-void nmppsCmpNe_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+void nmppsCmpNe_8s   (const nm8s*  pSrcVec1, const  nm8s* pSrcVec2, nm8s*  pDstVec, int nSize);
+void nmppsCmpNe_16s  (const nm16s* pSrcVec1, const nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
+void nmppsCmpNe_32s  (const nm32s* pSrcVec1, const nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
+void nmppsCmpNe_64s  (const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
 
-int nmppsCmpNe_8s8um (nm8s*  pSrcVec1,  nm8s* pSrcVec2, nm8u* pDstVec, int nSize);
-int nmppsCmpNe_16s8um(nm16s* pSrcVec1, nm16s* pSrcVec2, nm8u* pDstVec, int nSize);
-int nmppsCmpNe_32s8um(nm32s* pSrcVec1, nm32s* pSrcVec2, nm8u* pDstVec, int nSize);
-int nmppsCmpNe_64s8um(nm64s* pSrcVec1, nm64s* pSrcVec2, nm8u* pDstVec, int nSize);
+int nmppsCmpNe_8s8um (const nm8s*  pSrcVec1, const  nm8s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
+int nmppsCmpNe_16s8um(const nm16s* pSrcVec1, const nm16s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
+int nmppsCmpNe_32s8um(const nm32s* pSrcVec1, const nm32s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
+int nmppsCmpNe_64s8um(const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
 
-void nmppsCmpLt_8s (nm8s*  pSrcVec1,  nm8s* pSrcVec2, nm8s*  pDstVec, int nSize);
-void nmppsCmpLt_16s(nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
-void nmppsCmpLt_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
-void nmppsCmpLt_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+void nmppsCmpLt_8s   (const nm8s*  pSrcVec1, const  nm8s* pSrcVec2, nm8s*  pDstVec, int nSize);
+void nmppsCmpLt_16s  (const nm16s* pSrcVec1, const nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
+void nmppsCmpLt_32s  (const nm32s* pSrcVec1, const nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
+void nmppsCmpLt_64s  (const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
 
-int nmppsCmpLt_8s8um (nm8s*  pSrcVec1,  nm8s* pSrcVec2, nm8u* pDstVec, int nSize);
-int nmppsCmpLt_16s8um(nm16s* pSrcVec1, nm16s* pSrcVec2, nm8u* pDstVec, int nSize);
-int nmppsCmpLt_32s8um(nm32s* pSrcVec1, nm32s* pSrcVec2, nm8u* pDstVec, int nSize);
-int nmppsCmpLt_64s8um(nm64s* pSrcVec1, nm64s* pSrcVec2, nm8u* pDstVec, int nSize);
+int nmppsCmpLt_8s8um (const nm8s*  pSrcVec1, const  nm8s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
+int nmppsCmpLt_16s8um(const nm16s* pSrcVec1, const nm16s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
+int nmppsCmpLt_32s8um(const nm32s* pSrcVec1, const nm32s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
+int nmppsCmpLt_64s8um(const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
 	
 //******************************************************************************************
 

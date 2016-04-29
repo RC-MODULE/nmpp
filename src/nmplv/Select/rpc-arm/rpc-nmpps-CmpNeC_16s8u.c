@@ -1,7 +1,7 @@
 #include "rpc-host.h"
 #include "nmtype.h"
 
-int nmppsCmpNeC_16s8u (nm16s* src,  int16b  nCmpVal, nm8u* dst,  int size)
+int nmppsCmpNeC_16s8um (const nm16s* src,  int16b  nCmpVal, nm8u* dst,  int size,  struct NmppsTmpSpec* spec)
 {
 	int ret;	
 	struct aura_buffer *iobuf_src = aura_buffer_request(n, size*2);	

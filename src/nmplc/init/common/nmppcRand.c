@@ -17,36 +17,35 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-#include "nmtype.h"
-#include "nmpp.h"
-
-
+#include "nmplc.h"
 ////////////////////////////////////////////////////////////////////////////
 //  Random initalization of 32-bit buffer
-unsigned nmppsRandUniformomize_=1;
+unsigned nmppcRandomize=1;
 
 //! 
-//! \perfinclude _nmppsRandUniform__Fiii_.html
+//! \perfinclude _SCL_Rand__Fiii.html
 //! 
 
-int nmppsRandUniform_(
+int nmppcRandMinMax(
 		int Min,
 		int Max)
 {
-	unsigned int R=nmppsRandUniform();
-	R%=unsigned(Max-Min+1);
-	int X=int(R)+Min;
+	int X;
+	unsigned int R=nmppcRand();
+	R%=(unsigned int)(Max-Min+1);
+	X=(int)R+Min;
 	return X;
 }
 
-int nmppsRandUniform_(
+int nmppcRandDiv(
 		int Min,
 		int Max,
 		int	Divisible)
 {
-	unsigned int R=nmppsRandUniform();
-	R%=unsigned(Max-Min+1);
-	int X=int(R)+Min;
+	int X;
+	unsigned int R=nmppcRand();
+	R%=(unsigned int)(Max-Min+1);
+	X=(int)R+Min;
 	X/=Divisible;
 	X*=Divisible;
 	return X;
@@ -56,15 +55,15 @@ int nmppsRandUniform_(
 //  Random initalization of 32-bit buffer
 
 //! 
-//! \perfinclude _nmppsRandUniform__Fv_.html
+//! \perfinclude _nmppcRand__Fv.html
 //! 
 
-int nmppsRandUniform_()
+int nmppcRand()
 {
-
-	nmppsRandUniformomize_=1664525L*nmppsRandUniformomize_+1013904223L;
-	unsigned int R=nmppsRandUniformomize_>>16;
-	nmppsRandUniformomize_=1664525L*nmppsRandUniformomize_+1013904223L;
-	R|=(nmppsRandUniformomize_&0xFFFF0000);
+	unsigned int R;
+	nmppcRandomize=1664525L*nmppcRandomize+1013904223L;
+	R=nmppcRandomize>>16;
+	nmppcRandomize=1664525L*nmppcRandomize+1013904223L;
+	R|=(nmppcRandomize&0xFFFF0000);
 	return R;
 }

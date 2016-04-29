@@ -27,7 +27,7 @@
 //! 
 
 
-static long long				Randomize=-1;
+static unsigned long long				Randomize=-1;
 ////////////////////////////////////////////////////////////////////////////
 //  Random initialization of 64-bit Buffer
 void nmppsRandUniform_64s(
@@ -40,10 +40,10 @@ void nmppsRandUniform_64s(
 	for(i=0;i<nSize;i++)
 	{
 		//Rand=1664525L*Rand+1013904223L;
-		long long R=Randomize>>63;
-		Randomize<<=1;
+		unsigned long long R=Randomize<<63;
+		Randomize>>=1;
 		Randomize|=R;
-		Randomize=1664525L*Randomize+1013904223L;
+		Randomize=1664525LL*Randomize+1013904223LL;
 		pDstVec[i]=Randomize;
 	}
 	//Randomize=Rand;

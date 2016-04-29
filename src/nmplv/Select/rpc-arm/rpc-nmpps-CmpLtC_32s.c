@@ -1,7 +1,7 @@
 #include "rpc-host.h"
 #include "nmtype.h"
 
-int nmppsCmpLtC_32s (nm32s* pSrcVec,  int32b  nCmpVal, nm32s* pDstVec,  int nSize, Tmp2BuffSpec *pspec)
+int nmppsCmpLtC_32s (const nm32s* pSrcVec,  int32b  nCmpVal, nm32s* pDstVec,  int nSize)
 {
 	RPC_HOST_PIPI("nmppsCmpLtC_32s",pSrcVec,nCmpVal,pDstVec,nSize,4);
 	return 0;
@@ -9,7 +9,7 @@ int nmppsCmpLtC_32s (nm32s* pSrcVec,  int32b  nCmpVal, nm32s* pDstVec,  int nSiz
 
 
 
-int nmppsCmpLtC_32s8u (nm32s* src,  int32b  nCmpVal, nm8u* dst,  int size)
+int nmppsCmpLtC_32s8um (const nm32s* src,  int32b  nCmpVal, nm8u* dst,  int size, struct NmppsTmpSpec* spec)
 {
 	int ret;	
 	struct aura_buffer *iobuf_src = aura_buffer_request(n, size*4);	

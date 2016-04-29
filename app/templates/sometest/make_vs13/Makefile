@@ -1,4 +1,4 @@
-include $(ROOT)/setenv.mk
+include $(ROOT)/global.mk
 # This makefile builds simple win32-application containing single cpp-file  
 # Rule 'run' executes the application under Windows OS and stores return code in ".exitcode"  file
 

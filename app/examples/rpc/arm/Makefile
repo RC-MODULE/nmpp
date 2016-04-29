@@ -4,7 +4,7 @@ ROOT 		= ../../../..
 include 	$(ROOT)/global.mk
 TARGET  	=  rpc-demo
 CC_FLAGS 	= \
-	-marm -march=armv4t -mfloat-abi=hard \
+	-march=armv6 -mtune=arm1176jz-s -mfpu=vfp -mfloat-abi=hard -marm \
 	--sysroot=$(ROOTFS) \
 	-D_GNU_SOURCE \
 	-I$(ROOTFS)/usr/include/arm-linux-gnueabihf/aura-0.1.2/ \
@@ -13,7 +13,7 @@ CC_FLAGS 	= \
 	-I$(NMPP)/include 
 
 LD_FLAGS = \
-	-marm -march=armv4t -mfloat-abi=hard \
+	-march=armv6 -mtune=arm1176jz-s -mfpu=vfp -mfloat-abi=hard -marm \
 	-Wl,--sysroot=$(ROOTFS) \
 	-Wl,-unresolved-symbols=ignore-in-shared-libs \
 	-Wl,-L$(ROOTFS)/lib \
@@ -26,8 +26,11 @@ ALL_C    = ./main-arm.c
 OBJECTS_C= $(notdir $(patsubst %.c,%.o,$(ALL_C)))
 
 
-all: $(TARGET) ../nmc/rpc-demo.abs
+all: $(TARGET) nmc
 
+nmc:
+	$(MAKE) -C ../nmc
+	
 lib: 
 	$(MAKE) -C $(ROOT)/make/nmpp-arm-rpc
 
@@ -41,8 +44,8 @@ upload: ./$(TARGET) ../nmc/rpc-demo.abs
 $(TARGET): $(OBJECTS_C) $(ROOT)/lib/libnmpp-arm-rpc.a
 	$(ARM_CC) -o $(@)  $(LD_FLAGS) $(OBJECTS_C) -laura -lnmpp-arm-rpc
 
-../nmc/rpc-demo.abs:
-	$(MAKE) -C ../nmc
+
+	
 
 clean:
 	-$(OS_RM) *.o $(TARGET)

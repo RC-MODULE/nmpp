@@ -49,6 +49,10 @@ struct NmppsMallocSpec{
 	uint32 	freeHistoryPos;
 };
 
+struct NmppsTmpSpec {
+	void* buffer0;
+	void* buffer1;
+} ;
 
 	
 void*  nmppsMalloc32  (unsigned sizeInt32);

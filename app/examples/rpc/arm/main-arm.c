@@ -7,12 +7,11 @@
 struct aura_node *n;
 int main() {
 
-	printf("START\n");
+	printf("START-%s\n", aura_get_version());
 	slog_init(NULL, 0);
        sleep(1);
 	int ret; 
-	printf("START-010101\n");
-	n = aura_open("nmc", "./rpc-demo.abs");
+		n = aura_open("nmc", "./rpc-demo.abs");
 	if (!n) {
 		printf("ERROR:Failed to open node\n");
 		slog (0, SLOG_ERROR, "Failed to open node");
@@ -51,9 +50,9 @@ int main() {
 	}
 
 	
-	nmppsAbs_8s ((nm8s* )src0_8s ,(nm8s* )dst_8s ,8);
-	nmppsAbs_16s((nm16s*)src0_16s,(nm16s*)dst_16s,16);
-	nmppsAbs_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
+//	nmppsAbs_8s ((nm8s* )src0_8s ,(nm8s* )dst_8s ,8);
+//	nmppsAbs_16s((nm16s*)src0_16s,(nm16s*)dst_16s,16);
+//	nmppsAbs_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
 //	nmppsAbs_64s((nm64s*)src0_16s,(nm64s*)dst_64s,16);
 //	
 //	nmppsAdd_8s ((nm8s* )src0_8s ,(nm8s* )src1_8s ,(nm8s* )dst_8s ,8);
@@ -65,7 +64,7 @@ int main() {
 //	nmppsSub_16s((nm16s*)src0_16s,(nm16s*)src1_16s,(nm16s*)dst_16s,16);
 //	nmppsSub_32s((nm32s*)src0_32s,(nm32s*)src1_32s,(nm32s*)dst_32s,16);
 //	nmppsSub_64s((nm64s*)src0_16s,(nm64s*)src1_16s,(nm64s*)dst_64s,16);
-
+//
 //	nmppsAddC_8s ((nm8s* )src0_8s ,(nm8s* )1,(nm8s* )dst_8s ,8);
 //	nmppsAddC_16s((nm16s*)src0_16s,(nm16s*)1,(nm16s*)dst_16s,16);
 //	nmppsAddC_32s((nm32s*)src0_32s,(nm32s*)1,(nm32s*)dst_32s,16);
@@ -80,7 +79,7 @@ int main() {
 //	nmppsSubCRev_16s((nm16s*)src0_16s,(nm16s*)1,(nm16s*)dst_16s,16);
 //	nmppsSubCRev_32s((nm32s*)src0_32s,(nm32s*)1,(nm32s*)dst_32s,16);
 //	nmppsSubCRev_64s((nm64s*)src0_16s,(nm64s*)1,(nm64s*)dst_64s,16);
-
+//
 //	nmppsMulC_8s 	((nm8s*) src0_8s ,2,(nm8s*) dst_8s, 16); 
 //	nmppsMulC_8s16s	((nm8s*) src0_8s ,2,(nm8s*) dst_16s, 16);
 //	nmppsMulC_16s	((nm16s*)src0_16s,3,(nm16s*)dst_16s,16); 
@@ -109,7 +108,7 @@ int main() {
 //	nmppsMax_16s((nm16s*)src0_16s,32,&min); //printf("max=%d\r\n",min);
 //	nmppsMax_32s((nm16s*)src0_32s,32,&min); //printf("max=%d\r\n",min);
 //	//-nmppsMin_64s((nm16s*)src0_16s,16,&min);
-
+//
 //	nmppsAndC_8u((nm8u*)  src0_8s, 5, (nm8s*) dst_8s,16);
 //	nmppsAndC_16u((nm16u*)src0_16s,5,(nm16u*)dst_16s,16);
 //	nmppsAndC_32u((nm32u*)src0_32s,5,(nm32u*)dst_32s,16);
@@ -144,7 +143,7 @@ int main() {
 //	nmppsXor_16u((nm16u*)src0_16s,(nm16u*)src1_16s,(nm16u*)dst_16s,16);
 //	nmppsXor_32u((nm32u*)src0_32s,(nm32u*)src1_32s,(nm32u*)dst_32s,16);
 //	nmppsXor_64u((nm64u*)src0_64s,(nm64u*)src1_64s,(nm64u*)dst_64s,32);
-
+//
 //	nmppsCmpLtC_8s8u ((nm8s*) src0_8s ,1,(nm8u*)dst_8s,16);
 //	nmppsCmpLtC_16s8u((nm16s*)src0_16s,1,(nm8u*)dst_8s,16);
 //	nmppsCmpLtC_32s8u((nm32s*)src0_32s,1,(nm8u*)dst_8s,16);
@@ -163,8 +162,8 @@ int main() {
 //	nmppsCmpLt_8s8um  ((nm8s*) 	src0_8s ,(nm8s*) src1_8s ,(nm8u*)dst_8s, 16);
 //	nmppsCmpLt_16s8um ((nm16s*) src0_16s,(nm16s*)src1_16s,(nm8u*)dst_8s, 16);
 //	nmppsCmpLt_32s8um ((nm32s*) src0_32s,(nm32s*)src1_32s,(nm8u*)dst_8s, 16);
-	
-	
+//
+//
 //	nmppmMul_mm_8s8s  (src0_8s,8,8,src1_8s, dst_8s, 8);
 //	nmppmMul_mm_8s16s (src0_8s,8,8,src1_16s,dst_16s,8);
 //	nmppmMul_mm_8s32s (src0_8s,8,8,src1_32s,dst_32s,8);
@@ -181,38 +180,38 @@ int main() {
 //	nmppmMul_mv_16s64s(src0_16s,src1_64s,dst_64s,8,8);
 //	nmppmMul_mv_32s64s(src0_32s,src1_64s,dst_64s,8,8);
 	
-//	int sum;
-//	long long sum64;
-//	nmppsSum_8s ((nm8s*) src0_8s,32, &sum);  printf("sum=%d\r\n",sum);
-//	nmppsSum_16s((nm16s*)src0_16s,32,&sum64);printf("sum=%d\r\n",(int)sum64);
-//	nmppsSum_32s((nm32s*)src0_32s,32,&sum64);printf("sum=%d\r\n",(int)sum64);
-//	nmppsSum_64s((nm64s*)src0_64s,16,&sum64);printf("sum=%d\r\n",(int)sum64);	
-//	
-//	long long ret64;
-//	nmppsDotProd_8s8sm  ((nm8s*) src0_8s ,(nm8s *)src1_8s , 16 , &ret64);      printf("%d\n",(int)ret64);
-//	nmppsDotProd_8s16sm ((nm8s*) src0_8s ,(nm16s*)src1_16s, 16 , &ret64);      printf("%d\n",(int)ret64);
-//	nmppsDotProd_8s32sm ((nm8s*) src0_8s ,(nm32s*)src1_32s, 16 , &ret64);      printf("%d\n",(int)ret64);
-//	nmppsDotProd_8s64s  ((nm8s*) src0_8s ,(nm64s*)src1_64s, 16 , &ret64);      printf("%d\n",(int)ret64);
-//                                                                                          
-//	nmppsDotProd_16s16sm ((nm16s*) src0_16s ,(nm16s*)src1_16s, 16 , &ret64);   printf("%d\n",(int)ret64);
-//	nmppsDotProd_16s32sm ((nm16s*) src0_16s ,(nm32s*)src1_32s, 16 , &ret64);   printf("%d\n",(int)ret64);
-//	nmppsDotProd_16s64s  ((nm16s*) src0_16s ,(nm64s*)src1_64s, 16 , &ret64);   printf("%d\n",(int)ret64);
-//                                                                                       
-//	nmppsDotProd_32s32sm ((nm32s*) src0_32s ,(nm32s*)src1_32s, 16 , &ret64);   printf("%d\n",(int)ret64);
-//	nmppsDotProd_32s64s  ((nm32s*) src0_32s ,(nm64s*)src1_64s, 16 , &ret64);   printf("%d\n",(int)ret64);
-//	                                                
-//	nmppsDotProd_64s64s ((nm64s*) src0_32s ,(nm64s*)src1_64s, 16 , &ret64);   printf("%d\n",(int)ret64);
+	int sum;
+	long long sum64;
+	nmppsSum_8s ((nm8s*) src0_8s,32, &sum);  printf("sum=%d\r\n",sum);
+	nmppsSum_16s((nm16s*)src0_16s,32,&sum64);printf("sum=%d\r\n",(int)sum64);
+	nmppsSum_32s((nm32s*)src0_32s,32,&sum64);printf("sum=%d\r\n",(int)sum64);
+	nmppsSum_64s((nm64s*)src0_64s,16,&sum64);printf("sum=%d\r\n",(int)sum64);	
+	
+	long long ret64;
+	nmppsDotProd_8s8sm  ((nm8s*) src0_8s ,(nm8s *)src1_8s , 16 , &ret64,0);      printf("%d\n",(int)ret64);
+	nmppsDotProd_8s16sm ((nm8s*) src0_8s ,(nm16s*)src1_16s, 16 , &ret64,0);      printf("%d\n",(int)ret64);
+	nmppsDotProd_8s32sm ((nm8s*) src0_8s ,(nm32s*)src1_32s, 16 , &ret64,0);      printf("%d\n",(int)ret64);
+	nmppsDotProd_8s64s  ((nm8s*) src0_8s ,(nm64s*)src1_64s, 16 , &ret64);        printf("%d\n",(int)ret64);
+                                                                                          
+	nmppsDotProd_16s16sm ((nm16s*) src0_16s ,(nm16s*)src1_16s, 16 , &ret64,0);   printf("%d\n",(int)ret64);
+	nmppsDotProd_16s32sm ((nm16s*) src0_16s ,(nm32s*)src1_32s, 16 , &ret64,0);   printf("%d\n",(int)ret64);
+	nmppsDotProd_16s64s  ((nm16s*) src0_16s ,(nm64s*)src1_64s, 16 , &ret64);     printf("%d\n",(int)ret64);
+                                                                                       
+	nmppsDotProd_32s32sm ((nm32s*) src0_32s ,(nm32s*)src1_32s, 16 , &ret64,0);   printf("%d\n",(int)ret64);
+	nmppsDotProd_32s64s  ((nm32s*) src0_32s ,(nm64s*)src1_64s, 16 , &ret64);     printf("%d\n",(int)ret64); 
+	                                                
+	nmppsDotProd_64s64s ((nm64s*) src0_32s ,(nm64s*)src1_64s, 16 , &ret64);      printf("%d\n",(int)ret64);
 	
 	
-	NmppsFFTSpec* specFwd256;
-	ret=nmppsFFT256FwdInitAlloc(&specFwd256, src0_32s, dst_32s, 0);
-	nmppsFFT256Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd256);
-	nmppsFFTFree(specFwd256);
-
-	NmppsFFTSpec *specFFTInv256;
-	ret=nmppsFFT256InvInitAlloc(&specFFTInv256, src0_32s, dst_32s, 0);
-	nmppsFFT256Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv256);
-	nmppsFFTFree(specFFTInv256);
+//	NmppsFFTSpec* specFwd256;
+//	ret=nmppsFFT256FwdInitAlloc(&specFwd256, src0_32s, dst_32s, 0);
+//	nmppsFFT256Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd256);
+//	nmppsFFTFree(specFwd256);
+//
+//	NmppsFFTSpec *specFFTInv256;
+//	ret=nmppsFFT256InvInitAlloc(&specFFTInv256, src0_32s, dst_32s, 0);
+//	nmppsFFT256Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv256);
+//	nmppsFFTFree(specFFTInv256);
 	
 	
 //	NmppsFFTSpec* specFwd512;

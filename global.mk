@@ -19,17 +19,20 @@ ifeq ($(OS),Windows_NT)
    #EASYNMC = d:/GIT/matlab/nmc-utils-0.1.1/libeasynmc-nmc
    EASYNMC = $(ROOT)/deps/nmc-utils-0.1.1/libeasynmc-nmc
 
-   #ARM_CC   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-gcc.exe
-   #ARM_AR   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ar.exe
-   #ARM_LD   = d:/GIT/matlab/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_win32/bin/arm-linux-gnueabihf-ld.exe
    
-   ARM_CC   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-gcc.exe
-   ARM_AR   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-ar.exe
-   ARM_LD   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-ld.exe
+   ARM_CC   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-gcc.exe
+   ARM_AR   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-ar.exe
+   ARM_LD   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-ld.exe
+
+   
+   #ARM_CC   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-gcc.exe
+   #ARM_AR   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-ar.exe
+   #ARM_LD   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-ld.exe
 				
   
   SHELL    = cmd
-  OS_SCP   = pscp   
+  OS_DIFF  = $(GNUWIN32)/diff   
+  OS_SCP   = $(GNUWIN32)/pscp   
   OS_MV    = rename
   OS_RM    = del /Q
 # OS_RM    = rm -f -r
@@ -41,7 +44,13 @@ ifeq ($(OS),Windows_NT)
   OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\unzip.ps1 
   OS_TODIR = -d
   OS_UNPACK= $(OS_UNZIP)
-  PATH    := $(NEURO)/bin;$(MC5103)/bin;$(MB7707)/bin;$(MC7601)/bin;$(NMPP)/deps/gnuwin32/bin;$(VSHELL32)/bin;$(PATH)
+  PATH_DEP = $(realpath $(NEURO)/bin);\
+			 $(realpath $(MC5103)/bin);\
+			 $(realpath $(MB7707)/bin);\
+			 $(realpath $(MC7601)/bin);\
+			 $(realpath $(GNUWIN32));\
+			 $(realpath $(VSHELL32)/bin);
+  PATH    := $(PATH);$(PATH_DEP)
   #prevents call of embedded 'find.exe' in Windows and GNU make becomes callable
   #PATH:= $(subst $(SystemRoot),,$(PATH))	
   
@@ -55,6 +64,7 @@ else
   define OS_PATH
 	$(1)
   endef 
+  OS_DIFF  = diff   
   OS_SCP   = scp
   OS_RM    = rm -f -r
   OS_RD    = rm -d -r
@@ -102,5 +112,10 @@ PLATFORMS = vs80 mc5103 emu6405 mc7601
 
 TARGET1=mc5103
 TARGET2=vs80
+
+define newline
+
+
+endef	
 
  

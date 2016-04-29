@@ -20,6 +20,10 @@
 #ifndef _CINIT_H_INCLUDED_
 #define _CINIT_H_INCLUDED_
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
 //*****************************************************************************
 
 //*****************************************************************************
@@ -76,10 +80,13 @@
     \endxmlonly
     */
     //! \{
-int nmppcRand(int nMin, int nMax, int nDivisible);
-int nmppcRand(int nMin, int nMax);
+int nmppcRandMinMaxDiv(int nMin, int nMax, int nDivisible);
+int nmppcRandMinMax(int nMin, int nMax);
 int nmppcRand();
     //! \}
 
+#ifdef __cplusplus
+		};
+#endif
 
 #endif // _CINIT_H_INCLUDED_

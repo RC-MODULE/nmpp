@@ -26,8 +26,8 @@ data ".data_nmplv_L"
 end ".data_nmplv_L";
 
 data ".data_nmplv_G"
-	//nRandomize:long=0FFFFFFFFhl;
-	nRandomize:long=0;//0100000001hl;
+	nRandomize:long=0FFFFFFFF_FFFFFFFFhl;
+	//nRandomize:long=0;//0100000001hl;
 	RandMul:long=1664525L;
 	RandAdd:long=1013904223L;
 end ".data_nmplv_G";
@@ -65,7 +65,6 @@ global _nmppsRandUniform_64s:label;
 	vr  = [RandAdd]  with gr7--;
 	//[ar5] = gr6	
 	if < delayed goto end_Random;
-		//WTW_REG(gr6);
 		wtw;
 		nul;
 		

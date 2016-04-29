@@ -1,4 +1,4 @@
-include $(ROOT)/setenv.mk
+include $(ROOT)/global.mk
 # BUILD AND RUN MAKEFILE
 # This makefile builds simple nmc-application containing single cpp-file  
 # Rule 'run' executes the application on MB7707 board and stores return code in ".exitcode"  file

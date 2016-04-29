@@ -66,7 +66,13 @@
 void nmppsFIR_8s16s( nm8s* pSrc, nm16s* pDst, int srcSize,  NmppsFIRState* pState);
 int  nmppsFIRInit_8s16s(NmppsFIRState* ppState, int* pTaps, int tapsLen);
 int  nmppsFIRInitAlloc_8s16s(NmppsFIRState** ppState, int* pTaps, int tapsLen);
-void  nmppsFIRFree(NmppsFIRState* pState);
+void nmppsFIRFree(NmppsFIRState* pState);
+
+void nmppsFIR_8s( nm8s* pSrc, nm8s* pDst, int srcSize,  NmppsFIRState* pState);
+int  nmppsFIRInit_8s(NmppsFIRState* ppState, int* pTaps, int tapsLen);
+int  nmppsFIRInitAlloc_8s(NmppsFIRState** ppState, int* pTaps, int tapsLen);
+void nmppsFIRFree(NmppsFIRState* pState);
+
 
     //! \{
 //void SIG_Filter(nm32s* pSrcVec, nm32s* pDstVec, int	nSize,  nm64s* pKernel);

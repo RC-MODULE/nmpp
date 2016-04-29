@@ -1,14 +1,14 @@
 #include "rpc-host.h"
 #include "nmtype.h"
 
-int nmppsCmpLtC_64s (nm64s* pSrcVec,  int64b  nCmpVal, nm64s* pDstVec,  int nSize, Tmp2BuffSpec *pspec)
+int nmppsCmpLtC_64s (const nm64s* pSrcVec,  int64b  nCmpVal, nm64s* pDstVec,  int nSize, Tmp2BuffSpec *pspec)
 {
 	RPC_HOST_PLPI("nmppsCmpLtC_64s",pSrcVec,nCmpVal,pDstVec,nSize,8,8);
 	return 0;
 }
 
 
-int nmppsCmpLtC_64s8u (nm64s* src,  int64b  nCmpVal, nm8u* dst,  int size)
+int nmppsCmpLtC_64s8um(const nm64s* src,  int64b  nCmpVal, nm8u* dst,  int size,  struct NmppsTmpSpec* spec)
 {
 	int ret;	
 	struct aura_buffer *iobuf_src = aura_buffer_request(n, size*8);	

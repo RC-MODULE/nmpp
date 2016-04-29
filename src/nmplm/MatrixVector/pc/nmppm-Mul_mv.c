@@ -18,9 +18,6 @@
 //!
 //------------------------------------------------------------------------
 #include "nmtype.h"
-#ifdef RPC
-#include "rpc-host.h"
-#endif
 
 
 
@@ -37,10 +34,6 @@ void nmppmMul_mv_8s64s(
 		)
 
 {
-	#ifdef RPC
-	RPC_HOST_PPPII("nmppmMul_mv_8s64s",pSrcMtr,pSrcVec,pDstVec,nHeight,nWidth,1,8);
-	//RPC_HOST_PIIPPI("nmppmMul_mm_16s16s",pSrcMtr,nHeight, nWidth, pSrcMtr,pDstVec,nWidth,2,2);
-	#else
 	int i,j;
 	long long p;
 	nm8s* row  =pSrcMtr;
@@ -51,7 +44,6 @@ void nmppmMul_mv_8s64s(
 		}
 		pDstVec[i]=p;
 	}
-	#endif	
 }
 
 void nmppmMul_mv_16s64s(
@@ -63,9 +55,6 @@ void nmppmMul_mv_16s64s(
 		)
 
 {
-	#ifdef RPC
-	RPC_HOST_PPPII("nmppmMul_mv_16s64s",pSrcMtr,pSrcVec,pDstVec,nHeight,nWidth,2,8);
-	#else
 	int i,j;
 	long long p;
 	nm16s* row  =pSrcMtr;
@@ -76,9 +65,6 @@ void nmppmMul_mv_16s64s(
 		}
 		pDstVec[i]=p;
 	}
-	#endif	
-	
-	
 }
 
 void nmppmMul_mv_32s64s(
@@ -90,9 +76,6 @@ void nmppmMul_mv_32s64s(
 		)
 
 {
-	#ifdef RPC
-	RPC_HOST_PPPII("nmppmMul_mv_32s64s",pSrcMtr,pSrcVec,pDstVec,nHeight,nWidth,4,8);
-	#else
 	int i,j;
 	long long p;
 	nm32s* row  =pSrcMtr;
@@ -103,7 +86,6 @@ void nmppmMul_mv_32s64s(
 		}
 		pDstVec[i]=p;
 	}
-	#endif	
 }
 
 void MTR_ProdSelfV( nm64sc *pSrcVec, nm64sc *pDstMtr, int nSize, void* pTmp)

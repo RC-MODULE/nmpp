@@ -46,8 +46,11 @@ ifeq ($(OS),Windows_NT)
   ZIP7_URL       = http://www.7-zip.org/a/7za920.zip
 
  #gcc-linaro-arm 
-  SDK_ARM_URL    = https://launchpad.net/linaro-toolchain-binaries/trunk/2013.10/+download/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32.zip
+#  ARM_TOOLCHAIN_URL    = https://launchpad.net/linaro-toolchain-binaries/trunk/2013.10/+download/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32.zip
+  ARM_TOOLCHAIN_URL = http://sysprogs.com/files/gnutoolchains/raspberry/raspberry-gcc4.9.2-r2.exe
   
+# * [Visual Studio 2005 Express](http://apdubey.blogspot.ru/2009/04/microsoft-visual-studio-2005-express.html)
+# * [Visual Studio 2013 Express](https://www.microsoft.com/en-US/download/details.aspx?id=44914)    
   
   NMC_URLS = \
 	  $(SDK_MC5103_URL) \
@@ -69,7 +72,7 @@ ifeq ($(OS),Windows_NT)
 	  $(NMC_UTILS_URL) \
 	  $(PUTTY_URL)	  \
 	  $(FIRMWARE7707_URL) \
-	  $(SDK_ARM_URL) 
+	  $(ARM_TOOLCHAIN_URL) 
 	  
   ARC_URLS = \
       $(TAR_URL) \
@@ -98,9 +101,11 @@ PACKAGES_ARC = $(notdir $(ARC_URLS))
 PACKAGES_GNU:= $(subst master.zip,cecho.zip,$(PACKAGES_GNU))
 #PACKAGES_ARM:= $(subst master.zip,nmc-utils.zip,$(PACKAGES_ARM))
 
+.PHONY = arm-toolchain
+
 install-nmc: nmsdk nm_io mc5103sdk mb7707sdk mc7601sdk vshell32 
 
-install-arm: rootfs nmc-utils-0.1.1 raspbian-jessie-matlab gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32 
+install-arm: rootfs nmc-utils-0.1.1 raspbian-jessie-matlab arm-toolchain
 
 install-gnu: gnuwin32/bin/.gnu_installed 
 	
@@ -187,9 +192,18 @@ armhf-sdk-sysroot.tar: $(notdir $(SYSROOT_URL)) install-arc
 	
 nmc-utils-0.1.1: 0.1.1.zip install-arc
 	$(GNUWIN32)/7za x $(<) 
+
+#gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32	
+arm-toolchain: Raspberry
+
+Raspberry: 	$(notdir $(ARM_TOOLCHAIN_URL))
+	@echo ***********************************************************************
+	@echo ** install arm toolchain to './nmpp/deps/' folder for default pathes **
+	@echo ***********************************************************************
+	$(notdir $(ARM_TOOLCHAIN_URL))
 	
-gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32: $(notdir $(SDK_ARM_URL)) install-arc
-	$(GNUWIN32)/7za x $(<) -y
+gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32: $(notdir $(ARM_TOOLCHAIN_URL)) install-arc
+#	$(GNUWIN32)/7za x $(<) -y
 
 raspbian-jessie-matlab: raspbian-jessie-matlab.tar install-arc
 	$(GNUWIN32)/tar -vxf $(<) 

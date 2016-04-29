@@ -15,9 +15,7 @@ include $(ROOT)/global.mk
 # TEMPLATES :points to automake template folder 
 # PLATFORMS :set of available platforms: win32 mc5103 mb7707 emu ...
 
-ifeq ($(wildcard config.mk),config.mk)
-include config.mk
-endif
+-include local.mk
 
 
 #all: $(addsuffix /Makefile,$(addprefix make_,$(PLATFORMS))) $(addprefix build_,$(PLATFORMS))

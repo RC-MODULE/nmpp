@@ -99,7 +99,7 @@ TMP_DIR          = Release
 #------------------------------------------------
 AS_FLAGS         = $(INC_DIRS)
 #CC_FLAGS 		 = -g -Wall -fPIC $(INC_DIRS) -DRPC=y -std=c99
-CC_FLAGS = -DRPC=y -D_GNU_SOURCE -std=c99 -marm -march=armv4t -mfloat-abi=hard -marm -march=armv4t -mfloat-abi=hard --sysroot=$(ROOTFS) 
+CC_FLAGS = -DRPC=y -D_GNU_SOURCE -std=c99 -march=armv6 -mtune=arm1176jz-s -mfpu=vfp -mfloat-abi=hard -marm --sysroot=$(ROOTFS) 
 
 
 #-std=c99 -fno-exceptions -Wall -O0 -mcpu=arm1176jzf-s -DGPIO_LEG=6 -fno-zero-initialized-in-bss $(ING_DIRS) 
@@ -133,23 +133,18 @@ OBJECTS_ASM = $(notdir $(patsubst %.asm,%.o,$(ALL_ASM)))
 OBJECTS_C   = $(notdir $(patsubst %.c,%.o,$(ALL_C)))
 OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM))
 
-
 #======================== BUILD RULES ====================================
 .PHONY:all  clean cleanall vs8  skip
 
 #.DEFAULT_GOAL=default
-default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
-
-all: 
-	$(MAKE) -j4
-
-	
-$(TMP_DIR):
-	-mkdir "$(@)"
 
 $(TARGET): $(TMP_DIR) $(OBJECTS) 
 	-$(OS_RM) $(OS_TARGET)	
 	$(BUILDER) $(BUILDER_FLAGS) $(OBJECTS) 
+	
+$(TMP_DIR):
+	-mkdir "$(@)"
+
 
 $(OUT_DIR): 
 	-mkdir "$(@)"

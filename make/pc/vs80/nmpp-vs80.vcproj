@@ -290,10 +290,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmplc\init\common\InitRand.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\..\..\src\nmpls\FFT\IFFT1024\pc\iW1024Tbl.cpp"
 				>
 			</File>
@@ -342,6 +338,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\src\nmplc\init\common\nmppcRand.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\src\nmpli\Filtration\pc\nmppi-Filter_08s16s.cpp"
 				>
 			</File>
@@ -374,7 +374,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Add.c"
+				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-add.c"
 				>
 			</File>
 			<File
@@ -871,10 +871,6 @@
 			</File>
 			<File
 				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\Quant.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Init\common\Rand.cpp"
 				>
 			</File>
 			<File
@@ -2180,19 +2176,15 @@
 				>
 			</File>
 			<File
-				RelativePath="../../../include/rpc-host.h"
+				RelativePath="../../../include/rpc/rpc-host.h"
 				>
 			</File>
 			<File
-				RelativePath="../../../include/rpc-host.h"
+				RelativePath="../../../include/rpc/rpc-nmc-func.h"
 				>
 			</File>
 			<File
-				RelativePath="../../../include/rpc-nmc.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/rpc-nmc.h"
+				RelativePath="../../../include/rpc/rpc-nmc.h"
 				>
 			</File>
 			<File

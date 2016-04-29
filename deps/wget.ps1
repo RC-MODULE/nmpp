@@ -1,3 +1,78 @@
+<#
+.SYNOPSIS
+    Downloads a file showing the progress of the download
+.DESCRIPTION
+    This Script will download a file locally while showing the progress of the download
+.EXAMPLE
+    .\Download-File.ps1 'http:\\someurl.com\somefile.zip'
+.EXAMPLE
+    .\Download-File.ps1 'http:\\someurl.com\somefile.zip' 'C:\Temp\somefile.zip'
+.PARAMETER url
+    url to be downloaded
+.PARAMETER localFile
+    the local filename where the download should be placed
+.NOTES
+    FileName     : Download-File.ps1
+    Author       : CrazyDave
+#Requires -Version 2.0
+#>
+Function DownloadFile  {
+	param(
+		[Parameter(Mandatory=$true)]
+		[String] $url,
+		[Parameter(Mandatory=$false)]
+		[String] $localFile = (Join-Path $pwd.Path $url.SubString($url.LastIndexOf('/')))
+	)
+
+	begin {	   
+		$client = New-Object System.Net.WebClient
+		if (!$client.Proxy.Credentials){
+			netsh winhttp import proxy source=ie
+			$client.Proxy.Credentials=Get-Credential
+		}
+	
+		$Global:downloadComplete = $false
+	 
+		$eventDataComplete = Register-ObjectEvent $client DownloadFileCompleted `
+			-SourceIdentifier WebClient.DownloadFileComplete `
+			-Action {$Global:downloadComplete = $true}
+		$eventDataProgress = Register-ObjectEvent $client DownloadProgressChanged `
+			-SourceIdentifier WebClient.DownloadProgressChanged `
+			-Action { $Global:DPCEventArgs = $EventArgs }    
+	}	
+
+	process {
+		Write-Progress -Activity 'Downloading file' -Status $url
+		$client.DownloadFileAsync($url, $localFile)
+	   
+		while (!($Global:downloadComplete)) {                
+			$pc = $Global:DPCEventArgs.ProgressPercentage
+			if ($pc -ne $null) {
+				Write-Progress -Activity 'Downloading file' -Status $url -PercentComplete $pc -CurrentOperation "Transferring"
+			}
+		}
+	   
+	    $text = $url + " completed!"
+		Write-Progress -Activity 'Downloading file' -Status $url -CurrentOperation "Completed!"
+		Start-Sleep 1
+		Write-Progress -Activity 'Downloading file' -Status $url -Complete
+	}
+	
+	end {	
+		Unregister-Event -SourceIdentifier WebClient.DownloadProgressChanged
+		Unregister-Event -SourceIdentifier WebClient.DownloadFileComplete
+		$client.Dispose()
+		$Global:downloadComplete = $null
+		$Global:DPCEventArgs = $null
+		Remove-Variable client
+		Remove-Variable eventDataComplete
+		Remove-Variable eventDataProgress
+		[GC]::Collect()    
+	}
+}
+
+
+
 $webclient = new-object System.Net.WebClient
 Import-Module BitsTransfer
 foreach ($url in $args)  
@@ -16,33 +91,9 @@ foreach ($url in $args)
 			Start-BitsTransfer -DisplayName $filename -Source $url -Destination $filename 
 		}
 		else {
-			if (!$webclient.Proxy.Credentials){
-				netsh winhttp import proxy source=ie
-				$webclient.Proxy.Credentials=Get-Credential
-			}
 			$str ="Downloading (through proxy): " + $url
 			echo $str
-			$webclient.DownloadFile($url,$filename)
+			DownloadFile($url)
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-#param ($url=$Args[0])
-#$proxy = new-object System.Net.WebProxy "proxy:80"
-#$proxy.Credentials = $creds
-#$proxy.Credentials = New-Object System.Net.NetworkCredential ($env:USERNAME, $env:PASSWORD)
-#$proxy = [System.Net.WebRequest]::GetSystemWebProxy()
-#$proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
-#$proxy.useDefaultCredentials = $true
-#$webclient.proxy=$proxy
-#$webclient.DownloadFile( "http://savepic.ru/7691336.png","7691336.png")
-

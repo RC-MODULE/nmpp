@@ -1,24 +1,24 @@
 
-#define RPC_nmppsAbs_32s
-#define RPC_nmppsAbs_64s
-#define RPC_nmppsAbs_16s
-#define RPC_nmppsAbs_8s
-
+//#define RPC_nmppsAbs_32s
+//#define RPC_nmppsAbs_64s
+//#define RPC_nmppsAbs_16s
+//#define RPC_nmppsAbs_8s
+//
 //#define RPC_nmppsAbs1_32s
 //#define RPC_nmppsAbs1_64s
 //#define RPC_nmppsAbs1_16s
 //#define RPC_nmppsAbs1_8s
-
+//
 //#define RPC_nmppsAdd_8s
 //#define RPC_nmppsAdd_16s
 //#define RPC_nmppsAdd_32s
 //#define RPC_nmppsAdd_64s
-
+//
 //#define RPC_nmppsSub_8s
 //#define RPC_nmppsSub_16s
 //#define RPC_nmppsSub_32s
 //#define RPC_nmppsSub_64s
-
+//
 //#define RPC_nmppsAddC_8s
 //#define RPC_nmppsAddC_16s
 //#define RPC_nmppsAddC_32s
@@ -33,7 +33,7 @@
 //#define RPC_nmppsSubCRev_16s
 //#define RPC_nmppsSubCRev_32s
 //#define RPC_nmppsSubCRev_64s
-
+//
 //#define RPC_nmppsMulC_8s
 //#define RPC_nmppsMulC_8s16s
 ////#define RPC_nmppsMulC_8s32s -- not implemented
@@ -64,7 +64,7 @@
 //#define RPC_nmppsMax_16s
 //#define RPC_nmppsMax_32s
 //////#define RPC_nmppsMax_64s -- not implemented
-
+//
 //#define RPC_nmppsAndC_8u
 //#define RPC_nmppsAndC_16u
 //#define RPC_nmppsAndC_32u
@@ -105,17 +105,17 @@
 //#define RPC_nmppsCmpNe0_16s - not supported by simulink
 //#define RPC_nmppsCmpNe0_32s - not supported by simulink
 //#define RPC_nmppsCmpNe0_64s - not supported by simulink
-             
+//           
 //#define RPC_nmppsCmpLt0_8s  - not supported by simulink
 //#define RPC_nmppsCmpLt0_16s - not supported by simulink
 //#define RPC_nmppsCmpLt0_32s - not supported by simulink
 //#define RPC_nmppsCmpLt0_64s - not supported by simulink
-
+//
 //#define RPC_nmppsCmpNeC_8s  - not supported by simulink
 //#define RPC_nmppsCmpNeC_16s - not supported by simulink
 //#define RPC_nmppsCmpNeC_32s - not supported by simulink
 //#define RPC_nmppsCmpNeC_64s - not supported by simulink
-
+//
 //#define RPC_nmppsCmpLtC_8s  - not supported by simulink
 //#define RPC_nmppsCmpLtC_16s - not supported by simulink
 //#define RPC_nmppsCmpLtC_32s - not supported by simulink
@@ -138,8 +138,8 @@
 //#define RPC_nmppsCmpLt_8s8um
 //#define RPC_nmppsCmpLt_16s8um
 //#define RPC_nmppsCmpLt_32s8um
-
-
+//
+//
 //#define RPC_nmppmMul_mm_8s8s
 //#define RPC_nmppmMul_mm_8s16s
 //#define RPC_nmppmMul_mm_8s32s
@@ -153,25 +153,25 @@
 //#define RPC_nmppmMul_mv_16s64s
 //#define RPC_nmppmMul_mv_32s64s
 //
-//#define RPC_nmppsSum_8s
-//#define RPC_nmppsSum_16s
-//#define RPC_nmppsSum_32s
-//#define RPC_nmppsSum_64s
-//
-//
-//#define RPC_nmppsDotProd_8s8sm
-//#define RPC_nmppsDotProd_8s16sm
-//#define RPC_nmppsDotProd_8s32sm
-//#define RPC_nmppsDotProd_8s64s
-//#define RPC_nmppsDotProd_16s16sm
-//#define RPC_nmppsDotProd_16s32sm
-//#define RPC_nmppsDotProd_16s64s
-//#define RPC_nmppsDotProd_32s32sm
-//#define RPC_nmppsDotProd_32s64s
-//#define RPC_nmppsDotProd_8s64s
-//#define RPC_nmppsDotProd_16s64s
-//#define RPC_nmppsDotProd_32s64s
-//#define RPC_nmppsDotProd_64s64s
+#define RPC_nmppsSum_8s
+#define RPC_nmppsSum_16s
+#define RPC_nmppsSum_32s
+#define RPC_nmppsSum_64s
+
+
+#define RPC_nmppsDotProd_8s8sm
+#define RPC_nmppsDotProd_8s16sm
+#define RPC_nmppsDotProd_8s32sm
+#define RPC_nmppsDotProd_8s64s
+#define RPC_nmppsDotProd_16s16sm
+#define RPC_nmppsDotProd_16s32sm
+#define RPC_nmppsDotProd_16s64s
+#define RPC_nmppsDotProd_32s32sm
+#define RPC_nmppsDotProd_32s64s
+#define RPC_nmppsDotProd_8s64s
+#define RPC_nmppsDotProd_16s64s
+#define RPC_nmppsDotProd_32s64s
+#define RPC_nmppsDotProd_64s64s
 
 
 

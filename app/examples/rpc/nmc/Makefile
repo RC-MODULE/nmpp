@@ -58,7 +58,7 @@ clean:
 
 
 $(EASYNMC)/easynmc.lib:
-	$(MAKE) -C $(EASYNMC)
+	$(MAKE) -C $(EASYNMC) PATH="%path%;$(realpath $(GNUWIN32))"
 	
 $(NMPP)/lib/nmpp-nmc3.lib:
 	$(MAKE) -C $(NMPP)/make/nmpp-nmc3

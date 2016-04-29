@@ -3,14 +3,14 @@
 
 
 
-int nmppsCmpLtC_16s (nm16s* src,  int16b  nCmpVal, nm16s* dst,  int size, Tmp2BuffSpec *pspec)
+int nmppsCmpLtC_16s (const nm16s* src,  int16b  nCmpVal, nm16s* dst,  int size)
 {
 	RPC_HOST_PIPI("nmppsCmpLtC_16s",src,nCmpVal,dst,size,2);
 	return 0;
 }
 
 
-int nmppsCmpLtC_16s8u (nm16s* src,  int16b  nCmpVal, nm8u* dst,  int size)
+int nmppsCmpLtC_16s8um(const nm16s* src,  int16b  nCmpVal, nm8u* dst,  int size, struct NmppsTmpSpec* spec)
 {
 	int ret;	
 	struct aura_buffer *iobuf_src = aura_buffer_request(n, size*2);	

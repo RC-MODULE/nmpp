@@ -1,29 +1,36 @@
 #include "time.h"
 #include "nmplv.h"
 #include "malloc32.h"
-int nmppsCmpLtC_8s (nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int nSize, Tmp2BuffSpec *pspec)
+int nmppsCmpLtC_8s8um (const nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int size, struct NmppsTmpSpec *spec)
 {
-	Tmp2BuffSpec s;
-	Tmp2BuffSpec* spec=&s;
-	
-	spec->buffer0=nmppsMalloc_16s(nSize);
-	spec->buffer1=nmppsMalloc_16s(nSize);
+	struct NmppsTmpSpec localSpec;
+	int alloc=0;
+	if (spec==0){
+		spec=&localSpec;
+		spec->buffer0=nmppsMalloc_16s(size);
+		spec->buffer1=nmppsMalloc_16s(size);
+		if (!nmppsMallocSuccess()) return -1;
+		alloc=1;
+	}	
 		
 	if (nmppsMallocSuccess()){
-		nmppsConvert_8s16s (pSrcVec, (nm16s*)spec->buffer0, nSize);
-		nmppsCmpLtC_16s15b ((nm16s*)spec->buffer0,nCmpVal,(nm16s*)spec->buffer1,nSize);
-		nmppsConvert_16s8s ((nm16s*)spec->buffer1,pDstVec,nSize);
+		nmppsConvert_8s16s ((nm8s*)pSrcVec, (nm16s*)spec->buffer0, size);
+		nmppsCmpLtC_16s15b ((nm16s*)spec->buffer0,nCmpVal,(nm16s*)spec->buffer1,size);
+		nmppsConvert_16s8s ((nm16s*)spec->buffer1,pDstVec,size);
 	}
 	
-	nmppsFree(spec->buffer0);
-	nmppsFree(spec->buffer1);
+	if (alloc){
+		nmppsFree(spec->buffer0);
+		nmppsFree(spec->buffer1);
+	}
+
 	
 	return 0;
 }
 
 
 
-int nmppsCmpLtC_8sAlloc  (nm8s* pSrcVec, nm8s* pDstVec,int nSize, Tmp2BuffSpec *spec)
+int nmppsCmpLtC_8sAlloc  (nm8s* pSrcVec, nm8s* pDstVec,int size, Tmp2BuffSpec *spec)
 {
 	unsigned heapIndx0;
 	unsigned heapIndx1;
@@ -35,11 +42,11 @@ int nmppsCmpLtC_8sAlloc  (nm8s* pSrcVec, nm8s* pDstVec,int nSize, Tmp2BuffSpec *
 			for(heapIndx1=0; heapIndx1<4; heapIndx1++){
 				testRoute =0xF0|(heapIndx1<<4)|(heapIndx0); 
 				//!!nmppsMallocSetRouteMode(testRoute);
-				spec->buffer0=nmppsMalloc_16s(nSize);
-				spec->buffer1=nmppsMalloc_16s(nSize);
+				spec->buffer0=nmppsMalloc_16s(size);
+				spec->buffer1=nmppsMalloc_16s(size);
 				if (nmppsMallocSuccess()){
 					t0=clock();
-					nmppsCmpLtC_8s(pSrcVec,0,pDstVec, nSize,spec);
+					nmppsCmpLtC_8s(pSrcVec,0,pDstVec, size,spec);
 					t1=clock();
 					if (bestTime>t1-t0){
 						bestTime=t1-t0;
@@ -56,8 +63,8 @@ int nmppsCmpLtC_8sAlloc  (nm8s* pSrcVec, nm8s* pDstVec,int nSize, Tmp2BuffSpec *
 	}
 	if (spec->status )
 	//!!nmppsMallocSetRouteMode(spec->route);
-	spec->buffer0=nmppsMalloc_16s(nSize);
-	spec->buffer1=nmppsMalloc_16s(nSize);
+	spec->buffer0=nmppsMalloc_16s(size);
+	spec->buffer1=nmppsMalloc_16s(size);
 	//spec->isAllocated=nmppsMallocSucces();
 	return nmppsMallocStatus();
 }
@@ -71,9 +78,9 @@ void nmppsCmpLtC_Free  (Tmp2BuffSpec *spec)
 
 
 	/*
-	void nmppsCmpLtC_16s     (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize, Tmp2BuffSpec *spec);
-	void nmppsCmpLtC_32s     (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize, Tmp2BuffSpec *spec);
-	void nmppsCmpLtC_64s     (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize, Tmp2BuffSpec *spec);
+	void nmppsCmpLtC_16s     (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int size, Tmp2BuffSpec *spec);
+	void nmppsCmpLtC_32s     (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int size, Tmp2BuffSpec *spec);
+	void nmppsCmpLtC_64s     (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int size, Tmp2BuffSpec *spec);
 	*/
 	
 int nmppsCmpLtC_8s8u (nm8s* src,  int32b  nCmpVal, nm8u* dst,  int size)

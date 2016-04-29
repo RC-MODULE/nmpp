@@ -26,9 +26,9 @@
 //	Performs logic activation of 64-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
 void nmppsCmpNe0_64s(
-	nm64s*	pSrcVec,		// Input Buffer
-	nm64s*	pDstVec,		// Output Buffer
-	int			nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
+	const 	nm64s*	pSrcVec,		// Input Buffer
+			nm64s*	pDstVec,		// Output Buffer
+			int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
 	)
 {
 	RPC_HOST_PPI("nmppsCmpNe0_64s",pSrcVec,pDstVec,nSize,8);
@@ -37,9 +37,9 @@ void nmppsCmpNe0_64s(
 //	Performs logic activation of 32-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
 void nmppsCmpNe0_32s(
-	nm32s*		pSrcVec,		// Input Buffer
-	nm32s*		pDstVec,		// Output Buffer
-	int			nSize		// size of input buffer in 32 bit elements. nSize={2,4,..,n*2}
+	const 	nm32s*		pSrcVec,		// Input Buffer
+			nm32s*		pDstVec,		// Output Buffer
+			int			nSize		// size of input buffer in 32 bit elements. nSize={2,4,..,n*2}
 	)
 {
 	RPC_HOST_PPI("nmppsCmpNe0_32s",pSrcVec,pDstVec,nSize,4);
@@ -48,9 +48,9 @@ void nmppsCmpNe0_32s(
 //	Performs logic activation of 16-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
 void nmppsCmpNe0_16s(
-	nm16s*		pSrcVec,		// Input Buffer
-	nm16s*		pDstVec,		// Output Buffer
-	int			nSize		// size of input buffer in 16 bit elements. nSize={4,8,..,n*4}
+	const 	nm16s*		pSrcVec,		// Input Buffer
+			nm16s*		pDstVec,		// Output Buffer
+			int			nSize		// size of input buffer in 16 bit elements. nSize={4,8,..,n*4}
 	)
 {
 	RPC_HOST_PPI("nmppsCmpNe0_16s",pSrcVec,pDstVec,nSize,2);
@@ -59,9 +59,9 @@ void nmppsCmpNe0_16s(
 //	Performs logic activation of 8-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
 void nmppsCmpNe0_8s(
-	nm8s*		pSrcVec,		// Input Buffer
-	nm8s*		pDstVec,		// Output Buffer
-	int			nSize		// size of input buffer in 8 bit elements. nSize={8,16,..,n*8}
+	const	nm8s*		pSrcVec,		// Input Buffer
+			nm8s*		pDstVec,		// Output Buffer
+			int			nSize		// size of input buffer in 8 bit elements. nSize={8,16,..,n*8}
 	)
 {
 	RPC_HOST_PPI("nmppsCmpNe0_8s",pSrcVec,pDstVec,nSize,1);

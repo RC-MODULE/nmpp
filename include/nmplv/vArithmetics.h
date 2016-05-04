@@ -805,9 +805,9 @@ void nmppsAbsDiff1_8s(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsMulC_8s   (nm8s* pSrcVec, int8b nVal, nm8s* pDstVec, int nSize);
-void nmppsMulC_8s16s(nm8s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
-void nmppsMulC_16s		(nm16s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
+void nmppsMulC_8s    (nm8s* pSrcVec,  int8b nVal,  nm8s* pDstVec, int nSize);
+void nmppsMulC_8s16s (nm8s* pSrcVec,  int16b nVal, nm16s* pDstVec, int nSize);
+void nmppsMulC_16s	 (nm16s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
 void nmppsMulC_16s32s(nm16s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
 void nmppsMulC_32s   (nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
 void nmppsMulC_32s64s(nm32s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);

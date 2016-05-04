@@ -47,7 +47,7 @@
 ####MAIN REQUIREMENTS TO BUILD NMC-LIBRARY:  
   1. FOR WINDOWS OS: To compile library and attached examples **GNU make** must be installed . http://gnuwin32.sourceforge.net/packages/make.htm  
      Download, install [Gnu make 3.81 installer](http://gnuwin32.sourceforge.net/downlinks/make.php)  and add **make.exe** location to the **PATH** variable.  
-     Note: You should use **GNU make** only. Microsoft **nmake** cannot parse attached makefiles . Gnu Make 3.82 also doesn't work. 
+     Note: You should use **GNU make ** only. Microsoft **nmake** cannot parse attached makefiles . Gnu Make 3.82 also doesn't work. 
   2. Installed NeuroMatrix SDK
   3. GnuWin32 utils. To become *Makefile* fully crossplatformed on Windows OS and to enhances *Makefile* functionality with tests and examples you should have [GnuWin32 utils](http://sourceforge.net/projects/unxutils/) installed. 
   In some cases gnu utils also needed to build examples  

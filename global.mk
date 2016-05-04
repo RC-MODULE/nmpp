@@ -7,7 +7,7 @@ VSHELL32 ?= $(NMPP)/deps/vshell32
 MC5103    = $(NMPP)/deps/mc5103sdk
 MC7601    = $(NMPP)/deps/mc7601sdk
 MB7707    = $(NMPP)/deps/mb7707sdk
-GNUWIN32  = $(NMPP)/deps/gnuwin32/bin
+GNUWIN32  = $(realpath $(NMPP)/deps/gnuwin32/bin)
 
 
 
@@ -31,6 +31,7 @@ ifeq ($(OS),Windows_NT)
 				
   
   SHELL    = cmd
+  OS_FIND  = $(GNUWIN32)/find
   OS_DIFF  = $(GNUWIN32)/diff   
   OS_SCP   = $(GNUWIN32)/pscp   
   OS_MV    = rename
@@ -54,7 +55,7 @@ ifeq ($(OS),Windows_NT)
   #prevents call of embedded 'find.exe' in Windows and GNU make becomes callable
   #PATH:= $(subst $(SystemRoot),,$(PATH))	
   
-  define OS_PATH
+  define BACKSLASH
 	$(subst /,\,$(1))
   endef
 

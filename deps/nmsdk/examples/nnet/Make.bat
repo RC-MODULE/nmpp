@@ -1,1 +1,0 @@
-nmake /a /f makefile

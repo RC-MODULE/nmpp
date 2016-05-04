@@ -18,7 +18,7 @@ int nmppsCmpLt_8s8um (const nm8s* src1,const nm8s* src2, nm8u* dst, int size, st
 	aura_buffer_release( iobuf_src2);
 	aura_buffer_release( iobuf_src1);
 	aura_buffer_release( retbuf); 
-	//slog(0, SLOG_INFO, "ARM: Call nmppsCmpLt_8s8um -ok"); 
+	slog(0, SLOG_INFO, "ARM: Call nmppsCmpLt_8s8um -ok"); 
 	return 0;
 }
 

@@ -164,7 +164,7 @@ extern struct aura_node *n;
 	
 #define RPC_HOST_PIR(func,src,size,res,k) \
 	int ret;	\
-	slog(0, SLOG_INFO, "ARM: Enter Call " #func " -ok"); \
+	slog(0, SLOG_INFO, "ARM: Call  #func  -ok"); \
     struct aura_buffer *iobuf_src = aura_buffer_request(n, size*k);	\
 	memcpy(iobuf_src->data,src,size*k);	\
 	struct aura_buffer *retbuf; \

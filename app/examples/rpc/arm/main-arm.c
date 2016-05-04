@@ -31,23 +31,29 @@ int main() {
 	signed long long dst_64s[256];
 	
 	int i=0;
-	for(i=0; i<16; i++){
-		src0_32s[i]=i-7;
-		src1_32s[i]=i-15;
-		dst_32s[i]=0xcccccccc;
-	}
 
 	for(i=0; i<256; i++){
-		src0_8s[i] =1;  
-		src0_16s[i]=2;  
-		src0_32s[i]=3;  
-		src0_64s[i]=4;  
+		src0_8s[i] =i;  
+		src0_16s[i]=i;  
+		src0_32s[i]=i;  
+		src0_64s[i]=i;  
 		            
-		src1_8s[i] =1;
-		src1_16s[i]=1;
-		src1_32s[i]=1;
-		src1_64s[i]=1;
+		src1_8s[i] =8-i;
+		src1_16s[i]=8-i;
+		src1_32s[i]=8-i;
+		src1_64s[i]=8-i;
 	}
+	//for(i=0; i<256; i++){
+	//	src0_8s[i] =1;  
+	//	src0_16s[i]=1;  
+	//	src0_32s[i]=1;  
+	//	src0_64s[i]=1;  
+	//	            
+	//	src1_8s[i] =1;
+	//	src1_16s[i]=1;
+	//	src1_32s[i]=1;
+	//	src1_64s[i]=1;
+	//}
 
 	
 //	nmppsAbs_8s ((nm8s* )src0_8s ,(nm8s* )dst_8s ,8);
@@ -154,14 +160,14 @@ int main() {
 //	nmppsCmpNeC_32s8u((nm32s*)src0_32s,1,(nm8u*)dst_8s,16);
 //	nmppsCmpNeC_64s8u((nm64s*)src0_64s,1,(nm8u*)dst_8s,16);
 //	
-//	nmppsCmpNe_8s8um ((nm8s*)  src0_8s , (nm8s*) src1_8s ,(nm8u*)dst_8s, 16);
-//	nmppsCmpNe_16s8um((nm16s*) src0_16s, (nm16s*)src1_16s,(nm8u*)dst_8s, 16);
-//	nmppsCmpNe_32s8um ((nm32s*)src0_32s, (nm32s*)src1_32s,(nm8u*)dst_8s, 16);
-//	nmppsCmpNe_64s8um ((nm64s*)src0_64s, (nm64s*)src1_64s,(nm8u*)dst_8s, 16);
-//	
-//	nmppsCmpLt_8s8um  ((nm8s*) 	src0_8s ,(nm8s*) src1_8s ,(nm8u*)dst_8s, 16);
-//	nmppsCmpLt_16s8um ((nm16s*) src0_16s,(nm16s*)src1_16s,(nm8u*)dst_8s, 16);
-//	nmppsCmpLt_32s8um ((nm32s*) src0_32s,(nm32s*)src1_32s,(nm8u*)dst_8s, 16);
+	nmppsCmpNe_8s8um ((nm8s*)  src0_8s , (nm8s*) src1_8s ,(nm8u*)dst_8s, 16, 0);		for(i=0; i<16; i++)	printf("%d %d %d\r\n", (int)src0_8s [i],(int)src1_8s [i],(int)dst_8s[i]);
+	nmppsCmpNe_16s8um((nm16s*) src0_16s, (nm16s*)src1_16s,(nm8u*)dst_8s, 16, 0);		for(i=0; i<16; i++)	printf("%d %d %d\r\n", (int)src0_16s[i],(int)src1_16s[i],(int)dst_8s[i]);
+	nmppsCmpNe_32s8um ((nm32s*)src0_32s, (nm32s*)src1_32s,(nm8u*)dst_8s, 16, 0);		for(i=0; i<16; i++)	printf("%d %d %d\r\n", (int)src0_32s[i],(int)src1_32s[i],(int)dst_8s[i]);
+	nmppsCmpNe_64s8um ((nm64s*)src0_64s, (nm64s*)src1_64s,(nm8u*)dst_8s, 16, 0);		for(i=0; i<16; i++)	printf("%d %d %d\r\n", (int)src0_64s[i],(int)src1_64s[i],(int)dst_8s[i]);
+	                                                                                                                                                                           
+	nmppsCmpLt_8s8um  ((nm8s*) src0_8s , (nm8s*) src1_8s ,(nm8u*)dst_8s, 16, 0);		for(i=0; i<16; i++)	printf("%d %d %d\r\n", (int)src0_8s [i],(int)src1_8s [i],(int)dst_8s[i]);
+	nmppsCmpLt_16s8um ((nm16s*)src0_16s, (nm16s*)src1_16s,(nm8u*)dst_8s, 16, 0);		for(i=0; i<16; i++)	printf("%d %d %d\r\n", (int)src0_16s[i],(int)src1_16s[i],(int)dst_8s[i]);
+	nmppsCmpLt_32s8um ((nm32s*)src0_32s, (nm32s*)src1_32s,(nm8u*)dst_8s, 16, 0);		for(i=0; i<16; i++)	printf("%d %d %d\r\n", (int)src0_32s[i],(int)src1_32s[i],(int)dst_8s[i]);
 //
 //
 //	nmppmMul_mm_8s8s  (src0_8s,8,8,src1_8s, dst_8s, 8);
@@ -182,10 +188,10 @@ int main() {
 	
 	int sum;
 	long long sum64;
-	nmppsSum_8s ((nm8s*) src0_8s,32, &sum);  printf("sum=%d\r\n",sum);
-	nmppsSum_16s((nm16s*)src0_16s,32,&sum64);printf("sum=%d\r\n",(int)sum64);
-	nmppsSum_32s((nm32s*)src0_32s,32,&sum64);printf("sum=%d\r\n",(int)sum64);
-	nmppsSum_64s((nm64s*)src0_64s,16,&sum64);printf("sum=%d\r\n",(int)sum64);	
+	nmppsSum_8s ((nm8s*) src0_8s, 32,&sum  );  	printf("sum=%d\r\n",sum);
+	nmppsSum_16s((nm16s*)src0_16s,32,&sum64);	printf("sum=%d\r\n",(int)sum64);
+	nmppsSum_32s((nm32s*)src0_32s,32,&sum64);	printf("sum=%d\r\n",(int)sum64);
+	nmppsSum_64s((nm64s*)src0_64s,32,&sum64);	printf("sum=%d\r\n",(int)sum64);	
 	
 	long long ret64;
 	nmppsDotProd_8s8sm  ((nm8s*) src0_8s ,(nm8s *)src1_8s , 16 , &ret64,0);      printf("%d\n",(int)ret64);

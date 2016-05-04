@@ -117,7 +117,7 @@ install-gnu: gnuwin32/bin/.gnu_installed gnumake
 	
 install-arc: gnuwin32/bin/.arc_installed
 
-install-all: install-nmc install-gnu install-arc install-arm
+install-all: get-all install-nmc install-gnu install-arc install-arm
 
 #------------------------- package downloading of depended URLs --------------------
 get-all:

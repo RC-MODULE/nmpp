@@ -206,7 +206,7 @@ int main() {
 	nmppsDotProd_32s32sm ((nm32s*) src0_32s ,(nm32s*)src1_32s, 16 , &ret64,0);   printf("%d\n",(int)ret64);
 	nmppsDotProd_32s64s  ((nm32s*) src0_32s ,(nm64s*)src1_64s, 16 , &ret64);     printf("%d\n",(int)ret64); 
 	                                                
-	nmppsDotProd_64s64s ((nm64s*) src0_32s ,(nm64s*)src1_64s, 16 , &ret64);      printf("%d\n",(int)ret64);
+	nmppsDotProd_64s64s ((nm64s*) src0_64s ,(nm64s*)src1_64s, 16 , &ret64);      printf("%d\n",(int)ret64);
 	
 	
 //	NmppsFFTSpec* specFwd256;

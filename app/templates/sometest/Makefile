@@ -33,13 +33,13 @@ run:	all
 	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) run 				$(newline))
 
 kill: 
-	-rm -f -r make_* 
+	-$(OS_RD) $(foreach platform,$(PLATFORMS), make_$(platform))
 	
 
 test: make_$(TARGET1)/Makefile make_$(TARGET2)/Makefile
 	$(MAKE) -C./make_$(TARGET1) test 
 	$(MAKE) -C./make_$(TARGET2) test
-	diff make_$(TARGET1)/.exitcode make_$(TARGET2)/.exitcode
+	$(OS_DIFF) make_$(TARGET1)/.exitcode make_$(TARGET2)/.exitcode
 	
 
 ########### Produces automake rule for all platforms like ############################
@@ -56,8 +56,8 @@ define automake_platform
 $(1):make_$(1)/Makefile
 
 make_$(1)/Makefile: make_$(1)
-	echo ROOT=../$(ROOT)| cat - $(ROOT)/app/templates/sometest/make_$(1)/Makefile > make_$(1)/Makefile
-	-cp $(ROOT)/app/templates/sometest/make_$(1)/*.cfg make_$(1)
+	echo ROOT=../$(ROOT)| $(OS_CAT) - $(ROOT)/app/templates/sometest/make_$(1)/Makefile > make_$(1)/Makefile
+	-$(OS_CP) $(ROOT)/app/templates/sometest/make_$(1)/*.cfg make_$(1)
 	
 
 make_$(1): 

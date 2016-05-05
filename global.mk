@@ -31,13 +31,15 @@ ifeq ($(OS),Windows_NT)
 				
   
   SHELL    = cmd
-  OS_FIND  = $(GNUWIN32)/find
-  OS_DIFF  = $(GNUWIN32)/diff   
-  OS_SCP   = $(GNUWIN32)/pscp   
+  OS_FIND  = $(call BACKSLASH,$(GNUWIN32)/find)
+  OS_DIFF  = $(call BACKSLASH,$(GNUWIN32)/diff)
+  OS_SCP   = $(call BACKSLASH,$(GNUWIN32)/pscp)
+  OS_CAT   = $(call BACKSLASH,$(GNUWIN32)/cat)
   OS_MV    = rename
   OS_RM    = del /Q
 # OS_RM    = rm -f -r
   OS_RD    = rd /Q /S 
+  OS_CP    = $(call BACKSLASH,$(GNUWIN32)/cp)
   OS_WHICH =$(windir)/system32/where
 # OS_WGET  = wget
   OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\wget.ps1 

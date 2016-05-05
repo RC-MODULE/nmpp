@@ -4,20 +4,7 @@ ROOT = ..
 #http_proxy ?=http://username:password@proxy:80/
 
 
-#$(eval OUT=$(shell wget ))
-#ifeq ($(OUT),)
-#$(info -------------------------------------------------------------------)
-#$(error ERROR: wget not found. Install setup wget from http://gnuwin32.sourceforge.net/URLages/wget.htm to sobel-steps/gnuwin32/ or to another folder accessible by PATH )
-#endif
-#
-#
-#$(eval OUT=$(shell unzip ))
-#ifeq ($(OUT),)
-#$(info -------------------------------------------------------------------)
-#$(error ERROR: unzip not found. Install setup unzip from http://gnuwin32.sourceforge.net/URLages/unzip.htm to sobel-steps/gnuwin32/ or to another folder accessible by PATH )
-#endif
-
-all: download install
+all: get-all install-all
 
 ifeq ($(OS),Windows_NT)
  # RCM Module production packages 
@@ -35,12 +22,13 @@ ifeq ($(OS),Windows_NT)
  # 3rd party production packages 
   COREUTILS_URL	 = http://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-bin.zip
   COREDEPS_URL	 = http://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-dep.zip
+  DIFFUTILS_URL  = http://downloads.sourceforge.net/project/gnuwin32/diffutils/2.8.7-1/diffutils-2.8.7-1-bin.zip
+  DIFFDEPS_URL   = http://downloads.sourceforge.net/project/gnuwin32/diffutils/2.8.7-1/diffutils-2.8.7-1-dep.zip
   FIND_URL       = https://sourceforge.net/projects/gnuwin32/files/findutils/4.2.20-2/findutils-4.2.20-2-bin.zip
   CECHO_URL 	 = https://github.com/elisherer/cecho/archive/master.zip
   PUTTY_URL      = http://tartarus.org/~simon/putty-snapshots/x86/putty.zip
   GNUMAKE_URL	 = http://downloads.sourceforge.net/project/gnuwin32/make/3.81/make-3.81-bin.zip 
   GNUMAKEDEPS_URL= http://downloads.sourceforge.net/project/gnuwin32/make/3.81/make-3.81-dep.zip
-
   # PUTTY's homepage http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   
  # archivators (7z+tar) 
@@ -70,7 +58,8 @@ ifeq ($(OS),Windows_NT)
 	  $(FIND_URL)       \
 	  $(CECHO_URL) 	 \
 	  $(GNUMAKE_URL) \
-	  $(GNUMAKEDEPS_URL)
+	  $(GNUMAKEDEPS_URL) \
+	  $(DIFFUTILS_URL) 
 	  
   
   ARM_URLS = \
@@ -174,10 +163,11 @@ vshell32: $(notdir $(VSHELL32_URL))
 nm_io: $(notdir $(NM_IO_URL))
 	$(OS_UNPACK) $(<)
 	
-gnuwin32/bin/.gnu_installed: $(notdir $(COREUTILS_URL)) gnuwin32 putty.zip cecho.zip
+gnuwin32/bin/.gnu_installed: $(notdir $(COREUTILS_URL)) gnuwin32 putty.zip cecho.zip $(notdir $(DIFFUTILS_URL)) 
 	$(OS_UNPACK) $(notdir $(COREUTILS_URL)) $(OS_TODIR) gnuwin32
 	$(OS_UNPACK) $(notdir $(COREDEPS_URL))  $(OS_TODIR) gnuwin32
 	$(OS_UNPACK) $(notdir $(FIND_URL))      $(OS_TODIR) gnuwin32
+	$(OS_UNPACK) $(notdir $(DIFFUTILS_URL)) $(OS_TODIR) gnuwin32
 	$(OS_UNPACK) $(notdir $(PUTTY_URL))     $(OS_TODIR) gnuwin32\bin
 	$(OS_UNPACK) cecho.zip                  $(OS_TODIR) gnuwin32
 	-copy .\gnuwin32\cecho-master\cecho\bin\Release\cecho.exe .\gnuwin32\bin

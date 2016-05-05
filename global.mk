@@ -20,10 +20,14 @@ ifeq ($(OS),Windows_NT)
    EASYNMC = $(ROOT)/deps/nmc-utils-0.1.1/libeasynmc-nmc
 
    
-   ARM_CC   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-gcc.exe
-   ARM_AR   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-ar.exe
-   ARM_LD   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-ld.exe
+   #ARM_CC   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-gcc.exe
+   #ARM_AR   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-ar.exe
+   #ARM_LD   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-ld.exe
 
+   ARM_CC   = arm-linux-gnueabihf-gcc.exe
+   ARM_AR   = arm-linux-gnueabihf-ar.exe
+   ARM_LD   = arm-linux-gnueabihf-ld.exe
+   CROSS_COMPILE=arm-linux-gnueabihf-
    
    #ARM_CC   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-gcc.exe
    #ARM_AR   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-ar.exe
@@ -47,15 +51,17 @@ ifeq ($(OS),Windows_NT)
   OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\unzip.ps1 
   OS_TODIR = -d
   OS_UNPACK= $(OS_UNZIP)
-  PATH_DEP = $(realpath $(NEURO)/bin);\
+  PATH_DEP = $(GNUWIN32);\
+			 $(realpath $(NEURO)/bin);\
 			 $(realpath $(MC5103)/bin);\
 			 $(realpath $(MB7707)/bin);\
 			 $(realpath $(MC7601)/bin);\
-			 $(realpath $(GNUWIN32));\
-			 $(realpath $(VSHELL32)/bin);
-  PATH    := $(PATH);$(PATH_DEP)
-  #prevents call of embedded 'find.exe' in Windows and GNU make becomes callable
-  #PATH:= $(subst $(SystemRoot),,$(PATH))	
+			 $(realpath $(VSHELL32)/bin); \
+  
+  PATH    := $(PATH);C:\SysGCC\Raspberry\bin;$(realpath $(ROOT)/deps/Raspberry/bin);$(PATH_DEP)
+  
+  # 'Raspberry\bin' shuld be first in PATH then $(GNUWIN32), because of 'libiconv-2.dll' version conflict.
+  # But 'make.exe' ver-3.81 must be found first in then PATH then 'make.exe' ver-3.82 located in Raspberry\bin because of their non-campabality 
   
   define BACKSLASH
 	$(subst /,\,$(1))

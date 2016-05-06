@@ -45,7 +45,8 @@ $(TARGET): $(OBJECTS_C) $(ROOT)/lib/libnmpp-arm-rpc.a
 	$(ARM_CC) -o $(@)  $(LD_FLAGS) $(OBJECTS_C) -laura -lnmpp-arm-rpc
 
 
-	
+$(ROOT)/lib/libnmpp-arm-rpc.a:
+		$(MAKE) -C $(ROOT)/make/nmpp-arm-rpc
 
 clean:
 	-$(OS_RM) *.o $(TARGET)

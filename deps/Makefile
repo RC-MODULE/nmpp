@@ -3,6 +3,7 @@ ROOT = ..
 -include $(ROOT)/global.mk
 #http_proxy ?=http://username:password@proxy:80/
 
+.PHONY: arm-toolchain get-all install-nmc install-gnu install-arc install-arm
 
 all: get-all install-all
 
@@ -96,11 +97,11 @@ PACKAGES_ARC = $(notdir $(ARC_URLS))
 PACKAGES_GNU:= $(subst master.zip,cecho.zip,$(PACKAGES_GNU))
 #PACKAGES_ARM:= $(subst master.zip,nmc-utils.zip,$(PACKAGES_ARM))
 
-.PHONY = arm-toolchain
+
 
 install-nmc: nmsdk nm_io mc5103sdk mb7707sdk mc7601sdk vshell32 
 
-install-arm: rootfs nmc-utils-0.1.1 raspbian-jessie-matlab arm-toolchain
+install-arm: rootfs/.rootfs_installed nmc-utils-0.1.1 raspbian-jessie-matlab/.installed arm-toolchain
 
 install-gnu: gnuwin32/bin/.gnu_installed gnumake
 	
@@ -184,14 +185,13 @@ gnumake: make-3.81-bin.zip make-3.81-dep.zip
 	$(OS_UNPACK) make-3.81-bin.zip    $(OS_TODIR) gnumake
 	$(OS_UNPACK) make-3.81-dep.zip    $(OS_TODIR) gnumake
 	
-rootfs: armhf-sdk-sysroot.tar install-arc
-	-mkdir $(@)
-	$(GNUWIN32)/tar -vxf $(<) -C $(@)
+rootfs/.rootfs_installed: $(notdir $(SYSROOT_URL))  gnuwin32/bin/.arc_installed
+	$(GNUWIN32)/7za e $(notdir $(SYSROOT_URL)) -y
+	-mkdir rootfs
+	$(GNUWIN32)/tar -vxf armhf-sdk-sysroot.tar -C rootfs
+	@echo armhf-sdk-sysroot installed >> rootfs/.rootfs_installed
 
-armhf-sdk-sysroot.tar: $(notdir $(SYSROOT_URL)) install-arc
-	$(GNUWIN32)/7za e $(<)
-	
-nmc-utils-0.1.1: 0.1.1.zip install-arc
+nmc-utils-0.1.1: 0.1.1.zip gnuwin32/bin/.arc_installed
 	$(GNUWIN32)/7za x $(<) 
 
 #gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32	
@@ -203,14 +203,13 @@ Raspberry: 	$(notdir $(ARM_TOOLCHAIN_URL))
 	@echo ***********************************************************************
 	$(notdir $(ARM_TOOLCHAIN_URL))
 	
-gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32: $(notdir $(ARM_TOOLCHAIN_URL)) install-arc
+gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32: $(notdir $(ARM_TOOLCHAIN_URL)) gnuwin32/bin/.arc_installed
 #	$(GNUWIN32)/7za x $(<) -y
 
-raspbian-jessie-matlab: raspbian-jessie-matlab.tar install-arc
-	$(GNUWIN32)/tar -vxf $(<) 
-	
-raspbian-jessie-matlab.tar: $(notdir $(FIRMWARE7707_URL)) install-arc
-	$(GNUWIN32)/7za e $(<)	
+raspbian-jessie-matlab/.installed: $(notdir $(FIRMWARE7707_URL)) gnuwin32/bin/.arc_installed
+	$(GNUWIN32)/7za e   $(notdir $(FIRMWARE7707_URL)) -y
+	$(GNUWIN32)/tar -vxf raspbian-jessie-matlab.tar
+	@echo raspbian-jessie-matlab installed >> raspbian-jessie-matlab/.installed
 	
 gnuwin32:
 	-mkdir gnuwin32

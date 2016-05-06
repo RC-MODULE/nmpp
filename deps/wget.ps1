@@ -77,6 +77,8 @@ $webclient = new-object System.Net.WebClient
 Import-Module BitsTransfer
 foreach ($url in $args)  
 {
+	$f=[System.IO.Path]::GetFileName($url)
+	echo $f
 	$filename = [System.IO.Path]::GetFileName($url)
 	if (Test-Path $filename) {
 		$str = "File [" + $filename + "] already exists. Downloading skipped"

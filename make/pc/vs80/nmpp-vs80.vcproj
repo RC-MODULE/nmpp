@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8,00"
 	Name="nmpp-vs80"
-	ProjectGUID="{D67C3FDD-B373-49B8-B56E-DE7255585BF6}"
+	ProjectGUID="{502FEC7E-393D-4397-8F70-5014080F458C}"
 	RootNamespace="nmpp-vs80"
 	>
 	<Platforms>
@@ -22,21 +22,7 @@
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
+		
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories=";../../../include;../../../include/nmpls"
@@ -46,35 +32,14 @@
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
+				
 			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+		
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile="../../../lib/nmpp-vs80.lib"
 			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+		
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
@@ -83,21 +48,6 @@
 			ConfigurationType="4"
 			CharacterSet="1"
 			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
@@ -112,2095 +62,390 @@
 				DebugInformationFormat="4"
 			/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
 				Name="VCLibrarianTool"
 				OutputFile="../../../lib/nmpp-vs80d.lib"
 			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
 		</Configuration>
 	</Configurations>
-	<References>
-	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
-			<File
-				RelativePath="..\..\..\src\nmplv\Stat\pc\32Ini.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\BuildDiagWeights16.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\BuildDiagWeights8.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Stat\pc\CRC32_Table.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Init\common\CreateComplexTexture__char.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Reodering\pc\DeinterlaceBlend.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Reodering\pc\DeinterlaceSplit.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\DivTable_1_145_18.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\DivTable_1_145_19.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\DupValueInVector16.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\DupValueInVector8.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Floodfill\common\FFill32b.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Select\pc\IMG_CompareGtC__nm16s_nm16s.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_16s16s__int.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_16s32s__int.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_32s32s__int.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_8s16s__int.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_8s32s__int.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_8s8s__int.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Convert\pc\IMG_GrayToRGB24__nm08u_RGB24_nm8u.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Arithmetics\pc\IMG_Halfsum__nm16s_nm16s.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Reodering\pc\IMG_MergeFromBlocks8x8__nm8s_nm8s.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Support\common\IMG_Release__void.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_ReleaseObject__nm64s.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Resample\common\IMG_ResampleDown2XY__nm16u15b_nm16u15b.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Resample\pc\IMG_ResampleDown2Y__nm8u7b_nm8u7b.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Resample\pc\IMG_ResampleUp3Down2__nm08u_nm08u.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Convert\pc\IMG_RGB24ToGray__RGB24_nm8u_nm08u.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Convert\common\IMG_RGB32ToGray__RGB32_nm10s_nm08s.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Convert\pc\IMG_RGB32ToGray__RGB32_nm8u_nm32s.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Convert\pc\IMG_Rsh2__RGB32_nm10u_RGB32_nm10u.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Reodering\pc\IMG_SplitInto2x2Blocks8x8__nm8u_nm8u.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Reodering\pc\IMG_SplitInto2x2Blocks8x8xor__nm8u_nm8u.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Reodering\pc\IMG_SplitIntoBlocks8x8__nm8s_nm8s.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Arithmetics\pc\IMG_WAdd2I__RGB32_nm10s_RGB32_nm10s.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\IFFT1024\pc\iW1024Tbl.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\IFFT2048\pc\iW2048Tbl.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\IFFT0256\pc\iW256Tbl.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\IFFT0512\pc\iW512tbl.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Support\common\malloc32.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Metric\msd.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplm\Init\pc\MTR_Copy.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplm\Init\pc\MTR_Fill.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplm\MatrixVector\pc\MTR_MulC_AddVsVc__int.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplm\MatrixVector\pc\MTR_ProdUnitV.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplm\Inverse\common\mtrResolve.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplm\Support\common\mtrSetMatrix.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplc\init\common\nmppcRand.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Filtration\pc\nmppi-Filter_08s16s.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Filtration\common\nmppi-FilterInitAlloc_08s16s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mm.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mv.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mv_ext.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Abs.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Abs1.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AbsDiff.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-add.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AddC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AddExt.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-And.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-And4V.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-AndC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-AndNV.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmpps-ClipConvertAddC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-clipconvertaddcinitalloc_16s8s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLt_16s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLt_32s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLt_64s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLt_8s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_16s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_32s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_64s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_8s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmpps-CmpNe0.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNe_16s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNe_32s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNe_64s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNe_8s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_16s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_32s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_64s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_8s8u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\common\nmpps-common.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-DivC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Dot.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_16s16s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_16s32s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_32s32s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_8s16s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_8s32s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_8s8s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT1024\common\nmpps-FFT1024Fwd.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT1024\common\nmpps-FFT1024Inv.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048Fwd.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048Inv.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256fwd.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256inv.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0032\pc\nmpps-fft32fwd.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0032\common\nmpps-fft32fwdinit.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0032\common\nmpps-fft32fwdref.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Fwd.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Inv.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0064\pc\nmpps-fft64fwd.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0064\common\nmpps-fft64fwdinit.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0064\common\nmpps-fft64fwdref.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Filtration\pc\nmpps-fir.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Filter\common\nmpps-firinitalloc_8s16s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Support\pc\nmpps-Get.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Logic.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-MulC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Neg.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Not.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Or.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Or3V.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Or4V.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-OrC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-OrNV.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Support\pc\nmpps-Put.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-RShiftC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Sub.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-SubC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-SubCRev.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Sum.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Xor.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-XorC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Stat\common\nmpps_Crc.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsClip_Arsh_Cnv_AddC_Ext.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsClipPowArshCnvAddC.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsClipPowC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsClipPowCRShiftCnv_AddC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEq0.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEqC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEqV.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpLt0.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpLtC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpMinMaxEvery.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpNeC.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpNeV.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Init\pc\nmppsCnv.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Init\pc\nmppsCopy.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsFirstNonZeroIndx.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsFirstZeroIndx.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsLastNonZeroIndx.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsLastZeroIndx.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMax.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMaxEvery.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsMaxIndx_nm16s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsMaxIndx_nm32s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsMaxIndx_nm8s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMin.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinCmpLtV.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinEvery.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinEveryN.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsMinIndx_nm16s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsMinIndx_nm32s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\common\nmppsMinIndx_nm8s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinPos1024.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinPos16.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinPos25.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinPos256.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinPos9.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsMulV.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Init\common\nmppsRamp.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Init\pc\nmppsrand.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Init\common\nmppsRand32u.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSet.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSwap.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsWadd2V.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT1024\pc\pcFFT1024.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\pc\pcFFT2048.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\pcFFT256.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT4096\pc\pcFFT4096.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0512\pc\pcFFT512.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT8192\pc\pcFFT8192.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\IFFT1024\pc\pcIFFT1024.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\IFFT2048\pc\pcIFFT2048.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\IFFT0256\pc\pcIFFT256.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\IFFT4096\pc\pcIFFT4096.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\IFFT0512\pc\pcIFFT512.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\IFFT8192\pc\pcIFFT8192.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\pc\Quant.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplc\arithmetic\common\SCL_DivC__nm64sc_nm64sc.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_DoubleToFix32__double.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_Fix32ToDouble__int.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplc\fixpoint32\pc\scl_fixarctan32__int.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_FixDiv32__int.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_FixMul32__int.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplc\fixpoint32\pc\scl_fixsqrt32__int.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpli\Resample\common\SetVResample3div2.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Resample\common\SIG_CreateResampleDown2_16u16u.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Resample\common\SIG_CreateResampleDown2_8u8u.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Resample\common\SIG_CreateResampleUp3Down2_8s16s.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Resample\pc\SIG_Decimate16.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Filtration\pc\SIG_MedainV3.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Filtration\pc\SIG_MedainV9.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Resample\pc\SIG_Resample.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Resample\pc\SIG_ResizeDown2.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Resample\common\SIG_ResizeDown2__nm08u_nm16u.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\Correlation\pc\SIG_XCorr.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_0_sub_data.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Abs.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_AccMul1D1W32_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_activate_data.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_activate_data_add_0.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_activate_data_add_ram.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_activate_data_xor_data.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Add.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Add4V.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Add_VV_shift.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Support\pc\VEC_Addr.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_afifo.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_And.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_And4V.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_AndNot.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_AndNV.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_ClipExt.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_ClipMul2D2W8_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_ClipMul2D2W8_AddVr_Ext.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_ClipMul4D4W1_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_ClipMul4D4W4_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_clipmulNDNW2_addvr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_clipmulNDNW4_addvr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_clipmulNDNW8_addvr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_CmpEqC.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_CmpGtC.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_CmpLtC.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_CmpLtV.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_CmpNe0.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_CmpNeV.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_CompareMaxV.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_CompareMinMaxV.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_CompareMinNV.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_CompareMinV.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Stat\pc\VEC_Crc.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_data.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_data_add_afifo.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_data_add_ram.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_data_and_ram.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_data_or_ram.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_data_sub_ram.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_data_xor_ram.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\VEC_DataXorRamN_ActivateAfifoVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\VEC_DataXorRamV_ActivateAfifoVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Arithmetics\common\VEC_DivC__nm64sc_nm64sc.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_IncNeg.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Support\pc\VEC_Malloc64s.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Mask.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_MaxVal.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_MaxVal_v4nm16s.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_MaxVal_v8nm8s.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_MinVal.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_MinVal_v4nm16s.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_MinVal_v8nm8s.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Mul2D2W1_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Mul2D2W2_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Mul2D2W4_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Mul2D2W8_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Mul3D3W2_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Mul3D3W8_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Mul4D4W2_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Mul4D4W4_AddVr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_MUL_2V4toW8_shift.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_MUL_2V8toW16_shift.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_MulVN_AddVN.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_not_data.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Or.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Or3V.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Or4V.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_OrNV.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Transform\pc\VEC_QSort.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_ram.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_ram_sub_data.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Transform\pc\VEC_Remap.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Transform\common\VEC_Remap_nm8u.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Stat\pc\VEC_SadV16.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmplv\Transform\pc\VEC_Split.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Sub.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_SubAbs.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_SubAbs1.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_SubVN_Abs.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Swap.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_activate_data_0.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_data_0.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_data_afifo.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_data_vr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_shift_data_0.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_shift_data_afifo.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_shift_data_vr.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmvcore\nm\vec_Xor.asm"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT1024\pc\W1024Tbl.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\pc\W2048Tbl.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\W256Tbl.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT0512\pc\W512tbl.cpp"
-				>
-			</File>
-		</Filter>
-		<Filter
+ 			<File RelativePath="..\..\..\src\nmplc\arithmetic\common\SCL_DivC__nm64sc_nm64sc.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Arithmetics\pc\IMG_Halfsum__nm16s_nm16s.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Arithmetics\pc\IMG_WAdd2I__RGB32_nm10s_RGB32_nm10s.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Convert\common\IMG_RGB32ToGray__RGB32_nm10s_nm08s.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Convert\pc\IMG_GrayToRGB24__nm08u_RGB24_nm8u.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Convert\pc\IMG_RGB24ToGray__RGB24_nm8u_nm08u.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Convert\pc\IMG_RGB32ToGray__RGB32_nm8u_nm32s.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Convert\pc\IMG_Rsh2__RGB32_nm10u_RGB32_nm10u.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_16s16s__int.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_16s32s__int.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_32s32s__int.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_8s16s__int.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_8s32s__int.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_8s8s__int.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_ReleaseObject__nm64s.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Filtration\pc\nmppi-Filter_08s16s.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Floodfill\common\FFill32b.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Init\common\CreateComplexTexture__char.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Reodering\pc\DeinterlaceBlend.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Reodering\pc\DeinterlaceSplit.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Reodering\pc\IMG_MergeFromBlocks8x8__nm8s_nm8s.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Reodering\pc\IMG_SplitInto2x2Blocks8x8__nm8u_nm8u.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Reodering\pc\IMG_SplitInto2x2Blocks8x8xor__nm8u_nm8u.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Reodering\pc\IMG_SplitIntoBlocks8x8__nm8s_nm8s.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Resample\common\IMG_ResampleDown2XY__nm16u15b_nm16u15b.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Resample\common\SetVResample3div2.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Resample\pc\IMG_ResampleDown2Y__nm8u7b_nm8u7b.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Resample\pc\IMG_ResampleUp3Down2__nm08u_nm08u.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Select\pc\IMG_CompareGtC__nm16s_nm16s.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Support\common\IMG_Release__void.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\Init\pc\MTR_Copy.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\Init\pc\MTR_Fill.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\Inverse\common\mtrResolve.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\MTR_MulC_AddVsVc__int.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\MTR_ProdUnitV.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mv_ext.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\Support\common\mtrSetMatrix.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Correlation\pc\SIG_XCorr.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\common\nmpps-common.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0032\common\nmpps-fft32fwdref.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0064\common\nmpps-fft64fwdref.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\pcFFT256.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\pc\W256Tbl.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\pc\pcFFT512.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\pc\W512tbl.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT1024\pc\pcFFT1024.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT1024\pc\W1024Tbl.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT2048\pc\pcFFT2048.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT2048\pc\W2048Tbl.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT4096\pc\pcFFT4096.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT8192\pc\pcFFT8192.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\IFFT0256\pc\iW256Tbl.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\IFFT0256\pc\pcIFFT256.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\IFFT0512\pc\iW512tbl.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\IFFT0512\pc\pcIFFT512.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\IFFT1024\pc\iW1024Tbl.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\IFFT1024\pc\pcIFFT1024.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\IFFT2048\pc\iW2048Tbl.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\IFFT2048\pc\pcIFFT2048.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\IFFT4096\pc\pcIFFT4096.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\IFFT8192\pc\pcIFFT8192.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Filtration\pc\SIG_MedainV3.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Filtration\pc\SIG_MedainV9.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Resample\common\SIG_CreateResampleDown2_16u16u.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Resample\common\SIG_CreateResampleDown2_8u8u.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Resample\common\SIG_CreateResampleUp3Down2_8s16s.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Resample\common\SIG_ResizeDown2__nm08u_nm16u.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Resample\pc\SIG_Decimate16.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Resample\pc\SIG_Resample.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Resample\pc\SIG_ResizeDown2.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\VEC_DivC__nm64sc_nm64sc.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsClip_Arsh_Cnv_AddC_Ext.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsClipPowArshCnvAddC.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinPos1024.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinPos16.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinPos25.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinPos256.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinPos9.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Stat\pc\32Ini.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Stat\pc\VEC_SadV16.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_Addr.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Transform\common\VEC_Remap_nm8u.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Transform\pc\VEC_QSort.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Transform\pc\VEC_Remap.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Transform\pc\VEC_Split.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\BuildDiagWeights16.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\BuildDiagWeights8.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\DupValueInVector16.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\DupValueInVector8.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_0_sub_data.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Abs.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_AccMul1D1W32_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_activate_data.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_activate_data_add_0.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_activate_data_add_ram.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_activate_data_xor_data.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Add.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Add_VV_shift.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Add4V.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_afifo.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_And.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_And4V.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_AndNot.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_AndNV.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_ClipExt.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_ClipMul2D2W8_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_ClipMul2D2W8_AddVr_Ext.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_ClipMul4D4W1_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_ClipMul4D4W4_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_clipmulNDNW2_addvr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_clipmulNDNW4_addvr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_clipmulNDNW8_addvr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpEqC.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpGtC.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpLtC.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpLtV.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpNe0.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpNeV.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CompareMaxV.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CompareMinMaxV.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CompareMinNV.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CompareMinV.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_data.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_data_add_afifo.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_data_add_ram.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_data_and_ram.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_data_or_ram.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_data_sub_ram.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_data_xor_ram.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\VEC_DataXorRamN_ActivateAfifoVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\VEC_DataXorRamV_ActivateAfifoVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_IncNeg.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Mask.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_MaxVal.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_MaxVal_v4nm16s.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_MaxVal_v8nm8s.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_MinVal.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_MinVal_v4nm16s.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_MinVal_v8nm8s.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_MUL_2V4toW8_shift.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_MUL_2V8toW16_shift.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Mul2D2W1_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Mul2D2W2_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Mul2D2W4_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Mul2D2W8_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Mul3D3W2_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Mul3D3W8_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Mul4D4W2_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Mul4D4W4_AddVr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_MulVN_AddVN.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_not_data.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Or.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Or3V.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Or4V.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_OrNV.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_ram.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_ram_sub_data.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Sub.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_SubAbs.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_SubAbs1.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_SubVN_Abs.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Swap.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_activate_data_0.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_data_0.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_data_afifo.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_data_vr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_shift_data_0.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_shift_data_afifo.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_vsum_shift_data_vr.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_Xor.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_DoubleToFix32__double.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_Fix32ToDouble__int.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\scl_fixarctan32__int.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_FixDiv32__int.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_FixMul32__int.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\scl_fixsqrt32__int.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplc\init\common\nmppcRand.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Filtration\common\nmppi-FilterInitAlloc_08s16s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mm.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mv.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Metric\msd.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0032\pc\nmpps-fft32fwd.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0032\common\nmpps-fft32fwdinit.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0064\pc\nmpps-fft64fwd.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0064\common\nmpps-fft64fwdinit.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256fwd.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256inv.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Fwd.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Inv.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT1024\common\nmpps-FFT1024Fwd.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT1024\common\nmpps-FFT1024Inv.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048Fwd.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048Inv.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Filter\common\nmpps-firinitalloc_8s16s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Filtration\pc\nmpps-fir.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_16s16s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_16s32s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_32s32s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_8s16s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_8s32s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_8s8s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\DivTable_1_145_18.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\DivTable_1_145_19.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Abs.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Abs1.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AbsDiff.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-add.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AddC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AddExt.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-DivC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Dot.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-MulC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Neg.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Sub.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-SubC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-SubCRev.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Sum.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsMulV.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmppsWadd2V.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\Quant.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-And.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-And4V.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-AndC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-AndNV.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Logic.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Not.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Or.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Or3V.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Or4V.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-OrC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-OrNV.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-RShiftC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-Xor.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Bitwise\pc\nmpps-XorC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Init\common\nmppsRamp.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Init\common\nmppsRand32u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsCnv.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsCopy.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsrand.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSet.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSwap.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-clipconvertaddcinitalloc_16s8s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLt_16s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLt_32s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLt_64s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLt_8s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_16s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_32s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_64s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpLtC_8s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNe_16s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNe_32s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNe_64s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNe_8s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_16s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_32s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_64s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-CmpNeC_8s8u.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsLastNonZeroIndx.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsLastZeroIndx.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsMaxIndx_nm16s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsMaxIndx_nm32s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsMaxIndx_nm8s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsMinIndx_nm16s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsMinIndx_nm32s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\common\nmppsMinIndx_nm8s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmpps-ClipConvertAddC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmpps-CmpNe0.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsClipPowC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsClipPowCRShiftCnv_AddC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEq0.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEqC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEqV.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpLt0.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpLtC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpMinMaxEvery.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpNeC.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpNeV.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsFirstNonZeroIndx.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsFirstZeroIndx.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMax.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMaxEvery.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMin.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinCmpLtV.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinEvery.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsMinEveryN.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Stat\common\nmpps_Crc.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Stat\pc\CRC32_Table.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Stat\pc\VEC_Crc.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Support\pc\nmpps-Get.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Support\pc\nmpps-Put.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Support\pc\VEC_Malloc64s.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Support\common\malloc32.c" > </File> 
+ 		</Filter> 
+ 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
-			>
-			<File
-				RelativePath="../../../include/arm/nmplv.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/arm/nmtype.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/arm/vArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/crtdbg2.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/crtdbg2.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/fft.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/fft.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/fft2.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/fft2.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/malloc32.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/malloc32.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/metric.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/metric.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/multiheap.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/multiheap.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmchar.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmchar.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmdef.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmdef.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cArithmetic.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cArithmetic.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cArithmetic.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cfixpnt32.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cfixpnt32.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cfixpnt32.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cfixpnt64.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cfixpnt64.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cfixpnt64.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cInteger.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cInteger.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/cInteger.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/nmplc.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/nmplc.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplc/nmplc.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/filter.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/filter.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/filter.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iCellTexture.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iCellTexture.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iCellTexture.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iDef.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iDef.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iDef.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iDeinterlace.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iDeinterlace.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iDeinterlace.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iFilter.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iFilter.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iFilter.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iFiltration.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iFiltration.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iFiltration.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iFloodFill.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iFloodFill.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iFloodFill.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iPlessy.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iPlessy.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iPlessy.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iPlessyDetector.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iPlessyDetector.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iPlessyDetector.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iPrint.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iPrint.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iPrint.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iReodering.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iReodering.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iReodering.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iResample.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iResample.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iResample.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iSelect.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iSelect.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iSelect.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/isubpixel2d.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/isubpixel2d.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/isubpixel2d.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/isubpixel2dimpl.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/isubpixel2dimpl.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/isubpixel2dimpl.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iSupport.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iSupport.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/iSupport.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/nmpli.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/nmpli.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/nmpli.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/warpimg.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/warpimg.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpli/warpimg.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mInverse.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mInverse.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mInverse.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mMatrixVector.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mMatrixVector.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mMatrixVector.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mMatrixVectorDev.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mMatrixVectorDev.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mMatrixVectorDev.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mSupport.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mSupport.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/mSupport.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/nmplm.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/nmplm.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplm/nmplm.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/fft.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/fft.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/fft.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/fftext.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/fftext.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/fftext.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/nmpls.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/nmpls.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/nmpls.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sCorrelation.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sCorrelation.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sCorrelation.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sFiltration.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sFiltration.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sFiltration.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sfir.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sfir.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sfir.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sResample.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sResample.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpls/sResample.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/nmplv.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/nmplv.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/nmplv.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/nmtl.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/nmtl.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/nmtl.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/sArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/sArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/sArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vArithmetics.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vArithmeticsDev.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vArithmeticsDev.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vArithmeticsDev.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vBitwise.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vBitwise.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vBitwise.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vInit.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vInitDev.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vInitDev.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vInitDev.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vSelect.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vSelect.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vSelect.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vStat.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vStat.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vStat.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vSupport.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vSupport.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vSupport.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vTransform.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vTransform.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmplv/vTransform.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpp.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmpp.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmshort.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmshort.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/nmtl.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/nmtlio.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tcmplx.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tcmplx_spec.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tfixpoint.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tfixpointmath.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tmatrix.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tmatrix_spec.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tnmcvec.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tnmint.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tnmmtr.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tnmmtrpack.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tnmvec.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tnmvecpack.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtl/tvector.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtype.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmtype.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/nmvcore/vCore.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/ownmalloc.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/ownmalloc.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/ringbuffer.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/ringbuffer.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/ringremote.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/ringremote.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/rpc/rpc-host.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/rpc/rpc-nmc-func.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/rpc/rpc-nmc.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/tfixpoint.h"
-				>
-			</File>
-			<File
-				RelativePath="../../../include/tfixpoint.h"
-				>
-			</File>
-		</Filter>
-		<File
-			RelativePath="Makefile"
-			>
-		</File>
-	</Files>
+		> 
+ 			<File RelativePath="../../../include/crtdbg2.h" > </File> 
+ 			<File RelativePath="../../../include/fft.h" > </File> 
+ 			<File RelativePath="../../../include/fft2.h" > </File> 
+ 			<File RelativePath="../../../include/malloc32.h" > </File> 
+ 			<File RelativePath="../../../include/metric.h" > </File> 
+ 			<File RelativePath="../../../include/multiheap.h" > </File> 
+ 			<File RelativePath="../../../include/nmchar.h" > </File> 
+ 			<File RelativePath="../../../include/nmdef.h" > </File> 
+ 			<File RelativePath="../../../include/nmplc.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli.h" > </File> 
+ 			<File RelativePath="../../../include/nmplm.h" > </File> 
+ 			<File RelativePath="../../../include/nmpls.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv.h" > </File> 
+ 			<File RelativePath="../../../include/nmpp.h" > </File> 
+ 			<File RelativePath="../../../include/nmshort.h" > </File> 
+ 			<File RelativePath="../../../include/nmtl.h" > </File> 
+ 			<File RelativePath="../../../include/nmtype.h" > </File> 
+ 			<File RelativePath="../../../include/ownmalloc.h" > </File> 
+ 			<File RelativePath="../../../include/ringbuffer.h" > </File> 
+ 			<File RelativePath="../../../include/ringremote.h" > </File> 
+ 			<File RelativePath="../../../include/tfixpoint.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv/nmplv.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv/nmtl.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv/vArithmetics.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv/vArithmeticsDev.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv/vBitwise.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv/vInit.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv/vInitDev.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv/vSelect.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv/vStat.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv/vSupport.h" > </File> 
+ 			<File RelativePath="../../../include/nmplv/vTransform.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/filter.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iArithmetics.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iCellTexture.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iDef.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iDeinterlace.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iFilter.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iFiltration.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iFloodFill.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iInit.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iPlessy.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iPlessyDetector.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iPrint.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iReodering.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iResample.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iSelect.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/isubpixel2d.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/isubpixel2dimpl.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/iSupport.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/nmpli.h" > </File> 
+ 			<File RelativePath="../../../include/nmpli/warpimg.h" > </File> 
+ 			<File RelativePath="../../../include/nmpls/fft.h" > </File> 
+ 			<File RelativePath="../../../include/nmpls/fftext.h" > </File> 
+ 			<File RelativePath="../../../include/nmpls/nmpls.h" > </File> 
+ 			<File RelativePath="../../../include/nmpls/sCorrelation.h" > </File> 
+ 			<File RelativePath="../../../include/nmpls/sFiltration.h" > </File> 
+ 			<File RelativePath="../../../include/nmpls/sfir.h" > </File> 
+ 			<File RelativePath="../../../include/nmpls/sResample.h" > </File> 
+ 			<File RelativePath="../../../include/nmplm/mInit.h" > </File> 
+ 			<File RelativePath="../../../include/nmplm/mInverse.h" > </File> 
+ 			<File RelativePath="../../../include/nmplm/mMatrixVector.h" > </File> 
+ 			<File RelativePath="../../../include/nmplm/mMatrixVectorDev.h" > </File> 
+ 			<File RelativePath="../../../include/nmplm/mSupport.h" > </File> 
+ 			<File RelativePath="../../../include/nmplm/nmplm.h" > </File> 
+ 			<File RelativePath="../../../include/nmplc/cArithmetic.h" > </File> 
+ 			<File RelativePath="../../../include/nmplc/cfixpnt32.h" > </File> 
+ 			<File RelativePath="../../../include/nmplc/cfixpnt64.h" > </File> 
+ 			<File RelativePath="../../../include/nmplc/cInit.h" > </File> 
+ 			<File RelativePath="../../../include/nmplc/cInteger.h" > </File> 
+ 			<File RelativePath="../../../include/nmplc/nmplc.h" > </File> 
+ 		</Filter> 
+ 			<File RelativePath="Makefile" > </File> 
+ 	</Files>
 	<Globals>
 	</Globals>
 </VisualStudioProject>

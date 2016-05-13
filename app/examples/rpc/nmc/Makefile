@@ -10,8 +10,8 @@
 #
 ROOT = ../../../..
 include $(ROOT)/global.mk
--include colorizer.mk
--include *.dep
+#-include colorizer.mk
+#-include *.dep
 
 .SUFFIXES:
 
@@ -38,7 +38,7 @@ LIBS            = easynmc.lib libc05.lib nmpp-nmc3.lib  libint_soc.lib nmpp-nmc3
 
 all:   $(TARGET).abs
 
-.PHONY libs: $(LIBS)
+libs: $(LIBS)
 
 %.o: %.c
 	$(SILENT_DEP)$(CROSS_COMPILE)gcc -E -MM $(<) -o$(@).dep $(INC_DIRS) 

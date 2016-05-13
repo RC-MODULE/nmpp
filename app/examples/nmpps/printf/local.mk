@@ -1,0 +1,1 @@
+PLATFORMS = mc5103 vs80 

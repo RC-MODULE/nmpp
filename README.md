@@ -75,6 +75,7 @@ No any variables would be created or modified in global system environment, so y
 
 > FOR WINDOWS XP: PowerShell 2.0 is required to provide Internet downloading and unzipping by **make download** and **make install** commands . 
   To install Windows Powershell 2.0 on an XP machine, you must have Windows XP Service Pack 3 installed. Powershell is included in the Windows Management Framework which you can download at https://support.microsoft.com/ru-ru/kb/968929 .  
+  Обновление для Windows XP (KB968930) https://www.microsoft.com/ru-ru/download/details.aspx?id=16818
   [Microsoft .NET Framework 2.0 Service Pack 1 (x86)](https://www.microsoft.com/ru-RU/download/details.aspx?id=16614) may be also required.
   
 <!--  Installed Gnu GCC is recommended for header dependency parcing and build the gcc-version of library build of gcc-examples http://www.mingw.org/ -->

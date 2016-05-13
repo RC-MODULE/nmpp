@@ -2,66 +2,56 @@
 NMPP      = $(ROOT)
 #http_proxy        = http://user:pass@proxy:80/       (for wget usage)
 
-NEURO    ?= $(NMPP)/deps/nmsdk
-VSHELL32 ?= $(NMPP)/deps/vshell32
-MC5103    = $(NMPP)/deps/mc5103sdk
-MC7601    = $(NMPP)/deps/mc7601sdk
-MB7707    = $(NMPP)/deps/mb7707sdk
-GNUWIN32  = $(realpath $(NMPP)/deps/gnuwin32/bin)
+DEVPACK	 ?= $(ROOT)/dev-pack
+
+NEURO    ?= $(DEVPACK)/nmsdk
+VSHELL32 ?= $(DEVPACK)/vshell32
+MC5103    = $(DEVPACK)/mc5103sdk
+MC7601    = $(DEVPACK)/mc7601sdk
+MB7707    = $(DEVPACK)/mb7707sdk
+GNUWIN32  = $(DEVPACK)/gnuwin32/bin
 
 
 
 
 ifeq ($(OS),Windows_NT)
-   #ROOTFS  = d:/GIT/matlab/rootfs
-   ROOTFS  = $(ROOT)/deps/rootfs
-   #AURA    = $(ROOTFS)/usr/include/arm-linux-gnueabihf/aura-0.1.2/aura
-   #EASYNMC = d:/GIT/matlab/nmc-utils-0.1.1/libeasynmc-nmc
-   EASYNMC = $(ROOT)/deps/nmc-utils-0.1.1/libeasynmc-nmc
-
-   
-   #ARM_CC   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-gcc.exe
-   #ARM_AR   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-ar.exe
-   #ARM_LD   = $(ROOT)/deps/Raspberry/bin/arm-linux-gnueabihf-ld.exe
+   ROOTFS  = $(DEVPACK)/rootfs
+   EASYNMC = $(DEVPACK)/nmc-utils-0.1.1/libeasynmc-nmc
 
    ARM_CC   = arm-linux-gnueabihf-gcc.exe
    ARM_AR   = arm-linux-gnueabihf-ar.exe
    ARM_LD   = arm-linux-gnueabihf-ld.exe
+
    CROSS_COMPILE=arm-linux-gnueabihf-
    
-   #ARM_CC   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-gcc.exe
-   #ARM_AR   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-ar.exe
-   #ARM_LD   = $(ROOT)/deps/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_win32/bin/arm-linux-gnueabihf-ld.exe
-				
+   SHELL    = cmd
+   OS_FIND  = $(call BACKSLASH,$(GNUWIN32)/find)
+   OS_DIFF  = $(call BACKSLASH,$(GNUWIN32)/diff)
+   OS_SCP   = $(call BACKSLASH,$(GNUWIN32)/pscp)
+   OS_CAT   = $(call BACKSLASH,$(GNUWIN32)/cat)
+   OS_MV    = rename
+   OS_RM    = del /Q
+#  OS_RM    = rm -f -r
+   OS_RD    = rd /Q /S 
+   OS_CP    = $(call BACKSLASH,$(GNUWIN32)/cp)
+   OS_WHICH =$(windir)/system32/where
+#  OS_WGET  = wget
+   OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\wget.ps1 
+#  OS_UNZIP = unzip 
+   OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\unzip.ps1 
+   OS_TODIR = -d
+   OS_UNPACK= $(OS_UNZIP)
+   PATH_DEP = 	$(realpath $(GNUWIN32));\
+				$(realpath $(NEURO)/bin);\
+				$(realpath $(MC5103)/bin);\
+				$(realpath $(MB7707)/bin);\
+				$(realpath $(MC7601)/bin);\
+				$(realpath $(VSHELL32)/bin);\
   
-  SHELL    = cmd
-  OS_FIND  = $(call BACKSLASH,$(GNUWIN32)/find)
-  OS_DIFF  = $(call BACKSLASH,$(GNUWIN32)/diff)
-  OS_SCP   = $(call BACKSLASH,$(GNUWIN32)/pscp)
-  OS_CAT   = $(call BACKSLASH,$(GNUWIN32)/cat)
-  OS_MV    = rename
-  OS_RM    = del /Q
-# OS_RM    = rm -f -r
-  OS_RD    = rd /Q /S 
-  OS_CP    = $(call BACKSLASH,$(GNUWIN32)/cp)
-  OS_WHICH =$(windir)/system32/where
-# OS_WGET  = wget
-  OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\wget.ps1 
-# OS_UNZIP = unzip 
-  OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\unzip.ps1 
-  OS_TODIR = -d
-  OS_UNPACK= $(OS_UNZIP)
-  PATH_DEP = $(GNUWIN32);\
-			 $(realpath $(NEURO)/bin);\
-			 $(realpath $(MC5103)/bin);\
-			 $(realpath $(MB7707)/bin);\
-			 $(realpath $(MC7601)/bin);\
-			 $(realpath $(VSHELL32)/bin); \
+  PATH    := $(PATH);C:\SysGCC\Raspberry\bin;$(DEVPACK)/Raspberry/bin);$(PATH_DEP)
   
-  PATH    := $(PATH);C:\SysGCC\Raspberry\bin;$(realpath $(ROOT)/deps/Raspberry/bin);$(PATH_DEP)
-  
-  # 'Raspberry\bin' shuld be first in PATH then $(GNUWIN32), because of 'libiconv-2.dll' version conflict.
-  # But 'make.exe' ver-3.81 must be found first in then PATH then 'make.exe' ver-3.82 located in Raspberry\bin because of their non-campabality 
+  # NOTE: 'Raspberry\bin' shuld be first in PATH then $(GNUWIN32), because of 'libiconv-2.dll' version conflict.
+  # But 'make.exe' ver-3.81 must be found first in then PATH then 'make.exe' ver-3.82 located in Raspberry\bin because of their non-compatibility 
   
   define BACKSLASH
 	$(subst /,\,$(1))

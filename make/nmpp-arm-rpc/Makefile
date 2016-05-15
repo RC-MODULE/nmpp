@@ -126,7 +126,7 @@ ALL_C   =$(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
 ALL_H   =$(wildcard $(addsuffix /*.h,$(HEADER_DIRS)))
 
 VPATH    = $(SRC_DIRS)
-
+#$(info $(VPATH))
 # collecting of objects
 OBJECTS_CPP = $(notdir $(patsubst %.cpp,%.o,$(ALL_CPP)))
 OBJECTS_ASM = $(notdir $(patsubst %.asm,%.o,$(ALL_ASM)))
@@ -139,6 +139,7 @@ OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM
 #.DEFAULT_GOAL=default
 
 $(TARGET): $(TMP_DIR) $(OBJECTS) $(OUT_DIR)
+	
 	-$(OS_RM) $(OS_TARGET)	
 	$(BUILDER) $(BUILDER_FLAGS) $(OBJECTS) 
 	

@@ -12,3 +12,8 @@ dev-pack: master.zip
 
 master.zip: 
 	$(OS_WGET)  https://github.com/RC-MODULE/dev-pack/archive/master.zip
+	
+	
+libeasynmc:
+	$(MAKE) -C dev-pack libeasynmc 
+	

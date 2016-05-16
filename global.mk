@@ -11,9 +11,6 @@ MC7601    = $(DEVPACK)/mc7601sdk
 MB7707    = $(DEVPACK)/mb7707sdk
 GNUWIN32  = $(DEVPACK)/gnuwin32/bin
 
-$(info $(DEVPACK))
-$(info $(NEURO))
-
 
 ifeq ($(OS),Windows_NT)
    ROOTFS  = $(DEVPACK)/rootfs

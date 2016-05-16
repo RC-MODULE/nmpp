@@ -198,7 +198,7 @@ int  nmppsMallocIncrementRoute();
 int  nmppsMallocWipe();
 int  nmppsMallocBetterRoute();
 void nmppsMallocSetBestRoute(int historyEnable);
-int  nmppsMallocSetRoute(fseq64* route, int count);
+int  nmppsMallocSetRoute(fseq64* route, int count); // implemented 
 void nmppsMallocSetShortRoute(fseq64 route);
 void nmppsMallocSetRoute16(fseq64 route);
 extern struct NmppsMallocSpec nmppsMallocSpec;

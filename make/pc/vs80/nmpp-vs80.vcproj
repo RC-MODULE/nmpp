@@ -88,6 +88,7 @@
  			<File RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_8s32s__int.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_CreateFilter_8s8s__int.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpli\Filtration\common\IMG_ReleaseObject__nm64s.cpp" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Filtration\pc\nmppi-Filter_08s16s.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpli\Floodfill\common\FFill32b.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpli\Init\common\CreateComplexTexture__char.cpp" > </File> 
  			<File RelativePath="..\..\..\src\nmpli\Reodering\pc\DeinterlaceBlend.cpp" > </File> 
@@ -249,6 +250,7 @@
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\SCL_FixMul32__int.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplc\fixpoint32\pc\scl_fixsqrt32__int.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplc\init\common\nmppcRand.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpli\Filtration\common\nmppi-FilterInitAlloc_08s16s.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mm.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplm\MatrixVector\pc\nmppm-Mul_mv.c" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\Metric\msd.c" > </File> 
@@ -265,7 +267,7 @@
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048Fwd.c" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048Inv.c" > </File> 
  			<File RelativePath="..\..\..\src\nmpls\Filter\common\nmpps-firinitalloc_8s16s.c" > </File> 
- 			<File RelativePath="..\..\..\src\nmpls\Filtration\pc\nmpps-FIR.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmpls\Filtration\pc\nmpps-fir.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_16s16s.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_16s32s.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\common\nmpps-DotProd_32s32s.c" > </File> 
@@ -277,7 +279,7 @@
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Abs.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Abs1.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AbsDiff.c" > </File> 
- 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-Add.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-add.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AddC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-AddExt.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Arithmetics\pc\nmpps-DivC.c" > </File> 
@@ -309,7 +311,7 @@
  			<File RelativePath="..\..\..\src\nmplv\Init\common\nmppsRand32u.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsCnv.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsCopy.c" > </File> 
- 			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsRand.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsrand.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSet.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Init\pc\nmppsSwap.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\common\nmpps-clipconvertaddcinitalloc_16s8s.c" > </File> 
@@ -387,6 +389,7 @@
  			<File RelativePath="../../../include/nmshort.h" > </File> 
  			<File RelativePath="../../../include/nmtl.h" > </File> 
  			<File RelativePath="../../../include/nmtype.h" > </File> 
+ 			<File RelativePath="../../../include/ownmalloc.h" > </File> 
  			<File RelativePath="../../../include/ringbuffer.h" > </File> 
  			<File RelativePath="../../../include/ringremote.h" > </File> 
  			<File RelativePath="../../../include/tfixpoint.h" > </File> 

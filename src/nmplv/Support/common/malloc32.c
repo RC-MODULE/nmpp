@@ -189,6 +189,11 @@ void nmppsMallocSetRouteMode ()
 	nmppsMallocSpec.mode = MALLOC32_ROUTE_MODE;
 }
 
+void nmppsMallocSetRoute16(uint64 seq)
+{
+	nmppsMallocSpec.route[0]=seq;
+	nmppsMallocSpec.route[1]=0xFF;
+}
 
 void  nmppsMallocSetHistoryMode()
 {

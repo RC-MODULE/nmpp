@@ -22,17 +22,23 @@ Function DownloadFile  {
 		[String] $url,
 		[Parameter(Mandatory=$false)]
 		[String] $localFile = (Join-Path $pwd.Path $url.SubString($url.LastIndexOf('/')))
+		
 	)
 
 	begin {	   
-		$client = New-Object System.Net.WebClient
-		if (!$client.Proxy.Credentials){
-			netsh winhttp import proxy source=ie
-			$client.Proxy.Credentials=Get-Credential
-		}
 	
+		[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+		$client = New-Object System.Net.WebClient
+		$IsBypassed=$client.Proxy.IsBypassed($url)
+		if (!$IsBypassed){
+			if (!$client.Proxy.Credentials){
+				netsh winhttp import proxy source=ie
+				$client.Proxy.Credentials=Get-Credential
+			}
+		}
+		
 		$Global:downloadComplete = $false
-	 
+		
 		$eventDataComplete = Register-ObjectEvent $client DownloadFileCompleted `
 			-SourceIdentifier WebClient.DownloadFileComplete `
 			-Action {$Global:downloadComplete = $true}
@@ -42,20 +48,43 @@ Function DownloadFile  {
 	}	
 
 	process {
-		Write-Progress -Activity 'Downloading file' -Status $url
-		$client.DownloadFileAsync($url, $localFile)
-	   
-		while (!($Global:downloadComplete)) {                
-			$pc = $Global:DPCEventArgs.ProgressPercentage
-			if ($pc -ne $null) {
-				Write-Progress -Activity 'Downloading file' -Status $url -PercentComplete $pc -CurrentOperation "Transferring"
+		
+		#echo ** $url **
+		#echo ** $localFile **
+		if ($url.StartsWith("https")){
+			#echo $url sync
+			Write-Progress -Activity 'Downloading file' -Status $url
+			$client.DownloadFile($url, $localFile)
+		}
+		else 
+		{
+			#echo $url async
+			Write-Progress -Activity 'Downloading (async) file' -Status $url
+			$client.DownloadFileAsync($url, $localFile)
+			while (!($Global:downloadComplete)) {                
+				$pc = $Global:DPCEventArgs.ProgressPercentage
+				if ($pc -ne $null) {
+					Write-Progress -Activity 'Downloading (async) file' -Status $url -PercentComplete $pc -CurrentOperation "Transferring"
+				}
 			}
 		}
-	   
-	    $text = $url + " completed!"
-		Write-Progress -Activity 'Downloading file' -Status $url -CurrentOperation "Completed!"
-		Start-Sleep 1
-		Write-Progress -Activity 'Downloading file' -Status $url -Complete
+		if ((Test-Path $localFile) -and ( (Get-Item $localFile).length -eq 0)) {
+			Write-Progress -Activity 'Retry to download file' -Status $url
+			$client.DownloadFile($url, $localFile)
+		}
+		if ((Test-Path $localFile) -and ( (Get-Item $localFile).length -gt 0)) {
+			$text = $url + " completed!"
+			Write-Progress -Activity 'Downloading file' -Status $url -CurrentOperation "Completed!"
+			Start-Sleep 1
+			Write-Progress -Activity 'Downloading file' -Status $url -Complete	
+		}
+		else {
+			$text = $url + " Failed!"
+			Write-Progress -Activity 'Downloading file' -Status $url -CurrentOperation "Failed!"
+			Start-Sleep 1
+			Write-Progress -Activity 'Downloading file' -Status $url -Complete	
+		}
+	    
 	}
 	
 	end {	
@@ -72,30 +101,17 @@ Function DownloadFile  {
 }
 
 
-
-$webclient = new-object System.Net.WebClient
-Import-Module BitsTransfer
 foreach ($url in $args)  
 {
-	$f=[System.IO.Path]::GetFileName($url)
-	echo $f
 	$filename = [System.IO.Path]::GetFileName($url)
-	if (Test-Path $filename) {
+	if ((Test-Path $filename) -and ( (Get-Item $filename).length -gt 0)) {
 		$str = "File [" + $filename + "] already exists. Downloading skipped"
 		echo $str
 	}
 	else 
 	{
-		$IsBypassed=$webClient.Proxy.IsBypassed($url)
-		if ($IsBypassed){
-			$str = "Downloading (bypass proxy) : " + $url
-			echo $str
-			Start-BitsTransfer -DisplayName $filename -Source $url -Destination $filename 
-		}
-		else {
-			$str ="Downloading (through proxy): " + $url
-			echo $str
-			DownloadFile($url)
-		}
+		$str ="Start downloading: " + $url 
+		echo $str
+		DownloadFile $url 
 	}
 }

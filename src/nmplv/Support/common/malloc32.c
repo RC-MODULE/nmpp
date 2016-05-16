@@ -388,7 +388,7 @@ void* malloc32(unsigned size_int32 )
 	return malloc(size_int32*4);
 #endif
 }
-
+*/
 void* malloc32 (unsigned size_int32, unsigned bank_mask)
 {
 #ifdef __NM__
@@ -419,7 +419,7 @@ void free32(void* p)
 {
 	free(p);
 }
-*/
+
 
 nm8s*  nmppsMalloc_8s (unsigned sizeInt8) { return (nm8s*)  nmppsMalloc32((sizeInt8+7)/8*2);}
 nm8u*  nmppsMalloc_8u (unsigned sizeInt8) { return (nm8u*)  nmppsMalloc32((sizeInt8+7)/8*2);}

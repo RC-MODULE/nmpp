@@ -2,7 +2,7 @@
 NMPP      = $(ROOT)
 #http_proxy        = http://user:pass@proxy:80/       (for wget usage)
 
-DEVPACK	 ?= d:\git\dev-pack
+DEVPACK	 ?= $(realpath $(ROOT)/deps/dev-pack)
 
 NEURO    ?= $(DEVPACK)/nmsdk
 VSHELL32 ?= $(DEVPACK)/vshell32
@@ -48,7 +48,7 @@ ifeq ($(OS),Windows_NT)
 				$(realpath $(MC7601)/bin);\
 				$(realpath $(VSHELL32)/bin);\
   
-  PATH    := $(DEVPACK)\gnumake\bin;$(PATH);C:\SysGCC\Raspberry\bin;$(DEVPACK)/Raspberry/bin);$(PATH_DEP)
+  PATH    := $(realpath $(ROOT)/deps/gnumake/bin);$(PATH);C:/SysGCC/Raspberry/bin;$(DEVPACK)/Raspberry/bin);$(PATH_DEP)
   #$(info $(PATH))
   # NOTE: 'Raspberry\bin' shuld be first in PATH then $(GNUWIN32), because of 'libiconv-2.dll' version conflict.
   # But 'make.exe' ver-3.81 must be found first in then PATH then 'make.exe' ver-3.82 located in Raspberry\bin because of their non-compatibility 

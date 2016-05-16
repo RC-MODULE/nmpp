@@ -4,7 +4,7 @@
 #include "nmtype.h"
 
 //#define void* malloc32 (unsigned size_int32 );
-#define malloc32 nmppsMalloc_32s
+//#define malloc32 nmppsMalloc_32s
 typedef void (*t_free_func)(void*);
 #ifdef __cplusplus
 		extern "C" {
@@ -17,8 +17,8 @@ typedef void (*t_free_func)(void*);
 #define HEAP_3 8
 
 
-//void* malloc32 (unsigned size_int32, unsigned bank_mask);
-//void  free32(void* p);
+void* malloc32 (unsigned size_int32, unsigned bank_mask);
+void  free32(void* p);
 
 
 typedef void (Free32Func)(void*);

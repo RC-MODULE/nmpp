@@ -1,3 +1,4 @@
+#include "fft2.h"
 #include "rpc/rpc-nmc.h"
 void rpc_nmppsFFT512InvInitAlloc(void *in, void *out) 
 {

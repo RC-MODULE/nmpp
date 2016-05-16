@@ -130,14 +130,14 @@
 //#define RPC_nmppsCmpNeC_32s8u
 //#define RPC_nmppsCmpNeC_64s8u
 //
-#define RPC_nmppsCmpNe_8s8um
-#define RPC_nmppsCmpNe_16s8um
-#define RPC_nmppsCmpNe_32s8um
-#define RPC_nmppsCmpNe_64s8um
-
-#define RPC_nmppsCmpLt_8s8um
-#define RPC_nmppsCmpLt_16s8um
-#define RPC_nmppsCmpLt_32s8um
+//#define RPC_nmppsCmpNe_8s8um
+//#define RPC_nmppsCmpNe_16s8um
+//#define RPC_nmppsCmpNe_32s8um
+//#define RPC_nmppsCmpNe_64s8um
+//
+//#define RPC_nmppsCmpLt_8s8um
+//#define RPC_nmppsCmpLt_16s8um
+//#define RPC_nmppsCmpLt_32s8um
 //
 //
 //#define RPC_nmppmMul_mm_8s8s
@@ -153,25 +153,25 @@
 //#define RPC_nmppmMul_mv_16s64s
 //#define RPC_nmppmMul_mv_32s64s
 //
-#define RPC_nmppsSum_8s
-#define RPC_nmppsSum_16s
-#define RPC_nmppsSum_32s
-#define RPC_nmppsSum_64s
-
-
-#define RPC_nmppsDotProd_8s8sm
-#define RPC_nmppsDotProd_8s16sm
-#define RPC_nmppsDotProd_8s32sm
-#define RPC_nmppsDotProd_8s64s
-#define RPC_nmppsDotProd_16s16sm
-#define RPC_nmppsDotProd_16s32sm
-#define RPC_nmppsDotProd_16s64s
-#define RPC_nmppsDotProd_32s32sm
-#define RPC_nmppsDotProd_32s64s
-#define RPC_nmppsDotProd_8s64s
-#define RPC_nmppsDotProd_16s64s
-#define RPC_nmppsDotProd_32s64s
-#define RPC_nmppsDotProd_64s64s
+//#define RPC_nmppsSum_8s
+//#define RPC_nmppsSum_16s
+//#define RPC_nmppsSum_32s
+//#define RPC_nmppsSum_64s
+//
+//
+//#define RPC_nmppsDotProd_8s8sm
+//#define RPC_nmppsDotProd_8s16sm
+//#define RPC_nmppsDotProd_8s32sm
+//#define RPC_nmppsDotProd_8s64s
+//#define RPC_nmppsDotProd_16s16sm
+//#define RPC_nmppsDotProd_16s32sm
+//#define RPC_nmppsDotProd_16s64s
+//#define RPC_nmppsDotProd_32s32sm
+//#define RPC_nmppsDotProd_32s64s
+//#define RPC_nmppsDotProd_8s64s
+//#define RPC_nmppsDotProd_16s64s
+//#define RPC_nmppsDotProd_32s64s
+//#define RPC_nmppsDotProd_64s64s
 
 
 
@@ -180,8 +180,8 @@
 //#define RPC_nmppsFFT256Inv
 //#define RPC_nmppsFFT512Fwd
 //#define RPC_nmppsFFT512Inv
-//#define RPC_nmppsFFT1024Fwd
-//#define RPC_nmppsFFT1024Inv
+#define RPC_nmppsFFT1024Fwd
+#define RPC_nmppsFFT1024Inv
 //#define RPC_nmppsFFT2048Fwd
 //#define RPC_nmppsFFT2048Inv
-//#define RPC_nmppsFFTFree
+#define RPC_nmppsFFTFree

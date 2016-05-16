@@ -4,14 +4,15 @@ NMPP      = $(ROOT)
 
 DEVPACK	 ?= $(realpath $(ROOT)/deps/dev-pack)
 
-NEURO    ?= $(DEVPACK)/nmsdk
-VSHELL32 ?= $(DEVPACK)/vshell32
+export NEURO    ?= $(DEVPACK)/nmsdk
+export VSHELL32 ?= $(DEVPACK)/vshell32
 MC5103    = $(DEVPACK)/mc5103sdk
 MC7601    = $(DEVPACK)/mc7601sdk
 MB7707    = $(DEVPACK)/mb7707sdk
 GNUWIN32  = $(DEVPACK)/gnuwin32/bin
 
-
+$(info $(DEVPACK))
+$(info $(NEURO))
 
 
 ifeq ($(OS),Windows_NT)
@@ -48,7 +49,8 @@ ifeq ($(OS),Windows_NT)
 				$(realpath $(MC7601)/bin);\
 				$(realpath $(VSHELL32)/bin);\
   
-  PATH    := $(realpath $(ROOT)/deps/gnumake/bin);$(PATH);C:/SysGCC/Raspberry/bin;$(DEVPACK)/Raspberry/bin);$(PATH_DEP)
+  export PATH    := $(realpath $(ROOT)/deps/gnumake/bin);$(PATH);C:/SysGCC/Raspberry/bin;$(DEVPACK)/Raspberry/bin);$(PATH_DEP)
+  
   #$(info $(PATH))
   # NOTE: 'Raspberry\bin' shuld be first in PATH then $(GNUWIN32), because of 'libiconv-2.dll' version conflict.
   # But 'make.exe' ver-3.81 must be found first in then PATH then 'make.exe' ver-3.82 located in Raspberry\bin because of their non-compatibility 

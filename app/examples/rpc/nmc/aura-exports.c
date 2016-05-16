@@ -239,9 +239,11 @@ AURA_METHOD(rpc_nmppsMax_64s, nmppsMax_64s,
 		U64);
 #endif 
 
+#ifdef RPC_nmppsFFTFree
 AURA_METHOD(rpc_nmppsFFTFree, nmppsFFTFree, 
 	    U32,
 	    "");
+#endif 
 
 //--256--------------------------------------
 

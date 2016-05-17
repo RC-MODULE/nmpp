@@ -40,7 +40,7 @@ all:   $(TARGET).abs
 
 libs: $(LIBS)
 
-%.o: %.c
+%.o: %.c aura-exports.h
 	$(SILENT_DEP)$(CROSS_COMPILE)gcc -E -MM $(<) -o$(@).dep $(INC_DIRS) 
 	$(SILENT_NMCC)nmcc -Tc99 $(NMCC_FLAGS) $(<) -o$(@) $(INC_DIRS) 
 

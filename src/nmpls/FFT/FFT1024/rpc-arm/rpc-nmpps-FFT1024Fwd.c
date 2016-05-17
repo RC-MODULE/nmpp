@@ -38,7 +38,12 @@
 		aura_buffer_release( iobuf_src); 
 		aura_buffer_release( iobuf_dst); 
 		aura_buffer_release( retbuf); 
+		if (spec== 0) {
+			slog(0, SLOG_ERROR, "not enough memory fft1024fwdcall , reason: %d\n", 0);
+			BUG(n, "Call nmppsFFT1024FwdInitAlloc return fail!"); 
+			return -1;
+		}
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT1024FwdInitAlloc -ok"); 
-		return ret;
+		return 0;
 	}
 

@@ -82,7 +82,7 @@ OBJDUMP = $(ARM_CC)-objdump
 #--------------  target & input dirs -------------------
 ROOT             = ../..
 include $(ROOT)/global.mk
-PROJECT          = arm
+PROJECT          = libnmpp-arm
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a
 #INC_DIRS         = -I../../include -I../../include/nmpls

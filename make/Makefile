@@ -35,6 +35,11 @@ dist:
 	
 doc: 	
 	$(MAKE) -C ./doc
+
+rpc:
+	$(MAKE) -C ./nmpp-arm-rpc
+	$(MAKE) -C ./nmpp-nmc3-rpc
+	$(MAKE) -C ./nmpp-nmc3
 	
 clean:
 	rm -f -r *.suo *.ncb

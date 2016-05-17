@@ -28,8 +28,8 @@ void  FFT_Fwd1024(
 		spec->buffer[3]=0;
 		spec->shift [0]=-1;
 		spec->free=free;
-		if (spec->buffer[0]==0) return -1;
-		if (spec->buffer[1]==0) return -1;
+		if (spec->buffer[0]==0) {free(spec); spec=0 ;return -1; }
+		if (spec->buffer[1]==0) {free(spec->buffer[0]);free(spec); spec=0 ;return -1; }
 		FFT_Fwd1024Set7bit();
 		return 0;
 	}

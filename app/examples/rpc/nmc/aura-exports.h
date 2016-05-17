@@ -2,7 +2,7 @@
 //#define RPC_nmppsAbs_32s
 //#define RPC_nmppsAbs_64s
 //#define RPC_nmppsAbs_16s
-//#define RPC_nmppsAbs_8s
+#define RPC_nmppsAbs_8s
 //
 //#define RPC_nmppsAbs1_32s
 //#define RPC_nmppsAbs1_64s
@@ -181,7 +181,7 @@
 //#define RPC_nmppsFFT512Fwd
 //#define RPC_nmppsFFT512Inv
 #define RPC_nmppsFFT1024Fwd
-#define RPC_nmppsFFT1024Inv
+//#define RPC_nmppsFFT1024Inv
 //#define RPC_nmppsFFT2048Fwd
 //#define RPC_nmppsFFT2048Inv
 #define RPC_nmppsFFTFree

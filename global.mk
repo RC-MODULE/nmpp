@@ -106,7 +106,7 @@ PLATFORMS += vs13
 endif
 
 #gcc
-PLATFORMS = vs80 mc5103 emu6405 mc7601
+PLATFORMS = vs80 mc5103 emu6405 mc7601 mb7707_libload
 
 TARGET1=mc5103
 TARGET2=vs80

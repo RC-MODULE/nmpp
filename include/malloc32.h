@@ -47,6 +47,7 @@ struct NmppsMallocSpec{
 	void* 	freeHistory[NMPPS_MALLOC_LIMIT];
 	uint32 	allocHistoryPos;
 	uint32 	freeHistoryPos;
+	uint32  firstPass;
 };
 
 struct NmppsTmpSpec {

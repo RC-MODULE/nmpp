@@ -13,7 +13,7 @@ void  FFT_Fwd1024(
 
 	void nmppsFFT1024Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
 	{
-		FFT_Fwd1024(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
+		//FFT_Fwd1024(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
 	
 	}
 

@@ -32,12 +32,17 @@ nmc:
 	$(MAKE) -C ../nmc
 	
 lib: 
-	$(MAKE) -C $(ROOT)/make/nmpp-arm-rpc
+	$(MAKE) -C $(ROOT)/make rpc
 
 upload: ./$(TARGET) ../nmc/rpc-demo.abs
 	$(OS_SCP) -pw 12345678 ../nmc/rpc-demo.abs root@192.168.20.9: 
 	$(OS_SCP) -pw 12345678 ./$(TARGET) root@192.168.20.9: 
 
+run:
+	start $(DEVPACK)\gnuwin32\bin\putty 
+	
+	 #-ssh 192.168.20.9 -l root -pw 12345678 
+	
 %.o: %.c 
 	$(ARM_CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 

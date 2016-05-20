@@ -20,16 +20,16 @@ void  FFT_Fwd512(
 	int nmppsFFT512FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings)
 	{
 		NmppsFFTSpec* spec=(NmppsFFTSpec*)allocate(sizeof32(NmppsFFTSpec));
-		*specFFT = spec;
-		if (spec==0) return -1;
+		if (spec==0) { *specFFT = 0; return -1;	}
 		spec->buffer[0]=allocate(512*2*3);
 		spec->buffer[1]=allocate(512*2*3);
 		spec->buffer[2]=0;
 		spec->buffer[3]=0;
 		spec->shift [0]=-1;
 		spec->free=free;
-		if (spec->buffer[0]==0) return -1;
-		if (spec->buffer[1]==0) return -1;
+		if (spec->buffer[0]==0) {free(spec); *specFFT=0 ;return -1; }
+		if (spec->buffer[1]==0) {free(spec->buffer[0]);free(spec); *specFFT=0 ;return -1; }
+		*specFFT = spec;
 		FFT_Fwd512Set7bit();
 		return 0;
 	}

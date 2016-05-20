@@ -25,8 +25,8 @@ void  FFT_Inv256(
 	int nmppsFFT256InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings)
 	{
 		NmppsFFTSpec* spec=(NmppsFFTSpec*)malloc(sizeof(NmppsFFTSpec));
-		*specFFT = spec;
-		if (spec==0) return -1;
+		
+		if (spec==0) { *specFFT = 0; return -1;	}
 		spec->buffer[0]=allocate(256*2*3);
 		spec->buffer[1]=allocate(256*2*3);
 		spec->buffer[2]=0;
@@ -34,8 +34,9 @@ void  FFT_Inv256(
 		spec->shift [0]=8;
 		spec->shift [1]=-1;
 		spec->free=free;
-		if (spec->buffer[0]==0) return -1;
-		if (spec->buffer[1]==0) return -1;
+		if (spec->buffer[0]==0) {free(spec); *specFFT=0 ;return -1; }
+		if (spec->buffer[1]==0) {free(spec->buffer[0]);free(spec); *specFFT=0 ;return -1; }
+		*specFFT = spec;
 		
 		FFT_Inv256Set7bit();
 		return 0;

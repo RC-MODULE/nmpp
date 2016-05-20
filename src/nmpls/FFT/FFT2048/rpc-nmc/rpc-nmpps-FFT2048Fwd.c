@@ -13,4 +13,13 @@ void rpc_nmppsFFT2048FwdInitAlloc(void *in, void *out)
 	aura_put_u32(ret); 
 }
 	
-NMC_RPC_PPI(nmppsFFT2048Fwd);
+void rpc_nmppsFFT2048Fwd(void *in, void *out) 
+{ 
+	aura_buffer buf_src = aura_get_buf(); 
+	aura_buffer buf_dst = aura_get_buf(); 
+	int *src = aura_buffer_to_ptr(buf_src); 
+	int *dst = aura_buffer_to_ptr(buf_dst);	
+	unsigned spec = aura_get_u32(); 
+	nmppsFFT2048Fwd((nm32sc*)src, (nm32sc*) dst, (NmppsFFTSpec*) spec);
+}
+

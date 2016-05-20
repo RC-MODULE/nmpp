@@ -1,4 +1,5 @@
 //#include "fft.h"
+#include "stdio.h"
 #include "fft2.h"
 void FFT_Fwd1024Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
 void  FFT_Fwd1024(
@@ -13,23 +14,31 @@ void  FFT_Fwd1024(
 
 	void nmppsFFT1024Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
 	{
-		//FFT_Fwd1024(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
+		printf ("NMC: %x\n",spec);
+		printf ("NMC: buf0=%x\n",spec->buffer[0]);
+		printf ("NMC: buf1=%x\n",spec->buffer[1]);
+		printf ("NMC: shft=%x\n",spec->shift[0]);
+		
+		FFT_Fwd1024(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
 	
 	}
 
 	int nmppsFFT1024FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings)
 	{
 		NmppsFFTSpec* spec=(NmppsFFTSpec*)allocate(sizeof32(NmppsFFTSpec));
-		*specFFT = spec;
-		if (spec==0) return -1;
+		if (spec==0) {
+			(*specFFT)=0;
+			return -1;
+		}
 		spec->buffer[0]=allocate(1024*2*3);
 		spec->buffer[1]=allocate(1024*2*3);
 		spec->buffer[2]=0;
 		spec->buffer[3]=0;
 		spec->shift [0]=-1;
 		spec->free=free;
-		if (spec->buffer[0]==0) {free(spec); spec=0 ;return -1; }
-		if (spec->buffer[1]==0) {free(spec->buffer[0]);free(spec); spec=0 ;return -1; }
+		if (spec->buffer[0]==0) {free(spec); *specFFT=0 ;return -1; }
+		if (spec->buffer[1]==0) {free(spec->buffer[0]);free(spec); *specFFT=0 ;return -1; }
+		*specFFT = spec;
 		FFT_Fwd1024Set7bit();
 		return 0;
 	}

@@ -47,13 +47,9 @@ global _run5streams:label;
 	//gr5 = gr5 or gr1;
 	//pcr = gr5;
 	<Next>
-		
 		rep 32 ram  =[ar0];	
-		
 		rep 32 wfifo=[ar1],ftw;
-		
 	if <>0 delayed goto Next with gr7--;
-		
 		rep 32 data =[ar2] with data+ram;
 		rep 32 [ar3]=afifo;
 

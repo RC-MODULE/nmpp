@@ -26,7 +26,7 @@ extern struct aura_object g_aura_eof;
 int main(int argc, char **argv)
 {
 	
-	
+	printf("NMC: Aura RPC demo \n");
 	printf("NMC: Aura RPC demo \n");
 	aura_init();
 	aura_loop_forever();

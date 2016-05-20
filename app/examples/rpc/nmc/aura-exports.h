@@ -180,8 +180,8 @@
 //#define RPC_nmppsFFT256Inv
 //#define RPC_nmppsFFT512Fwd
 //#define RPC_nmppsFFT512Inv
-#define RPC_nmppsFFT1024Fwd
+//#define RPC_nmppsFFT1024Fwd
 //#define RPC_nmppsFFT1024Inv
 //#define RPC_nmppsFFT2048Fwd
-//#define RPC_nmppsFFT2048Inv
+#define RPC_nmppsFFT2048Inv
 #define RPC_nmppsFFTFree

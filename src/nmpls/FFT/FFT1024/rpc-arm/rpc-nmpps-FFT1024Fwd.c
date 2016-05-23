@@ -44,6 +44,6 @@
 			return -1;
 		}
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT1024FwdInitAlloc -ok"); 
-		return 0;
+		return ret;
 	}
 

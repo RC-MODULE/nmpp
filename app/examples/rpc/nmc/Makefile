@@ -68,14 +68,14 @@ rebuild:
 	@echo ----- SECOND PASS BUILD ---------
 	$(SILENT_LINKER)linker  -heap=$(HEAP_SIZE) $(BUILDER_FLAGS)  -o$(TARGET).abs $(OBJECTS) $(LIBS) $(LIB_DIRS)
 
-#	$(SILENT_LINKER)linker  -heap=131070 $(BUILDER_FLAGS)  -o$(TARGET).abs $(OBJECTS) $(LIBS) $(LIB_DIRS)	
+#	$(SILENT_LINKER)linker $(HEAP_SIZE) -heap=131070 $(BUILDER_FLAGS)  -o$(TARGET).abs $(OBJECTS) $(LIBS) $(LIB_DIRS)	
 	
 
 $(TARGET).dump: $(TARGET).abs
 	$(SILENT_NMDUMP)nmdump -f $(^) > $(@)
 
 clean:
-	-$(OS_RM) *.o $(TARGET).abs $(TARGET).dump *.dep *.ac *.map *~ *.abs *.lib *.asmx
+	-$(OS_RM) *.o $(TARGET).abs $(TARGET).dump *.dep *.ac *.map *~ *.abs *.lib *.asmx nulheap.mk
 
 
 $(EASYNMC)/easynmc.lib:

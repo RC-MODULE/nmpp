@@ -14,13 +14,7 @@ void  FFT_Fwd1024(
 
 	void nmppsFFT1024Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
 	{
-		printf ("NMC: %x\n",spec);
-		printf ("NMC: buf0=%x\n",spec->buffer[0]);
-		printf ("NMC: buf1=%x\n",spec->buffer[1]);
-		printf ("NMC: shft=%x\n",spec->shift[0]);
-		
 		FFT_Fwd1024(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
-	
 	}
 
 	int nmppsFFT1024FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings)

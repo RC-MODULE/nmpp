@@ -56,7 +56,7 @@ int main() {
 	//}
 
 	
-	nmppsAbs_8s ((nm8s* )src0_8s ,(nm8s* )dst_8s ,8);
+//	nmppsAbs_8s ((nm8s* )src0_8s ,(nm8s* )dst_8s ,8);
 //	nmppsAbs_16s((nm16s*)src0_16s,(nm16s*)dst_16s,16);
 //	nmppsAbs_32s((nm32s*)src0_32s,(nm32s*)dst_32s,16);
 //	nmppsAbs_64s((nm64s*)src0_16s,(nm64s*)dst_64s,16);
@@ -371,23 +371,28 @@ int main() {
 	//==================================================
 */
 	NmppsFFTSpec* specFwd1024;
-	nmppsFFT1024FwdInitAlloc(&specFwd1024, src0_32s, dst_32s, 0);
-	printf("****** Spec=%x\r\n",specFwd1024);
-	nmppsFFT1024Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd1024);
-	nmppsFFTFree(specFwd1024);
-	
-	for(i=0; i<64; i++){
-		printf("[fwd:] %d %d\r\n",dst_32s[i*2] ,dst_32s[i*2+1]);
+	ret= nmppsFFT1024FwdInitAlloc(&specFwd1024, src0_32s, dst_32s, 0);
+	printf("****** specFwd1024=%x ret=%d\r\n",specFwd1024,ret);
+	if (specFwd1024){
+		nmppsFFT1024Fwd((nm32sc*)src0_32s,(nm32sc*)dst_32s,specFwd1024);
+		nmppsFFTFree(specFwd1024);
+		for(i=0; i<64; i++)
+			printf("[fwd:] %d %d\r\n",dst_32s[i*2] ,dst_32s[i*2+1]);
 	}
 
+	
+	for (i=0; i <1024; i++)
+		src0_32s[i]=0;
+	
 	NmppsFFTSpec *specFFTInv1024;
 	ret=nmppsFFT1024InvInitAlloc(&specFFTInv1024, src0_32s, dst_32s, NMPP_OPTIMIZE_DISABLE);
-	printf("****** ret=%d specFFTInv1024=%x\r\n",ret ,(int)specFFTInv1024);
-	nmppsFFT1024Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv1024);
-	nmppsFFTFree(specFFTInv1024);
+	printf("****** specFFTInv1024=%x ret=%d\r\n",(int)specFFTInv1024 ,ret );
+	if (specFFTInv1024){
+		nmppsFFT1024Inv((nm32sc*)dst_32s,(nm32sc*)src0_32s,specFFTInv1024);
+		nmppsFFTFree(specFFTInv1024);
 	
-	for(i=0; i<64; i++){
-		printf("[inv:] %d %d\r\n",src0_32s[i*2] ,src0_32s[i*2+1]);
+		for(i=0; i<64; i++)
+			printf("[inv:] %d %d\r\n",src0_32s[i*2] ,src0_32s[i*2+1]);
 	}
 
 	//==================================================

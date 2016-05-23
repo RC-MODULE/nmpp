@@ -59,9 +59,9 @@ nulheap.abs: $(OBJECTS) $(EASYNMC)/easynmc.lib $(ROOT)/lib/nmpp-nmc3-rpc.lib $(R
 	@echo ----- FIRST PASS BUILD ---------
 	$(SILENT_LINKER)linker  $(BUILDER_FLAGS) -onulheap.abs $(OBJECTS) $(LIBS) $(LIB_DIRS)
 	@echo SEGMENT= \> .nulheap.mk
-	@grep SEGMENT ./nulheap.map | tail -1 | cut -d " " -d "," -f2 | cut -d ":" -f2  >> .nulheap.mk
-	@echo SIZE = \>> .nulheap.mk
-	@grep SEGMENT ./nulheap.map | tail -1 | cut -d " " -d "," -f3 | cut -d ":" -f2 >> .nulheap.mk
+	@grep SEGMENT    ./nulheap.map | tail -1 | cut -d " " -d "," -f2 | cut -d ":" -f2 >> .nulheap.mk
+	@echo SIZE = \>>  .nulheap.mk
+	@grep SEGMENT    ./nulheap.map | tail -1 | cut -d " " -d "," -f3 | cut -d ":" -f2 >> .nulheap.mk
 	$(MAKE) -C . rebuild
 
 rebuild:	

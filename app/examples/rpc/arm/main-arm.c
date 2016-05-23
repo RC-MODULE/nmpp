@@ -369,7 +369,7 @@ int main() {
 	}
 	
 	//==================================================
-
+*/
 	NmppsFFTSpec* specFwd1024;
 	nmppsFFT1024FwdInitAlloc(&specFwd1024, src0_32s, dst_32s, 0);
 	printf("****** Spec=%x\r\n",specFwd1024);
@@ -389,7 +389,7 @@ int main() {
 	for(i=0; i<64; i++){
 		printf("[inv:] %d %d\r\n",src0_32s[i*2] ,src0_32s[i*2+1]);
 	}
-*/
+
 	//==================================================
 /*
 	NmppsFFTSpec* specFwd2048;
@@ -401,7 +401,7 @@ int main() {
 	for(i=0; i<64; i++){
 		printf("[fwd:] %d %d\r\n",dst_32s[i*2] ,dst_32s[i*2+1]);
 	}
-*/	
+	
 	NmppsFFTSpec *specFFTInv2048;
 	ret=nmppsFFT2048InvInitAlloc(&specFFTInv2048, src0_32s, dst_32s, NMPP_OPTIMIZE_DISABLE);
 	printf("****** ret=%d specFFTInv2048=%x\r\n",ret ,(int)specFFTInv2048);
@@ -411,7 +411,7 @@ int main() {
 	for(i=0; i<64; i++){
 		printf("[inv:] %d %d\r\n",src0_32s[i*2] ,src0_32s[i*2+1]);
 	}
-	
+*/	
 	//====================
 	
 	printf("======123=====\n");

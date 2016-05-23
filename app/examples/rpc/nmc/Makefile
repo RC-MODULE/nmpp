@@ -30,7 +30,7 @@ BUILDER_FLAGS	= -cK1879.cfg -m  -heap=0 -heap1=0  -heap2=0 -heap3=0 -stack=2000 
 INC_DIRS        = -I. -I"$(NEURO)/include" -I"$(NMPP)/include" -I"$(EASYNMC)/include"
 LIB_DIRS		= -L"$(NEURO)/lib" -L"$(EASYNMC)" -L$(NMPP)/lib
 
--include = .nulheap.mk
+-include = nulheap.mk
 LAST_SEGMENT := $(shell  printf '%d' $(SEGMENT))
 LAST_SIZE    := $(shell  printf '%d' $(SIZE))
 MEMORY_SIZE  := $(shell  printf '%d' 0x00020000)
@@ -58,15 +58,18 @@ libs: $(LIBS)
 nulheap.abs: $(OBJECTS) $(EASYNMC)/easynmc.lib $(ROOT)/lib/nmpp-nmc3-rpc.lib $(ROOT)/lib/nmpp-nmc3.lib K1879.cfg Makefile
 	@echo ----- FIRST PASS BUILD ---------
 	$(SILENT_LINKER)linker  $(BUILDER_FLAGS) -onulheap.abs $(OBJECTS) $(LIBS) $(LIB_DIRS)
-	@echo SEGMENT= \> .nulheap.mk
-	@grep SEGMENT    ./nulheap.map | tail -1 | cut -d " " -d "," -f2 | cut -d ":" -f2 >> .nulheap.mk
-	@echo SIZE = \>>  .nulheap.mk
-	@grep SEGMENT    ./nulheap.map | tail -1 | cut -d " " -d "," -f3 | cut -d ":" -f2 >> .nulheap.mk
+	@echo SEGMENT= \> ./nulheap.mk
+	@grep SEGMENT     ./nulheap.map | tail -1 | cut -d " " -d "," -f2 | cut -d ":" -f2 >> nulheap.mk
+	@echo SIZE = \>>  ./nulheap.mk
+	@grep SEGMENT     ./nulheap.map | tail -1 | cut -d " " -d "," -f3 | cut -d ":" -f2 >> nulheap.mk
 	$(MAKE) -C . rebuild
 
 rebuild:	
 	@echo ----- SECOND PASS BUILD ---------
 	$(SILENT_LINKER)linker  -heap=$(HEAP_SIZE) $(BUILDER_FLAGS)  -o$(TARGET).abs $(OBJECTS) $(LIBS) $(LIB_DIRS)
+
+#	$(SILENT_LINKER)linker  -heap=131070 $(BUILDER_FLAGS)  -o$(TARGET).abs $(OBJECTS) $(LIBS) $(LIB_DIRS)	
+	
 
 $(TARGET).dump: $(TARGET).abs
 	$(SILENT_NMDUMP)nmdump -f $(^) > $(@)

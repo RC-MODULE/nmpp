@@ -44,14 +44,17 @@
 
 
 ###REQUIREMENTS  
+
 #### GENERAL REQUIREMENTS: 
   1. GnuWin32 utils installed. You need **make** ver 3.81 from GnuWin32 package and other utilities to process 
      Makefile-s to become *Makefile* fully Windows-Linux crossplatformed and to enhances *Makefile* functionality with tests and examples.  
      Download and install setup [GetGnuWin32-0.6.3.exe](http://downloads.sourceforge.net/project/getgnuwin32/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe) from https://sourceforge.net/projects/getgnuwin32/?source=typ_redirect.  
-	 Add installed GnuWin32/bin folder to the %PATH% environmnet variable.
+	 Add installed GnuWin32/bin folder to the %PATH% environmnet variable.  
 >  Don't use Gnu **make** ver-3.82 and Microsoft **nmake** - they don't  process provided Makefiles correctly
+
 #### MAIN REQUIREMENTS TO BUILD NMC-LIBRARY:  
   2. Installed NeuroMatrix SDK  
+  
 #### ADDITIONAL SDK REQUIREMENTS FOR HOST-EMULATION LIBRARIES AND EXAMPLES:    
   3. Board SDK with installed drivers: (necessary  to build and run examples)
     - mc5103sdk (MC5103 Board support SDK)

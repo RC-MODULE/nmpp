@@ -49,6 +49,13 @@
   1. GnuWin32 utils installed. You need **make** ver 3.81 from GnuWin32 package and other utilities to process 
      Makefile-s to become *Makefile* fully Windows-Linux crossplatformed and to enhances *Makefile* functionality with tests and examples.  
      Download and install setup [GetGnuWin32-0.6.3.exe](http://downloads.sourceforge.net/project/getgnuwin32/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe) from https://sourceforge.net/projects/getgnuwin32/?source=typ_redirect.  
+	 After installation open a command window, switch to the GetGnuWin32 directory and run download.bat. If download.bat completes successfully you will be able to run the installer. 
+For example: 
+```bat
+C:\Users\Internet\Desktop>cd getgnuwin32 
+C:\Users\Internet\Desktop\GetGnuWin32>download 
+C:\Users\Internet\Desktop\GetGnuWin32>install C:\gnuwin32 
+```
 	 Add installed GnuWin32/bin folder to the %PATH% environmnet variable.  
 >  Don't use Gnu **make** ver-3.82 and Microsoft **nmake** - they don't  process provided Makefiles correctly
 

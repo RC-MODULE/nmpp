@@ -44,15 +44,15 @@
 
 
 ###REQUIREMENTS  
-####MAIN REQUIREMENTS TO BUILD NMC-LIBRARY:  
-  1. FOR WINDOWS OS: To compile library and attached examples **GNU make** must be installed . http://gnuwin32.sourceforge.net/packages/make.htm  
-     Download, install [Gnu make 3.81 installer](http://gnuwin32.sourceforge.net/downlinks/make.php)  and add **make.exe** location to the **PATH** variable.  
-     Note: You should use **GNU make ** only. Microsoft **nmake** cannot parse attached makefiles . Gnu Make 3.82 also doesn't work. 
-  2. Installed NeuroMatrix SDK
-  3. GnuWin32 utils. To become *Makefile* fully crossplatformed on Windows OS and to enhances *Makefile* functionality with tests and examples you should have [GnuWin32 utils](http://sourceforge.net/projects/unxutils/) installed. 
-  In some cases gnu utils also needed to build examples  
-
-####ADDITIONAL SDK REQUIREMENTS FOR EMULATION-LIBRARIES AND EXAMPLES:    
+#### GENERAL REQUIREMENTS: 
+  1. GnuWin32 utils installed. You need **make** ver 3.81 from GnuWin32 package and other utilities to process 
+     Makefile-s to become *Makefile* fully Windows-Linux crossplatformed and to enhances *Makefile* functionality with tests and examples.  
+     Download and install setup [GetGnuWin32-0.6.3.exe](http://downloads.sourceforge.net/project/getgnuwin32/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe) from https://sourceforge.net/projects/getgnuwin32/?source=typ_redirect.  
+	 Add installed GnuWin32/bin folder to the %PATH% environmnet variable.
+>  Don't use Gnu **make** ver-3.82 and Microsoft **nmake** - they don't  process provided Makefiles correctly
+#### MAIN REQUIREMENTS TO BUILD NMC-LIBRARY:  
+  2. Installed NeuroMatrix SDK  
+#### ADDITIONAL SDK REQUIREMENTS FOR HOST-EMULATION LIBRARIES AND EXAMPLES:    
   3. Board SDK with installed drivers: (necessary  to build and run examples)
     - mc5103sdk (MC5103 Board support SDK)
     - mc7601sdk (MC7601 Board support SDK)
@@ -70,15 +70,19 @@ You can download and locally install all latest actual components (board SDKs, v
 make download 
 make install
 ```
-It is recommended to do it to prevent version mismatch between different components. It guaranties  successful compilation and running of examples.
-No any variables would be created or modified in global system environment, so your NMPP installation would be fully standalone (except installed board drivers)
 
+It is recommended to download dependencies to prevent version mismatch between different components. It guaranties  successful compilation and running of examples.
+No any variables would be created or modified in global system environment, so your NMPP installation would be fully standalone (except installed board drivers)
+<!--
 > FOR WINDOWS XP: PowerShell 2.0 is required to provide Internet downloading and unzipping by **make download** and **make install** commands . 
+It is requried  PowerShell 2.0 or  installed
+to provide Internet downloading and unpacking.
+
   To install Windows Powershell 2.0 on an XP machine, you must have Windows XP Service Pack 3 installed. Powershell is included in the Windows Management Framework which you can download at https://support.microsoft.com/ru-ru/kb/968929 .  
-  Обновление для Windows XP (KB968930) https://www.microsoft.com/ru-ru/download/details.aspx?id=16818
+  Windows XP (KB968930) https://www.microsoft.com/ru-ru/download/details.aspx?id=16818
   [Microsoft .NET Framework 2.0 Service Pack 1 (x86)](https://www.microsoft.com/ru-RU/download/details.aspx?id=16614) may be also required.
   
-<!--  Installed Gnu GCC is recommended for header dependency parcing and build the gcc-version of library build of gcc-examples http://www.mingw.org/ -->
+  Installed Gnu GCC is recommended for header dependency parcing and build the gcc-version of library build of gcc-examples http://www.mingw.org/ -->
 
 ###WARNING:   
  - If environment variables like **NEURO, MC5103 , MB7707** defined using **?=** in **global.mk** then system value would be used (if exists), otherwise (using **=**) they will be overrided by local pathes!  

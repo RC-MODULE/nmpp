@@ -33,8 +33,8 @@ ifeq ($(OS),Windows_NT)
    OS_RD    = rd /Q /S 
    OS_CP    = $(call BACKSLASH,$(GNUWIN32)/cp)
    OS_WHICH =$(windir)/system32/where
-#  OS_WGET  = wget
-   OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\wget.ps1 
+   OS_WGET  = wget
+#  OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\wget.ps1 
 #  OS_UNZIP = unzip 
    OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\unzip.ps1 
    OS_TODIR = -d

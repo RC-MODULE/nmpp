@@ -46,8 +46,8 @@
 ###REQUIREMENTS  
 
 #### GENERAL REQUIREMENTS: 
-  1. GnuWin32 utils installed. You need **make** ver 3.81 from GnuWin32 package and other utilities to process 
-     Makefile-s to become *Makefile* fully Windows-Linux crossplatformed and to enhances *Makefile* functionality with tests and examples.  
+  1. GnuWin32 utils installed. You need **make** ver 3.81 and other utilities from GnuWin32 package  to process 
+     Makefile-s, to become *Makefile* fully Windows-Linux crossplatformed and to enhances *Makefile* functionality with tests and examples.  
      Download and install setup [GetGnuWin32-0.6.3.exe](http://downloads.sourceforge.net/project/getgnuwin32/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe) from https://sourceforge.net/projects/getgnuwin32/?source=typ_redirect.  
 	 After installation open a command window, switch to the GetGnuWin32 directory and run download.bat.  
 	 If you are behind proxy add your proxy settings into environment variables **http_proxy** and **https_proxy**  

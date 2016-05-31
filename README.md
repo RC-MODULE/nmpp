@@ -48,6 +48,7 @@
 #### GENERAL REQUIREMENTS: 
   1. GnuWin32 utils installed. You need **make** ver 3.81 and other utilities from GnuWin32 package  to process 
      Makefile-s.  
+	 
 #####A. Lite Gnuwin32 installation (Only utils needed for RC Module project building would be installed). It is fast installation, recommended.
 	 Download [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite/archive/master.zip) from https://github.com/RC-MODULE/gnuwin32-lite.  
 	 After unziping open a command window, switch to the GnuWin32-lite directory and run download.bat.  
@@ -60,6 +61,7 @@ C:\gnuwin32-lite-mater>set https_proxy=http://username:password@proxy:80/
 C:\gnuwin32-lite-mater>download 
 C:\gnuwin32-lite-mater>install C:\gnuwin32 
 ```
+
 #####B. Full GnuWin32 Installation (All available utils would be enstalled [600MB] ) 
 	 Download and install setup [GetGnuWin32-0.6.3.exe](http://downloads.sourceforge.net/project/getgnuwin32/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe) from https://sourceforge.net/projects/getgnuwin32/?source=typ_redirect.  
 	 After installation open a command window, switch to the GetGnuWin32 directory and run download.bat.  

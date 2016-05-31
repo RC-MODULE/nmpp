@@ -33,10 +33,15 @@ ifeq ($(OS),Windows_NT)
    OS_RD    = rd /Q /S 
    OS_CP    = $(call BACKSLASH,$(GNUWIN32)/cp)
    OS_WHICH =$(windir)/system32/where
-   OS_WGET  = wget
-#  OS_WGET  = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\wget.ps1 
 #  OS_UNZIP = unzip 
    OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\unzip.ps1 
+   GNU_WGET = wget -nc --no-check-certificate --content-disposition 
+   PS_WGET  = powershell  -ExecutionPolicy Bypass -file $(ROOT)\deps\wget.ps1 
+   PS_UNZIP = powershell  -ExecutionPolicy Bypass -file unzip.ps1 
+   OS_UNZIP = $(PS_UNZIP)
+   OS_TODIR = -d
+#  OS_UNZIP = 7za
+   
    OS_TODIR = -d
    OS_UNPACK= $(OS_UNZIP)
    PATH_DEP = 	$(realpath $(GNUWIN32));\

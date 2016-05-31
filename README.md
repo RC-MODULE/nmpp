@@ -47,22 +47,36 @@
 
 #### GENERAL REQUIREMENTS: 
   1. GnuWin32 utils installed. You need **make** ver 3.81 and other utilities from GnuWin32 package  to process 
-     Makefile-s, to become *Makefile* fully Windows-Linux crossplatformed and to enhances *Makefile* functionality with tests and examples.  
-     Download and install setup [GetGnuWin32-0.6.3.exe](http://downloads.sourceforge.net/project/getgnuwin32/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe) from https://sourceforge.net/projects/getgnuwin32/?source=typ_redirect.  
+     Makefile-s.  
+#####A. Lite Gnuwin32 installation (Only utils needed for RC Module project building would be installed). It is fast installation, recommended.
+	 Download [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite/archive/master.zip) from https://github.com/RC-MODULE/gnuwin32-lite.  
+	 After unziping open a command window, switch to the GnuWin32-lite directory and run download.bat.  
+	 If you are behind proxy define your proxy settings in .\wget.ini or add environment variables **http_proxy** and **https_proxy**  to your system.
+	 If download.bat completes successfully you will be able to run the installer with path where to install gnuwin32. 
+	 For example: 
+```bat
+C:\gnuwin32-lite-mater>set  http_proxy=http://username:password@proxy:80/
+C:\gnuwin32-lite-mater>set https_proxy=http://username:password@proxy:80/
+C:\gnuwin32-lite-mater>download 
+C:\gnuwin32-lite-mater>install C:\gnuwin32 
+```
+#####B. Full GnuWin32 Installation (All available utils would be enstalled [600MB] ) 
+	 Download and install setup [GetGnuWin32-0.6.3.exe](http://downloads.sourceforge.net/project/getgnuwin32/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe) from https://sourceforge.net/projects/getgnuwin32/?source=typ_redirect.  
 	 After installation open a command window, switch to the GetGnuWin32 directory and run download.bat.  
-	 If you are behind proxy add your proxy settings into environment variables **http_proxy** and **https_proxy**  
+	 If you are behind proxy define your proxy settings into .\bin\wget.ini or add environment variables **http_proxy** and **https_proxy**  to your system.
 	 If download.bat completes successfully you will be able to run the installer. 
 For example: 
 ```bat
-C:\Users\Internet\Desktop>set http_proxy  =http://username:password@proxy:80/
-C:\Users\Internet\Desktop>set https_proxy =http://username:password@proxy:80/
+C:\Users\Internet\Desktop>set  http_proxy=http://username:password@proxy:80/
+C:\Users\Internet\Desktop>set https_proxy=http://username:password@proxy:80/
 
 C:\Users\Internet\Desktop>cd getgnuwin32 
 C:\Users\Internet\Desktop\GetGnuWin32>download 
 C:\Users\Internet\Desktop\GetGnuWin32>install C:\gnuwin32 
 ```
 
-Add installed GnuWin32/bin folder to the %PATH% environmnet variable.  
+Add installed GnuWin32\bin folder to the %PATH% environmnet variable.  
+
 >  Don't use Gnu **make** ver-3.82 and Microsoft **nmake** - they don't  process provided Makefiles correctly
 
 #### MAIN REQUIREMENTS TO BUILD NMC-LIBRARY:  

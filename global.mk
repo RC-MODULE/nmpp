@@ -1,18 +1,33 @@
 
-NMPP      = $(ROOT)
-#http_proxy        = http://user:pass@proxy:80/       (for wget usage)
+export NMPP      = $(ROOT)
+#export http_proxy        = http://user:pass@proxy:80/       (for wget usage)
+#export https_proxy       = $(http_proxy)
 
-DEVPACK	 ?= $(realpath $(ROOT)/deps/dev-pack)
+export DEVPACK	= $(realpath $(ROOT)/deps/dev-pack-master)
+export NEURO    = $(DEVPACK)/nmsdk
+export VSHELL32 = $(DEVPACK)/vshell32
 
-export NEURO    ?= $(DEVPACK)/nmsdk
-export VSHELL32 ?= $(DEVPACK)/vshell32
 MC5103    = $(DEVPACK)/mc5103sdk
 MC7601    = $(DEVPACK)/mc7601sdk
 MB7707    = $(DEVPACK)/mb7707sdk
-GNUWIN32  = $(DEVPACK)/gnuwin32/bin
+GNUWIN32  = $(DEVPACK)/gnuwin32-lite/bin
 
 
 ifeq ($(OS),Windows_NT)
+   PATH_DEP = 	$(GNUWIN32);\
+				$(NEURO)/bin;\
+				$(MC5103)/bin;\
+				$(MB7707)/bin;\
+				$(MC7601)/bin;\
+				$(VSHELL32)/bin;\
+  
+  export PATH    := $(PATH);C:/SysGCC/Raspberry/bin;$(DEVPACK)/Raspberry/bin);$(PATH_DEP)
+  
+  #$(info $(PATH))
+  # NOTE: 'Raspberry\bin' shuld be first in PATH then $(GNUWIN32), because of 'libiconv-2.dll' version conflict.
+  # But 'make.exe' ver-3.81 must be found first in then PATH then 'make.exe' ver-3.82 located in Raspberry\bin because of their non-compatibility 
+
+  
    ROOTFS  = $(DEVPACK)/rootfs
    EASYNMC = $(DEVPACK)/nmc-utils-0.1.1/libeasynmc-nmc
 
@@ -39,23 +54,6 @@ ifeq ($(OS),Windows_NT)
    PS_WGET  = powershell  -ExecutionPolicy Bypass -file $(ROOT)\deps\wget.ps1 
    PS_UNZIP = powershell  -ExecutionPolicy Bypass -file unzip.ps1 
    OS_UNZIP = $(PS_UNZIP)
-   OS_TODIR = -d
-#  OS_UNZIP = 7za
-   
-   OS_TODIR = -d
-   OS_UNPACK= $(OS_UNZIP)
-   PATH_DEP = 	$(realpath $(GNUWIN32));\
-				$(realpath $(NEURO)/bin);\
-				$(realpath $(MC5103)/bin);\
-				$(realpath $(MB7707)/bin);\
-				$(realpath $(MC7601)/bin);\
-				$(realpath $(VSHELL32)/bin);\
-  
-  export PATH    := $(realpath $(ROOT)/deps/gnumake/bin);$(PATH);C:/SysGCC/Raspberry/bin;$(DEVPACK)/Raspberry/bin);$(PATH_DEP)
-  
-  #$(info $(PATH))
-  # NOTE: 'Raspberry\bin' shuld be first in PATH then $(GNUWIN32), because of 'libiconv-2.dll' version conflict.
-  # But 'make.exe' ver-3.81 must be found first in then PATH then 'make.exe' ver-3.82 located in Raspberry\bin because of their non-compatibility 
   
   define BACKSLASH
 	$(subst /,\,$(1))
@@ -74,7 +72,7 @@ else
   OS_WHICH = which
   OS_WGET  = wget  
   OS_UNZIP = unzip
-  OS_UNPACK= tar xvzf 
+  OS_TAR   = tar xvzf 
   OS_TODIR = -C
   PATH    := $(NEURO)/bin:$(MC5103)/bin:$(MB7707)/bin:$(PATH)
   LD_LIBRARY_PATH = $(MC5103)/bin:$(MB7707)/bin

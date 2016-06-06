@@ -83,7 +83,6 @@
   </ItemGroup>
   <ItemGroup>
  	<ClCompile Include="../../../src/nmplc/arithmetic/common/SCL_DivC__nm64sc_nm64sc.cpp" /> 
- 	<ClCompile Include="../../../src/nmplc/init/common/InitRand.cpp" /> 
  	<ClCompile Include="../../../src/nmpli/Arithmetics/pc/IMG_Halfsum__nm16s_nm16s.cpp" /> 
  	<ClCompile Include="../../../src/nmpli/Arithmetics/pc/IMG_WAdd2I__RGB32_nm10s_RGB32_nm10s.cpp" /> 
  	<ClCompile Include="../../../src/nmpli/Convert/common/IMG_RGB32ToGray__RGB32_nm10s_nm08s.cpp" /> 
@@ -154,7 +153,6 @@
  	<ClCompile Include="../../../src/nmpls/Resample/pc/SIG_Resample.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/Resample/pc/SIG_ResizeDown2.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/common/VEC_DivC__nm64sc_nm64sc.cpp" /> 
- 	<ClCompile Include="../../../src/nmplv/Init/common/Rand.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsClip_Arsh_Cnv_AddC_Ext.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsClipPowArshCnvAddC.cpp" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsMinPos1024.cpp" /> 
@@ -175,6 +173,7 @@
  	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/SCL_FixDiv32__int.c" /> 
  	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/SCL_FixMul32__int.c" /> 
  	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/scl_fixsqrt32__int.c" /> 
+ 	<ClCompile Include="../../../src/nmplc/init/common/nmppcRand.c" /> 
  	<ClCompile Include="../../../src/nmpli/Filtration/common/nmppi-FilterInitAlloc_08s16s.c" /> 
  	<ClCompile Include="../../../src/nmplm/MatrixVector/pc/nmppm-Mul_mm.c" /> 
  	<ClCompile Include="../../../src/nmplm/MatrixVector/pc/nmppm-Mul_mv.c" /> 
@@ -204,7 +203,7 @@
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/nmpps-Abs.c" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/nmpps-Abs1.c" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/nmpps-AbsDiff.c" /> 
- 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/nmpps-Add.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/nmpps-add.c" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/nmpps-AddC.c" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/nmpps-AddExt.c" /> 
  	<ClCompile Include="../../../src/nmplv/Arithmetics/pc/nmpps-DivC.c" /> 

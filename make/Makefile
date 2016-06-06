@@ -1,3 +1,5 @@
+ROOT = ..
+include $(ROOT)/global.mk
 #==================== Handle OS Specifics ==========================
 ifeq ($(OS),Windows_NT)
   SHELL   = cmd

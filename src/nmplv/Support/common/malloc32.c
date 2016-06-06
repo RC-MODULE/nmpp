@@ -21,7 +21,7 @@
 	struct NmppsMallocSpec nmppsMallocSpec = {{__malloc32,__malloc32,__malloc32,__malloc32},MALLOC32_RING_MODE,0xF,0xF3210,0,0,0,0,0,0,0,0,0xF,1};
 #endif 
 
-int nmppsMallocBoundary32=0;
+int nmppsMallocBorder32=0;
 
 void* nmppsMalloc32(unsigned sizeInt32){
 	int* buffer=0;
@@ -48,7 +48,7 @@ void* nmppsMalloc32(unsigned sizeInt32){
 		//	nmppsMallocSpec.routePos++;
 		//	if (nmppsMallocSpec.routePos == nmppsMallocSpec.routeSize)
 		//		nmppsMallocSpec.routePos=0;
-		//	buffer=((int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32+2*nmppsMallocBoundary32))+nmppsMallocBoundary32;
+		//	buffer=((int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32+2*nmppsMallocBorder32))+nmppsMallocBorder32;
 		//	break;
  		case(MALLOC32_RING_MODE):
  			heapIndx=nmppsGet_4u((nm4u*)nmppsMallocSpec.route, (nmppsMallocSpec.routePos-1)&NMPPS_MALLOC_MAX_POS);
@@ -75,7 +75,7 @@ void* nmppsMalloc32(unsigned sizeInt32){
 
 		case(MALLOC32_ROUTE_MODE):
 			nmppsMallocTimerStop();
-			sizeInt32+= nmppsMallocBoundary32<<1;
+			sizeInt32+= nmppsMallocBorder32<<1;
 
 			heapIndx=nmppsGet_4u((nm4u*)nmppsMallocSpec.route, nmppsMallocSpec.routePos&NMPPS_MALLOC_MAX_POS);
 			if (heapIndx==0xf){
@@ -100,9 +100,9 @@ void* nmppsMalloc32(unsigned sizeInt32){
 			{
 				unsigned priority=nmppsMallocSpec.priority;
 				nmppsMallocTimerStop();
-				sizeInt32+= nmppsMallocBoundary32<<1;
+				sizeInt32+= nmppsMallocBorder32<<1;
 				while ((heapIndx=(priority&0xF))!=0xF){
-					buffer=((int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32+2*nmppsMallocBoundary32))+nmppsMallocBoundary32;
+					buffer=((int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32+2*nmppsMallocBorder32))+nmppsMallocBorder32;
 					if (buffer)						
 						break;
 					priority>>=4;
@@ -118,7 +118,7 @@ void* nmppsMalloc32(unsigned sizeInt32){
 		//			heapIndx=randomize>>30;
 		//			if (mask&(1<<heapIndx)){
 		//				mask^=(1<<heapIndx);
-		//				buffer=((int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32+2*nmppsMallocBoundary32))+nmppsMallocBoundary32;
+		//				buffer=((int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32+2*nmppsMallocBorder32))+nmppsMallocBorder32;
 		//				if (buffer)
 		//					break;
 		//			}
@@ -128,7 +128,7 @@ void* nmppsMalloc32(unsigned sizeInt32){
 	}
 	if (buffer){
 		nmppsMallocSpec.routePos++;
-		buffer+=nmppsMallocBoundary32;
+		buffer+=nmppsMallocBorder32;
 		nmppsMallocSpec.allocHistory[nmppsMallocSpec.allocHistoryPos&NMPPS_MALLOC_MAX_POS]=buffer;
 		nmppsMallocSpec.allocHistoryPos++;
 	}
@@ -145,7 +145,7 @@ void nmppsFree(void* buffer){
 	nmppsMallocTimerStop();
 	
 	if (buffer){
-		int* realBuf=(int*)buffer-nmppsMallocBoundary32;
+		int* realBuf=(int*)buffer-nmppsMallocBorder32;
 		free(realBuf);
 		nmppsMallocSpec.freeHistory[nmppsMallocSpec.freeHistoryPos&NMPPS_MALLOC_MAX_POS]=realBuf;
 		nmppsMallocSpec.freeHistoryPos++;
@@ -379,7 +379,7 @@ int   nmppsMallocGetHistory   (fseq64*  heapSeq, int seqSize)
 
 void  nmppsMallocSetBoundary32 (int size32 )
 {
-	nmppsMallocBoundary32=size32;
+	nmppsMallocBorder32=size32;
 }
 
 void nmppsMallocModeA(unsigned* arr, int size , int orderType){

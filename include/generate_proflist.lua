@@ -13,6 +13,7 @@ exclude_funcs = {	"start",
 					"_clock",
 					"clock_initialize",
 					"_exit",
+					"__exit",
 					"_abort",
 					"_DestructFloat",
 					"_ConstructFloat",
@@ -136,11 +137,11 @@ for k,v in pairs(lines) do
 			--section_end = section.start + section.size
 			--print ("end=",section_end)
 			--if label.addr < (section.start + section.size)  then
-			print(label.name, label.addr, section.name, section.start, section.size)
+			--print(label.name, label.addr, section.name, section.start, section.size)
 			if not has_prefix(label.name, exclude_prefixes) then
 				if not has_element(label.name, exclude_funcs) then
 					if has_element(label.name, nonstd_funcs) then
-						profile:write("\tPROFILE_NONSTD_FUNC(",label.name,label.name,"\");\n")
+						profile:write("\tPROFILE_NONSTD_FUNC(",label.name,', "',label.name,"\");\n")
 					else
 						profile:write("\tPROFILE_FUNC(",label.name,', "',label.name,"\");\n")
 					end

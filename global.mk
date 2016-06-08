@@ -1,11 +1,11 @@
 
-export NMPP      = $(ROOT)
+export NMPP      ?= $(ROOT)
 #export http_proxy        = http://user:pass@proxy:80/       (for wget usage)
 #export https_proxy       = $(http_proxy)
 
-export DEVPACK	= $(realpath $(ROOT)/deps/dev-pack-master)
-export NEURO    = $(DEVPACK)/nmsdk
-export VSHELL32 = $(DEVPACK)/vshell32
+export DEVPACK	?= $(realpath $(ROOT)/deps/dev-pack-master)
+export NEURO    ?= $(DEVPACK)/nmsdk
+export VSHELL32 ?= $(DEVPACK)/vshell32
 
 MC5103    = $(DEVPACK)/mc5103sdk
 MC7601    = $(DEVPACK)/mc7601sdk

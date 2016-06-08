@@ -1,0 +1,382 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) Software                             */
+//*                                                                         */
+//*   Profiler library                                                      */
+//*                                                                         */
+//*                                                                         */
+//*   Software design:  S.Mushkaev                                          */
+//*                                                                         */
+//*   Version           1.0                                                 */
+//*   Start date:       15.04.2015                                          */
+//*                                                                         */
+//*                                                                         */
+//***************************************************************************/
+
+
+
+
+macro PROFILE_FUNC_BASE(ext, funcname, funcinfo, disp)
+.branch;
+ext funcname				:label; // указатель на профилируемую функцию
+extern _clock				:label; 
+    profiler_check_jump_cop4:label; // функция проверяет наличия перехода в первых 4 командах (для таких функций профилирование невозможно)
+//own goto_timer_enter_code	:label;
+own func_init				:label;
+own timer_return			:label;
+own timer_enter				:label;
+own timer_replaced			:label;
+own next_init				:label;
+own initcode				:label;
+own ne_sudba				:label;
+
+
+<func_init> // сюда попадаем при иницализации,
+	goto initcode;
+	//---------------------------- структура данных для профирования функции -----------------------------------
+	own _timer_next		: word=next_init+4;			// указатель на следующую структуру даных в списке (на поле timer_call)
+	own _timer_funcaddr : word=funcname;			// адрес профилируемой функции
+	own _timer_calls	: word=0;					// кол-во вызовов
+	own _timer_summary	: word=0;					// сумарное накопленное время функции
+	//--------------------------------------------------------------------------------------------------------
+	own _funcname		: word[MAX_FUNCNAME_LEN]=funcinfo;	// имя профилируемой функции
+	own _funcname_end	: word=0;					// символ заврешения строки (для обрезанных имен)
+	//--------------------------------------------------------------------------------------------------------------
+	own _timer_ret_pswr	: long;						// тут сохраняем контекст возврата
+	own _timer_stopwatch: word=0;					// текущее время в момент вызова проф. функии 
+	
+	
+	//=============== инициализатор,  здесь осуществляем подмену кода =============================================
+	<initcode>
+
+		push ar0,gr0;
+		push ar1,gr1;
+		push ar2,gr2;
+		gr0= false;
+		[_timer_calls]=gr0;	// обнуляем счетчик вызовов проф. функции
+		
+		// копируем 4 команды из заголовка профилируемой функции в таймер функцию	
+		timer_replaced:label;
+		ar0 = funcname;
+		
+		call profiler_check_jump_cop4; // проверяем что в 4 подменяемых командах нет переходов
+		if =0 goto ne_sudba;	// данную функцию профилировать невозможно - уходим
+
+		//---------- забираем 4 команды из профилируемой функции 
+		ar1 = timer_replaced;	// здесь будем хранить исходные 4 инструкции профилируемой функции
+		ar2,gr2 = [ar0++];		// читаем две первых коротких инструкции из профилируемой функции
+		[ar1++]=ar2,gr2;		// сохранем их в замерщике 
+		ar1+=2;					// пропускаем код "delayed goto funcname+4" в замерщике 
+		ar2,gr2 = [ar0++];		// читаем следущие две коротких инструкции из профилируемой функции
+		[ar1++]=ar2,gr2;		// сохранем их в замерщике
+		
+		//---------- подставляем 4 команды в начало профилируемой функции с переходом на замерщик
+		gr2 = 0d0100000h;		// nul cop
+		ar2 = gr2;
+		[--ar0] = ar2,gr2;		// nul,nul 
+		ar2 = 0c8270000h;		// goto cop
+		gr2 = timer_enter;		// адрес замерщика времени (пуск)
+		[--ar0] = ar2,gr2;		// goto <funcname>
+		
+		<ne_sudba>
+		pop ar2,gr2;
+		delayed goto next_init;	// идем в конец текущего макроса PROFILE_FUNC - на начало следуещего макроса PROFILE_FUNC
+			pop ar1,gr1;
+			pop ar0,gr0;
+	
+	//=============== замерщик (пуск) ===================================================
+	<timer_enter>							// сюда мы переходим по goto из профилируемой функции
+	
+		// сохраняем контекст возврата и подменяем точку возврата на timer_return (замерщик времени - стоп)
+		push ar0,gr0;
+		push ar5,gr5;
+		
+		ar5= sp-disp;						// ar5 - указывает на адрес возврата retaddr и pswr у профилируемой функции из которой пришли
+		ar0,gr0 = [ar5];	
+		[_timer_ret_pswr]=ar0,gr0;			// сохранияем контекст возврата
+		ar0 = timer_return;
+		delayed call _clock;				// засекаем время (пуск)
+			[ar5] = ar0,gr0;				// подменяем в стеке адрес возврата из проф функции на timer_return (замерщик времени - стоп)
+			gr0 = gr7 noflags;				// сохраняем gr7 (clock - портит)
+		
+		[_timer_stopwatch]=gr7;				// сохраняем время
+		pop ar5,gr5 with gr7=gr0 noflags;	// восстанавливаем gr7
+		pop ar0,gr0;
+		
+		// выполняем исходный стартовый код профилируемой функции
+		<timer_replaced>					// место для хранения 4 команд заголовка проф. функции
+		nul;								// SELF-MODIFYING CODE
+		nul;								// SELF-MODIFYING CODE
+		delayed goto funcname+4;			// продолжаем выполнение проф. функции
+			nul;							// SELF-MODIFYING CODE
+			nul;							// SELF-MODIFYING CODE
+			
+		
+	//=============== замерщик (стоп) ===================================================
+	<timer_return>												// сюда мы переходим после return из профилируемой функции
+		push ar1,gr1;											// sp+=2 : отступаем стек, сюда мы потом подставим реальную(сохраненную) точку возврата из проф. функции
+		push ar0,gr0 			 with gr0 =true noflags;	
+		delayed call _clock		 with gr0<<=2;					// засекаем время (стоп) 
+			ar0 = gr7			 with gr0++ noflags;			// сохраняем gr7 
+			with gr0<<=3;										// gr0 = -24; коррекция замера времени
+		gr0 = [_profiler_delay];
+		gr0 = -17;
+		gr0 = [_timer_stopwatch] with gr7-= gr0 noflags;		// считываем время вызова / коррекция gr7
+		gr0 = [_timer_summary]   with gr7 = gr7 - gr0 noflags;	// считываем накопленное время | вычисляем время работы функции
+		gr7 = [_timer_calls]     with gr0+= gr7 noflags;		// добавляем текущий замер времени
+		[_timer_summary]=gr0     with gr7++ noflags;			// сохраняем суммарное время | увеличиваем счетчик вызовов
+		[_timer_calls]=gr7;										// сохраняем счетчик вызовов
+		gr7 = ar0;
+		ar0,gr0 = [_timer_ret_pswr];							// восстанавливаем контекст возврата
+		[sp-4] = ar0,gr0;
+		pop ar0,gr0;
+	return;
+		<next_init>
+.wait;
+
+end PROFILE_FUNC_BASE;
+
+
+//=======================================================================================================================
+
+
+macro PROFILE_FUNC(funcname,funcinfo)
+	  PROFILE_FUNC_BASE(extern,funcname,funcinfo,6);
+end   PROFILE_FUNC;
+
+macro PROFILE_NONSTD_FUNC(funcname,funcinfo)
+	  PROFILE_FUNC_BASE  (extern,funcname,funcinfo,8);
+end   PROFILE_NONSTD_FUNC;
+
+
+//=======================================================================================================================
+macro PROFILE_BEGIN(MAXFUNCLEN)
+
+begin ".text"
+	
+
+	
+	//global _cache_enable: label;
+	//<_cache_enable>
+	//	CACHE_ENABLE();
+	//return;
+	
+	<_profiler_dummy>
+		.repeat 128;
+		nul;
+		nul;
+		nul;
+		nul;
+		nul;
+		nul;
+		nul;
+		nul;
+		.endrepeat;
+	return;
+end ".text"	;
+		
+
+	
+	const MAX_FUNCNAME_LEN=MAXFUNCLEN;
+	begin ".text_profiler"
+	
+	global _profiler_start: label;
+	global _profiler_first: label;
+	global _profiler_last : label;
+	global _profiler_delay: word= 0;	
+	global _profiler_check: word= 0600DBEEFh; 
+	global _profiler_shared: word= 0600DBEEFh; 
+
+	[_profiler_first]=gr7; // never used , only to force adrees assignment for  _profiler_first if map-file
+	[_profiler_check]=gr7;
+
+	<_profiler_start>
+	<_profiler_first>
+	
+end  PROFILE_BEGIN;
+
+macro PROFILE_END()
+	<_profiler_last>
+		PROFILE_FUNC_BASE( global,_profiler_dummy,"profiler_dummy",6);
+		
+		with gr0=false;			// gr0=0;
+
+		[_profiler_last+4]=gr0;	// next. указатель на следующую структуру даных в списке (на поле timer_call)
+		//[_profiler_last+5]=gr0	// funcaddr. адрес профилируемой функции
+		[_profiler_last+6]=gr0;	// calls. кол-во вызовов
+		[_profiler_last+7]=gr0;	// stopwatch. сумарное накопленное время функции
+	return ;
+		
+	
+	// функция проверяет код команды записанный в gr0 на принадлежность к call goto skip return ireturn 
+	// возвращает gr7=0  если принадлежит
+	// возвращает gr7=-1 если не принадлежит
+	//global profiler_check_jump_cop:label;
+	<profiler_check_jump_cop>
+		push ar0,gr0;
+		push ar1,gr1;
+		push ar2,gr2;
+		
+		
+		
+		gr1 = 0111_0000_0011_0000_0000_0000_0000_0000b;// cop mask
+		// проверяем на call
+		gr2 = 0000_0000_0010_0000_0000_0000_0000_0000b;// call cop
+		gr7 = gr0 and gr1;
+		gr7 = gr7 - gr2;
+		if =0 delayed goto jump_detected  ; 
+		
+		// проверяем на skip
+		gr2 = 0100_0000_0010_0000_0000_0000_0000_0000b;// skip cop
+		gr7 = gr0 and gr1;
+		gr7 = gr7 - gr2;
+		if =0 delayed goto jump_detected  ; 
+		
+		gr1 = 0111_1111_1111_0000_0000_0000_0000_0000b;// cop mask
+		// проверяем на return
+		gr2 = 0000_1001_1111_0000_0000_0000_0000_0000b;// return cop
+		gr7 = gr0 and gr1;
+		gr7 = gr7 - gr2;
+		if =0 delayed goto jump_detected  ; 
+		
+		// проверяем на ireturn
+		gr2 = 0000_0011_1111_0000_0000_0000_0000_0000b;
+		gr7 = gr0 and gr1;// ireturn cop
+		gr7 = gr7 - gr2;
+		if =0 goto jump_detected  ; 
+		gr7 = true;
+		
+		 <jump_detected>
+		 pop ar2,gr2;
+		 pop ar1,gr1;
+		 pop ar0,gr0;
+		
+	return;
+
+	// функция проверяет 4 кода команды записанный по адресу ar0 на принадлежность к call goto skip return ireturn 
+	// возвращает gr7=0  если принадлежит
+	// возвращает gr7=-1 если не принадлежит
+
+	//global profiler_check_jump_cop4:label;
+	<profiler_check_jump_cop4>
+		push ar0,gr0;
+		
+		gr0=[ar0++];
+		call profiler_check_jump_cop;
+		if =0 goto detected;
+		
+		gr0=[ar0++];
+		call profiler_check_jump_cop;
+		if =0 goto detected;
+		
+		gr0=[ar0++];
+		call profiler_check_jump_cop;
+		if =0 goto detected;
+		
+		gr0=[ar0++];
+		call profiler_check_jump_cop;
+		if =0 goto detected;
+		
+			
+		<detected>
+		pop ar0,gr0;
+	return ;
+	
+	global _profiler_head:label;
+	<_profiler_head>
+		delayed return;
+			nul;
+			ar5 = _profiler_first+4;
+	 
+	global _profiler_reset:label;
+	<_profiler_reset>
+		push ar0,gr0;
+		push ar1,gr1;
+		push ar2,gr2;
+		push ar3,gr3;
+
+		ar0 = _profiler_first+4 with gr0 = false;
+		<next_profile>
+			gr7 = [ar0]; 			// next=0
+			//[ar0+1] = gr0; 		// funcaddr
+			[ar0+2] = gr0; 			// calls=0
+			[ar0+3] = gr0 with gr7;	// summary=0
+		if <>0 delayed goto next_profile;
+			ar0 = gr7;
+			nul;
+	
+		pop ar3,gr3;
+		pop ar2,gr2;
+		pop ar1,gr1;
+		pop ar0,gr0;
+	return;
+	
+	global _profiler_stop:label;
+	<_profiler_stop>
+	return;
+
+	
+	global _profiler_count:label;
+	<_profiler_count>
+		push ar0,gr0;
+		ar0 = _profiler_first+4 with gr7 = false;
+		<next_profile_count>
+			gr0 = [ar0] with gr7++; 	// next=0
+			ar0 = gr0 with gr0;
+		if <>0 delayed goto next_profile_count;
+			nul;
+			nul;
+		pop ar0,gr0;
+	return;
+	
+	global _profiler_info_size:label;
+	<_profiler_info_size>
+	delayed return;
+		nul;
+		gr7 = MAX_FUNCNAME_LEN+5;
+	
+	global _profiler_share:label;
+	<_profiler_share>
+		ar5 = ar7-2;
+		push ar0,gr0;
+		push ar1,gr1;
+		push ar2,gr2;
+		push ar3,gr3;
+		push ar6,gr6;
+		
+		ar6 = [--ar5];
+		ar0 = _profiler_first+4 with gr0 = false;
+		<next_share_profile>
+			gr7 = [ar0]; 				// next=0
+			ar5 = ar6;					// address of next field
+			gr0 = MAX_FUNCNAME_LEN+5;		
+			<copy_next_long>
+				gr6 = [ar0++] with gr0--;
+				[ar6++] = gr6;
+			if <>0 delayed goto copy_next_long;
+				nul;
+				nul;
+			[ar5] = ar6;	// overwrite next field
+			with gr7;
+		if <>0 delayed goto next_share_profile;
+			ar0 = gr7;
+			nul;
+	
+		pop ar6,gr6;
+		pop ar3,gr3;
+		pop ar2,gr2;
+		pop ar1,gr1;
+		pop ar0,gr0;
+	return;
+	
+	
+end ".text_profiler";
+
+
+begin ".init"
+	extern clock_initialize: label;
+	call _profiler_start;	// code replacement
+end ".init";
+
+	
+end PROFILE_END;

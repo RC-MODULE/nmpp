@@ -48,7 +48,7 @@ void nmppsCmpNeC_8u(nm8u7b* pSrcVec, uint7b chCmpVal, nm8s* pDstVec, int nSize, 
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 64-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
-void nmppsCmpNeC_64s   (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize)
+void nmppsCmpNeC_64s   (const nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize)
 {
 	int i;
 	for (i=0; i<nSize; i++)
@@ -61,7 +61,7 @@ void nmppsCmpNeC_64s   (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSiz
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 32-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
-void nmppsCmpNeC_32s   (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize)
+void nmppsCmpNeC_32s   (const nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize)
 {
 	int i;
 	for (i=0; i<nSize; i++)
@@ -74,7 +74,7 @@ void nmppsCmpNeC_32s   (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSiz
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 16-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
-void nmppsCmpNeC_16s   (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize)
+void nmppsCmpNeC_16s   (const nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize)
 {
 	int i;
 	for (i=0; i<nSize; i++)
@@ -87,7 +87,7 @@ void nmppsCmpNeC_16s   (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSiz
 ///////////////////////////////////////////////////////////////////////////////
 //	Performs logic activation of 8-bit elements by setting 
 //	negative numbers to "-1" and positive numbers to "0"
-void nmppsCmpNeC_8s    (nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec, int nSize)
+void nmppsCmpNeC_8s    (const nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec, int nSize)
 {
 
 	int i;

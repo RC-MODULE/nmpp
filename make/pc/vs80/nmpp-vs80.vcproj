@@ -390,8 +390,12 @@
  			<File RelativePath="../../../include/nmtl.h" > </File> 
  			<File RelativePath="../../../include/nmtype.h" > </File> 
  			<File RelativePath="../../../include/ownmalloc.h" > </File> 
+ 			<File RelativePath="../../../include/profiler.h" > </File> 
+ 			<File RelativePath="../../../include/profiler_access.h" > </File> 
+ 			<File RelativePath="../../../include/profiler_nmcout.h" > </File> 
  			<File RelativePath="../../../include/ringbuffer.h" > </File> 
  			<File RelativePath="../../../include/ringremote.h" > </File> 
+ 			<File RelativePath="../../../include/stopwatch.h" > </File> 
  			<File RelativePath="../../../include/tfixpoint.h" > </File> 
  			<File RelativePath="../../../include/nmplv/nmplv.h" > </File> 
  			<File RelativePath="../../../include/nmplv/nmtl.h" > </File> 

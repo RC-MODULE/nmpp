@@ -20,7 +20,25 @@
 #include "nmtype.h"
 #include "rpc-host.h"
 
-
+#define RPC_HOST_PPPII(func,pSrcMtr,pSrcVec,pDstVec,nHeight,nWidth,k1,k2) \
+	int ret,i,j;	\
+    struct aura_buffer *iobuf_src1 = aura_buffer_request(n, nHeight*nWidth*k1);	\
+	struct aura_buffer *iobuf_src2 = aura_buffer_request(n, nWidth*k2 );	\
+	struct aura_buffer *iobuf_dst  = aura_buffer_request(n, nHeight*k2);	\
+	memcpy(iobuf_src1->data,pSrcMtr,nWidth * nHeight * k1); \
+	memcpy(iobuf_src2->data,pSrcVec,nWidth*k2 );	\
+	struct aura_buffer *retbuf; \
+	ret = aura_call(n, func, &retbuf,  iobuf_src1, iobuf_src2 ,iobuf_dst, nHeight, nWidth); \
+	if (ret != 0) {\
+		slog(0, SLOG_ERROR, "bug = %d", ret);\
+		BUG(n, "Call " #func " failed!"); } \
+	memcpy(pDstVec, iobuf_dst->data, nHeight*k2);	\
+	aura_buffer_release( iobuf_src1); \
+	aura_buffer_release( iobuf_src2); \
+	aura_buffer_release( iobuf_dst); \
+	aura_buffer_release( retbuf); \
+	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 32-bit mtr  by vec of 8 shorts
 void nmppmMul_mv_8s64s(

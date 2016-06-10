@@ -20,6 +20,7 @@ $(MC5103)/bin;\
 $(MB7707)/bin;\
 $(MC7601)/bin;\
 $(VSHELL32)/bin;\
+$(DEVPACK)/putty;
   
   export PATH    :=$(PATH);C:/SysGCC/Raspberry/bin;$(DEVPACK)/Raspberry/bin);$(PATH_DEP)
   

@@ -21,6 +21,25 @@
 #include "nmtype.h"
 #include "rpc-host.h"
 
+#define	RPC_HOST_PIIPPI(func,pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,k1,k2) \
+	int ret, i, j;	\
+    struct aura_buffer *iobuf_src1 = aura_buffer_request(n, nHeight1*nWidth1*k1);	\
+	struct aura_buffer *iobuf_src2 = aura_buffer_request(n, nWidth1 *nWidth2*k2 );	\
+	struct aura_buffer *iobuf_dst  = aura_buffer_request(n, nHeight1*nWidth2*k2);	\
+	memcpy(iobuf_src1->data,pSrcMtr1,nHeight1 * nWidth1*k1); \
+	memcpy(iobuf_src2->data,pSrcMtr2,nWidth1  * nWidth2*k2); \
+	struct aura_buffer *retbuf; \
+	ret = aura_call(n, func, &retbuf,  iobuf_src1, nHeight1, nWidth1, iobuf_src2 ,iobuf_dst, nWidth2); \
+	if (ret != 0) {\
+		slog(0, SLOG_ERROR, "bug = %d", ret);\
+		BUG(n, "Call " #func " failed!"); } \
+	memcpy(pDstMtr,iobuf_dst->data, nHeight1 * nWidth2 * k2); \
+	aura_buffer_release( iobuf_src1); \
+	aura_buffer_release( iobuf_src2); \
+	aura_buffer_release( iobuf_dst); \
+	aura_buffer_release( retbuf); \
+	slog(0, SLOG_INFO, "ARM: Call " #func " -ok");
+	
 void nmppmMul_mm_8s8s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm8s* pSrcMtr2, nm8s* pDstMtr, int nWidth2)
 {
 	RPC_HOST_PIIPPI("nmppmMul_mm_8s8s",pSrcMtr1,nHeight1, nWidth1, pSrcMtr2,pDstMtr,nWidth2,1,1);

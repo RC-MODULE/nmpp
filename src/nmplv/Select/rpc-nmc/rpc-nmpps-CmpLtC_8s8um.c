@@ -9,6 +9,8 @@ void rpc_nmppsCmpLtC_8s8um(void *in, void *out)
 	int *src   = aura_buffer_to_ptr(buf_src); 
 	int *dst   = aura_buffer_to_ptr(buf_dst);  
 	unsigned size = aura_get_u32(); 
-	int err = nmppsCmpLtC_8s8um((const nm8s*) src,  val, (nm8u*) dst,  size, 0);
+	int err=nmppsCmpLtC_8s8um((const nm8s*) src,  val, (nm8u*) dst,  size, 0);
+	//int err = 123;
+	aura_put_u32(err);
 }
 

@@ -23,12 +23,12 @@ begin ".text_nmplv"
 extern vec_CmpLtV:label;
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsCmpLt_8s(nm8s*  pSrcVec1, nm8s* pSrcVec2,  nm8s*  pDstMin, int nSize);
+//! \fn void nmppsCmpLt_8s7b(nm8s*  pSrcVec1, nm8s* pSrcVec2,  nm8s*  pDstMin, int nSize);
 //!
-//! \perfinclude _nmppsCmpLt_8s.html
+//! \perfinclude _nmppsCmpLt_8s7b.html
 
-global _nmppsCmpLt_8s:label;
-<_nmppsCmpLt_8s>
+global _nmppsCmpLt_8s7b:label;
+<_nmppsCmpLt_8s7b>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0	with gr0=false;

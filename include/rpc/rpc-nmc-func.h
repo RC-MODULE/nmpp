@@ -363,38 +363,38 @@ NMC_RPC_PIPI(nmppsCmpNeC_16s);
 NMC_RPC_PIPI(nmppsCmpNeC_8s);
 #endif 
 //--------------------------
-#ifdef RPC_nmppsCmpNeC_64s8u
-NMC_RPC_PLPI(nmppsCmpNeC_64s8u);
-#endif 
-
-#ifdef RPC_nmppsCmpNeC_32s8u
-NMC_RPC_PIPI(nmppsCmpNeC_32s8u);
-#endif 
-
-#ifdef RPC_nmppsCmpNeC_16s8u
-NMC_RPC_PIPI(nmppsCmpNeC_16s8u);
-#endif 
-
-#ifdef RPC_nmppsCmpNeC_8s8u
-NMC_RPC_PIPI(nmppsCmpNeC_8s8u);
-#endif 
+//#ifdef RPC_nmppsCmpNeC_64s8u
+//NMC_RPC_PLPI(nmppsCmpNeC_64s8u);
+//#endif 
+//
+//#ifdef RPC_nmppsCmpNeC_32s8u
+//NMC_RPC_PIPI(nmppsCmpNeC_32s8u);
+//#endif 
+//
+//#ifdef RPC_nmppsCmpNeC_16s8u
+//NMC_RPC_PIPI(nmppsCmpNeC_16s8u);
+//#endif 
+//
+//#ifdef RPC_nmppsCmpNeC_8s8u
+//NMC_RPC_PIPI(nmppsCmpNeC_8s8u);
+//#endif 
 
 //--------------------------
-#ifdef RPC_nmppsCmpNe_64s8um
-NMC_RPC_PPPI(nmppsCmpNe_64s8um);
-#endif 
-
-#ifdef RPC_nmppsCmpNe_32s8um
-NMC_RPC_PPPI(nmppsCmpNe_32s8um);
-#endif 
-
-#ifdef RPC_nmppsCmpNe_16s8um
-NMC_RPC_PPPI(nmppsCmpNe_16s8um);
-#endif 
-
-#ifdef RPC_nmppsCmpNe_8s8um
-NMC_RPC_PPPI(nmppsCmpNe_8s8um);
-#endif 
+//#ifdef RPC_nmppsCmpNe_64s8um
+//NMC_RPC_PPPI(nmppsCmpNe_64s8um);
+//#endif 
+//
+//#ifdef RPC_nmppsCmpNe_32s8um
+//NMC_RPC_PPPI(nmppsCmpNe_32s8um);
+//#endif 
+//
+//#ifdef RPC_nmppsCmpNe_16s8um
+//NMC_RPC_PPPI(nmppsCmpNe_16s8um);
+//#endif 
+//
+//#ifdef RPC_nmppsCmpNe_8s8um
+//NMC_RPC_PPPI(nmppsCmpNe_8s8um);
+//#endif 
 
 
 
@@ -416,38 +416,38 @@ NMC_RPC_PIPI(nmppsCmpLtC_8s);
 #endif 
 
 //--------------------------
-#ifdef RPC_nmppsCmpLtC_64s8u
-NMC_RPC_PLPI(nmppsCmpLtC_64s8u);
-#endif 
-
-#ifdef RPC_nmppsCmpLtC_32s8u
-NMC_RPC_PIPI(nmppsCmpLtC_32s8u);
-#endif 
-
-#ifdef RPC_nmppsCmpLtC_16s8u
-NMC_RPC_PIPI(nmppsCmpLtC_16s8u);
-#endif 
-
-#ifdef RPC_nmppsCmpLtC_8s8u
-NMC_RPC_PIPI(nmppsCmpLtC_8s8u);
-#endif 
+//#ifdef RPC_nmppsCmpLtC_64s8u
+//NMC_RPC_PLPI(nmppsCmpLtC_64s8u); // Not supported by simulink
+//#endif 
+//
+//#ifdef RPC_nmppsCmpLtC_32s8um
+//NMC_RPC_PIPI(nmppsCmpLtC_32s8um);
+//#endif 
+//
+//#ifdef RPC_nmppsCmpLtC_16s8um
+//NMC_RPC_PIPI(nmppsCmpLtC_16s8um);
+//#endif 
+//
+//#ifdef RPC_nmppsCmpLtC_8s8um
+//NMC_RPC_PIPI(nmppsCmpLtC_8s8um);
+//#endif 
 
 //--------------------------
 //#ifdef RPC_nmppsCmpLt_64s8um
 //NMC_RPC_PPPI(nmppsCmpLt_64s8um);
 //#endif 
-
-#ifdef RPC_nmppsCmpLt_32s8um
-NMC_RPC_PPPI(nmppsCmpLt_32s8um);
-#endif 
-
-#ifdef RPC_nmppsCmpLt_16s8um
-NMC_RPC_PPPI(nmppsCmpLt_16s8um);
-#endif 
-
-#ifdef RPC_nmppsCmpLt_8s8um
-NMC_RPC_PPPI(nmppsCmpLt_8s8um);
-#endif 
+//
+//#ifdef RPC_nmppsCmpLt_32s8um
+//NMC_RPC_PPPI(nmppsCmpLt_32s8um);
+//#endif 
+//
+//#ifdef RPC_nmppsCmpLt_16s8um
+//NMC_RPC_PPPI(nmppsCmpLt_16s8um);
+//#endif 
+//
+//#ifdef RPC_nmppsCmpLt_8s8um
+//NMC_RPC_PPPI(nmppsCmpLt_8s8um);
+//#endif 
 
 
 

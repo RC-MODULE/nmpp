@@ -14,7 +14,7 @@ int nmppsCmpLt_64s8um (const nm64s* src1, const nm64s* src2, nm8u* dst,  int siz
 	}	
 	
 	if (nmppsMallocSuccess()){
-		nmppsCmpLt_64s    ((nm64s*)src1,(nm64s*)src2, (nm64s*)spec->buffer0,size);
+		nmppsCmpLt_64s63b  ((nm64s*)src1,(nm64s*)src2, (nm64s*)spec->buffer0,size);
 		nmppsConvert_64s16s((nm64s*)spec->buffer0,  (nm16s*)spec->buffer1,size);
 		nmppsConvert_16s8s ((nm16s*)spec->buffer1,  (nm8s*) spec->buffer0,size);
 		nmppsSubCRev_8s    ((nm8s*) spec->buffer0,0,(nm8s*) dst,size);

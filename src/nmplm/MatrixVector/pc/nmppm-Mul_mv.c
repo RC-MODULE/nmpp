@@ -40,7 +40,7 @@ void nmppmMul_mv_8s64s(
 	for(i=0; i<nHeight; i++, row+=nWidth){
 		p=0;
 		for(j=0; j<nWidth; j++){
-			p+=row[j]*pSrcVec[j];
+			p+=pSrcVec[j]*row[j];
 		}
 		pDstVec[i]=p;
 	}

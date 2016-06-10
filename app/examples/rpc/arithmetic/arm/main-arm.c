@@ -107,21 +107,21 @@ int main() {
 	nmppsMulC_64s	((nm64s*)src0_64s,2,(nm64s*)dst_64s,16); 			nmppsCrcAcc_64s(dst_64s,16,&crc);
 	
 	
-	nmppmMul_mv_colmajor_8s64s (src0_8s, src1_64s,dst_64s,8,8);					nmppsCrcAcc_64s(dst_64s,8,&crc);
-	nmppmMul_mv_colmajor_16s64s(src0_16s,src1_64s,dst_64s,8,8);                  nmppsCrcAcc_64s(dst_64s,8,&crc);
-	nmppmMul_mv_colmajor_32s64s(src0_32s,src1_64s,dst_64s,8,8);                  nmppsCrcAcc_64s(dst_64s,8,&crc);
+	nmppmMul_mv_8s64s (src0_8s, src1_64s,dst_64s,8,8);					nmppsCrcAcc_64s(dst_64s,8,&crc);
+	nmppmMul_mv_16s64s(src0_16s,src1_64s,dst_64s,8,8);                  nmppsCrcAcc_64s(dst_64s,8,&crc);
+	nmppmMul_mv_32s64s(src0_32s,src1_64s,dst_64s,8,8);                  nmppsCrcAcc_64s(dst_64s,8,&crc);
                 
-	nmppmMul_mm_colmajor_8s8s  (src0_8s,8,8,src1_8s, dst_8s, 8);					nmppsCrcAcc_8s (dst_8s, 8,&crc);
-	nmppmMul_mm_colmajor_8s16s (src0_8s,8,8,src1_16s,dst_16s,8);                 nmppsCrcAcc_16s(dst_16s,8,&crc);
-	nmppmMul_mm_colmajor_8s32s (src0_8s,8,8,src1_32s,dst_32s,8);                 nmppsCrcAcc_32s(dst_32s,8,&crc);
-	nmppmMul_mm_colmajor_8s64s (src0_8s,8,8,src1_64s,dst_64s,8);                 nmppsCrcAcc_64s(dst_64s,8,&crc);
+	nmppmMul_mm_8s8s  (src0_8s,8,8,src1_8s, dst_8s, 8);					nmppsCrcAcc_8s (dst_8s, 8,&crc);
+	nmppmMul_mm_8s16s (src0_8s,8,8,src1_16s,dst_16s,8);                 nmppsCrcAcc_16s(dst_16s,8,&crc);
+	nmppmMul_mm_8s32s (src0_8s,8,8,src1_32s,dst_32s,8);                 nmppsCrcAcc_32s(dst_32s,8,&crc);
+	nmppmMul_mm_8s64s (src0_8s,8,8,src1_64s,dst_64s,8);                 nmppsCrcAcc_64s(dst_64s,8,&crc);
 				
-	nmppmMul_mm_colmajor_16s16s(src0_16s,8,8,src1_16s,dst_16s,8);                nmppsCrcAcc_16s(dst_16s,8,&crc);
-	nmppmMul_mm_colmajor_16s32s(src0_16s,8,8,src1_32s,dst_32s,8);                nmppsCrcAcc_32s(dst_32s,8,&crc);
-	nmppmMul_mm_colmajor_16s64s(src0_16s,8,8,src1_64s,dst_64s,8);                nmppsCrcAcc_64s(dst_64s,8,&crc);
-	                                                                    
-	nmppmMul_mm_colmajor_32s32s(src0_32s,8,8,src1_32s,dst_32s,8);				nmppsCrcAcc_32s(dst_32s,8,&crc);
-	nmppmMul_mm_colmajor_32s64s(src0_32s,8,8,src1_64s,dst_64s,8);                nmppsCrcAcc_64s(dst_64s,8,&crc);
+	nmppmMul_mm_16s16s(src0_16s,8,8,src1_16s,dst_16s,8);                nmppsCrcAcc_16s(dst_16s,8,&crc);
+	nmppmMul_mm_16s32s(src0_16s,8,8,src1_32s,dst_32s,8);                nmppsCrcAcc_32s(dst_32s,8,&crc);
+	nmppmMul_mm_16s64s(src0_16s,8,8,src1_64s,dst_64s,8);                nmppsCrcAcc_64s(dst_64s,8,&crc);
+	                                                           
+	nmppmMul_mm_32s32s(src0_32s,8,8,src1_32s,dst_32s,8);				nmppsCrcAcc_32s(dst_32s,8,&crc);
+	nmppmMul_mm_32s64s(src0_32s,8,8,src1_64s,dst_64s,8);                nmppsCrcAcc_64s(dst_64s,8,&crc);
 	
 	
 	

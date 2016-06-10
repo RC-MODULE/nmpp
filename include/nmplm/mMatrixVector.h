@@ -106,6 +106,19 @@ void nmppmMul_mm_16s64s( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSr
 
 void nmppmMul_mm_32s32s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
 void nmppmMul_mm_32s64s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
+
+void nmppmMul_mm_colmajor_8s8s  (const nm8s* pSrcMtr1,  int nHeight1, int nWidth1, const nm8s* pSrcMtr2,  nm8s*  pDstMtr, int nWidth2);
+void nmppmMul_mm_colmajor_8s16s (const nm8s* pSrcMtr1,  int nHeight1, int nWidth1, const nm16s* pSrcMtr2, nm16s* pDstMtr, int nWidth2);
+void nmppmMul_mm_colmajor_8s32s (const nm8s* pSrcMtr1,  int nHeight1, int nWidth1, const nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
+void nmppmMul_mm_colmajor_8s64s (const nm8s* pSrcMtr1,  int nHeight1, int nWidth1, const nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
+                                                                                   
+void nmppmMul_mm_colmajor_16s16s(const nm16s* pSrcMtr1, int nHeight1, int nWidth1, const nm16s* pSrcMtr2, nm16s* pDstMtr, int nWidth2);
+void nmppmMul_mm_colmajor_16s32s(const nm16s* pSrcMtr1, int nHeight1, int nWidth1, const nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
+void nmppmMul_mm_colmajor_16s64s(const nm16s* pSrcMtr1, int nHeight1, int nWidth1, const nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
+                                                                                   
+void nmppmMul_mm_colmajor_32s32s(const nm32s* pSrcMtr1, int nHeight1, int nWidth1, const nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
+void nmppmMul_mm_colmajor_32s64s(const nm32s* pSrcMtr1, int nHeight1, int nWidth1, const nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
+
     //! \}
 
 
@@ -173,6 +186,11 @@ void nmppmMul_mv_16s64s( nm16s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nH
 void nmppmMul_mv_32s64s( nm32s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
 void nmppmMul_mv_8s16s_8xH( v8nm8s* pSrcMtr,  v8nm16s* pSrcVec, nm16s* pDstVec, int nHeight);
 void nmppmMul_mv_16s16s_8xH( v8nm16s* pSrcMtr,  v8nm16s* pSrcVec, nm16s* pDstVec, int nHeight);
+
+void nmppmMul_mv_colmajor_8s64s (const nm8s*  pSrcMtr,const  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
+void nmppmMul_mv_colmajor_16s64s(const nm16s* pSrcMtr,const  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
+void nmppmMul_mv_colmajor_32s64s(const nm32s* pSrcMtr,const  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
+
     //! \}
 
 //*****************************************************************************

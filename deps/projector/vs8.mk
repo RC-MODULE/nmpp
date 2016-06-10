@@ -23,6 +23,7 @@ define VarCollapse
 $(subst $(NEURO),$$(NEURO),$(1))
 endef
 endif
+#$(subst $(NMPP),$$(NMPP),   $(subst $(NEURO),$$(NEURO),$(1))     )
 
 #---------------------------------------------------------------------------------------------
 #function of recurse search for *.h in argument directory

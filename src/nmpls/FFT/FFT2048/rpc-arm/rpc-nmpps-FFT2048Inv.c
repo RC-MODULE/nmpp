@@ -1,7 +1,7 @@
 	#include "fft2.h"
 	#include "rpc-host.h"	
 
-	void nmppsFFT2048Inv(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
+	void nmppsFFT2048Inv(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
 	{
 		int ret;	
 		int size=2048;
@@ -22,7 +22,7 @@
 		slog(0, SLOG_INFO, "ARM: Call nmppsFFT2048Inv -ok"); 
 	}
 
-	int nmppsFFT2048InvInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int settings)
+	int nmppsFFT2048InvInitAlloc( NmppsFFTSpec** spec,const  void* src,const  void* dst, int settings)
 	{
 		struct aura_buffer *iobuf_src = aura_buffer_request(n, 2048*8);	
 		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 2048*8);	

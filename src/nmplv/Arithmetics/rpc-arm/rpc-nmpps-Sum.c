@@ -27,7 +27,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
 void nmppsSum_8s(
-		nm8s*			pSrcVec,
+		const nm8s*			pSrcVec,
 		int				nSize,
 		int *   pnRes
 		)
@@ -39,7 +39,7 @@ void nmppsSum_8s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
 void nmppsSum_16s(
-		nm16s*			pSrcVec,
+		const nm16s*			pSrcVec,
 		int				nSize,
 		int64b*   pnRes
 		)
@@ -50,7 +50,7 @@ void nmppsSum_16s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
 void nmppsSum_32s(
-		nm32s*			pSrcVec,
+		const nm32s*			pSrcVec,
 		int				nSize,
 		int64b*   pnRes
 		)
@@ -61,7 +61,7 @@ void nmppsSum_32s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
 void nmppsSum_64s(
-	  nm64s*			pSrcVec,
+		const nm64s*			pSrcVec,
 		int				nSize,
 		int64b *   pnRes
 		)

@@ -26,8 +26,8 @@
 // The order of intermediate data transmissions in function is:
 //		Buf1[],Buf2			=> pDstVec[]				- Subtraction	(in-place is supported)
 void nmppsSub_8s(
-		nm8s*			pSrcVec1,	// input buffer		:long Local [VecSize/8]
-		nm8s*			pSrcVec2,	// input buffer		:long Local [VecSize/8]
+		const nm8s*			pSrcVec1,	// input buffer		:long Local [VecSize/8]
+		const nm8s*			pSrcVec2,	// input buffer		:long Local [VecSize/8]
 		nm8s*			pDstVec,		// output buffer	:long Global[VecSize/8]
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[8,16,32...]
 		)
@@ -44,8 +44,8 @@ void nmppsSub_8s(
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two short vectors
 void nmppsSub_16s(
-		nm16s*			pSrcVec1,		// input buffer		:long Local [VecSize/4]
-		nm16s*			pSrcVec2,		// input buffer		:long Local [VecSize/4]
+		const nm16s*			pSrcVec1,		// input buffer		:long Local [VecSize/4]
+		const nm16s*			pSrcVec2,		// input buffer		:long Local [VecSize/4]
 		nm16s*			pDstVec,			// output buffer	:long Global[VecSize/4]
 		int				nSize			// size of input buffer in 16-bit elements. nSize=[0,4,8,12..]
 		)
@@ -60,8 +60,8 @@ void nmppsSub_16s(
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two int vectors
 void nmppsSub_32s(
-		nm32s*			pSrcVec1,		// input buffer		:long Local [VecSize/2]
-		nm32s*			pSrcVec2,		// input buffer		:long Local [VecSize/2]
+		const nm32s*			pSrcVec1,		// input buffer		:long Local [VecSize/2]
+		const nm32s*			pSrcVec2,		// input buffer		:long Local [VecSize/2]
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/2]
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
 		)
@@ -75,9 +75,9 @@ void nmppsSub_32s(
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two __int64 vectors
 void nmppsSub_64s(
-	  nm64s*			pSrcVec1,		// input buffer		:long Local [nSize]
-	  nm64s*			pSrcVec2,		// input buffer		:long Local [nSize]
-	  nm64s*			pDstVec,			// output buffer	:long Global[nSize]
+		const nm64s*			pSrcVec1,		// input buffer		:long Local [nSize]
+		const nm64s*			pSrcVec2,		// input buffer		:long Local [nSize]
+		nm64s*			pDstVec,			// output buffer	:long Global[nSize]
 		int				nSize			// size of input buffer in 32-bit elements. nSize=[0,1,2,3,4...]
 		)
 {
@@ -89,7 +89,10 @@ void nmppsSub_64s(
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two __int64 complex vectors
-void nmppsSub_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize)
+void nmppsSub_64sc(
+		const nm64sc *pSrcVec1, 
+		const nm64sc *pSrcVec2, 
+		nm64sc *pDstVec, int nSize)
 {
 	int i;
 	for(i=0;i<nSize;i++)

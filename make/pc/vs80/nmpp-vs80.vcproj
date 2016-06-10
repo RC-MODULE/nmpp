@@ -346,9 +346,11 @@
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEq0.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEqC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpEqV.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpLt.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpLt0.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpLtC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpMinMaxEvery.c" > </File> 
+ 			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpNe.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpNeC.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsCmpNeV.c" > </File> 
  			<File RelativePath="..\..\..\src\nmplv\Select\pc\nmppsFirstNonZeroIndx.c" > </File> 

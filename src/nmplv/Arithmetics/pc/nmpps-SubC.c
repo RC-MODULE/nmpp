@@ -26,7 +26,7 @@
 // Decrement of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]-Decrement
 void nmppsSubC_8s(
-		nm8s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
+const 	nm8s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		int8b			nVal,				// decrement		:
 		nm8s*			pDstVec,			// output buffer	:long Global[VecSize/8]
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[0,8,16,32...]
@@ -43,7 +43,7 @@ void nmppsSubC_8s(
 // Decrement of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]-Decrement
 void nmppsSubC_16s(
-		nm16s*			pSrcVec,			// input buffer		:long Local [VecSize/4]
+const 	nm16s*			pSrcVec,			// input buffer		:long Local [VecSize/4]
 		int16b			nVal,				// decrement		:
 		nm16s*			pDstVec,			// output buffer	:long Global[VecSize/4]
 		int				nSize		// size of input buffer in 8-bit elements. nSize=[0,4,8,12...]
@@ -60,7 +60,7 @@ void nmppsSubC_16s(
 // Decrement of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]-Decrement
 void nmppsSubC_32s(
-		nm32s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
+const 	nm32s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
 		int32b			nVal,				// decrement		:
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/2]
 		int				nSize		// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
@@ -76,7 +76,7 @@ void nmppsSubC_32s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // pDstVec[i]=pSrcVec[i]-Decrement
 void nmppsSubC_64s(
-		nm64s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
+const 	nm64s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
 		int64b			nVal,				// decrement		:
 		nm64s*			pDstVec,			// output buffer	:long Global[VecSize/2]
 		int				nSize		// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]

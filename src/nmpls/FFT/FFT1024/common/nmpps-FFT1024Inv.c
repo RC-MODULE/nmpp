@@ -2,7 +2,7 @@
 //#include "fft.h"
 void FFT_Inv1024Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
 void  FFT_Inv1024(
-			nm32sc*	GSrcBuffer,	// Source buffer :long[1024]
+	const 	nm32sc*	GSrcBuffer,	// Source buffer :long[1024]
 			nm32sc*	GDstBuffer,	// Result FFT    :long[1024]
 			void*		LBuffer,	// Temp buffer   :long[1024*3]
 			void*		GBuffer,	// Temp buffer   :long[1024*3]
@@ -12,7 +12,7 @@ void  FFT_Inv1024(
 			
 #include "fft2.h"
 
-	void nmppsFFT1024Inv(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
+	void nmppsFFT1024Inv(const nm32sc* src, nm32sc* dst,const  NmppsFFTSpec* spec)
 	{
 		FFT_Inv1024(src, dst, spec->buffer[0], spec->buffer[1], spec->shift[0], spec->shift[1] );
 	}
@@ -41,7 +41,7 @@ void  FFT_Inv1024(
 
 
 
-	int nmppsFFT1024InvInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int settings)
+	int nmppsFFT1024InvInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst, int settings)
 	{
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
@@ -53,7 +53,7 @@ void  FFT_Inv1024(
 		ret = nmppsFFT1024InvInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
 		return ret;
 	}
-	int nmppsFFT1024InvOptimize(void* src, void* dst, fseq64* allocOrder) 
+	int nmppsFFT1024InvOptimize(const void* src, const void* dst, fseq64* allocOrder) 
 	{
 		unsigned heapIndx0;
 		unsigned heapIndx1;

@@ -2,7 +2,7 @@
 //#include "fft.h"
 void FFT_Fwd512Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
 void  FFT_Fwd512(
-			nm32sc*	GSrcBuffer,	// Source buffer :long[512]
+		const	nm32sc*	GSrcBuffer,	// Source buffer :long[512]
 			nm32sc*	GDstBuffer,	// Result FFT    :long[512]
 			void*		LBuffer,	// Temp buffer   :long[512*3]
 			void*		GBuffer,	// Temp buffer	 :long[512*3]
@@ -12,7 +12,7 @@ void  FFT_Fwd512(
 #include "fft2.h"
 
 
-	void nmppsFFT512Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
+	void nmppsFFT512Fwd(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
 	{
 		FFT_Fwd512(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
 	}
@@ -35,7 +35,7 @@ void  FFT_Fwd512(
 	}
 
 
-	int nmppsFFT512FwdInitAlloc( NmppsFFTSpec** spec, void* src, void* dst,  int settings)
+	int nmppsFFT512FwdInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings)
 	{
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
@@ -48,7 +48,7 @@ void  FFT_Fwd512(
 		return ret;
 	}
 
-	int nmppsFFT512FwdOptimize(void* src, void* dst, fseq64* allocOrder) 
+	int nmppsFFT512FwdOptimize(const void* src, const void* dst, fseq64* allocOrder) 
 	{
 
 		unsigned heapIndx0;

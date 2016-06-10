@@ -61,10 +61,10 @@ unsigned ByteArray[256]={0, 1, 1, 2, 1, 2, 2, 3,
 /////////////////////////////////////////////////////////////////////////////////////////
 // Count bits in 64-bit vectors. Each amount store in the 64 bit vec. 
 void		nmppsSum_1s(
-	nm1*			pSrcVec,			// input buffer		:long Local [nSize]
-		int				nSize,			// size of input buffer in 64-bit elements. nSize=[0,1,2,3...]
+const 	nm1*	pSrcVec,			// input buffer		:long Local [nSize]
+		int		nSize,			// size of input buffer in 64-bit elements. nSize=[0,1,2,3...]
 		int *   pnRes, 
-		void*			pTmpBuf
+		void*	pTmpBuf
 		)
 {
 
@@ -108,8 +108,8 @@ void		nmppsSum_1s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
 void nmppsSum_8s(
-		nm8s*			pSrcVec,
-		int				nSize,
+const 	nm8s*	pSrcVec,
+		int		nSize,
 		int *   pnRes
 		)
 {
@@ -125,9 +125,9 @@ void nmppsSum_8s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
 void nmppsSum_16s(
-		nm16s*			pSrcVec,
-		int				nSize,
-		int64b *   pnRes
+const 	nm16s*		pSrcVec,
+		int			nSize,
+		int64b *   	pnRes
 		)
 {
 	int64b sum = 0;
@@ -141,9 +141,9 @@ void nmppsSum_16s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
 void nmppsSum_32s(
-		nm32s*			pSrcVec,
-		int				nSize,
-		int64b *   pnRes
+const 	nm32s*		pSrcVec,
+		int			nSize,
+		int64b *   	pnRes
 		)
 {
 	int64b sum = 0;
@@ -157,9 +157,9 @@ void nmppsSum_32s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Summation of all elements in array
 void nmppsSum_64s(
-	  nm64s*			pSrcVec,
-		int				nSize,
-		int64b *   pnRes
+const 	nm64s*		pSrcVec,
+		int			nSize,
+		int64b *   	pnRes
 		)
 {
 	int64b sum = 0;

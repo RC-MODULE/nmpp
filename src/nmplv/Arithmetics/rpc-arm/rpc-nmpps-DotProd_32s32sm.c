@@ -21,8 +21,8 @@
 #include "nmtype.h"
 
 int nmppsDotProd_32s32sm(
-	nm32s*		srcVec0,	//Input0 buffer		:long Local [Size].
-	nm32s*		srcVec1,	//Input1 buffer		:long Global[Size].
+	const nm32s*		srcVec0,	//Input0 buffer		:long Local [Size].
+	const nm32s*		srcVec1,	//Input1 buffer		:long Global[Size].
 	int			size,		//Size of input vec
 	nm64s*		dst,		//Output buffer		:long Any
 	nm64s* 		tmp

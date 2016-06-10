@@ -6,7 +6,7 @@
 void FFT_Inv256Set7bit();	
 
 void  FFT_Inv256(
-			nm32sc*	GSrcBuffer,	// Source buffer :long[256]
+		const 	nm32sc*	GSrcBuffer,	// Source buffer :long[256]
 			nm32sc*	GDstBuffer,	// Result FFT    :long[256]
 			void*		LBuffer,	// Temp buffer   :long[256*3]
 			void*		GBuffer,	// Temp buffer   :long[256*3]
@@ -17,7 +17,7 @@ void  FFT_Inv256(
 			);
 			
 
-	void nmppsFFT256Inv(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
+	void nmppsFFT256Inv(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
 	{
 		FFT_Inv256(src, dst, spec->buffer[0], spec->buffer[1], spec->shift[0], spec->shift[1] );
 	}
@@ -45,7 +45,7 @@ void  FFT_Inv256(
 
 
 
-	int nmppsFFT256InvInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int settings)
+	int nmppsFFT256InvInitAlloc( NmppsFFTSpec** spec,const void* src, const void* dst, int settings)
 	{
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
@@ -57,7 +57,7 @@ void  FFT_Inv256(
 		ret = nmppsFFT256InvInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
 		return ret;
 	}
-	int nmppsFFT256InvOptimize(void* src, void* dst, fseq64* allocOrder) 
+	int nmppsFFT256InvOptimize(const void* src, const void* dst, fseq64* allocOrder) 
 	{
 		unsigned heapIndx0;
 		unsigned heapIndx1;

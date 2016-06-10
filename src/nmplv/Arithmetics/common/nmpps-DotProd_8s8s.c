@@ -21,8 +21,8 @@
 #include "malloc32.h"
 
 int nmppsDotProd_8s8sm(
-	nm8s*		srcVec0,	//Input0 buffer		:long Local [Size].
-	nm8s*		srcVec1,	//Input1 buffer		:long Global[Size].
+	const nm8s*		srcVec0,	//Input0 buffer		:long Local [Size].
+	const nm8s*		srcVec1,	//Input1 buffer		:long Global[Size].
 	int			size,		//Size of input vec
 	nm64s*		dst,		//Output product
 	nm64s*		tmp

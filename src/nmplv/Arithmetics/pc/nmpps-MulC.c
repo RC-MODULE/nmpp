@@ -23,7 +23,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 64-bit buffer elements by 64-bit scalar value
 void nmppsMulC_64s(
-		  nm64s*		pSrcVec,				// input  buffer		:long Local  [nSize]
+const 	  nm64s*		pSrcVec,				// input  buffer		:long Local  [nSize]
 		  nm64s			MulN,				// 64-bit scalar value
 		  nm64s*		pDstVec,				// output buffer		:long Global [nSize]
 			int			nSize				// size of input buffer in 64-bit elements. nSize=[0,1,2,3..]
@@ -37,7 +37,7 @@ void nmppsMulC_64s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 32-bit buffer elements by 64-bit scalar value
 void nmppsMulC_32s64s(
-			nm32s*		pSrcVec,			// input  buffer		:long Local  [VecSize/2]
+const 		nm32s*		pSrcVec,			// input  buffer		:long Local  [VecSize/2]
 			nm64s		MulN,			// 64-bit scalar value
 			nm64s*		pDstVec,			// output buffer		:long Global [nSize]
 			int			nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
@@ -51,7 +51,7 @@ void nmppsMulC_32s64s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 16-bit buffer elements by 16-bit scalar value
 void nmppsMulC_16s(
-			nm16s*		pSrcVec,		// input  buffer		:long Local  [VecSize/4]
+const 		nm16s*		pSrcVec,		// input  buffer		:long Local  [VecSize/4]
 			int			MulN,			// 32-bit scalar value
 			nm16s*		pDstVec,		// output buffer		:long Global [VecSize/2]
 			int			nSize			// size of input buffer in 16-bit elements. nSize=[0,4,8...]
@@ -67,7 +67,7 @@ void nmppsMulC_16s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 16-bit buffer elements by 32-bit scalar value
 void nmppsMulC_16s32s(
-			nm16s*		pSrcVec,		// input  buffer		:long Local  [VecSize/4]
+const 		nm16s*		pSrcVec,		// input  buffer		:long Local  [VecSize/4]
 			int			MulN,				// 32-bit scalar value
 			nm32s*		pDstVec,		// output buffer		:long Global [VecSize/2]
 			int			nSize			// size of input buffer in 16-bit elements. nSize=[0,4,8...]
@@ -82,7 +82,7 @@ void nmppsMulC_16s32s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 32-bit buffer elements by scalar value
 void nmppsMulC_32s(
-			nm32s*		pSrcVec,			// input vec			:long Local  [VecSize/2]
+const 		nm32s*		pSrcVec,			// input vec			:long Local  [VecSize/2]
 			int			MulN,				// 32-bit scalar value
 			nm32s*		pDstVec,			// output vec		:long Global [VecSize/2]
 			int			nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
@@ -98,7 +98,7 @@ void nmppsMulC_32s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 8-bit buffer elements by 16-bit scalar value
 void nmppsMulC_8s16s(
-			nm8s*		pSrcVec,		// input  buffer					:long Local  [VecSize/8]
+const 		nm8s*		pSrcVec,		// input  buffer					:long Local  [VecSize/8]
 			int16b		MulN,				// 16-bit scalar value
 			nm16s*		pDstVec,		// output buffer					:long Global [VecSize/4]
 			int			nSize			// size of input buffer in 8-bit elements. nSize=[0,8,16...]
@@ -114,7 +114,7 @@ void nmppsMulC_8s16s(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 8-bit buffer elements by 8-bit scalar value
 void nmppsMulC_8s(
-			nm8s*		pSrcVec,		// input  buffer					:long Local  [VecSize/8]
+const 		nm8s*		pSrcVec,		// input  buffer					:long Local  [VecSize/8]
 			int8b		MulN,			// 8-bit scalar value
 			nm8s*		pDstVec,		// output buffer					:long Global [VecSize/8]
 			int			nSize			// size of input buffer in 8-bit elements. nSize=[0,8,16...]
@@ -134,7 +134,7 @@ void nmppsMulC_8s(
 // Multiplying 32-bit buffer elements by scalar value
 // pDstVec[i]=pSrcVec[i]*MulN+AddN
 void nmppsMulC_AddC_32s(
-			nm32s*		pSrcVec,			// input vec			:long Local  [VecSize/2]
+const 		nm32s*		pSrcVec,			// input vec			:long Local  [VecSize/2]
 			int			MulN,			// multiplier 
 			int			AddN,			// additional constant
 			nm32s*		pDstVec,			// output vec		:long Global [VecSize/2]

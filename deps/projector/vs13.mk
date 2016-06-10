@@ -20,11 +20,10 @@ vc-lib:
 # эта функция сворачивает пути обратно к виду $(VAR) если есть такая переменная с данным путем 
 ifndef VarCollapse
 define VarCollapse
-$(subst $(NMPP),$$(NMPP),   $(subst $(NEURO),$$(NEURO),$(1))     )
-
+$(subst $(NEURO),$$(NEURO),$(1))
 endef
 endif
-
+#$(subst $(NMPP),$$(NMPP),   $(subst $(NEURO),$$(NEURO),$(1))     )
 
 #---------------------------------------------------------------------------------------------
 #function of recurse search for *.h in argument directory

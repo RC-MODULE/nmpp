@@ -23,8 +23,8 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of maximum value in 8-bit buffer
-void nmppsMax_8s(
-				nm8s*		pSrcVec,	// input buffer					:long Local [Size/8]
+void nmppsMax_8s7b(
+		const	nm8s7b*		pSrcVec,	// input buffer					:long Local [Size/8]
 				int			nSize,		// buffer size in 8-bit words	:nSize=[512,768,1024.....]
 				int8b*		pMaxValue)	// Maximum
 {
@@ -32,8 +32,8 @@ void nmppsMax_8s(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of maximum value in 16-bit buffer
-void nmppsMax_16s(
-				nm16s*		pSrcVec,	// input buffer					:long Local [Size/4]
+void nmppsMax_16s15b(
+		const	nm16s15b*		pSrcVec,	// input buffer					:long Local [Size/4]
 				int			nSize,		// buffer size in 16-bit words	:nSize=[256,384,512...]
 				int16b*		pMaxValue)	// Maximum
 {
@@ -41,8 +41,8 @@ void nmppsMax_16s(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of maximum value in 32-bit buffer
-void nmppsMax_32s(
-				nm32s*		pSrcVec,	// input buffer					:long Local [Size/2]
+void nmppsMax_32s7b(
+		const	nm32s31b*		pSrcVec,	// input buffer					:long Local [Size/2]
 				int			nSize,		// buffer size in 32-bit words	:nSize=[128,192,256..]
 				int*		pMaxValue)	// Maximum
 {
@@ -50,8 +50,8 @@ void nmppsMax_32s(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 // Search of maximum value in 64-bit buffer
-void nmppsMax_64s(
-				nm64s63b*	pSrcVec,	// input buffer					:long Local [Size/2]
+void nmppsMax_64s7b(
+		const	nm64s63b*	pSrcVec,	// input buffer					:long Local [Size/2]
 				int			nSize,		// buffer size in 32-bit words	:nSize=[128,192,256..]
 				int64b*		pMaxValue)	// Maximum
 {

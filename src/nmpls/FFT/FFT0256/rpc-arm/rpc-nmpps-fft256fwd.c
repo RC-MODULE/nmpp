@@ -7,7 +7,7 @@
 		RPC_HOST_I("nmppsFFTFree",(int)spec);	
 	}	
 
-	void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
+	void nmppsFFT256Fwd(const nm32sc* src, nm32sc* dst,const  NmppsFFTSpec* spec)
 	{
 		clock_t t0,t1,t2,t3;
 		t0=clock();
@@ -34,7 +34,7 @@
 
 	}
 
-	int nmppsFFT256FwdInitAlloc( NmppsFFTSpec** spec, void* src, void* dst,  int settings)
+	int nmppsFFT256FwdInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings)
 	{
 		struct aura_buffer *iobuf_src = aura_buffer_request(n, 256*8);	
 		struct aura_buffer *iobuf_dst = aura_buffer_request(n, 256*8);	

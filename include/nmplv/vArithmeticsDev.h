@@ -23,7 +23,11 @@
 	\addtogroup nmppsAdd
 	*/
 	//! \{
-void nmppsAdd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, nm64sc *pDstVec, int nSize);
+void nmppsAdd_64sc(
+	const nm64sc *pSrcVec1, 
+	const nm64sc *pSrcVec2, 
+			nm64sc *pDstVec, 
+			int nSize);
 	//! \}
 
 	/**

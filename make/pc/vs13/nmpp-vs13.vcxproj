@@ -270,9 +270,11 @@
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpEq0.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpEqC.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpEqV.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpLt.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpLt0.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpLtC.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpMinMaxEvery.c" /> 
+ 	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpNe.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpNeC.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsCmpNeV.c" /> 
  	<ClCompile Include="../../../src/nmplv/Select/pc/nmppsFirstNonZeroIndx.c" /> 

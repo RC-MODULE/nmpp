@@ -2,7 +2,7 @@
 #include "nmtype.h"
 
 void nmppsNot_8u(
-		nm8u*			pSrcVec,		// input buffer		:long Local [VecSize/8]
+const 	nm8u*			pSrcVec,		// input buffer		:long Local [VecSize/8]
 		nm8u*			pDstVec,		// output buffer	:long Global[VecSize/8]
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
@@ -14,7 +14,7 @@ void nmppsNot_8u(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Notolute value calculation
 void nmppsNot_16u(
-		nm16u*			pSrcVec,		// input buffer		:long Local [VecSize/4]
+const 	nm16u*			pSrcVec,		// input buffer		:long Local [VecSize/4]
 		nm16u*			pDstVec,		// output buffer	:long Global[VecSize/4]
 		int				nSize		// size of input buffer in 8 bit elements. nSize=[0,4,8,..]
 		)
@@ -27,7 +27,7 @@ void nmppsNot_16u(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Notolute value calculation
 void nmppsNot_32u(
-		nm32u*			pSrcVec,		// input buffer		:long Local [VecSize/2]
+const 	nm32u*			pSrcVec,		// input buffer		:long Local [VecSize/2]
 		nm32u*			pDstVec,		// output buffer	:long Global[VecSize/2]
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[2,4,6...]
 		)
@@ -40,7 +40,7 @@ void nmppsNot_32u(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Notolute value calculation
 void nmppsNot_64u(
-		nm64u*			pSrcVec,		// input buffer		:long Local [VecSize/2]
+const 	nm64u*			pSrcVec,		// input buffer		:long Local [VecSize/2]
 		nm64u*			pDstVec,		// output buffer	:long Global[VecSize/2]
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[2,4,6...]
 		)

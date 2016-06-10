@@ -2,7 +2,7 @@
 //#include "fft.h"
 void FFT_Inv2048Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
 void  FFT_Inv2048(
-			nm32sc*	GSrcBuffer,	// Source buffer :long[2048]
+	const 	nm32sc*	GSrcBuffer,	// Source buffer :long[2048]
 			nm32sc*	LDstBuffer,	// Result FFT    :long[2048]
 			void*		LBuffer,	// Temp buffer   :long[2048*4]
 			void*		GBuffer,	// Temp buffer   :long[2048*4]
@@ -12,7 +12,7 @@ void  FFT_Inv2048(
 			
 #include "fft2.h"
 
-	void nmppsFFT2048Inv(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
+	void nmppsFFT2048Inv(const nm32sc* src, nm32sc* dst,const  NmppsFFTSpec* spec)
 	{
 		FFT_Inv2048(src, dst, spec->buffer[0], spec->buffer[1], spec->shift[0], spec->shift[1] );
 	}
@@ -41,7 +41,7 @@ void  FFT_Inv2048(
 
 
 
-	int nmppsFFT2048InvInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int settings)
+	int nmppsFFT2048InvInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst, int settings)
 	{
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
@@ -53,7 +53,7 @@ void  FFT_Inv2048(
 		ret = nmppsFFT2048InvInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
 		return ret;
 	}
-	int nmppsFFT2048InvOptimize(void* src, void* dst, fseq64* allocOrder) 
+	int nmppsFFT2048InvOptimize(const void* src, const void* dst, fseq64* allocOrder) 
 	{
 		unsigned heapIndx0;
 		unsigned heapIndx1;

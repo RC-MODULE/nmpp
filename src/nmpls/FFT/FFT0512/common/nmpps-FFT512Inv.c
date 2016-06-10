@@ -4,7 +4,7 @@
 
 void FFT_Inv512Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
 void  FFT_Inv512(
-			nm32sc*	GSrcBuffer,	// Source buffer :long[512]
+	const 	nm32sc*	GSrcBuffer,	// Source buffer :long[512]
 			nm32sc*	LDstBuffer,	// Result FFT    :long[512]
 			void*		LBuffer,	// Temp buffer   :long[512*3]
 			void*		GBuffer,	// Temp buffer	 :long[512*3]	
@@ -13,7 +13,7 @@ void  FFT_Inv512(
 			);
 			
 
-	void nmppsFFT512Inv(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
+	void nmppsFFT512Inv(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
 	{
 		FFT_Inv512(src, dst, spec->buffer[0], spec->buffer[1], spec->shift[0], spec->shift[1] );
 	}
@@ -40,7 +40,7 @@ void  FFT_Inv512(
 
 
 
-	int nmppsFFT512InvInitAlloc( NmppsFFTSpec** spec, void* src, void* dst, int settings)
+	int nmppsFFT512InvInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst, int settings)
 	{
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
@@ -52,7 +52,7 @@ void  FFT_Inv512(
 		ret = nmppsFFT512InvInitAllocCustom(spec, nmppsMalloc32, nmppsFree, settings);
 		return ret;
 	}
-	int nmppsFFT512InvOptimize(void* src, void* dst, fseq64* allocOrder) 
+	int nmppsFFT512InvOptimize(const void* src, const void* dst, fseq64* allocOrder) 
 	{
 		unsigned heapIndx0;
 		unsigned heapIndx1;

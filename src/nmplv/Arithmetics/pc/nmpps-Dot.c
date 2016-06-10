@@ -25,10 +25,10 @@
 // Vector multiplication
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_64s64s(
-	nm64s*	srcVec0,	//Input0 buffer		:long Local [Size].
-	nm64s*	srcVec1,	//Input1 buffer		:long Global[Size].
-	int		size,		//Size of input vec
-	int64b*	dst			//Output buffer		:long Any
+const	nm64s*	srcVec0,	//Input0 buffer		:long Local [Size].
+const	nm64s*	srcVec1,	//Input1 buffer		:long Global[Size].
+		int		size,		//Size of input vec
+		int64b*	dst			//Output buffer		:long Any
 	)
 {
 
@@ -41,10 +41,10 @@ void nmppsDotProd_64s64s(
 
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_32s64s(
-	nm32s*	srcVec0,	//Input0 buffer		:long Local [Size].
-	nm64s*	srcVec1,	//Input1 buffer		:long Global[Size].
-	int		size,		//Size of input vec
-	int64b*	dst			//Output buffer		:long Any
+const	nm32s*	srcVec0,	//Input0 buffer		:long Local [Size].
+const	nm64s*	srcVec1,	//Input1 buffer		:long Global[Size].
+		int		size,		//Size of input vec
+		int64b*	dst			//Output buffer		:long Any
 	)
 {
 	int i;
@@ -56,10 +56,10 @@ void nmppsDotProd_32s64s(
 
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_16s64s(
-	nm16s*	srcVec0,	//Input0 buffer		:long Local [Size].
-	nm64s*	srcVec1,	//Input1 buffer		:long Global[Size].
-	int		size,		//Size of input vec
-	int64b*	dst			//Output buffer		:long Any
+const	nm16s*	srcVec0,	//Input0 buffer		:long Local [Size].
+const	nm64s*	srcVec1,	//Input1 buffer		:long Global[Size].
+		int		size,		//Size of input vec
+		int64b*	dst			//Output buffer		:long Any
 	)
 {
 	int i;
@@ -70,10 +70,10 @@ void nmppsDotProd_16s64s(
 
 //////////////////////////////////////////////////////////////////////////////////////
 void nmppsDotProd_8s64s(
-	nm8s*	srcVec0,	//Input0 buffer		:long Local [Size].
-	nm64s*	srcVec1,	//Input1 buffer		:long Global[Size].
-	int		size,		//Size of input vec
-	int64b*	dst			//Output buffer		:long Any
+const	nm8s*	srcVec0,	//Input0 buffer		:long Local [Size].
+const	nm64s*	srcVec1,	//Input1 buffer		:long Global[Size].
+		int		size,		//Size of input vec
+		int64b*	dst			//Output buffer		:long Any
 	)
 {
 	int i;

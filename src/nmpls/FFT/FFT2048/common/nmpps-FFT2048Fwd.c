@@ -2,7 +2,7 @@
 //#include "fft.h"
 void FFT_Fwd2048Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
 void  FFT_Fwd2048(
-			nm32sc*	GSrcBuffer,	// Source buffer :long[2048]
+	const 	nm32sc*	GSrcBuffer,	// Source buffer :long[2048]
 			nm32sc*	GDstBuffer,	// Result FFT    :long[2048]
 			void*		LBuffer,	// Temp buffer   :long[2048*4]
 			int			ShiftR	// Right shift normalization
@@ -10,7 +10,7 @@ void  FFT_Fwd2048(
 			
 #include "fft2.h"
 
-	void nmppsFFT2048Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec)
+	void nmppsFFT2048Fwd(const nm32sc* src, nm32sc* dst,const  NmppsFFTSpec* spec)
 	{
 		FFT_Fwd2048(src,dst,spec->buffer[0],spec->shift[0]);
 	}
@@ -35,7 +35,7 @@ void  FFT_Fwd2048(
 	}
 
 
-	int nmppsFFT2048FwdInitAlloc( NmppsFFTSpec** spec, void* src, void* dst,  int settings)
+	int nmppsFFT2048FwdInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings)
 	{
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}
@@ -48,7 +48,7 @@ void  FFT_Fwd2048(
 		return ret;
 	}
 
-	int nmppsFFT2048FwdOptimize(void* src, void* dst, fseq64* allocOrder) 
+	int nmppsFFT2048FwdOptimize(const void* src, const void* dst, fseq64* allocOrder) 
 	{
 		unsigned heapIndx0;
 		unsigned heapIndx1;

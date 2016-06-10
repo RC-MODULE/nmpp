@@ -81,10 +81,10 @@
     \endxmlonly
     */
     //! \{
-void nmppsNot_8u (nm8u* pSrcVec,  nm8u*  pDstVec, int nSize);
-void nmppsNot_16u(nm16u* pSrcVec, nm16u* pDstVec, int nSize);
-void nmppsNot_32u(nm32u* pSrcVec, nm32u* pDstVec, int nSize);
-void nmppsNot_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
+void nmppsNot_8u (const nm8u* pSrcVec,  nm8u*  pDstVec, int nSize);
+void nmppsNot_16u(const nm16u* pSrcVec, nm16u* pDstVec, int nSize);
+void nmppsNot_32u(const nm32u* pSrcVec, nm32u* pDstVec, int nSize);
+void nmppsNot_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -145,10 +145,10 @@ void nmppsNot_64u(nm64u* pSrcVec, nm64u* pDstVec, int nSize);
     */
     //! \{
 void nmppsAndC_p64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
-void nmppsAndC_8u (nm8u* pSrcVec,  uint8b nVal,  nm8u*  pDstVec, int nSize);
-void nmppsAndC_16u(nm16u* pSrcVec, uint16b nVal, nm16u* pDstVec, int nSize);
-void nmppsAndC_32u(nm32u* pSrcVec, uint32b nVal, nm32u* pDstVec, int nSize);
-void nmppsAndC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
+void nmppsAndC_8u (const nm8u* pSrcVec,  uint8b nVal,  nm8u*  pDstVec, int nSize);
+void nmppsAndC_16u(const nm16u* pSrcVec, uint16b nVal, nm16u* pDstVec, int nSize);
+void nmppsAndC_32u(const nm32u* pSrcVec, uint32b nVal, nm32u* pDstVec, int nSize);
+void nmppsAndC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -204,10 +204,10 @@ void nmppsAndC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsAnd_8u (nm8u*  pSrcVec1, nm8u* pSrcVec2,  nm8u*  pDstVec, int nSize);
-void nmppsAnd_16u(nm16u* pSrcVec1, nm16u* pSrcVec2, nm16u* pDstVec, int nSize);
-void nmppsAnd_32u(nm32u* pSrcVec1, nm32u* pSrcVec2, nm32u* pDstVec, int nSize);		
-void nmppsAnd_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+void nmppsAnd_8u (const nm8u*  pSrcVec1, const nm8u* pSrcVec2,  nm8u*  pDstVec, int nSize);
+void nmppsAnd_16u(const nm16u* pSrcVec1, const nm16u* pSrcVec2, nm16u* pDstVec, int nSize);
+void nmppsAnd_32u(const nm32u* pSrcVec1, const nm32u* pSrcVec2, nm32u* pDstVec, int nSize);		
+void nmppsAnd_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 	
 /**
@@ -387,10 +387,10 @@ void nmppsAndNotV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSiz
     \endxmlonly
     */
     //! \{
-void nmppsOrC_8u (nm8u*  pSrcVec, uint8b  nVal,  nm8u* pDstVec, int nSize);
-void nmppsOrC_16u(nm16u* pSrcVec, uint16b nVal, nm16u* pDstVec, int nSize);
-void nmppsOrC_32u(nm32u* pSrcVec, uint32b nVal, nm32u* pDstVec, int nSize);
-void nmppsOrC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
+void nmppsOrC_8u (const nm8u*  pSrcVec, uint8b  nVal,  nm8u* pDstVec, int nSize);
+void nmppsOrC_16u(const nm16u* pSrcVec, uint16b nVal, nm16u* pDstVec, int nSize);
+void nmppsOrC_32u(const nm32u* pSrcVec, uint32b nVal, nm32u* pDstVec, int nSize);
+void nmppsOrC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -446,10 +446,10 @@ void nmppsOrC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsOr_8u (nm8u*  pSrcVec1, nm8u* pSrcVec2,  nm8u*  pDstVec, int nSize);
-void nmppsOr_16u(nm16u* pSrcVec1, nm16u* pSrcVec2, nm16u* pDstVec, int nSize);
-void nmppsOr_32u(nm32u* pSrcVec1, nm32u* pSrcVec2, nm32u* pDstVec, int nSize);		
-void nmppsOr_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+void nmppsOr_8u (const nm8u*  pSrcVec1, const nm8u* pSrcVec2,  nm8u*  pDstVec, int nSize);
+void nmppsOr_16u(const nm16u* pSrcVec1, const nm16u* pSrcVec2, nm16u* pDstVec, int nSize);
+void nmppsOr_32u(const nm32u* pSrcVec1, const nm32u* pSrcVec2, nm32u* pDstVec, int nSize);		
+void nmppsOr_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 	
 /**
@@ -633,10 +633,10 @@ void nmppsOrNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
     */
     //--------------------------------------------------------------------
     //! \{
-void nmppsXorC_8u (nm8u*  pSrcVec, uint8b  nVal,  nm8u* pDstVec, int nSize);
-void nmppsXorC_16u(nm16u* pSrcVec, uint16b nVal, nm16u* pDstVec, int nSize);
-void nmppsXorC_32u(nm32u* pSrcVec, uint32b nVal, nm32u* pDstVec, int nSize);		
-void nmppsXorC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
+void nmppsXorC_8u (const nm8u*  pSrcVec, uint8b  nVal,  nm8u* pDstVec, int nSize);
+void nmppsXorC_16u(const nm16u* pSrcVec, uint16b nVal, nm16u* pDstVec, int nSize);
+void nmppsXorC_32u(const nm32u* pSrcVec, uint32b nVal, nm32u* pDstVec, int nSize);		
+void nmppsXorC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -692,10 +692,10 @@ void nmppsXorC_64u(nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsXor_8u (nm8u*  pSrcVec1, nm8u* pSrcVec2,  nm8u*  pDstVec, int nSize);
-void nmppsXor_16u(nm16u* pSrcVec1, nm16u* pSrcVec2, nm16u* pDstVec, int nSize);
-void nmppsXor_32u(nm32u* pSrcVec1, nm32u* pSrcVec2, nm32u* pDstVec, int nSize);		
-void nmppsXor_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
+void nmppsXor_8u (const nm8u*  pSrcVec1, const nm8u* pSrcVec2,  nm8u*  pDstVec, int nSize);
+void nmppsXor_16u(const nm16u* pSrcVec1, const nm16u* pSrcVec2, nm16u* pDstVec, int nSize);
+void nmppsXor_32u(const nm32u* pSrcVec1, const nm32u* pSrcVec2, nm32u* pDstVec, int nSize);		
+void nmppsXor_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -834,10 +834,10 @@ void nmppsMaskV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pMaskVec, nm64u* pD
     \endxmlonly
     */
     //! \{
-void nmppsRShiftC_8s (nm8s* pSrcVec, int nShift,  nm8s* pDstVec, int nSize);
-void nmppsRShiftC_16s(nm16s* pSrcVec, int nShift, nm16s* pDstVec, int nSize);
-void nmppsRShiftC_32s(nm32s* pSrcVec, int nShift, nm32s* pDstVec, int nSize);
-void nmppsRShiftC_64s(nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSize);
+void nmppsRShiftC_8s (const nm8s* pSrcVec, int nShift,  nm8s* pDstVec, int nSize);
+void nmppsRShiftC_16s(const nm16s* pSrcVec, int nShift, nm16s* pDstVec, int nSize);
+void nmppsRShiftC_32s(const nm32s* pSrcVec, int nShift, nm32s* pDstVec, int nSize);
+void nmppsRShiftC_64s(const nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -910,10 +910,10 @@ void nmppsRShiftC_64s(nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void  nmppsRShiftC_8u (nm8u* pSrcVec, int nShift,  nm8u* pDstVec, int nSize);
-void  nmppsRShiftC_16u(nm16u* pSrcVec, int nShift, nm16u* pDstVec, int nSize);
-void  nmppsRShiftC_32u(nm32u* pSrcVec, int nShift, nm32u* pDstVec, int nSize);
-void  nmppsRShiftC_64u(nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSize);
+void  nmppsRShiftC_8u (const nm8u* pSrcVec, int nShift,  nm8u* pDstVec, int nSize);
+void  nmppsRShiftC_16u(const nm16u* pSrcVec, int nShift, nm16u* pDstVec, int nSize);
+void  nmppsRShiftC_32u(const nm32u* pSrcVec, int nShift, nm32u* pDstVec, int nSize);
+void  nmppsRShiftC_64u(const nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSize);
     //! \}
 
 
@@ -993,10 +993,11 @@ void  nmppsRShiftC_64u(nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSize);
     \endxmlonly
     */
     //! \{
-void nmppsRShiftC_AddC_16u(nm16u *pSrcVec,  int nShift, uint16b nAddVal,  nm16u *pDstVec, int nSize);
+
     //! \}
-void nmppsRShiftC_AddC_8u(nm8u *pSrcVec,   int nShift, uint8b nAddVal,  nm8u  *pDstVec, int nSize);
-void nmppsRShiftC_AddC_32u(nm32u *pSrcVec,  int nShift, uint32b nAddVal,  nm32u *pDstVec, int nSize);
+void nmppsRShiftC_AddC_8u (const nm8u *pSrcVec,   int nShift, uint8b nAddVal,  nm8u  *pDstVec, int nSize);
+void nmppsRShiftC_AddC_16u(const nm16u *pSrcVec,  int nShift, uint16b nAddVal,  nm16u *pDstVec, int nSize);
+void nmppsRShiftC_AddC_32u(const nm32u *pSrcVec,  int nShift, uint32b nAddVal,  nm32u *pDstVec, int nSize);
 
 //*****************************************************************************
 

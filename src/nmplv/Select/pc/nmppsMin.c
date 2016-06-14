@@ -29,7 +29,8 @@ void nmppsMin_8s7b(
 	*pMinValue=pSrcVec[0];
 	nm8s7b* pSrcValue=pSrcVec+1;
 	for(i=1; i<nSize; i++,pSrcValue++){
-		nm8s7b mask=((*pSrcValue)-(*pMinValue))>>7;
+		signed char mask=((*pSrcValue)-(*pMinValue));
+		mask>>=7;
 		*pMinValue=((mask)&(*pSrcValue))|((~mask)&(*pMinValue));
 	}
 
@@ -42,9 +43,11 @@ void nmppsMin_16s15b(
 				int16b*		pMinValue)	// Minimum
 {
 	int i;
+	*pMinValue=pSrcVec[0];
 	nm16s15b* pSrcValue=pSrcVec+1;
 	for(i=1; i<nSize; i++,pSrcValue++){
-		nm16s15b mask=((*pSrcValue)-(*pMinValue))>>15;
+		signed short mask=((*pSrcValue)-(*pMinValue));
+		mask>>=15;
 		*pMinValue=((mask)&(*pSrcValue))|((~mask)&(*pMinValue));
 	}
 }
@@ -56,9 +59,11 @@ void nmppsMin_32s31b(
 				int*		pMinValue)	// Minimum
 {
 	int i;
+	*pMinValue=pSrcVec[0];
 	nm32s31b* pSrcValue=pSrcVec+1;
 	for(i=1; i<nSize; i++,pSrcValue++){
-		nm32s31b mask=((*pSrcValue)-(*pMinValue))>>31;
+		signed int mask=((*pSrcValue)-(*pMinValue));
+		mask>>=31;
 		*pMinValue=((mask)&(*pSrcValue))|((~mask)&(*pMinValue));
 	}
 }
@@ -70,9 +75,11 @@ void nmppsMin_64s63b(
 				int64b*		pMinValue)	// Minimum
 {
 	int i;
+	*pMinValue=pSrcVec[0];
 	nm64s63b* pSrcValue=pSrcVec+1;
 	for(i=1; i<nSize; i++,pSrcValue++){
-		nm64s63b mask=((*pSrcValue)-(*pMinValue))>>63;
+		signed long long mask=((*pSrcValue)-(*pMinValue));
+		mask >>=63;
 		*pMinValue=((mask)&(*pSrcValue))|((~mask)&(*pMinValue));
 	}
 }

@@ -34,8 +34,8 @@ int main() {
 	for(i=0; i<256; i++){
 		src0_8s[i] =i;  
 		src0_16s[i]=i;  
-		src0_32s[i]=i;  
-		src0_64s[i]=i;  
+		src0_32s[i]=i+10;  
+		src0_64s[i]=i+10;  
 		            
 		src1_8s[i] =8-i;
 		src1_16s[i]=8-i;
@@ -142,6 +142,7 @@ int main() {
 
 	long min,max;
 	long long min64,max64;
+	
 	nmppsMin_8s7b  (src0_8s ,32,&min);								nmppsCrcAcc_32s(&min,  1,&crc);
 	nmppsMin_16s15b(src0_16s,32,&min);	                            nmppsCrcAcc_32s(&min,  1,&crc);
 	nmppsMin_32s31b(src0_32s,32,&min);	                            nmppsCrcAcc_32s(&min,  1,&crc);
@@ -150,10 +151,16 @@ int main() {
 	nmppsMax_8s7b  (src0_8s,32, &max); 								nmppsCrcAcc_64s(&max,  1,&crc);
 	nmppsMax_16s15b(src0_16s,32,&max); 						     	nmppsCrcAcc_64s(&max,  1,&crc);
 	nmppsMax_32s31b(src0_32s,32,&max); 						     	nmppsCrcAcc_64s(&max,  1,&crc);
-	nmppsMax_64s63b(src0_64s,16,&max64);                            nmppsCrcAcc_64s(&max64,1,&crc);
+	nmppsMax_64s63b(src0_64s,32,&max64);                            nmppsCrcAcc_64s(&max64,1,&crc);
+	
+	nmppsMin_8sm  (src0_8s ,32,&min, 0);							nmppsCrcAcc_32s(&min,  1,&crc);
+	nmppsMin_16sm (src0_16s,32,&min, 0);	                        nmppsCrcAcc_32s(&min,  1,&crc);
+	nmppsMin_32sm (src0_32s,32,&min, 0);	                        nmppsCrcAcc_32s(&min,  1,&crc);
+                                                                    //
+	nmppsMax_8sm  (src0_8s,32, &max, 0); 							nmppsCrcAcc_32s(&max,  1,&crc);
+	nmppsMax_16sm (src0_16s,32,&max, 0); 					     	nmppsCrcAcc_32s(&max,  1,&crc);
+	nmppsMax_32sm (src0_32s,32,&max, 0); 					     	nmppsCrcAcc_32s(&max,  1,&crc);
 
-	
-	
 	//	aura_handle_events_timeout(aura_eventloop_get_data(n), 500);
 	aura_close(n);
 	
@@ -161,5 +168,7 @@ int main() {
 	printf("CRC=%x\n",crc);
 	return crc-0xc354a8e4;
 }
+//	for(i=0; i<32; i++)	printf("%llu %llu \r\n", src0_64s [i],max64);
+//	for(i=0; i<32; i++)	printf("%d %d \r\n", (int)src0_32s [i],(int)max);
 
 

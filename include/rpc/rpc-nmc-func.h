@@ -135,22 +135,6 @@ NMC_RPC_PIPI(nmppsRShiftC_64s);
 #endif 
 
 //--------------------------
-#ifdef RPC_nmppsMin_8s
-NMC_RPC_PIR(nmppsMin_8s);
-#endif 
-
-#ifdef RPC_nmppsMin_16s
-NMC_RPC_PIR(nmppsMin_16s);
-#endif 
-
-#ifdef RPC_nmppsMin_32s
-NMC_RPC_PIR(nmppsMin_32s);
-#endif 
-
-#ifdef RPC_nmppsMin_64s
-NMC_RPC_PIR64(nmppsMin_64s);
-#endif 
-//--------------------------
 #ifdef RPC_nmppsMin_8s7b
 NMC_RPC_PIR(nmppsMin_8s7b);
 #endif 
@@ -167,22 +151,6 @@ NMC_RPC_PIR(nmppsMin_32s31b);
 NMC_RPC_PIR64(nmppsMin_64s63b);
 #endif 
 
-//--------------------------
-#ifdef RPC_nmppsMax_8s
-NMC_RPC_PIR(nmppsMax_8s);
-#endif 
-
-#ifdef RPC_nmppsMax_16s
-NMC_RPC_PIR(nmppsMax_16s);
-#endif 
-
-#ifdef RPC_nmppsMax_32s
-NMC_RPC_PIR(nmppsMax_32s);
-#endif 
-
-#ifdef RPC_nmppsMax_64s
-//NMC_RPC_PIR64(nmppsMax_64s);
-#endif 
 //--------------------------
 #ifdef RPC_nmppsMax_8s7b
 NMC_RPC_PIR(nmppsMax_8s7b);

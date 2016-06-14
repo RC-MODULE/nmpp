@@ -33,7 +33,7 @@
 #ifdef __NM__
 	//typedef long __int64;
 #endif
-	typedef long long  INT64;
+	typedef signed long long  INT64;
 	typedef unsigned long long UINT64;
 
 #ifdef __NM__

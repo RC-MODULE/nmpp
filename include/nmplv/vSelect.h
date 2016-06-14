@@ -116,9 +116,9 @@ void nmppsMax_16s15b(const nm16s15b* pSrcVec, int nSize, int16b* nMaxValue);
 void nmppsMax_32s31b(const nm32s31b* pSrcVec, int nSize, int* nMaxValue);
 void nmppsMax_64s63b(const nm64s63b* pSrcVec, int nSize, int64b *nMaxValue);
 
-int nmppsMax_8sm (const nm8s*  pSrcVec, int nSize, int8b*  pMaxValue, nm16s* tmp);
-int nmppsMax_16sm(const nm16s* pSrcVec, int nSize, int16b* pMaxValue, nm32s* tmp);
-int nmppsMax_32sm(const nm32s* pSrcVec, int nSize, int*    pMaxValue, nm64s* tmp);
+int nmppsMax_8sm (const nm8s*  srcVec, int size, int8b*  maxValue, nm16s* tmp);
+int nmppsMax_16sm(const nm16s* srcVec, int size, int16b* maxValue, nm32s* tmp);
+int nmppsMax_32sm(const nm32s* srcVec, int size, int32b* maxValue, nm64s* tmp);
 
 
     //! \}
@@ -221,9 +221,9 @@ void nmppsMin_32s31b(const nm32s31b* pSrcVec, int nSize, int* nMinValue);
 void nmppsMin_64s63b(const nm64s63b* pSrcVec, int nSize, int64b* nMinValue);
 
 
-int nmppsMin_8sm (const nm8s*  src, int size, int8b*  pMinValue, nm16s* tmp);
-int nmppsMin_16sm(const nm16s* src, int size, int16b* pMinValue, nm32s* tmp);
-int nmppsMin_32sm(const nm32s* src, int size, int32b* pMinValue, nm64s* tmp);
+int nmppsMin_8sm (const nm8s*  srcVec, int size, int8b*  minValue, nm16s* tmp);
+int nmppsMin_16sm(const nm16s* srcVec, int size, int16b* minValue, nm32s* tmp);
+int nmppsMin_32sm(const nm32s* srcVec, int size, int32b* minValue, nm64s* tmp);
 
 
     //! \}

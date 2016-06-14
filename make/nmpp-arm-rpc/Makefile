@@ -73,7 +73,6 @@ OBJDUMP = $(ARM_CC)-objdump
 
 
 #--------------  target & input dirs -------------------
-ROOT             = ../..
 PROJECT          = libnmpp-arm-rpc
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a
@@ -82,8 +81,8 @@ INC_DIRS         = \
   -I$(ROOTFS)/usr/include/arm-linux-gnueabihf/aura-0.1.2/ \
   -I$(ROOTFS)/usr/include/ \
   -I$(ROOTFS)/usr/include/arm-linux-gnueabihf/ \
-  -I$(NMPP)/include \
-  -I$(NMPP)/include/rpc
+  -I$(ROOT)/include \
+  -I$(ROOT)/include/rpc
 
 SRC_DIRS         =  ../../src/nmplv/Arithmetics/rpc-arm \
 					../../src/nmplv/Bitwise/rpc-arm \

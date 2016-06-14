@@ -40,12 +40,12 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
-//! \fn void nmppsMax_32s(nm32s *pSrcVec, int nSize, int &nMaxValue) 
+//! \fn void nmppsMax_32s31b(nm32s *pSrcVec, int nSize, int &nMaxValue) 
 //!
-//! \perfinclude _nmppsMax_32s.html
+//! \perfinclude _nmppsMax_32s31b.html
 
-global _nmppsMax_32s:label;
-<_nmppsMax_32s>
+global _nmppsMax_32s31b:label;
+<_nmppsMax_32s31b>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0;

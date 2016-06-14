@@ -79,15 +79,24 @@
 #define RPC_nmppsDotProd_32s64s
 #define RPC_nmppsDotProd_64s64s
 
-#define RPC_nmppsMin_8s
-#define RPC_nmppsMin_16s
-#define RPC_nmppsMin_32s
+//#define RPC_nmppsMin_8s
+//#define RPC_nmppsMin_16s
+//#define RPC_nmppsMin_32s
 ////#define RPC_nmppsMin_64s -- not implemented
+#define RPC_nmppsMin_8s7b
+#define RPC_nmppsMin_16s15b
+#define RPC_nmppsMin_32s31b
+#define RPC_nmppsMin_64s63b
 
-#define RPC_nmppsMax_8s
-#define RPC_nmppsMax_16s
-#define RPC_nmppsMax_32s
+//#define RPC_nmppsMax_8s
+//#define RPC_nmppsMax_16s
+//#define RPC_nmppsMax_32s
 ////#define RPC_nmppsMax_64s -- not implemented
+#define RPC_nmppsMax_8s7b
+#define RPC_nmppsMax_16s15b
+#define RPC_nmppsMax_32s31b
+#define RPC_nmppsMax_64s63b
+
 //
 //#define RPC_nmppsRShiftC_8s
 //#define RPC_nmppsRShiftC_16s

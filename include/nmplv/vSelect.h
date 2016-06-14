@@ -116,6 +116,11 @@ void nmppsMax_16s15b(const nm16s15b* pSrcVec, int nSize, int16b* nMaxValue);
 void nmppsMax_32s31b(const nm32s31b* pSrcVec, int nSize, int* nMaxValue);
 void nmppsMax_64s63b(const nm64s63b* pSrcVec, int nSize, int64b *nMaxValue);
 
+void nmppsMax_8s (const nm8s*  pSrcVec, int nSize, int8b*  pMaxValue);
+void nmppsMax_16s(const nm16s* pSrcVec, int nSize, int16b* pMaxValue);
+void nmppsMax_32s(const nm32s* pSrcVec, int nSize, int*    pMaxValue);
+void nmppsMax_64s(const nm64s* pSrcVec, int nSize, int64b* pMaxValue);
+
     //! \}
 
 //*****************************************************************************
@@ -188,7 +193,7 @@ void nmppsMax_64s63b(const nm64s63b* pSrcVec, int nSize, int64b *nMaxValue);
         [C0h..3Fh]=[-64..+63]	  
         [80h..00h]=[-128..0	]	  
 */
-void nmppsMin_8s(nm8s* pSrcVec, int nSize, int8b* nMinValue);
+void nmppsMin_8s7b(const nm8s7b* pSrcVec, int nSize, int8b* nMinValue);
 /**
 \restr
     \ru ћаксимальный и минимальный элементы массива должны отличатс€ не более чем на 2^15-1. \n
@@ -200,7 +205,7 @@ void nmppsMin_8s(nm8s* pSrcVec, int nSize, int8b* nMinValue);
         [C000h..3FFFh]=[-16384..+16383	] 
         [8000h..0000h]=[-32768..0		]     
 */
-void nmppsMin_16s(nm16s* pSrcVec, int nSize, int16b* nMinValue);
+void nmppsMin_16s15b(const nm16s15b* pSrcVec, int nSize, int16b* nMinValue);
 /**
 \restr
     \ru ћаксимальный и минимальный элементы массива должны отличатс€ не более чем на 2^31-1. \n
@@ -212,7 +217,15 @@ void nmppsMin_16s(nm16s* pSrcVec, int nSize, int16b* nMinValue);
         [C0000000h..3FFFFFFFh]=[ -2^30..+2^30-1	] 
         [80000000h..00000000h]=[ -2^31..0		]     
 */
-void nmppsMin_32s(nm32s* pSrcVec, int nSize, int* nMinValue);
+void nmppsMin_32s31b(const nm32s31b* pSrcVec, int nSize, int* nMinValue);
+void nmppsMin_64s63b(const nm64s63b* pSrcVec, int nSize, int64b* nMinValue);
+
+
+void nmppsMin_8s (const nm8s*  pSrcVec, int nSize, int8b*  pMinValue);
+void nmppsMin_16s(const nm16s* pSrcVec, int nSize, int16b* pMinValue);
+void nmppsMin_32s(const nm32s* pSrcVec, int nSize, int*    pMinValue);
+void nmppsMin_64s(const nm64s* pSrcVec, int nSize, int64b* pMinValue);
+
     //! \}
 
 //*****************************************************************************

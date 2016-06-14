@@ -31,13 +31,12 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsMax_16s(nm16s *pSrcVec, int nSize, int16b &nMaxValue) 
+//! \fn void nmppsMax_16s15b(nm16s *pSrcVec, int nSize, int16b &nMaxValue) 
 //!
-//! \perfinclude _nmppsMax_16s.html
+//! \perfinclude _nmppsMax_16s15b.html
 
-global _nmppsMax__FPSsiRi_ :label;
-global _nmppsMax_16s:label;
-<_nmppsMax_16s>
+global _nmppsMax_16s15b:label;
+<_nmppsMax_16s15b>
 .branch;
 	ar5=sp-2;
 	PUSH_REGS();

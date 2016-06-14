@@ -36,7 +36,7 @@ void nmppsMinIndx_32s(nm32s31b *pSrcVec, int nSize, int *pIndex, int32b *pMinVal
 	//	pTmp2=pGTmpBuff;
 	//}
 
-	nmppsMin_32s(pSrcVec, nSize, pMinValue);
+	nmppsMin_32s31b(pSrcVec, nSize, pMinValue);
 	nmppsSubC_32s(pSrcVec,*pMinValue,(nm32s*)pTmp1,nSize);
 	nmppsCmpEq0_32u31b((nm32u31b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create min bitmap
 

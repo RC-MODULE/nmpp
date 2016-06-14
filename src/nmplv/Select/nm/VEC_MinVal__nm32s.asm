@@ -39,12 +39,12 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
-//! \fn void nmppsMin_32s(nm32s *pSrcVec, int nSize, int &nMinValue) 
+//! \fn void nmppsMin_32s31b(nm32s *pSrcVec, int nSize, int &nMinValue) 
 //!
-//! \perfinclude _nmppsMin_32s.html
+//! \perfinclude _nmppsMin_32s31b.html
 
-global _nmppsMin_32s:label;
-<_nmppsMin_32s>
+global _nmppsMin_32s31b:label;
+<_nmppsMin_32s31b>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0;

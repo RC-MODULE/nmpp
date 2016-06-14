@@ -239,6 +239,56 @@ AURA_METHOD(rpc_nmppsMax_64s, nmppsMax_64s,
 		U64);
 #endif 
 
+//-----------------------------------
+#ifdef RPC_nmppsMin_8s7b
+AURA_METHOD(rpc_nmppsMin_8s7b, nmppsMin_8s7b, 
+	    BUFFER U32,
+		U32);
+#endif 
+
+#ifdef RPC_nmppsMin_16s15b
+AURA_METHOD(rpc_nmppsMin_16s15b, nmppsMin_16s15b, 
+	    BUFFER U32,
+		U32);
+#endif 
+
+#ifdef RPC_nmppsMin_32s31b
+AURA_METHOD(rpc_nmppsMin_32s31b, nmppsMin_32s31b, 
+	    BUFFER U32,
+		U32);
+#endif 
+		
+#ifdef RPC_nmppsMin_64s63b
+AURA_METHOD(rpc_nmppsMin_64s63b, nmppsMin_64s63b, 
+	    BUFFER U32,
+		U64);
+#endif 
+
+
+#ifdef RPC_nmppsMax_8s7b
+AURA_METHOD(rpc_nmppsMax_8s7b, nmppsMax_8s7b, 
+	    BUFFER U32,
+		U32);
+#endif 
+
+#ifdef RPC_nmppsMax_16s15b
+AURA_METHOD(rpc_nmppsMax_16s15b, nmppsMax_16s15b, 
+	    BUFFER U32,
+		U32);
+#endif 
+
+#ifdef RPC_nmppsMax_32s31b
+AURA_METHOD(rpc_nmppsMax_32s31b, nmppsMax_32s31b, 
+	    BUFFER U32,
+		U32);
+#endif 
+		
+#ifdef RPC_nmppsMax_64s63b
+AURA_METHOD(rpc_nmppsMax_64s63b, nmppsMax_64s63b, 
+	    BUFFER U32,
+		U64);
+#endif 
+
 #ifdef RPC_nmppsFFTFree
 AURA_METHOD(rpc_nmppsFFTFree, nmppsFFTFree, 
 	    U32,

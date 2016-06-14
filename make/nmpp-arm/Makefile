@@ -80,8 +80,6 @@ OBJDUMP = $(ARM_CC)-objdump
 
 
 #--------------  target & input dirs -------------------
-ROOT             = ../..
-include $(ROOT)/global.mk
 PROJECT          = libnmpp-arm
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a

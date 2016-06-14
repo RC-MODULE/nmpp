@@ -42,6 +42,7 @@ rpc:
 	$(MAKE) -C ./nmpp-arm-rpc
 	$(MAKE) -C ./nmpp-nmc3-rpc
 	$(MAKE) -C ./nmpp-nmc3
+	$(MAKE) -C ./nmpp-arm
 	
 clean:
 	rm -f -r *.suo *.ncb

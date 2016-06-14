@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: GetMax.as $
+//  $Workfile:: GetMin.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -18,11 +18,11 @@
 //!
 //------------------------------------------------------------------------
 
-//#include "vMinMax.h"
-import from macros.mlb;
+//#include "vMinMin.h"
+//import from macros.mlb;
 extern	_nmppsTmpBuffer64_G_: long;
 extern	_nmppsTmpBuffer16_G_: long;
-extern vec_MaxVal:label;
+extern vec_MinVal:label;
 
 
 begin ".text_nmplv"
@@ -31,12 +31,12 @@ begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
-//! \fn void nmppsMax_64s63b(nm64s63b *pSrcVec, int nSize, int64b &nMaxValue) 
+//! \fn void nmppsMin_64s63b(nm64s63b *pSrcVec, int nSize, int64b &nMinValue) 
 //!
-//! \perfinclude _nmppsMax_64s63b.html
+//! \perfinclude _nmppsMin_64s63b.html
 
-global _nmppsMax_64s63b:label;
-<_nmppsMax_64s63b>
+global _nmppsMin_64s63b:label;
+<_nmppsMin_64s63b>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0;
@@ -46,7 +46,7 @@ global _nmppsMax_64s63b:label;
 
 	ar0 = [--ar5];									// pSrcVec
 	gr5 = [--ar5];									// nSize of pSrcVec (nSize in 64-bit longs)
-	ar6 = [--ar5];									// Pointer to Maximum
+	ar6 = [--ar5];									// Pointer to Minimum
 	
 	gr0 = 2;
 	gr4 = 0h;									
@@ -55,7 +55,7 @@ global _nmppsMax_64s63b:label;
 	f1crl= 00000000h;
 	wtw;
 	
-	delayed call vec_MaxVal;
+	delayed call vec_MinVal;
 		ar4= _nmppsTmpBuffer64_G_;
 
 	pop ar6,gr6;

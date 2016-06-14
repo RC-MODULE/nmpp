@@ -30,14 +30,14 @@ extern vec_MinVal:label;
 
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
-//! \fn void nmppsMin_8s(nm8s *pSrcVec, int nSize, int8b &nMinValue) 
+//! \fn void nmppsMin_8s7b(nm8s *pSrcVec, int nSize, int8b &nMinValue) 
 //!
-//! \perfinclude _nmppsMin_8s.html
+//! \perfinclude _nmppsMin_8s7b.html
 
 
 
-global _nmppsMin_8s:label;
-<_nmppsMin_8s>
+global _nmppsMin_8s7b:label;
+<_nmppsMin_8s7b>
 .branch;
 	ar5=sp-2;
 	PUSH_REGS();

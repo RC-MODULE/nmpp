@@ -33,13 +33,12 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsMin_16s(nm16s *pSrcVec, int nSize, int16b &nMinValue) 
+//! \fn void nmppsMin_16s15b(nm16s *pSrcVec, int nSize, int16b &nMinValue) 
 //!
-//! \perfinclude _nmppsMin_16s.html
+//! \perfinclude _nmppsMin_16s15b.html
 
-global _nmppsMin__FPSsiRi_ :label;
-global _nmppsMin_16s:label;
-<_nmppsMin_16s>
+global _nmppsMin_16s15b:label;
+<_nmppsMin_16s15b>
 .branch;
 	ar5=sp-2;
 	PUSH_REGS();

@@ -29,9 +29,10 @@ void nmppsMax_8s7b(
 {
 	int i;
 	*pMaxValue=pSrcVec[0];
-	for(i=1; i<nSize; i++){
-		if(	*pMaxValue<pSrcVec[i])
-			*pMaxValue= pSrcVec[i];
+	nm8s7b* pSrcValue=pSrcVec+1;
+	for(i=1; i<nSize; i++,pSrcValue++){
+		nm8s7b mask=((*pMaxValue)-(*pSrcValue))>>7;
+		*pMaxValue=((mask)&(*pSrcValue))|((~mask)&(*pMaxValue));
 	}
 
 }
@@ -43,10 +44,10 @@ void nmppsMax_16s15b(
 				int16b*		pMaxValue)	// Maximum
 {
 	int i;
-	*pMaxValue=pSrcVec[0];
-	for(i=1; i<nSize; i++){
-		if(	*pMaxValue<pSrcVec[i])
-			*pMaxValue= pSrcVec[i];
+	nm16s15b* pSrcValue=pSrcVec+1;
+	for(i=1; i<nSize; i++,pSrcValue++){
+		nm16s15b mask=((*pMaxValue)-(*pSrcValue))>>15;
+		*pMaxValue=((mask)&(*pSrcValue))|((~mask)&(*pMaxValue));
 	}
 }
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -57,10 +58,10 @@ void nmppsMax_32s31b(
 				int*		pMaxValue)	// Maximum
 {
 	int i;
-	*pMaxValue=pSrcVec[0];
-	for(i=1; i<nSize; i++){
-		if(	*pMaxValue<pSrcVec[i])
-			*pMaxValue= pSrcVec[i];
+	nm32s31b* pSrcValue=pSrcVec+1;
+	for(i=1; i<nSize; i++,pSrcValue++){
+		nm32s31b mask=((*pMaxValue)-(*pSrcValue))>>31;
+		*pMaxValue=((mask)&(*pSrcValue))|((~mask)&(*pMaxValue));
 	}
 }
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -71,9 +72,9 @@ void nmppsMax_64s63b(
 				int64b*		pMaxValue)	// Maximum
 {
 	int i;
-	*pMaxValue=pSrcVec[0];
-	for(i=1; i<nSize; i++){
-		if( *pMaxValue<pSrcVec[i])
-			*pMaxValue= pSrcVec[i];
+	nm64s63b* pSrcValue=pSrcVec+1;
+	for(i=1; i<nSize; i++,pSrcValue++){
+		nm64s63b mask=((*pMaxValue)-(*pSrcValue))>>63;
+		*pMaxValue=((mask)&(*pSrcValue))|((~mask)&(*pMaxValue));
 	}
 }

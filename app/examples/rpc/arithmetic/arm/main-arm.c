@@ -140,16 +140,17 @@ int main() {
 	                                                                        
 	nmppsDotProd_64s64s ((nm64s*)src0_64s,(nm64s*)src1_64s, 16, &ret64);    nmppsCrcAcc_64s(&ret64,1,&crc);   
 
-	int min;
-	nmppsMin_8s ((nm16s*)src0_8s ,32,&min);									nmppsCrcAcc_32s(&min,1,&crc);
-	nmppsMin_16s((nm16s*)src0_16s,32,&min);	                                nmppsCrcAcc_32s(&min,1,&crc);
-	nmppsMin_32s((nm16s*)src0_32s,32,&min);	                                nmppsCrcAcc_32s(&min,1,&crc);
-	//-nmppsMin_64s((nm16s*)src0_16s,16,&min);                              nmppsCrcAcc_64s(&min,1,&crc);
+	long min,max;
+	long long min64,max64;
+	nmppsMin_8s7b  (src0_8s ,32,&min);								nmppsCrcAcc_32s(&min,  1,&crc);
+	nmppsMin_16s15b(src0_16s,32,&min);	                            nmppsCrcAcc_32s(&min,  1,&crc);
+	nmppsMin_32s31b(src0_32s,32,&min);	                            nmppsCrcAcc_32s(&min,  1,&crc);
+	nmppsMin_64s63b(src0_64s,16,&min64);                            nmppsCrcAcc_64s(&min64,1,&crc);
 
-	nmppsMax_8s ((nm16s*)src0_8s,32, &min); 								nmppsCrcAcc_64s(&min,1,&crc);
-	nmppsMax_16s((nm16s*)src0_16s,32,&min); 						     	nmppsCrcAcc_64s(&min,1,&crc);
-	nmppsMax_32s((nm16s*)src0_32s,32,&min); 						     	nmppsCrcAcc_64s(&min,1,&crc);
-	//-nmppsMin_64s((nm16s*)src0_16s,16,&min);                              nmppsCrcAcc_64s(&ret64,1,&crc);
+	nmppsMax_8s7b  (src0_8s,32, &max); 								nmppsCrcAcc_64s(&max,  1,&crc);
+	nmppsMax_16s15b(src0_16s,32,&max); 						     	nmppsCrcAcc_64s(&max,  1,&crc);
+	nmppsMax_32s31b(src0_32s,32,&max); 						     	nmppsCrcAcc_64s(&max,  1,&crc);
+	nmppsMax_64s63b(src0_64s,16,&max64);                            nmppsCrcAcc_64s(&max64,1,&crc);
 
 	
 	

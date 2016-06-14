@@ -36,7 +36,7 @@ void nmppsMaxIndx_8s(nm8s7b  *pSrcVec, int nSize, int* pIndex, int8b* pMaxValue,
 	//	pTmp2=pGTmpBuff;
 	//}
 
-	nmppsMax_8s(pSrcVec, nSize, pMaxValue);
+	nmppsMax_8s7b(pSrcVec, nSize, pMaxValue);
 	nmppsSubCRev_8s(pSrcVec,*pMaxValue,(nm8s*)pTmp1,nSize);
 	nmppsCmpEq0_8u7b((nm8u7b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create Max bitmap
 

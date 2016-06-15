@@ -39,8 +39,10 @@ int nmppsDotProd_8s8sm(
 	if (ret != 0) {
 		BUG(n, "Call nmppsDotProd_8s8sm failed!"); }
 	*dst = aura_buffer_get_u64(retbuf);
+	ret  = aura_buffer_get_u32(retbuf);
 	aura_buffer_release( iobuf_src0); 
 	aura_buffer_release( iobuf_src1); 
 	aura_buffer_release( retbuf); 
 	slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_8s8sm -ok"); 
+	return ret;
 }

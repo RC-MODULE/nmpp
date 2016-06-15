@@ -39,8 +39,10 @@ int nmppsDotProd_16s32sm(
 	if (ret != 0) {
 		BUG(n, "Call nmppsDotProd_16s32sm failed!"); }
 	*dst = aura_buffer_get_u64(retbuf);
+	ret  = aura_buffer_get_u32(retbuf);
 	aura_buffer_release( iobuf_src0); 
 	aura_buffer_release( iobuf_src1); 
 	aura_buffer_release( retbuf); 
 	slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_16s32sm -ok"); 
+	return ret;
 }

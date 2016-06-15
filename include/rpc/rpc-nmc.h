@@ -189,19 +189,20 @@ void rpc_ ## func(void *in, void *out) \
 	aura_put_u64(ret); \
 }
 
-#define NMC_RPC_PPIR64(func) \
-void rpc_ ## func(void *in, void *out) \
-{ \
-	aura_buffer buf_src0 = aura_get_buf(); \
-	aura_buffer buf_src1 = aura_get_buf(); \
-	int *src0  = aura_buffer_to_ptr(buf_src0); \
-	int *src1  = aura_buffer_to_ptr(buf_src1); \
-	unsigned size = aura_get_u32(); \
-	func_ppip_t *unifunc=(func_ppip_t*)func; \
-	long ret ; \
-	unifunc(src0,src1,size,&ret); \
-	aura_put_u64(ret); \
-}
+//#define NMC_RPC_PPIR64(func) \
+//void rpc_ ## func(void *in, void *out) \
+//{ \
+//	aura_buffer buf_src0 = aura_get_buf(); \
+//	aura_buffer buf_src1 = aura_get_buf(); \
+//	int *src0  = aura_buffer_to_ptr(buf_src0); \
+//	int *src1  = aura_buffer_to_ptr(buf_src1); \
+//	unsigned size = aura_get_u32(); \
+//	func_ppip_t *unifunc=(func_ppip_t*)func; \
+//	long ret ; \
+//	unifunc(src0,src1,size,&ret); \
+//	aura_put_u64(ret); \
+//}
+//
 
 #define NMC_RPC_PPPII(func) \
 void rpc_ ## func(void *in, void *out) \

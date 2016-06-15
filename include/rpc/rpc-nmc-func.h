@@ -526,45 +526,45 @@ NMC_RPC_PIIPPI(nmppmMul_mm_32s64s);
 #endif 
 
 //-----------------------------
-#ifdef     RPC_nmppsDotProd_8s8sm
-NMC_RPC_PPIR64(nmppsDotProd_8s8sm);
-#endif 
-
-#ifdef     RPC_nmppsDotProd_8s16sm
-NMC_RPC_PPIR64(nmppsDotProd_8s16sm);
-#endif 
-
-#ifdef     RPC_nmppsDotProd_8s32sm
-NMC_RPC_PPIR64(nmppsDotProd_8s32sm);
-#endif 
-
-#ifdef     RPC_nmppsDotProd_8s64s
-NMC_RPC_PPIR64(nmppsDotProd_8s64s);
-#endif 
-
-#ifdef     RPC_nmppsDotProd_16s16sm
-NMC_RPC_PPIR64(nmppsDotProd_16s16sm);
-#endif 
-
-#ifdef     RPC_nmppsDotProd_16s32sm
-NMC_RPC_PPIR64(nmppsDotProd_16s32sm);
-#endif 
-
-#ifdef     RPC_nmppsDotProd_16s64s
-NMC_RPC_PPIR64(nmppsDotProd_16s64s);
-#endif 
-
-#ifdef     RPC_nmppsDotProd_32s32sm
-NMC_RPC_PPIR64(nmppsDotProd_32s32sm);
-#endif 
-
-#ifdef     RPC_nmppsDotProd_32s64s
-NMC_RPC_PPIR64(nmppsDotProd_32s64s);
-#endif 
-
-#ifdef     RPC_nmppsDotProd_64s64s
-NMC_RPC_PPIR64(nmppsDotProd_64s64s);
-#endif 
+//#ifdef     RPC_nmppsDotProd_8s8sm
+//NMC_RPC_PPIR64(nmppsDotProd_8s8sm);
+//#endif 
+//
+//#ifdef     RPC_nmppsDotProd_8s16sm
+//NMC_RPC_PPIR64(nmppsDotProd_8s16sm);
+//#endif 
+//
+//#ifdef     RPC_nmppsDotProd_8s32sm
+//NMC_RPC_PPIR64(nmppsDotProd_8s32sm);
+//#endif 
+//
+//#ifdef     RPC_nmppsDotProd_8s64s
+//NMC_RPC_PPIR64(nmppsDotProd_8s64s);
+//#endif 
+//
+//#ifdef     RPC_nmppsDotProd_16s16sm
+//NMC_RPC_PPIR64(nmppsDotProd_16s16sm);
+//#endif 
+//
+//#ifdef     RPC_nmppsDotProd_16s32sm
+//NMC_RPC_PPIR64(nmppsDotProd_16s32sm);
+//#endif 
+//
+//#ifdef     RPC_nmppsDotProd_16s64s
+//NMC_RPC_PPIR64(nmppsDotProd_16s64s);
+//#endif 
+//
+//#ifdef     RPC_nmppsDotProd_32s32sm
+//NMC_RPC_PPIR64(nmppsDotProd_32s32sm);
+//#endif 
+//
+//#ifdef     RPC_nmppsDotProd_32s64s
+//NMC_RPC_PPIR64(nmppsDotProd_32s64s);
+//#endif 
+//
+//#ifdef     RPC_nmppsDotProd_64s64s
+//NMC_RPC_PPIR64(nmppsDotProd_64s64s);
+//#endif 
 
 //--------------------------
 #ifdef    RPC_nmppmMul_mv_8s64s

@@ -53,6 +53,9 @@
 #define RPC_nmppmMul_mv_16s64s
 #define RPC_nmppmMul_mv_32s64s
 
+#define RPC_nmppmMul_mv_colmajor_8s64s
+#define RPC_nmppmMul_mv_colmajor_16s64s
+#define RPC_nmppmMul_mv_colmajor_32s64s
 
 #define RPC_nmppmMul_mm_8s8s
 #define RPC_nmppmMul_mm_8s16s
@@ -64,6 +67,15 @@
 #define RPC_nmppmMul_mm_32s32s
 #define RPC_nmppmMul_mm_32s64s
 
+#define RPC_nmppmMul_mm_colmajor_8s8s
+#define RPC_nmppmMul_mm_colmajor_8s16s
+#define RPC_nmppmMul_mm_colmajor_8s32s
+#define RPC_nmppmMul_mm_colmajor_8s64s
+#define RPC_nmppmMul_mm_colmajor_16s16s
+#define RPC_nmppmMul_mm_colmajor_16s32s
+#define RPC_nmppmMul_mm_colmajor_16s64s
+#define RPC_nmppmMul_mm_colmajor_32s32s
+#define RPC_nmppmMul_mm_colmajor_32s64s
 
 #define RPC_nmppsDotProd_8s8sm
 #define RPC_nmppsDotProd_8s16sm

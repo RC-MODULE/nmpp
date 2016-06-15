@@ -788,19 +788,19 @@ AURA_METHOD(rpc_nmppsCmpLt_32s8um, nmppsCmpLt_32s8um,
 #ifdef RPC_nmppsDotProd_8s8sm
 AURA_METHOD(rpc_nmppsDotProd_8s8sm, nmppsDotProd_8s8sm, 
 		BUFFER BUFFER U32,
-	    U64);
+	    U64 U32);
 #endif 
 
 #ifdef RPC_nmppsDotProd_8s16sm
 AURA_METHOD(rpc_nmppsDotProd_8s16sm, nmppsDotProd_8s16sm, 
 		BUFFER BUFFER U32,
-	    U64);
+	    U64 U32);
 #endif 
 
 #ifdef RPC_nmppsDotProd_8s32sm
 AURA_METHOD(rpc_nmppsDotProd_8s32sm, nmppsDotProd_8s32sm, 
 		BUFFER BUFFER U32,
-	    U64);
+	    U64 U32);
 #endif 
 
 #ifdef RPC_nmppsDotProd_8s64s
@@ -812,13 +812,13 @@ AURA_METHOD(rpc_nmppsDotProd_8s64s, nmppsDotProd_8s64s,
 #ifdef RPC_nmppsDotProd_16s16sm
 AURA_METHOD(rpc_nmppsDotProd_16s16sm, nmppsDotProd_16s16sm, 
 		BUFFER BUFFER U32,
-	    U64);
+	    U64 U32);
 #endif 
 
 #ifdef RPC_nmppsDotProd_16s32sm
 AURA_METHOD(rpc_nmppsDotProd_16s32sm, nmppsDotProd_16s32sm, 
 		BUFFER BUFFER U32,
-	    U64);
+	    U64 U32);
 #endif 
 
 #ifdef RPC_nmppsDotProd_16s64s
@@ -830,7 +830,7 @@ AURA_METHOD(rpc_nmppsDotProd_16s64s, nmppsDotProd_16s64s,
 #ifdef RPC_nmppsDotProd_32s32sm
 AURA_METHOD(rpc_nmppsDotProd_32s32sm, nmppsDotProd_32s32sm, 
 		BUFFER BUFFER U32,
-	    U64);
+	    U64 U32);
 #endif 
 
 #ifdef RPC_nmppsDotProd_32s64s
@@ -846,75 +846,76 @@ AURA_METHOD(rpc_nmppsDotProd_64s64s, nmppsDotProd_64s64s,
 #endif 
 
 //-----------------------------------------------------
-#ifdef RPC_nmppmMul_mv_8s64s
+#if defined(RPC_nmppmMul_mv_8s64s) || defined(RPC_nmppmMul_mv_colmajor_8s64s) 
 AURA_METHOD(rpc_nmppmMul_mv_8s64s, nmppmMul_mv_8s64s, 
 		BUFFER BUFFER BUFFER U32 U32,
 	    "");
 #endif 
 
-#ifdef RPC_nmppmMul_mv_16s64s
+#if defined(RPC_nmppmMul_mv_16s64s) || defined(RPC_nmppmMul_mv_colmajor_16s64s) 
 AURA_METHOD(rpc_nmppmMul_mv_16s64s, nmppmMul_mv_16s64s, 
 		BUFFER BUFFER BUFFER U32 U32,
 	    "");
 #endif 
 
-#ifdef RPC_nmppmMul_mv_32s64s
+#if defined(RPC_nmppmMul_mv_32s64s) || defined(RPC_nmppmMul_mv_colmajor_32s64s) 
 AURA_METHOD(rpc_nmppmMul_mv_32s64s, nmppmMul_mv_32s64s, 
 		BUFFER BUFFER BUFFER U32 U32,
 	    "");
 #endif 
 
 
+
 //-----------------------------------
-#ifdef RPC_nmppmMul_mm_8s8s
+#if defined(RPC_nmppmMul_mm_8s8s) || defined(RPC_nmppmMul_mm_colmajor_8s8s)
 AURA_METHOD(rpc_nmppmMul_mm_8s8s, nmppmMul_mm_8s8s, 
 		BUFFER U32 U32 BUFFER BUFFER U32,
 	    "");
 #endif 
 
-#ifdef RPC_nmppmMul_mm_8s16s
+#if defined(RPC_nmppmMul_mm_8s16s) || defined(RPC_nmppmMul_mm_colmajor_8s16s)
 AURA_METHOD(rpc_nmppmMul_mm_8s16s, nmppmMul_mm_8s16s, 
 		BUFFER U32 U32 BUFFER BUFFER U32,
 	    "");
 #endif 
 
-#ifdef RPC_nmppmMul_mm_8s32s
+#if defined(RPC_nmppmMul_mm_8s32s) || defined(RPC_nmppmMul_mm_colmajor_8s32s)
 AURA_METHOD(rpc_nmppmMul_mm_8s32s, nmppmMul_mm_8s32s, 
 		BUFFER U32 U32 BUFFER BUFFER U32,
 	    "");
 #endif 
 
-#ifdef RPC_nmppmMul_mm_8s64s
+#if defined(RPC_nmppmMul_mm_8s64s) || defined(RPC_nmppmMul_mm_colmajor_8s64s)
 AURA_METHOD(rpc_nmppmMul_mm_8s64s, nmppmMul_mm_8s64s, 
 		BUFFER U32 U32 BUFFER BUFFER U32,
 	    "");
 #endif 
 
-#ifdef RPC_nmppmMul_mm_16s16s
+#if defined(RPC_nmppmMul_mm_16s16s) || defined(RPC_nmppmMul_mm_colmajor_16s16s)
 AURA_METHOD(rpc_nmppmMul_mm_16s16s, nmppmMul_mm_16s16s, 
 		BUFFER U32 U32 BUFFER BUFFER U32,
 	    "");
 #endif 
 
-#ifdef RPC_nmppmMul_mm_16s32s
+#if defined(RPC_nmppmMul_mm_16s32s) || defined(RPC_nmppmMul_mm_colmajor_16s32s)
 AURA_METHOD(rpc_nmppmMul_mm_16s32s, nmppmMul_mm_16s32s, 
 		BUFFER U32 U32 BUFFER BUFFER U32,
 	    "");
 #endif 
 
-#ifdef RPC_nmppmMul_mm_16s64s
+#if defined(RPC_nmppmMul_mm_16s64s) || defined(RPC_nmppmMul_mm_colmajor_16s64s)
 AURA_METHOD(rpc_nmppmMul_mm_16s64s, nmppmMul_mm_16s64s, 
 		BUFFER U32 U32 BUFFER BUFFER U32,
 	    "");
 #endif 
 
-#ifdef RPC_nmppmMul_mm_32s32s
+#if defined(RPC_nmppmMul_mm_32s32s) || defined(RPC_nmppmMul_mm_colmajor_32s32s)
 AURA_METHOD(rpc_nmppmMul_mm_32s32s, nmppmMul_mm_32s32s, 
 		BUFFER U32 U32 BUFFER BUFFER U32,
 	    "");
 #endif 
 
-#ifdef RPC_nmppmMul_mm_32s64s
+#if defined(RPC_nmppmMul_mm_32s64s) || defined(RPC_nmppmMul_mm_colmajor_32s64s)
 AURA_METHOD(rpc_nmppmMul_mm_32s64s, nmppmMul_mm_32s64s, 
 		BUFFER U32 U32 BUFFER BUFFER U32,
 	    "");

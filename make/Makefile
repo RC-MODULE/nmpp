@@ -45,13 +45,16 @@ rpc:
 	$(MAKE) -C ./nmpp-arm
 	
 clean:
-	rm -f -r *.suo *.ncb
 	$(MAKE) -C ./nmpp-nmc3 clean
+	$(MAKE) -C ./nmpp-nmc3-rpc clean
+	$(MAKE) -C ./nmpp-arm-rpc clean
+	$(MAKE) -C ./nmpp-arm clean
 	$(MAKE) -C ./pc/gcc  clean
 	$(MAKE) -C ./pc/vs80 clean
 	$(MAKE) -C ./pc/vs13 clean
 	$(MAKE) -C ./doc  clean 
-	rm -f -r lib
+	-rm -f -r *.suo *.ncb
+	-rm -f -r lib
 	
 
 install:

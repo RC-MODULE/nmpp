@@ -3,8 +3,6 @@
 ROOT 		= ../../../../..
 include 	$(ROOT)/global.mk
 
-$(info DEVPACK = $(DEVPACK))
-DEVPACK = d:/git/dev-pack
 TARGET  	=  rpc-demo
 CC_FLAGS 	= \
 	-march=armv6 -mtune=arm1176jz-s -mfpu=vfp -mfloat-abi=hard -marm \

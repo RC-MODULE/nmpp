@@ -41,7 +41,7 @@
 	ret = aura_call(n, func, &retbuf,  iobuf_src1, nHeight1, nWidth1, iobuf_src2 ,iobuf_dst, nWidth2); \
 	if (ret != 0) {\
 		slog(0, SLOG_ERROR, "bug = %d", ret);\
-		BUG(n, "Call " #func " failed!"); } \
+		BUG(n, "Call "#func " [col-major] failed!"); } \
 	for (i = 0; i < nWidth2; i++) { \
 		for (j = 0; j < nHeight1; j++) { \
 			memcpy(pDstMtr+(j + nHeight1 * i),iobuf_dst->data+(nWidth2 * j + i)*k2,k2); \
@@ -51,7 +51,7 @@
 	aura_buffer_release( iobuf_src2); \
 	aura_buffer_release( iobuf_dst); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(0, SLOG_INFO, "ARM: Call " #func " [col-major] -ok"); 
 	
 void nmppmMul_mm_colmajor_8s8s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm8s* pSrcMtr2, nm8s* pDstMtr, int nWidth2)
 {

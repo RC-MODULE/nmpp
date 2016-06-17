@@ -84,7 +84,7 @@ PROJECT          = libnmpp-arm
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a
 #INC_DIRS         = -I../../include -I../../include/nmpls
-INC_DIRS         = -I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include
+INC_DIRS         = -I../../include -I$(AURA)/include -I$(AURA)/nmc-utils/include -I$(ROOTFS)/usr/include -I$(ROOTFS)/usr/include/arm-linux-gnueabihf
 SRC_DIRS         =  ../../src/nmplv/Arithmetics/common \
 					../../src/nmplv/Arithmetics/pc \
 					../../src/nmplv/Support/common \
@@ -112,10 +112,10 @@ BUILDER_FLAGS    = rcs $(TARGET)
 
 
 #--------------  Header dependence parsing -------------------------
-ifdef HAVE_gcc
-PREPROCESS_ASM_DEP = $(ARM_CC)gcc -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
-PREPROCESS_CPP_DEP = $(ARM_CC)gcc -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
-endif
+#ifdef HAVE_gcc
+PREPROCESS_ASM_DEP = $(ARM_CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
+PREPROCESS_CPP_DEP = $(ARM_CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
+#endif
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 

@@ -6,7 +6,8 @@ export NMPP      ?= $(ROOT)
 export DEVPACK	?=$(realpath $(ROOT)/deps/dev-pack-master)
 export NEURO    ?=$(DEVPACK)/nmsdk
 export VSHELL32 ?=$(DEVPACK)/vshell32
-
+export ARMTOOLCH?=$(DEVPACK)/i686-w64-mingw32
+export ROOTFS    =$(ARMTOOLCH)/arm-linux-gnueabihf/libc
 MC5103    =$(DEVPACK)/mc5103sdk
 MC7601    =$(DEVPACK)/mc7601sdk
 MB7707    =$(DEVPACK)/mb7707sdk
@@ -14,22 +15,23 @@ GNUWIN32  =$(DEVPACK)/gnuwin32-lite/bin
 
 
 ifeq ($(OS),Windows_NT)
-   PATH_DEP =$(GNUWIN32);\
+export PATH:=$(PATH);\
+$(GNUWIN32);\
 $(NEURO)/bin;\
 $(MC5103)/bin;\
 $(MB7707)/bin;\
 $(MC7601)/bin;\
 $(VSHELL32)/bin;\
-$(DEVPACK)/putty;
+$(DEVPACK)/putty;\
+$(ARMTOOLCH)/bin;
   
-  export PATH    :=$(PATH);C:/SysGCC/Raspberry/bin;$(DEVPACK)/Raspberry/bin);$(PATH_DEP)
   
   #$(info $(PATH))
   # NOTE: 'Raspberry\bin' shuld be first in PATH then $(GNUWIN32), because of 'libiconv-2.dll' version conflict.
   # But 'make.exe' ver-3.81 must be found first in then PATH then 'make.exe' ver-3.82 located in Raspberry\bin because of their non-compatibility 
 
   
-   ROOTFS  = $(DEVPACK)/rootfs
+   
    EASYNMC = $(DEVPACK)/nmc-utils-0.1.1/libeasynmc-nmc
 
    ARM_CC   = arm-linux-gnueabihf-gcc.exe

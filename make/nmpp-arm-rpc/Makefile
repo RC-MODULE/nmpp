@@ -76,7 +76,7 @@ OBJDUMP = $(ARM_CC)-objdump
 PROJECT          = libnmpp-arm-rpc
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a
-OS_TARGET		 = $(call OS_PATH,$(TARGET))
+OS_TARGET		 = $(call BACKSLASH,$(TARGET))
 INC_DIRS         = \
   -I$(ROOTFS)/usr/include/arm-linux-gnueabihf/aura-0.1.2/ \
   -I$(ROOTFS)/usr/include/ \
@@ -108,10 +108,10 @@ BUILDER          = $(AR)
 BUILDER_FLAGS    = rcs $(TARGET)
 
 #--------------  Header dependence parsing -------------------------
-ifdef HAVE_gcc
-PREPROCESS_ASM_DEP = $(ARM_CC)gcc -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
-PREPROCESS_CPP_DEP = $(ARM_CC)gcc -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
-endif
+#ifdef HAVE_gcc
+PREPROCESS_ASM_DEP = $(CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
+PREPROCESS_CPP_DEP = $(CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
+#endif
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 
@@ -139,7 +139,6 @@ OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM
 #.DEFAULT_GOAL=default
 
 $(TARGET): $(TMP_DIR) $(OBJECTS) $(OUT_DIR)
-	
 	-$(OS_RM) $(OS_TARGET)	
 	$(BUILDER) $(BUILDER_FLAGS) $(OBJECTS) 
 	

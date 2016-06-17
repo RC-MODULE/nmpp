@@ -4,6 +4,7 @@ ROOT 		= ../../../../..
 include 	$(ROOT)/global.mk
 
 $(info DEVPACK = $(DEVPACK))
+DEVPACK = d:/git/dev-pack
 TARGET  	=  rpc-demo
 CC_FLAGS 	= \
 	-march=armv6 -mtune=arm1176jz-s -mfpu=vfp -mfloat-abi=hard -marm \
@@ -18,11 +19,12 @@ LD_FLAGS = \
 	-march=armv6 -mtune=arm1176jz-s -mfpu=vfp -mfloat-abi=hard -marm \
 	-Wl,--sysroot=$(ROOTFS) \
 	-Wl,-unresolved-symbols=ignore-in-shared-libs \
+	-Wl,-L$(ROOTFS)/usr/lib/arm-linux-gnueabihf \
 	-Wl,-L$(ROOTFS)/lib \
 	-Wl,-L$(ROOTFS)/lib/arm-linux-gnueabihf \
-	-Wl,-L$(ROOTFS)/usr/lib/arm-linux-gnueabihf \
 	-Wl,-L$(NMPP)/lib 
 
+	
 #VPATH    = $(AURA) $(AURA)/nmc-utils
 ALL_C    = ./main-arm.c 
 OBJECTS_C= $(notdir $(patsubst %.c,%.o,$(ALL_C)))

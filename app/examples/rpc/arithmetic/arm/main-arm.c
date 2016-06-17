@@ -33,7 +33,7 @@ int main() {
 
 	for(i=0; i<256; i++){
 		src0_8s[i] =1;//i;  
-		src0_16s[i]=1;  
+		src0_16s[i]=i%2;  
 		src0_32s[i]=i+10;  
 		src0_64s[i]=i+10;  
 		            
@@ -117,43 +117,35 @@ int main() {
 	nmppmMul_mm_8s64s (src0_8s,8,16,src1_64s,dst_64s,16);               nmppsCrcAcc_64s(dst_64s,256,&crc);
 				                                                                                
 	nmppmMul_mm_16s16s(src0_16s,8,16,src1_16s,dst_16s,16);              nmppsCrcAcc_16s(dst_16s,256,&crc);
-	for(i=0; i<16; i++){
-		printf("\n");
-		for(j=0; j<16; j++)	
-			printf("%d\t", dst_16s[i*16+j]);
-	}
-	printf("\n\n");
+	//for(i=0; i<8; i++){
+	//	printf("\n");
+	//	for(j=0; j<16; j++)	
+	//		printf("%d\t", dst_16s[i*16+j]);
+	//}
+	//printf("\n\n");
 
 	
-//	nmppmMul_mm_16s32s(src0_16s,8,16,src1_32s,dst_32s,16);              nmppsCrcAcc_32s(dst_32s,256,&crc);
-//	nmppmMul_mm_16s64s(src0_16s,8,16,src1_64s,dst_64s,16);              nmppsCrcAcc_64s(dst_64s,256,&crc);
-//	                                                                                            
-//	nmppmMul_mm_32s32s(src0_32s,8,16,src1_32s,dst_32s,16);				nmppsCrcAcc_32s(dst_32s,256,&crc);
-//	nmppmMul_mm_32s64s(src0_32s,8,16,src1_64s,dst_64s,16);              nmppsCrcAcc_64s(dst_64s,256,&crc);
-//	
-//	nmppmMul_mv_colmajor_8s64s (src0_8s, src1_64s,dst_64s,8,8);			nmppsCrcAcc_64s(dst_64s,8,&crc);
-//	nmppmMul_mv_colmajor_16s64s(src0_16s,src1_64s,dst_64s,8,8);         nmppsCrcAcc_64s(dst_64s,8,&crc);
-//	nmppmMul_mv_colmajor_32s64s(src0_32s,src1_64s,dst_64s,8,8);         nmppsCrcAcc_64s(dst_64s,8,&crc);
-//                                                                        
-//	nmppmMul_mm_colmajor_8s8s  (src0_8s,8,16,src1_8s, dst_8s, 16);		nmppsCrcAcc_8s (dst_8s, 256,&crc);
-//	nmppmMul_mm_colmajor_8s16s (src0_8s,8,16,src1_16s,dst_16s,16);      nmppsCrcAcc_16s(dst_16s,256,&crc);
-//	nmppmMul_mm_colmajor_8s32s (src0_8s,8,16,src1_32s,dst_32s,16);      nmppsCrcAcc_32s(dst_32s,256,&crc);
-//	nmppmMul_mm_colmajor_8s64s (src0_8s,8,16,src1_64s,dst_64s,16);      nmppsCrcAcc_64s(dst_64s,256,&crc);
-//                                                                                                
-//	nmppmMul_mm_colmajor_16s16s(src0_16s,8,16,src1_16s,dst_16s,16);     nmppsCrcAcc_16s(dst_16s,256,&crc);
-//	
-//	for(i=0; i<16; i++){
-//		printf("----\n\n");
-//		for(j=0; j<16; i++)	
-//			printf("%d\t", dst_16s[i*16+j]);
-//	}
-//	printf("\n");
-//	
-//	nmppmMul_mm_colmajor_16s32s(src0_16s,8,16,src1_32s,dst_32s,16);     nmppsCrcAcc_32s(dst_32s,256,&crc);
-//	nmppmMul_mm_colmajor_16s64s(src0_16s,8,16,src1_64s,dst_64s,16);     nmppsCrcAcc_64s(dst_64s,256,&crc);
-//                                                                                              
-//	nmppmMul_mm_colmajor_32s32s(src0_32s,8,16,src1_32s,dst_32s,16);		nmppsCrcAcc_32s(dst_32s,256,&crc);
-//	nmppmMul_mm_colmajor_32s64s(src0_32s,8,16,src1_64s,dst_64s,16);     nmppsCrcAcc_64s(dst_64s,256,&crc);
+	nmppmMul_mm_16s32s(src0_16s,8,16,src1_32s,dst_32s,16);              nmppsCrcAcc_32s(dst_32s,256,&crc);
+	nmppmMul_mm_16s64s(src0_16s,8,16,src1_64s,dst_64s,16);              nmppsCrcAcc_64s(dst_64s,256,&crc);
+	                                                                                            
+	nmppmMul_mm_32s32s(src0_32s,8,16,src1_32s,dst_32s,16);				nmppsCrcAcc_32s(dst_32s,256,&crc);
+	nmppmMul_mm_32s64s(src0_32s,8,16,src1_64s,dst_64s,16);              nmppsCrcAcc_64s(dst_64s,256,&crc);
+	
+	nmppmMul_mv_colmajor_8s64s (src0_8s, src1_64s,dst_64s,8,8);			nmppsCrcAcc_64s(dst_64s,8,&crc);
+	nmppmMul_mv_colmajor_16s64s(src0_16s,src1_64s,dst_64s,8,8);         nmppsCrcAcc_64s(dst_64s,8,&crc);
+	nmppmMul_mv_colmajor_32s64s(src0_32s,src1_64s,dst_64s,8,8);         nmppsCrcAcc_64s(dst_64s,8,&crc);
+                                                                        
+	nmppmMul_mm_colmajor_8s8s  (src0_8s,8,16,src1_8s, dst_8s, 16);		nmppsCrcAcc_8s (dst_8s, 256,&crc);
+	nmppmMul_mm_colmajor_8s16s (src0_8s,8,16,src1_16s,dst_16s,16);      nmppsCrcAcc_16s(dst_16s,256,&crc);
+	nmppmMul_mm_colmajor_8s32s (src0_8s,8,16,src1_32s,dst_32s,16);      nmppsCrcAcc_32s(dst_32s,256,&crc);
+	nmppmMul_mm_colmajor_8s64s (src0_8s,8,16,src1_64s,dst_64s,16);      nmppsCrcAcc_64s(dst_64s,256,&crc);
+                                                                                                
+	nmppmMul_mm_colmajor_16s16s(src0_16s,8,16,src1_16s,dst_16s,16);     nmppsCrcAcc_16s(dst_16s,256,&crc);
+	nmppmMul_mm_colmajor_16s32s(src0_16s,8,16,src1_32s,dst_32s,16);     nmppsCrcAcc_32s(dst_32s,256,&crc);
+	nmppmMul_mm_colmajor_16s64s(src0_16s,8,16,src1_64s,dst_64s,16);     nmppsCrcAcc_64s(dst_64s,256,&crc);
+                                                                                              
+	nmppmMul_mm_colmajor_32s32s(src0_32s,8,16,src1_32s,dst_32s,16);		nmppsCrcAcc_32s(dst_32s,256,&crc);
+	nmppmMul_mm_colmajor_32s64s(src0_32s,8,16,src1_64s,dst_64s,16);     nmppsCrcAcc_64s(dst_64s,256,&crc);
 	
 	signed long long ret64;
 	nmppsDotProd_8s8sm  ((nm8s*) src0_8s ,(nm8s *)src1_8s , 16, &ret64,0);  nmppsCrcAcc_64s(&ret64,1,&crc);    
@@ -200,5 +192,12 @@ int main() {
 }
 //	for(i=0; i<32; i++)	printf("%llu %llu \r\n", src0_64s [i],max64);
 //	for(i=0; i<32; i++)	printf("%d %d \r\n", (int)src0_32s [i],(int)max);
+	
+//	for(i=0; i<8; i++){
+//		printf("\n");
+//		for(j=0; j<16; j++)	
+//			printf("%d\t", dst_16s[i*16+j]);
+//	}
+//	printf("\n\n");
 
 

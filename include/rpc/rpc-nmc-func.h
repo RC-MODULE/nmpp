@@ -451,77 +451,41 @@ NMC_RPC_PIPI(nmppsCmpLtC_8s);
 
 
 
-//--------------------------
-#ifdef    RPC_nmppsMul_mm_8s8s
-NMC_RPC_PPPII(nmppsMul_mm_8s8s);
-#endif 
-
-#ifdef    RPC_nmppsMul_mm_8s16s
-NMC_RPC_PPPII(nmppsMul_mm_8s16s);
-#endif 
-
-#ifdef    RPC_nmppsMul_mm_8s32s
-NMC_RPC_PPPII(nmppsMul_mm_8s32s);
-#endif 
-
-#ifdef    RPC_nmppsMul_mm_8s64s
-NMC_RPC_PPPII(nmppsMul_mm_8s64s);
-#endif 
-
-#ifdef    RPC_nmppsMul_mm_16s16s
-NMC_RPC_PPPII(nmppsMul_mm_16s16s);
-#endif 
-
-#ifdef    RPC_nmppsMul_mm_16s32s
-NMC_RPC_PPPII(nmppsMul_mm_16s32s);
-#endif 
-
-#ifdef    RPC_nmppsMul_mm_16s64s
-NMC_RPC_PPPII(nmppsMul_mm_16s64s);
-#endif 
-
-#ifdef    RPC_nmppsMul_mm_32s32s
-NMC_RPC_PPPII(nmppsMul_mm_32s32s);
-#endif 
-
-#ifdef    RPC_nmppsMul_mm_32s64s
-NMC_RPC_PPPII(nmppsMul_mm_32s64s);
-#endif 
-
 //-----------------------------
-#ifdef     RPC_nmppmMul_mm_8s8s
+
+#if defined(RPC_nmppmMul_mm_8s8s) || defined(RPC_nmppmMul_mm_colmajor_8s8s)
 NMC_RPC_PIIPPI(nmppmMul_mm_8s8s);
 #endif 
 
-#ifdef     RPC_nmppmMul_mm_8s16s
+#if defined(RPC_nmppmMul_mm_8s16s) || defined(RPC_nmppmMul_mm_colmajor_8s16s)
 NMC_RPC_PIIPPI(nmppmMul_mm_8s16s);
 #endif 
 
-#ifdef     RPC_nmppmMul_mm_8s32s
+#if defined(RPC_nmppmMul_mm_8s32s) || defined(RPC_nmppmMul_mm_colmajor_8s32s)
 NMC_RPC_PIIPPI(nmppmMul_mm_8s32s);
 #endif 
 
-#ifdef     RPC_nmppmMul_mm_8s64s
+#if defined(RPC_nmppmMul_mm_8s64s) || defined(RPC_nmppmMul_mm_colmajor_8s64s)
 NMC_RPC_PIIPPI(nmppmMul_mm_8s64s);
 #endif 
 
-#ifdef     RPC_nmppmMul_mm_16s16s
+#if defined(RPC_nmppmMul_mm_16s16s) || defined(RPC_nmppmMul_mm_colmajor_16s16s)
 NMC_RPC_PIIPPI(nmppmMul_mm_16s16s);
 #endif 
 
-#ifdef     RPC_nmppmMul_mm_16s32s
+#if defined(RPC_nmppmMul_mm_16s32s) || defined(RPC_nmppmMul_mm_colmajor_16s32s)
 NMC_RPC_PIIPPI(nmppmMul_mm_16s32s);
 #endif 
 
-#ifdef     RPC_nmppmMul_mm_16s64s
+#if defined(RPC_nmppmMul_mm_16s64s) || defined(RPC_nmppmMul_mm_colmajor_16s64s)
 NMC_RPC_PIIPPI(nmppmMul_mm_16s64s);
 #endif 
 
-#ifdef     RPC_nmppmMul_mm_32s32s
+#if defined(RPC_nmppmMul_mm_32s32s) || defined(RPC_nmppmMul_mm_colmajor_32s32s)
 NMC_RPC_PIIPPI(nmppmMul_mm_32s32s);
 #endif 
 
-#ifdef     RPC_nmppmMul_mm_32s64s
+#if defined(RPC_nmppmMul_mm_32s64s) || defined(RPC_nmppmMul_mm_colmajor_32s64s)
 NMC_RPC_PIIPPI(nmppmMul_mm_32s64s);
 #endif 
 
@@ -567,15 +531,15 @@ NMC_RPC_PIIPPI(nmppmMul_mm_32s64s);
 //#endif 
 
 //--------------------------
-#ifdef    RPC_nmppmMul_mv_8s64s
+#if defined(RPC_nmppmMul_mv_8s64s) || defined(RPC_nmppmMul_mv_colmajor_8s64s) 
 NMC_RPC_PPPII(nmppmMul_mv_8s64s);
 #endif 
 
-#ifdef    RPC_nmppmMul_mv_16s64s
+#if defined(RPC_nmppmMul_mv_16s64s) || defined(RPC_nmppmMul_mv_colmajor_16s64s) 
 NMC_RPC_PPPII(nmppmMul_mv_16s64s);
 #endif 
 
-#ifdef    RPC_nmppmMul_mv_32s64s
+#if defined(RPC_nmppmMul_mv_32s64s) || defined(RPC_nmppmMul_mv_colmajor_32s64s) 
 NMC_RPC_PPPII(nmppmMul_mv_32s64s);
 #endif 
 //----------------------------

@@ -85,6 +85,7 @@ SRC_DIRS 		 = \
 				$(ROOT)/src/nmpls/FFT/FFT0512/rpc-nmc \
 				$(ROOT)/src/nmpls/FFT/FFT1024/rpc-nmc \
 				$(ROOT)/src/nmpls/FFT/FFT2048/rpc-nmc \
+				$(ROOT)/src/nmpls/FFT/FFTFree/rpc-nmc \
 				$(ROOT)/src/nmpls/FFT/rpc-nmc \
 				$(ROOT)/src/nmplv/Support/rpc-nmc \
 				$(ROOT)/src/nmplv/Select/rpc-nmc \

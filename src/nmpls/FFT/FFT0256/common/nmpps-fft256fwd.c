@@ -14,17 +14,6 @@ void  FFT_Fwd256(
 			);
 void FFT_Fwd256Set7bit();			
 //extern "C"{
-	
-void nmppsFFTFree(NmppsFFTSpec* spec )
-{
-	if (spec){
-		spec->free(spec->buffer[0]);
-		spec->free(spec->buffer[1]);
-		spec->free(spec->buffer[2]);
-		spec->free(spec->buffer[3]);
-		free(spec);
-	}
-}	
 
 
 void nmppsFFT256Fwd(const nm32sc* src, nm32sc* dst,const NmppsFFTSpec* spec)

@@ -120,7 +120,7 @@ PREPROCESS_CPP_DEP = $(ARM_CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 
 #-include colorizer.mk
--include $(TMP_DIR)/*.dep
+
 .SUFFIXES:
 
 
@@ -157,6 +157,8 @@ $(TMP_DIR):
 $(TARGET): $(TMP_DIR) $(OBJECTS) 
 	$(BUILDER) $(BUILDER_FLAGS) $(OBJECTS) 
 
+-include $(TMP_DIR)/*.dep
+	
 $(OUT_DIR): 
 	-mkdir "$(@)"
 	

@@ -2,10 +2,6 @@
 #include "rpc-host.h"	
 
 
-	void nmppsFFTFree(NmppsFFTSpec* spec )
-	{
-		RPC_HOST_I("nmppsFFTFree",(int)spec);	
-	}	
 
 	void nmppsFFT256Fwd(const nm32sc* src, nm32sc* dst,const  NmppsFFTSpec* spec)
 	{

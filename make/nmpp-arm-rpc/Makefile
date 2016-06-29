@@ -91,6 +91,7 @@ SRC_DIRS         =  ../../src/nmplv/Arithmetics/rpc-arm \
 					../../src/nmpls/FFT/FFT0512/rpc-arm \
 					../../src/nmpls/FFT/FFT1024/rpc-arm \
 					../../src/nmpls/FFT/FFT2048/rpc-arm \
+					../../src/nmpls/FFT/FFTFree/rpc-arm \
 					../../src/nmplm/MatrixVector/rpc-arm
 
 					
@@ -116,7 +117,7 @@ PREPROCESS_CPP_DEP = $(CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 
 #-include colorizer.mk
--include $(TMP_DIR)/*.dep
+
 .SUFFIXES:
 
 # regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)
@@ -136,11 +137,14 @@ OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM
 #======================== BUILD RULES ====================================
 .PHONY:all  clean cleanall vs8  skip
 
-#.DEFAULT_GOAL=default
+#$(info $(TARGET))
+#.DEFAULT_GOAL=$(TARGET)
 
 $(TARGET): $(TMP_DIR) $(OBJECTS) $(OUT_DIR)
 	-$(OS_RM) $(OS_TARGET)	
 	$(BUILDER) $(BUILDER_FLAGS) $(OBJECTS) 
+
+-include $(TMP_DIR)/*.dep
 	
 $(TMP_DIR):
 	-mkdir "$(@)"
@@ -150,11 +154,11 @@ $(OUT_DIR):
 	-mkdir "$(@)"
 	
 $(TMP_DIR)/%.o: %.c 
-	$(PREPROCESS_ASM_DEP)
+	$(PREPROCESS_CPP_DEP)
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 
 $(TMP_DIR)/%.o: %.cpp
-	$(PREPROCESS_ASM_DEP)
+	$(PREPROCESS_CPP_DEP)
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 	
 clean:

@@ -58,7 +58,7 @@
 		aura_buffer_release( retbuf); 
 		t3=clock();
 		printf("[ARM: NMC] wrap=%d call=%d\r\n",t1-t0+t3-t2,t2-t1);
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT32Fwd -ok"); 
+		slog(3, SLOG_INFO, "ARM: Call nmppsFFT32Fwd -ok"); 
 	#else 
 		FFT_Fwd32(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
 
@@ -147,7 +147,7 @@
 		aura_buffer_release( iobuf_src); 
 		aura_buffer_release( iobuf_dst); 
 		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT32FwdInitAlloc -ok"); 
+		slog(3, SLOG_INFO, "ARM: Call nmppsFFT32FwdInitAlloc -ok"); 
 		return ret;
 #else
 		int ret;

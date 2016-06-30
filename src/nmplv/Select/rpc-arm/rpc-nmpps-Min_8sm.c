@@ -15,6 +15,6 @@ int nmppsMin_8sm (const nm8s*  src, int size, int8b*  pMinValue, nm16s* tmp)
 	ret = aura_buffer_get_u32(retbuf);
 	aura_buffer_release( iobuf_src);
 	aura_buffer_release( retbuf); 
-	slog(0, SLOG_INFO, "ARM: Call nmppsMin_8sm -ok"); 
+	slog(3, SLOG_INFO, "ARM: Call nmppsMin_8sm -ok"); 
 	return ret;
 }	

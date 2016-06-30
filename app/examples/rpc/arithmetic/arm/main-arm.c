@@ -7,7 +7,7 @@ struct aura_node *n;
 int main() {
 
 	printf("START-%s\n", aura_get_version());
-	slog_init(NULL, 0);
+	slog_init(NULL, 3);
        sleep(1);
 	int ret; 
 		n = aura_open("nmc", "./rpc-demo.abs");

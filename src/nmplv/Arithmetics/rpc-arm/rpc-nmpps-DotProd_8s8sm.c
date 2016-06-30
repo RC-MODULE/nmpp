@@ -43,6 +43,6 @@ int nmppsDotProd_8s8sm(
 	aura_buffer_release( iobuf_src0); 
 	aura_buffer_release( iobuf_src1); 
 	aura_buffer_release( retbuf); 
-	slog(0, SLOG_INFO, "ARM: Call nmppsDotProd_8s8sm -ok"); 
+	slog(3, SLOG_INFO, "ARM: Call nmppsDotProd_8s8sm -ok"); 
 	return ret;
 }

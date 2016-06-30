@@ -37,7 +37,7 @@
 	aura_buffer_release( iobuf_src2); \
 	aura_buffer_release( iobuf_dst); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(3, SLOG_INFO, "ARM: Call " #func " -ok"); 
 	
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 32-bit mtr  by vec of 8 shorts

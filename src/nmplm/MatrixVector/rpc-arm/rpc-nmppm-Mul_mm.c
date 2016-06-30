@@ -38,7 +38,7 @@
 	aura_buffer_release( iobuf_src2); \
 	aura_buffer_release( iobuf_dst); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok");
+	slog(3, SLOG_INFO, "ARM: Call " #func " -ok");
 	
 void nmppmMul_mm_8s8s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm8s* pSrcMtr2, nm8s* pDstMtr, int nWidth2)
 {

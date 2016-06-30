@@ -15,7 +15,7 @@ int nmppsCmpNeC_8s8um (const nm8s* src,  int8b  nCmpVal, nm8u* dst,  int size, s
 	aura_buffer_release( iobuf_dst); 
 	aura_buffer_release( iobuf_src);
 	aura_buffer_release( retbuf); 
-	slog(0, SLOG_INFO, "ARM: Call nmppsCmpNeC_8s8um -ok"); 
+	slog(3, SLOG_INFO, "ARM: Call nmppsCmpNeC_8s8um -ok"); 
 	return 0;
 }
 

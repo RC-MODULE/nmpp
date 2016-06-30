@@ -17,7 +17,7 @@ extern struct aura_node *n;
 	memcpy(dst,iobuf_dst->data,size); \
 	aura_buffer_release( iobuf_src); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call func ok"); 
+	slog(4, SLOG_INFO, "ARM: Call func ok"); 
 
 	
 #define RPC_HOST_PI(func,ptr) \
@@ -33,7 +33,7 @@ extern struct aura_node *n;
 	aura_buffer_release( iobuf_dst); \
 	aura_buffer_release( iobuf_src); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 */
 #define RPC_HOST_I(func, val) \
 	int ret;	\
@@ -42,7 +42,7 @@ extern struct aura_node *n;
 	if (ret != 0) \
 	    BUG(n, "Call" #func "failed!"); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call func ok"); 
+	slog(4, SLOG_INFO, "ARM: Call func ok"); 
 	
 #define RPC_HOST_PPI(func,src,dst,size,k) \
 	int ret;	\
@@ -58,7 +58,7 @@ extern struct aura_node *n;
 	aura_buffer_release( iobuf_dst); \
 	aura_buffer_release( iobuf_src); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 
 #define RPC_HOST_PPI_R64_k0k1(func,src0,src1,size,ret,k0,k1) \
 	int ret;	\
@@ -75,7 +75,7 @@ extern struct aura_node *n;
 	aura_buffer_release( iobuf_src0); \
 	aura_buffer_release( iobuf_src1); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 	
 
 
@@ -95,7 +95,7 @@ extern struct aura_node *n;
 	aura_buffer_release( iobuf_src1); \
 	aura_buffer_release( iobuf_src0); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 
 	
 #define RPC_HOST_PIPI(func,src,val,dst,size,k) \
@@ -112,7 +112,7 @@ extern struct aura_node *n;
 	aura_buffer_release( iobuf_dst); \
 	aura_buffer_release( iobuf_src); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 
 #define RPC_HOST_PIPI2(func,src,val,dst,size,k1,k2) \
 	int ret;	\
@@ -128,7 +128,7 @@ extern struct aura_node *n;
 	aura_buffer_release( iobuf_dst); \
 	aura_buffer_release( iobuf_src); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 	
 #define RPC_HOST_PLPI(func,src,val,dst,size,k1,k2) \
 	int ret;	\
@@ -144,7 +144,7 @@ extern struct aura_node *n;
 	aura_buffer_release( iobuf_dst); \
 	aura_buffer_release( iobuf_src); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 
 #define RPC_HOST_PPLI(func,src,val,dst,size,k) \
 	int ret;	\
@@ -160,7 +160,7 @@ extern struct aura_node *n;
 	aura_buffer_release( iobuf_dst); \
 	aura_buffer_release( iobuf_src); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 
 	
 #define RPC_HOST_PIR(func,src,size,res,k) \
@@ -174,7 +174,7 @@ extern struct aura_node *n;
 	*res = aura_buffer_get_u32(retbuf);\
 	aura_buffer_release( iobuf_src); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 
 #define RPC_HOST_PPI_I(func,src,dst,handle,ret,k) \
 	int ret;	\
@@ -190,7 +190,7 @@ extern struct aura_node *n;
 	aura_buffer_release( iobuf_src); \
 	aura_buffer_release( iobuf_dst); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 
 	
 #define RPC_HOST_PIR64(func,src,size,res,k) \
@@ -204,7 +204,7 @@ extern struct aura_node *n;
 	*res = aura_buffer_get_u64(retbuf);\
 	aura_buffer_release( iobuf_src); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 	
 	//memcpy(iobuf_src1->data,pSrcMtr,nHeight*nWidth*k1);	
 	
@@ -224,13 +224,13 @@ extern struct aura_node *n;
 	struct aura_buffer *retbuf; \
 	ret = aura_call(n, func, &retbuf,  iobuf_src1, iobuf_src2, size); \
 	if (ret != 0) {\
-		slog(0, SLOG_ERROR, "bug = %d", ret);\
+		slog(4, SLOG_ERROR, "bug = %d", ret);\
 		BUG(n, "Call " #func " failed!"); } \
 	*dst = aura_buffer_get_u64(retbuf); \
 	aura_buffer_release( iobuf_src1); \
 	aura_buffer_release( iobuf_src2); \
 	aura_buffer_release( retbuf); \
-	slog(0, SLOG_INFO, "ARM: Call " #func " -ok"); 
+	slog(4, SLOG_INFO, "ARM: Call " #func " -ok"); 
 
 	
 #endif

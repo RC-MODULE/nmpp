@@ -19,7 +19,7 @@
 		aura_buffer_release( iobuf_dst); 
 		aura_buffer_release( iobuf_src); 
 		aura_buffer_release( retbuf); 
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT1024Fwd -ok"); 
+		slog(3, SLOG_INFO, "ARM: Call nmppsFFT1024Fwd -ok"); 
 	}
 
 
@@ -43,7 +43,7 @@
 			BUG(n, "Call nmppsFFT1024FwdInitAlloc return fail!"); 
 			return -1;
 		}
-		slog(0, SLOG_INFO, "ARM: Call nmppsFFT1024FwdInitAlloc -ok"); 
+		slog(3, SLOG_INFO, "ARM: Call nmppsFFT1024FwdInitAlloc -ok"); 
 		return ret;
 	}
 

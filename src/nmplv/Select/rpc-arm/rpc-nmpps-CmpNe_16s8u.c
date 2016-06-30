@@ -19,7 +19,7 @@ int nmppsCmpNe_16s8um (const nm16s* src1,const  nm16s* src2, nm8u* dst,  int siz
 	aura_buffer_release( iobuf_src2);
 	aura_buffer_release( iobuf_src1);
 	aura_buffer_release( retbuf); 
-	slog(0, SLOG_INFO, "ARM: Call nmppsCmpNe_16s8um -ok"); 
+	slog(3, SLOG_INFO, "ARM: Call nmppsCmpNe_16s8um -ok"); 
 
 	
 	return 0;

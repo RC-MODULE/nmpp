@@ -194,7 +194,8 @@
 	int  nmppsFFT1024InvInitAlloc (NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT1024InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free,  int settings);
 	
-	void nmppsFFT2048Fwd(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	void nmppsFFT2048Fwd        (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	
 	int  nmppsFFT2048FwdOptimize(const void* src, const void* dst, fseq64* allocOrder) ;
 	int  nmppsFFT2048FwdInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT2048FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings);
@@ -212,6 +213,6 @@
 
 void nmppsFFT32FwdRef2x16  ( nm32sc* src, nm32sc* dst); // C++
 void nmppsFFT32FwdRef2x16_f( nm32sc* src, nm32sc* dst);	// C++
-
+void nmppsFFT2048Fwd_f      (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
 #endif 
 		

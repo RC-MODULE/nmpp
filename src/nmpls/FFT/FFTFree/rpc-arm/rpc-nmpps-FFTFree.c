@@ -10,7 +10,7 @@ void nmppsFFTFree(NmppsFFTSpec* spec )
 	if (ret != 0) 
 	    BUG(n, "Call nmppsFFTFree failed!"); 
 	aura_buffer_release( retbuf); 
-	slog(0, SLOG_INFO, "ARM: Call nmppsFFTFree ok"); 
+	slog(3, SLOG_INFO, "ARM: Call nmppsFFTFree ok"); 
 
 }	
 

@@ -595,8 +595,8 @@ global _nmppsRShiftC_32s:label;
 	push ar0,gr0	with gr7=false;
 	push ar1,gr1	with gr7++;
 	push ar4,gr4	with gr0=gr7<<1;
-	push ar5,gr5	with gr6=gr7<<1;
-	push ar6,gr6;
+	push ar5,gr5;	
+	push ar6,gr6	with gr6=gr7<<1;
 	
 	ar0 = [--ar5];	// pSrcVec
 	gr4 = [--ar5];	// Shift

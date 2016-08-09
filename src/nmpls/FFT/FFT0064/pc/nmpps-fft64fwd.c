@@ -16,8 +16,7 @@
 nm32sc fixW64(int arg, int max);
 	
 
-
-void nmppsFFT64FwdRaw(nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
+void nmppsFFT64Fwd8x8Raw(const nm32sc*	src, nm32sc*	dst, const NmppsFFTSpec*	spec)
 {
 	int SHR1=16;
 	int SHR2=7;
@@ -185,10 +184,10 @@ void nmppsFFT64FwdRaw(nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
 	// КПД = 448/=42%
 }
 
-void nmppsFFT64Fwd(nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
+void nmppsFFT64Fwd(const nm32sc*	src, nm32sc*	dst, const NmppsFFTSpec*	spec)
 {
 	int k;
-	nmppsFFT64FwdRaw(src, dst, spec);
+	nmppsFFT64Fwd8x8Raw(src, dst, spec);
 	
 	for(k=0; k<64; k++){
 		//dst[k].re+=64;

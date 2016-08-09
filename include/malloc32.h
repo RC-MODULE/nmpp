@@ -24,6 +24,8 @@ void  free32(void* p);
 typedef void (Free32Func)(void*);
 typedef void* (Malloc32Func)(unsigned int);
 
+#define NMPP_OPTIMIZE_ALLOC 1
+#define NMPP_CUSTOM_ALLOC 2
 
 
 #define  ENABLE_HISTORY 1 

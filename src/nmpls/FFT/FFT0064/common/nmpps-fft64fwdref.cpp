@@ -78,7 +78,150 @@ void nmppsFFT64FwdRef_f( nm32sc* src, nm32sc* dst)
 		dst[i].im=floor(y[i].im+0.5);
 	}
 }
-
+void nmppsFFT64FwdRef2x2x16_f( nm32sc* src, nm32sc* dst)
+{
+	vec<cmplx<double> > x(64);
+	vec<cmplx<double> > y(64);
+	vec<cmplx<double> > S(64);
+	vec<cmplx<double> > D(64);
+	
+	S.reset();
+	D.reset();
+	for(int i=0; i<64; i++){
+		x[i].re=src[i].re;
+		x[i].im=src[i].im;
+	}
+//
+////--------------- 1-------------
+//	for(int k=0; k<64; k++){
+//		y[k]=W64(0)*x[0];
+//		for(int n=1; n<64; n++){
+//			y[k]+=W64(n*k)*x[n];
+//		}
+//	}
+////----------- 2 -------------
+//	n=0..63
+//	n=32*t+p  t=0,1 p=0..31
+////----------- 3 -------------
+//	for(int k=0; k<64; k++){
+//		y[k]=0;
+//		for(int t=0; t<2; t++){
+//			for(int p=0; p<32; p++){
+//				y[k]+=W64((32*t+p)*k)*x[32*t+p];
+//			}
+//		}
+//	}
+////----------- 4 -------------
+//	for(int k=0; k<64; k++){
+//		y[k]=0;
+//		for(int p=0; p<32; p++){
+//			for(int t=0; t<2; t++){
+//				y[k]+=W64(p*k)*W64(32*t*(k%2))*x[32*t+p];
+//			}               // ^^^^^^^^^^^^^^^^^^^^^ = S(t,k%2,p)
+//		}
+//	}
+//	//----------- 4 -------------
+//	for(int k=0; k<64; k++){
+//		y[k]=0;
+//		for(int p=0; p<32; p++){
+//			for(int t=0; t<2; t++){
+//				y[k]+=W64(32*t*(k%2))*x[32*t+p];
+//			}               // ^^^^^^^^^^^^^^^^^^^^^ = S(t,k%2,p)
+//			y[k]*=W64(p*k);
+//		}
+//	}
+//	//----------- 5 -------------
+//	for(int k=0; k<64; k++){
+//		y[k]=0;
+//		for(int p=0; p<32; p++){
+//			S=0;
+//			for(int t=0; t<2; t++){
+//				S+=W64(32*t*(k%2))*x[32*t+p];
+//			}               // ^^^^^^^^^^^^^^^^^^^^^ = S(t,k%2,p)
+//			y[k]+=S*W64(p*k);
+//		}
+//	}
+//	//----------- 5 -------------
+//	for(int k=0; k<2; k++){
+//		for(int p=0; p<32; p++){
+//			S(32*k+p)=0;
+//			for(int t=0; t<2; t++){
+//				S(32*k+p)+=W64(32*t*k)*x[32*t+p];
+//			}               // ^^^^^^^^^^^^^^^^^^^^^ = S(t,k%2,p)
+//		}
+//	}
+//	for(int k=0; k<64; k++){
+//		y[k]=0;
+//		for(int p=0; p<32; p++){
+//			y[k]+=S(32*(k%2)+p)*W64(p*k); //!!!!!!!!!!!!
+//		}
+//	}
+//	//----------- 6 -------------
+//	for(int k=0; k<2; k++){
+//		for(int p=0; p<32; p++){
+//			S(32*k+p)=0;
+//			for(int t=0; t<2; t++){
+//				S(32*k+p)+=W64(32*t*k)*x[32*t+p];
+//			}               // ^^^^^^^^^^^^^^^^^^^^^ = S(t,k%2,p)
+//		}
+//	}
+//	for(int k=0; k<64; k++){
+//		y[k]=0;
+//		//p= 16*t+m;
+//		for(int t=0; t<2; t++){
+//		for(int m=0; m<16; m++){
+//			y[k]+=S(32*(k%2)+16*t+m)*W64((16*t+m)*k);
+//		}
+//	}
+//	//----------- 7 -------------
+//	for(int k=0; k<2; k++){
+//		for(int p=0; p<32; p++){
+//			S(32*k+p)=0;
+//			for(int t=0; t<2; t++){
+//				S(32*k+p)+=W64(32*t*k)*x[32*t+p];
+//			}               // ^^^^^^^^^^^^^^^^^^^^^ = S(t,k%2,p)
+//		}
+//	}
+//	for(int k=0; k<64; k++){
+//		y[k]=0;
+//		//p= 16*t+m;
+//		for(int t=0; t<2; t++){
+//			for(int m=0; m<16; m++){
+//				y[k]+=S(32*(k%2)+16*t+m)*W64(16*t*(k%4));
+//			}
+//			y[k]*=W64(m*k)
+//		}
+//	}
+	//----------- 7 -------------
+	for(int k=0; k<2; k++){
+		for(int p=0; p<32; p++){
+			//S[32*k+p]=0;
+			for(int t=0; t<2; t++){
+				S[32*k+p]+=W64(32*t*k)*x[32*t+p];
+			}               // ^^^^^^^^^^^^^^^^^^^^^ = S(t,k%2,p)
+		}
+	}
+	for(int k=0; k<4; k++){
+		for(int m=0; m<16; m++){
+			for(int t=0; t<2; t++){
+				D[16*k+m]+=S[32*(k%2)+16*t+m]*W64(16*t*(k%4));
+			}
+		}
+	}
+	for(int k=0; k<64; k++){
+		y[k]=0;
+		//p= 16*t+m;
+		for(int m=0; m<16; m++){
+			y[k]+=D[16*(k%4)+m]*W64(m*k);
+		}
+	}
+	for(int i=0; i<64; i++){
+		dst[i].re=floor(y[i].re+0.5);
+		dst[i].im=floor(y[i].im+0.5);
+	}
+	
+}
+	
 void nmppsFFT64FwdRef2x32_f( nm32sc* src, nm32sc* dst)
 {
 	vec<cmplx<double> > x(64);
@@ -115,8 +258,8 @@ void nmppsFFT64FwdRef2x32_f( nm32sc* src, nm32sc* dst)
 	}
 }
 
-/*
-void nmppsFFT64FwdRef2x4õ8_f( nm32sc* src, nm32sc* dst)
+
+void nmppsFFT64FwdRef2x4x8_f( nm32sc* src, nm32sc* dst)
 {
 	vec<cmplx<double> > x(64);
 	vec<cmplx<double> > y(64);
@@ -188,7 +331,7 @@ void nmppsFFT64FwdRef2x4õ8_f( nm32sc* src, nm32sc* dst)
 		dst[i].im=floor(y[i].im+0.5);
 	}
 }
-*/
+
 
 void nmppsFFT64FwdRef2x4x8(nm32sc*	src, nm32sc*	dst)
 {
@@ -392,3 +535,105 @@ void nmppsFFT64FwdRef8x8( nm32sc* src, nm32sc* dst)
 	// TABLE  8*8*2+64*8*2=1152 Coeff(Bytes)
 }	
 
+
+void nmppsFFT64FwdRef4x4x4_f( nm32sc* src, nm32sc* dst)
+{
+	vec<cmplx<double> > x(64);
+	vec<cmplx<double> > y(64);
+	vec<cmplx<double> > S(64);
+	vec<cmplx<double> > D(64);
+	cmplx<double> z;
+	y.reset();
+	S.reset();
+	D.reset();
+	for(int i=0; i<64; i++){
+		x[i].re=src[i].re;
+		x[i].im=src[i].im;
+	}
+	//
+	////--------------- 1-------------
+	//	for(int k=0; k<64; k++){
+	//		y[k]=W64(0)*x[0];
+	//		for(int n=1; n<64; n++){
+	//			y[k]+=W64(n*k)*x[n];
+	//		}
+	//	}
+	////----------- 2 -------------
+	//	n=0..63
+	//n=16*t+p  t=0,1,2,3 p=0..15
+	
+// 	for(int k=0; k<64; k++){
+// 		y[k]=W64(0)*x[0];
+// 		for(int t=0; t<4; t++){
+// 			y[k]+=W64((16*t+p)*k)*x[16*t+p];
+// 		}
+// 	}
+	//----------- 3 -------------
+// 	for(int k=0; k<64; k++){
+// 		for(int p=0; p<16; p++){
+// 			for(int t=0; t<4; t++){
+// 				y[k]+=W64(p*k)*W64(16*t*k)*x[16*t+p];
+// 			}
+// 		}
+// 		
+// 	}
+	//----------- 4 -------------
+// 	for(int k=0; k<4; k++){
+// 		for(int p=0; p<16; p++){
+// 			for(int t=0; t<4; t++){
+// 				S[16*k+p]+=W64(16*t*k)*x[16*t+p];
+// 			}
+// 		}
+// 	}
+// 
+// 	for(int k=0; k<64; k++){
+// 		for(int p=0; p<16; p++){
+// 			y[k]+=W64(p*k)*S[16*(k%4)+p];
+// 		}
+// 	}
+	//----------- 5 -------------
+// 	for(int k=0; k<4; k++){
+// 		for(int p=0; p<16; p++){
+// 			for(int t=0; t<4; t++){
+// 				S[16*k+p]+=W64(16*t*k)*x[16*t+p];
+// 			}
+// 		}
+// 	}
+// 	// p=4*m+l
+// 	for(int k=0; k<64; k++){
+//		for(int l=0; l<4; l++){
+//	 		for(int m=0; m<4; m++){
+// 				y[k]+=W64(4*m*k)*W64(l*k)*S[16*(k%4)+4*m+l];
+// 			}
+// 		}
+// 	}
+	//----------- 6 -------------
+	for(int k=0; k<4; k++){
+		for(int p=0; p<16; p++){
+			for(int t=0; t<4; t++){
+				S[16*k+p]+=W64(16*t*k)*x[16*t+p];
+				z=W64(16*t*k);
+			}
+		}
+	}
+	// p=4*m+l
+	for(int k=0; k<16; k++){
+		for(int l=0; l<4; l++){
+			for(int m=0; m<4; m++){
+				D[4*k+l]+=W64(4*m*k)*S[16*(k%4)+4*m+l];
+			}
+		}
+	}
+
+	for(int k=0; k<64; k++){
+		for(int l=0; l<4; l++){
+			y[k]+=W64(l*k)*D[4*(k%16)+l];
+		}
+	}
+
+	for(int i=0; i<64; i++){
+		dst[i].re=floor(y[i].re+0.5);
+		dst[i].im=floor(y[i].im+0.5);
+	}
+
+}

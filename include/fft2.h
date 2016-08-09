@@ -117,6 +117,7 @@
 		void* buffer[2];
 		void* fftTable[2];
 		int shift[4];
+		int amp[4];
 		int round[4];
 		
 		
@@ -157,9 +158,10 @@
 	void nmppsFFT32Free( NmppsFFTSpec* spec);
 	//void nmppsFFT32FwdRawRef2x16( nm32sc* src, nm32sc* dst);
 	
-	void nmppsFFT64FwdRaw   (const nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
-	void nmppsFFT64Fwd   	(const nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
-	void nmppsFFT64Fwd2x4x8	(const nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
+//#define  nmppsFFT64FwdRaw8x8 nmppsFFT64Fwd
+	void nmppsFFT64Fwd8x8Raw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	void nmppsFFT64Fwd   	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	void nmppsFFT64Fwd2x4x8	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
 	int  nmppsFFT64FwdInitAlloc( NmppsFFTSpec* spec, int settings);
 	void nmppsFFT64Free( NmppsFFTSpec* spec);
 	//void nmppsFFT64FwdRawRef2x4x8( nm32sc* src, nm32sc* dst);
@@ -195,9 +197,10 @@
 	int  nmppsFFT1024InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free,  int settings);
 	
 	void nmppsFFT2048Fwd        (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
-	
+	int  nmppsFFT2048Fwd4x8x8x8 (nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	int  nmppsFFT2048FwdOptimize(const void* src, const void* dst, fseq64* allocOrder) ;
 	int  nmppsFFT2048FwdInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
+	int  nmppsFFT2048FwdInitAlloc4x8x8x8( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT2048FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings);
 
 	void nmppsFFT2048Inv(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
@@ -211,8 +214,36 @@
 		};
 #endif
 
+//#include "nmtl/tcmplx.h"
 void nmppsFFT32FwdRef2x16  ( nm32sc* src, nm32sc* dst); // C++
 void nmppsFFT32FwdRef2x16_f( nm32sc* src, nm32sc* dst);	// C++
-void nmppsFFT2048Fwd_f      (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+
+
+
+void nmppsFFT64FwdRef_f     ( nm32sc* src, nm32sc* dst);
+void nmppsFFT64FwdRef2x32_f ( nm32sc* src, nm32sc* dst);
+void nmppsFFT64FwdRef2x4x8_f( nm32sc* src, nm32sc* dst);
+void nmppsFFT64FwdRef2x4x8  ( nm32sc* src, nm32sc* dst);
+void nmppsFFT64FwdRef4x4x4_f( nm32sc* src, nm32sc* dst);
+void nmppsFFT64FwdRef8x8_f  ( nm32sc* src, nm32sc* dst);
+void nmppsFFT64FwdRef8x8    ( nm32sc* src, nm32sc* dst);
+
+
+//id nmppsFFT2048Fwd_f      (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+void nmppsFFT2048Fwd_RefFloat(const nm32sc* src, nm32sc* dst);
+void nmppsFFT2048Fwd4x8x8x8_RefFloat(const nm32sc* src, nm32sc* dst);
+void nmppsFFT2048Fwd4x8x8x8_RefInt(const nm32sc* src, nm32sc* dst);
+//void nmppsFFT2048Fwd4x8x8x8(const nm32sc* src, nm32sc* dst);
+
+//void nmppsFFT64FwdRef2x2x16_f( nm32sc* src, nm32sc* dst);
+
+void load_wfifo(nm64s* wfifoData, int wfifoStep, int size);
+void load_wfifo(nm32sc* wcoef, int wstep, int size);
+void vsum_data(nm8s* data,  nm32sc* afifo, int vr);
+void vsum_data(nm16s* data,  nm32sc* afifo, int vr);
+//void vsum_data(nm8s* data,  cmplc<int>* afifo);
+
+#define SKIP_SINCOS 4
+
 #endif 
 		

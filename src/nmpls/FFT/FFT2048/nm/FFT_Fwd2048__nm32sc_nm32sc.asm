@@ -36,7 +36,7 @@ import from rtmacro;
 import from macros;
 
 data ".data_fft_L"
-	TableOfRounders:long[32]=(
+	TableOfRounders:long[32]=(  
 		0000000000000000hl,0000000100000001hl,0000000200000002hl,0000000400000004hl,
 		0000000800000008hl,0000001000000010hl,0000002000000020hl,0000004000000040hl,
 		0000008000000080hl,0000010000000100hl,0000020000000200hl,0000040000000400hl,
@@ -180,6 +180,7 @@ begin ".text_fft"
 
 	nb1=gr4;
 	sb=02020202h;
+
 
 	ar5=[W1_2048];							// SinCos Table 1
 	ar0=[Param.LBuffer2];

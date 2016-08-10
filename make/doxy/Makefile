@@ -1,4 +1,4 @@
-include ../../setenv.mk
+#include ../../setenv.mk
 SHELL := cmd
 
 all: pdf
@@ -21,8 +21,9 @@ open:
 	
 	#http://rc-module.github.io/nmpp
 	
-github: clean chm pdf
-	cp ./latex/refman.pdf ./html/nmpp.pdf
+	#pdf
+	#cp ./latex/refman.pdf ./html/nmpp.pdf
+github: clean chm 
 	cd html &&\
 	git init . && git checkout --orphan gh-pages &&\
 	git add * &&\

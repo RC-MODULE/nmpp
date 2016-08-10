@@ -19,13 +19,24 @@
 	//!
 	//! \perfinclude nmppsFFT32FwdRaw.html
     //==================================
+extern _clock:label;
+macro START_TIMER()
+//	call _clock;
+//	[t]=gr7;
+end  START_TIMER;
+
+macro STOP_TIMER()
+//	call _clock; 
+//	gr0 =[t]; 	
+//	gr7-=gr0; 
+end STOP_TIMER;
 
 // TIME=35590 clocks . 17.377 clocks
 
 extern vec_RShift32s:label;
 extern vec_crc32:label;
 data ".data_fft_L"
-
+	t:word;
 	GAddCmplxMask:long[2]=(
 		0000000100000000hl,
 		00000000FFFFFFFFhl);
@@ -89,7 +100,7 @@ global   nmppsFinalizeCmplxMul:label;
 //                                        [ar1:lo]|[ar2:lo]->[ar6:odd ]
 //                                        [ar1:hi]|[ar2:hi]->[ar6:even]
 //                                                           [ar6     ] >>7 [ar1]
-extern _clock:label;
+
 global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
       <nmppsFFT2048Fwd4x8x8x8PreRaw>
 .branch;	  
@@ -120,6 +131,8 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 	}
 */
 	
+	START_TIMER();
+	
 	nb1 = 080000000h 	with gr7=false;
 	sb  = 000020002h 	with gr7++;
 	ar0 = [cosTblHold]	with gr7<<=9;		// gr7 =512 (i)
@@ -147,13 +160,14 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 	[cosTblHold]=ar0;	
 	[sinTblHold]=ar1;	
 
-	//pop ar2,gr2;
 	
-	//gr7 -= gr2;
-	//gr7 = ar6;
-	//return ;
+	STOP_TIMER(); // Best time_=6199, 6199/2048/2=1.513427 ; Best route = 3132001
+	//return;
 	
-	//14853
+	
+	//gr7-=gr0; //6201 ticks/2048 = 3,02783203125
+	
+	
 	
 //----------------- 0.1 -----------------				
 /*	
@@ -162,6 +176,8 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 		pH[i].im=pHRe[i].im+pHIm[i].re;
 	}
 */
+	START_TIMER();
+	
 	sb  = 000000002h;
 	ar4 = GAddCmplxMask;
 	rep 2 wfifo = [ar4++],ftw,wtw;
@@ -174,6 +190,10 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 		rep 32 ram  = [ar2++];
 		rep 32 data = [ar3++] with vsum ,data, ram;
 		rep 32 [ar6++] = afifo;
+	
+	STOP_TIMER();	//gr7-=gr0; // 2081 ticks /2048 = 1,01611328125
+		//Best time_=2081; 2081/2048= ; Best route = 0031020
+	//return;
 	
 	
 	
@@ -197,6 +217,7 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 		}
 	}
 */
+	START_TIMER();
 	
 	gr0 = [pJRe]		with gr4=false;		//
 	gr1 = [pJIm]		with gr4++;			//
@@ -238,23 +259,20 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 	[cosTblHold]=ar0;	
 	[sinTblHold]=ar1;	
 	
-	// 5622/5244/4598 ticks /  4598/2048/2 = 1,077928363988
+	STOP_TIMER();	// min block time = 4523 ticks  ; 4523/2048/2 = 1,104248046875 ; route=1132233
+					// Best time=4524; 4524/2048/2=1.104492 ; Best route = 3122010
+	//return;
 	
-//	ar0 = [pJRe];
-//	gr5 = 2048*2;
-//	call vec_crc32;
-//
-//	ar0 = [pJIm];
-//	gr5 = 2048*2;
-//	call vec_crc32;
-//	return;
 	
+
+
 //----------------- 1.1 -----------------	
 /*	for(int i=0;i<2048; i++){
 		pJRaw[i].re=pJRe[i].re-pJIm[i].im+round[1];
 		pJRaw[i].im=pJRe[i].im+pJIm[i].re+round[1];
 	}
 */	
+	START_TIMER();
 	
 	sb  = 000000002h;
 	ar4 = GAddCmplxMask;
@@ -269,18 +287,24 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 		rep 32 data = [ar3++] with vsum, data, ram;
 		rep 32 [ar6++] = afifo;
 
+	STOP_TIMER();	// min block time = 2080 ticks  ; 2080/2048 = 1,1015 ; 2212330 best route
+	//return;		// Best time_=2081; 2081/2048/2=0.508056 ; Best route = 1031020
+	
+	
 //----------------- 1.2 -----------------			
 /*	for(int i=0; i<2048; i++){
 		pJ[i].re=pJRaw[i].re>>spec->shift[1];
 		pJ[i].im=pJRaw[i].im>>spec->shift[1];
 	}
 */	
+	START_TIMER();
 	ar0 = [pJRaw]	with gr6=-gr6;	// gr6=2
 	ar6 = [pJ]		with gr0=gr6;	// gr0=2
 	delayed call vec_RShift32s;
 		gr4 = [shift1] with gr5=gr0<<11; //	gr5 = 2048*2; /
 
-	
+	STOP_TIMER();	// Best time_=2106; 2106/2048/2=0.514160 ; Best route = 0113020
+	//return;
 //================= 2 =================-------
 /*
 	cosTblHold=cosTbl;
@@ -303,6 +327,8 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 	}
 */
 	// 1.2 ===> gr6=2; 	
+	START_TIMER();
+
 	nb1 = 080000000h;	
 	sb  = 002020202h	with gr3 = gr6<<2;	// gr3 = 8 (i)
 	gr0 = [pIRe]		with gr4 = gr6<<3;	// gr4 = 8*2;	
@@ -344,11 +370,19 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 	[cosTblHold]=ar0;	
 	[sinTblHold]=ar1;	
 	
+	STOP_TIMER();	// Best time= 4188  4188/2048/2 = 1,0224609375; 2133001 best route
+	//return;		// Best time_=4188; 4188/2048/2 = 1.022460 ; Best route = 3321010
+	
+	
+
+	
 //----------------- 2.1 -----------------			
 /* 	for(int i=0; i<2048; i++){
 		pIRaw[i].re=pIRe[i].re-pIIm[i].im+round[2];
 		pIRaw[i].im=pIRe[i].im+pIIm[i].re+round[2];
 	} */
+	START_TIMER();
+
 	
 	sb  = 000000002h;
 	ar4 = GAddCmplxMask;
@@ -363,6 +397,11 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 		rep 32 data = [ar3++] with vsum,data, ram;
 		rep 32 [ar6++] = afifo;
 		
+	STOP_TIMER();	// Best time= 2078  2078/2048 = 1,0146484375; 0112032 best route
+	//return;			// Best time_=2077; 2077/2048/2=0.507080 ; Best route = 2313023
+	
+	
+	
 //----------------- 2.2 -----------------					
 /*	for(int i=0; i<2048; i++){
 		pI[i].re=pIRaw[i].re>>spec->shift[2];
@@ -390,7 +429,7 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 		}
 	}
 */
-			
+	START_TIMER();	
 			
 	sb  = 002020202h	with gr7 = gr6<<7;	// gr7 = 256
 	nb1 = 080000000h	with gr5 = gr7<<1;	// gr5 = 256*2
@@ -418,11 +457,16 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 	rep 8 [ar6++gr6] = afifo ;
 		
 	
+	STOP_TIMER();		// best time= 4384 ; 4384/2048/2 = 1,0703125; 3312001 best route
+	//return;			// Best time_=4384 ; 4384/2048/2=1.070312 ; Best route = 3312120
+
+//----------------- 3.1 -----------------				
 /* 	for(int i=0; i<2048; i++){
 		pYRaw[i].re=pYRe[i].re-pYIm[i].im+round[3];	
 		pYRaw[i].im=pYRe[i].im+pYIm[i].re+round[3];
 	}*/
 	
+	START_TIMER();
 	sb  = 000000002h;						// 
 	ar4 = GAddCmplxMask;
 	gr6 = -2;
@@ -435,67 +479,57 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 		rep 32 ram  = [ar2++];
 		rep 32 data = [ar3++] with vsum ,data, ram;
 		rep 32 [ar6++] = afifo;
+		
+	STOP_TIMER(); 	// best time=2077 ;331002 best route
+	//return;			// Best time_=2077; 2077/2048/2=0.507080 ; Best route = 1231221
 
 .wait;
 return ;		
 	
 	
-	
-	
-	  
 global _nmppsFFT2048Fwd4x8x8x8Raw	:label;
       <_nmppsFFT2048Fwd4x8x8x8Raw>
 
-	ar5=sp-2	 with gr7=false;
-	push ar0,gr0 with gr7++;			
-	push ar1,gr1 with gr7++;		
+	ar5=sp-2	;
+	push ar0,gr0;			
+	push ar1,gr1;		
 	push ar2,gr2;
 	push ar3,gr3;
 	push ar4,gr4;
 	push ar5,gr5;	
-	push ar6,gr6 with gr6=gr7;			// gr6=2
+	push ar6,gr6;
 	
-	ar0 = [--ar5];						// src[32*2]
-	ar6 = [--ar5];						// dst[32*2]
+	ar0 = [--ar5];						// src[2048*2]
+	ar6 = [--ar5];						// dst[2048*2]
 	ar5 = [--ar5];						// spec
-	gr1 = [ar5++];						// tmp[32*2]
-	gr2 = [ar5++];						// tmp[32*2]
-	gr3 = [ar5++];						// weights[16*2*2]
-	ar4 = [ar5++];						// weights[16*2*2]
-	[pHRe] = gr1;
-	[pHIm] = gr2;
+	gr1 = [ar5++];						// tmp0[2048*2]
+	gr2 = [ar5++];						// tmp1[2048*2]
+	gr3 = [ar5++];						// weights[]
+	gr4 = [ar5++];						// weights[]
 	[cosTblHold] = gr3;
 	[sinTblHold] = gr4;
-	[pX]= ar0;
-	[pY]= ar6;
-	[pH]= ar0;
-	
-	[pJRe]= gr1;
-	[pJIm]= gr2;
-	[pJRaw]=ar6;
-	[pJ]=ar0;
-	
-	
-	[pIRe]=gr1;
-	[pIIm]=gr2;
-	[pIRaw]=ar6;
-	[pI]=ar0;
-	
-	[pYRe]=gr1;
-	[pYIm]=gr2;
-	[pYRaw]=ar6;
-	
+	[pX]   = ar0;
+	[pHRe] = gr1;
+	[pHIm] = gr2;
+	[pH]   = ar6;
+	[pJRe] = gr1;
+	[pJIm] = gr2;
+	[pJRaw]= ar6;
+	[pJ]   = gr2;
+	[pIRe] = gr1;
+	[pIIm] = ar6;
+	[pIRaw]= gr2;
+	[pI]   = ar6;
+	[pYRe] = gr1;
+	[pYIm] = gr2;
+	[pYRaw]= ar6;
 	gr0 = [ar5++];
 	gr1 = [ar5++];
 	gr2 = [ar5++];
-	gr3 = [ar5++];
 	[shift1]=gr1;
-	[shift2]=gr2;
-	[shift2]=gr3;
+	delayed call nmppsFFT2048Fwd4x8x8x8PreRaw;
+		[shift2]=gr2;	
 		
-	call nmppsFFT2048Fwd4x8x8x8PreRaw;
-	
-	
 	pop ar6,gr6;
 	pop ar5,gr5;
 	pop ar4,gr4;
@@ -503,160 +537,69 @@ global _nmppsFFT2048Fwd4x8x8x8Raw	:label;
 	pop ar2,gr2;
 	pop ar1,gr1;
 	pop ar0,gr0;
-
-
 return;
 
 	
 
+	
 global _nmppsFFT2048Fwd4x8x8x8	:label;
       <_nmppsFFT2048Fwd4x8x8x8>
 .branch;
-	ar5=sp-2	 with gr7=false;
-	push ar0,gr0 with gr7++;			
-	push ar1,gr1 with gr7++;		
+	ar5=sp-2	;
+	push ar0,gr0;			
+	push ar1,gr1;		
 	push ar2,gr2;
 	push ar3,gr3;
 	push ar4,gr4;
 	push ar5,gr5;	
-	push ar6,gr6 with gr6=gr7;			// gr6=2
+	push ar6,gr6;
 	
-	ar0 = [--ar5];						// src[32*2]
-	ar6 = [--ar5];						// dst[32*2]
+	ar0 = [--ar5];						// src[2048*2]
+	ar6 = [--ar5];						// dst[2048*2]
 	ar5 = [--ar5];						// spec
-	gr1 = [ar5++];						// tmp[32*2]
-	gr2 = [ar5++];						// tmp[32*2]
-	gr3 = [ar5++];						// weights[16*2*2]
-	gr4 = [ar5++];						// weights[16*2*2]
-	[pTmpRe]=gr1;
-	[pTmpIm]=gr2;
-	
-	[pHRe] = gr1;
-	[pHIm] = gr2;
-	[cosTblHold] = gr3;
-	[sinTblHold] = gr4;
-	[pX]= ar0;
-	[pH]= ar0;
-	
-	[pJRe]= gr1;
-	[pJIm]= gr2;
-	[pJRaw]=ar6;
-	[pJ]=ar0;
-	
-	
-	[pIRe]=gr1;
-	[pIIm]=gr2;
-	[pIRaw]=ar6;
-	[pI]=ar0;
-	
-	[pYRe]=gr1;
-	[pYIm]=gr2;
-	[pYRaw]=ar0;
-	[pY]=ar6;
-	
-	gr0 = [ar5++];
-	gr1 = [ar5++];
-	gr2 = [ar5++];
-	gr3 = [ar5++];
-	[shift1]=gr1;
-	[shift2]=gr2;
-	[shift3]=gr3;
-	
-	call nmppsFFT2048Fwd4x8x8x8PreRaw;
-	
-	//{	for(int i=0; i<2048; i++){
-	//	pY[i].re=pYRaw[i].re>>spec->shift[3];
-	//	pY[i].im=pYRaw[i].im>>spec->shift[3];}	
-
-	
-	ar0 = [pYRaw];
-	ar6 = [pY];
-	gr0 = 2;
-	gr6 = 2;
-	gr5 = 2048*2 with gr1=gr7;
-	
-	delayed call vec_RShift32s;
-		gr4 = [shift3];
-		
-	pop ar6,gr6 with gr7=gr1;
-	pop ar5,gr5;
-	pop ar4,gr4;
-	pop ar3,gr3;
-	pop ar2,gr2;
-	pop ar1,gr1;
-	pop ar0,gr0;
-return ;
-.wait;
-
-/*
-global _nmppsFFT2048Fwd4x8x8x8	:label;
-      <_nmppsFFT2048Fwd4x8x8x8>
-.branch;
-	ar5=sp-2	 with gr7=false;
-	push ar0,gr0 with gr7++;			
-	push ar1,gr1 with gr7++;		
-	push ar2,gr2;
-	push ar3,gr3;
-	push ar4,gr4;
-	push ar5,gr5;	
-	push ar6,gr6 with gr6=gr7;			// gr6=2
-	
-	ar0 = [--ar5];						// src[32*2]
-	ar6 = [--ar5];						// dst[32*2]
-	ar5 = [--ar5];						// spec
-	gr1 = [ar5++];						// tmp[32*2]
-	gr2 = [ar5++];						// tmp[32*2]
-	gr3 = [ar5++];						// weights[16*2*2]
-	gr4 = [ar5++];						// weights[16*2*2]
-	//[pTmpRe]=gr1;
-	//[pTmpIm]=gr2;
-	
-	[pHRe] = gr1;
-	[pHIm] = gr2;
+	gr1 = [ar5++];						// tmp0[2048*2]
+	gr2 = [ar5++];						// tmp1[2048*2]
+	gr3 = [ar5++];						// weights[]
+	gr4 = [ar5++];						// weights[]
 	[cosTblHold] = gr3;
 	[sinTblHold] = gr4;
 	[pX]   = ar0;
+	[pHRe] = gr1;
+	[pHIm] = gr2;
 	[pH]   = ar6;
-	
 	[pJRe] = gr1;
 	[pJIm] = gr2;
 	[pJRaw]= ar6;
-	[pJ]   = gr1;//ar0;
-	
-	
-	[pIRe] = gr2;//gr1;
-	[pIIm] = ar6;//gr2;
-	[pIRaw]= gr1;//ar6;
-	[pI]   = gr2;//ar0;
-	
+	[pJ]   = gr2;
+	[pIRe] = gr1;
+	[pIIm] = ar6;
+	[pIRaw]= gr2;
+	[pI]   = gr1;
 	[pYRe] = ar6;
-	[pYIm] = gr1;
-	[pYRaw]= gr2;
-	
+	[pYIm] = gr2;
+	[pYRaw]= gr1;
 	[pY]   = ar6;
-	
 	gr0 = [ar5++];
 	gr1 = [ar5++];
 	gr2 = [ar5++];
 	gr3 = [ar5++];
 	[shift1]=gr1;
 	[shift2]=gr2;
-	[shift3]=gr3;
+	delayed call nmppsFFT2048Fwd4x8x8x8PreRaw;
+		[shift3]=gr3;
 	
-	call nmppsFFT2048Fwd4x8x8x8PreRaw;
 	
+	//----------------- 3.2 -----------------				
 	//	for(int i=0; i<2048; i++){
-	//	pY[i].re=pYRaw[i].re>>spec->shift[3];
-	//	pY[i].im=pYRaw[i].im>>spec->shift[3];}
-
-	with gr1=gr7;
-	ar0 = [pYRaw] ;//	with gr0=false;
-	ar6 = [pY]		;//with gr0++;
-	gr0 =2;
-	gr6 =2;
-	gr5 = 2048*2 	;//with gr0++;					// gr0=2
+	//		pY[i].re=pYRaw[i].re>>spec->shift[3];
+	//		pY[i].im=pYRaw[i].im>>spec->shift[3]; 
+	//}
+	
+	ar0 = [pYRaw] 	with gr0=false;
+	ar6 = [pY]		with gr0++;
+	gr5 = 2048*2 	with gr0++;	// gr0=2
 	delayed call vec_RShift32s;	// gr6=2
-		gr4 = [shift3];
+		gr4 = [shift3] with gr1=gr7;
 		
 	pop ar6,gr6 with gr7=gr1;
 	pop ar5,gr5;
@@ -667,6 +610,5 @@ global _nmppsFFT2048Fwd4x8x8x8	:label;
 	pop ar0,gr0;
 return ;
 .wait;
-*/
-	
+
 end ".text_nmplv";

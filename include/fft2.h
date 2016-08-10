@@ -196,8 +196,10 @@
 	int  nmppsFFT1024InvInitAlloc (NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT1024InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free,  int settings);
 	
-	void nmppsFFT2048Fwd        (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
-	int  nmppsFFT2048Fwd4x8x8x8 (nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	void nmppsFFT2048Fwd        	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	int  nmppsFFT2048Fwd4x8x8x8 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	int  nmppsFFT2048Fwd4x8x8x8Raw 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+//	int  nmppsFFT2048Fwd4x8x8x8_ (nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	int  nmppsFFT2048FwdOptimize(const void* src, const void* dst, fseq64* allocOrder) ;
 	int  nmppsFFT2048FwdInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT2048FwdInitAlloc4x8x8x8( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);

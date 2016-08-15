@@ -58,6 +58,20 @@ template<int power> void expFFT_8s(int arg, int amplitude, nm32sc* z)
 	z->im= z->im > 127 ? 127:z->im;	
 }
 
+template<int power> nm32sc expFFT_8s(int arg, int amplitude)
+{
+	float re;
+	float im;
+	nm32sc z;
+	expFFT<power>(arg,&re,&im);
+	z->re=floor(re+0.5);	
+	z->im=floor(im+0.5);
+	z->re= z->re > 127 ? 127:z->re;
+	z->im= z->im > 127 ? 127:z->im;	
+	return z;
+}
+
+
 template<int power> void expFFT_16s(int arg, int amplitude, nm32sc* z)
 {
 	float re;

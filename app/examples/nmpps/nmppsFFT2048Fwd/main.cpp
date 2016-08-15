@@ -104,9 +104,9 @@ int selfTest(){
 //	nmppsFFT2048Fwd4x8x8x8_RefFloat( src,  dstf2);msd=nmppsMSD_32sc(dstf,dstf2,2048);	printf("msd 1=%f\n",msd);
 //	nmppsFFT2048Fwd4x8x8x8_RefInt  ( src,  dstf2);	msd=nmppsMSD_32sc(dstf,dstf2,2048);	printf("msd 1=%f\n",msd);
 	t0=clock();
-	nmppsFFT2048Fwd4x8x8x8Raw         (src,dst,spec); //		msd=nmppsMSD_32sc(dstf,dstf2,2048);	printf("msd 1=%f\n",msd);
+	nmppsFFT2048Fwd4x8x8x8         (src,dst,spec); //		msd=nmppsMSD_32sc(dstf,dstf2,2048);	printf("msd 1=%f\n",msd);
 	t1=clock();
-	nmppsRShiftC_32s((nm32s*)dst,7,(nm32s*)dst,2048*2);
+	//nmppsRShiftC_32s((nm32s*)dst,7,(nm32s*)dst,2048*2);
 	
 	
 	crc=nmppsCrc_32s((nm32s*)dst,2048*2);
@@ -148,8 +148,8 @@ int main()
 	}
 	*/
 	//printf("Start...");
-	//return selfTest();
-	return speedTest();
+	return selfTest();
+	//return speedTest();
 /*
 	void* a=malloc1(100); //ar0 -data
 	void* b=malloc2(100); //ar1 -data

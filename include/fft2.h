@@ -114,11 +114,11 @@
 
 	typedef struct {
 		
-		void* buffer[2];
+		nm32sc* buffer[2];
 		void* fftTable[2];
-		int shift[4];
-		int amp[4];
-		int round[4];
+		int shift[8];
+		int amp[8];
+		int round[8];
 		
 		
 		Free32Func* free;
@@ -211,6 +211,19 @@
 	int  nmppsFFT2048InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free,  int settings);
 	
 
+	#define nmppsFFT8192Fwd				nmppsFFT8192Fwd28888
+	#define nmppsFFT8192FwdRaw			nmppsFFT8192Fwd28888Raw
+	#define nmppsFFT8192FwdInitAlloc	nmppsFFT8192Fwd28888InitAlloc
+
+	//void nmppsFFT8192Fwd        	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	int  nmppsFFT8192Fwd28888 		(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	int  nmppsFFT8192Fwd28888Raw 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	int  nmppsFFT8192Fwd28888RawRef (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	int  nmppsFFT8192Fwd28888InitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
+	int  nmppsFFT8192Fwd28888InitSinCos( NmppsFFTSpec** spec,  int settings);
+	int  nmppsDFT8192FwdRef_f 		(const nm32sc* src, nm32sc* dst);	
+	int  nmppsFFT8192Fwd28888Ref_f	(const nm32sc* src, nm32sc* dst);
+	int  nmppsDFT8192Fwd_i 			(const nm32sc* src, nm32sc* dst, int bits);	
 
 #ifdef __cplusplus
 		};

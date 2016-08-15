@@ -146,7 +146,10 @@ public:
 	void reset()
 	{
 		ASSERTE(m_container);
-		memset(m_container,0,(size+2*m_border)*sizeof(T));
+		if (m_container)
+			memset(m_container,0,(size+2*m_border)*sizeof(T));
+		else 
+			memset(m_data,0,size*sizeof(T));
 	}
 
 	vec<T>& InitRamp(T StartValue, T Increment)

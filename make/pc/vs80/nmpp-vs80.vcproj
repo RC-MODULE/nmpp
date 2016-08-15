@@ -526,11 +526,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048fwdinit.cpp"
+				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048FwdInit.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048fwdref.cpp"
+				RelativePath="..\..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048FwdRef.cpp"
 				>
 			</File>
 			<File
@@ -575,6 +575,18 @@
 			</File>
 			<File
 				RelativePath="..\..\..\src\nmpls\FFT\FFT0064\common\nmpps-fft64fwdref.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmpls\FFT\FFT8192\pc\nmpps-FFT8192Fwd.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmpls\FFT\FFT8192\common\nmpps-FFT8192FwdInit.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmpls\FFT\FFT8192\common\nmpps-FFT8192FwdRef.cpp"
 				>
 			</File>
 			<File
@@ -1291,6 +1303,10 @@
 			</File>
 			<File
 				RelativePath="..\..\..\src\nmplv\Stat\pc\VEC_SadV16.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmvcore\nm\vec_shift32s.asm"
 				>
 			</File>
 			<File

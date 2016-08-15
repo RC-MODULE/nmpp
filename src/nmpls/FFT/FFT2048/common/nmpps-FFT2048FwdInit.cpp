@@ -120,8 +120,8 @@ int  nmppsFFT2048FwdInitAlloc4x8x8x8( NmppsFFTSpec** specFFT, const void* src, c
 	}
 	
 
-	spec->buffer[0]  =nmppsMalloc_64s(2048);
-	spec->buffer[1]  =nmppsMalloc_64s(2048);
+	spec->buffer[0]  =nmppsMalloc_32sc(2048);
+	spec->buffer[1]  =nmppsMalloc_32sc(2048);
 	spec->fftTable[0]=nmppsMalloc_8s(4*4*2+4*8*8+32*8*8+256*8*8);	// Bytes
 	spec->fftTable[1]=nmppsMalloc_8s(4*4*2+4*8*8+32*8*8+256*8*8);	// Bytes
 	spec->fftTable[2]=0;

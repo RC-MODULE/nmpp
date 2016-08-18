@@ -19,13 +19,14 @@
 	//!
 	//! \perfinclude nmppsFFT32FwdRaw.html
     //==================================
-extern _clock:label;
+
 macro START_TIMER()
 //	call _clock;
 //	[t]=gr7;
 end  START_TIMER;
 
 macro STOP_TIMER()
+//extern _clock:label;
 //	call _clock; 
 //	gr0 =[t]; 	
 //	gr7-=gr0; 
@@ -243,7 +244,7 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 			rep 8 [ar5++gr5] = afifo;
 			rep 8 data = [ar1++],wtw with vsum ,data,0;	// vsum_data(sinTbl,pJIm+64*(k*4+kk)+i);	sinTbl+=8;
 			rep 8 [ar6++gr6] = afifo ;
-			ar4 -= 64*2*8-512*2;
+			ar4 -= 64*2*8-512*2;						// load_wfifo(pH+512*kk+i,64,8);
 			ar5 -= 256*2*8-64*2;
 		if <>0 delayed goto Next1_kk;
 			ar6 -= 256*2*8-64*2;

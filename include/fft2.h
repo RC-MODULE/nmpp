@@ -114,8 +114,9 @@
 
 	typedef struct {
 		
+
 		nm32sc* buffer[2];
-		void* fftTable[2];
+		void* fftTable[4];
 		int shift[8];
 		int amp[8];
 		int round[8];
@@ -213,14 +214,20 @@
 
 	#define nmppsFFT8192Fwd				nmppsFFT8192Fwd28888
 	#define nmppsFFT8192FwdRaw			nmppsFFT8192Fwd28888Raw
+	#define nmppsFFT8192FwdInit			nmppsFFT8192Fwd28888Init	
 	#define nmppsFFT8192FwdInitAlloc	nmppsFFT8192Fwd28888InitAlloc
+	#define FFT8192_TBL0_SIZE64 9344/8
+	#define FFT8192_TBL1_SIZE64 65536/8
+	#define FFT8192_TBL2_SIZE64 9344/8
+	#define FFT8192_TBL3_SIZE64 65536/8
 
 	//void nmppsFFT8192Fwd        	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
 	int  nmppsFFT8192Fwd28888 		(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	int  nmppsFFT8192Fwd28888Raw 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	int  nmppsFFT8192Fwd28888RawRef (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	int  nmppsFFT8192Fwd28888Init   ( NmppsFFTSpec* spec,  int settings, nm32sc *buf0, nm32sc* buf1, nm64s* tbl0, nm64s* tbl1, nm64s* tbl2, nm64s* tbl3);
 	int  nmppsFFT8192Fwd28888InitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
-	int  nmppsFFT8192Fwd28888InitSinCos( NmppsFFTSpec** spec,  int settings);
+	int  nmppsFFT8192Fwd28888InitSinCos( NmppsFFTSpec* spec,  int settings);
 	int  nmppsDFT8192FwdRef_f 		(const nm32sc* src, nm32sc* dst);	
 	int  nmppsFFT8192Fwd28888Ref_f	(const nm32sc* src, nm32sc* dst);
 	int  nmppsDFT8192Fwd_i 			(const nm32sc* src, nm32sc* dst, int bits);	

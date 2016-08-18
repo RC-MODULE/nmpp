@@ -42,8 +42,8 @@ template<int power> cmplx<double> expFFT(int arg)
 {
 	cmplx<double> z;
 	float im=-2.0*PI/power*arg;
-	z.re=cos(arg.im);
-	z.im=sin(arg.im);
+	z.re=cos(im);
+	z.im=sin(im);
 	return z;
 }
 
@@ -64,10 +64,10 @@ template<int power> nm32sc expFFT_8s(int arg, int amplitude)
 	float im;
 	nm32sc z;
 	expFFT<power>(arg,&re,&im);
-	z->re=floor(re+0.5);	
-	z->im=floor(im+0.5);
-	z->re= z->re > 127 ? 127:z->re;
-	z->im= z->im > 127 ? 127:z->im;	
+	z.re=floor(re+0.5);	
+	z.im=floor(im+0.5);
+	z.re= z.re > 127 ? 127:z.re;
+	z.im= z.im > 127 ? 127:z.im;	
 	return z;
 }
 

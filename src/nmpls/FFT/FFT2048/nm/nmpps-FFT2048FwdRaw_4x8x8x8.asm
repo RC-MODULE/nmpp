@@ -568,18 +568,22 @@ global _nmppsFFT2048Fwd4x8x8x8	:label;
 	[pHRe] = gr1;
 	[pHIm] = gr2;
 	[pH]   = ar6;
+	
 	[pJRe] = gr1;
 	[pJIm] = gr2;
 	[pJRaw]= ar6;
 	[pJ]   = gr2;
+	
 	[pIRe] = gr1;
 	[pIIm] = ar6;
 	[pIRaw]= gr2;
 	[pI]   = gr1;
+	
 	[pYRe] = ar6;
 	[pYIm] = gr2;
 	[pYRaw]= gr1;
 	[pY]   = ar6;
+	
 	gr0 = [ar5++];
 	gr1 = [ar5++];
 	gr2 = [ar5++];

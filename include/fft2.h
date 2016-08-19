@@ -225,7 +225,7 @@
 	int  nmppsFFT8192Fwd28888 		(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	int  nmppsFFT8192Fwd28888Raw 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	int  nmppsFFT8192Fwd28888RawRef (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
-	int  nmppsFFT8192Fwd28888Init   ( NmppsFFTSpec* spec,  int settings, nm32sc *buf0, nm32sc* buf1, nm64s* tbl0, nm64s* tbl1, nm64s* tbl2, nm64s* tbl3);
+	int  nmppsFFT8192Fwd28888Init   ( NmppsFFTSpec* spec,  int settings, nm64s *buf0, nm64s* buf1, nm64s* tbl0, nm64s* tbl1, nm64s* tbl2, nm64s* tbl3);
 	int  nmppsFFT8192Fwd28888InitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT8192Fwd28888InitSinCos( NmppsFFTSpec* spec,  int settings);
 	int  nmppsDFT8192FwdRef_f 		(const nm32sc* src, nm32sc* dst);	

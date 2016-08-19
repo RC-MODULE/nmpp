@@ -21,14 +21,14 @@
     //==================================
 extern _clock:label;
 macro START_TIMER()
-//	call _clock;
-//	[t]=gr7;
+	call _clock;
+	[t]=gr7;
 end  START_TIMER;
 
 macro STOP_TIMER()
-//	call _clock; 
-//	gr0 =[t]; 	
-//	gr7-=gr0; 
+	call _clock; 
+	gr0 =[t]; 	
+	gr7-=gr0; 
 end STOP_TIMER;
 
 macro CRC32(adr)
@@ -137,7 +137,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 		rep 32 [ar6++]=afifo;
 	
 	
-	STOP_TIMER(); // Best time_=6199, 6199/8192/2=1.513427 ; Best route = 3132001
+	STOP_TIMER(); // Best time=12321, 12321/8192 = 1,504028320312 
 	//return;
 	
 
@@ -167,29 +167,32 @@ global nmppsFFT8192Fwd28888Core	:label;
 	ar3 = [sinTblHold];	
 	ar4 = gr2; 
 	rep 8 wfifo = [ar4++gr4],ftw,wtw; 		// load_wfifo(pN+4096*k2+kk,512,8); 
-	
+	gr7 = 2;	
 	<Next1_kk>								// for(int kk=0; kk<512; kk++){
-		gr7 = 2;
 		ar0 = ar2; 
+		rep 8 data  = [ar0++] with vsum ,data,vr;	// vsum_data(cosTbl,pGRe+512*k+kk,spec->round[1]) 
 		ar1 = ar3 with gr2+=gr7;
 		ar5 = gr0 with gr0+=gr7;
 		ar6 = gr1 with gr1+=gr7; 
+		rep 8 [ar5++gr5] = afifo;
 		ar4 -= 512*2*8-4096*2; 
-		gr7 = 2-1;
-		<Next1_k2>							// for(int k2=0; k2<2; k2++){
-			rep 8 data  = [ar0++] with vsum ,data,vr;	// vsum_data(cosTbl,pGRe+512*k+kk,spec->round[1])        vsum_data(cosTbl,pJRe+64*(k*4+kk)+i);
-			rep 8 wfifo = [ar4++gr4],ftw; 				// load_wfifo(pN+4096*k2+kk,512,8);  load_wfifo(pH+512*kk+i,64,8);	
-			with gr7--; 								// kk--;
-			rep 8 [ar5++gr5] = afifo;
-			rep 8 data = [ar1++],wtw with vsum ,data,0;	// vsum_data(sinTbl,pGIm+1024*k1+512*k2+kk,0);
-			rep 8 [ar6++gr6] = afifo ;
-			ar4 -= 512*2*8-4096*2;						// load_wfifo(pN+4096*k2+kk,512,8); 
-			ar5 -= 1024*2*8-512*2;						// vsum_data(cosTbl,pGRe+1024*k1+512*k2+kk,
-		if <>0 delayed goto Next1_k2;
-			ar6 -= 1024*2*8-512*2;						// vsum_data(sinTbl,pGIm+1024*k1+512*k2+kk,0);	
+		//gr7 = 2-1;
+		//<Next1_k2>							// for(int k2=0; k2<2; k2++){
+		
+		rep 8 wfifo = [ar4++gr4],ftw; 				// load_wfifo(pN+4096*k2+kk,512,8);  
+		//	with gr7--; 								// kk--;			
+		
+		rep 8 data = [ar1++],wtw with vsum ,data,0;	// vsum_data(sinTbl,pGIm+1024*k1+512*k2+kk,0);
+		rep 8 [ar6++gr6] = afifo ;
+		rep 8 data  = [ar0++] with vsum ,data,vr;		// vsum_data(cosTbl,pJRe+64*(k*4+kk)+i);		
+		//ar4 -= 512*2*8-4096*2;						// load_wfifo(pN+4096*k2+kk,512,8); 
+		ar5 -= 1024*2*8-512*2;						// vsum_data(cosTbl,pGRe+1024*k1+512*k2+kk,
+		//if <>0 delayed goto Next1_k2;
+		ar6 -= 1024*2*8-512*2;						// vsum_data(sinTbl,pGIm+1024*k1+512*k2+kk,0);	
 		// final cycle
+		
+		
 		ar4 = gr2 with gr3--;
-		rep 8 data  = [ar0++] with vsum ,data,vr;		// vsum_data(cosTbl,pJRe+64*(k*4+kk)+i);
 		rep 8 wfifo = [ar4++gr4],ftw; 					// load_wfifo(pH+512*kk+i,64,8);	
 		rep 8 [ar5++gr5] = afifo;
 	if <>0 delayed goto Next1_kk;
@@ -199,10 +202,37 @@ global nmppsFFT8192Fwd28888Core	:label;
 	[cosTblHold]=ar0;	
 	[sinTblHold]=ar1;	
 	
-	STOP_TIMER();	
-					
+	STOP_TIMER();	// best time 18480/8192/2  = 1,1279296875
+					// best time when code and sinTbl in the same bank
+	//return;				
+// **** 	
+//01201000        18992
+//01211000        18992
+//01221000        18992
+//01231000        18992
+//01301000        18992
+//01311000        18992
+//01321000        18992
+//01331000        18992
+//02102000        18992
+//02103000        18992
+//02112000        18992
+//02113000        18992
+//02122000        18992
+//02123000        18992
+//02132000        18992
+//02133000        18992
+//03102000        18992
+//03103000        18992
+//03112000        18992
+//03113000        18992
+//03122000        18992
+//03123000        18992
+//03132000        18992
+//03133000        18992
 	
-	//return;
+	
+	
 	//ar0 = [pGRe];
 	//gr5 = 8192*2;
 	//call vec_crc32;
@@ -617,26 +647,28 @@ global _nmppsFFT8192Fwd28888	:label;
 	[cosTblHold2]= gr3;
 	[sinTblHold2]= gr4;
 	[pX]   = ar0;
-	[pN]   = ar6;
-	[pGRe] = gr1;
-	[pGIm] = gr2;
-	[pGRaw]= ar6;
-	[pG]   = ar0;
+	[pN]   = gr1;
+	
+	[pGRe] = ar6;
+	[pGIm] = gr1;
+	[pGRaw]= gr2;
+	[pG]   = ar6;
 	
 	[pHRe] = gr1;
 	[pHIm] = gr2;
 	[pHRaw]= ar6;
-	[pH]   = ar0;
+	[pH]   = gr2;
 	
 	[pJRe] = gr1;
-	[pJIm] = gr2;
-	[pJRaw]= ar6;
-	[pJ]   = ar0;
+	[pJIm] = ar6;
+	[pJRaw]= gr2;
+	[pJ]   = gr1;
 	
-	[pYRe] = gr1;
+	[pYRe] = ar6;
 	[pYIm] = gr2;
-	[pYRaw]= ar0;
+	[pYRaw]= gr1;
 	[pY]   = ar6;
+	
 	gr0 = [ar5++];
 	gr1 = [ar5++];
 	gr2 = [ar5++];

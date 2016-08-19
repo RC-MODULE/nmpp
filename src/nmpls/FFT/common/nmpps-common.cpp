@@ -34,16 +34,16 @@
 template<int power> void expFFT(int arg, float* re, float* im)
 {
 	float x=-2.0*PI/power*arg;
-	*re=cos(x);
-	*im=sin(x);
+	*re=cosf(x);
+	*im=sinf(x);
 }
 
 template<int power> cmplx<double> expFFT(int arg)
 {
 	cmplx<double> z;
 	float im=-2.0*PI/power*arg;
-	z.re=cos(im);
-	z.im=sin(im);
+	z.re=cosf(im);
+	z.im=sinf(im);
 	return z;
 }
 

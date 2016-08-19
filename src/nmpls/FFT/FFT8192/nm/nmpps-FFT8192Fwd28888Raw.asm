@@ -37,7 +37,6 @@ macro CRC32(adr)
 //	call vec_crc32;
 end CRC32;
 
-// TIME=35590 clocks . 17.377 clocks
 
 extern vec_RShift32s:label;
 extern vec_crc32:label;
@@ -137,7 +136,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 		rep 32 [ar6++]=afifo;
 	
 	
-	STOP_TIMER(); // Best time=12321, 12321/8192 = 1,504028320312 
+	//STOP_TIMER(); // Best time=12321, 12321/8192 = 1,504028320312 
 	//return;
 	
 
@@ -156,7 +155,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 	//cosTblHold=cosTbl;
 	//sinTblHold=sinTbl;
 	
-	START_TIMER();
+	//START_TIMER();
 	
 	gr0 = [pGRe]		with gr4=false;		//
 	gr1 = [pGIm]		with gr4++;			//
@@ -202,34 +201,58 @@ global nmppsFFT8192Fwd28888Core	:label;
 	[cosTblHold]=ar0;	
 	[sinTblHold]=ar1;	
 	
-	STOP_TIMER();	// best time 18480/8192/2  = 1,1279296875
+	//STOP_TIMER();	// best time 18480/8192/2  = 1,1279296875
 					// best time when code and sinTbl in the same bank
-	//return;				
+	
 // **** 	
-//01201000        18992
-//01211000        18992
-//01221000        18992
-//01231000        18992
-//01301000        18992
-//01311000        18992
-//01321000        18992
-//01331000        18992
-//02102000        18992
-//02103000        18992
-//02112000        18992
-//02113000        18992
-//02122000        18992
-//02123000        18992
-//02132000        18992
-//02133000        18992
-//03102000        18992
-//03103000        18992
-//03112000        18992
-//03113000        18992
-//03122000        18992
-//03123000        18992
-//03132000        18992
-//03133000        18992
+//00102020        19503
+//00102030        19504
+//00103020        19501
+//00103030        19504
+//00112020        19501
+//00112030        19504
+//00113020        19501
+//00113030        19501
+//00122020        19504
+//00122030        19504
+//00123020        19504
+//00123030        19501
+//00132020        19504
+//00132030        19501
+//00133020        19501
+//00133030        19504
+//00201010        19501
+//00211010        19504
+//00221010        19504
+//00231010        19501
+//00301010        19501
+//00311010        19504
+//00321010        19501
+//00331010        19504
+//01201000        18480
+//01211000        18480
+//01221000        18480
+//01231000        18480
+//01301000        18480
+//01311000        18480
+//01321000        18480
+//01331000        18480
+//02102000        18480
+//02103000        18480
+//02112000        18480
+//02113000        18480
+//02122000        18480
+//02123000        18480
+//02132000        18480
+//02133000        18480
+//03102000        18480
+//03103000        18480
+//03112000        18480
+//03113000        18480
+//03122000        18480
+//03123000        18480
+//03132000        18480
+//03133000        18480
 	
 	
 	
@@ -248,7 +271,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 	//	pGRaw[i].im=pGRe[i].im+pGIm[i].re;
 	//}
 
-	START_TIMER();
+	//START_TIMER();
 	
 	sb  = 000000002h;
 	ar4 = GAddCmplxMask;
@@ -263,10 +286,43 @@ global nmppsFFT8192Fwd28888Core	:label;
 		rep 32 data = [ar3++] with vsum, data, ram;
 		rep 32 [ar6++] = afifo;
 
-	STOP_TIMER();	
+	//STOP_TIMER();	// Best time  8734/8192  = 1,066162109375
+	//return ; // -500 from hypo
 	
-	// min block time = 2080 ticks  ; 2080/8192 = 1,1015 ; 2212330 best route
-	// Best time_=2081; 2081/8192/2=0.508056 ; Best route = 1031020
+	
+//00120000        8737
+//00121000        8737
+//00122000        8737
+//00123000        8737
+//00130000        8736
+//00131000        8736
+//00132000        8737
+//00133000        8737
+//00210000        8736
+//00211000        8736
+//00212000        8736
+//00213000        8736
+//00310000        8749
+//00311000        8737
+//00312000        8737
+//00313000        8736
+//01020000        8734
+//01021000        8735
+//01022000        8734
+//01023000        8735
+//01030000        8734
+//01031000        8735
+//01032000        8735
+//01033000        8734
+//02010000        8734
+//02011000        8735
+//02012000        8734
+//02013000        8749
+//03010000        8734
+//03011000        8735
+//03012000        8735
+//03013000        8734
+
 
 	
 	//----------------- 1.2 -----------------			
@@ -275,16 +331,14 @@ global nmppsFFT8192Fwd28888Core	:label;
 	//	pG[i].im=pGRaw[i].im>>spec->shift[1];
 	//}
 	
-	START_TIMER();
+	//START_TIMER();
 	ar0 = [pGRaw]	with gr6=-gr6;	// gr6=2
 	ar6 = [pG]		with gr0=gr6;	// gr0=2
 	delayed call vec_RShift32s;
 		gr4 = [shift1] with gr5=gr0<<13; //	gr5 = 8192*2; /
 
-	STOP_TIMER();	
-	// Best time_=2106; 2106/8192/2=0.514160 ; Best route = 0113020
-	//return;
-
+	//STOP_TIMER();	// Best time=8262; 8262/8192/2=0.504272 ; Best route = 0005ef0
+	//return ; // - 500 from max
 	CRC32(pG);
 	
 	// ---------------- 2.0 --------------------
@@ -305,7 +359,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 
 	
 	// 1.2 ===> gr6=2; 	
-	START_TIMER();
+	//START_TIMER();
 
 	gr0 = [pHRe]		with gr4=false;		//
 	gr1 = [pHIm]		with gr4++;			//
@@ -324,12 +378,12 @@ global nmppsFFT8192Fwd28888Core	:label;
 		ar1 = ar3 with gr2+=gr7;
 		ar5 = gr0 with gr0+=gr7;
 		ar6 = gr1 with gr1+=gr7; 
-		ar4 -= 512*2*8-4096*2; 
+		ar4 -= 512*2*8-4096*2; 		
 		gr7 = 16-1;
 		<Next2_k2>							// for (int k2=0; k2<16;k2++){
 			rep 8 data  = [ar0++] with vsum ,data,vr;	// vsum_data(cosTbl,pHRe+1024*k1+64*k2+kk
 			rep 8 wfifo = [ar4++gr4],ftw; 				// load_wfifo(pN+4096*k2+kk,512,8);  load_wfifo(pH+512*kk+i,64,8);	
-			with gr7--; 								// kk--;
+			with gr7--; 								// kk--;S	
 			rep 8 [ar5++gr5] = afifo;
 			rep 8 data = [ar1++],wtw with vsum ,data,0;	// vsum_data(sinTbl,pHIm+1024*k1+64*k2+kk,0);
 			rep 8 [ar6++gr6] = afifo ;
@@ -338,8 +392,8 @@ global nmppsFFT8192Fwd28888Core	:label;
 		if <>0 delayed goto Next2_k2;
 			ar6 -= 1024*2*8-64*2;						// vsum_data(sinTbl,pHIm+1024*k1+64*k2+kk,0);
 		// final cycle
-		ar4 = gr2 with gr3--;
 		rep 8 data  = [ar0++] with vsum ,data,vr;		// vsum_data(cosTbl,pHRe+1024*k1+64*k2+kk
+		ar4 = gr2 with gr3--;
 		rep 8 wfifo = [ar4++gr4],ftw; 					// load_wfifo(pG+512*k2+kk,64,8);
 		rep 8 [ar5++gr5] = afifo;
 	if <>0 delayed goto Next2_kk;
@@ -350,10 +404,25 @@ global nmppsFFT8192Fwd28888Core	:label;
 	[sinTblHold]=ar1;	
 	
 	
-	STOP_TIMER();	
-	// Best time= 4188  4188/8192/2 = 1,0224609375; 2133001 best route
-	//return;	
-	// Best time_=4188; 4188/8192/2 = 1.022460 ; Best route = 3321010
+	STOP_TIMER();
+	//return;
+	// Best time=16816; 16816/8192/2=1.026367 ; Best route = 80008000
+//01212000        17840
+//01213000        17840
+//01312000        17840
+//01313000        17840
+//02121000        17837
+//02131000        17840
+//03121000        17840
+//03131000        17840
+//01221000        16816
+//01231000        16819
+//01321000        16819
+//01331000        16816
+//02112000        16816
+//02113000        16819
+//03112000        16819
+//03113000        16816
 	
 	CRC32(pHRe);
 	CRC32(pHIm);
@@ -381,9 +450,9 @@ global nmppsFFT8192Fwd28888Core	:label;
 		rep 32 data = [ar3++] with vsum,data, ram;
 		rep 32 [ar6++] = afifo;
 		
-	STOP_TIMER();	
-	// Best time= 2078  2078/8192 = 1,0146484375; 0112032 best route
-	//return;			// Best time_=2077; 2077/8192/2=0.507080 ; Best route = 2313023
+	//STOP_TIMER();	
+	//return;	
+	// Best time=8732; 8732/8192/2=0.532958 ; Best route = 0005ef0
 	
 	//----------------- 2.2 -----------------					
 	//for(int i=0; i<8192; i++){
@@ -391,11 +460,14 @@ global nmppsFFT8192Fwd28888Core	:label;
 	//	pH[i].im=pHRaw[i].im>>spec->shift[2];
 	//}
 	// 2.1 ===> gr6=-2
+	START_TIMER();
 	ar0 = [pHRaw]	with gr6 = -gr6; 				// gr6 = 2;
 	ar6 = [pH]		with gr0 = gr6;					// gr0 = 2;
 	delayed call vec_RShift32s with gr5 = gr0<<13;	// gr5 = 8192*2;
 		gr4 = [shift2];
 	
+	STOP_TIMER(); // Best time=8262; 8262/8192/2=0.504272 ; Best route = 0000007
+	//return;	
 	CRC32(pH);
 	
 	//---------------------------------- 3.0 -----------------------------------------	
@@ -461,8 +533,8 @@ global nmppsFFT8192Fwd28888Core	:label;
 	CRC32(pJRe);
 	CRC32(pJIm);
 	
-	STOP_TIMER();		// best time= 4384 ; 4384/8192/2 = 1,0703125; 3312001 best route
-	//return;			// Best time_=4384 ; 4384/8192/2=1.070312 ; Best route = 3312120
+	STOP_TIMER();		// Best time=16480; 16480/8192/2=1.005859 ; Best route = 0000007
+	
 	//---------------------------------- 3.1 -----------------------------------------	
 	//for(int i=0;i<8192; i++){
 	//	pJRaw[i].re=pJRe[i].re-pJIm[i].im;
@@ -485,20 +557,23 @@ global nmppsFFT8192Fwd28888Core	:label;
 		rep 32 data = [ar3++] with vsum,data, ram;
 		rep 32 [ar6++] = afifo;
 		
-	STOP_TIMER();	
-	// Best time= 2078  2078/8192 = 1,0146484375; 0112032 best route
-	//return;			// Best time_=2077; 2077/8192/2=0.507080 ; Best route = 2313023
-	
+	STOP_TIMER();	 // Best time=8732; 8732/8192/2=0.532958 ; Best route = 0000007
+	//return;			
+	//
+
 	//----------------- 3.2 -----------------					
 	//for(int i=0; i<8192; i++){
 	//	pJ[i].re=pJRaw[i].re>>spec->shift[3];
 	//	pJ[i].im=pJRaw[i].im>>spec->shift[3];
 	//}
 	// 2.1 ===> gr6=-2
+	START_TIMER();
 	ar0 = [pJRaw]	with gr6 = -gr6; 				// gr6 = 2;
 	ar6 = [pJ]		with gr0 = gr6;					// gr0 = 2;
 	delayed call vec_RShift32s with gr5 = gr0<<13;	// gr5 = 8192*2;
 		gr4 = [shift2];
+	
+	STOP_TIMER(); // Best time=8262; 8262/8192/2=0.504272 ; Best route = 0000007
 	
 	CRC32(pJ);
 	
@@ -510,6 +585,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 	//		vsum_data(sinTbl,pYIm+1024*k1+k2,0);				sinTbl+=8;
 	//	}
 	//}
+	START_TIMER();
 	sb  = 002020202h	with gr7 = gr6<<9;	// gr7 = 1024		gr7: for (int k2=0; k2<1024; k2++){
 	nb1 = 080000000h	with gr5 = gr7<<1;	// gr5 = 1024*2		vsum_data(cosTbl,pYRe+1024*k1+k2,spec->round[4]);
 	ar4 = [pJ] 			with gr6 = gr5;		// gr6 = 1024*2;		vsum_data(sinTbl,pYIm+1024*k1+k2,0);
@@ -534,7 +610,41 @@ global nmppsFFT8192Fwd28888Core	:label;
 	rep 8 [ar5++gr5] = afifo;
 	rep 8 data=[ar1++] with vsum ,data,0;	// vsum_data(sinTbl,pYIm+1024*k1+k2,0);
 	rep 8 [ar6++gr6] = afifo ;
-		
+	
+	STOP_TIMER(); // Best time=17446; 17446/8192/2=1.064819 ; Best route = 0000007
+	//return;
+//01010202        17449
+//01010203        17449
+//01010302        17450
+//01010303        17449
+//01020102        18470
+//01020103        18473
+//01030102        18470
+//01030103        18473
+//01120002        18470
+//01120003        18471
+//01130002        18471
+//01130003        18471
+//01210002        17446
+//01210003        17447
+//01310002        17449
+//01310003        17447
+//02010201        18470
+//02010301        18473
+//02020101        17450
+//02030101        17450
+//02120001        17449
+//02130001        17449
+//02210001        18471
+//02310001        18470
+//03010201        18470
+//03010301        18473
+//03020101        17450
+//03030101        17449
+//03120001        17446
+//03130001        17449
+//03210001        18471
+//03310001        18471
 	
 	CRC32(pYRe);
 	CRC32(pYIm);
@@ -546,6 +656,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 	//	pYRaw[i].re=pYRe[i].re-pYIm[i].im;
 	//	pYRaw[i].im=pYRe[i].im+pYIm[i].re;
 	//}
+	START_TIMER();
 	sb  = 000000002h;
 	ar4 = GAddCmplxMask;
 	gr6 = -2;
@@ -558,7 +669,8 @@ global nmppsFFT8192Fwd28888Core	:label;
 		rep 32 ram  = [ar2++];
 		rep 32 data = [ar3++] with vsum,data, ram;
 		rep 32 [ar6++] = afifo;
-
+	STOP_TIMER(); // Best time=8732; 8732/8192/2=0.532958 ; Best route = 0000007
+	//return;
 	CRC32(pYRaw);
 	
 
@@ -690,9 +802,12 @@ global _nmppsFFT8192Fwd28888	:label;
 	ar0 = [pYRaw] 	with gr0=false;
 	ar6 = [pY]		with gr0++;
 	gr5 = 8192*2 	with gr0++;	// gr0=2
+	//START_TIMER();
 	delayed call vec_RShift32s with gr6=gr0;
 		gr4 = [shift4] with gr1=gr7;
-		
+	
+	
+	//STOP_TIMER(); // Best time=8259; 8259/8192/2=0.504089 ; Best route = 80000000
 	pop ar6,gr6 with gr7=gr1;
 	pop ar5,gr5;
 	pop ar4,gr4;
@@ -702,5 +817,13 @@ global _nmppsFFT8192Fwd28888	:label;
 	pop ar0,gr0;
 return ;
 .wait;
+
+//0:12321
+//1:18480+8734+8262
+//2:16816+8732+8262
+//3:16480+8732+8262
+//4:17446+8732+8259
+//summary:12321+18480+8734+8262+16816+8732+8262+16480+8732+8262+17446+8732+8259 = 149518
+
 
 end ".text_nmplv";

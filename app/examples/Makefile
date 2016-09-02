@@ -9,10 +9,8 @@ ROOT = ../..
 ####################################################
 
 
-include $(ROOT)/setenv.mk
-ifeq ($(wildcard config.mk),config.mk)
-include config.mk
-endif
+include $(ROOT)/global.mk
+-include $(ROOT)/dirs.mk
 
 # prevents call of embedded 'find.exe' in Windows and GNU make becomes callable
 PATH:= $(subst $(SystemRoot),,$(PATH))	

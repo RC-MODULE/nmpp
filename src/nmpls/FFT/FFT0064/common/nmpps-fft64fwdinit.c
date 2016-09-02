@@ -86,8 +86,8 @@
 
 	int nmppsFFT64FwdInitAlloc(  NmppsFFTSpec* spec, int settings)
 	{
-		spec->buffer[0]  =nmppsMalloc_64s(64);
-		spec->buffer[1]  =nmppsMalloc_64s(64);
+		spec->buffer[0]  =nmppsMalloc_32sc(64);
+		spec->buffer[1]  =nmppsMalloc_32sc(64);
 		spec->fftTable[0]=nmppsMalloc_16s(8*4*2);	//64 Bytes
 		spec->fftTable[1]=nmppsMalloc_8s(64*8*2);	//1024 Bytes
 		spec->shift [0]=-1;

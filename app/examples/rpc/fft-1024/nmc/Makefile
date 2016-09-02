@@ -56,10 +56,10 @@ aura-exports.o: $(ROOT)/include/rpc/aura-exports.c
 	$(SILENT_NMCC)nmcc -Tc99 $(NMCC_FLAGS) $(<) -o$(@) $(INC_DIRS) 
 
 %.o: %.c aura-exports.h
-	$(SILENT_DEP)$(CROSS_COMPILE)gcc -E -MM $(<) -o$(@).dep $(INC_DIRS) 
 	$(SILENT_NMCC)nmcc -Tc99 $(NMCC_FLAGS) $(<) -o$(@) $(INC_DIRS) 
 
-
+#	$(SILENT_DEP)$(CROSS_COMPILE)gcc -E -MM $(<) -o$(@).dep $(INC_DIRS) 
+	
 %.o: %.asm
 	$(SILENT_NMCC)nmcc $(ASM_FLAGS) $(<) -o$(@) $(INC_DIRS)
 

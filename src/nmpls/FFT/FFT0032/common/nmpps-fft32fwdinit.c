@@ -83,11 +83,13 @@
 	int nmppsFFT32FwdInitAlloc(  NmppsFFTSpec* spec, int settings)
 	{
 		int i,k,p;
-		spec->buffer[0]  =nmppsMalloc_64s(32);
-		spec->buffer[1]  =nmppsMalloc_64s(32);
+		int round [4];
+		spec->buffer[0]  =nmppsMalloc_32sc(32);
+		spec->buffer[1]  =nmppsMalloc_32sc(32);
 		spec->fftTable[0]=nmppsMalloc_8s(16*16*2*2);
 		spec->shift [0]=7;
-		spec->round [0]=64;
+	
+		round[0]=1<< (spec->shift[0]-1);
 		spec->free=free;
 		
 		if (spec->fftTable[0]==0) 	return -1;

@@ -119,7 +119,7 @@
 		void* fftTable[4];
 		int shift[8];
 		int amp[8];
-		int round[8];
+		//int round[8];
 		
 		
 		Free32Func* free;
@@ -216,6 +216,12 @@
 	#define nmppsFFT8192FwdRaw			nmppsFFT8192Fwd28888Raw
 	#define nmppsFFT8192FwdInit			nmppsFFT8192Fwd28888Init	
 	#define nmppsFFT8192FwdInitAlloc	nmppsFFT8192Fwd28888InitAlloc
+
+	#define nmppsFFT8192Inv				nmppsFFT8192Inv28888
+	#define nmppsFFT8192InvRaw			nmppsFFT8192Inv28888Raw
+	#define nmppsFFT8192InvInit			nmppsFFT8192Inv28888Init	
+	#define nmppsFFT8192InvInitAlloc	nmppsFFT8192Inv28888InitAlloc
+
 	#define FFT8192_TBL0_SIZE64 9344/8
 	#define FFT8192_TBL1_SIZE64 65536/8
 	#define FFT8192_TBL2_SIZE64 9344/8
@@ -231,6 +237,16 @@
 	int  nmppsDFT8192FwdRef_f 		(const nm32sc* src, nm32sc* dst);	
 	int  nmppsFFT8192Fwd28888Ref_f	(const nm32sc* src, nm32sc* dst);
 	int  nmppsDFT8192Fwd_i 			(const nm32sc* src, nm32sc* dst, int bits);	
+
+	int  nmppsFFT8192Inv28888 		(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	int  nmppsFFT8192Inv28888Raw 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	int  nmppsFFT8192Inv28888RawRef (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	int  nmppsFFT8192Inv28888Init   ( NmppsFFTSpec* spec,  int settings, nm64s *buf0, nm64s* buf1, nm64s* tbl0, nm64s* tbl1, nm64s* tbl2, nm64s* tbl3);
+	int  nmppsFFT8192Inv28888InitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
+	int  nmppsFFT8192Inv28888InitSinCos( NmppsFFTSpec* spec,  int settings);
+	int  nmppsDFT8192InvRef_f 		(const nm32sc* src, nm32sc* dst);	
+	int  nmppsFFT8192Inv28888Ref_f	(const nm32sc* src, nm32sc* dst);
+	int  nmppsDFT8192Inv_i 			(const nm32sc* src, nm32sc* dst, int bits);	
 
 #ifdef __cplusplus
 		};
@@ -259,10 +275,6 @@ void nmppsFFT2048Fwd4x8x8x8_RefInt(const nm32sc* src, nm32sc* dst);
 
 //void nmppsFFT64FwdRef2x2x16_f( nm32sc* src, nm32sc* dst);
 
-void load_wfifo(nm64s* wfifoData, int wfifoStep, int size);
-void load_wfifo(nm32sc* wcoef, int wstep, int size);
-void vsum_data(nm8s* data,  nm32sc* afifo, int vr);
-void vsum_data(nm16s* data,  nm32sc* afifo, int vr);
 //void vsum_data(nm8s* data,  cmplc<int>* afifo);
 
 #define SKIP_SINCOS 4

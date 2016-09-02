@@ -21,14 +21,14 @@
     //==================================
 extern _clock:label;
 macro START_TIMER()
-	call _clock;
-	[t]=gr7;
+	//call _clock;
+	//[t]=gr7;
 end  START_TIMER;
 
 macro STOP_TIMER()
-	call _clock; 
-	gr0 =[t]; 	
-	gr7-=gr0; 
+	//call _clock; 
+	//gr0 =[t]; 	
+	//gr7-=gr0; 
 end STOP_TIMER;
 
 macro CRC32(adr)
@@ -40,11 +40,15 @@ end CRC32;
 
 extern vec_RShift32s:label;
 extern vec_crc32:label;
-data ".data_fft_L"
+extern _tblBitRun32:long;
+
+data ".data_nmpps"
 	t:word;
 	GAddCmplxMask:long[2]=(
 		0000000100000000hl,
 		00000000FFFFFFFFhl);
+
+
 		
 	cosTblHold:word;
 	sinTblHold:word;
@@ -66,10 +70,6 @@ data ".data_fft_L"
 	pJRe:word;
 	pJIm:word;
 	pJRaw:word;
-	pI:word;
-	pIRe:word;
-	pIIm:word;
-	pIRaw:word;
 	pJ:word;
 	pYRe:word;
 	pYIm:word;
@@ -79,12 +79,12 @@ data ".data_fft_L"
 	shift2:word;
 	shift3:word;
 	shift4:word;
-end ".data_fft_L";
+end ".data_nmpps";
 
 
 
 
-begin ".text_nmplv"
+begin ".text_nmpps"
 
 		
 //////////////////////////////////////////////////////////////////////////////
@@ -93,12 +93,6 @@ begin ".text_nmplv"
 //                                                                          //
 //////////////////////////////////////////////////////////////////////////////
 //
-// total  instructions = 425 ticks
-// scalar instructions = 192 ticks
-// vector instructions = 425-192 = 233 ticks
-// vector stages       = 12
-// average vector stage= 233/12= 19.41 ticks at 16 theoretical
-
 
 
 global nmppsFFT8192Fwd28888Core	:label;
@@ -129,12 +123,14 @@ global nmppsFFT8192Fwd28888Core	:label;
 	<Next0_kk>
 		rep 32 ram = [ar0++];
 		rep 32 data= [ar1++] with ram+data;
-		rep 32 [ar5++]=afifo; // with vsum ,ram,afifo;
+		rep 32 [ar5++]=afifo; 
 	if <>0 delayed goto Next0_kk with gr7--;
 		rep 32 data= [ar2++] with ram-data;
 		rep 32 [ar6++]=afifo;
 	
 	//STOP_TIMER(); // Best time=12321, 12321/8192 = 1,504028320312 
+	
+	
 	//return;
 	
 
@@ -153,17 +149,20 @@ global nmppsFFT8192Fwd28888Core	:label;
 	//cosTblHold=cosTbl;
 	//sinTblHold=sinTbl;
 	
-	//START_TIMER();
+	START_TIMER();
 	
 	gr0 = [pGRe]		with gr4=false;		//
 	gr1 = [pGIm]		with gr4++;			//
 	gr2 = [pN]			with gr3=gr4<<9;	// gr3=512 		gr3:for(int kk=0; kk<512; kk++)
 	sb  = 002020202h 	with gr4=gr3<<1;	// gr4=512*2 	gr4:load_wfifo(pN+4096*k2+kk,512,8);
-	vr  = 000040h		with gr5=gr4<<1;	// gr5=1024*2	gr5:vsum_data(cosTbl,pGRe+1024*k1+512*k2+kk,vr);
+	gr6 = [shift1]		with gr5=gr4<<1;	// gr5=1024*2	gr5:vsum_data(cosTbl,pGRe+1024*k1+512*k2+kk,vr);
+	ar6 = _tblBitRun32;
+	gr6  = [ar6+=gr6];
+	vr   = gr6;
+	ar4  = gr2; 
+	rep 8 wfifo = [ar4++gr4],ftw,wtw; 		// load_wfifo(pN+4096*k2+kk,512,8); 
 	ar2 = [cosTblHold] 	with gr6=gr5;		// gr6=1024*2	gr6:vsum_data(sinTbl,pGIm+1024*k1+512*k2+kk,0);
 	ar3 = [sinTblHold];	
-	ar4 = gr2; 
-	rep 8 wfifo = [ar4++gr4],ftw,wtw; 		// load_wfifo(pN+4096*k2+kk,512,8); 
 	gr7 = 2;	
 	<Next1_kk>								// for(int kk=0; kk<512; kk++){
 		ar4 -= 512*2*8-4096*2; 
@@ -171,13 +170,9 @@ global nmppsFFT8192Fwd28888Core	:label;
 		rep 8 data  = [ar0++] with vsum ,data,vr;	// vsum_data(cosTbl,pGRe+512*k+kk,spec->round[1]) 
 		rep 8 wfifo = [ar4++gr4],ftw; 				// load_wfifo(pN+4096*k2+kk,512,8);  
 		ar1 = ar3 with gr2+=gr7;
-		//rep 8 wfifo = [ar4++gr4],ftw; 				// load_wfifo(pN+4096*k2+kk,512,8);  
 		ar5 = gr0 with gr0+=gr7;
-		//rep 8 wfifo = [ar4++gr4],ftw; 				// load_wfifo(pN+4096*k2+kk,512,8);  
 		ar6 = gr1 with gr1+=gr7; 
-		//rep 8 wfifo = [ar4++gr4],ftw; 				// load_wfifo(pN+4096*k2+kk,512,8);  
 		rep 8 [ar5++gr5] = afifo;
-		//-rep 8 wfifo = [ar4++gr4],ftw; 				// load_wfifo(pN+4096*k2+kk,512,8);  
 		//gr7 = 2-1;
 		//<Next1_k2>							// for(int k2=0; k2<2; k2++){
 		
@@ -185,7 +180,6 @@ global nmppsFFT8192Fwd28888Core	:label;
 		//	with gr7--; 								// kk--;			
 		
 		rep 8 data = [ar1++],wtw with vsum ,data,0;	// vsum_data(sinTbl,pGIm+1024*k1+512*k2+kk,0);
-		//rep 8 wfifo = [ar4++gr4],ftw,wtw; 				// load_wfifo(pN+4096*k2+kk,512,8);  
 		rep 8 [ar6++gr6] = afifo ;
 		rep 8 data  = [ar0++] with vsum ,data,vr;		// vsum_data(cosTbl,pJRe+64*(k*4+kk)+i);		
 		//ar4 -= 512*2*8-4096*2;						// load_wfifo(pN+4096*k2+kk,512,8); 
@@ -205,7 +199,8 @@ global nmppsFFT8192Fwd28888Core	:label;
 	[cosTblHold]=ar0;	
 	[sinTblHold]=ar1;	
 	
-	//STOP_TIMER();	// Best time=16434; 16434/8192/2 = 1,003356933594 ; 
+	STOP_TIMER();	// Best time=16434; 16434/8192/2 = 1,003356933594 ; 
+	//gr7 = pc;
 	//return;  		// 28736 from  12321+16434 = 28755
 	// best time when code and sinTbl in the same bank
 
@@ -271,7 +266,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 	//	pGRaw[i].im=pGRe[i].im+pGIm[i].re;
 	//}
 
-	//START_TIMER();
+//	START_TIMER();
 	
 	sb  = 000000002h;
 	ar4 = GAddCmplxMask;
@@ -287,8 +282,8 @@ global nmppsFFT8192Fwd28888Core	:label;
 		rep 32 data = [ar3++] with vsum, data, ram;
 		rep 32 [ar6++] = afifo;
 
-	//STOP_TIMER();	// Best time   8225/8192 = 1,004028320313
-	//return ;  //  37953 from max 12321+16434+8225 = 36980
+//	STOP_TIMER();	// Best time   8225/8192 = 1,004028320313
+//	return ;  //  37953 from max 12321+16434+8225 = 36980
 
 // -in 
 //|.-out-(pGRaw)
@@ -342,7 +337,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 		gr4 = [shift1] with gr5=gr0<<13; //	gr5 = 8192*2; /
 
 	//STOP_TIMER();	// Best time=8262; 8262/8192/2=0.504272 ; Best route = 0005ef0
-	//return ; //  46195 from max from 12321+16434+8225+8262 = 45242
+	//return ; 		//  46195 from max from 12321+16434+8225+8262 = 45242
 	CRC32(pG);
 	
 	// ---------------- 2.0 --------------------
@@ -363,17 +358,21 @@ global nmppsFFT8192Fwd28888Core	:label;
 
 	
 	// 1.2 ===> gr6=2; 	
-	//START_TIMER();
+	START_TIMER();
 
 	gr0 = [pHRe]		with gr4=false;		//
 	gr1 = [pHIm]		with gr4++;			//
 	gr2 = [pG]			with gr3=gr4<<6;	// gr3=64 		gr3:for(int kk=0; kk<64; kk++){
 	nb1 = 080000000h; 
 	sb  = 002020202h 	with gr4=gr3<<1;	// gr4=64*2 	gr4:load_wfifo(pG+512*k2+kk,64,8);
-	vr  = 000040h		with gr5=gr4<<4;	// gr5=1024*2	gr5:vsum_data(cosTbl,pHRe+1024*k1+64*k2+kk,spec->round[2])
+	gr6 = [shift2]		with gr5=gr4<<4;	// gr5=1024*2	gr5:vsum_data(cosTbl,pHRe+1024*k1+64*k2+kk,spec->round[2]);
+	ar6 = _tblBitRun32;
+	gr6 = [ar6+=gr6];
+	vr  = gr6;
+	ar4 = gr2; 
 	ar2 = [cosTblHold] 	with gr6=gr5;		// gr6=1024*2	gr6:vsum_data(sinTbl,pHIm+1024*k1+64*k2+kk,0);
 	ar3 = [sinTblHold];	
-	ar4 = gr2; 
+	
 	rep 8 wfifo = [ar4++gr4],ftw,wtw; 		// load_wfifo(pG+512*k2+kk,64,8);
 	
 	<Next2_kk>								// for(int kk=0; kk<64; kk++){
@@ -408,7 +407,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 	[sinTblHold]=ar1;	
 	
 	
-	//STOP_TIMER(); // Best time=16752; 16752/8192/2 = 1,0224609375
+	STOP_TIMER(); // Best time=16752; 16752/8192/2 = 1,0224609375
 	//return;    	// 63868 of 12321+16434+8734+8262+16752 = 62503
 	
 	CRC32(pHRe);
@@ -472,13 +471,13 @@ global nmppsFFT8192Fwd28888Core	:label;
 	//	pH[i].im=pHRaw[i].im>>spec->shift[2];
 	//}
 	// 2.1 ===> gr6=-2
-	//START_TIMER();
+	START_TIMER();
 	ar0 = [pHRaw]	with gr6 = -gr6; 				// gr6 = 2;
 	ar6 = [pH]		with gr0 = gr6;					// gr0 = 2;
 	delayed call vec_RShift32s with gr5 = gr0<<13;	// gr5 = 8192*2;
 		gr4 = [shift2];
 	
-	//STOP_TIMER(); // Best time=8262; 8262/8192/2=0.504272 ; Best route = 0000007
+	STOP_TIMER(); // Best time=8262; 8262/8192/2=0.504272 ; Best route = 0000007
 	//return;	 // 80300 of 12321+16434+8225+8262+16752+8222+8262 = 78478
 	CRC32(pH);
 	
@@ -495,7 +494,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 	//	}
 	//}
 
-	//START_TIMER();	
+	START_TIMER();	
 		
 	
 	gr0 = [pJRe]		with gr4=false;		//
@@ -503,7 +502,10 @@ global nmppsFFT8192Fwd28888Core	:label;
 	gr2 = [pH]			with gr3=gr4<<3;	// gr3=8 		gr3:for(int i=0; i<8; i++){
 	nb1 = 080000000h; 
 	sb  = 002020202h 	with gr4=gr3<<1;	// gr4=8*2 		gr4:load_wfifo(pH+64*k2+i,8,8);
-	vr  = 000040h		with gr5=gr4<<7;	// gr5=1024*2	gr5:vsum_data(cosTbl,pJRe+1024*k1+8*k2+i,spec->round[3]);
+	gr6 = [shift3]		with gr5=gr4<<7;	// gr5=1024*2	gr5:vsum_data(cosTbl,pJRe+1024*k1+8*k2+i,spec->round[3]);
+	ar6 = _tblBitRun32 ;
+	gr6 = [ar6+=gr6];
+	vr  = gr6;
 	ar2 = [cosTblHold] 	with gr6=gr5;		// gr6=1024*2	gr6:vsum_data(sinTbl,pJIm+1024*k1+8*k2+i,0);
 	ar3 = [sinTblHold];	
 	ar4 = gr2; 
@@ -545,7 +547,7 @@ global nmppsFFT8192Fwd28888Core	:label;
 	CRC32(pJRe);
 	CRC32(pJIm);
 	
-	//STOP_TIMER();		// Best time=16480; 16480/8192/2=1.005859 ; Best route = 0000007
+	STOP_TIMER();		// Best time=16480; 16480/8192/2=1.005859 ; Best route = 0000007
 	//return ;  			// 97324 from 12321+16434+8225+8262+16752+8222+8262+16480 = 94958
 	
 	//---------------------------------- 3.1 -----------------------------------------	
@@ -602,6 +604,10 @@ global nmppsFFT8192Fwd28888Core	:label;
 	//START_TIMER();
 	sb  = 002020202h	with gr7 = gr6<<9;	// gr7 = 1024		gr7: for (int k2=0; k2<1024; k2++){
 	nb1 = 080000000h	with gr5 = gr7<<1;	// gr5 = 1024*2		vsum_data(cosTbl,pYRe+1024*k1+k2,spec->round[4]);
+	gr6 = [shift4];
+	ar6 = _tblBitRun32;
+	gr6 = [ar6+=gr6];
+	vr  = gr6;
 	ar4 = [pJ] 			with gr6 = gr5;		// gr6 = 1024*2;		vsum_data(sinTbl,pYIm+1024*k1+k2,0);
 	rep 8 wfifo = [ar4++],ftw,wtw; 			// load_wfifo(pJ+8*k2,1,8);
 	ar0 = [cosTblHold2]	with gr7--;			// 
@@ -662,10 +668,11 @@ global nmppsFFT8192Fwd28888Core	:label;
 .wait;
 return ;		
 	
-	
+global _nmppsFFT8192Inv28888Raw	:label;
 global _nmppsFFT8192Fwd28888Raw	:label;
       <_nmppsFFT8192Fwd28888Raw>
-
+      <_nmppsFFT8192Inv28888Raw>
+	  
 	ar5=sp-2	;
 	push ar0,gr0;			
 	push ar1,gr1;		
@@ -682,30 +689,48 @@ global _nmppsFFT8192Fwd28888Raw	:label;
 	gr2 = [ar5++];						// tmp1[8192*2]
 	gr3 = [ar5++];						// weights[]
 	gr4 = [ar5++];						// weights[]
-	[cosTblHold] = gr3;
-	[sinTblHold] = gr4;
+
+	[cosTblHold] = ar3;
+	[sinTblHold] = ar4;
+	[cosTblHold2]= gr3;
+	[sinTblHold2]= gr4;
 	[pX]   = ar0;
+	[pN]   = gr1;
+	
+	[pGRe] = ar6; 
+	[pGIm] = gr2;
+	
+	[pGRaw]= gr1;
+	[pG]   = ar6;
+	
 	[pHRe] = gr1;
 	[pHIm] = gr2;
-	[pH]   = ar6;
-	[pJRe] = gr1;
-	[pJIm] = gr2;
-	[pJRaw]= ar6;
-	[pJ]   = gr2;
-	[pIRe] = gr1;
-	[pIIm] = ar6;
-	[pIRaw]= gr2;
-	[pI]   = ar6;
-	[pYRe] = gr1;
-	[pYIm] = gr2;
+	
+	[pHRaw]= ar6;
+	[pH]   = gr1;	
+	
+	[pJRe] = gr2;
+	[pJIm] = ar6;
+	[pJRaw]= gr1;
+	[pJ]   = ar6; 
+	
+	[pYRe] = gr2;
+	[pYIm] = gr1;
 	[pYRaw]= ar6;
+	//[pY]   = ar6;
+	
 	gr0 = [ar5++];
 	gr1 = [ar5++];
 	gr2 = [ar5++];
+	gr3 = [ar5++];
+	gr4 = [ar5++];
 	[shift1]=gr1;
+	[shift2]=gr2;
+	[shift3]=gr3;
 	delayed call nmppsFFT8192Fwd28888Core;
-		[shift2]=gr2;	
-		
+		[shift4]=gr4;
+	
+	
 	pop ar6,gr6;
 	pop ar5,gr5;
 	pop ar4,gr4;
@@ -717,9 +742,10 @@ return;
 
 	
 
-	
+global _nmppsFFT8192Inv28888	:label;
 global _nmppsFFT8192Fwd28888	:label;
       <_nmppsFFT8192Fwd28888>
+	  <_nmppsFFT8192Inv28888>
 .branch;
 	ar5=sp-2	;
 	push ar0,gr0;			
@@ -875,6 +901,7 @@ return ;
 // 33212100        151984 
 //
 
+
 // if in-place src=dst
 // 1-232003        147901
 // 1-232103        147898
@@ -890,4 +917,4 @@ return ;
 // 3-212301        147898
 
 // 147897/8192 = 18,05383300781
-end ".text_nmplv";
+end ".text_nmpps";

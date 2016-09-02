@@ -590,6 +590,18 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\src\nmpls\FFT\IFFT8192\pc\nmpps-FFT8192Inv.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmpls\FFT\IFFT8192\common\nmpps-FFT8192InvInit.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\nmpls\FFT\IFFT8192\common\nmpps-FFT8192InvRef.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\src\nmpls\FFT\FFTFree\common\nmpps-fftfree.c"
 				>
 			</File>

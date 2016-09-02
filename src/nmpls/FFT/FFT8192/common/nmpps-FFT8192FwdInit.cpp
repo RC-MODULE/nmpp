@@ -6,31 +6,6 @@
 #ifndef PI
 #define PI 3.14159265359
 #endif
-/*
-cmplx<int > Y;
-X.re*=Ampl;
-X.im*=Ampl;
-Y.re=floor(X.re+0.5);	
-Y.im=floor(X.im+0.5);
-if (Ampl>127){
-	Y.re= Y.re > 127 ? 127:Y.re;
-	Y.im= Y.im > 127 ? 127:Y.im;	
-}
-return Y;
-*/
-/*
-nm32sc toFixW8192(int arg, int max){
-	nm32sc res;
-	double argIm= -2.0*PI/8192.0*arg;
-	double expRe= cos(argIm)*max+0.5;
-	double expIm= sin(argIm)*max+0.5;
-	res.re= expRe;
-	res.im= expIm;
-	return res;
-}
-*/	
-
-//int nmppsFFT8192FwdInitAlloc4x8x8x8(  NmppsFFTSpec* spec, src int settings)
 
 extern "C" {
 
@@ -120,14 +95,93 @@ int nmppsFFT8192Fwd28888InitSinCos(NmppsFFTSpec* spec, int settings)
 	return 1;
 }
 
+
+int nmppsFFT8192Fwd28888InitSinCosFast(NmppsFFTSpec* spec, int settings, nm64s* tmp0)
+{
+	nm32sc z;
+	int ii=0,k,kk,j,i,n,h;	
+	nm32sc* cache = (nm32sc*)tmp0;
+	
+	nm8s* cosTbl;
+	nm8s* sinTbl;
+	
+	//---------------------------------- 4 -----------------------------------------
+	cosTbl=(nm8s*)spec->fftTable[1];
+	sinTbl=(nm8s*)spec->fftTable[3];
+
+	ii=0;
+	nmppsSet_32s((nm32s*)cache,0xCCCCCCCC,8192*2);
+	for (int k2=0; k2<1024; k2++){
+		for (int k1=0; k1<8; k1++){
+			int k=1024*k1+k2;
+			for(int i=0; i<8; i++,ii++){
+				int idx=(i*k)&0x1FFF;
+				if (cache[idx].re==0xCCCCCCCC){
+					expFFT127<8192>(i*k,spec->amp[4],cache+idx);	
+				}
+				nmppsPut_8s(cosTbl,ii,cache[idx].re);
+				nmppsPut_8s(sinTbl,ii,cache[idx].im);
+			}
+		}
+	}
+
+
+	//---------------------------------- 1 -----------------------------------------
+	ii=0;
+	cosTbl=(nm8s*)spec->fftTable[0];
+	sinTbl=(nm8s*)spec->fftTable[2];
+
+	for(int k2=0; k2<2; k2++){
+		for(int k1=0; k1<8; k1++){	
+			int k=k1*2+k2;
+			for(int g=0; g<8; g++,ii++){
+				//expFFT127<8192>(512*g*k,spec->amp[1],&z);
+				int idx=(512*g*k)&0x1FFF;
+				nmppsPut_8s(cosTbl,ii,cache[idx].re);
+				nmppsPut_8s(sinTbl,ii,cache[idx].im);
+			}
+		}
+	}
+
+
+	//---------------------------------- 2 -----------------------------------------
+
+	for (int k2=0; k2<16;k2++){
+		for (int k1=0; k1<8;k1++){
+			int k=16*k1+k2;
+			for(int h=0; h<8; h++,ii++){
+				//expFFT127<8192>(64*h*k,spec->amp[2],&z);
+				int idx=(64*h*k)&0x1FFF;
+				nmppsPut_8s(cosTbl,ii,cache[idx].re);
+				nmppsPut_8s(sinTbl,ii,cache[idx].im);
+			}
+		}
+	}
+	//---------------------------------- 3 -----------------------------------------
+	for (int k2=0; k2<128; k2++){
+		for (int k1=0; k1<8; k1++){
+			int k=128*k1+k2; //for(int k=0; k<1024; k++){
+			for(int j=0; j<8; j++,ii++){
+				//expFFT127<8192>(8*j*k,spec->amp[3],&z);
+				int idx=(8*j*k)&0x1FFF;
+				nmppsPut_8s(cosTbl,ii,cache[idx].re);
+				nmppsPut_8s(sinTbl,ii,cache[idx].im);
+			}
+		}
+	}
+	
+	return 1;
+}
+
+
 //#define NMPP_OPTIMIZE_ALLOC 1
 //#define NMPP_CUSTOM_ALLOC 2
 //#define SKIP_SINCOS 4
 
-int  nmppsFFT8192Fwd28888Init( NmppsFFTSpec* spec,  int settings, nm32sc *buf0, nm32sc* buf1, nm64s* tbl0, nm64s* tbl1, nm64s* tbl2, nm64s* tbl3)
+int  nmppsFFT8192Fwd28888Init( NmppsFFTSpec* spec,  int settings, nm64s *buf0, nm64s* buf1, nm64s* tbl0, nm64s* tbl1, nm64s* tbl2, nm64s* tbl3)
 {
-	spec->buffer[0]  =buf0; // [8192]nm32s;
-	spec->buffer[1]  =buf1; // [8192]nm32s;
+	spec->buffer[0]  =(nm32sc*)buf0; // [8192]nm32s;
+	spec->buffer[1]  =(nm32sc*)buf1; // [8192]nm32s;
 
 	spec->fftTable[0]=tbl0;	// [ 9344]Bytes 
 	spec->fftTable[1]=tbl1;	// [65536]Bytes (64kB)
@@ -153,14 +207,12 @@ int  nmppsFFT8192Fwd28888Init( NmppsFFTSpec* spec,  int settings, nm32sc *buf0, 
 	spec->amp[3]=1<<spec->shift[3];
 	spec->amp[4]=1<<spec->shift[4];
 
-	spec->round[0]=1<<(spec->shift[0]-1);
-	spec->round[1]=1<<(spec->shift[1]-1);
-	spec->round[2]=1<<(spec->shift[2]-1);
-	spec->round[3]=1<<(spec->shift[3]-1);
-	spec->round[4]=1<<(spec->shift[3]-1);
 
 	if (!(settings&SKIP_SINCOS)){
-		nmppsFFT8192Fwd28888InitSinCos(spec,settings);
+		//nmppsFFT8192Fwd28888InitSinCos(spec,settings);
+		//nm32sc* cache= new nm32sc[8192];
+		nmppsFFT8192Fwd28888InitSinCosFast(spec,  settings, buf0);
+		//delete cache;
 	}	
 
 	
@@ -208,7 +260,7 @@ int  nmppsFFT8192Fwd28888InitAlloc( NmppsFFTSpec** specFFT, const void* src, con
 	nm64s*   tbl2    =nmppsMalloc_64s(FFT8192_TBL2_SIZE64);	// 9344  Bytes 
 	nm64s*   tbl3    =nmppsMalloc_64s(FFT8192_TBL3_SIZE64);	// 65536 Bytes 
 
-	return nmppsFFT8192Fwd28888Init( spec,  settings, buffer0, buffer1, tbl0,tbl1,tbl2,tbl3);
+	return nmppsFFT8192Fwd28888Init( spec,  settings, (nm64s*)buffer0, (nm64s*)buffer1, tbl0,tbl1,tbl2,tbl3);
 }
 
 };

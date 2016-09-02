@@ -7,7 +7,7 @@ include $(ROOT)/global.mk
 .SUFFIXES:
 
 INC_DIRS = -I"$(NEURO)/include" -I$(ROOT)/Include 
-LIB_DIRS = -L"$(NEURO)/lib"  -L$(ROOT)/Lib -L$(DEVPACK)/nm_io/lib
+LIB_DIRS = -L"$(NEURO)/lib"     -L$(ROOT)/Lib -L$(ROOT)/app/deps/nm_io/lib -L"$(MC5103)/lib" 
 #LIBS     = nm_io.lib mc5103lib.lib nmpp-nmc3d.lib libint05.lib  
 LIBS     = nm_io.lib mc5103lib.lib nmpp-nmc3.lib libint05.lib  
 #cppnew05.lib libc05.lib

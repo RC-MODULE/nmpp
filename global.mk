@@ -1,5 +1,5 @@
 
-export NMPP      ?= $(ROOT)
+export NMPP      = $(ROOT)
 #export http_proxy        = http://user:pass@proxy:80/       (for wget usage)
 #export https_proxy       = $(http_proxy)
 

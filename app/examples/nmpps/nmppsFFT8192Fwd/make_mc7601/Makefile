@@ -6,7 +6,7 @@ include $(ROOT)/global.mk
 
 
 INC_DIRS = -I"$(NEURO)/include" -I$(ROOT)/Include 
-LIB_DIRS = -L"$(NEURO)/lib"  -L$(ROOT)/Lib -L$(DEVPACK)/nm_io/lib
+LIB_DIRS = -L"$(NEURO)/lib"  -L$(ROOT)/Lib -L$(ROOT)/app/deps/nm_io/lib -L"$(MC7601)/lib" 
 LIBS     = mc7601_LL_NM.lib   nmpp-nmc3.lib  libint_soc.lib libc05.lib nm_io_dummy.lib
 
 

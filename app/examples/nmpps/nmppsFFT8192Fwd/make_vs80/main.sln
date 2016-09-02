@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "main", "main.vcproj", "{502FEC7E-393D-4397-8F70-5014080F458C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D67C3FDD-B373-49B8-B56E-DE7255585BF6} = {D67C3FDD-B373-49B8-B56E-DE7255585BF6}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nmpp-vs80", "..\..\..\..\..\make\pc\vs80\nmpp-vs80.vcproj", "{D67C3FDD-B373-49B8-B56E-DE7255585BF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{502FEC7E-393D-4397-8F70-5014080F458C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{502FEC7E-393D-4397-8F70-5014080F458C}.Debug|Win32.Build.0 = Debug|Win32
+		{502FEC7E-393D-4397-8F70-5014080F458C}.Release|Win32.ActiveCfg = Release|Win32
+		{502FEC7E-393D-4397-8F70-5014080F458C}.Release|Win32.Build.0 = Release|Win32
+		{D67C3FDD-B373-49B8-B56E-DE7255585BF6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D67C3FDD-B373-49B8-B56E-DE7255585BF6}.Debug|Win32.Build.0 = Debug|Win32
+		{D67C3FDD-B373-49B8-B56E-DE7255585BF6}.Release|Win32.ActiveCfg = Release|Win32
+		{D67C3FDD-B373-49B8-B56E-DE7255585BF6}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -127,7 +127,6 @@ extern "C" {
 #define pi 3.1415926535897932384626433832795
 int main()
 {
-     
     // return 1000*sin(pi/2);
 	
 	

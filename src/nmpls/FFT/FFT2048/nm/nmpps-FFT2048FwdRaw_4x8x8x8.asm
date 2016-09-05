@@ -602,8 +602,8 @@ global _nmppsFFT2048Fwd4x8x8x8	:label;
 	
 	ar0 = [pYRaw] 	with gr0=false;
 	ar6 = [pY]		with gr0++;
-	gr5 = 2048*2 	with gr0++;	// gr0=2
-	delayed call vec_RShift32s;	// gr6=2
+	gr5 = 2048*2 	with gr0++;
+	delayed call vec_RShift32s	with gr6=gr0;
 		gr4 = [shift3] with gr1=gr7;
 		
 	pop ar6,gr6 with gr7=gr1;

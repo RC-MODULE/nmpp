@@ -13,7 +13,6 @@ LIBS     = nm_io.lib mc5103lib.lib nmpp-nmc3.lib libint05.lib
 #cppnew05.lib libc05.lib
 #           ^- important that it goes first before libc05.lib
 TARGET   = main.abs
-#CFG      = 1.cfg
 CFG      =mc5103brd.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))
 SRC_ASM  = $(wildcard $(addsuffix /*.asm,..))

@@ -1,0 +1,1 @@
+SKIP_DIRS = VEC_MulC_AddC_int32x2

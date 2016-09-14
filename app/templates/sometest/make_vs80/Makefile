@@ -11,9 +11,6 @@ $(warning *** WARNING: 'VS80COMNTOOLS' environment variable is not defined! Micr
 .DEFAULT_GOAL := skip
 endif 
 
-ifeq ($(OS),Windows_NT)
-  SHELL = cmd
-endif
 
 ifndef NMPP
 $(error *** ERROR: 'NMPP' environment variable is not defined!  )
@@ -51,7 +48,9 @@ VPATH    = $(subst -l,,$(LIB_DIRS))
 
 $(TARGETD): $(PROJECT).vcproj $(ALL_CPP) $(NMPP)/lib/$(LIBSD)
 	rm -f -r $(@)
+	@echo $(CURDIR)>> $(ROOT)/app/test/build-vs80.txt
 	"$(VS80COMNTOOLS)vsvars32" && vcbuild $(PROJECT).vcproj
+	@echo -OK>> $(ROOT)/app/test/build-vs80.txt
 
 run:	$(TARGETD)
 	$(TARGETD)

@@ -16,7 +16,8 @@ WORK_DIRS=$(subst /,,$(wildcard */))
 WORK_DIRS := $(filter-out $(SKIP_DIRS),$(WORK_DIRS))
 
 # for each sub-folder try to start Makefile with (build/test/run/clean targets) 
-.default test run clean: 
+#.default 
+test run clean: 
 	@echo ***** build *************
 	$(foreach dir,$(WORK_DIRS), $(MAKE) -C $(dir) $(MAKECMDGOALS) 	$(newline))
 	

@@ -16,14 +16,14 @@ GNUWIN32  =$(DEVPACK)/gnuwin32-lite/bin
 
 
 ifeq ($(OS),Windows_NT)
-export PATH:=$(PATH);\
-$(GNUWIN32);\
+export PATH:=$(GNUWIN32);\
 $(NEURO)/bin;\
 $(MC5103)/bin;\
 $(MB7707)/bin;\
 $(MC7601)/bin;\
 $(VSHELL32)/bin;\
 $(DEVPACK)/putty;\
+$(PATH);\
 $(ARMTOOLCH)/bin;
   
   
@@ -42,15 +42,22 @@ $(ARMTOOLCH)/bin;
    CROSS_COMPILE=arm-linux-gnueabihf-
    
    SHELL    = cmd
-   OS_FIND  = $(call BACKSLASH,$(GNUWIN32)/find)
-   OS_DIFF  = $(call BACKSLASH,$(GNUWIN32)/diff)
-   OS_SCP   = $(call BACKSLASH,$(GNUWIN32)/pscp)
-   OS_CAT   = $(call BACKSLASH,$(GNUWIN32)/cat)
+#  OS_FIND  = $(call BACKSLASH,$(GNUWIN32)/find)
+#  OS_DIFF  = $(call BACKSLASH,$(GNUWIN32)/diff)
+#  OS_SCP   = $(call BACKSLASH,$(GNUWIN32)/pscp)
+#  OS_CAT   = $(call BACKSLASH,$(GNUWIN32)/cat)
+   OS_FIND  = gfind
+   OS_DIFF  = diff
+   OS_SCP   = pscp
+   OS_CAT   = cat
+
+   
    OS_MV    = rename
    OS_RM    = del /Q
 #  OS_RM    = rm -f -r
    OS_RD    = rd /Q /S 
-   OS_CP    = $(call BACKSLASH,$(GNUWIN32)/cp)
+#  OS_CP    = $(call BACKSLASH,$(GNUWIN32)/cp)
+   OS_CP    = cp
    OS_WHICH =$(windir)/system32/where
 #  OS_UNZIP = unzip 
    OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\unzip.ps1 

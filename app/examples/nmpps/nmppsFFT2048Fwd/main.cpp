@@ -117,12 +117,12 @@ int selfTest(){
 	return crc;//t1-t0;
 	
 }
-#include "nmtl/tcmplx_spec.h"
-cmplx<double> W2048(int power);
+//#include "nmtl/tcmplx_spec.h"
+//cmplx<double> W2048(int power);
 
-extern "C" {
-	void nmppsFFT2048FwdRaw4x8x8x8     ( void* a,void* b,void* c,void* d,void* e); 
-};
+//extern "C" {
+	//void nmppsFFT2048FwdRaw4x8x8x8     ( void* a,void* b,void* c,void* d,void* e); 
+//};
 
 #define pi 3.1415926535897932384626433832795
 int main()

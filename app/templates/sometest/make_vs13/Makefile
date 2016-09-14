@@ -53,7 +53,9 @@ VPATH    = $(subst -l,,$(LIB_DIRS))
 
 $(TARGETD): $(PROJECT).vcxproj $(ALL_CPP) $(NMPP)/lib/$(LIBSD)
 	rm -f -r $(@)
+	@echo $(CURDIR)>> $(ROOT)/app/test/build-vs13.txt
 	"$(VS120COMNTOOLS)vsvars32" && msbuild $(PROJECT).vcxproj
+	@echo -OK>> $(ROOT)/app/test/build-vs13.txt
 
 run: .exitcode
 	

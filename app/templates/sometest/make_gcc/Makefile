@@ -33,7 +33,10 @@ SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))
 VPATH    = $(subst -L,,$(LIB_DIRS)) $(NEURO)/lib
 
 $(TARGET): $(SRC_CPP)  Makefile $(NMPP)/lib/gcc.a
+	@echo $(CURDIR)>> $(ROOT)/app/test/build-gcc.txt
 	g++ -o $(TARGET) $(SRC_CPP) $(INC_DIRS) $(LIB_DIRS) -l$(LIBS)
+	@echo -OK>> $(ROOT)/app/test/build-gcc.txt
+
 
 run: .exitcode
 	

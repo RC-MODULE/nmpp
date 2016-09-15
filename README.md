@@ -1,3 +1,5 @@
+##[NMPP](https://github.com/RC-MODULE/nmpp)
+
 ###DOCUMENTATION:  
   HTML: http://rc-module.github.io/nmpp/  
   CHM: http://rc-module.github.io/nmpp/nmpp.chm  
@@ -9,7 +11,7 @@
   image processing functions for Neuro Matrix architecture. 
   NMPP-library supports nmc3-core processor family : NM6405,NM6406, and SOCs.  
 
-    Current version : 1.1 (2016.04.21)
+    Current version : 1.2 (2016.09.15)
   
 ###COMPONENTS:  
   NMPP library contains next components:  

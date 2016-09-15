@@ -14,11 +14,11 @@
 ###COMPONENTS:  
   NMPP library contains next components:  
   - nmvcore- basic low-level vector-cooprocessor functions  
-  - nmplc  - scalar functions  
-  - nmplv  - vector functions  
-  - nmplm  - matrix functions  
-  - nmpls  - signal processing functions  
-  - nmpli  - image  processing functions  
+  - nmppc  - scalar functions  
+  - nmppv  - vector functions  
+  - nmppm  - matrix functions  
+  - nmpps  - signal processing functions  
+  - nmppi  - image  processing functions  
 
   
 ###LIBARY CONTENT :  
@@ -95,7 +95,7 @@ Add installed GnuWin32\bin folder to the %PATH% environmnet variable.
   7. Installed Gnu GCC.  http://www.mingw.org/ 
 
 
-	
+<!--	
 ####DOWNLOADING DEPENDENCIES
 You can download and locally install all latest actual components (board SDKs, vshell, GnuWin32 utils) into */deps* folder by two commands from */deps* folder:
 ```bat
@@ -105,7 +105,7 @@ make install
 
 It is recommended to download dependencies to prevent version mismatch between different components. It guaranties  successful compilation and running of examples.
 No any variables would be created or modified in global system environment, so your NMPP installation would be fully standalone (except installed board drivers)
-<!--
+
 > FOR WINDOWS XP: PowerShell 2.0 is required to provide Internet downloading and unzipping by **make download** and **make install** commands . 
 It is requried  PowerShell 2.0 or  installed
 to provide Internet downloading and unpacking.
@@ -114,7 +114,10 @@ to provide Internet downloading and unpacking.
   Windows XP (KB968930) https://www.microsoft.com/ru-ru/download/details.aspx?id=16818
   [Microsoft .NET Framework 2.0 Service Pack 1 (x86)](https://www.microsoft.com/ru-RU/download/details.aspx?id=16614) may be also required.
   
-  Installed Gnu GCC is recommended for header dependency parcing and build the gcc-version of library build of gcc-examples http://www.mingw.org/ -->
+  Installed Gnu GCC is recommended for header dependency parcing and build the gcc-version of library build of gcc-examples http://www.mingw.org/
+  
+    -->
+
 
 ###WARNING:   
  - If environment variables like **NEURO, MC5103 , MB7707** defined using **?=** in **global.mk** then system value would be used (if exists), otherwise (using **=**) they will be overrided by local pathes!  
@@ -148,7 +151,20 @@ Action of **global.mk** may be overriden by **local.mk** if exists.
 >WARNING:  
   Building and running of examples for some targets may be skipped if appropriate environment    variable (**VS80COMNTOOLS**,**VS120COMNTOOLS**,**CROSS_COMPILE**)
   containing path to according SDK  is not defined in your system.
-  
+
+###TESTS:  
+Running tests is performed by execution and comparision of results on different target paltforms:
+```bat
+  cd /app/test
+  make configure
+  make 
+  make test TARGET1=mc5103 TARGET2=vs80
+```
+Macro PLATFORMS in ./global.mk defines list of platforms for which tests need to be compiled.
+```bat
+PLATFORMS = vs80 mc5103 emu6405 mc7601 mb7707_libload
+```
+
 ###STRUCTURE OF LIBRARY:  
 ```bat
 NMPP    

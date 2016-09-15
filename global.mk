@@ -27,12 +27,7 @@ $(PATH);\
 $(ARMTOOLCH)/bin;
   
   
-  #$(info $(PATH))
-  # NOTE: 'Raspberry\bin' shuld be first in PATH then $(GNUWIN32), because of 'libiconv-2.dll' version conflict.
-  # But 'make.exe' ver-3.81 must be found first in then PATH then 'make.exe' ver-3.82 located in Raspberry\bin because of their non-compatibility 
 
-  
-   
    EASYNMC = $(DEVPACK)/nmc-utils-0.1.1/libeasynmc-nmc
 
    ARM_CC   = arm-linux-gnueabihf-gcc.exe

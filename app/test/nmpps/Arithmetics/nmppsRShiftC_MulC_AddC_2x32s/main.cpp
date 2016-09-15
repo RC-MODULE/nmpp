@@ -52,7 +52,7 @@ int main()
 		shiftArg.hi=shift;
 		
 		nmppsRShiftC_MulC_AddC_2x32s((int32x2*)L0,&shiftArg, &mulArg, &addArg, (int32x2*)G0,size,1,1);	
-		nmppsCrc_64u((nm64u*)G0,size*5,&crc);
+		nmppsCrcAcc_64u((nm64u*)G0,size*5,&crc);
 	}
 
 	nmppsFree(L0);

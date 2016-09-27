@@ -57,8 +57,8 @@ int nmppsDFT8192InvRef_f(const nm32sc* src, nm32sc* dst)
 		}
 	}
 	for(int i=0; i<8192; i++){
-		dst[i].re=floor(y[i].re+0.5);
-		dst[i].im=floor(y[i].im+0.5);
+		dst[i].re=floor(y[i].re/8192+0.5);
+		dst[i].im=floor(y[i].im/8192+0.5);
 	}
 	return 0;
 }

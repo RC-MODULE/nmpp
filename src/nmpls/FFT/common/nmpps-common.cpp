@@ -173,7 +173,7 @@ void vsum_data(nm16s* data,  nm32sc* afifo, int vr){
 }
 
 
-void vsum_data(nm8s* data,  cmplx<int>* afifo){
-	vsum_data(data,  (nm32sc*)afifo, 0);
+void vsum_data(nm8s* data,  cmplx<int>* afifo, int vr){
+	vsum_data(data,  (nm32sc*)afifo, vr);
 }
 

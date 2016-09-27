@@ -45,6 +45,7 @@ SRC_DIRS         = 	 \
 					$(ROOT)/src/nmpls/FFT/IFFT0256/nm \
 					$(ROOT)/src/nmpls/FFT/IFFT0512/nm \
 					$(ROOT)/src/nmpls/FFT/IFFT1024/nm \
+					$(ROOT)/src/nmpls/FFT/IFFT2048/common \
 					$(ROOT)/src/nmpls/FFT/IFFT2048/nm \
 					$(ROOT)/src/nmpls/FFT/IFFT4096/nm \
 					$(ROOT)/src/nmpls/FFT/IFFT8192/nm \

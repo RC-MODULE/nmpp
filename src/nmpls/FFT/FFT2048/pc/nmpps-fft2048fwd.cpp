@@ -13,7 +13,7 @@
 
 extern "C"{
 
-int nmppsFFT2048Fwd4x8x8x8Raw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
+int nmppsFFT2048Fwd4888Raw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
 {
 	int round[4];
 	round[0]=1<<(spec->shift[0]-1);
@@ -135,9 +135,9 @@ int nmppsFFT2048Fwd4x8x8x8Raw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec
 	return 0;
 }
 
-int nmppsFFT2048Fwd4x8x8x8(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
+int nmppsFFT2048Fwd4888(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
 {
-	nmppsFFT2048Fwd4x8x8x8Raw(src, dst, spec);
+	nmppsFFT2048Fwd4888Raw(src, dst, spec);
 
 	//---------------------------------- 3.2 -----------------------------------------
 	for(int i=0; i<2048; i++){
@@ -146,5 +146,18 @@ int nmppsFFT2048Fwd4x8x8x8(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* s
 	}
 	return 0;
 }
+
+
+
+int nmppsFFT2048FwdRaw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
+{
+	return nmppsFFT2048Fwd4888Raw(src, dst, spec);
+}
+
+int nmppsFFT2048Fwd(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
+{
+	return nmppsFFT2048Fwd4888(src, dst, spec);
+}
+
 
 };

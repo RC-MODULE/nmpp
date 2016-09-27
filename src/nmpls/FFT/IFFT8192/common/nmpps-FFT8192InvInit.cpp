@@ -153,7 +153,7 @@ int  nmppsFFT8192Inv28888Init( NmppsFFTSpec* spec,  int settings, nm64s *buf0, n
 	spec->amp[3]=1<<spec->shift[3];
 	spec->amp[4]=1<<spec->shift[4];
 
-	spec->shift[4]=7+13;
+	spec->shift[4]+=13;
 
 
 	if (!(settings&SKIP_SINCOS)){

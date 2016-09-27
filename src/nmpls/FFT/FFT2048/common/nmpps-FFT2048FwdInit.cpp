@@ -30,11 +30,11 @@ nm32sc toFixW2048(int arg, int max){
 }
 */	
 
-//int nmppsFFT2048FwdInitAlloc4x8x8x8(  NmppsFFTSpec* spec, src int settings)
+//int nmppsFFT2048FwdInitAlloc4888(  NmppsFFTSpec* spec, src int settings)
 
 
 
-void nmppsFFT2048FwdInitSinCos4x8x8x8(NmppsFFTSpec* spec)
+void nmppsFFT2048FwdInitSinCos4888(NmppsFFTSpec* spec)
 {
 	nm16s* cosTbl16=(nm16s*)spec->fftTable[0];
 	nm16s* sinTbl16=(nm16s*)spec->fftTable[1];
@@ -92,15 +92,15 @@ void nmppsFFT2048FwdInitSinCos4x8x8x8(NmppsFFTSpec* spec)
 //#define NMPP_OPTIMIZE_ALLOC 1
 //#define NMPP_CUSTOM_ALLOC 2
 //#define SKIP_SINCOS 4
-int  nmppsFFT2048FwdInitAlloc4x8x8x8( NmppsFFTSpec** specFFT, const void* src, const void* dst,  int settings)
+int  nmppsFFT2048FwdInitAlloc4888( NmppsFFTSpec** specFFT, const void* src, const void* dst,  int settings)
 {
 	if (settings&NMPP_OPTIMIZE_ALLOC){
 		nmppsMallocResetRoute();
 		do {
 			NmppsFFTSpec* spec;
-			if (nmppsFFT2048FwdInitAlloc4x8x8x8(&spec, src,dst, NMPP_CUSTOM_ALLOC|SKIP_SINCOS)==NMPP_OK){
+			if (nmppsFFT2048FwdInitAlloc4888(&spec, src,dst, NMPP_CUSTOM_ALLOC|SKIP_SINCOS)==NMPP_OK){
 				nmppsMallocTimerStart();
-				nmppsFFT2048Fwd4x8x8x8((nm32sc*)src, (nm32sc*)dst, spec);
+				nmppsFFT2048Fwd4888((nm32sc*)src, (nm32sc*)dst, spec);
 				nmppsMallocTimerStop();
 				nmppsMallocBetterRoute();
 				nmppsFFTFree(spec);
@@ -147,10 +147,15 @@ int  nmppsFFT2048FwdInitAlloc4x8x8x8( NmppsFFTSpec** specFFT, const void* src, c
 	//if (settings==-1)
 	//	return 0;
 	if (!(settings&SKIP_SINCOS)){
-		nmppsFFT2048FwdInitSinCos4x8x8x8(spec);
+		nmppsFFT2048FwdInitSinCos4888(spec);
 	}	
 
 	
 	return NMPP_OK;
+}
+
+int  nmppsFFT2048FwdInitAlloc( NmppsFFTSpec** specFFT, const void* src, const void* dst,  int settings)
+{
+	return  nmppsFFT2048FwdInitAlloc4888( specFFT, src, dst, settings);
 }
 

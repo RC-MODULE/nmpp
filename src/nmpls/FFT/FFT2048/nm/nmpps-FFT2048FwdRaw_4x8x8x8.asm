@@ -32,6 +32,13 @@ macro STOP_TIMER()
 //	gr7-=gr0; 
 end STOP_TIMER;
 
+macro CRC32(adr)
+	ar0 = [adr];
+	gr5 = 8192*2;
+	call vec_crc32;
+end CRC32;
+
+
 // TIME=35590 clocks . 17.377 clocks
 
 extern vec_RShift32s:label;
@@ -102,8 +109,8 @@ global   nmppsFinalizeCmplxMul:label;
 //                                        [ar1:hi]|[ar2:hi]->[ar6:even]
 //                                                           [ar6     ] >>7 [ar1]
 
-global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
-      <nmppsFFT2048Fwd4x8x8x8PreRaw>
+global nmppsFFT2048Fwd4888PreRaw	:label;
+      <nmppsFFT2048Fwd4888PreRaw>
 .branch;	  
 /*	
 	// 	int ii,k,kk,j,i,n,h;	
@@ -487,9 +494,11 @@ global nmppsFFT2048Fwd4x8x8x8PreRaw	:label;
 .wait;
 return ;		
 	
+global _nmppsFFT2048FwdRaw	:label;
+      <_nmppsFFT2048FwdRaw>
 	
-global _nmppsFFT2048Fwd4x8x8x8Raw	:label;
-      <_nmppsFFT2048Fwd4x8x8x8Raw>
+global _nmppsFFT2048Fwd4888Raw	:label;
+      <_nmppsFFT2048Fwd4888Raw>
 
 	ar5=sp-2	;
 	push ar0,gr0;			
@@ -528,7 +537,7 @@ global _nmppsFFT2048Fwd4x8x8x8Raw	:label;
 	gr1 = [ar5++];
 	gr2 = [ar5++];
 	[shift1]=gr1;
-	delayed call nmppsFFT2048Fwd4x8x8x8PreRaw;
+	delayed call nmppsFFT2048Fwd4888PreRaw;
 		[shift2]=gr2;	
 		
 	pop ar6,gr6;
@@ -542,9 +551,11 @@ return;
 
 	
 
+global _nmppsFFT2048Fwd	:label;
+      <_nmppsFFT2048Fwd>
 	
-global _nmppsFFT2048Fwd4x8x8x8	:label;
-      <_nmppsFFT2048Fwd4x8x8x8>
+global _nmppsFFT2048Fwd4888	:label;
+      <_nmppsFFT2048Fwd4888>
 .branch;
 	ar5=sp-2	;
 	push ar0,gr0;			
@@ -590,7 +601,7 @@ global _nmppsFFT2048Fwd4x8x8x8	:label;
 	gr3 = [ar5++];
 	[shift1]=gr1;
 	[shift2]=gr2;
-	delayed call nmppsFFT2048Fwd4x8x8x8PreRaw;
+	delayed call nmppsFFT2048Fwd4888PreRaw;
 		[shift3]=gr3;
 	
 	

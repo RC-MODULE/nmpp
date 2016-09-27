@@ -197,13 +197,14 @@
 	int  nmppsFFT1024InvInitAlloc 	(NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT1024InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free,  int settings);
 	
-	void nmppsFFT2048Fwd        	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
-	int  nmppsFFT2048Fwd4x8x8x8 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
-	int  nmppsFFT2048Fwd4x8x8x8Raw 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
-//	int  nmppsFFT2048Fwd4x8x8x8_ (nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	int  nmppsFFT2048Fwd        	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	int  nmppsFFT2048Fwd4888 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	int  nmppsFFT2048Fwd4888Raw 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	int  nmppsFFT2048FwdRaw     	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+//	int  nmppsFFT2048Fwd4888_ (nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	int  nmppsFFT2048FwdOptimize	(const void* src, const void* dst, fseq64* allocOrder) ;
 	int  nmppsFFT2048FwdInitAlloc	(NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
-	int  nmppsFFT2048FwdInitAlloc4x8x8x8( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
+	int  nmppsFFT2048FwdInitAlloc4888( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT2048FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings);
 
 	
@@ -276,13 +277,16 @@ void nmppsFFT64FwdRef8x8    ( nm32sc* src, nm32sc* dst);
 
 //id nmppsFFT2048Fwd_f      (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
 void nmppsFFT2048Fwd_RefFloat(const nm32sc* src, nm32sc* dst);
-void nmppsFFT2048Fwd4x8x8x8_RefFloat(const nm32sc* src, nm32sc* dst);
-void nmppsFFT2048Fwd4x8x8x8_RefInt(const nm32sc* src, nm32sc* dst);
-//void nmppsFFT2048Fwd4x8x8x8(const nm32sc* src, nm32sc* dst);
+void nmppsFFT2048Inv_RefFloat(const nm32sc* src, nm32sc* dst);
+void nmppsFFT2048Fwd4888_RefFloat(const nm32sc* src, nm32sc* dst);
+void nmppsFFT2048Inv4888_RefFloat(const nm32sc* src, nm32sc* dst);
+void nmppsFFT2048Fwd4888_RefInt(const nm32sc* src, nm32sc* dst);
+void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst);
+//void nmppsFFT2048Fwd4888(const nm32sc* src, nm32sc* dst);
 
 //void nmppsFFT64FwdRef2x2x16_f( nm32sc* src, nm32sc* dst);
 
-//void vsum_data(nm8s* data,  cmplc<int>* afifo);
+
 
 #define SKIP_SINCOS 4
 

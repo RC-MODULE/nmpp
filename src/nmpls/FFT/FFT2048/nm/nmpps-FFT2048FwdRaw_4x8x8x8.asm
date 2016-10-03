@@ -32,9 +32,9 @@ macro STOP_TIMER()
 //	gr7-=gr0; 
 end STOP_TIMER;
 
-macro CRC32(adr)
+macro CRC32(adr,size)
 	ar0 = [adr];
-	gr5 = 8192*2;
+	gr5 = size;
 	call vec_crc32;
 end CRC32;
 
@@ -175,7 +175,8 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 	
 	//gr7-=gr0; //6201 ticks/2048 = 3,02783203125
 	
-	
+	CRC32(pHRe,2048*2);
+	CRC32(pHIm,2048*2);
 	
 //----------------- 0.1 -----------------				
 /*	
@@ -203,7 +204,8 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 		//Best time_=2081; 2081/2048= ; Best route = 0031020
 	//return;
 	
-	
+	CRC32(pHRe,2048*2);
+	CRC32(pHIm,2048*2);
 	
 /*
 //================= 1 =================
@@ -272,7 +274,8 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 	//return;
 	
 	
-
+	CRC32(pJRe,2048*2);
+	CRC32(pJIm,2048*2);
 
 //----------------- 1.1 -----------------	
 /*	for(int i=0;i<2048; i++){
@@ -298,7 +301,7 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 	STOP_TIMER();	// min block time = 2080 ticks  ; 2080/2048 = 1,1015 ; 2212330 best route
 	//return;		// Best time_=2081; 2081/2048/2=0.508056 ; Best route = 1031020
 	
-	
+	CRC32(pJRaw,2048*2);
 //----------------- 1.2 -----------------			
 /*	for(int i=0; i<2048; i++){
 		pJ[i].re=pJRaw[i].re>>spec->shift[1];
@@ -313,6 +316,9 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 
 	STOP_TIMER();	// Best time_=2106; 2106/2048/2=0.514160 ; Best route = 0113020
 	//return;
+	
+	CRC32(pJ,2048*2);
+	
 //================= 2 =================-------
 /*
 	cosTblHold=cosTbl;
@@ -381,7 +387,8 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 	STOP_TIMER();	// Best time= 4188  4188/2048/2 = 1,0224609375; 2133001 best route
 	//return;		// Best time_=4188; 4188/2048/2 = 1.022460 ; Best route = 3321010
 	
-	
+	CRC32(pIRe,2048*2);
+	CRC32(pIIm,2048*2);
 
 	
 //----------------- 2.1 -----------------			
@@ -407,6 +414,8 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 		
 	STOP_TIMER();	// Best time= 2078  2078/2048 = 1,0146484375; 0112032 best route
 	//return;			// Best time_=2077; 2077/2048/2=0.507080 ; Best route = 2313023
+	CRC32(pIRaw,2048*2);
+	
 	
 	
 	
@@ -421,6 +430,7 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 	delayed call vec_RShift32s with gr5 = gr0<<11;	// gr5 = 2048*2;
 		gr4 = [shift2];
 	
+	CRC32(pI,2048*2);
 //================= 3 =================-------
 /*
 	pYRe=(nm32sc*)spec->buffer[0];
@@ -491,6 +501,9 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 	STOP_TIMER(); 	// best time=2077 ;331002 best route
 	//return;			// Best time_=2077; 2077/2048/2=0.507080 ; Best route = 1231221
 
+	CRC32(pYRe,2048*2);
+	CRC32(pYIm,2048*2);
+	
 .wait;
 return ;		
 	
@@ -533,6 +546,7 @@ global _nmppsFFT2048Fwd4888Raw	:label;
 	[pYRe] = gr1;
 	[pYIm] = gr2;
 	[pYRaw]= ar6;
+	ar5+=2;
 	gr0 = [ar5++];
 	gr1 = [ar5++];
 	gr2 = [ar5++];
@@ -594,7 +608,7 @@ global _nmppsFFT2048Fwd4888	:label;
 	[pYIm] = gr2;
 	[pYRaw]= gr1;
 	[pY]   = ar6;
-	
+	ar5+=2;
 	gr0 = [ar5++];
 	gr1 = [ar5++];
 	gr2 = [ar5++];

@@ -649,10 +649,6 @@
 				>
 			</File>
 			<File
-				RelativePath="../../src/nmpls/FFT/FFT2048/common/nmpps-FFT2048Inv.c"
-				>
-			</File>
-			<File
 				RelativePath="../../src/nmpls/FFT/FFT2048/nm/FFT_Fwd2048__nm32sc_nm32sc.asm"
 				>
 			</File>
@@ -769,6 +765,18 @@
 				>
 			</File>
 			<File
+				RelativePath="../../src/nmpls/FFT/IFFT2048/common/nmpps-FFT2048Inv.cpp"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/IFFT2048/common/nmpps-FFT2048InvInit.cpp"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/IFFT2048/common/nmpps-FFT2048InvRef.cpp"
+				>
+			</File>
+			<File
 				RelativePath="../../src/nmpls/FFT/IFFT2048/nm/FFT_Inv2048__nm32sc_nm32sc.asm"
 				>
 			</File>
@@ -794,6 +802,14 @@
 			</File>
 			<File
 				RelativePath="../../src/nmpls/FFT/IFFT4096/nm/iW4096tbl7.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/IFFT8192/common/nmpps-FFT8192InvInit.cpp"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmpls/FFT/IFFT8192/common/nmpps-FFT8192InvRef.cpp"
 				>
 			</File>
 			<File
@@ -2094,6 +2110,10 @@
 			</File>
 			<File
 				RelativePath="../../src/nmplv/Support/nm/VEC_SetVal__nm16s.asm"
+				>
+			</File>
+			<File
+				RelativePath="../../src/nmplv/Tables/nm/bitrun_32.asm"
 				>
 			</File>
 			<File

@@ -61,8 +61,8 @@ int selfTest(){
 	nmppsMallocSetRoute16(0x3112003);  
 	nm32sc* src  =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
 	nm32sc* dst	 =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
-	nm32sc* dstf =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
-	nm32sc* dstf2=(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
+	//nm32sc* dstf =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
+	//nm32sc* dstf2=(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
 		
 		
 	NmppsFFTSpec* spec;
@@ -75,11 +75,11 @@ int selfTest(){
 	nmppsRandUniform_64s((nm64s*)dst,FFT_SIZE);
 		
 	float msd;
-	nmppsFFT2048Fwd_RefFloat(src,dstf);
+//	nmppsFFT2048Fwd_RefFloat(src,dstf);
 //	nmppsFFT2048Fwd4888_RefFloat( src,  dstf2);msd=nmppsMSD_32sc(dstf,dstf2,2048);	printf("msd 1=%f\n",msd);
 //	nmppsFFT2048Fwd4888_RefInt  ( src,  dstf2);	msd=nmppsMSD_32sc(dstf,dstf2,2048);	printf("msd 1=%f\n",msd);
 	t0=clock();
-	nmppsFFT2048Fwd         (src,dst,spec); 		msd=nmppsMSD_32sc(dst,dstf2,2048);	printf("msd 1=%f\n",msd);
+	nmppsFFT2048Fwd         (src,dst,spec); 	;//	msd=nmppsMSD_32sc(dst,dstf2,2048);	printf("msd 1=%f\n",msd);
 	t1=clock();
 	//nmppsRShiftC_32s((nm32s*)dst,7,(nm32s*)dst,2048*2);
 	
@@ -96,7 +96,7 @@ int selfTest(){
 #define pi 3.1415926535897932384626433832795
 int main()
 {
- 	//return selfTest();
-	return speedTest();
+ 	return selfTest();
+	//return speedTest();
 	
 }

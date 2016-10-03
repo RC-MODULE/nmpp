@@ -11,6 +11,9 @@
 #include "fftexp.h"
 #include "nmpp.h"
 
+unsigned crc;
+#define CRC32(addres,size) crc=nmppsCrc_32s((nm32s*)addres,size); 
+
 extern "C"{
 
 int nmppsFFT2048Fwd4888Raw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
@@ -62,6 +65,11 @@ int nmppsFFT2048Fwd4888Raw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* s
 	}
 	cosTblHold=(nm8s*)cosTbl16;
 	sinTblHold=(nm8s*)sinTbl16;
+	
+	
+	CRC32(pHRe,2048*2);
+	CRC32(pHIm,2048*2);
+
 	//---------------------------------- 0.1 -----------------------------------------	
 	for( i=0; i<2048; i++){
 		pH[i].re=pHRe[i].re-pHIm[i].im;
@@ -87,11 +95,13 @@ int nmppsFFT2048Fwd4888Raw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* s
 		pJRaw[i].re=pJRe[i].re-pJIm[i].im;
 		pJRaw[i].im=pJRe[i].im+pJIm[i].re;
 	}
+	CRC32(pJRaw,2048*2);
 	//---------------------------------- 1.2 -----------------------------------------
 	for(int i=0; i<2048; i++){
 		pJ[i].re=pJRaw[i].re>>spec->shift[1];
 		pJ[i].im=pJRaw[i].im>>spec->shift[1];
 	}
+	CRC32(pJ,2048*2);
 	//---------------------------------- 2 -----------------------------------------
 	for(int i=0; i<8; i++){
 		cosTbl=cosTblHold;
@@ -104,16 +114,20 @@ int nmppsFFT2048Fwd4888Raw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* s
 			}
 		}
 	}
+	CRC32(pIRe,2048*2);
+	CRC32(pIIm,2048*2);
 	//---------------------------------- 2.1 -----------------------------------------
 	for(int i=0; i<2048; i++){
 		pIRaw[i].re=pIRe[i].re-pIIm[i].im;
 		pIRaw[i].im=pIRe[i].im+pIIm[i].re;
 	}
+	CRC32(pIRaw,2048*2);
 	//---------------------------------- 2.2 -----------------------------------------
 	for(int i=0; i<2048; i++){
 		pI[i].re=pIRaw[i].re>>spec->shift[2];
 		pI[i].im=pIRaw[i].im>>spec->shift[2];
 	}
+	CRC32(pI,2048*2);
 	//---------------------------------- 3 -----------------------------------------
 	for(int kk=0; kk<256; kk++){
 		load_wfifo(pI+8*kk,1,8);								
@@ -127,6 +141,10 @@ int nmppsFFT2048Fwd4888Raw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* s
 		pYRaw[i].re=pYRe[i].re-pYIm[i].im;	
 		pYRaw[i].im=pYRe[i].im+pYIm[i].re;
 	}
+
+	CRC32((nm32s*)pYRe,2048*2);
+	CRC32((nm32s*)pYIm,2048*2);
+
 	//---------------------------------- 3.2 -----------------------------------------
 	//for(int i=0; i<2048; i++){
 	//	pY[i].re=pYRaw[i].re>>spec->shift[3];

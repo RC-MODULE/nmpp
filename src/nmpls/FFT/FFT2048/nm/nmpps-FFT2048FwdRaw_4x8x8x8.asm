@@ -33,9 +33,9 @@ macro STOP_TIMER()
 end STOP_TIMER;
 
 macro CRC32(adr,size)
-	ar0 = [adr];
-	gr5 = size;
-	call vec_crc32;
+	//ar0 = [adr];
+	//gr5 = size;
+	//call vec_crc32;
 end CRC32;
 
 
@@ -43,6 +43,7 @@ end CRC32;
 
 extern vec_RShift32s:label;
 extern vec_crc32:label;
+extern _tblBitRun32: word;
 data ".data_fft_L"
 	t:word;
 	GAddCmplxMask:long[2]=(
@@ -238,7 +239,10 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 	ar3 = [sinTblHold];	
 	ar4 = gr2; 
 	rep 8 wfifo = [ar4++gr4],ftw,wtw; 		// load_wfifo(pH+512*kk+i,64,8);	
-	
+	ar0 = [shift1];
+	//ar0 = round_tbl;
+	gr7 = [ar0+=_tblBitRun32];
+	vr  = gr7;
 	<Next1_i>
 		gr7 = 2;
 		ar0 = ar2; 
@@ -351,8 +355,10 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 	ar2 = [cosTblHold];	
 	ar3 = [sinTblHold];	
 	ar4 = gr2; 
-	rep 8 wfifo = [ar4++gr4],ftw,wtw; 	
-	
+	rep 8 wfifo = [ar4++gr4],ftw,wtw; 
+	ar0 = [shift2];
+	gr7 = [ar0+=_tblBitRun32];
+	vr  = gr7;
 	<Next2_i>
 		gr7 = 2;
 		ar0 = ar2;					//[cosTblHold];	
@@ -452,11 +458,15 @@ global nmppsFFT2048Fwd4888PreRaw	:label;
 	sb  = 002020202h	with gr7 = gr6<<7;	// gr7 = 256
 	nb1 = 080000000h	with gr5 = gr7<<1;	// gr5 = 256*2
 	ar4 = [pI] 			with gr6 = gr7<<1;	// gr6 = 256*2;	
+	ar0 = [shift3];
+	gr4 = [ar0+=_tblBitRun32];
+	vr  = gr4;
 	rep 8 wfifo = [ar4++],ftw,wtw; 			// load_wfifo(pI+8*kk,1,8);								
 	ar0 = [cosTblHold]	with gr7--;			// gr7 = 255 (kk);
 	ar1 = [sinTblHold];
 	ar5 = [pYRe];	
 	ar6 = [pYIm];
+	
 <Next3_kk>
 		rep 8 data=[ar0++] with vsum ,data,vr;		// vsum_data(cosTbl,pYRe+256*k+kk);
 		rep 8 wfifo = [ar4++],ftw; 					// load_wfifo(pI+8*kk,1,8);								

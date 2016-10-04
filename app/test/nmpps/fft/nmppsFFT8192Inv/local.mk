@@ -1,0 +1,1 @@
+HEAP = -heap=0 -heap1=0 -heap2=0 -heap3=0

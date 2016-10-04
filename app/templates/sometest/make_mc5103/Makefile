@@ -1,4 +1,6 @@
 include $(ROOT)/global.mk
+-include ../local.mk
+HEAP ?= -heap=6384 -heap1=16384 -heap2=16384 -heap3=16384
 # BUILD AND RUN MAKEFILE
 # This makefile builds simple nmc-application containing single cpp-file  
 # Rule 'run' executes the application on MC5103 board and stores return code in ".exitcode"  file
@@ -25,7 +27,7 @@ VPATH    = $(subst -L,,$(LIB_DIRS)) $(NEURO)/lib
 
 $(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc3d.lib
 	@echo $(CURDIR)>> $(ROOT)/app/test/build-mc5103.txt
-	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) -6405 -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=6384 -heap1=16384 -heap2=16384 -heap3=16384
+	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) -6405 -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) $(HEAP)
 	@echo -OK>> $(ROOT)/app/test/build-mc5103.txt
 #                                                                                                                  [L00]:64kB   [L01]:64kB  [G00]:64kB   [G01]:64kB
 

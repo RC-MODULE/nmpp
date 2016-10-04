@@ -687,9 +687,10 @@ global _nmppsFFT8192Fwd28888Raw	:label;
 	ar5 = [--ar5];						// spec
 	gr1 = [ar5++];						// tmp0[8192*2]
 	gr2 = [ar5++];						// tmp1[8192*2]
+	ar3 = [ar5++];						// weights[]
 	gr3 = [ar5++];						// weights[]
+	ar4 = [ar5++];						// weights[]
 	gr4 = [ar5++];						// weights[]
-
 	[cosTblHold] = ar3;
 	[sinTblHold] = ar4;
 	[cosTblHold2]= gr3;

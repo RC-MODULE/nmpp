@@ -37,11 +37,9 @@ int selfTest(){
 	nmppsRandUniform_64s((nm64s*)src,FFT_SIZE);
 	nmppsRShiftC_32s((nm32s*)src,24,(nm32s*)src,2*FFT_SIZE);
 		
-	nmppsFFT8192Fwd (src,dst,&specFwd); 
-	crc=nmppsCrc_32s((nm32s*)src,8192*2);//-0xcd7cd700;
-	//if (crc!=0)	return 0xBEDABEDA;
+	nmppsFFT8192Fwd 	(src,dst,&specFwd); 	crc=nmppsCrc_32s((nm32s*)src,8192*2);
+	nmppsFFT8192FwdRaw 	(src,dst,&specFwd); 	crc=nmppsCrc_32s((nm32s*)src,8192*2);
 	return crc>>2;
-	
 }
 
 int main()

@@ -19,12 +19,13 @@
 //------------------------------------------------------------------------
 #include "nmplv.h"
 
+
 //******************************************************************************
 //	Logical conversion from 32-bit buffer to 1-bit(binary) buffer by 
 //	setting of resulting bit to "1" if corresponding 32-bit input element is positive 
 //  and to "0" for each zero element and vice versa if nTrueFlag =-1
 //	For negative numbers result is not defined.
-void nmppsCmpEq0_32u(
+void nmppsCmpEq0_32u31b(
 			nm32u31b*	pSrcVec,				//Input buffer.	:Local[size].
 			nm1*	pDstVec,				//Bit vectors.	:Global[size/32].
 			int		nSize,					//Input buffer size in 32-bit elements. nSize = 2..nSize*2.
@@ -76,7 +77,7 @@ void nmppsCmpEq0_32u(
 //	setting of resulting bit to "1" if corresponding 32-bit input element is positive 
 //  and to "0" for each zero element and vice versa if nTrueFlag =-1
 //	For negative numbers result is not defined.
-void nmppsCmpEq0_16u(
+void nmppsCmpEq0_16u15b(
 			nm16u15b*	pSrcVec,				//Input buffer.	:Local[size].
 			nm1*	pDstVec,				//Bit vectors.	:Global[size/32].
 			int		nSize,					//Input buffer size in 16-bit elements. nSize = 4..nSize*4.
@@ -127,7 +128,7 @@ void nmppsCmpEq0_16u(
 //	setting of resulting bit to "1" if corresponding 32-bit input element is positive 
 //  and to "0" for each zero element and vice versa if nTrueFlag =-1
 //	For negative numbers result is not defined.
-void nmppsCmpEq0_8u(
+void nmppsCmpEq0_8u7b(
 			nm8u7b*	pSrcVec,				//Input buffer.	:Local[size].
 			nm1*	pDstVec,				//Bit vectors.	:Global[size/32].
 			int		nSize,					//Input buffer size in 8-bit elements. nSize = 8..nSize*8.
@@ -174,3 +175,4 @@ void nmppsCmpEq0_8u(
 
 	#endif
 }
+

@@ -37,8 +37,15 @@
 
   
 ###BUILDING LIBRARY:  
-  Run **make** command to build all (nmc3, gcc , vs80 and vs13 ) libraries from *./make* folder.  Or run **make** from appropriate sub-folder.
- 
+  Run ```make``` command to build all (nmc3, gcc , vs80 and vs13 ) libraries from *./make* folder.  Or run ```make``` from appropriate sub-folder.
+
+```
+nmpp> cd make/nmpp-nmc3
+nmpp/make> make 
+nmpp/make> make DEBUG=y
+```
+
+
 ###USAGE:  
   Use **NMPP** environment variable in your own projects to specify a location of library. 
   You can set **NMPP** variable manually to the path were it has been installed or by **make install** command from *./make* folder.
@@ -58,10 +65,10 @@ A. **Lite Gnuwin32 installation (Only utils needed for RC Module project buildin
 	 If download.bat completes successfully you will be able to run the installer with path where to install gnuwin32. 
 	 For example: 
 ```bat
-C:\gnuwin32-lite-mater>set  http_proxy=http://username:password@proxy:80/
-C:\gnuwin32-lite-mater>set https_proxy=http://username:password@proxy:80/
-C:\gnuwin32-lite-mater>download 
-C:\gnuwin32-lite-mater>install C:\gnuwin32 
+C:\gnuwin32-lite-master>set  http_proxy=http://username:password@proxy:80/
+C:\gnuwin32-lite-master>set https_proxy=http://username:password@proxy:80/
+C:\gnuwin32-lite-master>download 
+C:\gnuwin32-lite-master>install C:\gnuwin32 
 ```
 
 B. **Full GnuWin32 Installation (All available utils would be installed [600MB])**  

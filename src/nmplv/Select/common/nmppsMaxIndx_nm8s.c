@@ -40,23 +40,31 @@ void nmppsMaxIndx_8s(nm8s7b  *pSrcVec, int nSize, int* pIndex, int8b* pMaxValue,
 	nmppsSubCRev_8s(pSrcVec,*pMaxValue,(nm8s*)pTmp1,nSize);
 	nmppsCmpEq0_8u7b((nm8u7b*)pTmp1,(nm1*)pTmp2,nSize,0); //Create Max bitmap
 
-		if(nSearchDir > 0){
+	if(nSearchDir > 0){
 		nPos  =nmppsFirstNonZeroIndx_32s((int*)pTmp2,nSize>>5);
+		if (nPos==-1){
+			*pIndex=0;
+			return;
+		}
 		n=((int*)pTmp2)[nPos];	
-		for(*pIndex=0; *pIndex<32; *pIndex++){
+		for((*pIndex)=0; (*pIndex)<32; (*pIndex)++){
 			if (n&1)
 				break;
 			n>>=1;
 		}
 	} else {
 		nPos  =nmppsLastNonZeroIndx_32s((int*)pTmp2,nSize>>5); 
+		if (nPos==-1){
+			*pIndex=nSize-1;
+			return;
+		}
 		n=((int*)pTmp2)[nPos];	
-		for(*pIndex=31; *pIndex>=0; *pIndex--){
+		for((*pIndex)=31; (*pIndex)>=0; (*pIndex)--){
 			if (n&0x80000000)
 				break;
 			n<<=1;
 		}
 	}
-	*pIndex+=nPos*32;
+	(*pIndex)+=nPos*32;
 }
 

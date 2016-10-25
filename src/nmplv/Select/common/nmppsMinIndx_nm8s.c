@@ -42,6 +42,10 @@ void nmppsMinIndx_8s(nm8s7b   *pSrcVec, int nSize, int *pIndex, int8b *pMinValue
 
 	if(nSearchDir > 0){
 		nPos  =nmppsFirstNonZeroIndx_32s((int*)pTmp2,nSize>>5);
+		if (nPos==-1){
+			*pIndex=0;
+			return;
+		}
 		n=((int*)pTmp2)[nPos];	
 		for((*pIndex)=0; (*pIndex)<32; (*pIndex)++){
 			if (n&1)
@@ -50,6 +54,10 @@ void nmppsMinIndx_8s(nm8s7b   *pSrcVec, int nSize, int *pIndex, int8b *pMinValue
 		}
 	} else {
 		nPos  =nmppsLastNonZeroIndx_32s((int*)pTmp2,nSize>>5); 
+		if (nPos==-1){
+			*pIndex=nSize-1;
+			return;
+		}
 		n=((int*)pTmp2)[nPos];	
 		for((*pIndex)=31; (*pIndex)>=0; (*pIndex)--){
 			if (n&0x80000000)
@@ -57,7 +65,6 @@ void nmppsMinIndx_8s(nm8s7b   *pSrcVec, int nSize, int *pIndex, int8b *pMinValue
 			n<<=1;
 		}
 	}
-
 	(*pIndex)+=nPos*32;
 
 }

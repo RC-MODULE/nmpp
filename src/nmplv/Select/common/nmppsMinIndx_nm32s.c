@@ -23,7 +23,7 @@
 //! 
 void nmppsMinIndx_32s(nm32s31b *pSrcVec, int nSize, int *pIndex, int32b *pMinValue, void *pLTmpBuff,void *pGTmpBuff, int nSearchDir)
 {
-	int nPos;
+	int nPos,n;
 	void* pTmp1;
 	void* pTmp2;
 	
@@ -42,12 +42,29 @@ void nmppsMinIndx_32s(nm32s31b *pSrcVec, int nSize, int *pIndex, int32b *pMinVal
 
 	if(nSearchDir > 0){
 		nPos  =nmppsFirstNonZeroIndx_32s((int*)pTmp2,nSize>>5);
-		*pIndex=nmppsFirstZeroIndx_32s((int*)pTmp1+nPos*32,32);
-		*pIndex+=nPos*32;
+		if (nPos==-1){
+			*pIndex=0;
+			return;
+		}
+		n=((int*)pTmp2)[nPos];	
+		for((*pIndex)=0; (*pIndex)<32; (*pIndex)++){
+			if (n&1)
+				break;
+			n>>=1;
+		}
 	} else {
 		nPos  =nmppsLastNonZeroIndx_32s((int*)pTmp2,nSize>>5); 
-		*pIndex=nmppsLastZeroIndx_32s((int*)pTmp1+nPos*32,32);
-		*pIndex+=nPos*32;
+		if (nPos==-1){
+			*pIndex=nSize-1;
+			return;
+		}
+		n=((int*)pTmp2)[nPos];	
+		for((*pIndex)=31; (*pIndex)>=0; (*pIndex)--){
+			if (n&0x80000000)
+				break;
+			n<<=1;
+		}
 	}
+	(*pIndex)+=nPos*32;
 }
 

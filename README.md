@@ -35,6 +35,7 @@
   /lib/nmpp_vs13.lib  - (Release) compiled by Microsoft Visual Studio 13.0  
   /lib/nmpp_vs13d.lib - (Debug)  
 
+
   
 ###BUILDING LIBRARY:  
   Run ```make``` command to build all (nmc3, gcc , vs80 and vs13 ) libraries from *./make* folder.  Or run ```make``` from appropriate sub-folder.

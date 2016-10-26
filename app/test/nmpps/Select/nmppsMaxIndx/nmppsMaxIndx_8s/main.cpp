@@ -12,7 +12,7 @@ const int SizeL1=30*KB;
 const int SizeG0=30*KB;
 const int SizeG1=30*KB;
 
-//! \fn void nmppsMaxIndx_16s(nm16s *, int, int&, int& , void *,void*, int)
+//! \fn void nmppsMaxIndx_8s(nm16s *, int, int&, int& , void *,void*, int)
 int main()
 {
 	
@@ -32,45 +32,52 @@ int main()
 	int maxSize=1024;//SizeL0*4;
 	
 
+	for(int fill=0; fill<1; fill++){
+		nmppsSet_8s((nm8s*)L0,fill,maxSize);
+		for(int val=-2; val<0; val++){
+			for(int pos=0; pos<58; pos++){
+				nmppsPut_8s((nm8s*)L0,pos,val);
+			}
+			{
+				for(int size=64; size<128; size+=64){
+					nmppsMaxIndx_8s((nm8s*)L0,size,&nIndex, &nMax,L1,G1,1);
+					//nmppsMax_8s7b((nm8s*)L0,size,&nMax);
+					nmppsCrcAcc_32u((nm32u*)&nIndex,1,&crc);
+					nmppsCrcAcc_32u((nm32u*)&nMax,1,&crc);
+					//return nMax;			
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+	
+	
 	for(int fill=-2; fill<3; fill++){
-		nmppsSet_16s((nm16s*)L0,fill,maxSize);
+		nmppsSet_8s((nm8s*)L0,fill,maxSize);
 		for(int val=-2; val<2; val++){
 			for(int pos=0; pos<64; pos++){
-				nmppsPut_16s((nm16s*)L0,pos,val);	
+				nmppsPut_8s((nm8s*)L0,maxSize-1-pos,val);	
 				for(int size=64; size<maxSize; size+=64){
-					nmppsMaxIndx_16s((nm16s*)L0,size,&nIndex, &nMax,L1,G1,1);
+					nmppsMaxIndx_8s((nm8s*)L0,size,&nIndex, &nMax,L1,G1,1);
 					nmppsCrcAcc_32u((nm32u*)&nIndex,1,&crc);
 					nmppsCrcAcc_32u((nm32u*)&nMax,1,&crc);
 				}
 			}
 		}
 	}
-
-	for(int fill=-2; fill<3; fill++){
-		nmppsSet_16s((nm16s*)L0,fill,maxSize);
-		for(int val=-2; val<2; val++){
-			for(int pos=0; pos<64; pos++){
-				nmppsPut_16s((nm16s*)L0,maxSize-1-pos,val);	
-				for(int size=64; size<maxSize; size+=64){
-					nmppsMaxIndx_16s((nm16s*)L0,size,&nIndex, &nMax,L1,G1,1);
-					nmppsCrcAcc_32u((nm32u*)&nIndex,1,&crc);
-					nmppsCrcAcc_32u((nm32u*)&nMax,1,&crc);
-				}
-			}
-		}
-	}
-	
-	
-	
-	
+		
 	for(int fill=-2; fill<3; fill++){
 		nmppsRandUniform_64s((nm64s*)L0,maxSize/4);
-		nmppsClipPowC_16s((nm16s*)L0,14,(nm16s*)L0,maxSize);
+		nmppsClipPowC_8s((nm8s*)L0,6,(nm8s*)L0,maxSize);
 		for(int val=-2; val<2; val++){
 			for(int pos=0; pos<64; pos++){
-				nmppsPut_16s((nm16s*)L0,maxSize-1-pos,val);	
+				nmppsPut_8s((nm8s*)L0,maxSize-1-pos,val);	
 				for(int size=64; size<maxSize; size+=64){
-					nmppsMaxIndx_16s((nm16s*)L0,size,&nIndex, &nMax,L1,G1,1);
+					nmppsMaxIndx_8s((nm8s*)L0,size,&nIndex, &nMax,L1,G1,1);
 					nmppsCrcAcc_32u((nm32u*)&nIndex,1,&crc);
 					nmppsCrcAcc_32u((nm32u*)&nMax,1,&crc);
 				}

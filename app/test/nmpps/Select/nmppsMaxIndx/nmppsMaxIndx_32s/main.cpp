@@ -33,44 +33,41 @@ int main()
 	
 
 	for(int fill=-2; fill<3; fill++){
-		nmppsSet_16s((nm16s*)L0,fill,maxSize);
+		nmppsSet_32s((nm32s*)L0,fill,maxSize);
 		for(int val=-2; val<2; val++){
 			for(int pos=0; pos<64; pos++){
-				nmppsPut_16s((nm16s*)L0,pos,val);	
+				nmppsPut_32s((nm32s*)L0,pos,val);	
 				for(int size=64; size<maxSize; size+=64){
-					nmppsMaxIndx_16s((nm16s*)L0,size,&nIndex, &nMax,L1,G1,1);
+					nmppsMaxIndx_32s((nm32s*)L0,size,&nIndex, &nMax,L1,G1,1);
 					nmppsCrcAcc_32u((nm32u*)&nIndex,1,&crc);
 					nmppsCrcAcc_32u((nm32u*)&nMax,1,&crc);
 				}
 			}
 		}
 	}
-
+	
 	for(int fill=-2; fill<3; fill++){
-		nmppsSet_16s((nm16s*)L0,fill,maxSize);
+		nmppsSet_32s((nm32s*)L0,fill,maxSize);
 		for(int val=-2; val<2; val++){
 			for(int pos=0; pos<64; pos++){
-				nmppsPut_16s((nm16s*)L0,maxSize-1-pos,val);	
+				nmppsPut_32s((nm32s*)L0,maxSize-1-pos,val);	
 				for(int size=64; size<maxSize; size+=64){
-					nmppsMaxIndx_16s((nm16s*)L0,size,&nIndex, &nMax,L1,G1,1);
+					nmppsMaxIndx_32s((nm32s*)L0,size,&nIndex, &nMax,L1,G1,1);
 					nmppsCrcAcc_32u((nm32u*)&nIndex,1,&crc);
 					nmppsCrcAcc_32u((nm32u*)&nMax,1,&crc);
 				}
 			}
 		}
 	}
-	
-	
-	
 	
 	for(int fill=-2; fill<3; fill++){
 		nmppsRandUniform_64s((nm64s*)L0,maxSize/4);
-		nmppsClipPowC_16s((nm16s*)L0,14,(nm16s*)L0,maxSize);
+		nmppsClipPowC_32s((nm32s*)L0,14,(nm32s*)L0,maxSize);
 		for(int val=-2; val<2; val++){
 			for(int pos=0; pos<64; pos++){
-				nmppsPut_16s((nm16s*)L0,maxSize-1-pos,val);	
+				nmppsPut_32s((nm32s*)L0,maxSize-1-pos,val);	
 				for(int size=64; size<maxSize; size+=64){
-					nmppsMaxIndx_16s((nm16s*)L0,size,&nIndex, &nMax,L1,G1,1);
+					nmppsMaxIndx_32s((nm32s*)L0,size,&nIndex, &nMax,L1,G1,1);
 					nmppsCrcAcc_32u((nm32u*)&nIndex,1,&crc);
 					nmppsCrcAcc_32u((nm32u*)&nMax,1,&crc);
 				}

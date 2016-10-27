@@ -198,11 +198,11 @@
  			<File RelativePath="..\..\..\src\nmvcore\nm\vec_clipmulNDNW2_addvr.asm" > </File> 
  			<File RelativePath="..\..\..\src\nmvcore\nm\vec_clipmulNDNW4_addvr.asm" > </File> 
  			<File RelativePath="..\..\..\src\nmvcore\nm\vec_clipmulNDNW8_addvr.asm" > </File> 
- 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpEqC.asm" > </File> 
  			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpGtC.asm" > </File> 
  			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpLtC.asm" > </File> 
  			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpLtV.asm" > </File> 
  			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpNe0.asm" > </File> 
+ 			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpNeC.asm" > </File> 
  			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CmpNeV.asm" > </File> 
  			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CompareMaxV.asm" > </File> 
  			<File RelativePath="..\..\..\src\nmvcore\nm\vec_CompareMinMaxV.asm" > </File> 

@@ -145,7 +145,11 @@
  	<ClCompile Include="../../../src/nmpls/FFT/IFFT0512/pc/pcIFFT512.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/IFFT1024/pc/iW1024Tbl.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/IFFT1024/pc/pcIFFT1024.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT2048/common/nmpps-FFT2048Inv.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT2048/common/nmpps-FFT2048InvInit.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT2048/common/nmpps-FFT2048InvRef.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/IFFT2048/pc/iW2048Tbl.cpp" /> 
+ 	<ClCompile Include="../../../src/nmpls/FFT/IFFT2048/pc/nmpps-fft2048inv.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/IFFT2048/pc/pcIFFT2048.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/IFFT4096/pc/pcIFFT4096.cpp" /> 
  	<ClCompile Include="../../../src/nmpls/FFT/IFFT8192/pc/nmpps-FFT8192Inv.cpp" /> 
@@ -183,7 +187,9 @@
  	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/SCL_FixMul32__int.c" /> 
  	<ClCompile Include="../../../src/nmplc/fixpoint32/pc/scl_fixsqrt32__int.c" /> 
  	<ClCompile Include="../../../src/nmplc/init/common/nmppcRand.c" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/common/nmppi-Filter_16s32s.c" /> 
  	<ClCompile Include="../../../src/nmpli/Filtration/common/nmppi-FilterInitAlloc_08s16s.c" /> 
+ 	<ClCompile Include="../../../src/nmpli/Filtration/common/nmppi-FilterInitAlloc_16s32s.c" /> 
  	<ClCompile Include="../../../src/nmplm/MatrixVector/pc/nmppm-Mul_mm.c" /> 
  	<ClCompile Include="../../../src/nmplm/MatrixVector/pc/nmppm-Mul_mv.c" /> 
  	<ClCompile Include="../../../src/nmpls/Metric/msd.c" /> 

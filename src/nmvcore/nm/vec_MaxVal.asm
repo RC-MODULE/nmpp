@@ -28,16 +28,15 @@ begin ".text_nmvcore"
 .branch;
 global vec_MaxVal:label;
 <vec_MaxVal>
-	with gr7 = gr5>>5;
+	push ar5,gr5 with gr7 = gr5>>5;
 	with gr7--;
-	with gr7--;
-	if < delayed goto CompareLT64;
+	if <= delayed goto CompareLT64; // if size<64
 		rep 1 ram=[ar0];
 		nul;
 
-
-//	Begin Compare by rep32
 	
+//	Begin Compare by rep32
+	with gr7--;
 	rep 32 data=[ar0++gr0]		with data;
 	<Next_Compare_rep32_>								
 		nul;
@@ -47,8 +46,6 @@ global vec_MaxVal:label;
 		rep 32					with ram - afifo;
 	
 	rep 32 [ar4++]=afifo;
-	with gr5<<=27;
-	with gr5>>=27;
 //	Begin Compare by rep32
 //<CompareIn32V>
 	rep 16 data=[--ar4]			with data;
@@ -81,16 +78,20 @@ global vec_MaxVal:label;
 	rep 1						with activate afifo and afifo;
 	rep 1						with ram - afifo;
 	rep 1 [ar6],ram =afifo;
-	
+
+	with gr5<<=27;
+	with gr5>>=27;				// number of longs to compare
+
 <CompareLT64>
-	with gr5--;
+	pop ar5,gr5  with gr7 = gr5;
+				 with gr7--;
 	if <  return;
 
 	rep 1 with ram;
 	<Next_Compare_rep1>									
 		nul;
 		rep 1 data,ram =[ar0++gr0]	with data - afifo;
-	if <>0 delayed goto Next_Compare_rep1 with gr5--;
+	if <>0 delayed goto Next_Compare_rep1 with gr7--;
 		rep 1					with activate afifo and afifo;
 		rep 1					with ram - afifo;
 

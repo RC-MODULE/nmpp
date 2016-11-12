@@ -51,8 +51,8 @@ end SETVAL;
 
 
 
-global nmppsPut_1:	label;
-<nmppsPut_1> 
+global _nmppsPut_1:	label;
+<_nmppsPut_1> 
 
 .branch;
 	ar5 = ar7 - 5;

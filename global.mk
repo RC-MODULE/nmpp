@@ -9,9 +9,9 @@ export DEVPACK	?=$(realpath $(ROOT)/deps/dev-pack-master)
 #export ARMTOOLCH?=$(DEVPACK)/i686-w64-mingw32
 export ARMTOOLCH  =d:/GIT/dev-pack/arm-rcm-linux-gnueabihf
 #export ROOTFS    =$(ARMTOOLCH)/arm-linux-gnueabihf/libc
-MC5103    =$(NEURO)
-MC7601    =$(NEURO)
-MB7707    =$(NEURO)
+#MC5103    =$(NEURO)
+#MC7601    =$(NEURO)
+#MB7707    =$(NEURO)
 GNUWIN32   = c:/gnuwin32-lite/bin
 
 

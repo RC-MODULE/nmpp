@@ -3,24 +3,25 @@
 ROOT 		= ../../../../..
 include 	$(ROOT)/global.mk
 
-$(info DEVPACK = $(DEVPACK))
 TARGET  	=  rpc-demo
 CC_FLAGS 	= \
 	-march=armv6 -mtune=arm1176jz-s -mfpu=vfp -mfloat-abi=hard -marm \
 	--sysroot=$(ROOTFS) \
 	-D_GNU_SOURCE \
-	-I$(ROOTFS)/usr/include/arm-linux-gnueabihf/aura-0.1.2/ \
-	-I$(ROOTFS)/usr/include/ \
-	-I$(ROOTFS)/usr/include/arm-linux-gnueabihf/ \
-	-I$(NMPP)/include 
+	-I$(ARMTOOLCH)/arm-rcm-linux-gnueabihf/libc/usr/include/arm-linux-gnueabihf/aura-0.1.2 \
+	-I$(ARMTOOLCH)/arm-rcm-linux-gnueabihf/libc/usr/include \
+	-I$(ARMTOOLCH)/arm-rcm-linux-gnueabihf/libc/usr/include/arm-linux-gnueabihf \
+    -I$(ROOT)/include \
+    -I$(ROOT)/include/rpc
+
 
 LD_FLAGS = \
 	-march=armv6 -mtune=arm1176jz-s -mfpu=vfp -mfloat-abi=hard -marm \
-	-Wl,--sysroot=$(ROOTFS) \
+	-Wl,--sysroot=$(ARMTOOLCH) \
 	-Wl,-unresolved-symbols=ignore-in-shared-libs \
-	-Wl,-L$(ROOTFS)/lib \
-	-Wl,-L$(ROOTFS)/lib/arm-linux-gnueabihf \
-	-Wl,-L$(ROOTFS)/usr/lib/arm-linux-gnueabihf \
+	-Wl,-L$(ARMTOOLCH)/lib \
+	-Wl,-L$(ARMTOOLCH)/lib/arm-rcm-linux-gnueabihf \
+	-Wl,-L$(ARMTOOLCH)/usr/lib/arm-rcm-linux-gnueabihf \
 	-Wl,-L$(NMPP)/lib 
 
 #VPATH    = $(AURA) $(AURA)/nmc-utils

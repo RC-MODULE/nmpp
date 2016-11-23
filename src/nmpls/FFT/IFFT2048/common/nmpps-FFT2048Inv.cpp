@@ -13,14 +13,14 @@
 
 extern "C"{
 
-	int nmppsFFT2048Inv(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
+	void nmppsFFT2048Inv(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
 	{
-		return nmppsFFT2048Fwd(src, dst, spec);
+		nmppsFFT2048Fwd(src, dst, spec);
 	}
 
-	int nmppsFFT2048InvRaw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
+	void nmppsFFT2048InvRaw(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
 	{
-		return nmppsFFT2048FwdRaw(src, dst, spec);
+		nmppsFFT2048FwdRaw(src, dst, spec);
 	}
 
 

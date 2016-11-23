@@ -1,42 +1,35 @@
-
-export NMPP      = $(ROOT)
-#export http_proxy        = http://user:pass@proxy:80/       (for wget usage)
+#export  http_proxy       = http://user:pass@proxy:80/       (for wget usage)
 #export https_proxy       = $(http_proxy)
 
-export DEVPACK	?=$(realpath $(ROOT)/deps/dev-pack-master)
-#export NEURO    ?=$(DEVPACK)/nmsdk
-#export VSHELL32 ?=$(DEVPACK)/vshell32
-#export ARMTOOLCH?=$(DEVPACK)/i686-w64-mingw32
-export ARMTOOLCH  =d:/GIT/dev-pack/arm-rcm-linux-gnueabihf
-#export ROOTFS    =$(ARMTOOLCH)/arm-linux-gnueabihf/libc
-#MC5103    =$(NEURO)
-#MC7601    =$(NEURO)
-#MB7707    =$(NEURO)
-GNUWIN32   = c:/gnuwin32-lite/bin
+export  NMPP       = $(ROOT)
+export  DEVKIT    ?= d:/GIT/dev-kit
+export  ARMTOOLCH ?=$(DEVKIT)/arm-rcm-linux-gnueabihf
+export  NEURO     ?=$(DEVKIT)/nmsdk
+export  VSHELL32  ?=$(DEVKIT)/vshell32
+EASYNMC   ?=$(DEVKIT)/nmc-utils-0.1.1/libeasynmc-nmc
+
+GNUWIN32          ?=c:/gnuwin32-lite/bin
+MC5103            ?=(DEVKIT)/mc12101sdk
+MC7601            ?=(DEVKIT)/mc7601sdk
+MB7707            ?=(DEVKIT)/mb7707sdk
 
 
 ifeq ($(OS),Windows_NT)
+SHELL       = cmd
 export PATH:=$(GNUWIN32);\
 $(NEURO)/bin;\
 $(MC5103)/bin;\
 $(MB7707)/bin;\
 $(MC7601)/bin;\
 $(VSHELL32)/bin;\
-$(DEVPACK)/putty;\
-$(PATH);\
-$(ARMTOOLCH)/bin;
+$(ARMTOOLCH)/bin;\
+$(PATH);
   
-  
+   CROSS_COMPILE=arm-rcm-linux-gnueabihf-
+   ARM_CC       =arm-rcm-linux-gnueabihf-gcc.exe
+   ARM_AR       =arm-rcm-linux-gnueabihf-ar.exe
+   ARM_LD       =arm-rcm-linux-gnueabihf-ld.exe
 
-   EASYNMC = $(DEVPACK)/nmc-utils-0.1.1/libeasynmc-nmc
-
-   ARM_CC   = arm-linux-gnueabihf-gcc.exe
-   ARM_AR   = arm-linux-gnueabihf-ar.exe
-   ARM_LD   = arm-linux-gnueabihf-ld.exe
-
-   CROSS_COMPILE=arm-linux-gnueabihf-
-   
-   SHELL    = cmd
 #  OS_FIND  = $(call BACKSLASH,$(GNUWIN32)/find)
 #  OS_DIFF  = $(call BACKSLASH,$(GNUWIN32)/diff)
 #  OS_SCP   = $(call BACKSLASH,$(GNUWIN32)/pscp)

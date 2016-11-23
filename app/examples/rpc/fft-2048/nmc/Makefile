@@ -22,12 +22,13 @@ OBJECTS :=  \
 
 TARGET=rpc-demo
 
-NMCPP_FLAGS     = -DNEURO -OPT2 -inline 
-NMCC_FLAGS      = -nmc3 -DNEURO -O2 -Snolink
+NMCPP_FLAGS     = -soc -DNEURO -OPT2 -inline 
+NMCC_FLAGS      = -soc -DNEURO -O2 -Snolink
 ASM_FLAGS       = -soc -Snolink -X-q 
 BUILDER_FLAGS	= -cK1879.cfg -m  -heap=0 -heap1=0  -heap2=0 -heap3=0 -stack=2000 -full_names
 
 INC_DIRS        = -I. -I"$(NEURO)/include" -I"$(NMPP)/include" -I"$(EASYNMC)/include"
+$(info $(INC_DIRS))
 LIB_DIRS		= -L"$(NEURO)/lib" -L"$(EASYNMC)" -L$(NMPP)/lib
 
 -include = nulheap.mk
@@ -43,7 +44,7 @@ $(info INFORMATION: $(HEAP_SIZE) of internal memory is unused  )
 	
 #BIG FAT WARNING: easynmc.lib MUST go BEFORE libc
 #BIG FAT WARNING: Otherwise argc/argv won't work 
-LIBS            = easynmc.lib libc05.lib nmpp-nmc3.lib  libint_soc.lib nmpp-nmc3-rpc.lib
+LIBS            = easynmc.lib nmpp-nmc3.lib  libint_soc.lib libc05.lib  nmpp-nmc3-rpc.lib 
 
 .DEFAULT_GOAL= build
 

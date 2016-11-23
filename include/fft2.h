@@ -197,10 +197,10 @@
 	int  nmppsFFT1024InvInitAlloc 	(NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT1024InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free,  int settings);
 	
-	int  nmppsFFT2048Fwd        	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
-	int  nmppsFFT2048Fwd4888 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
-	int  nmppsFFT2048Fwd4888Raw 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
-	int  nmppsFFT2048FwdRaw     	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	void nmppsFFT2048Fwd        	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	void nmppsFFT2048Fwd4888    	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	void nmppsFFT2048Fwd4888Raw 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	void nmppsFFT2048FwdRaw     	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 //	int  nmppsFFT2048Fwd4888_ (nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	int  nmppsFFT2048FwdOptimize	(const void* src, const void* dst, fseq64* allocOrder) ;
 	int  nmppsFFT2048FwdInitAlloc	(NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
@@ -208,8 +208,8 @@
 	int  nmppsFFT2048FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings);
 
 	
-	int  nmppsFFT2048Inv 			(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
-	int  nmppsFFT2048InvRaw 		(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	void nmppsFFT2048Inv 			(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	void nmppsFFT2048InvRaw 		(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	int  nmppsFFT2048InvInit   		( NmppsFFTSpec* spec,  int settings, nm64s *buf0, nm64s* buf1, nm64s* tbl0, nm64s* tbl1);
 	int  nmppsFFT2048InvInitAlloc	( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT2048InvInitSinCos	( NmppsFFTSpec* spec,  int settings);

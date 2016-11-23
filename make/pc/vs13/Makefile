@@ -167,7 +167,7 @@ clean:
 vs13: $(PROJECT).vcxproj
 
 $(PROJECT).vcxproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs13.mk vc-lib MAK=$(realpath .)/Makefile --silent >$(@)
+	$(MAKE) --file=$(ROOT)/deps/projector/vs13.mk vc-lib MAK=$(realpath .)/Makefile --silent >$(@)
 
 skip:
 	@echo SDK missing. Compilation is skipped!

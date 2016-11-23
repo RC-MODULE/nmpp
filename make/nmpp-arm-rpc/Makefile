@@ -78,12 +78,13 @@ OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a
 OS_TARGET		 = $(call BACKSLASH,$(TARGET))
 INC_DIRS         = \
-  -I$(ROOTFS)/usr/include/arm-linux-gnueabihf/aura-0.1.2/ \
-  -I$(ROOTFS)/usr/include/ \
-  -I$(ROOTFS)/usr/include/arm-linux-gnueabihf/ \
-  -I$(ROOT)/include \
-  -I$(ROOT)/include/rpc
+	-I$(ARMTOOLCH)/arm-rcm-linux-gnueabihf/libc/usr/include/arm-linux-gnueabihf/aura-0.1.2 \
+	-I$(ARMTOOLCH)/arm-rcm-linux-gnueabihf/libc/usr/include \
+	-I$(ARMTOOLCH)/arm-rcm-linux-gnueabihf/libc/usr/include/arm-linux-gnueabihf \
+    -I$(ROOT)/include \
+    -I$(ROOT)/include/rpc
 
+  
 SRC_DIRS         =  ../../src/nmplv/Arithmetics/rpc-arm \
 					../../src/nmplv/Bitwise/rpc-arm \
 					../../src/nmplv/Select/rpc-arm \

@@ -1,80 +1,112 @@
-SHELL   = cmd
 VS8     = "Visual_Studio_8_2005"
 VS12    = "Visual_Studio_12_2013"
-VS12X64 = "Visual_Studio_12_2013 Win64"
+VS12X64 = "Visual_Studio_12_2013_Win64"
 VS14    = "Visual_Studio_14_2014"
-VS14X64 = "Visual_Studio_14_2014 Win64"
+VS14X64 = "Visual_Studio_14_2014_Win64"
+
+ifeq ($(OS),Windows_NT)
+  SHELL = cmd
+  WHICH = where
+  RMALL = del /Q /A:A                  
+  RMDIR = rmdir /Q /S
+  MKDIR = mkdir  
+  CPDIR = xcopy /e /y
+  CP    = copy                
+  MV    = move                 
+  ECHO  = echo  
+  define OSX
+	$(subst /,\,$(1))
+  endef  
+else
+  WHICH = which
+  RMALL = rm -f                 
+  RMDIR = rm -fr               
+  MKDIR = mkdir -p             
+  CPDIR = cp -r                
+  CP    = cp                   
+  MV    = mv                   
+  ECHO  = echo    
+  define OSX
+	$(subst \,/,$(1))
+  endef  
+endif
+
+
+all: configure-vs8  vs8 configure-vs12 vs12 configure-vs12x64 vs12x64
 
 configure-vs8: 
-	mkdir $(VS8)
-	cd    $(VS8) &&	cmake .. -G "Visual Studio 8 2005"
+	-$(RMDIR)	$(VS8)
+	$(MKDIR) 	$(VS8)
+	cd    		$(VS8) &&	cmake .. -G "Visual Studio 8 2005"
             
 vs8:        
-	cd    $(VS8) && "$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp.vcproj
-	cp    $(VS8)/Debug/nmpp.lib ../../lib/nmpp-vs80d.lib
-	cp    $(VS8)/Release/nmpp.lib ../../lib/nmpp-vs80.lib
+	cd    		$(VS8) && "$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp.vcproj
 	
-#vs8x64:
-#	mkdir "Visual Studio 8 2005 Win64"
-#	cd    "Visual Studio 8 2005 Win64" && "$(VS80COMNTOOLS)vsvars32" &&	cmake .. -G "Visual Studio 8 2005 Win64"
+#	$(CP)		$(call OSX,$(VS8)/Debug/*.lib) 	$(call OSX,../../lib/)
+#	$(CP)  		$(call OSX,$(VS8)/Release/*.lib) $(call OSX,../../lib/)
 
-#$(VS12)
+	
 configure-vs12 :
-	rm    $(VS12) -f -r
-	mkdir $(VS12)
-	cd    $(VS12) &&	cmake .. -G "Visual Studio 12 2013"
+	-$(RMDIR)	$(VS12)
+	$(MKDIR)	$(VS12)
+	cd    		$(VS12) &&	cmake .. -G "Visual Studio 12 2013"
+
 	
 vs12: 
-	cd    $(VS12) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj
-	cd    $(VS12) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Release
-	cp    $(VS12)/Debug/nmpp.lib ../../lib/nmpp-vs12d.lib
-	cp    $(VS12)/Release/nmpp.lib ../../lib/nmpp-vs12.lib
+	cd    		$(VS12) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj
+	cd    		$(VS12) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Release
+
+#	$(CP)   	$(call OSX,$(VS12)/Debug/*.lib)     $(call OSX,../../lib/)
+#	$(CP)   	$(call OSX,$(VS12)/Release/*.lib) 	$(call OSX,../../lib/)
+
 	
 
 configure-vs12x64 :
-	rm    $(VS12X64) -f -r
-	mkdir $(VS12X64)
-	cd    $(VS12X64) &&	cmake .. -G  "Visual Studio 12 2013 Win64"
+	-$(RMDIR) 	$(VS12X64)
+	$(MKDIR) 	$(VS12X64)
+	cd    		$(VS12X64) &&	cmake .. -G  "Visual Studio 12 2013 Win64"
 
 vs12x64:  
-	cd    $(VS12X64) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj
-	cd    $(VS12X64) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Release
-	cp    $(VS12X64)/Debug/nmpp.lib ../../lib/nmpp-vs12x64d.lib
-	cp    $(VS12X64)/Release/nmpp.lib ../../lib/nmpp-vs12x64.lib
+	cd    		$(VS12X64) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj
+	cd    		$(VS12X64) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Release
+
+#	$(CP) 		$(call OSX,$(VS12X64)/Debug/nmpp.lib)   $(call OSX,../../lib/nmpp-x64d.lib)
+#	$(CP) 		$(call OSX,$(VS12X64)/Release/nmpp.lib) $(call OSX,../../lib/nmpp-x64.lib)
 
 
 configure-vs14 :
-	rm    $(VS14) -f -r
-	mkdir $(VS14)
-	cd    $(VS14) &&	cmake .. -G  "Visual Studio 14 2015 Win64"
+	-$(RMDIR)   $(VS14)
+	$(MKDIR) 	$(VS14)
+	cd    		$(VS14) &&	cmake .. -G  "Visual Studio 14 2015 Win64"
 
 vs14:  
-	cd    $(VS14) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj
-	cd    $(VS14) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Release
-	cp    $(VS14)/Debug/nmpp.lib ../../lib/nmpp-vs14x64d.lib
-	cp    $(VS14)/Release/nmpp.lib ../../lib/nmpp-vs14x64.lib
+	cd    		$(VS14) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj
+	cd    		$(VS14) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Release
+
+#	cp    		$(call OSX,$(VS14)/Debug/nmpp.lib) 	$(call OSX ../../lib/nmpp-x86d.lib)
+#	cp    		$(call OSX,$(VS14)/Release/nmpp.lib)$(call OSX,../../lib/nmpp-x86.lib)
 
 	
 configure-vs14x64 :
-	rm    $(VS14X64) -f -r
-	mkdir $(VS14X64)
-	cd    $(VS14X64) &&	cmake .. -G  "Visual Studio 14 2015 Win64"
+	-$(RMDIR)   $(VS14X64)
+	$(MKDIR) 	$(VS14X64)
+	cd   		$(VS14X64) &&	cmake .. -G  "Visual Studio 14 2015 Win64"
 
 vs14x64:  
-	cd    $(VS14X64) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj
-	cd    $(VS14X64) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Release
-	cp    $(VS14X64)/Debug/nmpp.lib ../../lib/nmpp-vs14x64d.lib
-	cp    $(VS14X64)/Release/nmpp.lib ../../lib/nmpp-vs14x64.lib
-	
+	cd    		$(VS14X64) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj
+	cd    		$(VS14X64) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Release
 
+#	$(CP)  		$(call OSX,$(VS14X64)/Debug/nmpp.lib)   $(call OSX,../../lib/nmpp-x64d.lib)
+#	$(CP)  		$(call OSX,$(VS14X64)/Release/nmpp.lib) $(call OSX,../../lib/nmpp-x64.lib)
+	
 msys:	
-	mkdir "MSYS"
-	cd    "MSYS" &&	cmake .. -G "MSYS Makefiles"
+	$(MKDIR) 	"MSYS"
+	cd    		"MSYS" &&	cmake .. -G "MSYS Makefiles"
 
 mingw:	
-	mkdir "MinGW"
-	cd    "MinGW" &&	cmake .. -G "MinGW Makefiles"
+	$(MKDIR) 	"MinGW"
+	cd    		"MinGW" &&	cmake .. -G "MinGW Makefiles"
 
 clean:
-	rm -f -r $(VS8) $(VS12)  $(VS12X64) $(VS14) $(VS14X64)
+	$(RMDIR) $(VS8) $(VS12)  $(VS12X64) $(VS14) $(VS14X64)
 	

@@ -1,8 +1,11 @@
-VS8     = "Visual_Studio_8_2005"
-VS12    = "Visual_Studio_12_2013"
-VS12X64 = "Visual_Studio_12_2013_Win64"
-VS14    = "Visual_Studio_14_2014"
-VS14X64 = "Visual_Studio_14_2014_Win64"
+VS8       = "Visual_Studio_8_2005"
+VS12      = "Visual_Studio_12_2013"
+VS12X64   = "Visual_Studio_12_2013_Win64"
+VS14      = "Visual_Studio_14_2014"
+VS14X64   = "Visual_Studio_14_2014_Win64"
+MINGW_BIN = d:/SDK/MinGW/bin
+
+.PHONY: mingw;
 
 ifeq ($(OS),Windows_NT)
   SHELL = cmd
@@ -103,10 +106,19 @@ msys:
 	$(MKDIR) 	"MSYS"
 	cd    		"MSYS" &&	cmake .. -G "MSYS Makefiles"
 
-mingw:	
-	$(MKDIR) 	"MinGW"
-	cd    		"MinGW" &&	cmake .. -G "MinGW Makefiles"
+	
+configure-mingw:
+	-$(RMDIR)   MinGW	
+	$(MKDIR) 	MinGW
+	cd    		MinGW && set path=$(MINGW_BIN);$(PATH) &&	cmake .. -G "MinGW Makefiles" 
+
+mingw:
+	cd 			MinGW && set path=$(MINGW_BIN);$(PATH) && make
+	$(CP)		$(call OSX,MinGW/libnmpp.a) $(call OSX,../../lib/libnmpp-x86.a)
+	
+#	-DCMAKE_C_COMPILER="d:/SDK/MinGW/bin/gcc" -DCMAKE_CXX_COMPILER="d:/SDK/MinGW/bin/g++"  -DCMAKE_MAKE_PROGRAM="d:/SDK/MinGW/bin/mingw32-make" 
+	
 
 clean:
-	$(RMDIR) $(VS8) $(VS12)  $(VS12X64) $(VS14) $(VS14X64)
+	$(RMDIR) $(VS8) $(VS12)  $(VS12X64) $(VS14) $(VS14X64) MinGW
 	

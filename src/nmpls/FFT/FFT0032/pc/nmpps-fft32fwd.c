@@ -19,7 +19,7 @@
 //                                        [ar1:lo]|[ar2:lo]->[ar6:odd ]
 //                                        [ar1:hi]|[ar2:hi]->[ar6:even]
 
-void nmppsFFT32FwdRaw(nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
+void nmppsFFT32FwdRaw(const nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
 {
 	nm32sc* ar1_lo=(nm32sc*)spec->buffer[0];
 	nm32sc* ar1_hi=ar1_lo+16;
@@ -146,7 +146,7 @@ void nmppsFFT32FwdRaw(nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
 	}
 }
 
-void nmppsFFT32Fwd(nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
+void nmppsFFT32Fwd(const nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
 {
 	int k;
 	nmppsFFT32FwdRaw(src, dst, spec);

@@ -158,7 +158,7 @@ FILE(GLOB  SRC
 		${ROOT}/src/nmplv/Transform/pc/*.c
 )			
 
-ADD_LIBRARY(nmpp ${SRC})
+ADD_LIBRARY(nmpp ${SRC} )
 
 #MESSAGE(STATUS ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY})
 #if ( MSVC )

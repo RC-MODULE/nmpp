@@ -3,9 +3,9 @@ VS12      = "Visual_Studio_12_2013"
 VS12X64   = "Visual_Studio_12_2013_Win64"
 VS14      = "Visual_Studio_14_2014"
 VS14X64   = "Visual_Studio_14_2014_Win64"
-MINGW_BIN = d:/SDK/MinGW/bin
+MINGW     = d:/SDK/MinGW
 
-.PHONY: mingw;
+.PHONY: mingw unix;
 
 ifeq ($(OS),Windows_NT)
   SHELL = cmd
@@ -35,7 +35,7 @@ else
 endif
 
 
-all: configure-vs8  vs8 configure-vs12 vs12 configure-vs12x64 vs12x64
+all: configure-vs8  vs8 configure-vs12 vs12 configure-vs12x64 vs12x64 configure-unix unix
 
 configure-vs8: 
 	-$(RMDIR)	$(VS8)
@@ -102,23 +102,32 @@ vs14x64:
 #	$(CP)  		$(call OSX,$(VS14X64)/Debug/nmpp.lib)   $(call OSX,../../lib/nmpp-x64d.lib)
 #	$(CP)  		$(call OSX,$(VS14X64)/Release/nmpp.lib) $(call OSX,../../lib/nmpp-x64.lib)
 	
-msys:	
-	$(MKDIR) 	"MSYS"
-	cd    		"MSYS" &&	cmake .. -G "MSYS Makefiles"
-
 	
 configure-mingw:
 	-$(RMDIR)   MinGW	
 	$(MKDIR) 	MinGW
-	cd    		MinGW && set path=$(MINGW_BIN);$(PATH) &&	cmake .. -G "MinGW Makefiles" 
+	cd    		MinGW && cmake .. -G "MinGW Makefiles" 	-DCMAKE_POSITION_INDEPENDENT_CODE=ON
+#	cd    		MinGW && set path=$(MINGW)/bin;$(PATH) &&	cmake .. -G "MinGW Makefiles" 
 
 mingw:
-	cd 			MinGW && set path=$(MINGW_BIN);$(PATH) && make
+	$(MAKE) -C MinGW 
 	$(CP)		$(call OSX,MinGW/libnmpp.a) $(call OSX,../../lib/libnmpp-x86.a)
+#	set path=$(MINGW)/bin;$(PATH) && $(MAKE) -C MinGW 	
+
 	
+configure-unix:     
+	-$(RMDIR)   Unix	
+	$(MKDIR)    Unix
+	cd          Unix &&  cmake .. -G "Unix Makefiles" -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+#	cd          Unix &&  set path=$(MINGW)/bin;$(PATH) && cmake .. -G "Unix Makefiles" -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+	
+unix: 	
+	$(MAKE) -C Unix
+	$(CP)		$(call OSX,Unix/libnmpp.a) $(call OSX,../../lib/libnmpp-x86.a)
+
 #	-DCMAKE_C_COMPILER="d:/SDK/MinGW/bin/gcc" -DCMAKE_CXX_COMPILER="d:/SDK/MinGW/bin/g++"  -DCMAKE_MAKE_PROGRAM="d:/SDK/MinGW/bin/mingw32-make" 
 	
 
 clean:
-	$(RMDIR) $(VS8) $(VS12)  $(VS12X64) $(VS14) $(VS14X64) MinGW
+	$(RMDIR) $(VS8) $(VS12)  $(VS12X64) $(VS14) $(VS14X64) MinGW Unix
 	

@@ -64,20 +64,20 @@ configure-vs12x64 $(VS12X64)/nmpp-x64.vcxproj:
 	$(MKDIR) 	$(VS12X64)
 	cd    		$(VS12X64) &&	cmake .. -G  "Visual Studio 12 2013 Win64"
 
-vs12x64:        $(VS12X64)/ nmpp-x64.vcxproj
+vs12x64:        $(VS12X64)/nmpp-x64.vcxproj
 	cd    		$(VS12X64) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp-x64.vcxproj
 	cd    		$(VS12X64) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp-x64.vcxproj /p:Configuration=Release
 
-configure-vs14  $(VS14)/nmpp-x64.vcxproj:
+configure-vs14  $(VS14)/nmpp-x86.vcxproj:
 	-$(RMDIR)   $(VS14)
 	$(MKDIR) 	$(VS14)
-	cd    		$(VS14) &&	cmake .. -G  "Visual Studio 14 2015 Win64"
+	cd    		$(VS14) &&	cmake .. -G  "Visual Studio 14 2015"
 
-vs14:           $(VS14)/nmpp-x64.vcxproj
-	cd    		$(VS14) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp-x64.vcxproj
-	cd    		$(VS14) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp-x64.vcxproj /p:Configuration=Release
+vs14:           $(VS14)/nmpp-x86.vcxproj
+	cd    		$(VS14) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp-x86.vcxproj
+	cd    		$(VS14) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp-x86.vcxproj /p:Configuration=Release
 
-configure 		$(VS14X64)/nmpp-x64.vcxproj:
+configure-vs14x64 		$(VS14X64)/nmpp-x64.vcxproj:
 	-$(RMDIR)   $(VS14X64)
 	$(MKDIR) 	$(VS14X64)
 	cd   		$(VS14X64) &&	cmake .. -G  "Visual Studio 14 2015 Win64"

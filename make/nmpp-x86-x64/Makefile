@@ -59,7 +59,7 @@ vs12: 			$(VS12)/nmpp-x86.vcxproj
 	cd    		$(VS12) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp-x86.vcxproj
 	cd    		$(VS12) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp-x86.vcxproj /p:Configuration=Release
 
-configure-vs12x64 $(VS12X64)/ nmpp-x64.vcxproj:
+configure-vs12x64 $(VS12X64)/nmpp-x64.vcxproj:
 	-$(RMDIR) 	$(VS12X64)
 	$(MKDIR) 	$(VS12X64)
 	cd    		$(VS12X64) &&	cmake .. -G  "Visual Studio 12 2013 Win64"

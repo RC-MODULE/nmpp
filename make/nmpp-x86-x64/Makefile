@@ -49,13 +49,13 @@ vs8:            $(VS8)/nmpp-x86.vcproj
 	
 
 	
-configure-vs12: $(VS12)/nmpp-x86.vcxproj
+configure-vs12 $(VS12)/nmpp-x86.vcxproj:
 	-$(RMDIR)	$(VS12)
 	$(MKDIR)	$(VS12)
 	cd    		$(VS12) &&	cmake .. -G "Visual Studio 12 2013"
 
 	
-vs12: $(VS12)/nmpp-x86.vcxproj
+vs12: 			$(VS12)/nmpp-x86.vcxproj
 	cd    		$(VS12) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp-x86.vcxproj
 	cd    		$(VS12) && "$(VS120COMNTOOLS)vsvars32" && msbuild nmpp-x86.vcxproj /p:Configuration=Release
 
@@ -77,7 +77,7 @@ vs14:           $(VS14)/nmpp-x64.vcxproj
 	cd    		$(VS14) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp-x64.vcxproj
 	cd    		$(VS14) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp-x64.vcxproj /p:Configuration=Release
 
-configure $(VS14X64)/nmpp-x64.vcxproj:
+configure 		$(VS14X64)/nmpp-x64.vcxproj:
 	-$(RMDIR)   $(VS14X64)
 	$(MKDIR) 	$(VS14X64)
 	cd   		$(VS14X64) &&	cmake .. -G  "Visual Studio 14 2015 Win64"

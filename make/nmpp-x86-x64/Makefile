@@ -37,7 +37,7 @@ endif
 #	$(CP)  		$(call OSX,$(VS8)/Release/*.lib) $(call OSX,../../lib/)
 
 
-all: configure-vs8  vs8 configure-vs12 vs12 configure-vs12x64 vs12x64 configure-unix unix
+all: vs8 vs12 vs12x64 vs12x64 unix mingw
 					   
 configure-vs8   $(VS8)/nmpp-x86.vcproj: 
 	-$(RMDIR)	$(VS8)
@@ -89,7 +89,7 @@ vs14x64:        $(VS14X64)/nmpp-x64.vcxproj
 configure-mingw MinGW/Makefile:
 	-$(RMDIR)   MinGW	
 	$(MKDIR) 	MinGW
-	cd    		MinGW && cmake .. -G "MinGW Makefiles" 	-DCMAKE_POSITION_INDEPENDENT_CODE=ON
+	cd    		MinGW && cmake .. -G "MinGW Makefiles"
 #	cd    		MinGW && set path=$(MINGW)/bin;$(PATH) &&	cmake .. -G "MinGW Makefiles" 
 
 mingw: MinGW/Makefile
@@ -98,7 +98,7 @@ mingw: MinGW/Makefile
 configure-unix Unix/Makefile:     
 	-$(RMDIR)   Unix	
 	$(MKDIR)    Unix
-	cd          Unix &&  cmake .. -G "Unix Makefiles" -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+	cd          Unix &&  cmake .. -G "Unix Makefiles" 
 #	cd          Unix &&  set path=$(MINGW)/bin;$(PATH) && cmake .. -G "Unix Makefiles" -DCMAKE_POSITION_INDEPENDENT_CODE=ON
 	
 unix: Unix/Makefile

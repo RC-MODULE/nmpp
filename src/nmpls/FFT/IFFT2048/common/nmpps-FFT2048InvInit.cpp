@@ -44,9 +44,9 @@ void nmppsFFT2048InvInitSinCos4888(NmppsFFTSpec* spec)
 	//---------------------------------- 0 -----------------------------------------
 	for( kk=0,ii=0; kk<4; kk++){
 		for( n=0; n<4; n++,ii++){
-			expFFT<2048>(512*n*kk,1,&z);
+			expIFFT127<2048>(512*n*kk,1,&z);
 			nmppsPut_16s(cosTbl16,ii,z.re);
-			nmppsPut_16s(sinTbl16,ii,-z.im);
+			nmppsPut_16s(sinTbl16,ii,z.im);
 		}
 	}
 
@@ -57,9 +57,9 @@ void nmppsFFT2048InvInitSinCos4888(NmppsFFTSpec* spec)
 	for(ii=0,kk=0; kk<4; kk++){
 		for( k=0; k<8; k++){	
 			for( h=0; h<8; h++,ii++){
-				expFFT127<2048>(64*h*(4*k+kk),spec->amp[1],&z);
+				expIFFT127<2048>(64*h*(4*k+kk),spec->amp[1],&z);
 				nmppsPut_8s(cosTbl,ii,z.re);
-				nmppsPut_8s(sinTbl,ii,-z.im);
+				nmppsPut_8s(sinTbl,ii,z.im);
 			}
 		}
 	}
@@ -69,9 +69,9 @@ void nmppsFFT2048InvInitSinCos4888(NmppsFFTSpec* spec)
 	for( kk=0; kk<32; kk++){
 		for( k=0; k<8; k++){		
 			for( j=0; j<8; j++,ii++){
-				expFFT127<2048>(8*j*(32*k+kk),spec->amp[2],&z);
+				expIFFT127<2048>(8*j*(32*k+kk),spec->amp[2],&z);
 				nmppsPut_8s(cosTbl,ii,z.re);
-				nmppsPut_8s(sinTbl,ii,-z.im);
+				nmppsPut_8s(sinTbl,ii,z.im);
 			}
 		}
 	}
@@ -81,9 +81,9 @@ void nmppsFFT2048InvInitSinCos4888(NmppsFFTSpec* spec)
 	for( kk=0; kk<256; kk++){
 		for( k=0; k<8; k++){
 			for( i=0; i<8; i++,ii++){
-				expFFT127<2048>((256*k+kk)*i,spec->amp[3],&z);
+				expIFFT127<2048>((256*k+kk)*i,spec->amp[3],&z);
 				nmppsPut_8s(cosTbl,ii,z.re);
-				nmppsPut_8s(sinTbl,ii,-z.im);
+				nmppsPut_8s(sinTbl,ii,z.im);
 			}
 		}
 	}

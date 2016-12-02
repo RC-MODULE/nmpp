@@ -182,7 +182,8 @@ int  nmppsFFT8192Fwd28888Init( NmppsFFTSpec* spec,  int settings, nm64s *buf0, n
 {
 	spec->buffer[0]  =(nm32sc*)buf0; // [8192]nm32s;
 	spec->buffer[1]  =(nm32sc*)buf1; // [8192]nm32s;
-
+	spec->buffer[2]  =0;
+	spec->buffer[3]  =0;
 	spec->fftTable[0]=tbl0;	// [ 9344]Bytes 
 	spec->fftTable[1]=tbl1;	// [65536]Bytes (64kB)
 	spec->fftTable[2]=tbl2;	// [ 9344]Bytes 

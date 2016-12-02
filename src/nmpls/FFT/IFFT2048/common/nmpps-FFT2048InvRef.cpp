@@ -17,6 +17,7 @@
 //*                                                                         */
 //***************************************************************************/
 
+#include "nmpp.h"
 //#include "internal.h"
 #include "fft.h"
 #include "fft2.h"
@@ -28,7 +29,9 @@
 #ifndef PI
 #define PI 3.14159265359
 #endif
+static unsigned crc;
 
+#define CRC32(addres,size) crc=nmppsCrc_32s((nm32s*)addres,size);
 /*
 cmplx<double> expIFFT<2048>(int power)
 {
@@ -38,10 +41,10 @@ cmplx<double> expIFFT<2048>(int power)
 
 cmplx<int > toFix(cmplx<double> X,double Ampl);*/
 void load_wfifo(cmplx<int>* wcoef, int wstep, int size);
-void vsum_data(nm8s* data,  cmplx<int>* afifo);
+void vsum_data(nm8s* data,  cmplx<int>* afifo, int vr);
+void vsum_data(nm16s* data,  cmplx<int>* afifo, int vr);
 
-
-void nmppsFFT2048Inv_RefFloat(const nm32sc* src, nm32sc* dst)
+void nmppsDFT2048Inv_RefFloat(const nm32sc* src, nm32sc* dst)
 {
 	vec<cmplx<double> > x(2048);
 	vec<cmplx<double> > y(2048);
@@ -551,6 +554,24 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 	vec<cmplx<int> > vIIm(2048);
 	vec<cmplx<int> > vJ(2048);
 
+	int shift[4]={0,7,7,7};
+	int amp[4];
+	int round[4];
+
+	amp[0]=1;//<<shift[0];
+	amp[1]=1<<shift[1];
+	amp[2]=1<<shift[2];
+	amp[3]=1<<shift[3];
+	
+	shift[3]+=11;
+
+	round[0]=0;//1<<(shift[0]-1);
+	round[1]=1<<(shift[1]-1);
+	round[2]=1<<(shift[2]-1);
+	round[3]=1<<(shift[3]-1);
+	
+	
+	
 	for(int i=0; i<2048; i++){
 		vX[i].re=src[i].re;
 		vX[i].im=src[i].im;
@@ -580,13 +601,15 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 // 		}
 // 	}
 
-	nm8s* w0re=new nm8s[4*4];
-	nm8s* w0im=new nm8s[4*4];
+	nm16s* w0re=new nm16s[4*4];
+	nm16s* w0im=new nm16s[4*4];
 
-	nm8s* pwre=w0re;
-	nm8s* pwim=w0im;
+	nm8s* pwre;
+	nm8s* pwim;
 
-	
+	nm16s* pwre16;
+	nm16s* pwim16;
+
 	for(int kk=0,ii=0; kk<4; kk++){
 		for(int n=0; n<4; n++,ii++){
 			z=expIFFT<2048>(512*n*kk,1);
@@ -598,8 +621,8 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 
 	for(int i=0; i<512; i++){
 		load_wfifo(vX.addr(i),512,4);
-		pwre=w0re;
-		pwim=w0im;
+		pwre16=w0re;
+		pwim16=w0im;
 		for(int kk=0; kk<4; kk++){
 // 			for(int n=0; n<4; n++){
 // 				z=toFix(expIFFT<2048>(512*n*kk),1);
@@ -607,19 +630,19 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 // 				w0im[n]=z.im;
 // 			}
 			//vH[512*kk+i]+=X[512*n+i]*toFix(expIFFT<2048>(512*n*kk),1);
-			vsum_data(pwre,vHRe.addr(512*kk+i));
-			vsum_data(pwim,vHIm.addr(512*kk+i));
+			vsum_data(pwre16,vHRe.addr(512*kk+i),0);
+			vsum_data(pwim16,vHIm.addr(512*kk+i),0);
 			vH[512*kk+i].re=vHRe[512*kk+i].re-vHIm[512*kk+i].im;
 			vH[512*kk+i].im=vHRe[512*kk+i].im+vHIm[512*kk+i].re;
-			pwre+=4;
-			pwim+=4;
+			pwre16+=4;
+			pwim16+=4;
 		}
 	}
 	delete w0re;
 	delete w0im;
 
 	//512*4
-
+	//CRC32(vH.m_data,2048*2);
 //---------------------------------- 1 -----------------------------------------
 // 	for(int kk=0; kk<32; kk++){
 // 		for(int i=0; i<64; i++){
@@ -636,7 +659,7 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 	for(int kk=0,ii=0; kk<4; kk++){
 		for(int k=0; k<8; k++){	
 			for(int h=0; h<8; h++,ii++){
-				expIFFT127<2048>(64*h*(4*k+kk),64,&z);
+				expIFFT127<2048>(64*h*(4*k+kk),amp[1],&z);
 				w1re[ii]=z.re;
 				w1im[ii]=z.im;
 			}
@@ -649,8 +672,8 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 		for(int kk=0; kk<4; kk++){
 			load_wfifo(vH.addr(512*kk+i),64,8);	
 			for(int k=0; k<8; k++,ii++){	
-				vsum_data(pwre,vHRe.addr(ii));
-				vsum_data(pwim,vHIm.addr(ii));
+				vsum_data(pwre,vHRe.addr(ii),round[1]);
+				vsum_data(pwim,vHIm.addr(ii),0);
 				pwre+=8;
 				pwim+=8;
 
@@ -666,11 +689,12 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 		}
 	}
 
-	vJ>>=6;
+	vJ>>=shift[1];
 
 	delete w1re;
 	delete w1im;
-
+	
+	//CRC32(vJ.m_data,2048*2);
 //---------------------------------- 2 -----------------------------------------
 
 	nm8s* w2re=new nm8s[32*8*8];
@@ -679,7 +703,7 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 	for(int kk=0,ii=0; kk<32; kk++){
 		for(int k=0; k<8; k++){		
 			for(int j=0; j<8; j++,ii++){
-				expIFFT127<2048>(8*j*(32*k+kk),64,&z);
+				expIFFT127<2048>(8*j*(32*k+kk),amp[2],&z);
 				w2re[ii]=z.re;
 				w2im[ii]=z.im;
 			}
@@ -692,8 +716,8 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 		for(int kk=0; kk<32; kk++){
 			load_wfifo(vJ.addr(64*kk+i),8,8);	// rep 8 wfifo = []
 			for(int k=0; k<8; k++,ii++){		
-				vsum_data(pwre,vIRe.addr(ii));	// rep 8 data=[ar0++gr0] with vsum ,data,0;
-				vsum_data(pwim,vIIm.addr(ii));	// rep 8 data=[ar1++gr1] with vsum ,data,0;
+				vsum_data(pwre,vIRe.addr(ii),round[2]);	// rep 8 data=[ar0++gr0] with vsum ,data,0;
+				vsum_data(pwim,vIIm.addr(ii),0);	// rep 8 data=[ar1++gr1] with vsum ,data,0;
 				pwre+=8;
 				pwim+=8;
 			}
@@ -708,7 +732,7 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 		}
 	}
 
-	vI>>=6;
+	vI>>=shift[2];
 	delete w2re;
 	delete w2im;
 	// 8*32*8
@@ -727,7 +751,7 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 	for(int kk=0,ii=0; kk<256; kk++){
 		for(int k=0; k<8; k++){
 			for(int i=0; i<8; i++,ii++){
-				expIFFT127<2048>((256*k+kk)*i,64,&z);
+				expIFFT127<2048>((256*k+kk)*i,amp[3],&z);
 				w3re[ii]=z.re;
 				w3im[ii]=z.im;
 			}
@@ -739,8 +763,8 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 	for(int kk=0,ii=0; kk<256; kk++){
 		load_wfifo(vI.addr(8*kk),1,8);								// rep 8 wfifo=[ar0++gr0]
 		for(int k=0; k<8; k++,ii++){
-			vsum_data(pwre,vYRe.addr(ii));					// rep 8 data=[ar0++gr0]
-			vsum_data(pwim,vYIm.addr(ii));					// rep 8 data=[ar1++gr1]
+			vsum_data(pwre,vYRe.addr(ii),round[3]);					// rep 8 data=[ar0++gr0]
+			vsum_data(pwim,vYIm.addr(ii),0);					// rep 8 data=[ar1++gr1]
 			pwre+=8;
 			pwim+=8;
 		}
@@ -754,7 +778,7 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst)
 	}
 
 
-	vY>>=6;
+	vY>>=shift[3];
 	delete w3re;
 	delete w3im;
 

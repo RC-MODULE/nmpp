@@ -276,8 +276,8 @@ void nmppsFFT64FwdRef8x8    ( nm32sc* src, nm32sc* dst);
 
 
 //id nmppsFFT2048Fwd_f      (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
-void nmppsFFT2048Fwd_RefFloat(const nm32sc* src, nm32sc* dst);
-void nmppsFFT2048Inv_RefFloat(const nm32sc* src, nm32sc* dst);
+void nmppsDFT2048Fwd_RefFloat(const nm32sc* src, nm32sc* dst);
+void nmppsDFT2048Inv_RefFloat(const nm32sc* src, nm32sc* dst);
 void nmppsFFT2048Fwd4888_RefFloat(const nm32sc* src, nm32sc* dst);
 void nmppsFFT2048Inv4888_RefFloat(const nm32sc* src, nm32sc* dst);
 void nmppsFFT2048Fwd4888_RefInt(const nm32sc* src, nm32sc* dst);

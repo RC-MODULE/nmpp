@@ -122,6 +122,15 @@ cmplx<int > toFix(cmplx<double> X,double Ampl)
 	X.im*=Ampl;
 	Y.re=floor(X.re+0.5);	
 	Y.im=floor(X.im+0.5);
+	return Y;
+}
+cmplx<int > toFix127(cmplx<double> X,double Ampl)
+{
+	cmplx<int > Y;
+	X.re*=Ampl;
+	X.im*=Ampl;
+	Y.re=floor(X.re+0.5);	
+	Y.im=floor(X.im+0.5);
 	if (Ampl>127){
 		Y.re= Y.re > 127 ? 127:Y.re;
 		Y.im= Y.im > 127 ? 127:Y.im;	
@@ -170,6 +179,10 @@ void vsum_data(nm16s* data,  nm32sc* afifo, int vr){
 		afifo->re+=data[i]*wfifo[i].re;
 		afifo->im+=data[i]*wfifo[i].im;
 	}
+}
+void vsum_data(nm16s* data,  cmplx<int>* afifo, int vr){
+
+	vsum_data(data,  (nm32sc*)afifo, vr);
 }
 
 

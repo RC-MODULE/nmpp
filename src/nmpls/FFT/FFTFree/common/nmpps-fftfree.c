@@ -9,11 +9,14 @@
 void nmppsFFTFree(NmppsFFTSpec* spec )
 {
 	if (spec){
-		spec->free(spec->buffer[0]);
-		spec->free(spec->buffer[1]);
-		spec->free(spec->buffer[2]);
-		spec->free(spec->buffer[3]);
-		free(spec);
+		nmppsFree(spec->buffer[0]);
+		nmppsFree(spec->buffer[1]);
+		nmppsFree(spec->fftTable[0]);
+		nmppsFree(spec->fftTable[1]);
+		nmppsFree(spec->fftTable[2]);
+		nmppsFree(spec->fftTable[3]);
+
+		nmppsFree(spec);
 	}
 }	
 

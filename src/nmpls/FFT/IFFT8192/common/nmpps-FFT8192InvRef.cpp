@@ -564,8 +564,8 @@ int nmppsFFT8192Inv28888Ref_f(const nm32sc* src, nm32sc* dst)
 	}
     
 	for(int i=0; i<8192; i++){
-		dst[i].re=floor(Y[i].re+0.5);
-		dst[i].im=floor(Y[i].im+0.5);
+		dst[i].re=floor(Y[i].re/8192+0.5);
+		dst[i].im=floor(Y[i].im/8192+0.5);
 	}
 	return 0;
 }

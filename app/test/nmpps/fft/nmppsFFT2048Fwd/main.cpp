@@ -43,6 +43,8 @@ int selfTest(){
 	//nmppsFFT2048FwdRaw	( src, dst, spec); 	nmppsCrcAcc_32s((nm32s*)dst,2048*2,&crc);
 	//nmppsMallocWipe();
 	nmppsFFTFree(spec);
+	nmppsFree(src);
+	nmppsFree(dst);
 	return crc>>2;
 	
 }

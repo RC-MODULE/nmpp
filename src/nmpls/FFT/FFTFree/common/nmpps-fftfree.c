@@ -8,17 +8,31 @@
 	
 void nmppsFFTFree(NmppsFFTSpec* spec )
 {
+	int i;
 	if (spec){
-		nmppsFree(spec->buffer[0]);
-		nmppsFree(spec->buffer[1]);
-		nmppsFree(spec->fftTable[0]);
-		nmppsFree(spec->fftTable[1]);
-		nmppsFree(spec->fftTable[2]);
-		nmppsFree(spec->fftTable[3]);
-
-		nmppsFree(spec);
+		for(i=0; i<FFT_SPEC_NUM_BUFFERS; i++)
+			//nmppsFree(spec->buffer[i]);
+			spec->free(spec->buffer[i]);
+		for(i=0; i<FFT_SPEC_NUM_TABLES; i++)
+			//nmppsFree(spec->fftTable[i]);
+			spec->free(spec->fftTable[i]);
+		spec->free(spec);
 	}
 }	
 
+void nmppsFFTResetSpec(NmppsFFTSpec* spec)
+{
+	int i;
+	for(i=0; i<FFT_SPEC_NUM_BUFFERS; i++)
+		spec->buffer[i]=0;
+	for(i=0; i<FFT_SPEC_NUM_TABLES; i++)
+		spec->fftTable[i]=0;
+	for(i=0; i<FFT_SPEC_NUM_SHIFTS; i++)
+		spec->shift[i]=0;
+	for(i=0; i<FFT_SPEC_NUM_AMPLITUDES; i++)
+		spec->amp[i]=0;
+	spec->free=nmppsFree;
+	
+}
 
 //};

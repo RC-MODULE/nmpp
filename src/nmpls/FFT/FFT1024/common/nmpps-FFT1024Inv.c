@@ -24,10 +24,11 @@ void  FFT_Inv1024(
 			(*specFFT)=0;
 			return -1;
 		}
+		nmppsFFTResetSpec(spec);
 		spec->buffer[0]=allocate(1024*2*3);
 		spec->buffer[1]=allocate(1024*2*3);
-		spec->buffer[2]=0;
-		spec->buffer[3]=0;
+		//spec->buffer[2]=0;
+		//spec->buffer[3]=0;
 		spec->shift [0]=10;
 		spec->shift [1]=-1;
 		spec->free=free;

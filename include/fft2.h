@@ -112,13 +112,17 @@
 	
 
 
+	#define FFT_SPEC_NUM_BUFFERS 2
+	#define FFT_SPEC_NUM_TABLES  4
+	#define FFT_SPEC_NUM_SHIFTS  8
+	#define FFT_SPEC_NUM_AMPLITUDES  8
 	typedef struct {
 		
 
-		nm32sc* buffer[2];
-		void* fftTable[4];
-		int shift[8];
-		int amp[8];
+		nm32sc* buffer[FFT_SPEC_NUM_BUFFERS];
+		void* fftTable[FFT_SPEC_NUM_TABLES];
+		int shift[FFT_SPEC_NUM_SHIFTS];
+		int amp[FFT_SPEC_NUM_AMPLITUDES];
 		//int round[8];
 		
 		
@@ -256,6 +260,7 @@
 	int  nmppsFFT8192Inv28888Ref_f	(const nm32sc* src, nm32sc* dst);
 	int  nmppsDFT8192Inv_i 			(const nm32sc* src, nm32sc* dst, int bits);	
 
+	void nmppsFFTResetSpec(NmppsFFTSpec* spec);
 #ifdef __cplusplus
 		};
 #endif

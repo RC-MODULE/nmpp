@@ -119,13 +119,13 @@ int  nmppsFFT2048InvInitAlloc4888( NmppsFFTSpec** specFFT, const void* src, cons
 		return -1;
 	}
 	
-
+	nmppsFFTResetSpec(spec);
 	spec->buffer[0]  =nmppsMalloc_32sc(2048);
 	spec->buffer[1]  =nmppsMalloc_32sc(2048);
 	spec->fftTable[0]=nmppsMalloc_8s(4*4*2+4*8*8+32*8*8+256*8*8);	// Bytes
 	spec->fftTable[1]=nmppsMalloc_8s(4*4*2+4*8*8+32*8*8+256*8*8);	// Bytes
-	spec->fftTable[2]=0;
-	spec->fftTable[3]=0;
+	//spec->fftTable[2]=0;
+	//spec->fftTable[3]=0;
 	
 	spec->shift[0]=0;
 	spec->shift[1]=7;
@@ -141,11 +141,12 @@ int  nmppsFFT2048InvInitAlloc4888( NmppsFFTSpec** specFFT, const void* src, cons
 
 
 	spec->free=free;
-	if (spec->fftTable[0]==0) 	return -1;
-	if (spec->fftTable[1]==0) 	return -1;
-	if (spec->buffer[0]==0) 	return -1;
-	if (spec->buffer[1]==0) 	return -1;
-	
+	if ((spec->fftTable[0]==0)||(spec->fftTable[1]==0)||(spec->buffer[0]==0)||(spec->buffer[1]==0)){
+		nmppsFFTFree(spec);
+		spec=0;
+		return -1;
+	}
+
 	//if (settings==-1)
 	//	return 0;
 	if (!(settings&SKIP_SINCOS)){

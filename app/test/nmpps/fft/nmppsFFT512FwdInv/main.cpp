@@ -3,7 +3,7 @@
 #include <time.h>
 #include <stdio.h>
 
-#define FFT_SIZE 2048
+#define FFT_SIZE 512
 
 int selfTest(){
 	clock_t t0,t1;
@@ -24,7 +24,7 @@ int selfTest(){
 		
 		
 	NmppsFFTSpec* spec;
-	nmppsFFT2048InvInitAlloc(&spec,src,dst,NMPP_CUSTOM_ALLOC);
+	nmppsFFT512FwdInitAlloc(&spec,src,dst,NMPP_CUSTOM_ALLOC);
 		
 	if (nmppsMallocFail())	return -2;
 		
@@ -33,19 +33,23 @@ int selfTest(){
 	nmppsRandUniform_64s((nm64s*)dst,FFT_SIZE);
 		
 	//float msd;
-	//nmppsFFT2048Fwd_RefFloat    ( src, dst); crc=nmppsCrc_32s((nm32s*)dst,2048*2);
-	//nmppsFFT2048Fwd4888_RefFloat( src, dst); nmppsCrcAcc_32s((nm32s*)dst,2048*2,&crc);
-	//nmppsFFT2048Fwd4888_RefInt  ( src, dst); nmppsCrcAcc_32s((nm32s*)dst,2048*2,&crc); 
+	//nmppsFFT512Fwd_RefFloat    ( src, dst); crc=nmppsCrc_32s((nm32s*)dst,512*2);
+	//nmppsFFT512Fwd4888_RefFloat( src, dst); nmppsCrcAcc_32s((nm32s*)dst,512*2,&crc);
+	//nmppsFFT512Fwd4888_RefInt  ( src, dst); nmppsCrcAcc_32s((nm32s*)dst,512*2,&crc); 
 	crc=0;
 	
-	nmppsFFT2048Inv     ( src, dst, spec); 	nmppsCrcAcc_32s((nm32s*)dst,2048*2,&crc);
-	nmppsFFT2048InvRaw  ( src, dst, spec); 	nmppsCrcAcc_32s((nm32s*)dst,2048*2,&crc);
-	//nmppsFFT2048FwdRaw	( src, dst, spec); 	nmppsCrcAcc_32s((nm32s*)dst,2048*2,&crc);
+	nmppsFFT512Fwd     ( src, dst, spec); 	nmppsCrcAcc_32s((nm32s*)dst,512*2,&crc);
+	//nmppsFFT512FwdRaw  ( src, dst, spec); 	nmppsCrcAcc_32s((nm32s*)dst,512*2,&crc);
+	//nmppsFFT512FwdRaw	( src, dst, spec); 	nmppsCrcAcc_32s((nm32s*)dst,512*2,&crc);
 	//nmppsMallocWipe();
 	nmppsFFTFree(spec);
+	
+	nmppsFFT512InvInitAlloc(&spec,dst,src,0);
+	nmppsFFT512Inv 	  ( dst,src, spec); 	nmppsCrcAcc_32s((nm32s*)src,512*2,&crc);
+	nmppsFFTFree(spec);
+	
 	nmppsFree(src);
 	nmppsFree(dst);
-	
 	return crc>>2;
 	
 }

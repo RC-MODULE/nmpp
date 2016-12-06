@@ -27,10 +27,9 @@ int nmppsFFT256FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* alloca
 	NmppsFFTSpec* spec=(NmppsFFTSpec*)malloc(sizeof(NmppsFFTSpec));
 	if (spec==0) { *specFFT = 0; return -1;	}
 	if (spec==0) return -1;
+	nmppsFFTResetSpec(spec);
 	spec->buffer[0]=allocate(256*2*3);
 	spec->buffer[1]=allocate(256*2*2);
-	spec->buffer[2]=0;
-	spec->buffer[3]=0;
 	spec->shift [0]=-1;
 	spec->free=free;
 	if (spec->buffer[0]==0) {free(spec); *specFFT=0 ;return -1; }

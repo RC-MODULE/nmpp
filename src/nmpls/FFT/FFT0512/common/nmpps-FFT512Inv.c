@@ -23,8 +23,8 @@ void  FFT_Inv512(
 		NmppsFFTSpec* spec=(NmppsFFTSpec*)malloc(sizeof(NmppsFFTSpec));
 		if (spec==0) { *specFFT = 0; return -1;	}
 		nmppsFFTResetSpec(spec);
-		spec->buffer[0]=allocate(512*2*3);
-		spec->buffer[1]=allocate(512*2*3);
+		spec->buffer[0]=(nm32sc*)allocate(512*2*3);
+		spec->buffer[1]=(nm32sc*)allocate(512*2*3);
 		//spec->buffer[2]=0;
 		//spec->buffer[3]=0;
 		spec->shift [0]=9;

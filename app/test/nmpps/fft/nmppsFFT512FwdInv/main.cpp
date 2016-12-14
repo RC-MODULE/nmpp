@@ -19,6 +19,7 @@ int selfTest(){
 	nmppsMallocSetRoute16(0x3112003);  
 	nm32sc* src  =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
 	nm32sc* dst	 =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
+	nm32sc* inv	 =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
 	//nm32sc* dstf =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
 	//nm32sc* dstf2=(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
 		
@@ -38,14 +39,19 @@ int selfTest(){
 	//nmppsFFT512Fwd4888_RefInt  ( src, dst); nmppsCrcAcc_32s((nm32s*)dst,512*2,&crc); 
 	crc=0;
 	
-	nmppsFFT512Fwd     ( src, dst, spec); 	nmppsCrcAcc_32s((nm32s*)dst,512*2,&crc);
+	//nmppsFFT512Fwd     ( src, dst, spec); 	nmppsCrcAcc_32s((nm32s*)dst,512*2,&crc);
+	nmppsFFT512Fwd_RefFloat     ( src, dst); 	nmppsCrcAcc_32s((nm32s*)dst,512*2,&crc);
+	nmppsDFT512Inv_RefFloat 	  ( dst,inv); 	nmppsCrcAcc_32s((nm32s*)src,512*2,&crc);
+	float norm;
+	nmppsNormDiff_L1_32s((nm32s*)src, (nm32s*)inv,FFT_SIZE*2,&norm);
 	//nmppsFFT512FwdRaw  ( src, dst, spec); 	nmppsCrcAcc_32s((nm32s*)dst,512*2,&crc);
 	//nmppsFFT512FwdRaw	( src, dst, spec); 	nmppsCrcAcc_32s((nm32s*)dst,512*2,&crc);
 	//nmppsMallocWipe();
 	nmppsFFTFree(spec);
 	
 	nmppsFFT512InvInitAlloc(&spec,dst,src,0);
-	nmppsFFT512Inv 	  ( dst,src, spec); 	nmppsCrcAcc_32s((nm32s*)src,512*2,&crc);
+	//nmppsFFT512Inv 	  ( dst,src, spec); 	nmppsCrcAcc_32s((nm32s*)src,512*2,&crc);
+	
 	nmppsFFTFree(spec);
 	
 	nmppsFree(src);

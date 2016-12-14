@@ -516,7 +516,7 @@ __INLINE__ void nmppsCopy_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize) {
 
     */
     //! \{
-void nmppsCopyua_8s(nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSize);
+void nmppsCopyua_8s(const nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSize);
     //! \}
 
 //*****************************************************************************

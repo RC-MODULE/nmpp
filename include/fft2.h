@@ -181,12 +181,14 @@
 	int  nmppsFFT256InvInitAlloc (NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT256InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free,  int settings);
 	
-	void nmppsFFT512Fwd(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
-	int  nmppsFFT512FwdOptimize(const void* src, const void* dst, fseq64* allocOrder) ;
-	int  nmppsFFT512FwdInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
+	void nmppsFFT512FwdRaw     		(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
+	void nmppsFFT512Fwd				(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	int  nmppsFFT512FwdOptimize		(const void* src, const void* dst, fseq64* allocOrder) ;
+	int  nmppsFFT512FwdInitAlloc	( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT512FwdInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free, int settings);
 
 	void nmppsFFT512Inv				(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	void nmppsFFT512InvRaw     		(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	int  nmppsFFT512InvOptimize  	(const void* src, const void* dst, fseq64* allocOrder) ;
 	int  nmppsFFT512InvInitAlloc 	(NmppsFFTSpec** spec, const void* src, const void* dst,  int settings);
 	int  nmppsFFT512InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free,  int settings);
@@ -279,6 +281,9 @@ void nmppsFFT64FwdRef4x4x4_f( nm32sc* src, nm32sc* dst);
 void nmppsFFT64FwdRef8x8_f  ( nm32sc* src, nm32sc* dst);
 void nmppsFFT64FwdRef8x8    ( nm32sc* src, nm32sc* dst);
 
+void nmppsDFT512Fwd_RefFloat(const nm32sc* src, nm32sc* dst);
+void nmppsFFT512Fwd_RefFloat(const nm32sc* src, nm32sc* dst);
+void nmppsDFT512Inv_RefFloat(const nm32sc* src, nm32sc* dst);
 
 //id nmppsFFT2048Fwd_f      (const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
 void nmppsDFT2048Fwd_RefFloat(const nm32sc* src, nm32sc* dst);

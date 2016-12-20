@@ -7,6 +7,18 @@ ROOT=../../..
 #
 #
 ####################################################
+# USAGE:
+# > make configure 
+#  - recursive generates Makefiles for all tests for different platforms defined in $(PLATFORMS) list
+#
+# > make test TARGET1=mc5103 TARGET2=vs80
+# - recursive build and run all test from current folder 
+# - each test compares exitcode of programs runned on  $(TARGET1) and $(TARGET2) platforms 
+# - if exitcodes are identical - test is passed
+#
+# make test 
+# - recursive build and run all tests from current folder with default $(TARGET1) and $(TARGET2) defined in global.mk 
+
 
 include $(ROOT)/global.mk
 # get list of all sub-foldfers

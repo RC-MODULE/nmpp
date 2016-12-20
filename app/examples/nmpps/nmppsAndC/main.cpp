@@ -18,14 +18,15 @@
 //!
 //------------------------------------------------------------------------
 #include "nmpp.h"
-#include "time.h"
+//#include "time.h"
  int ststic_arr[100];
  int init_arr[2]={1,2};
 int main()
 {
+	while (1);
 		 int local_arr[100];
 		 local_arr[1]=ststic_arr[1];
-	clock_t t0,t1;
+	//clock_t t0,t1;
 	int size=10240;
 	nm8s *src, *dst;
 
@@ -37,11 +38,11 @@ int main()
 		return -1;
 	
 	
-	t0=clock();
+	//t0=clock();
 		
 	nmppsAndC_8u((nm8u*)src,1,(nm8u*)dst,size);	// Calcuation of module
 	
-	t1=clock();
+	//t1=clock();
 
 	nmppsFree(src);							// Free memory
 	nmppsFree(dst);							// Free memory

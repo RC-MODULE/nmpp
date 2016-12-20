@@ -60,6 +60,7 @@ $(1):make_$(1)/Makefile
 make_$(1)/Makefile: make_$(1)
 	echo ROOT=../$(ROOT)| $(OS_CAT) - $(ROOT)/app/templates/sometest/make_$(1)/Makefile > make_$(1)/Makefile
 	-$(OS_CP) $(ROOT)/app/templates/sometest/make_$(1)/*.cfg make_$(1)
+	-$(OS_CP) $(ROOT)/app/templates/sometest/make_$(1)/*.asm make_$(1)
 	
 
 make_$(1): 

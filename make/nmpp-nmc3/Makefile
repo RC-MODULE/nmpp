@@ -69,12 +69,12 @@
 #  .DEFAULT_GOAL := skip
 #endif
 
-
+ARCH            ?=nmc3
 #--------------  target & input dirs -------------------
 ROOT             = ../..
 include          $(ROOT)/global.mk
 include          $(ROOT)/make/src.mk
-PROJECT          = nmpp-nmc3
+PROJECT          = nmpp-$(ARCH)
 OUT_DIR          = $(ROOT)/lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib
 INC_DIRS         = -I"$(NEURO)/include"  -I$(ROOT)/include
@@ -85,8 +85,8 @@ LIBS             =
 #--------------  RELEASE/ALL config -------------------
 CROSS_COMPILE   ?=
 AS               =asm 				 
-AS_FLAGS         =-nmc3 -nm2ms  $(INC_DIRS)
-AS_FLAGS_C2ASM   =-nmc3 -nm2ms  $(INC_DIRS)
+AS_FLAGS         =-$(ARCH) -nm2ms  $(INC_DIRS)
+AS_FLAGS_C2ASM   =-$(ARCH) -nm2ms  $(INC_DIRS)
 LIBS             =
 CC               =nmcpp
 

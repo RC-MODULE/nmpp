@@ -27,8 +27,8 @@ int main()
 	MaxCharSize=MIN(MaxCharSize,SizeL0*8);
 	MaxCharSize=MIN(MaxCharSize,SizeG0*8);
 
-	nmppsRandUniform_32u((nm32u*)L0,SizeL0*2);
-	nmppsSet_32s((nm32s*)G0,(int)0xCCCCCCCC,SizeG0*2);
+	//nmppsRandUniform_32u((nm32u*)L0,SizeL0*2);
+	//nmppsSet_32s((nm32s*)G0,(int)0xCCCCCCCC,SizeG0*2);
 
 	for(int CharSize=0;CharSize<=MaxCharSize;CharSize+=8)
 	{

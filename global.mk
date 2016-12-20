@@ -40,9 +40,9 @@ $(PATH);
    OS_CAT   = cat
 
    
-   OS_MV    = rename
+#  OS_MV    = rename
    OS_RM    = del /Q
-#  OS_RM    = rm -f -r
+   RM       = rm -f -r
    OS_RD    = rd /Q /S 
 #  OS_CP    = $(call BACKSLASH,$(GNUWIN32)/cp)
    OS_CP    = cp
@@ -67,6 +67,7 @@ else
   OS_DIFF  = diff   
   OS_SCP   = scp
   OS_RM    = rm -f -r
+  RM       = rm -f -r
   OS_RD    = rm -d -r
   OS_WHICH = which
   OS_WGET  = wget  
@@ -78,9 +79,10 @@ else
   MB7707_MAC = eth0
 endif
 
+
 PLATFORMS:=emu6405
 ifdef MB7707
-PLATFORMS += mb7707_libload
+PLATFORMS += mb7707
 ifndef MB7707_MAC
 $(error MB7707_MAC is not defiened) 
 endif
@@ -108,7 +110,7 @@ PLATFORMS += vs13
 endif
 
 #gcc
-PLATFORMS = vs80 mc5103 emu6405 mc7601 mb7707_libload
+PLATFORMS = vs80 mc5103 emu6405 mc7601 mb7707 mc12101
 
 TARGET1=mc5103
 TARGET2=vs80

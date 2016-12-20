@@ -1,5 +1,5 @@
 ROOT=../../../..
-include $(ROOT)/setenv.mk
+include $(ROOT)/global.mk
 # TEST-MAKEFILE
 # This Makefile is for testing purpose
 # It builds and runs two applications built from common cpp-source but for different platforms and compares their exit codes
@@ -16,9 +16,7 @@ include $(ROOT)/setenv.mk
 # TEMPLATES :points to automake template folder 
 # PLATFORMS :set of available platforms: win32 mc5103 mb7707 emu ...
 
-ifeq ($(wildcard config.mk),config.mk)
-include config.mk
-endif
+-include local.mk
 
 
 #all: $(addsuffix /Makefile,$(addprefix make_,$(PLATFORMS))) $(addprefix build_,$(PLATFORMS))
@@ -36,15 +34,17 @@ run:	all
 	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) run 				$(newline))
 
 kill: 
-	-rm -f -r make_* 
+	-$(OS_RD) $(foreach platform,$(PLATFORMS), make_$(platform))
 	
 
 test: make_$(TARGET1)/Makefile make_$(TARGET2)/Makefile
-	$(MAKE) -C./make_$(TARGET1) run 
-	$(MAKE) -C./make_$(TARGET2) run
-	diff make_$(TARGET1)/.exitcode make_$(TARGET2)/.exitcode
-	
+	$(MAKE) -C./make_$(TARGET1) test 
+	$(MAKE) -C./make_$(TARGET2) test
+	echo $(CURDIR)>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
+	$(OS_DIFF) make_$(TARGET1)/.exitcode make_$(TARGET2)/.exitcode
+	echo OK>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
 
+	
 ########### Produces automake rule for all platforms like ############################
 # 
 # mc5103: make_mc5103
@@ -59,8 +59,9 @@ define automake_platform
 $(1):make_$(1)/Makefile
 
 make_$(1)/Makefile: make_$(1)
-	echo ROOT=../$(ROOT)| cat - $(ROOT)/app/templates/sometest/make_$(1)/Makefile > make_$(1)/Makefile
-	-cp $(ROOT)/app/templates/sometest/make_$(1)/*.cfg make_$(1)
+	echo ROOT=../$(ROOT)| $(OS_CAT) - $(ROOT)/app/templates/sometest/make_$(1)/Makefile > make_$(1)/Makefile
+	-$(OS_CP) $(ROOT)/app/templates/sometest/make_$(1)/*.cfg make_$(1)
+	-$(OS_CP) $(ROOT)/app/templates/sometest/make_$(1)/*.asm make_$(1)
 	
 
 make_$(1): 

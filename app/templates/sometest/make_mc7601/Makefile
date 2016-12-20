@@ -23,7 +23,7 @@ SRC_ASM  = $(wildcard $(addsuffix /*.asm,..))
 
 $(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc3d.lib
 	@echo $(CURDIR)>> $(ROOT)/app/test/build-mc7601.txt
-	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) -soc -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=16384 -heap1=16384 -heap2=16384 -heap3=16384
+	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM)  -soc -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=16384 -heap1=16384 -heap2=16384 -heap3=16384
 	@echo -OK>> $(ROOT)/app/test/build-mc7601.txt
 #                                                                                         [L00]:64kB   [L01]:64kB  [G00]:64kB   [G01]:64kB
 

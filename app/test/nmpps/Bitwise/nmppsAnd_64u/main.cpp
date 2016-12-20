@@ -16,7 +16,7 @@ const int SizeG1=30*KB;
 
 int main()
 {
-	
+	while(1);
 
 	L0=nmppsMalloc_64s(SizeL0);
 	L1=nmppsMalloc_64s(SizeL1);
@@ -24,6 +24,7 @@ int main()
 	G1=nmppsMalloc_64s(SizeG1);
 	if ((L0==0)||(L1==0)||(G0==0)||(G1==0)) return -1;
 
+	
 
 	unsigned int crc = 0;
 	int	MaxLongSize=1024;
@@ -32,6 +33,7 @@ int main()
 	MaxLongSize=MIN(MaxLongSize,SizeG0);
 
 	nmppsRandUniform_32u((nm32u*)L0,SizeL0*2);
+	
 	nmppsRandUniform_32u((nm32u*)L1,SizeL1*2);
 	nmppsSet_32s((nm32s*)G0,(int)0xCCCCCCCC,(SizeG0*2));
 	

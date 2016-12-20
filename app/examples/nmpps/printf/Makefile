@@ -40,9 +40,11 @@ kill:
 test: make_$(TARGET1)/Makefile make_$(TARGET2)/Makefile
 	$(MAKE) -C./make_$(TARGET1) test 
 	$(MAKE) -C./make_$(TARGET2) test
+	echo $(CURDIR)>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
 	$(OS_DIFF) make_$(TARGET1)/.exitcode make_$(TARGET2)/.exitcode
-	
+	echo OK>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
 
+	
 ########### Produces automake rule for all platforms like ############################
 # 
 # mc5103: make_mc5103
@@ -59,13 +61,13 @@ $(1):make_$(1)/Makefile
 make_$(1)/Makefile: make_$(1)
 	echo ROOT=../$(ROOT)| $(OS_CAT) - $(ROOT)/app/templates/sometest/make_$(1)/Makefile > make_$(1)/Makefile
 	-$(OS_CP) $(ROOT)/app/templates/sometest/make_$(1)/*.cfg make_$(1)
+	-$(OS_CP) $(ROOT)/app/templates/sometest/make_$(1)/*.asm make_$(1)
 	
 
 make_$(1): 
 	-mkdir make_$(1)
 
 endef	
-
 
 $(foreach platform, $(PLATFORMS),$(eval $(call automake_platform,$(platform))))
 #######################################################################################

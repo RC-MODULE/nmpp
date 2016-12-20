@@ -3,7 +3,7 @@
 #include "nmplv/vSupport.h"
 #include "nmplv/vInit.h"
 #include "nmplv/vBitwise.h"
-#include "time.h"
+
 
 //#ifdef __NM__
 //	__INLINE__ void* malloc32(unsigned sizeInt32) { return malloc(sizeInt32);}
@@ -183,20 +183,7 @@ int nmppsMallocWipe(){
 	nmppsMallocSpec.allocHistoryPos = 0;
 	//nmppsMallocSpec.routePos = 0; because Increment breaks
 }
-static clock_t t0,t1;
-void nmppsMallocTimerStart(){
-	nmppsMallocSpec.time=0;	
-	t0=clock();
-}
 
-void nmppsMallocTimerResume(){
-	t0=clock();
-}
-
-void nmppsMallocTimerStop(){
-	t1=clock();
-	nmppsMallocSpec.time+=t1-t0;
-}
 	  
 void  nmppsMallocSetRingMode  ()
 {

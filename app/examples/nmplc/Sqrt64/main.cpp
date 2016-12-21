@@ -32,6 +32,5 @@ int main()
 	
 	t1=clock();
 
-	return 1;
 	return t1-t0;
 }

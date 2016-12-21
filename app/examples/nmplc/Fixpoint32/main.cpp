@@ -22,6 +22,7 @@
 #include "time.h"
 int main()
 {
+	
 	clock_t t0,t1;
 
 	double x=0.5;

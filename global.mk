@@ -69,6 +69,9 @@ else
   OS_RM    = rm -f -r
   RM       = rm -f -r
   OS_RD    = rm -d -r
+  OS_FIND  = find
+  OS_CAT   = cat
+  OS_CP    = cp  
   OS_WHICH = which
   OS_WGET  = wget  
   OS_UNZIP = unzip

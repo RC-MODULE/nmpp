@@ -62,8 +62,11 @@ begin ".text_nmvcore"
 //! ar0,ar1,ar6,gr7
 //------------------------------------------------------------------------
 
+import from minrep.mlb;
+DEF_MIN_REP();
 
 macro MTR_MUL2D2W8_REP(N)
+.if (NMPP_MIN_REP <= N);
         sb = [gr3];
 		rep N data=[ar0++gr0],ftw,wtw with vsum ,activate data,vr;
  		delayed return; 
@@ -72,6 +75,7 @@ macro MTR_MUL2D2W8_REP(N)
 			rep N [ar6++gr6]=afifo;	
 		nul;
 		nul;
+.endif;
 end MTR_MUL2D2W8_REP;
 
 

@@ -21,10 +21,13 @@
 
 
 begin ".text_nmvcore"
+import from minrep.mlb;
+DEF_MIN_REP();
 
 /// optimization required
 macro FilterN(N)
-own Next_Block:label;
+.if (NMPP_MIN_REP <= N);
+	own Next_Block:label;
 	// <First_Block>
 	rep N data=[ar0++gr0] with vsum ,activate data, vr;
 	nul;
@@ -44,6 +47,7 @@ own Next_Block:label;
 		wtw;
 		rep N data=[ar0++gr0] with vsum ,activate data,afifo;
 		rep N [ar6++gr6]=afifo;		// Output result
+.endif;
 end FilterN;
 
 /////////////////////////////////////////////////////////////////////////////////////////

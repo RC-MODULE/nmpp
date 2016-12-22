@@ -20,12 +20,16 @@
 
 begin ".text_nmvcore"
 
+import from minrep.mlb;
+DEF_MIN_REP();
 
 macro VEC_INC_NEG_REP(N)
+.if (NMPP_MIN_REP <= N);
 	delayed return;
 		rep N data,ram = [ar0++gr0]	with activate data;				
 		rep N						with ram - afifo;				
 		rep N [ar6++gr6] = afifo;		
+.endif;
 end VEC_INC_NEG_REP;
 
     //------------------------------------------------------------------------

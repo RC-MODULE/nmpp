@@ -26,12 +26,16 @@ begin ".text_nmvcore"
 //extern _VEC_TBL_Diagonal_FFFFh_G:long;
 //extern _VEC_TBL_Diagonal_FFFFFFFFh_G:long;
 //extern _nmppsTmpBuffer64_G_:long;
+import from minrep.mlb;
+DEF_MIN_REP();
 
 macro VEC_ABS_REP(N)
+.if (NMPP_MIN_REP <= N);
 	delayed return;
 		rep N data,ram =[ar0++gr0]	with activate data;
 		rep N					with vsum afifo,ram,ram;			
 		rep N [ar6++gr6]= afifo;
+.endif;
 end   VEC_ABS_REP;
 
 Abs_rep0:label;

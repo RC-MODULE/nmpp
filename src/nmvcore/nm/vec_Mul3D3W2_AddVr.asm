@@ -25,9 +25,12 @@
 
 begin ".text_nmvcore"
 
+import from minrep.mlb;
+DEF_MIN_REP();
       
 
 macro MTR_MUL3D3W2_REP(N)
+.if (NMPP_MIN_REP <= N);
 		rep N data=[ar0++gr0],ftw,wtw with vsum ,data,vr;
 		rep N data=[ar1++gr1],ftw,wtw with vsum ,data,afifo;
  		delayed return; 
@@ -36,6 +39,7 @@ macro MTR_MUL3D3W2_REP(N)
 			nul;
 		nul;
 		nul;
+.endif;
 end MTR_MUL3D3W2_REP;
 
     //------------------------------------------------------------------------

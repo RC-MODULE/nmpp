@@ -20,8 +20,11 @@
 
 
 begin ".text_nmvcore"
+import from minrep.mlb;
+DEF_MIN_REP();
 
 macro VEC_MUL_2V8toW16_SHIFT_REP(N)
+.if (NMPP_MIN_REP <= N);
 		rep N ram = [ar3];
 		rep N data=[ar0++gr0],ftw,wtw with vsum ,data,0;
  		delayed return; 
@@ -31,6 +34,7 @@ macro VEC_MUL_2V8toW16_SHIFT_REP(N)
 		
 		nul;
 		nul;
+.endif;
 end   VEC_MUL_2V8toW16_SHIFT_REP;
 
     //------------------------------------------------------------------------

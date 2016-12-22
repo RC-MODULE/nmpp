@@ -20,12 +20,16 @@
 
 begin ".text_nmvcore"
 
+import from minrep.mlb;
+DEF_MIN_REP();
 
 macro VEC_COPY_REP(N)
+.if (NMPP_MIN_REP <= N);
 	delayed return;
 		rep N data = [ar0++gr0] with data;
 		rep N [ar6++gr6] = afifo;
 		nul;
+.endif;
 end VEC_COPY_REP;
 
 Copy_rep0:label;

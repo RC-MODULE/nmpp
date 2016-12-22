@@ -19,8 +19,11 @@
 //------------------------------------------------------------------------
 
 begin ".text_nmvcore"
+import from minrep.mlb;
+DEF_MIN_REP();
 
 macro VEC_COMPARE_MINMAX_REP(N)
+.if (NMPP_MIN_REP <= N);
 	rep N ram =[ar0++gr0];
 	rep N data=[ar1++gr1]	with ram-data;
 	rep N 	    		with activate afifo;
@@ -29,6 +32,7 @@ macro VEC_COMPARE_MINMAX_REP(N)
 	rep N [ar5++gr5]=afifo with ram-afifo;
     rep N data=[ar4++gr4]  with data+afifo;
     rep N [ar6++gr6]=afifo;
+.endif;
 end   VEC_COMPARE_MINMAX_REP;
 
 CompareMinMax_rep0:label;

@@ -21,8 +21,11 @@
 
 begin ".text_nmvcore"
 
+import from minrep.mlb;
+DEF_MIN_REP();
 
 macro VEC_CMP_LT_V(N)
+.if (NMPP_MIN_REP <= N);
 	rep N data= [ar0++gr0] with data;
 	rep N data= [ar1++gr1] with afifo - data;
 	rep N 				   with activate afifo;
@@ -31,6 +34,7 @@ macro VEC_CMP_LT_V(N)
 		nul;
 	nul;
 	nul;
+.endif;
 end   VEC_CMP_LT_V;
 
 Cmp_rep0:label;

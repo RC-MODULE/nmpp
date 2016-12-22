@@ -21,12 +21,16 @@
 begin ".text_nmvcore"
 
 
+import from minrep.mlb;
+DEF_MIN_REP();
 
 macro VEC_AND_NOT_REP(N)
+.if (NMPP_MIN_REP <= N);
 	delayed return;
 		rep N data = [ar0++gr0] with data;
 		rep N data = [ar1++gr1] with not data and afifo;
 		rep N [ar6++gr6] = afifo;
+.endif;
 end   VEC_AND_NOT_REP;
 
 And_rep0:label;

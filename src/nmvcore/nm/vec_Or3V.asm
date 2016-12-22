@@ -20,8 +20,11 @@
 
 begin ".text_nmvcore"
 
+import from minrep.mlb;
+DEF_MIN_REP();
 
 macro VEC_OR_REP(N)
+.if (NMPP_MIN_REP <= N);
 
 		rep N data = [ar0++gr0] with data;
 		rep N data = [ar1++gr1] with data or afifo;
@@ -31,6 +34,7 @@ macro VEC_OR_REP(N)
 		nul;
 		nul;
 		nul;
+.endif;
 end   VEC_OR_REP;
 
 Or_rep0:label;

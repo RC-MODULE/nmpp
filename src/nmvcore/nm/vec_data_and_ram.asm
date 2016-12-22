@@ -20,12 +20,16 @@
 
 begin ".text_nmvcore"
 
+import from minrep.mlb;
+DEF_MIN_REP();
 
 macro VEC_ANDVN_REP(N)
+.if (NMPP_MIN_REP <= N);
 	delayed return;
 		rep N ram  = [ar1];
 		rep N data = [ar0++gr0] with data and ram;
 		rep N [ar6++gr6] = afifo;
+.endif;
 end   VEC_ANDVN_REP;
 
 AndVN_rep0:label;

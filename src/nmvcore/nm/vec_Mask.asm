@@ -20,9 +20,12 @@
 
 begin ".text_nmvcore"
 
+import from minrep.mlb;
+DEF_MIN_REP();
 
 
 macro VEC_MASK_REP(N)
+.if (NMPP_MIN_REP <= N);
 	rep N ram =[ar0++gr0];								// Read pSrcVec1
 	rep N data=[ar1++gr1]	with data;					// Read pSrcVec2
 	delayed return;
@@ -31,6 +34,7 @@ macro VEC_MASK_REP(N)
 		nul;
 	nul;
 	nul;
+.endif;
 end   VEC_MASK_REP;
 
 Mask_rep0:label;

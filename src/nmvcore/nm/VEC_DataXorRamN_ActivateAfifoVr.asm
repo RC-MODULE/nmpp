@@ -1,11 +1,15 @@
     //--------------------------------------------------------------------
+import from minrep.mlb;
+DEF_MIN_REP();
 macro M(N)
+.if (NMPP_MIN_REP <= N);
     nul;
     rep N ram = [ar1];
 	delayed return;
         rep N data = [ar0++gr0] with data xor ram;
         rep N with vsum, activate afifo, vr;
         rep N [ar6++gr6] = afifo;
+.endif;
 end M;
 
     //--------------------------------------------------------------------

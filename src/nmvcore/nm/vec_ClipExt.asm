@@ -23,12 +23,16 @@
 
 
 begin ".text_nmvcore"
+import from minrep.mlb;
+DEF_MIN_REP();
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Register interface function of clipping of vectors with dc offset
 // Bit capacity of vector and activate parameters
 // are determined by current states of nb1 and f1cr registers before the function call.
 
 macro VEC_CLIP_EXT_REP(N)
+.if (NMPP_MIN_REP <= N);
 		rep N ram  = [ar1];
 		rep N data = [ar0++gr0] with  data-ram;
 	delayed return;
@@ -37,6 +41,7 @@ macro VEC_CLIP_EXT_REP(N)
 		rep N [ar6++gr6] = afifo;
 	nul;
 	nul;
+.endif;
 end VEC_CLIP_EXT_REP;
 
     //------------------------------------------------------------------------

@@ -21,12 +21,16 @@
 
 begin ".text_nmvcore"
 
+import from minrep.mlb;
+DEF_MIN_REP();
 
 macro VEC_CMP_NE_0(N)
+.if (NMPP_MIN_REP <= N);
 	delayed return;
 		rep N ram = [ar0++gr0] with 0-data ;
 		rep N  with activate afifo or activate ram;
 		rep N [ar6++gr6] = afifo;
+.endif;
 end   VEC_CMP_NE_0;
 
 Cmp_rep0:label;

@@ -40,7 +40,8 @@ int main()
 				nmppsPut_8s((nm8s*)L0,pos,val);
 			}
 			{
-				for(int size=64; size<128; size+=64){
+				//for(int size=64; size<128; size+=64){
+				for(int size=256; size<1024; size+=256){ //NMPP_MIN_SIZE =32
 					nmppsMaxIndx_8s((nm8s*)L0,size,&nIndex, &nMax,L1,G1,1);
 					//nmppsMax_8s7b((nm8s*)L0,size,&nMax);
 					nmppsCrcAcc_32u((nm32u*)&nIndex,1,&crc);
@@ -62,7 +63,8 @@ int main()
 		for(int val=-2; val<2; val++){
 			for(int pos=0; pos<64; pos++){
 				nmppsPut_8s((nm8s*)L0,maxSize-1-pos,val);	
-				for(int size=64; size<maxSize; size+=64){
+				//for(int size=64; size<maxSize; size+=64){
+				for(int size=256; size<1024; size+=256){ //NMPP_MIN_SIZE =32
 					nmppsMaxIndx_8s((nm8s*)L0,size,&nIndex, &nMax,L1,G1,1);
 					nmppsCrcAcc_32u((nm32u*)&nIndex,1,&crc);
 					nmppsCrcAcc_32u((nm32u*)&nMax,1,&crc);
@@ -77,7 +79,8 @@ int main()
 		for(int val=-2; val<2; val++){
 			for(int pos=0; pos<64; pos++){
 				nmppsPut_8s((nm8s*)L0,maxSize-1-pos,val);	
-				for(int size=64; size<maxSize; size+=64){
+				//for(int size=64; size<maxSize; size+=64){
+				for(int size=256; size<1024; size+=256){ //NMPP_MIN_SIZE =32
 					nmppsMaxIndx_8s((nm8s*)L0,size,&nIndex, &nMax,L1,G1,1);
 					nmppsCrcAcc_32u((nm32u*)&nIndex,1,&crc);
 					nmppsCrcAcc_32u((nm32u*)&nMax,1,&crc);

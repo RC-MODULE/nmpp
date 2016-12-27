@@ -37,7 +37,7 @@ int main()
 
 	nmppsSet_32s((nm32s*)G0,(int)0xCCCCCCCC,SizeG0*2);
 	
-	for(int nSize=0;nSize<=MaxnSize;nSize+=8)
+	for(int nSize=0;nSize<=MaxnSize;nSize+=8*NMPP_MIN_REP)
 	{
 		nW1=nmppcRandMinMax(-128,127);
 		nW2=nmppcRandMinMax(-128,127);

@@ -1,1 +1,1 @@
-#define NMPP_MIN_REP 32
+#define NMPP_MIN_REP 1

@@ -203,7 +203,7 @@ void Test_nmppsSubC_8s8s(nm32u& crc)
 	nm64s c=0xCCCCCCCCAAAAAAAAl;
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
 	
-	for(int nSize=0;nSize<=charMaxSize;nSize+=8)
+	for(int nSize=0;nSize<=charMaxSize;nSize+=8*NMPP_MIN_REP)
 	{
 		char nVal=nmppcRand();
 		nmppsSubC_8s((nm8s*)L0,nVal,(nm8s*)G0,nSize);	
@@ -284,7 +284,7 @@ void Test_nmppsSubCRev_8s8s(nm32u& crc)
 	nm64s c=0xCCCCCCCCAAAAAAAAl;
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
 	
-	for(int nSize=0;nSize<=charMaxSize;nSize+=8)
+	for(int nSize=0;nSize<=charMaxSize;nSize+=8*NMPP_MIN_REP)
 	{
 		char nVal=nmppcRand();
 		nmppsSubCRev_8s((nm8s*)L0,nVal,(nm8s*)G0,nSize);	

@@ -31,7 +31,7 @@ int main()
 	
 	
 	//-------------------------------------
-	for(int size=2;size<1024; size+=2){
+	for(int size=2*NMPP_MIN_REP;size<1024; size+=2*NMPP_MIN_REP){
 		//int size=1024;
 		nmppsSet_32s((nm32s*)L0,(int)0xCCCCCCCC,size);
 		//nmppsSet_32s((nm32s*)L0,(int)0,size);

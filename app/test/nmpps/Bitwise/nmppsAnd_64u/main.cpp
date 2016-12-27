@@ -16,8 +16,6 @@ const int SizeG1=30*KB;
 
 int main()
 {
-	while(1);
-
 	L0=nmppsMalloc_64s(SizeL0);
 	L1=nmppsMalloc_64s(SizeL1);
 	G0=nmppsMalloc_64s(SizeG0);

@@ -20,6 +20,7 @@
 
 
 
+
 begin ".text_nmvcore"
 
 //extern _VEC_TBL_Diagonal_FFh_G:long;
@@ -29,8 +30,9 @@ begin ".text_nmvcore"
 import from minrep.mlb;
 DEF_MIN_REP();
 
+
 macro VEC_ABS_REP(N)
-.if (NMPP_MIN_REP <= N);
+.if (NMPP_MIN_REP<=N);
 	delayed return;
 		rep N data,ram =[ar0++gr0]	with activate data;
 		rep N					with vsum afifo,ram,ram;			

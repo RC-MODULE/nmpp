@@ -23,9 +23,8 @@
  int init_arr[2]={1,2};
 int main()
 {
-	while (1);
-		 int local_arr[100];
-		 local_arr[1]=ststic_arr[1];
+	int local_arr[100];
+	local_arr[1]=ststic_arr[1];
 	//clock_t t0,t1;
 	int size=10240;
 	nm8s *src, *dst;

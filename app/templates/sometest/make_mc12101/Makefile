@@ -26,7 +26,7 @@ SRC_ASM  = $(wildcard $(addsuffix /*.asm,..))
 
 
 $(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc4d.lib
-	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) clock.asm -nmc4 -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=16384 -heap1=16384 -heap2=16384 -heap3=16384
+	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) clock.asm -nmc4 -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=0 -heap1=16384 -heap2=16384 -heap3=16384
 #                                                                                         [L00]:64kB   [L01]:64kB  [G00]:64kB   [G01]:64kB
 
 run: .exitcode
@@ -49,4 +49,6 @@ clean:
 skip:
 	@echo SDK missing. Compilation is skipped!
 	
+reset:
+	reset12101	
 

@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 nm64s *L0;
@@ -51,7 +52,7 @@ int main()
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
  
 	
-	for(int LongSize=1;LongSize<=MaxLongSize/2;LongSize++)
+	for(int LongSize=0;LongSize<=MaxLongSize/2;LongSize+=(NMPP_MIN_REP+1)/2)
 	{
 		nmppsSub_64sc((nm64sc*)L0,(nm64sc*)L1,(nm64sc*)G0,LongSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(LongSize*4+128,SizeG0*4),&crc);

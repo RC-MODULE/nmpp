@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 
@@ -37,7 +38,7 @@ int main()
 
 	for(int shift=0;shift<32;shift++)
 	
-		for(int IntSize=0;IntSize<MaxIntSize;IntSize+=2)
+		for(int IntSize=0;IntSize<MaxIntSize;IntSize+=2*NMPP_MIN_REP)
 		{
 			nmppsRShiftC_32s((nm32s*)	L0,			// Input array 					:long Global[NumbersOfPairs*SrcPairReadStep/2]
 				shift,				// Numbers of input pairs should be quantized: =[1,2,3...]

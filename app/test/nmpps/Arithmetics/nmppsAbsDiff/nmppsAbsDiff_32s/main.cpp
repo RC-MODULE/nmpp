@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 nm64s *L0;
@@ -32,7 +33,7 @@ int main()
 	nmppsSet_32s((nm32s*)L0,(1),(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2)
+	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2*NMPP_MIN_REP)
 	{
 		nmppsAbsDiff_32s((nm32s*)L0,(nm32s*)G0,(nm32s*)G0,IntSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(IntSize+128,SizeG0*2),&crc);

@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 
@@ -34,7 +35,7 @@ int main()
 	nmppsRandUniform_32u((nm32u*)L0,SizeL0*2);
 	nmppsSet_32s((nm32s*)G0,(int)0xCCCCCCCC,(SizeG0*2));
 	
-	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2)
+	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2*NMPP_MIN_REP)
 	{
 		int MulN=nmppcRand();
 		int AddN=nmppcRand();

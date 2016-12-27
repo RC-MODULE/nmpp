@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 
@@ -34,7 +35,7 @@ int main()
 	nm64s c=0xCCCCCCCCAAAAAAAAl;
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
 	
-	for(int nSize=0;nSize<=intMaxSize;nSize+=2)
+	for(int nSize=0;nSize<=intMaxSize;nSize+=2*NMPP_MIN_REP)
 	{
 		int nVal=nmppcRand();
 		nmppsSubC_32s((nm32s*)L0,nVal,(nm32s*)G0,nSize);	

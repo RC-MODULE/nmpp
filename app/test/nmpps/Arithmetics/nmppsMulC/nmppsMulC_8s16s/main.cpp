@@ -1,5 +1,6 @@
 
 #include "nmpp.h"
+#include "minrep.h"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -34,7 +35,7 @@ int main()
 	nmppsSet_32s((nm32s*)G0,int(0xCCCCCCCC),SizeG0);
 	nmppsRandUniform_32u((nm32u*)L0,TestSize/4);
 
-	for(int size=8;size<TestSize;size+=8)
+	for(int size=8;size<TestSize;size+=8*NMPP_MIN_REP)
 	{
 		int16b nVal =-32768;
 		for(int i=0;i<10;i++)

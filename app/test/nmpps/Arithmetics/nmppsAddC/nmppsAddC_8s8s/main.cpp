@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 //////////////////////////////////////////////
@@ -36,7 +37,7 @@ int main()
 	return 1;
 	nmppsSet_32s((nm32s*)G0,(int)0xCCCCCCCC,(SizeG0*2));
 	
-	for(int CharSize=0;CharSize<=MaxCharSize;CharSize+=8)
+	for(int CharSize=0;CharSize<=MaxCharSize;Charsize+=8*NMPP_MIN_REP)
 	{
 		char nVal=nmppcRandMinMax(-128,127);
 		nmppsAddC_8s((nm8s*)L0,nVal,(nm8s*)G0,CharSize);	

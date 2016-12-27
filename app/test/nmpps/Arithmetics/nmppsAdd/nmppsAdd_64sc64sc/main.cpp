@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 nm64s *L0;
@@ -41,13 +42,13 @@ int main()
  
 
 
-	for(int LongSize=1;LongSize<=MaxLongSize/2;LongSize++)
-	//for(int LongSize=1;LongSize<=17;LongSize++)
-	//int LongSize=4;
+	for(int size64sc=0;size64sc<=MaxLongSize/2;size64sc+=(NMPP_MIN_REP+1)/2)
+	//for(int size64sc=1;size64sc<=17;size64sc+=NMPP_MIN_REP)
+	//int size64sc=4;
 	{
-		nmppsAdd_64sc((nm64sc*)L0,(nm64sc*)L1,(nm64sc*)G0,LongSize);	
-		nmppsCrcAcc_32u((nm32u*)G0,MIN(LongSize*4+128,SizeG0*4),&crc);
-		//nmppsCrcAcc_32u((nm32u*)G0,LongSize*4+4,&crc);
+		nmppsAdd_64sc((nm64sc*)L0,(nm64sc*)L1,(nm64sc*)G0,size64sc);	
+		nmppsCrcAcc_32u((nm32u*)G0,MIN(size64sc*4+128,SizeG0*4),&crc);
+		//nmppsCrcAcc_32u((nm32u*)G0,size64sc*4+4,&crc);
 	}
 	//! \fn void nmppsAdd_64sc(nm64sc*,nm64sc*,nm64sc*,int)
 

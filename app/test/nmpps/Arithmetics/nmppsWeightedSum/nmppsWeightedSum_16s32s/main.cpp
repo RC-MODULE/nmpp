@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 //////////////////////////////////////////////
@@ -36,7 +37,7 @@ int main()
 
 	nmppsSet_32s((nm32s*)G0,int(0xCCCCCCCC), SizeG0*2);
 	
-	for(int nSize=0;nSize<=MaxnSize;nSize+=4)
+	for(int nSize=0;nSize<=MaxnSize;nSize+=4*NMPP_MIN_REP)
 	{
 		W1=nmppcRandMinMax(-0x7fff,0x7fff);
 		W2=nmppcRandMinMax(-0x7fff,0x7fff);

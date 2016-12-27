@@ -1,5 +1,6 @@
 #include "fft2.h"
 #include "nmpp.h"
+#include "minrep.h"
 #include <time.h>
 #include <stdio.h>
 

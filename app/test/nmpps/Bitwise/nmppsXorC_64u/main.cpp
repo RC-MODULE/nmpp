@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 
@@ -40,7 +41,7 @@ int main()
 	} Mask;
 
 	
-	for(int LongSize=0;LongSize<=MaxLongSize;LongSize++)
+	for(int LongSize=0;LongSize<=MaxLongSize;LongSize+=NMPP_MIN_REP)
 	{
 		Mask.Int[0]=nmppcRand();
 		Mask.Int[1]=nmppcRand();

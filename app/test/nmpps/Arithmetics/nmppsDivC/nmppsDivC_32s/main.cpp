@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 
@@ -26,7 +27,7 @@ int main()
 
 
 	unsigned int crc = 0;
-	int	intTestSize=8192;
+	int	intTestSize=2048;
 	intTestSize=MIN(intTestSize,LONG2int(SizeL0));
 	intTestSize=MIN(intTestSize,LONG2int(SizeG0));
 	intTestSize=MIN(intTestSize,LONG2int(SizeL1));
@@ -53,7 +54,7 @@ int main()
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
 
 	int nSize=152;
-	for(int nSize=22;nSize<=intTestSize;nSize+=44)
+	for(int nSize=0;nSize<=intTestSize ;nSize+=2*NMPP_MIN_REP)
 		for(int Divisor=1;Divisor<=145;Divisor++)
 		{
 			nmppsDivC_32s((nm32s*)L0,Divisor,(nm32s*)G0,nSize,L1,G1);	

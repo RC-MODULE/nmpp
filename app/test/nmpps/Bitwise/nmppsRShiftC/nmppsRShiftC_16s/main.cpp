@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 
@@ -33,7 +34,7 @@ int main()
 	nm64s c=0xCCCCCCCCAAAAAAAAl;
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
 
-	for(int ShortSize=0;ShortSize<MaxShortSize;ShortSize+=4)
+	for(int ShortSize=0;ShortSize<MaxShortSize;ShortSize+=4*NMPP_MIN_REP)
 	{
  		int Shift=nmppcRandMinMax(0,15);
 		nmppsRShiftC_16s((nm16s*)L0,Shift,(nm16s*)G0,ShortSize);

@@ -1,5 +1,6 @@
 
 #include "nmpp.h"
+#include "minrep.h"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -34,7 +35,7 @@ int main()
 	nmppsRandUniform_64u((nm64u*)L0,SizeL0);
 	int64b ret64;
 
-	for(int size=8;size<TestSize;size+=8){
+	for(int size=8;size<TestSize;size+=8*NMPP_MIN_REP){
 		nmppsDotProd_8s8sm((nm8s*)L0,(nm8s*)G0,size,&ret64,L1);	
 		nmppsCrcAcc_32u((nm32u*)&ret64,2,&crc);
 	}

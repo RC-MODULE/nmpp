@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 
@@ -34,7 +35,7 @@ int main()
 
 	for (int pow=6;pow>=1; pow--){
 		nmppsClipPowC_8s((nm8s*)L0,pow,(nm8s*)L0,maxSize);
-		for(int size=8;size<maxSize;size+=8){
+		for(int size=8;size<maxSize;size+=8*NMPP_MIN_REP){
 			nmppsMin_8s7b((nm8s*)L0,size,&Min);	
 			nmppsCrcAcc_32u((nm32u*)&Min,1,&crc);
 		}

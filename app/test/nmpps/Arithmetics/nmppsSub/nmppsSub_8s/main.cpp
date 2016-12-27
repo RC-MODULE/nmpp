@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "minrep.h"
 
 
 nm64s *L0;
@@ -21,7 +22,7 @@ void Test_nmppsSub_8s8sc(nm32u& crc)
 	nmppsSet_32s((nm32s*)L0,(int)0xCCCCCCCC,(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int CharSize=0;CharSize<=MaxCharSize;CharSize+=8)
+	for(int CharSize=0;CharSize<=MaxCharSize;Charsize+=8*NMPP_MIN_REP)
 	{
 		nmppsSub_8s((nm8s*)L0,(nm8s*)G0,(nm8s*)G0,CharSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(CharSize/4+128,SizeG0*2),&crc);
@@ -38,7 +39,7 @@ void Test_nmppsSub_16s16ss(nm32u& crc)
 	nmppsSet_32s((nm32s*)L0,(int)0xCCCCCCCC,(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int ShortSize=0;ShortSize<=MaxShortSize;ShortSize+=4)
+	for(int ShortSize=0;ShortSize<=MaxShortSize;ShortSize+=4*NMPP_MIN_REP)
 	{
 		nmppsSub_16s((nm16s*)L0,(nm16s*)G0,(nm16s*)G0,ShortSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(ShortSize/2+128,SizeG0*2),&crc);
@@ -55,7 +56,7 @@ void Test_nmppsSub_32s32si(nm32u& crc)
 	nmppsSet_32s((nm32s*)L0,(int)0xCCCCCCCC,(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2)
+	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2*NMPP_MIN_REP)
 	{
 		nmppsSub_32s((nm32s*)L0,(nm32s*)G0,(nm32s*)G0,IntSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(IntSize+128,SizeG0*2),&crc);
@@ -72,7 +73,7 @@ void Test_nmppsSub_64s64sl(nm32u& crc)
 	nmppsSet_32s((nm32s*)L0,(int)0xCCCCCCCC,(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int LongSize=0;LongSize<=MaxLongSize;LongSize+=2)
+	for(int LongSize=0;LongSize<=MaxLongSize;LongSize+=NMPP_MIN_REP)
 	{
 		nmppsSub_64s((nm64s*)L0,(nm64s*)G0,(nm64s*)G0,LongSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(LongSize*2+128,SizeG0*2),&crc);
@@ -89,7 +90,7 @@ void Test_nmppsAbsDiff_8s8sc(nm32u& crc)
 	nmppsSet_32s((nm32s*)L0,(int)0xCCCCCCCC,(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int CharSize=0;CharSize<=MaxCharSize;CharSize+=8)
+	for(int CharSize=0;CharSize<=MaxCharSize;Charsize+=8*NMPP_MIN_REP)
 	{
 		nmppsAbsDiff_8s((nm8s*)L0,(nm8s*)G0,(nm8s*)G0,CharSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(CharSize/4+128,SizeG0*2),&crc);
@@ -106,7 +107,7 @@ void Test_nmppsAbsDiff_16s16ss(nm32u& crc)
 	nmppsSet_32s((nm32s*)L0,(1),(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int ShortSize=0;ShortSize<=MaxShortSize;ShortSize+=4)
+	for(int ShortSize=0;ShortSize<=MaxShortSize;ShortSize+=4*NMPP_MIN_REP)
 	{
 		nmppsAbsDiff_16s((nm16s*)L0,(nm16s*)G0,(nm16s*)G0,ShortSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(ShortSize/2+128,SizeG0*2),&crc);
@@ -124,7 +125,7 @@ void Test_nmppsAbsDiff_32s32si(nm32u& crc)
 	nmppsSet_32s((nm32s*)L0,(1),(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2)
+	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2*NMPP_MIN_REP)
 	{
 		nmppsAbsDiff_32s((nm32s*)L0,(nm32s*)G0,(nm32s*)G0,IntSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(IntSize+128,SizeG0*2),&crc);
@@ -149,7 +150,7 @@ void Test_nmppsSubN8_Abs_8s8sc(nm32u& crc)
 		char	Char[8];
 		int		Int[2];
 	}N8;
-	for(int CharSize=0;CharSize<=MaxCharSize;CharSize+=8)
+	for(int CharSize=0;CharSize<=MaxCharSize;Charsize+=8*NMPP_MIN_REP)
 	{
 		N8.Int[0]=nmppcRand();
 		N8.Int[1]=nmppcRand();
@@ -221,7 +222,7 @@ void Test_nmppsSubC_16s16s(nm32u& crc)
 	nm64s c=0xCCCCCCCCAAAAAAAAl;
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
 	
-	for(int nSize=0;nSize<=shortMaxSize;nSize+=4)
+	for(int nSize=0;nSize<=shortMaxSize;nSize+=4*NMPP_MIN_REP)
 	{
 		short nVal=nmppcRand();
 		nmppsSubC_16s((nm16s*)L0,nVal,(nm16s*)G0,nSize);	
@@ -240,7 +241,7 @@ void Test_nmppsSubC_32s32s(nm32u& crc)
 	nm64s c=0xCCCCCCCCAAAAAAAAl;
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
 	
-	for(int nSize=0;nSize<=intMaxSize;nSize+=2)
+	for(int nSize=0;nSize<=intMaxSize;nSize+=2*NMPP_MIN_REP)
 	{
 		int nVal=nmppcRand();
 		nmppsSubC_32s((nm32s*)L0,nVal,(nm32s*)G0,nSize);	
@@ -262,7 +263,7 @@ void Test_nmppsSubC_64s64sl(nm32u& crc)
 	__int64 nVal;
 	nmppsRandUniform_32u((nm32u*)&nVal,2);
 	
-	for(int LongSize=0;LongSize<=MaxLongSize;LongSize+=2)
+	for(int LongSize=0;LongSize<=MaxLongSize;LongSize+=NMPP_MIN_REP)
 	{
 		nmppsSubC_64s((nm64s*)L0,&nVal,(nm64s*)G0,LongSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(LongSize*2+128,SizeG0*2),&crc);
@@ -302,7 +303,7 @@ void Test_nmppsSubCRev_16s16s(nm32u& crc)
 	nm64s c=0xCCCCCCCCAAAAAAAAl;
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
 	
-	for(int nSize=0;nSize<=shortMaxSize;nSize+=4)
+	for(int nSize=0;nSize<=shortMaxSize;nSize+=4*NMPP_MIN_REP)
 	{
 		short nVal=nmppcRand();
 		nmppsSubCRev_16s((nm16s*)L0,nVal,(nm16s*)G0,nSize);	
@@ -321,7 +322,7 @@ void Test_nmppsSubCRev_32s32s(nm32u& crc)
 	nm64s c=0xCCCCCCCCAAAAAAAAl;
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
 	
-	for(int nSize=0;nSize<=intMaxSize;nSize+=2)
+	for(int nSize=0;nSize<=intMaxSize;nSize+=2*NMPP_MIN_REP)
 	{
 		int nVal=nmppcRand();
 		nmppsSubCRev_32s((nm32s*)L0,nVal,(nm32s*)G0,nSize);	
@@ -345,7 +346,7 @@ void Test_nmppsSubCRev_64s64sl(nm32u& crc)
 	__int64 nVal;
 	nmppsRandUniform_32u((nm32u*)&nVal,2);
 	
-	for(int LongSize=0;LongSize<=MaxLongSize;LongSize+=2)
+	for(int LongSize=0;LongSize<=MaxLongSize;LongSize+=NMPP_MIN_REP)
 	{
 		nmppsSubCRev_64s((nm64s*)L0,&nVal,(nm64s*)G0,LongSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(LongSize*2+128,SizeG0*2),&crc);
@@ -363,7 +364,7 @@ void Test_nmppsAbsDiff_64s64sl(nm32u& crc)
 	nm64s c=0xCCCCCCCCAAAAAAAAl;
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
 
-	for(int LongSize=0;LongSize<=MaxLongSize;LongSize+=2)
+	for(int LongSize=0;LongSize<=MaxLongSize;LongSize+=NMPP_MIN_REP)
 	{
 		nmppsAbsDiff_64s((nm64s*)L0,(nm64s*)G0,(nm64s*)G0,LongSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(LongSize*2+128,SizeG0*2),&crc);
@@ -383,7 +384,7 @@ void Test_nmppsSubN8_Abs_32s32si(nm32u& crc)
 	
 	__int64 N8[4];
 	
-	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2)
+	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2*NMPP_MIN_REP)
 	{
 		nmppsRandUniform_64s((nm64s*)N8,4,95367181l*IntSize);
 
@@ -404,7 +405,7 @@ void Test_nmppsSubN16_Abs_32s32si(nm32u& crc)
 	
 	__int64 N16[8];
 	
-	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2)
+	for(int IntSize=0;IntSize<=MaxIntSize;IntSize+=2*NMPP_MIN_REP)
 	{
 		nmppsRandUniform_64s((nm64s*)N16,8,95367181l*IntSize);
 
@@ -460,7 +461,7 @@ int main()
 	nmppsSet_32s((nm32s*)L0,(int)0xCCCCCCCC,(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int CharSize=0;CharSize<=MaxCharSize;CharSize+=8)
+	for(int CharSize=0;CharSize<=MaxCharSize;Charsize+=8*NMPP_MIN_REP)
 	{
 		nmppsSub_8s((nm8s*)L0,(nm8s*)G0,(nm8s*)G0,CharSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(CharSize/4+128,SizeG0*2),&crc);

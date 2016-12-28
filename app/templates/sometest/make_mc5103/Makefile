@@ -31,6 +31,8 @@ $(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc3d.lib
 	@echo -OK>> $(ROOT)/app/test/build-mc5103.txt
 #                                                                                                                  [L00]:64kB   [L01]:64kB  [G00]:64kB   [G01]:64kB
 
+PATH:=$(MC5103)/bin;$(PATH)
+
 lib:
 	$(MAKE) -C $(NMPP)/make/nmpp-nmc3 DEBUG=y
 	

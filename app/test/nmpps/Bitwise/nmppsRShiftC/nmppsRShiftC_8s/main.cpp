@@ -28,20 +28,20 @@ int main()
 
 	unsigned int crc = 0;
 
-	int	MaxCharSize = 1024;
-	MaxCharSize=MIN(MaxCharSize,LONG2char(SizeL0));
-	MaxCharSize=MIN(MaxCharSize,LONG2char(SizeG0));
+	int	MaxcharSize = 1024;
+	MaxcharSize=MIN(MaxcharSize,LONG2char(SizeL0));
+	MaxcharSize=MIN(MaxcharSize,LONG2char(SizeG0));
 
 	nmppsRandUniform_64s((nm64s*)L0,SizeL0);
 	nm64s c=0xCCCCCCCCAAAAAAAAl;
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
 
 
-	for(int CharSize=0;CharSize<MaxCharSize;Charsize+=8*NMPP_MIN_REP)
+	for(int charSize=0;charSize<MaxcharSize;charSize+=8*NMPP_MIN_REP)
 	{
  		int Shift=nmppcRandMinMax(0,7);
-		nmppsRShiftC_8s((nm8s*)L0,Shift,(nm8s*)G0,CharSize);
-		nmppsCrcAcc_32u((nm32u*)G0,MIN(char2INT(CharSize)+128,LONG2INT(SizeG0)),&crc);
+		nmppsRShiftC_8s((nm8s*)L0,Shift,(nm8s*)G0,charSize);
+		nmppsCrcAcc_32u((nm32u*)G0,MIN(char2INT(charSize)+128,LONG2INT(SizeG0)),&crc);
 	}
 
 

@@ -34,10 +34,10 @@
 #  Recursively builds and runs all tests from current folder with default $(TARGET1) and $(TARGET2) defined in global.mk 
 #
 # /> make clean 
-#  Recursive cleanup (Remove all builds)
+#  Recursive cleanup (Remove all builds in /make_* folders)
 #
 # /> make kill
-#  Recursive clean with Makefile removal 
+#  Recursive clean with Makefile removal of all /make_* folders
 
 
 
@@ -55,17 +55,19 @@ WORK_DIRS := $(filter-out $(SKIP_DIRS),$(WORK_DIRS))
 test run clean: 
 	@echo ***** build *************
 	$(foreach dir,$(WORK_DIRS), $(MAKE) -C $(dir) $(MAKECMDGOALS) 	$(newline))
+	@echo Command '$(MAKECMDGOALS)' completed!
 	
 # for each sub-folder try to create Makefile
 configure: $(addsuffix /Makefile,$(WORK_DIRS))
 	@echo ***** configure **********
 	$(foreach dir,$(WORK_DIRS), $(MAKE) -C ./$(dir) $(MAKECMDGOALS) $(newline))
 	
+	
 #recursive delete all sub-makefiles
 kill: 
 	$(foreach mak,$(wildcard */Makefile), $(MAKE) -C $(dir $(mak)) kill				$(newline))
 	$(foreach mak,$(wildcard */Makefile), -rm   $(mak) 								$(newline))
-	
+	@echo Command 'kill' completed!
 	
 define configure_makefile
 $(1)/Makefile:

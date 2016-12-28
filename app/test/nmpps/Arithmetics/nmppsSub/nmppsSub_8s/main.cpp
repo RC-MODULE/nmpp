@@ -15,17 +15,17 @@ const int SizeG1=30*KB;
 /*
 void Test_nmppsSub_8s8sc(nm32u& crc)
 {
-	int	MaxCharSize=2048;
-	MaxCharSize=MIN(MaxCharSize,SizeL0*8);
-	MaxCharSize=MIN(MaxCharSize,SizeG0*8);
+	int	MaxcharSize=2048;
+	MaxcharSize=MIN(MaxcharSize,SizeL0*8);
+	MaxcharSize=MIN(MaxcharSize,SizeG0*8);
 
 	nmppsSet_32s((nm32s*)L0,(int)0xCCCCCCCC,(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int CharSize=0;CharSize<=MaxCharSize;Charsize+=8*NMPP_MIN_REP)
+	for(int charSize=0;charSize<=MaxcharSize;charSize+=8*NMPP_MIN_REP)
 	{
-		nmppsSub_8s((nm8s*)L0,(nm8s*)G0,(nm8s*)G0,CharSize);	
-		nmppsCrcAcc_32u((nm32u*)G0,MIN(CharSize/4+128,SizeG0*2),&crc);
+		nmppsSub_8s((nm8s*)L0,(nm8s*)G0,(nm8s*)G0,charSize);	
+		nmppsCrcAcc_32u((nm32u*)G0,MIN(charSize/4+128,SizeG0*2),&crc);
 	}
 	//! \fn void nmppsSub_8s(nm8s*,nm8s*,nm8s*,int)	
 }
@@ -83,17 +83,17 @@ void Test_nmppsSub_64s64sl(nm32u& crc)
 //=======================================================================================
 void Test_nmppsAbsDiff_8s8sc(nm32u& crc)
 {
-	int	MaxCharSize=2048;
-	MaxCharSize=MIN(MaxCharSize,SizeL0*8);
-	MaxCharSize=MIN(MaxCharSize,SizeG0*8);
+	int	MaxcharSize=2048;
+	MaxcharSize=MIN(MaxcharSize,SizeL0*8);
+	MaxcharSize=MIN(MaxcharSize,SizeG0*8);
 
 	nmppsSet_32s((nm32s*)L0,(int)0xCCCCCCCC,(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int CharSize=0;CharSize<=MaxCharSize;Charsize+=8*NMPP_MIN_REP)
+	for(int charSize=0;charSize<=MaxcharSize;charSize+=8*NMPP_MIN_REP)
 	{
-		nmppsAbsDiff_8s((nm8s*)L0,(nm8s*)G0,(nm8s*)G0,CharSize);	
-		nmppsCrcAcc_32u((nm32u*)G0,MIN(CharSize/4+128,SizeG0*2),&crc);
+		nmppsAbsDiff_8s((nm8s*)L0,(nm8s*)G0,(nm8s*)G0,charSize);	
+		nmppsCrcAcc_32u((nm32u*)G0,MIN(charSize/4+128,SizeG0*2),&crc);
 	}
 	//! \fn void nmppsAbsDiff_8s(nm8s*,nm8s*,nm8s*,int)	
 }
@@ -136,9 +136,9 @@ void Test_nmppsAbsDiff_32s32si(nm32u& crc)
 /*
 void Test_nmppsSubN8_Abs_8s8sc(nm32u& crc)
 {
-	int	MaxCharSize=1024;
-	MaxCharSize=MIN(MaxCharSize,SizeL0*8);
-	MaxCharSize=MIN(MaxCharSize,SizeG0*8);
+	int	MaxcharSize=1024;
+	MaxcharSize=MIN(MaxcharSize,SizeL0*8);
+	MaxcharSize=MIN(MaxcharSize,SizeG0*8);
 
 	nmppsRandUniform_64s((nm64s*)L0,SizeL0);
 	nmppsRandUniform_64s((nm64s*)G0,SizeG0);
@@ -150,13 +150,13 @@ void Test_nmppsSubN8_Abs_8s8sc(nm32u& crc)
 		char	Char[8];
 		int		Int[2];
 	}N8;
-	for(int CharSize=0;CharSize<=MaxCharSize;Charsize+=8*NMPP_MIN_REP)
+	for(int charSize=0;charSize<=MaxcharSize;charSize+=8*NMPP_MIN_REP)
 	{
 		N8.Int[0]=nmppcRand();
 		N8.Int[1]=nmppcRand();
 
-		nmppsSubN8_Abs((nm8s*)L0,(nm8s*)N8.Char,(nm8s*)G0,CharSize);	
-		nmppsCrcAcc_32u((nm32u*)G0,MIN(CharSize/4+128,SizeL1*2),&crc);
+		nmppsSubN8_Abs((nm8s*)L0,(nm8s*)N8.Char,(nm8s*)G0,charSize);	
+		nmppsCrcAcc_32u((nm32u*)G0,MIN(charSize/4+128,SizeL1*2),&crc);
 	}
 	//! \fn void nmppsSubN8_Abs(nm8s*,nm8s*,nm8s*,int)	
 }
@@ -417,21 +417,21 @@ void Test_nmppsSubN16_Abs_32s32si(nm32u& crc)
 
 void Test_nmppsSubN16_Abs_8s8sc(nm32u& crc)
 {
-	int	MaxCharSize=512;
-	MaxCharSize=MIN(MaxCharSize,SizeL0*8);
-	MaxCharSize=MIN(MaxCharSize,SizeG0*8);
+	int	MaxcharSize=512;
+	MaxcharSize=MIN(MaxcharSize,SizeL0*8);
+	MaxcharSize=MIN(MaxcharSize,SizeG0*8);
 
 	nmppsRandUniform_64s((nm64s*)L0,SizeL0);
 	nmppsSet_64s((nm64s*)G0,(0xCCCCCCCCAAAAAAAAl),(SizeG0));
 	
 	__int64 N16[2];
 	
-	for(int CharSize=0;CharSize<=MaxCharSize;CharSize+=2)
+	for(int charSize=0;charSize<=MaxcharSize;charSize+=2)
 	{
-		nmppsRandUniform_64s((nm64s*)N16,2,95367181l*CharSize);
+		nmppsRandUniform_64s((nm64s*)N16,2,95367181l*charSize);
 
-		nmppsSubN16_Abs((nm8s*)L0,(nm8s*)N16,(nm8s*)G0,CharSize);	
-		nmppsCrcAcc_32u((nm32u*)G0,MIN(CharSize/4+128,SizeG0*2),&crc);
+		nmppsSubN16_Abs((nm8s*)L0,(nm8s*)N16,(nm8s*)G0,charSize);	
+		nmppsCrcAcc_32u((nm32u*)G0,MIN(charSize/4+128,SizeG0*2),&crc);
 	}
 	//! \fn void nmppsSubN16_Abs(nm8s*,nm8s*,nm8s*,int)		
 }
@@ -454,17 +454,17 @@ int main()
 
 	unsigned int crc = 0;
 
-	int	MaxCharSize=2048;
-	MaxCharSize=MIN(MaxCharSize,SizeL0*8);
-	MaxCharSize=MIN(MaxCharSize,SizeG0*8);
+	int	MaxcharSize=2048;
+	MaxcharSize=MIN(MaxcharSize,SizeL0*8);
+	MaxcharSize=MIN(MaxcharSize,SizeG0*8);
 
 	nmppsSet_32s((nm32s*)L0,(int)0xCCCCCCCC,(SizeL0*2));
 	nmppsRandUniform_32u((nm32u*)G0,SizeG0*2);
 
-	for(int CharSize=0;CharSize<=MaxCharSize;Charsize+=8*NMPP_MIN_REP)
+	for(int charSize=0;charSize<=MaxcharSize;charSize+=8*NMPP_MIN_REP)
 	{
-		nmppsSub_8s((nm8s*)L0,(nm8s*)G0,(nm8s*)G0,CharSize);	
-		nmppsCrcAcc_32u((nm32u*)G0,MIN(CharSize/4+128,SizeG0*2),&crc);
+		nmppsSub_8s((nm8s*)L0,(nm8s*)G0,(nm8s*)G0,charSize);	
+		nmppsCrcAcc_32u((nm32u*)G0,MIN(charSize/4+128,SizeG0*2),&crc);
 	}
 	//! \fn void nmppsSub_8s(nm8s*,nm8s*,nm8s*,int)
 

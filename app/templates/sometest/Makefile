@@ -26,14 +26,15 @@ all: configure
 configure: $(addsuffix /Makefile,$(addprefix make_,$(PLATFORMS))) 
 	
 clean:
-	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) clean 			$(newline))
+	$(foreach make_platform,$(wildcard make_*), -$(MAKE) -C./$(make_platform) clean 	$(newline))
 
+#	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) clean 			$(newline))
 
 run:	all
 	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) run 				$(newline))
 
 kill: 
-	-$(OS_RD) $(foreach platform,$(PLATFORMS), make_$(platform))
+	-$(OS_RD) $(wildcard make_*)
 	
 
 test: make_$(TARGET1)/Makefile make_$(TARGET2)/Makefile

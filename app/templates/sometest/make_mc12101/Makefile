@@ -29,7 +29,14 @@ $(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc4d.lib
 	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) clock.asm -nmc4 -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=0 -heap1=16384 -heap2=16384 -heap3=16384
 #                                                                                         [L00]:64kB   [L01]:64kB  [G00]:64kB   [G01]:64kB
 
-run: .exitcode
+
+PATH:=$(MC12101)/bin;$(PATH)
+
+	
+run: $(TARGET)
+	mc12101run $(TARGET)
+
+test: .exitcode
 	
 ifeq ($(OS),Windows_NT)	
 .exitcode: $(TARGET) .exitrun.bat
@@ -40,7 +47,7 @@ ifeq ($(OS),Windows_NT)
 	@echo @echo %%errorlevel%% ^>.exitcode >>.exitrun.bat
 else 
 .exitcode: $(TARGET)
-	"$(MC12101)/bin/mc12101run" ./$(TARGET) ; echo $$? > .exitcode
+	mc12101run ./$(TARGET) ; echo $$? > .exitcode
 endif
 
 clean:

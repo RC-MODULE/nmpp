@@ -15,7 +15,7 @@ ifndef NMPP
 $(error *** ERROR: 'NMPP' environment variable is not defined!  )
 endif 
 
-
+PATH:=$(MB7707)/bin;$(PATH)
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MB7707)/include"
 LIB_DIRS = -L"$(NMPP)/lib"  -L"$(MB7707)/lib" -L$(ROOT)/app/deps/nm_io/lib

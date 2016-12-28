@@ -28,17 +28,17 @@ int main()
 
 	unsigned int crc = 0;
 
-	int	MaxCharSize=2048;
-	MaxCharSize=MIN(MaxCharSize,SizeL0*8);
-	MaxCharSize=MIN(MaxCharSize,SizeG0*8);
+	int	MaxcharSize=2048;
+	MaxcharSize=MIN(MaxcharSize,SizeL0*8);
+	MaxcharSize=MIN(MaxcharSize,SizeG0*8);
 
 	nmppsRandUniform_32u((nm32u*)L0,SizeL0*2);
 	nmppsSet_32s((nm32s*)G0,(int)0xCCCCCCCC,(SizeG0*2));
 
-	for(int CharSize=0;CharSize<=MaxCharSize;Charsize+=8*NMPP_MIN_REP)
+	for(int charSize=0;charSize<=MaxcharSize;charSize+=8*NMPP_MIN_REP)
 	{
-		nmppsNeg_8s((nm8s*)L0,(nm8s*)G0,CharSize);	
-		nmppsCrcAcc_32u((nm32u*)G0,MIN(CharSize/4+128,SizeG0*2),&crc);
+		nmppsNeg_8s((nm8s*)L0,(nm8s*)G0,charSize);	
+		nmppsCrcAcc_32u((nm32u*)G0,MIN(charSize/4+128,SizeG0*2),&crc);
 	}
 	//! \fn void nmppsNeg_8s(nm8s*,nm8s*,int)	
 

@@ -32,7 +32,7 @@ tbl_w_RGB2Gray: long[8]=(
 	 00000000_00000000hl);
 // 
 extern vec_vsum_data_vr:label;
-import from macros;
+
  
 //! \fn void IMG_RGB32ToGray(RGB32_nm10s* pRGB, nm32u* pDstGray, int nSize);
 //!
@@ -43,8 +43,9 @@ global _void._.8.8IMG_RGB32ToGray.1class._RGB32_nm10s._.0.9._unsigned._int._.0.9
 <_IMG_RGB32ToGray__F13RGB32_nm10sPPUii>
 <_void._.8.8IMG_RGB32ToGray.1class._RGB32_nm10s._.0.9._unsigned._int._.0.9._int.2>
 .branch;
-	delayed goto  _IMG_RGB32ToGray__F13RGB32_nm10sPPii+2;
-		vr = 0; 
+	vr = 0; 
+	goto  _IMG_RGB32ToGray__F13RGB32_nm10sPPii+2;
+		
 
 //! \fn void IMG_RGB32ToGray(RGB32_nm10s* pRGB, nm32s* pDstGray, int nSize);
 //!
@@ -70,8 +71,8 @@ global _void._.8.8IMG_RGB32ToGray.1class._RGB32_nm10s._.0.9._int._.0.9._int.2 :l
 	
 	
 	//void vec_vsum_data_vr(nmreg nb1, nmreg sb, nmreg woper, nmreg vr, nmreg ar0, nmreg gr0, nmreg gr5, nmreg ar6, nmreg gr6);
-	delayed call vec_vsum_data_vr with gr5>>=1;
-		WTW_REG(gr7);
+	call vec_vsum_data_vr with gr5>>=1;
+		
 			
 	pop ar5,gr5;
 	pop ar6,gr6;

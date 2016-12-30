@@ -70,10 +70,9 @@ global _nmppsMulC_AddV_AddC32s:label;
 	ar6 = [--ar5];			// pDstVec
 	gr5 = [--ar5];			// nSize
 	gr0 = 2		with gr5 >>= 1;
-	gr6 = 2;	
-	gr1 = 2;
 	delayed call vec_MulVN_AddVN;
-	WTW_REG(gr7);
+		gr6 = gr0 with gr1=gr0;	
+		wtw;
 	
 	pop ar6,gr6;
 	pop ar5,gr5;

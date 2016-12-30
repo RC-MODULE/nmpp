@@ -40,8 +40,9 @@ global _nmppsConvert_32s64s:label;
 
 <_nmppsConvert_32s64s>
 .branch;
-	delayed goto JumpFromSigned;
-		nb1 = 00000000h;
+	nb1 = 00000000h;
+	goto JumpFromSigned;
+		
 
 /////////////////////////////////////////////////////////////////////////////////////////
 

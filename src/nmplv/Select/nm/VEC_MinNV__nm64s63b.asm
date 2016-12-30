@@ -58,12 +58,11 @@ global _void._.8.8nmppsMinNV_.1long._.0.0.9._int.9._long._.0.9._int.2 :label;
 	gr5 = [--ar5];						// nSize
 	ar5 = ar7;							// fast 64-bit buffer 
 	ar7 +=2;
-	
-	push ar0,gr0;						// save sp=ar0
-	
-	ar3 = ar1 with gr3 = gr1;
+	f1crh=80000000h;
 	delayed call vec_CompareMinNV;
-		f1crh=80000000h;
+		push ar0,gr0;						// save sp=ar0
+		ar3 = ar1 with gr3 = gr1;
+		
 		
 	//ar7-=2;
 	pop ar0,gr0;

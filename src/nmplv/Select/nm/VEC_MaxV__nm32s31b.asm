@@ -44,10 +44,11 @@ global _nmppsMaxEvery_32s:label;
 	
 	
 	nb1 =80000000h with gr5>>=1;
-	ar3 = ar1 with gr3 = gr1;
-	wtw;
+	f1cr=80000000h;
 	delayed call vec_CompareMax;
-		f1cr=80000000h;
+		ar3 = ar1 with gr3 = gr1;
+		wtw;
+	
 		
 	pop ar6,gr6;
 	pop ar5,gr5;

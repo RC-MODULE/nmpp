@@ -57,9 +57,9 @@ global _nmppsConvert_64s32s:label;
 	<LoadLocalMatrix>
 	ar6 = [--ar5];					// pDstVec
 	gr5 = [--ar5];					// nSize 
-	delayed call vec_Mul2D2W1_AddVr with gr5>>=1;
-		ar1 = ar0+gr0	with gr7 = false;
-		vr  = gr7		with gr0 = gr1;// gr0=4	
+	ar1 = ar0+gr0	with gr7 = false;
+	vr  = gr7		with gr0 = gr1;// gr0=4	
+	call vec_Mul2D2W1_AddVr with gr5>>=1;
 	
 	pop ar6,gr6;
 	pop ar5,gr5;

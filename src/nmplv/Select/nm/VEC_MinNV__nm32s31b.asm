@@ -57,10 +57,11 @@ global _void._.8.8nmppsMinNV_.1int._.0.0.9._int.9._int._.0.9._int.2 :label;
 	
 	push ar0,gr0;						// save sp=ar0	
 	nb1 =80000000h with gr5>>=1;
-	wtw;
-	ar3 = ar1 with gr3 = gr1;
+	f1cr=80000000h;
 	delayed call vec_CompareMinNV;
-		f1cr=80000000h;
+		wtw;
+		ar3 = ar1 with gr3 = gr1;
+		
 	pop ar0,gr0;
 	ar7=ar0;
 	

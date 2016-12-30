@@ -20,8 +20,9 @@ global _nmppsCmpNe0_8s:label;
 
 	nb1  = 80808080h;wtw;
 	f1cr = 0FEFEFEFEh;
-    delayed call vec_CmpNe0 with gr5>>=3;
-		f2cr = 0FEFEFEFEh;  
+	f2cr = 0FEFEFEFEh;  
+    call vec_CmpNe0 with gr5>>=3;
+		
     
     pop ar6, gr6;
     pop ar5, gr5;

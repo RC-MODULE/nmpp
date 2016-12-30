@@ -56,10 +56,10 @@ global _nmppsConvert_16s4s:label;
 	
 	ar4 = _VEC_TBL_Diagonal_1h_G;
 	<LoadLocalMatrix>
-
-	delayed call vec_ClipMul4D4W4_AddVr with gr5>>=4;
-		f1cr=gr7;
-		vr = gr7;
+	f1cr=gr7;
+	vr = gr7;
+	call vec_ClipMul4D4W4_AddVr with gr5>>=4;
+		
 		
 	pop ar6,gr6;
 	pop ar5,gr5;

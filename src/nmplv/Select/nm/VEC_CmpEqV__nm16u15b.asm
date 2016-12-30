@@ -34,10 +34,11 @@ global _nmppsCmpEqV_16u:label;
 	sb = 020002h;
 	rep 4 wfifo = [ar1++], ftw, wtw;
     vr = [ar1++];
-    ar1 = gr7;
-
+    
+	f1cr = 0FFFEFFFEh with gr1 = gr0;
     delayed call nmppsDataXorRamV_ActivateAfifoVr_;
-        f1cr = 0FFFEFFFEh with gr1 = gr0;
+		ar1 = gr7;    
+		nul;
     
     pop ar6, gr6;
     pop ar5, gr5;

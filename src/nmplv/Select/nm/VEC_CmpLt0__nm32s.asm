@@ -40,8 +40,9 @@ global _nmppsCmpLt0_32s:label;
 	ar0 = [--ar5]	with gr0 = gr7;	// pSrcVec,		
 	ar6 = [--ar5]	with gr6 = gr7;	// pDstVec,		
 	gr5 = [--ar5];					// nSize		
-	delayed call vec_activate_data	with gr5>>=1;
-		f1cr = [ila]				with gr7++;
+	f1cr = [ila]				with gr7++;
+	call vec_activate_data	with gr5>>=1;
+		
 	pop ar6,gr6;
 	pop ar5,gr5;
 	pop ar0,gr0;

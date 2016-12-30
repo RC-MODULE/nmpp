@@ -87,10 +87,11 @@ global _void._.8.8SIG_Filter.1short._.0.9._int._.0.9._int.9._long._.0.2 :label;
 	gr0 = [ar1];
 	nul;
 	ar0+= gr0;
-	gr0 = 2;
-	delayed call vec_Mul2D2W4_AddVr with gr7=false;
+	gr0 = 2 with gr7=false;
+	f1cr = gr7;
+	delayed call vec_Mul2D2W4_AddVr ;
 		ar1=ar0+gr0 with gr1=gr0;		
-		f1cr = gr7;
+		nul;
 
 	delayed goto finish0;
 		pop ar6,gr6;

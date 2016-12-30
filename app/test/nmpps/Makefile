@@ -58,12 +58,11 @@ test run clean:
 	$(foreach dir,$(WORK_DIRS), $(MAKE) -C $(dir) $(MAKECMDGOALS) 	$(newline))
 	@echo Command '$(MAKECMDGOALS)' completed!
 	
-	
 # for each sub-folder try to create Makefile
 configure: $(addsuffix /Makefile,$(WORK_DIRS))
 	@echo ***** configure **********
 	$(foreach dir,$(WORK_DIRS), $(MAKE) -C ./$(dir) $(MAKECMDGOALS) $(newline))
-	@echo Command 'configure' completed!
+	
 	
 #recursive delete all sub-makefiles
 kill: 

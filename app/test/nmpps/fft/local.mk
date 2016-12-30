@@ -1,1 +1,1 @@
-SKIP_DIRS = nmppsFFT32Fwd  nmppsFFT512
+SKIP_DIRS = nmppsFFT32Fwd  nmppsFFT512 nmppsFFT512FwdInv

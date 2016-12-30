@@ -617,10 +617,10 @@ global _nmppsRShiftC_32s:label;
 	nb1 = gr1;											
 	ar4 = vec_tbl_w_int_OddRightShift;
 	ar4+= gr4;		
-	rep 6 wfifo=[ar4++],ftw;
+	rep 6 wfifo=[ar4++],ftw,wtw;
 
-	delayed call vec_vsum_shift_data_0;
-		WTW_REG(gr1);
+	call vec_vsum_shift_data_0;
+		
 	
 	goto arsh32_Finish;
 	
@@ -634,10 +634,10 @@ global _nmppsRShiftC_32s:label;
 	nb1 = gr1;											
 	ar4 = vec_tbl_w_int_EvenRightShift with gr4<<=2;
 	ar4+= gr4;		
-	rep 4 wfifo=[ar4++],ftw;
+	rep 4 wfifo=[ar4++],ftw,wtw;
 
-	delayed call vec_vsum_data_0;
-		WTW_REG(gr1);
+	call vec_vsum_data_0;
+		
 
 	<arsh32_Finish>
 

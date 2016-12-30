@@ -34,9 +34,9 @@ global _nmppsCmpNeV_8u:label;
 	sb = 02020202h;
 	rep 8 wfifo = [ar1++], ftw, wtw;
     ar1 = gr7;
-
-    delayed call nmppsDataXorRamV_ActivateAfifoVr_;
-        f1cr = 0FEFEFEFEh with gr1 = gr0;
+	f1cr = 0FEFEFEFEh with gr1 = gr0;
+    call nmppsDataXorRamV_ActivateAfifoVr_;
+        
     
     pop ar6, gr6;
     pop ar5, gr5;

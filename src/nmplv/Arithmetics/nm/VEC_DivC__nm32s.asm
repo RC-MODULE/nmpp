@@ -105,9 +105,10 @@ global _nmppsDivC_32s:label;
 	// [pTmpBuf2] => [pDstVec]
 	ar0 = gr1		with gr7=true;
 	pop ar6,gr6		with gr7<<=31;
+	nb1 = gr7;
 	delayed call vec_IncNeg with gr5>>=1;
-		nb1 = gr7;
 		wtw;
+		nul;
 		
 	pop ar6,gr6;
 	pop ar5,gr5;
@@ -225,9 +226,9 @@ global _nmppsDiv_By2Int_32s:label;
 	gr2 = [ar1++];
 	ar2 = ar4 with gr2 <<= 2;
 	gr2+= gr7;
-	rep 1 wfifo=[ar2+=gr2],ftw;
+	rep 1 wfifo=[ar2+=gr2],ftw,wtw;
 
-	WTW_REG(gr4);
+	
 	
 	///////////////////////////////////////////////////////////////
 	// 1/x multiplication	
@@ -259,11 +260,10 @@ global _nmppsDiv_By2Int_32s:label;
 	///////////////////////////////////////////////////////////////
 	// Result Correction
 	// [pTmpBuf2] => [pDstVec]
-	push ar6,gr6;
-	WTW_REG(gr4);
-	with gr7 = gr5>> 5;
+	push ar6,gr6 	with gr7 = gr5>> 5;
+	f1cr=gr4;
 	if =0 delayed goto ResultCorrection_rep1 with gr7--;
-		f1cr=gr4;
+		wtw;	
 		nul;
 	
 	<NextResultCorrection_rep32>

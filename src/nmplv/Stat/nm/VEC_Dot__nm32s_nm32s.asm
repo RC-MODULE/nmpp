@@ -93,20 +93,14 @@ global _nmppsDotProd_32s32s:label;
 	nb1 = gr7 with gr6>>=1;
 
 
-	rep 2 wfifo=[ar4++],ftw;
-	.wait;
-		nb1 = gr7 with gr6--;
-		rep 1 wtw with vfalse;
-	.branch;
+	rep 2 wfifo=[ar4++],ftw,wtw;
+	with gr6--;
+	rep 1 with vfalse;
 
 <NextMul32>
-	rep 1 data=[ar0++] with vsum, data,afifo;
-	rep 2 wfifo=[ar4++],ftw;
-	if > delayed goto NextMul32;
-		.wait;
-			nb1 = gr7 with gr6--;
-			wtw;
-		.branch;
+	if > delayed goto NextMul32 with gr6--;
+		rep 1 data=[ar0++] with vsum, data,afifo;
+		rep 2 wfifo=[ar4++],ftw,wtw;
 	
 	rep 1 [ar6] = afifo;
 

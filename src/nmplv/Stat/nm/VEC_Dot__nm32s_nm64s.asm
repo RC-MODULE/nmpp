@@ -51,11 +51,9 @@ global _nmppsDotProd_32s64s:label;
 	rep 1 wtw with vfalse;
 
 <NextMul32>
-	rep 1 data=[ar0++] with vsum, data,afifo;
-	rep 2 wfifo=[ar4++],ftw;
-	if > delayed goto NextMul32;
-		nb1 = gr7 with gr6--;
-		wtw;
+	if > delayed goto NextMul32 with gr6--;
+		rep 1 data=[ar0++] with vsum, data,afifo;
+		rep 2 wfifo=[ar4++],ftw,wtw;
 	
 	rep 1 [ar6] = afifo;
 

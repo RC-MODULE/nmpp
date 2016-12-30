@@ -42,9 +42,10 @@ global _nmppsCmpLt0_16s:label;
 	push ar6,gr6;
 	ar0 = [--ar5]	with gr0 = gr7;	// pSrcVec,		
 	ar6 = [--ar5]	with gr6 = gr7;	// pDstVec,		
-	gr5 = [--ar5];					// nSize		
-	delayed call vec_activate_data	with gr5>>=2;
-		f1cr = [shla]				with gr7++;
+	gr5 = [--ar5];					// nSize	
+	f1cr = [shla]				with gr7++;	
+	call vec_activate_data	with gr5>>=2;
+		
 	pop ar6,gr6;
 	pop ar5,gr5;
 	pop ar0,gr0;

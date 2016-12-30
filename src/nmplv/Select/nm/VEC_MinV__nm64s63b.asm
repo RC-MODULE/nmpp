@@ -45,12 +45,10 @@ global _nmppsMinEvery_64s:label;
 	ar0 = [--ar5] with gr6=gr0;		    // pSrcVec1
 	ar1 = [--ar5];						// pSrcVec2
 	ar6 = [--ar5];						// pDstMin
-	gr5 = [--ar5];						// nSize
-	
-	
-	ar3 = ar1 with gr3 = gr1;
+	f1crh=80000000h;
 	delayed call vec_CompareMin;
-		f1crh=80000000h;
+		gr5 = [--ar5];						// nSize
+		ar3 = ar1 with gr3 = gr1;
 		
 	pop ar6,gr6;
 	pop ar5,gr5;

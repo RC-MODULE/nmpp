@@ -85,8 +85,8 @@ LIBS             =
 #--------------  RELEASE/ALL config -------------------
 CROSS_COMPILE   ?=
 AS               =asm 				 
-AS_FLAGS         =-$(ARCH) -nm2ms  $(INC_DIRS) -split_sir
-AS_FLAGS_C2ASM   =-$(ARCH) -nm2ms  $(INC_DIRS) -split_sir
+AS_FLAGS         =-$(ARCH) -nm2ms  $(INC_DIRS) -split_sir -W-111 -W-109
+AS_FLAGS_C2ASM   =-$(ARCH) -nm2ms  $(INC_DIRS) -split_sir -W-111 -W-109
 LIBS             =
 CC               =nmcpp
 

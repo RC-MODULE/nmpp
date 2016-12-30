@@ -46,9 +46,11 @@ global _nmppsMinCmpLtV_16s:label;
 	gr5 = [--ar5];						// nSize in 16-bit elements
 	
 	nb1 =80008000h with gr5>>=2;
-	wtw;
+	f1cr=80008000h;
+	
 	delayed call vec_reg_MinMask;
-		f1cr=80008000h;
+		wtw;	
+		nul;
 		
 		
 		

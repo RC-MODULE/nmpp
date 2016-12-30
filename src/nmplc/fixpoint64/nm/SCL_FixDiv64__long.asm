@@ -206,10 +206,10 @@ gr1++;
 	.endrepeat;
 	<EndVecDiv>
 	rep 1 [ar6]=afifo with vfalse;		// последний укороченный VEC_DIV_STEP
-	pop ar6,gr6 ;						// pop ar6=Buffer64
 	//--- последовательное заполнение частного страшими(63-ми) битами векторов массива Buffer64 
+	nb1 = gr7;				// загрузка 2h в WOPER
 	delayed goto ar2;
-		WTW_REG(gr7);					// загрузка 2h в WOPER
+		pop ar6,gr6 ;						// pop ar6=Buffer64
 		nul;
 	.align;
 	.repeat 64;

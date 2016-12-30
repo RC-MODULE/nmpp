@@ -85,10 +85,12 @@ global _nmppsFIR_16s32s:label;
 	gr0 = [ar1];
 	nul;
 	ar0+= gr0;
-	gr0 = 2;
-	delayed call vec_Mul2D2W4_AddVr with gr7=false;
-		ar1=ar0+gr0 with gr1=gr0;		
-		f1cr = gr7;
+	gr0 = 2  with gr7=false;
+	f1cr = gr7;
+	delayed call vec_Mul2D2W4_AddVr;
+		ar1=ar0+gr0 with gr1=gr0;	
+		nul;
+		
 
 	delayed goto finish0;
 		pop ar6,gr6;

@@ -34,9 +34,10 @@ global _nmppsWeightedSum_Exe_32s64s:label;
   vr=gr4 with gr5>>=1;
 //  gr4=0h;
   nb1=gr4;  // 1x64 on Y Vport
-  ar5=ar6;ar2=ar0;gr2=ar1;ar4=ar4+2;
-delayed call vec_Mul2D2W2_AddVr;
+  ar5=ar6;ar2=ar0;gr2=ar1;
   sb=2;    // 2x32 on X Vport
+delayed call vec_Mul2D2W2_AddVr;
+  ar4=ar4+2;
   
   ar0=ar2;ar1=gr2;ar6=ar5+2;
 delayed call vec_Mul2D2W2_AddVr;

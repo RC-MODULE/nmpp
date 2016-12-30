@@ -44,10 +44,11 @@ global _nmppsAbs_4s:label;
 	ar0 = [--ar5];	// pSrcVec
 	ar6 = [--ar5];	// pDstVec
 	gr5 = [--ar5];	// nSize
-	wtw;
-						
+	
+	f1cr= 88888888h;      				
 	delayed call  vec_Abs with gr5>>=4;	// nSize in 64-bit longs
-		f1cr= 88888888h;      
+		wtw;	
+		nul;
 
 	pop ar6,gr6;
 	pop ar0,gr0		with gr5=gr7;

@@ -40,8 +40,9 @@ begin ".text_nmplv"
 global _nmppsConvert_16s64s:label;
 <_nmppsConvert_16s64s>
 .branch;
-	delayed goto JumpFromSigned;
-		nb1 = 00000000h;
+	nb1 = 00000000h;
+	goto JumpFromSigned;
+		
 
 /////////////////////////////////////////////////////////////////////////////////////////
 

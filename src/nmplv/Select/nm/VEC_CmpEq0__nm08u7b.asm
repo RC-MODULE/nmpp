@@ -172,52 +172,58 @@ global _nmppsCmpEq0_8u7b:label;
 <lab_BoolConvert8to1_1>
 	nb1 = gr5;						//64 cols.
 	ar4 = ar5;
-	rep 32 wfifo = [ar4++], ftw;
+	rep 32 wfifo = [ar4++], ftw,wtw;
 	f1cr = 0fefefefeh;
 	gr4--;
-	if =0 delayed goto lab_BoolConvert8to1_3 with gr4--;
-		WTW_REG(gr5);
+	if =0 goto lab_BoolConvert8to1_3 with gr4--;
+		//WTW_REG(gr5);
+		
 <lab_BoolConvert8to1_2>
-	rep 32 data = [ar0++gr0], ftw with vsum, activate data, vr;
-	WTW_REG(gr5);
+	rep 32 data = [ar0++gr0], ftw,wtw with vsum, activate data, vr;
+	//WTW_REG(gr5);
 	ar0-=510;	//return to next vector.
 .repeat 2;
-	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	rep 32 data = [ar0++gr0], ftw,wtw with vsum, activate data, afifo;
+	//WTW_REG(gr5);
 	ar0-=510;	//return to next vector.
 .endrepeat;
-	rep 32 wfifo = [ar4++], ftw;
+	rep 32 wfifo = [ar4++], ftw,wtw;
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG(gr5);
 	ar0-=510;	
 .repeat 3;
-	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	rep 32 data = [ar0++gr0], ftw,wtw with vsum, activate data, afifo;
+	//WTW_REG(gr5);
 	ar0-=510;	//return to next vector.
 .endrepeat;
 	ar4 = ar5;
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
 	ar0-=14;
-	rep 32 wfifo = [ar4++], ftw;
-	rep 32 [ar6++] = afifo;
-	if > delayed goto lab_BoolConvert8to1_2 with gr4--;
-		WTW_REG(gr5);
+	if >  goto lab_BoolConvert8to1_2 with gr4--;
+		rep 32 wfifo = [ar4++], ftw,wtw;
+		rep 32 [ar6++] = afifo;
+
+	//WTW_REG(gr5);
 <lab_BoolConvert8to1_3>
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, vr;
-	WTW_REG(gr5);
+	wtw;
+	//WTW_REG(gr5);
 	ar0-=510;
 .repeat 2;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	wtw;
+	//WTW_REG(gr5);
 	ar0-=510;
 .endrepeat;
 	rep 32 wfifo = [ar4++], ftw;
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	wtw;
+	//WTW_REG(gr5);
 	ar0-=510;	
 .repeat 3;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	wtw;
+	//WTW_REG(gr5);
 	ar0-=510;	//return to next vector.
 .endrepeat;
 	ar4 = ar1 with gr1;

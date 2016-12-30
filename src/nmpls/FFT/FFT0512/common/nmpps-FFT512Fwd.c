@@ -12,7 +12,7 @@ void  FFT_Fwd512(
 #include "fft2.h"
 
 
-	void nmppsFFT512Fwd_(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
+	void nmppsFFT512Fwd(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
 	{
 		FFT_Fwd512(src,dst,spec->buffer[0],spec->buffer[1],spec->shift[0]);
 	}
@@ -36,7 +36,7 @@ void  FFT_Fwd512(
 	}
 
 
-	int nmppsFFT512FwdInitAlloc_( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings)
+	int nmppsFFT512FwdInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst,  int settings)
 	{
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}

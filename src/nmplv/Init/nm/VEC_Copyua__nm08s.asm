@@ -327,9 +327,9 @@ global _nmppsCopyua_8s:label;
 	gr5 = [--ar5]	with gr0 <<=1;		// buffer size in 8-bit elemetns	:[0,8,16,24...]
 		
 	ar0+= gr0		with gr7=gr1<<29;
-
-	if =0 delayed goto CopyVector	with gr0  = gr6;
-		sb  = 02020202h				with gr5>>=3; 
+	sb  = 02020202h	with gr5>>=3; 
+	if =0 goto CopyVector	with gr0  = gr6;
+		
 
 	if >= delayed goto UseGlobalWeightData;
 		ar4 = GWSum2CharBuffers;

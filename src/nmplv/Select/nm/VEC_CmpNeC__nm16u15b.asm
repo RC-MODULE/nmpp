@@ -35,9 +35,9 @@ global _nmppsCmpNeC_16u:label;
     nb1 = 0FFFFFFFFh;
 	sb = 020002h;
 	rep 4 wfifo = [ar1++], ftw, wtw;
-
-    delayed call nmppsDataXorRamN_ActivateAfifoVr_;
-        f1cr = 0FFFEFFFEh;
+	f1cr = 0FFFEFFFEh;
+    call nmppsDataXorRamN_ActivateAfifoVr_;
+        
     
     pop ar6, gr6;
     pop ar5, gr5;

@@ -34,9 +34,9 @@ global _nmppsCmpEqC_16u15b:label;
 	sb = 020002h;
 	rep 4 wfifo = [ar1++], ftw, wtw;
     vr = [ar1++];
-
-    delayed call nmppsDataXorRamN_ActivateAfifoVr_;
-        f1cr = 0FFFEFFFEh;
+	f1cr = 0FFFEFFFEh;
+    call nmppsDataXorRamN_ActivateAfifoVr_;
+        
     
     pop ar6, gr6;
     pop ar5, gr5;

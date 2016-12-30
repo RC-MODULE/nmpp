@@ -64,10 +64,10 @@ global _nmppsConvert_64s16s:label;
 	ar6 = [--ar5] with gr1=gr3;		// pDstVec
 	gr5 = [--ar5] with gr2=gr3;		// nSize 
 	gr0 = gr3;
-	delayed call vec_ClipMul4D4W1_AddVr with gr5>>=2;
-		with gr7 = false;
-		vr  = gr7;
-	
+	with gr7 = false;
+	vr  = gr7;
+	call vec_ClipMul4D4W1_AddVr with gr5>>=2;
+		
 	pop ar6,gr6;
 	pop ar5,gr5;
 	pop ar4,gr4;

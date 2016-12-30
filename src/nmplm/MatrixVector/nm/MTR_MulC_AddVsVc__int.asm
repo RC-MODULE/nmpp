@@ -79,10 +79,11 @@ global _void._.8.8MTR_MulC_AddVsVc.1int.9._int._.0.9._int._.0.9._int._.0.9._int.
 	WTW_REG(gr7);
 	
 	<Next_MulString>
-	delayed call vec_MulVN_AddVN;
-		gr7 = [ar2++];
-		vr = gr7;	
-		with gr3--;
+	gr7 = [ar2++];
+	vr = gr7;
+	call vec_MulVN_AddVN;
+	
+	with gr3--;
 	if <>0 delayed goto Next_MulString;
 		ar1=ar3;
 		nul;

@@ -13,7 +13,7 @@ void  FFT_Inv512(
 			);
 			
 
-	void nmppsFFT512Inv_(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
+	void nmppsFFT512Inv(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
 	{
 		FFT_Inv512(src, dst, spec->buffer[0], spec->buffer[1], spec->shift[0], spec->shift[1] );
 	}
@@ -41,7 +41,7 @@ void  FFT_Inv512(
 
 
 
-	int nmppsFFT512InvInitAlloc_( NmppsFFTSpec** spec, const void* src, const void* dst, int settings)
+	int nmppsFFT512InvInitAlloc( NmppsFFTSpec** spec, const void* src, const void* dst, int settings)
 	{
 		int ret;
 		if (settings&NMPP_OPTIMIZE_DISABLE){}

@@ -38,8 +38,9 @@ begin ".text_nmplv"
 global _nmppsConvert_8s16s:label;
 <_nmppsConvert_8s16s>
 .branch;
- 	delayed goto JumpFromSigned;
-		nb1 = 80008000h;
+	nb1 = 80008000h;
+ 	goto JumpFromSigned;
+		
 
 /////////////////////////////////////////////////////////////////////////////////
 

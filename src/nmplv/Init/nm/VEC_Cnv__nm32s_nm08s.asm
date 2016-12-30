@@ -72,10 +72,10 @@ global _nmppsConvert_32s8s:label;
 	
 	ar4 = G_Matrix;
 	<LoadLocalMatrix>
-	
-	delayed call vec_Mul4D4W2_AddVr with gr5>>=3;
-		gr7= false;
-		vr = gr7;
+	gr7= false;
+	vr = gr7;
+	call vec_Mul4D4W2_AddVr with gr5>>=3;
+		
 		
 	pop ar6,gr6;
 	pop ar5,gr5;

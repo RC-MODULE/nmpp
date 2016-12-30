@@ -19,7 +19,6 @@
 //------------------------------------------------------------------------
 
 //#include "vArithm.h"
-import from macros;
 data ".data_nmpli_G"
 
 VResample3div2Banks_Ram:  long[1*12]=(
@@ -117,8 +116,7 @@ global _void._.8.8IMG_VResample3div2_RShift0.1short._.0.9._int.9._int.9._short._
 	rep 12 ram=[ar1++];
 	ar5 = gr1;
 
-	rep 8 wfifo= [ar0++gr0],ftw;
-	WTW_REG(gr4);
+	rep 8 wfifo= [ar0++gr0],ftw,wtw;
 	<NextColumn>
 		push ar0,gr0 with gr7 = gr5>>3; //Height in blocks of 8 rows
 		push ar6,gr6 with gr7--;
@@ -126,8 +124,7 @@ global _void._.8.8IMG_VResample3div2_RShift0.1short._.0.9._int.9._int.9._short._
 		rep 8 wfifo = [ar0++gr0],ftw;
 		<NextBlock8>
 			rep 12 with vsum ,ram,0;
-			WTW_REG(gr4);
-			rep 8 wfifo = [ar0++gr0],ftw;
+			rep 8 wfifo = [ar0++gr0],ftw,wtw;
 			rep 12 data= [ar5++] with vsum ,data,afifo;
 		if <>0 delayed goto NextBlock8 with gr7--;
 			ar5 = gr1;
@@ -137,9 +134,9 @@ global _void._.8.8IMG_VResample3div2_RShift0.1short._.0.9._int.9._int.9._short._
 		pop ar6,gr6;
 		pop ar0,gr0	with gr2--;
 		ar6+=2;
-		ar0+=2;
+		wtw;
 	if <>0 delayed goto NextColumn;
-		WTW_REG(gr4);
+		ar0+=2;
 		
 
 		

@@ -44,8 +44,9 @@ global _nmppsAbs164s:label;
 	gr5 = [--ar5];	// nSize
 						
 	f1crl= 00000000h;   
-	delayed call  vec_activate_data_xor_data with gr5;	// nSize in 64-bit longs
-		f1crh= 80000000h;   
+	f1crh= 80000000h;   
+	call  vec_activate_data_xor_data with gr5;	// nSize in 64-bit longs
+		
 
 	pop ar6,gr6;
 	pop ar0,gr0		with gr5=gr7;

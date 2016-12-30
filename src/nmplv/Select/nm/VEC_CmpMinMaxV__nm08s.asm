@@ -45,12 +45,13 @@ global _nmppsCmpMinMaxV_8s:label;
 	gr6 = [--ar5];			    // pDstMin
     ar6 = [--ar5];              // pDstMax
 	gr7 = [--ar5]with gr5=gr0;  // nSize
-	ar5=gr6 with gr6=gr0;
+	
 	
 	nb1 =80808080h with gr7>>=3;
-	wtw;
+	f1cr=80808080h;
 	delayed call vec_CompareMinMax;
-		f1cr=80808080h;
+		wtw;		
+		ar5=gr6 with gr6=gr0;	
 		
 	pop ar6,gr6;
 	pop ar5,gr5;

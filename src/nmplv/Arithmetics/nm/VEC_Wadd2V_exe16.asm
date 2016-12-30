@@ -43,9 +43,10 @@ global _nmppsWeightedSum_Exe_16s32s:label;
 	ar5=ar6; 
 	ar2=ar0; 
 	gr2=ar1; 
-	ar4=ar4+4;
+	
+	sb=20002h; // 4x16 on X Vport
 	delayed call vec_Mul2D2W4_AddVr;
-		sb=20002h; // 4x16 on X Vport
+		ar4=ar4+4;	
 
 	ar6=ar5+2; ar0=ar2; ar1=gr2;
 	delayed call vec_Mul2D2W4_AddVr;

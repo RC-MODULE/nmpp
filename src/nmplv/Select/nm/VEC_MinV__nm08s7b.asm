@@ -44,10 +44,11 @@ global _nmppsMinEvery_8s:label;
 	
 	
 	nb1 =80808080h with gr5>>=3;
-	wtw;
-	ar3 = ar1 with gr3 = gr1;
+	f1cr=80808080h;
 	delayed call vec_CompareMin;
-		f1cr=80808080h;
+		wtw;
+		ar3 = ar1 with gr3 = gr1;
+		
 		
 	pop ar6,gr6;
 	pop ar5,gr5;

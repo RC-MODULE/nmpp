@@ -38,9 +38,10 @@ global _nmppsWeightedSum_Exe_8s16s:label;
   nb1=gr4;
   ar5=ar6;
   ar2=ar0;gr2=ar1;
-  ar4=ar4+8;
-delayed call vec_Mul2D2W8_AddVr;
+  
   sb=2020202h; // 8x8 on X Vport
+delayed call vec_Mul2D2W8_AddVr;
+  ar4=ar4+8;
   ar6=ar5+2;
 
   ar0=ar2;ar1=gr2;

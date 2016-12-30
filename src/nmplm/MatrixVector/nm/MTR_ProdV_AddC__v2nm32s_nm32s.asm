@@ -73,11 +73,12 @@ global _void._.8.8nmppmMul_mv__AddC.1class._v2nm32s._.0.9._class._v2nm32s._.0.9.
     
     ar4 -= 8;
     gr0 = 4;
-    gr1 = gr0;
-    gr6 = gr0>>1;
     
+	sb=2;    // 2x32 
     delayed call vec_Mul2D2W2_AddVr;
-        sb=2;    // 2x32 
+		gr1 = gr0;
+		gr6 = gr0>>1;
+       
 
   
     pop ar6,gr6; 

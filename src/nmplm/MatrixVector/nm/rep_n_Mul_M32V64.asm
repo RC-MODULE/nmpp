@@ -44,10 +44,10 @@ macro MUL_MxxV64_REP(Ndata,Nwfifo)
 		rep Ndata  data  = [ar0++gr0],ftw with vsum ,data,0;
 	
 	<Next_Mul_MxxV64_repN>
-		rep Nwfifo wfifo = [ar4++gr4];
+	//WTW_REG(gr3);
+	if <>0 delayed skip gr5 with gr7--;	
+		rep Nwfifo wfifo = [ar4++gr4],wtw;
 		ar0 = ar1+gr1 with gr1+=gr2 noflags;
-	if <>0 delayed skip gr5 with gr7--;
-		WTW_REG(gr3);
 		rep Ndata   data = [ar0++gr0],ftw with vsum ,data,afifo;
 
 	<End_Mul_MxxV64_repN>
@@ -55,7 +55,11 @@ macro MUL_MxxV64_REP(Ndata,Nwfifo)
 		rep Ndata [ar6++gr6] = afifo;
 		gr5 = ar5;	// pop ar5,gr5
 		wtw;
-		nul;
+	nul;
+	nul;
+	nul;
+	nul;
+		
 end MUL_MxxV64_REP;
 
 
@@ -98,8 +102,8 @@ macro REP_N_NUL_MxxV64(Nwfifo)
 	<Next_Mul_MxxV64>
 				  with gr1 = gr2 ;
 		ar1 = ar0 with gr7--;
-		WTW_REG(gr3);
-			rep Nwfifo wfifo = [ar4++gr4];
+		//WTW_REG(gr3);
+		rep Nwfifo wfifo = [ar4++gr4],wtw;
 		if =0 delayed goto End_Mul_MxxV64_rep32 with gr7--;
 			rep 32 data = [ar0++gr0],ftw with vsum ,data,0;
 			push ar0,gr0;
@@ -108,8 +112,9 @@ macro REP_N_NUL_MxxV64(Nwfifo)
 			rep Nwfifo wfifo = [ar4++gr4];
 			ar0 = ar1+gr1 with gr1+=gr2 noflags;
 		if <>0 delayed goto ar3 with gr7--;
-			WTW_REG(gr3);
+			wtw;//WTW_REG(gr3);
 			rep 32 data = [ar0++gr0],ftw with vsum ,data,afifo;
+			nul;
 
 		<End_Mul_MxxV64_rep32>
 		pop ar0,gr0;
@@ -144,7 +149,8 @@ macro REP_N_NUL_MxxV64(Nwfifo)
 	gr1 = 2-16;
 	if =0 delayed return with gr7<<=4;
 		gr1+=gr7;
-		WTW_REG(gr3);		
+		wtw;//WTW_REG(gr3);		
+		nul;
 		
 	 
 	

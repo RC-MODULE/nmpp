@@ -97,13 +97,9 @@ global _nmppsDotProd_8s32s:label;
 	.branch;
 
 <NextMul08>
-	rep 1 data=[ar0++] with vsum, data,afifo;
-	rep 8 wfifo=[ar4++],ftw;
-	if > delayed goto NextMul08;
-		.wait;
-			nb1 = gr7 with gr6--;
-			wtw;
-		.branch;
+	if > delayed goto NextMul08 with gr6--;
+		rep 1 data=[ar0++] with vsum, data,afifo;
+		rep 8 wfifo=[ar4++],ftw,wtw;
 	
 	rep 1 [ar6] = afifo;
 

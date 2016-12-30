@@ -54,8 +54,9 @@ ar2=80000c00h;//!!  для отладки
    wtw;
    gr3=31 with gr5=gr5>>2;  // W в четвёрках пикселей
    ar3=CC with gr3=gr5 and gr3;  // new rep count
-   if <>0 delayed goto with_remainder with gr3--;
    f1cr=80008000h with gr4-=gr1;
+   if <>0 goto with_remainder with gr3--;
+   
 .branch;
    ar6=gr2 with gr2--;
 <AA> rep 32 ram=[ar0++];

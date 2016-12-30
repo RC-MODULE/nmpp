@@ -35,11 +35,11 @@ int main()
 	nmppsRandUniform_64s((nm64s*)L0,SizeL0);
 	nm64s c=0xCCCCCCCCAAAAAAAAl;
 	nmppsSet_64s((nm64s*)G0,c,(SizeG0));
-	for(int Size=0;Size<=charTestSize;size+=8*NMPP_MIN_REP)
+	for(int charSize=0;charSize<=charTestSize;charSize+=8*NMPP_MIN_REP)
 	{
 		int Shift=nmppcRandMinMax(0,7);
-		nmppsRShiftC_8u((nm8u*)L0,Shift,(nm8u*)G0,Size);	
-		nmppsCrcAcc_32u((nm32u*)G0,MIN(char2INT(Size)+128,LONG2INT(SizeG0)),&crc);
+		nmppsRShiftC_8u((nm8u*)L0,Shift,(nm8u*)G0,charSize);	
+		nmppsCrcAcc_32u((nm32u*)G0,MIN(char2INT(charSize)+128,LONG2INT(SizeG0)),&crc);
 	}
 	//! \fn void nmppsRShiftC_8u(nm8u*,int,nm8u*,int)
 

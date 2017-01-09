@@ -30,3 +30,6 @@ github: clean chm
 	git commit -m "documentation-for-gh-pages" &&\
 	git remote add origin https://github.com/RC-MODULE/nmpp.git  &&\
 	git push -u -f origin gh-pages	
+
+ipp:
+	doxygen DoxyIPP

@@ -8,6 +8,16 @@ require('LuaXML')
 
 -- Doxygen function xml-parser 
 -- http://stackoverflow.com/questions/17707777/luaxml-parse-the-xml-with-multiple-tags-with-the-same-name
+
+function exists(func,list)
+	for i=1,#list do
+		if func==list[i] then
+			return true
+		end
+	end
+	return false
+end
+
 function scan_doxy_xml(xml_file)
 	print('[scanning]: '..xml_file)
 	local funcs = {}
@@ -28,9 +38,12 @@ function scan_doxy_xml(xml_file)
 						local memberdef=sectiondef[i]
 						if memberdef.kind=="function" then
 							found= memberdef:find("name")[1]
-							--print(found)
+							--if exists(found,funcs) then
+							--else
+								--print(found)
 							funcs[findex]=found
 							findex = findex+1
+							--end
 						end
 					end
 				end 
@@ -63,7 +76,9 @@ function scan_doxy_dir(dir)
 			
 			local funcs = scan_doxy_xml(dir..'/'..fxml)
 			for i=1,#funcs do
-				all_funcs[#all_funcs+1] = funcs[i]
+				if not exists(funcs[i],all_funcs) then
+					all_funcs[#all_funcs+1] = funcs[i]
+				end
 			end
 		end
 	end

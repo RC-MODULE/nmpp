@@ -33,3 +33,8 @@ github: clean chm
 
 ipp:
 	doxygen DoxyIPP
+	
+ipp-nmpp:
+	lua ipp-nmpp.lua
+	xsltproc -o ipp-nmpp.html ipp-nmpp.xsl ipp-nmpp.xml
+	

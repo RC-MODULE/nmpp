@@ -17,14 +17,21 @@ function exists(func,list)
 	end
 	return false
 end
-
-function scan_doxy_xml(xml_file)
+function str2xml(str)
+	local text = string.gsub(str,'<','&lt;')
+	text = string.gsub(text,'>','&gt;')
+	text = string.gsub(text,'"','&quot;')
+	text = string.gsub(text,'&','&amp;')
+	return text
+end	
+									
+function scan_doxy_xml(xml_file, names,breifs)
 	print('[scanning]: '..xml_file)
-	local funcs = {}
+	-- local funcs = {}
 	-- load XML data from file xml_file into local table xfile
 	local xfile = xml.load(xml_file)
 	-- search for substatement having the tag "sectiondef"
-	local findex=1
+	-- local findex=1
 	local compounddef=xfile:find("compounddef")
 	if    compounddef then
 		for c=1,#compounddef do
@@ -37,20 +44,22 @@ function scan_doxy_xml(xml_file)
 					if    element[0]=='memberdef' then
 						local memberdef=sectiondef[i]
 						if memberdef.kind=="function" then
-							found= memberdef:find("name")[1]
-							--if exists(found,funcs) then
-							--else
-								--print(found)
-							funcs[findex]=found
-							findex = findex+1
-							--end
+							name = memberdef:find("name")[1]
+							if not exists(name,names) then
+								names [#names+1]=str2xml(name)
+								breif = memberdef:find("briefdescription")[1]
+								if breif then 
+									breifs[#breifs+1]=str2xml(breif[1])
+								else 
+									breifs[#breifs+1]=''
+								end
+							end
 						end
 					end
 				end 
 			end 
 		end
 	end
-	return funcs
 end
 
 
@@ -68,18 +77,11 @@ function scandir(directory)
 end
 
 
-function scan_doxy_dir(dir)
+function scan_doxy_dir(dir,names,breifs)
 	local dirlist = scandir(dir)
-	local all_funcs={}
 	for i,fxml in pairs(dirlist) do
 		if  fxml:find(".xml") then
-			
-			local funcs = scan_doxy_xml(dir..'/'..fxml)
-			for i=1,#funcs do
-				if not exists(funcs[i],all_funcs) then
-					all_funcs[#all_funcs+1] = funcs[i]
-				end
-			end
+			scan_doxy_xml(dir..'/'..fxml,names,breifs)
 		end
 	end
 	return all_funcs
@@ -91,35 +93,38 @@ function print_tbl(tbl)
 	end
 end 
 
-function doxy_summary(xml_dir,name)
-	funcs=	scan_doxy_dir(xml_dir)
-	print_tbl(funcs)	
+
+function save_xml(var,xml_name,xsl_name)
+	if not var then return end
+	if not xml_name or #xml_name==0 then return end
+	local out = assert(io.open(xml_name, "wb"))
+	out:write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
+	out:write('<?xml-stylesheet type="text/xsl" href="'..xsl_name..'"?>\n')
+	out:write("<!-- file \"",xml_name, "\", generated  by LuaXML -->\n\n")
+    out:write(xml.str(var))
+    assert(out:close())
+end
+
+
+function doxy_summary(xml_dir,xml_root)
+	local names={}
+	local breifs={}
+	funcs=	scan_doxy_dir(xml_dir,names,breifs)
+	--print_tbl(breifs)	
 
 	xnmpp = xml.new('library')
-	
-	for i=1,#funcs do
+	for i=1,#names do
 		x=xnmpp:append('func')
-		x.name=funcs[i]
-		x.test="ok"
+		x.name=names[i]
+		x.breif=breifs[i]
+		x.test="?"
 	end
-	xml.save(xnmpp,name..'.xml')
-
-
-	file = io.open(name..'.xml', "rt") -- r read mode and b binary mode
-	content = file:read("*a") -- *a or *all reads the whole file
-	file:close()
-
-	file = io.open(name..'.xml', "wt") -- r read mode and b binary mode
-	file:write('<?xml-stylesheet type="text/xsl" href="'..name..'.xsl"?>')
-	file:write("\n")
-	file:write(content) -- *a or *all reads the whole file
-	file:close()
+	--xml.save(xnmpp,xml_root..'.xml')
+	save_xml(xnmpp,xml_root..'.xml',xml_root..'.xsl')
 end
+
 
 doxy_summary("d:/GIT/nmpp/make/doxy/xml","nmpp");
 doxy_summary("d:/GIT/nmpp/make/doxy/xml_ipp","ipp");
---scan_doxy_xml('xml_ipp/ipp_8h.xml')
-
-
-
+	
 print("---\nREADY.")

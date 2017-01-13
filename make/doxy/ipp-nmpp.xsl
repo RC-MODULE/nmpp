@@ -3,13 +3,18 @@
 	<xsl:template match="/library">
 		<table border="1">
 		  <tr bgcolor="#CCCCCC">
-			<td align="center"><strong>id</strong></td>
+			<td align="center"><strong>N</strong></td>
 			<td align="center"><strong>ipp-function</strong></td>
 			<td align="center"><strong>nmc-analog</strong></td>
 		  </tr>
 		  <!-- выбираем функции-->
 		  <xsl:apply-templates select="func">
-		  <xsl:sort select="@analog" order="ascending"/>
+			<!-- сортируем пустые функции-аналоги в конец-->
+			<xsl:sort select="@analog = false()"/>
+			<!-- сортируем функции-аналоги-->
+			<xsl:sort select="@analog" order="ascending"/>
+			<!-- сортируем функции-ipp-->
+			<xsl:sort select="@name" order="ascending"/>
 		  </xsl:apply-templates>
 		</table>
 	</xsl:template>
@@ -21,5 +26,4 @@
 		<td><xsl:value-of select="@analog"/></td>
 	  </tr>
 	</xsl:template>
-
 </xsl:stylesheet>

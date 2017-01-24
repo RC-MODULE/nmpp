@@ -47,7 +47,17 @@ for i=1,#ipp do
 	end
 end
 
-xml.save(xipp,'ipp-nmpp.xml')
+function save_xml(var,xml_name,xsl_name)
+	if not var then return end
+	if not xml_name or #xml_name==0 then return end
+	local out = assert(io.open(xml_name, "wb"))
+	out:write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
+	out:write('<?xml-stylesheet type="text/xsl" href="'..xsl_name..'"?>\n')
+	out:write("<!-- file \"",xml_name, "\", generated  by LuaXML -->\n\n")
+    out:write(xml.str(var))
+    assert(out:close())
+end
+save_xml(xipp,'ipp-nmpp.xml','ipp-nmpp.xsl')
 --print ( xml.eval('<func name="SCL_DivC" test="ok" />'))
 --d=xml.eval('<func name="SCL_DivC" test="ok" />')
 -- print(nmpp[1].test)

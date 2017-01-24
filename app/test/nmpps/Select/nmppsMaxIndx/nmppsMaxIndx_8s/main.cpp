@@ -35,11 +35,9 @@ int main()
 
 	for(int fill=0; fill<1; fill++){
 		nmppsSet_8s((nm8s*)L0,fill,maxSize);
-		for(int val=-2; val<0; val++){
+		for(int val=-2; val<2; val++){
 			for(int pos=0; pos<58; pos++){
 				nmppsPut_8s((nm8s*)L0,pos,val);
-			}
-			{
 				//for(int size=64; size<128; size+=64){
 				for(int size=256; size<1024; size+=256){ //NMPP_MIN_SIZE =32
 					nmppsMaxIndx_8s((nm8s*)L0,size,&nIndex, &nMax,L1,G1,1);

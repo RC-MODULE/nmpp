@@ -212,22 +212,22 @@ extern struct NmppsMallocSpec nmppsMallocSpec;
     \defgroup nmppsMalloc nmppsMalloc
     \ingroup vSupport
     \brief
-        \ru Р Р°СЃРїСЂРµРґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РґР»СЏ РІРµРєС‚РѕСЂРѕРІ Р±РёР±Р»РёРѕС‚РµРєРё. 
+        \ru Распределение памяти для векторов библиотеки. 
         \en Memory allocation for library vectors. 
 		\~
     \param nSize 
-        \ru Р§РёСЃР»Рѕ СЌР»РµРјРµРЅС‚РѕРІ РІ РІРµРєС‚РѕСЂРµ. 
+        \ru Число элементов в векторе. 
         \en Number of elements in vec. 
 		\~
     \param hint 
-        \ru РќРѕРјРµСЂ Р±Р°РЅРєР° РїР°РјСЏС‚Рё. РњРѕР¶РµС‚ РїСЂРёРЅРёРјР°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ 
+        \ru Номер банка памяти. Может принимать значения 
                     MEM_LOCAL, MEM_GLOBAL. 
         \en Number of memory bank. Admissible values for memory bank
                     are MEM_LOCAL, MEM_GLOBAL. 
 		\~
     \note 
-		\ru РџР°РјСЏС‚СЊ, СЂР°СЃРїСЂРµРґРµР»РµРЅРЅР°СЏ СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёР№ nmppsMalloc_ РґРѕР»Р¶РЅР°
-              РѕСЃРІРѕР±РѕР¶РґР°С‚СЊСЃСЏ СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёРё nmppsFree(). 
+		\ru Память, распределенная с помощью функций nmppsMalloc_ должна
+              освобождаться с помощью функции nmppsFree(). 
         \en Memory allocated with function nmppsMalloc_ should be 
               freed with function nmppsFree()
 		\~
@@ -257,12 +257,12 @@ __INLINE__ void nmppsMalloc_64u(nm64u** pptr, int nSize, int hint) { nmppsMalloc
     \defgroup nmppsFree nmppsFree
     \ingroup vSupport
     \brief
-        \ru РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё РґР»СЏ РІРµРєС‚РѕСЂРѕРІ. 
+        \ru Освобождение памяти для векторов. 
         \en Memory deallocation for vectors. 
 		\~
     \note 
-		  \ru Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РґРѕР»Р¶РЅР° РІС‹Р·С‹РІР°С‚СЊСЃСЏ С‚РѕР»СЊРєРѕ РґР»СЏ
-              РІРµРєС‚РѕСЂРѕРІ, СЂР°СЃРїСЂРµРґРµР»РµРЅРЅС‹С… СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёР№ 
+		  \ru Данная функция должна вызываться только для
+              векторов, распределенных с помощью функций 
               nmppsMalloc_.
           \en This function should be called only for matrixis
               allocated by nmppsMalloc_ functions. 

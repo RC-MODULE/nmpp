@@ -3,7 +3,7 @@
 	<xsl:template match="/library">
 		<table border="1">
 		  <tr bgcolor="#CCCCCC">
-			<td align="center"><strong>N</strong></td>
+			<!--<td align="center"><strong>N</strong></td>-->
 			<td align="center"><strong>ipp-function</strong></td>
 			<td align="center"><strong>nmc-analog</strong></td>
 		  </tr>
@@ -21,7 +21,7 @@
 
 	<xsl:template match="func">
 	  <tr bgcolor="#F5F5F5">
-		<td><xsl:value-of select="position()"/></td>
+		<!--<td><xsl:value-of select="position()"/></td>-->
 		<td><xsl:value-of select="@name"/></td>
 		<td><xsl:value-of select="@analog"/></td>
 	  </tr>

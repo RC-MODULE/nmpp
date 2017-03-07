@@ -56,7 +56,7 @@ void nmchar_memcpy (uint8ptr dst, uint8ptr src, unsigned int  len){
 	#endif
 }
 
-__INLINE__ void nmchar_memset (uint8ptr dst, int setvalue, unsigned int  len){
+void nmchar_memset (uint8ptr dst, int setvalue, unsigned int  len){
 	
 	
 	#ifdef __NM__

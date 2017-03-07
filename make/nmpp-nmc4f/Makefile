@@ -124,6 +124,7 @@ endif
 
 
 SRC_DIRS = $(ROOT)/src/nmpls/Metric
+SRC_DIRS+= $(ROOT)/src/nmpls/FFT/FFT0256f
 
 # regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)
 ALL_CPP =$(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))

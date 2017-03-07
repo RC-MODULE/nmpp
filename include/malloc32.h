@@ -65,6 +65,7 @@ nm16s* nmppsMalloc_16s(unsigned sizeInt16);
 nm16u* nmppsMalloc_16u(unsigned sizeInt16);
 nm32s* nmppsMalloc_32s(unsigned sizeInt32);
 nm32sc* nmppsMalloc_32sc(unsigned sizeCmplxInt32);
+nm32fc* nmppsMalloc_32fc(unsigned sizeCmplxFloat);
 nm32u* nmppsMalloc_32u(unsigned sizeInt32);
 nm64s* nmppsMalloc_64s(unsigned sizeInt64);
 nm64u* nmppsMalloc_64u(unsigned sizeInt64);

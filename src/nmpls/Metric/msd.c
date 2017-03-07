@@ -1,5 +1,5 @@
 #include "nmtype.h"
-#include <math.h>
+//#include <math.h>
 float nmppsMSD_32sc(nm32sc* x0,nm32sc* x1, int size)
 {
 	int i;
@@ -14,6 +14,7 @@ float nmppsMSD_32sc(nm32sc* x0,nm32sc* x1, int size)
 	}
 	msdF=msd64;
 	msdF/=size;
-	return sqrt(msdF);
+	//return sqrt(msdF);
+	return (msdF);
 }
 

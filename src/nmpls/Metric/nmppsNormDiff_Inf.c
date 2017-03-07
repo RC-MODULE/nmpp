@@ -1,4 +1,3 @@
-#include <math.h>
 #include "nmtype.h"
 void nmppsNormDiff_Inf_32s(const nm32s* pSrc1, const nm32s* pSrc2, int len, float* pNorm)
 {

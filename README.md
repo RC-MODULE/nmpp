@@ -1,141 +1,106 @@
-##[NMPP](https://github.com/RC-MODULE/nmpp)
+#[NMPP](https://github.com/RC-MODULE/nmpp)
 
-###DOCUMENTATION:  
+##Документация:  
   HTML: http://rc-module.github.io/nmpp/  
-  CHM: http://rc-module.github.io/nmpp/nmpp.chm  
-  PDF: http://rc-module.github.io/nmpp/nmpp.pdf  
+  CHM:  http://rc-module.github.io/nmpp/nmpp.chm  
+  PDF:  http://rc-module.github.io/nmpp/nmpp.pdf  
 
-###DESCRIPTION:  
-  NMPP is "Neuro Matrix Performance Primitives" C/C++ library 
-  which consists of high-performance scalar, vector-matrix  , signal and 
-  image processing functions for Neuro Matrix architecture. 
-  NMPP-library supports nmc3-core processor family : NM6405,NM6406, and SOCs.  
+##Назначение  
+  NMPP (Neuro Matrix Performance Primitives) - C/C++ библиотека примитивов для архитектуры NeuroMatrix.
+  Содержит оптимизированные функции для работы со скалярами, векторами, матрицами, сигналами и изображениями.
+  Поддреживает как целочесленную фарифметику с 1,2,4,8,16,32,64-разрядрыми даннами процессоров семейства NMC3,
+  так и фраиметику с плавающей точккой одинароной и двойной точности для процессора NMC4. 
 
-    Current version : 1.2 (2016.09.15)
-  
-###COMPONENTS:  
-  NMPP library contains next components:  
-  - nmvcore- basic low-level vector-cooprocessor functions  
-  - nmppc  - scalar functions  
-  - nmppv  - vector functions  
-  - nmppm  - matrix functions  
-  - nmpps  - signal processing functions  
-  - nmppi  - image  processing functions  
+##Компоненты библиотеки  
+  NMPP библиотека включает в себя следующие компоненты:  
+  - nmvcore- универсальные низкоуровненвые векторные функции с регистровым интерфейсом передачи параметров
+  - nmppc  - скалярные функции
+  - nmppv  - функции работы с веторами
+  - nmppm  - функции работы с матрицами
+  - nmpps  - функции обработки сигналов
+  - nmppi  - функции обработки изображений 
 
   
-###LIBARY CONTENT :  
-- Main **NMC3** librires:  
+##Состав бинарных библиотек:  
+- Целевые **NMC3/NMC4** библиотеки:  
   /lib/nmpp_nmc3.lib   (Release)  
   /lib/nmpp_nmc3d.lib  (Debug)  
+  /lib/nmpp_nmc4.lib   (Release)  
+  /lib/nmpp_nmc4d.lib  (Debug)  
  
-- x86 PC emulator libraries:   
-  /lib/libnmpp_gcc.a  - compiled by GNU GCC under Windows  
-  /lib/nmpp_vs80.lib  - (Release) compiled by Microsoft Visual Studio 8.0  
-  /lib/nmpp_vs80d.lib - (Debug)  
-  /lib/nmpp_vs13.lib  - (Release) compiled by Microsoft Visual Studio 13.0  
-  /lib/nmpp_vs13d.lib - (Debug)  
+- **x86/x64** эмуляторы nmc-библиотек на ПК:   
+  /lib/libnmpp_gcc.a - compiled by GNU GCC 
+  /lib/nmpp_x86.lib  - (Release) compiled by Microsoft Visual Studio
+  /lib/nmpp_x86d.lib - (Debug)  
+  /lib/nmpp_x64.lib  - (Release) 
+  /lib/nmpp_x64d.lib - (Debug)  
 
-
+- **ARM** библиотка вызов NMC функций со стороны ARM-ядра средствами rpc (для систем на кристалле с ARM ядром):  
+  /lib/libnmpp-arm-rpc.a
   
-###BUILDING LIBRARY:  
-  Run ```make``` command to build all (nmc3, gcc , vs80 and vs13 ) libraries from *./make* folder.  Or run ```make``` from appropriate sub-folder.
 
+
+## Установка NMPP 
+###Системные требования
+*  Сборка компонент (статические lib-библиотеки, тесты, примеры) построена на сборочных скриптах Makefile. Для корректного запуска сборочных Makefile-ов  под Windows требуется установленный GNU **make**.
+Для ОС Windows рекомедуется версия make 3.81  (3.82- проявляет себя нестабильно).
+
+* Для обспечения полной функциональности Makefile-ов (тестов/примеров/генерации проектов и .т.д.), а также кросплафторменной работы Makefile как в ОС Windows, так и в Linux  используюся UNIX-утилиты (rm,cp,which,...).  В среде ОС Windows используются их аналоги [GnuWin](http://gnuwin32.sourceforge.net/) и требуется их установка. 
+Сокращенный необходмый набор всех необоходимых GnuWin утилит включая: make,cmake,gzip и пр. можно установить с помощью online-установщика [WnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite)
+* NeuroMatrix SDK  
+  Для сборки библиоетк под NeuroMatrix требуеся NMSDK вер. 3.07
+
+* x86/x64 SDK   
+  Для эмуляции NeuroMatrix функций из состава NMPP под x86/x64 возможна сборка библиотек с помощью   Gnu GCC.  http://www.mingw.org/  или Microsoft Visual Studio, и в частности версиями Express:  
+[Visual Studio 2005 Express](http://apdubey.blogspot.ru/2009/04/microsoft-visual-studio-2005-express.html)  
+ [Visual Studio 2013 Express](https://www.microsoft.com/en-US/download/details.aspx?id=44914)  
+
+
+ 
+
+###Сборка NeorMatrix библиотек  
+  Сборка осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp_archictecture*. 
+  
 ```
 nmpp> cd make/nmpp-nmc3
-nmpp/make> make 
-nmpp/make> make DEBUG=y
+nmpp/make/nmpp-nmc3> make 
+nmpp/make/nmpp-nmc3> make DEBUG=y
 ```
+###Сборка x86/x64 библиотек  
+  Генерация самих проектов оществляется средствами **cmake**.  
+ Сконфигурировать проект можно командой   
+```\nmpp\make\nmpp-x86-x64> make vs8 ```  
+```\nmpp\make\nmpp-x86-x64> make vs14 ```  
+где с помощью ключей  vs8 vs12 vs12x64 vs12x64 unix mingw 
+указавается требуемый компилятор и его версию     
+###Настройка переменных окружения 
+Для удобства подключения библиотек к собственным проектам рекомендуется использовать переменную окружения **NMPP**. Создать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  ```make install``` из папки *./make*.
 
+###Зависмости
+Для сборки примеров и тестов могут потребоваться некоторые дополнительные средства разработки, визуализации, системные и прикладыне библиотеки. За установку комплекта ПО зависимостей отвечает  online-установщик [dev-kit](https://github.com/RC-MODULE/dev-kit)
+Необходимые зависмости для данного проекта NMPP можно скачать и уставновить локально в папке */deps* командой:
+* Вариант A:
 
-###USAGE:  
-  Use **NMPP** environment variable in your own projects to specify a location of library. 
-  You can set **NMPP** variable manually to the path were it has been installed or by **make install** command from *./make* folder.
-
-
-
-###REQUIREMENTS  
-
-#### GENERAL REQUIREMENTS: 
-GnuWin32 utils installed. You need **make** ver 3.81 and other utilities from GnuWin32 package  to process 
-     Makefile-s.  
-	 
-A. **Lite Gnuwin32 installation (Only utils needed for RC Module project building would be installed). It is fast installation, recommended.**  
-	 Download [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite/archive/master.zip) installer from https://github.com/RC-MODULE/gnuwin32-lite.  
-	 After unziping open a command window, switch to the GnuWin32-lite directory and run download.bat.  
-	 If you are behind proxy define your proxy settings in .\wget.ini or add environment variables **http_proxy** and **https_proxy**  to your system.
-	 If download.bat completes successfully you will be able to run the installer with path where to install gnuwin32. 
-	 For example: 
 ```bat
-C:\gnuwin32-lite-master>set  http_proxy=http://username:password@proxy:80/
-C:\gnuwin32-lite-master>set https_proxy=http://username:password@proxy:80/
-C:\gnuwin32-lite-master>download 
-C:\gnuwin32-lite-master>install C:\gnuwin32 
+ nmpp/deps> make download
+ nmpp/deps> make install
+```
+>в случае proxy-авторизации необходимо установить переменные:
+>```
+nmpp/deps>set  http_proxy=http://username:password@proxy:port/
+nmpp/deps>set https_proxy=http://username:password@proxy:port/
 ```
 
-B. **Full GnuWin32 Installation (All available utils would be installed [600MB])**  
-	 Download and install setup [GetGnuWin32-0.6.3.exe](http://downloads.sourceforge.net/project/getgnuwin32/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe) from https://sourceforge.net/projects/getgnuwin32/?source=typ_redirect.  
-	 After installation open a command window, switch to the GetGnuWin32 directory and run download.bat.  
-	 If you are behind proxy define your proxy settings into .\bin\wget.ini or add environment variables **http_proxy** and **https_proxy**  to your system.
-	 If download.bat completes successfully you will be able to run the installer. 
-For example: 
-```bat
-C:\Users\Internet\Desktop>set  http_proxy=http://username:password@proxy:80/
-C:\Users\Internet\Desktop>set https_proxy=http://username:password@proxy:80/
+* Вариант B:  
+либо  ```install.bat ``` c возможностью диалоговой proxy аутентификацией
 
-C:\Users\Internet\Desktop>cd getgnuwin32 
-C:\Users\Internet\Desktop\GetGnuWin32>download 
-C:\Users\Internet\Desktop\GetGnuWin32>install C:\gnuwin32 
-```
-
-Add installed GnuWin32\bin folder to the %PATH% environmnet variable.  
-
->  Don't use Gnu **make** ver-3.82 and Microsoft **nmake** - they don't  process provided Makefiles correctly
-
-#### MAIN REQUIREMENTS TO BUILD NMC-LIBRARY:  
-  Installed NeuroMatrix SDK  
-  
-#### ADDITIONAL SDK REQUIREMENTS FOR HOST-EMULATION LIBRARIES AND EXAMPLES:    
-  3. Board SDK with installed drivers: (necessary  to build and run examples)
-    - mc5103sdk (MC5103 Board support SDK)
-    - mc7601sdk (MC7601 Board support SDK)
-    - mb7707sdk (MB77.07 Board support SDK) + WinPCap  
-  4. VSHELL - graphic shell
-  5. Installed Visual Studio 8  [Visual Studio 2005 Express](http://apdubey.blogspot.ru/2009/04/microsoft-visual-studio-2005-express.html)
-  6. Installed Visual Studio 13 [Visual Studio 2013 Express](https://www.microsoft.com/en-US/download/details.aspx?id=44914)  
-  7. Installed Gnu GCC.  http://www.mingw.org/ 
+> в состав зависимостей также включено системное ПО плат и само NMSDK. Установка этих компонент не модифицирует системных переменных окружения, не влияет на возможно ранее установленное ПО  и служит в целях совместимости и соотвествия версий ПО. 
 
 
-<!--	
-####DOWNLOADING DEPENDENCIES
-You can download and locally install all latest actual components (board SDKs, vshell, GnuWin32 utils) into */deps* folder by two commands from */deps* folder:
-```bat
-make download 
-make install
-```
-
-It is recommended to download dependencies to prevent version mismatch between different components. It guaranties  successful compilation and running of examples.
-No any variables would be created or modified in global system environment, so your NMPP installation would be fully standalone (except installed board drivers)
-
-> FOR WINDOWS XP: PowerShell 2.0 is required to provide Internet downloading and unzipping by **make download** and **make install** commands . 
-It is requried  PowerShell 2.0 or  installed
-to provide Internet downloading and unpacking.
-
-  To install Windows Powershell 2.0 on an XP machine, you must have Windows XP Service Pack 3 installed. Powershell is included in the Windows Management Framework which you can download at https://support.microsoft.com/ru-ru/kb/968929 .  
-  Windows XP (KB968930) https://www.microsoft.com/ru-ru/download/details.aspx?id=16818
-  [Microsoft .NET Framework 2.0 Service Pack 1 (x86)](https://www.microsoft.com/ru-RU/download/details.aspx?id=16614) may be also required.
-  
-  Installed Gnu GCC is recommended for header dependency parcing and build the gcc-version of library build of gcc-examples http://www.mingw.org/
-  
-    -->
-
-
-###WARNING:   
- - If environment variables like **NEURO, MC5103 , MB7707** defined using **?=** in **global.mk** then system value would be used (if exists), otherwise (using **=**) they will be overrided by local pathes!  
- By switching between **?=** and **=** you can select what SDK installation to use (system or local).
+Настройка переменных, указывающих пути к зависимостям осуществляется в файле */global.mk* корневой директории NMPP. С помощью контструкций присвоения **?=** and **=y** определяется будет ли использоваться системный путь или переназначится на локальный.
  
- - GCC-version build will be skipped if **CROSS_COMPILE** environment variable is not defined in your system.  Where **CROSS_COMPILE** variable should contain prefix of your GCC cross-compiler.  
- - VS80-version build will be skipped if **VS80COMNTOOLS**  environment variable is not defined in your system.   
- - VS13-version build will be skipped if **VS120COMNTOOLS** environment variable is not defined in your system.   
+
+  
   
 ###EXAMPLES:  
 Each library component contains several examples in *./app/examples*.
@@ -286,7 +251,7 @@ L---src                           - Sources
 ```
 
 
-###FEEDBACK:  
-Please send comments, suggestions, and bug reports to Sergey Mushkaev <mushkaev@module.ru>
+###Обратная связь:  
+Предложения , вопросы , замечания  можно направлять на  Sergey Mushkaev <mushkaev@module.ru>
 
 

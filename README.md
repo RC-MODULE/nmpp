@@ -1,17 +1,17 @@
 #[NMPP](https://github.com/RC-MODULE/nmpp)
 
-##Документация:  
+#Документация:  
   HTML: http://rc-module.github.io/nmpp/  
   CHM:  http://rc-module.github.io/nmpp/nmpp.chm  
   PDF:  http://rc-module.github.io/nmpp/nmpp.pdf  
 
-##Назначение  
+#Назначение  
   NMPP (Neuro Matrix Performance Primitives) - C/C++ библиотека примитивов для архитектуры NeuroMatrix.
   Содержит оптимизированные функции для работы со скалярами, векторами, матрицами, сигналами и изображениями.
   Поддреживает как целочесленную фарифметику с 1,2,4,8,16,32,64-разрядрыми даннами процессоров семейства NMC3,
   так и фраиметику с плавающей точккой одинароной и двойной точности для процессора NMC4. 
 
-##Компоненты библиотеки  
+#Компоненты библиотеки  
   NMPP библиотека включает в себя следующие компоненты:  
   - nmvcore- универсальные низкоуровненвые векторные функции с регистровым интерфейсом передачи параметров
   - nmppc  - скалярные функции
@@ -21,7 +21,7 @@
   - nmppi  - функции обработки изображений 
 
   
-##Состав бинарных библиотек:  
+#Состав бинарных библиотек:  
 - Целевые **NMC3/NMC4** библиотеки:  
   /lib/nmpp_nmc3.lib   (Release)  
   /lib/nmpp_nmc3d.lib  (Debug)  
@@ -40,8 +40,8 @@
   
 
 
-## Установка NMPP 
-###Системные требования
+# Установка NMPP 
+##Системные требования
 *  Сборка компонент (статические lib-библиотеки, тесты, примеры) построена на сборочных скриптах Makefile. Для корректного запуска сборочных Makefile-ов  под Windows требуется установленный GNU **make**.
 Для ОС Windows рекомедуется версия make 3.81  (3.82- проявляет себя нестабильно).
 
@@ -58,7 +58,7 @@
 
  
 
-###Сборка NeorMatrix библиотек  
+##Сборка NeorMatrix библиотек  
   Сборка осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp_archictecture*. 
   
 ```
@@ -66,17 +66,17 @@ nmpp> cd make/nmpp-nmc3
 nmpp/make/nmpp-nmc3> make 
 nmpp/make/nmpp-nmc3> make DEBUG=y
 ```
-###Сборка x86/x64 библиотек  
+##Сборка x86/x64 библиотек  
   Генерация самих проектов оществляется средствами **cmake**.  
  Сконфигурировать проект можно командой   
 ```\nmpp\make\nmpp-x86-x64> make vs8 ```  
 ```\nmpp\make\nmpp-x86-x64> make vs14 ```  
 где с помощью ключей  vs8 vs12 vs12x64 vs12x64 unix mingw 
 указавается требуемый компилятор и его версию     
-###Настройка переменных окружения 
+##Настройка переменных окружения 
 Для удобства подключения библиотек к собственным проектам рекомендуется использовать переменную окружения **NMPP**. Создать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  ```make install``` из папки *./make*.
 
-###Зависмости
+##Зависмости
 Для сборки примеров и тестов могут потребоваться некоторые дополнительные средства разработки, визуализации, системные и прикладыне библиотеки. За установку комплекта ПО зависимостей отвечает  online-установщик [dev-kit](https://github.com/RC-MODULE/dev-kit)
 Необходимые зависмости для данного проекта NMPP можно скачать и уставновить локально в папке */deps* командой:
 * Вариант A:
@@ -102,7 +102,7 @@ nmpp/deps>set https_proxy=http://username:password@proxy:port/
 
   
   
-###EXAMPLES:  
+##EXAMPLES:  
 Each library component contains several examples in *./app/examples*.
 Each example can be built for different targets.  
 
@@ -127,7 +127,7 @@ Action of **global.mk** may be overriden by **local.mk** if exists.
   Building and running of examples for some targets may be skipped if appropriate environment    variable (**VS80COMNTOOLS**,**VS120COMNTOOLS**,**CROSS_COMPILE**)
   containing path to according SDK  is not defined in your system.
 
-###TESTS:  
+##TESTS:  
 Running tests is performed by execution and comparision of results on different target paltforms:
 ```bat
   cd /app/test
@@ -140,7 +140,7 @@ Macro PLATFORMS in ./global.mk defines list of platforms for which tests need to
 PLATFORMS = vs80 mc5103 emu6405 mc7601 mb7707_libload
 ```
 
-###STRUCTURE OF LIBRARY:  
+##STRUCTURE OF LIBRARY:  
 ```bat
 NMPP    
 ¦    
@@ -251,7 +251,7 @@ L---src                           - Sources
 ```
 
 
-###Обратная связь:  
+##Обратная связь:  
 Предложения , вопросы , замечания  можно направлять на  Sergey Mushkaev <mushkaev@module.ru>
 
 

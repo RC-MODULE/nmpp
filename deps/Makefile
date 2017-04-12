@@ -13,7 +13,7 @@ download: dev-kit-master.zip
 install: install-nmc
 
 install-nmc: dev-kit-master
-	$(MAKE) -C dev-kit-master nmsdk boards NOPROXY=$(NOPROXY)
+	$(MAKE) -C dev-kit-master nmsdk boards nm_io NOPROXY=$(NOPROXY)
 
 install-arm: 
 	$(MAKE) -C dev-kit-master install-arm NOPROXY=$(NOPROXY)

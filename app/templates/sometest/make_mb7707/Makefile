@@ -18,7 +18,7 @@ endif
 PATH:=$(MB7707)/bin;$(PATH)
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MB7707)/include"
-LIB_DIRS = -L"$(NMPP)/lib"  -L"$(MB7707)/lib" -L$(ROOT)/app/deps/nm_io/lib
+LIB_DIRS = -L"$(NMPP)/lib"  -L"$(MB7707)/lib" -L$(NM_IO)/lib
 LIBS     = mb7707lib.lib nmpp-nmc3d.lib libint_soc.lib libc05.lib cppnew05.lib 
 TARGET   = main.abs
 CFG      = mb7707brd.cfg

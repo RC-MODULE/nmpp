@@ -357,6 +357,15 @@ void nmppsConvert_1s2s  (const nm1* pSrcVec, nm2s* pDstVec, int nSize);
  \restr nSize =[32*64,32*64*2,32*64*3,....]
 */
 void nmppsConvert_1u2u  (const nm1* pSrcVec, nm2u* pDstVec, int nSize);
+void nmppsConvert_1u4u  (const nm1* pSrcVec, nm4u* pDstVec, int nSize);
+						 
+void nmppsConvert_2s1s	(const nm2s* pSrcVec, nm1*  pDstVec, int nSize);
+void nmppsConvert_2s4s  (const nm2s* pSrcVec, nm4s* pDstVec, int nSize);
+void nmppsConvert_2u4u  (const nm2u* pSrcVec, nm4u* pDstVec, int nSize);
+						 
+void nmppsConvert_4s2s	(const nm4s* pSrcVec, nm2s* pDstVec, int nSize);
+void nmppsConvert_4s8s  (const nm4s* pSrcVec, nm8s* pDstVec, int nSize);
+void nmppsConvert_4u8u  (const nm4u* pSrcVec, nm8u* pDstVec, int nSize);
                          
 void nmppsConvert_8s4s  (const nm8s* pSrcVec, nm4s*  pDstVec, int nSize);
 void nmppsConvert_8s16s (const nm8s* pSrcVec, nm16s* pDstVec, int nSize);

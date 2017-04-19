@@ -12,7 +12,7 @@ endif
 
 
 INC_DIRS = -I"$(NMPP)/include"
-LIB_DIRS = -L"$(NMPP)/lib"  -L$(ROOT)/app/deps/nm_io/lib
+LIB_DIRS = -L"$(NMPP)/lib"  -L$(NM_IO)/lib
 LIBS     = nm_io_dummy.lib nmpp-nmc3d.lib libint05.lib  
 TARGET   = main.abs
 CFG      = emu6405.cfg

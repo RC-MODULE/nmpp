@@ -8,26 +8,28 @@ OS_UNZIP = unzip -u -o -q
    
 #http_proxy ?=http://username:password@proxy:80/
 
-download: dev-pack-master.zip
+download: dev-kit-master.zip
 
-install-nmc: dev-pack-master
-	$(MAKE) -C dev-pack-master install-nmc
+install: install-nmc
+
+install-nmc: dev-kit-master
+	$(MAKE) -C dev-kit-master nmsdk boards nm_io NOPROXY=$(NOPROXY)
 
 install-arm: 
-	$(MAKE) -C dev-pack-master install-arm 
+	$(MAKE) -C dev-kit-master install-arm NOPROXY=$(NOPROXY)
 
-standalone: dev-pack
+standalone: dev-kit
 	
-dev-pack-master: dev-pack-master.zip	
-	$(OS_UNZIP) dev-pack-master.zip	
+dev-kit-master: dev-kit-master.zip	
+	$(OS_UNZIP) dev-kit-master.zip	
 
-dev-pack-master.zip:
-	$(OS_WGET)  https://github.com/RC-MODULE/dev-pack/archive/master.zip
+dev-kit-master.zip:
+	$(OS_WGET)  https://github.com/RC-MODULE/dev-kit/archive/master.zip
 	
 clean:
 	-$(OS_RM) *.zip *.exe *.tgz *.tar *.gz
-	-$(OS_RD) dev-pack-master
+	-$(OS_RD) dev-kit-master
 	
 #libeasynmc:
-#	$(MAKE) -C dev-pack libeasynmc 
+#	$(MAKE) -C dev-kit libeasynmc 
 	

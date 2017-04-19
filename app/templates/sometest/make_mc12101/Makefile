@@ -17,7 +17,7 @@ endif
 
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MC12101)/include"
-LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12101)/lib" -L$(ROOT)/deps/nm_io/lib
+LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12101)/lib" -L$(NM_IO)/lib
 LIBS     = mc12101lib_nm.lib libc4f.lib libc4.lib nmpp-nmc4d.lib
 TARGET   = main.abs
 CFG      = mc12101brd-nmc1.cfg

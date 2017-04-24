@@ -50,10 +50,10 @@ begin ".textAAA"
 	gr5 = gr3;
 	ar0 = gr2;
 	ar6 = gr4;
-	
+	ar6+=2;
 	delayed call vec_vsum_data_0;
 		wtw;
-		ar6+=2;
+		nul;
 		
 	pop ar6,gr6;
 	pop ar5,gr5;

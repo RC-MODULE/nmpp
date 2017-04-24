@@ -59,6 +59,11 @@ struct NmppsTmpSpec {
 
 	
 void*  nmppsMalloc32  (unsigned sizeInt32);
+nm1*   nmppsMalloc_1  (unsigned sizeInt1) ;
+nm2s*  nmppsMalloc_2s (unsigned sizeInt2) ;
+nm2u*  nmppsMalloc_2u (unsigned sizeInt2) ;
+nm4s*  nmppsMalloc_4s (unsigned sizeInt4) ;
+nm4u*  nmppsMalloc_4u (unsigned sizeInt4) ;
 nm8s*  nmppsMalloc_8s (unsigned sizeInt8) ;
 nm8u*  nmppsMalloc_8u (unsigned sizeInt8) ;
 nm16s* nmppsMalloc_16s(unsigned sizeInt16);

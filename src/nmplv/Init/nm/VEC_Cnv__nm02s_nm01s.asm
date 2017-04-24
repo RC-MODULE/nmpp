@@ -20,10 +20,10 @@ end ".data_cnv_matr_2s1s";
 
 macro convert_2s1s_tail (N)
 	rep 32 wfifo = [ar4++],ftw;	//2
-	rep 32 data =[ar0++gr0],wtw	 with vsum, data,0;
+	rep N data =[ar0++gr0],wtw	 with vsum, data,0;
 	delayed goto end_convert_2s1s;
-		rep 32 data =[ar1++gr1]		 with vsum, data,afifo;	
-		rep 32 [ar6++gr6]=afifo;
+		rep N data =[ar1++gr1]		 with vsum, data,afifo;	
+		rep N [ar6++gr6]=afifo;
 	nul;
 	nul;
 end convert_2s1s_tail;
@@ -70,8 +70,8 @@ begin ".textAAA"
 <Loop1>	
 	rep 32 wfifo = [ar4++],ftw;	//1
 	rep 32 data =[ar0++gr0],wtw	 with vsum, data,0;
-	rep 32 data =[ar1++gr1]		 with vsum, data,afifo;	
-	rep 32 wfifo = [ar4++],ftw,wtw; //2
+	rep 32 wfifo = [ar4++],ftw; //2
+	rep 32 data =[ar1++gr1],wtw		 with vsum, data,afifo;	
 	if > delayed goto Loop1 with gr7--;
 		ar4 = gr4;	
 		rep 32 [ar6++gr6]=afifo;

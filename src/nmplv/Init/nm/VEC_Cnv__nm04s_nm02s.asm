@@ -77,7 +77,7 @@ begin ".textAAA"
 		nul;
 <Tail_4s2s>
 	delayed goto end_convert_4s2s;
-		nul;
+		wtw;
 		nul;
 	convert_4s2s_tail (1);
 	convert_4s2s_tail (2);

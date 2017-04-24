@@ -4,37 +4,37 @@
 global _nmppsConvert_1u4u: label;// объ¤вление глобальной метки
 
 data ".data_cnv_matr_1u4u"
-	local matr1: long[256]=	(100000000hl,10000000000hl,1000000000000hl,100000000000000hl,
-							1hl,100hl,10000hl,1000000hl,
+	local matr1: long[256]=	(	1hl,100hl,10000hl,1000000hl,
+								100000000hl,10000000000hl,1000000000000hl,100000000000000hl,
 							0hl dup 24,
-							1000000000hl,100000000000hl,10000000000000hl,1000000000000000hl,
-							10hl,1000hl,100000hl,10000000hl,
+								10hl,1000hl,100000hl,10000000hl,
+								1000000000hl,100000000000hl,10000000000000hl,1000000000000000hl,
 							0hl dup 24,
 							
 							0hl dup 8,
+								1hl,100hl,10000hl,1000000hl,
 								100000000hl,10000000000hl,1000000000000hl,100000000000000hl,
-								1hl,100hl,10000hl,1000000hl, 
 							0hl dup 16,							
 							0hl dup 8,
-								1000000000hl,100000000000hl,10000000000000hl,1000000000000000hl,
 								10hl,1000hl,100000hl,10000000hl,
+								1000000000hl,100000000000hl,10000000000000hl,1000000000000000hl,
 							0hl dup 16,
 							
 							0hl dup 16,
-								100000000hl,10000000000hl,1000000000000hl,100000000000000hl,
 								1hl,100hl,10000hl,1000000hl,
+								100000000hl,10000000000hl,1000000000000hl,100000000000000hl,
 							0hl dup 8,							
 							0hl dup 16,
-								1000000000hl,100000000000hl,10000000000000hl,1000000000000000hl,
 								10hl,1000hl,100000hl,10000000hl,
+								1000000000hl,100000000000hl,10000000000000hl,1000000000000000hl,
 							0hl dup 8,
 							
 							0hl dup 24,
-								100000000hl,10000000000hl,1000000000000hl,100000000000000hl,
 								1hl,100hl,10000hl,1000000hl,
+								100000000hl,10000000000hl,1000000000000hl,100000000000000hl,
 							0hl dup 24,
-								1000000000hl,100000000000hl,10000000000000hl,1000000000000000hl,
-								10hl,1000hl,100000hl,10000000hl);
+								10hl,1000hl,100000hl,10000000hl,
+								1000000000hl,100000000000hl,10000000000000hl,1000000000000000hl);
 end ".data_cnv_matr_1u4u";
 
 
@@ -44,10 +44,10 @@ macro convert_1u4u_tail_step(N)
 <Loop>
 	ar0=gr1;
 	ar6=gr2 with gr4--;
-	rep 32 wfifo = [ar4++],ftw;
+	rep 32 wfifo = [ar4++],ftw;					//2
 	rep N data,ram = [ar0++gr0],wtw with vsum,data,0;	
-	rep 32 wfifo = [ar4++],ftw;	
-	if > delayed goto Loop with gr2 += gr0;			//gr4=gr4+2
+	rep 32 wfifo = [ar4++],ftw;					//1
+	if > delayed goto Loop with gr2 += gr0;			//gr2=gr2+2
 		rep N with vsum,shift ram,afifo;
 		rep N [ar6++gr6]=afifo,wtw;
 		
@@ -84,13 +84,15 @@ begin ".textAAA"
 	Tail_1u4u: label;
 	end_convert_1u4u: label;
 	
-	ar4 = matr1;
+	
 	gr7 = gr5 >> 5;
 	gr3 = gr7;
 	if =0 delayed goto Cnv_tail_1u4u;
+		ar4 = matr1;
 		gr4 = ar4;
-		rep 32 wfifo = [ar4++],ftw,wtw; 							//1
-	gr7--;
+		
+	rep 32 wfifo = [ar4++],ftw,wtw; 			//1
+	gr7--;							
 	
 <Convert_1u4u_first_step>
 	rep 32 wfifo = [ar4++],ftw;										//2
@@ -152,18 +154,20 @@ begin ".textAAA"
 		rep 32 [ar6++gr6]=afifo,wtw;
 	
 	ar6-=6;
+	gr1 = ar0;
+	gr2 = ar6;
+	ar4 = matr1;
 <Cnv_tail_1u4u>		
 	gr7 = gr3;
 	ar5 = Tail_1u4u with gr7 <<=5;
 	gr5 = gr5 - gr7;
-	
 	gr5 =gr5 << 4;
 	ar5+=gr5;
-	
+	rep 32 wfifo = [ar4++],ftw,wtw; 
 	gr4 = 4;
 	delayed goto ar5;
-		gr2=ar6;
-		gr1=ar0;
+		nul;
+		nul;
 <Tail_1u4u>
 	delayed goto end_convert_1u4u;
 		nul;

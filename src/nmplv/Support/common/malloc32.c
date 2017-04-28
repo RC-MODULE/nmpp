@@ -435,8 +435,11 @@ void free32(void* p)
 {
 	free(p);
 }
-
-
+nm1*   nmppsMalloc_1  (unsigned sizeInt1) { return (nm1*)   nmppsMalloc32((sizeInt1+63)/64*2);}
+nm2s*  nmppsMalloc_2s (unsigned sizeInt2) { return (nm2s*)  nmppsMalloc32((sizeInt2+31)/32*2);}
+nm2u*  nmppsMalloc_2u (unsigned sizeInt2) { return (nm2u*)  nmppsMalloc32((sizeInt2+31)/32*2);}
+nm4s*  nmppsMalloc_4s (unsigned sizeInt4) { return (nm4s*)  nmppsMalloc32((sizeInt4+15)/16*2);}
+nm4u*  nmppsMalloc_4u (unsigned sizeInt4) { return (nm4u*)  nmppsMalloc32((sizeInt4+15)/16*2);}
 nm8s*  nmppsMalloc_8s (unsigned sizeInt8) { return (nm8s*)  nmppsMalloc32((sizeInt8+7)/8*2);}
 nm8u*  nmppsMalloc_8u (unsigned sizeInt8) { return (nm8u*)  nmppsMalloc32((sizeInt8+7)/8*2);}
 nm16s* nmppsMalloc_16s(unsigned sizeInt16){ return (nm16s*) nmppsMalloc32((sizeInt16+3)/4*2);}

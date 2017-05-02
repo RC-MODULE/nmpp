@@ -1,6 +1,6 @@
-#include "FFT_32fc.h"
+#include "fft_32fc.h"
 
-float nmppNormDiff_32fc(nm32fc *src, nm32fc *outInv1, int num)
+float nmppsNormDiff_32fc(nm32fc *src, nm32fc *outInv1, int num)
 {
     int i;
     float SKO_dft32;

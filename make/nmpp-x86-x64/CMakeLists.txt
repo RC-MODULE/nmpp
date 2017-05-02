@@ -160,6 +160,7 @@ FILE(GLOB  SRC
 		${ROOT}/src/nmplv/Transform/common/*.c
 		${ROOT}/src/nmplv/Transform/pc/*.cpp
 		${ROOT}/src/nmplv/Transform/pc/*.c
+		${ROOT}/src/nmpls/FFT_32fc/norm/common/*.c
 )			
 
 ADD_LIBRARY(nmpp-${ARCH_POSTFIX} ${SRC} )

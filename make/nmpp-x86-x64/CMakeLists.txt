@@ -161,6 +161,13 @@ FILE(GLOB  SRC
 		${ROOT}/src/nmplv/Transform/pc/*.cpp
 		${ROOT}/src/nmplv/Transform/pc/*.c
 		${ROOT}/src/nmpls/FFT_32fc/norm/common/*.c
+		${ROOT}/src/nmpls/FFT0032/pc/*.c
+		${ROOT}/src/nmpls/FFT0064/pc/*.c
+		${ROOT}/src/nmpls/FFT0128/pc/*.c
+		${ROOT}/src/nmpls/FFT0256/pc/*.c
+		${ROOT}/src/nmpls/FFT0512/pc/*.c
+		${ROOT}/src/nmpls/FFT1024/pc/*.c
+		${ROOT}/src/nmpls/FFT2048/pc/*.c
 )			
 
 ADD_LIBRARY(nmpp-${ARCH_POSTFIX} ${SRC} )

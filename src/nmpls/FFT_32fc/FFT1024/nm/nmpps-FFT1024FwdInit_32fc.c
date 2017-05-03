@@ -1,6 +1,9 @@
 #include <malloc.h>
-#include <math.h>
+//#include <math.h>
 #include "fft_32fc.h"
+
+float sinf(float);
+float cosf(float);
 
 int nmppsFFT1024FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr1024)
 {

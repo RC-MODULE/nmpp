@@ -1,4 +1,5 @@
 #include "fft_32fc.h"
+#include "math.h"
 
 float nmppsNormDiff_32fc(nm32fc *src, nm32fc *outInv1, int num)
 {

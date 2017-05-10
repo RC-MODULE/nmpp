@@ -124,11 +124,23 @@ endif
 
 
 SRC_DIRS = $(ROOT)/src/nmpls/Metric
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT/FFT0256f
+SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0032/nm 
+SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0064/nm
+SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0128/nm
+SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0256/nm
+SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0512/nm
+SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT1024/nm
+SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT2048/nm
+SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/norm/common
+SRC_DIRS+= $(ROOT)/src/nmplv/Support/nm
+SRC_DIRS+= $(ROOT)/src/nmplv/Support/common
+SRC_DIRS+= $(ROOT)/src/nmplv/Stat/nm 
 
+					
 # regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)
 ALL_CPP =$(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
 ALL_ASM =$(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
+ALL_S   =$(wildcard $(addsuffix /*.s,$(SRC_DIRS)))
 ALL_C   =$(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
 ALL_H   =$(wildcard $(addsuffix /*.h,$(HEADER_DIRS)))
 
@@ -137,8 +149,9 @@ VPATH    = $(SRC_DIRS)
 # collecting of objects
 OBJECTS_CPP = $(notdir $(patsubst %.cpp,%.o,$(ALL_CPP)))
 OBJECTS_ASM = $(notdir $(patsubst %.asm,%.o,$(ALL_ASM)))
+OBJECTS_S   = $(notdir $(patsubst %.s,%.o,$(ALL_S)))
 OBJECTS_C   = $(notdir $(patsubst %.c,%.o,$(ALL_C)))
-OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM))
+OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S))
 
 
 #======================== BUILD RULES ====================================
@@ -164,7 +177,11 @@ $(OUT_DIR):
 $(TMP_DIR)/%.o: %.asm 
 	$(PREPROCESS_ASM_DEP)
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
-	
+
+$(TMP_DIR)/%.o: %.s
+	$(PREPROCESS_ASM_DEP)
+	$(AS) $(AS_FLAGS) $(<) -o$(@)
+
 $(TMP_DIR)/%.o: $(TMP_DIR)/%.asmx 
 	$(AS) $(AS_FLAGS_C2ASM) $(<) -o$(@)
 

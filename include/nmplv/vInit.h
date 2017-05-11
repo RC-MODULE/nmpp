@@ -82,7 +82,7 @@ __INLINE__ void nmppsSet_8u(nm8u* pVec,  uint8b nVal, int nSize)	{nmppsSet_8s((n
 __INLINE__ void nmppsSet_16u(nm16u* pVec, uint16b nVal, int nSize)	{nmppsSet_16s((nm16s*) pVec, (int16b)nVal, nSize);}
 __INLINE__ void nmppsSet_32u(nm32u* pVec, uint32b nVal, int nSize)	{nmppsSet_32s((nm32s*) pVec, (int32b)nVal, nSize);}
 __INLINE__ void nmppsSet_64u(nm64u* pVec, uint64b  nVal, int nSize)	{nmppsSet_64s((nm64s*) pVec, (int64b)nVal, nSize);}
-__INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize)	{nmppsSet_64sp((nm64s*) pVec, (int64b*)nVal, nSize);}
+__INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64sp((nm64s*) pVec, (int64b*)nVal, nSize);}
 
 
     //! \}

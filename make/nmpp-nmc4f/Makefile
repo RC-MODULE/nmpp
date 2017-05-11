@@ -134,7 +134,9 @@ SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT2048/nm
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/norm/common
 SRC_DIRS+= $(ROOT)/src/nmplv/Support/nm
 SRC_DIRS+= $(ROOT)/src/nmplv/Support/common
-SRC_DIRS+= $(ROOT)/src/nmplv/Stat/nm 
+SRC_DIRS+= $(ROOT)/src/nmplv/Stat/nm
+SRC_DIRS+= $(ROOT)/src/nmplv/Stat/common
+SRC_DIRS+= $(ROOT)/src/nmplv/Arithmetics/common
 
 					
 # regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)

@@ -21,8 +21,9 @@ extern unsigned int CRC32_Table[];
 //#include "vcrc.h"
 #include "nmpp.h"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-unsigned nmppsCrcAcc_32u(
-    unsigned int* pSrcVec, // Input Vector			:long Any[Size/2]
+unsigned nmppsCrcMaskAcc_32u(
+    const unsigned int* pSrcVec, // Input Vector			:long Any[Size/2]
+	unsigned mask,
     int nSize,             // Vector size        	:[0,1,2...]
     unsigned int* crcAccumulator     // Init/Output crc
     )
@@ -36,7 +37,7 @@ unsigned nmppsCrcAcc_32u(
 
     for( i = 0; i < nSize; i++ )
     {
-		a = pSrcVec[i];
+		a = pSrcVec[i]&mask;
         b = a & 0x000000FF;
         *crcAccumulator = ( *crcAccumulator >> 8 ) ^ pTable[( b ^ ( *crcAccumulator & 0x000000FF ) )];
         b = ( a >> 8 ) & 0x000000FF;

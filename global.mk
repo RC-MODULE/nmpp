@@ -114,9 +114,10 @@ endif
 
 #gcc
 #mc7601
-PLATFORMS = vs80 mc5103 emu6405  mb7707 mc12101
+#PLATFORMS = vs80 mc5103 emu6405  mb7707 mc12101
+PLATFORMS = vs80 mc12101_float
 
-TARGET1=mc5103
+TARGET1=mc12101_float
 TARGET2=vs80
 
 define newline

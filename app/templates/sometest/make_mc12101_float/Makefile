@@ -20,12 +20,12 @@ INC_DIRS = -I"$(NMPP)/include" -I"$(MC12101)/include"
 LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12101)/lib" -L$(NM_IO)/lib
 LIBS     = mc12101lib_nm.lib libc4f.lib libc4.lib nmpp-nmc4f.lib
 TARGET   = main.abs
-CFG      = mc12101brd-nmc1.cfg
+CFG      = mc12101brd-nmc0.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))
 SRC_ASM  = $(wildcard $(addsuffix /*.asm,..))
 
 
-$(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc4d.lib
+$(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc4f.lib
 	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) clock.asm -nmc4 -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=0 -heap1=16384 -heap2=16384 -heap3=16384
 #                                                                                         [L00]:64kB   [L01]:64kB  [G00]:64kB   [G01]:64kB
 

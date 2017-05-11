@@ -42,7 +42,7 @@ int main()
 	}
 	nmppsFFT32Fwd_32fc(src, dst, rat);
 	unsigned int crc=0;
-	nmppsCrcAcc_32f((nm32f *)dst, 16, 32*2, &crc);
+	nmppsCrcAcc_32f((nm32f *)dst, 8, 32*2, &crc);
 	return crc>>2;
 }
 

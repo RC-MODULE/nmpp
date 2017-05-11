@@ -1,3 +1,4 @@
+ROOT=../../../../../..
 include $(ROOT)/global.mk
 # BUILD AND RUN MAKEFILE
 # This makefile builds simple nmc-application containing single cpp-file  
@@ -18,7 +19,7 @@ endif
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MC12101)/include"
 LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12101)/lib" -L$(NM_IO)/lib
-LIBS     = mc12101lib_nm.lib libc4f.lib libc4.lib nmpp-nmc4f.lib
+LIBS     = mc12101lib_nm.lib libc4f.lib libc4.lib nmpp-nmc4f.lib nm_io4.lib
 TARGET   = main.abs
 CFG      = mc12101brd-nmc0.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))

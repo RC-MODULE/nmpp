@@ -334,6 +334,7 @@ void nmppsAdd_8s (const nm8s*  pSrcVec1, const nm8s*  pSrcVec2, nm8s*  pDstVec, 
 void nmppsAdd_16s(const nm16s* pSrcVec1, const nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
 void nmppsAdd_32s(const nm32s* pSrcVec1, const nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
 void nmppsAdd_64s(const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+void nmppsAdd_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);
 
 
     //! \}

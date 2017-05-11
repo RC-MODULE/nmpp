@@ -1,0 +1,5 @@
+#SUB_DIRS =  fft filter vArithmetics vBitwise vInit vSelect vStat vSupport vTransform 
+#SKIP_DIRS = filter
+#WORK_DIRS = Arithmetics Bitwise fft  Select Init
+PLATFORMS = vs80 mc12101_float
+

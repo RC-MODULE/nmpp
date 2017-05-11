@@ -228,18 +228,7 @@ int nmppsMallocResetPos(){
 	return 0;
 }
 
-int nmppsMallocResetRoute(){
-	if (nmppsMallocResetPos())
-		return nmppsMallocSpec.status;
-	else{
-		nmppsSet_64u ((nm64u*)nmppsMallocSpec.route,0,  NMPPS_MALLOC_LIMIT>>4);		
-		nmppsSet_64u ((nm64u*)nmppsMallocSpec.bestRoute,0xFFFFFFFFFFFFFFFF,  NMPPS_MALLOC_LIMIT>>4);		
-		nmppsSet_64u ((nm64u*)nmppsMallocSpec.allocHistory,0,NMPPS_MALLOC_LIMIT>>4);
-		nmppsMallocSpec.timeBest=-1;
-		return 0;
-	}
-	
-}
+
 
 //int nmppsMallocBetterRoute()
 //{
@@ -461,6 +450,8 @@ nm32fc* nmppsMalloc_32fc(unsigned size)    { return (nm32fc*) nmppsMalloc32(size
 nm32u*  nmppsMalloc_32u(unsigned sizeInt32){ return (nm32u*)  nmppsMalloc32(sizeInt32+(1&sizeInt32));}
 nm64s*  nmppsMalloc_64s(unsigned sizeInt64){ return (nm64s*)  nmppsMalloc32((sizeInt64)<<1);}
 nm64u*  nmppsMalloc_64u(unsigned sizeInt64){ return (nm64u*)  nmppsMalloc32((sizeInt64)<<1);}
+
+
 
 
 nm8s*  nmppsMallocFrame_8s (unsigned sizeInt8 , unsigned boundaryInt8 , NmppsFrame_8s * pFrame){return (nm8s* )nmppsMallocFrame_64u((sizeInt8+ 7)>>3,(boundaryInt8+ 7)>>3,(NmppsFrame_64u*)pFrame);}

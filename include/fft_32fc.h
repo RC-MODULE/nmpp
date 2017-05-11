@@ -7,6 +7,9 @@
 
 #include "nmtype.h"
 
+#define		NUMBUFF1		21
+#define		NUMBUFF2		4
+
 typedef struct
 {
     nm32fc *SinCos0;
@@ -30,6 +33,8 @@ typedef struct
     nm32fc *w256;
     nm32fc *w512;
     nm32fc *w1024;
+	nm32fc *Buffers[NUMBUFF1];
+	nm32fc *Buffs[NUMBUFF2];
 } NmppsFFTSpec_32fc;
 
 void nmppsDFT8Fwd_32fc(nm32fc *x8, nm32fc *X8, NmppsFFTSpec_32fc *spec8);

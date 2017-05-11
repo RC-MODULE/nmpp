@@ -18,6 +18,7 @@
 //!
 //------------------------------------------------------------------------
 
+import from rtmacro.mlb;
 
 extern _CRC32_Table: word ;
 begin ".text_nmplv"
@@ -25,12 +26,12 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn unsigned nmppsCrcMaskAcc_32u(unsigned int* pSrcVec, int nSize, unsigned int& nCrc);
+//! \fn unsigned _nmppsCrcAcc_32f(float* pSrcVec, int numBitsToClear, int nSize, unsigned int& nCrc);
 //!
-//! \perfinclude _nmppsCrcMaskAcc_32u.html
+//! \perfinclude _nmppsCrcAcc_32f.html
 
-global _nmppsCrcMaskAcc_32u :label;
-<_nmppsCrcMaskAcc_32u>
+global _nmppsCrcAcc_32f :label;
+<_nmppsCrcAcc_32f>
  
 
 .branch;
@@ -45,17 +46,33 @@ global _nmppsCrcMaskAcc_32u :label;
 	push ar6,gr6;
 
 	ar0 = [--ar5];//	nm32u*	Vec,	// Input Vector			:long Any[Size/2]
-	ar1 = [--ar5];// 	mask
+	ar1 = [--ar5];// 	numBitsToClear
 	gr5 = [--ar5];//	int		nSize,	// Vector size        	:[0,1,2...]	
 	ar6 = [--ar5];//	unsigned int&	Crc32	// Init/Output crc	
+	
+	
+	gr1 = ar1;
+	gr2 = -1;
+	LSHIFT32 ( gr7, gr2, gr1); // mask
+	ar2 = gr7;
+	
+	gr2 = 1;	//1
+	ar1=0 with gr1--;
+	if < goto skipRounder;
+	LSHIFT32 ( gr7, gr2, gr1);	//rounder
+	ar1 = gr7;
+	
+	<skipRounder>
+	
 	gr7 = [ar6]	with gr5;
 	if =0 delayed goto End_CRC32;
 		gr2 = 000000FFh;
 	ar5 = _CRC32_Table;
 	gr0=[ar0++];									//		a=pSrcVec[i++];
-	gr1 = ar1;		
-	gr0 = gr0 and gr1;								//		a=pSrcVec[i++];CRC32 = CRC32 ^ t;
-		
+	gr1 = ar2;
+	gr1 = ar1 with gr0+= gr1;
+	gr0 = gr0 and gr1;
+	
 	ar4 = ar5;
 	<Next_CRC32>									
 		gr1 = gr0 and gr2;							//		b = a & 0x000000FF;		
@@ -79,11 +96,12 @@ global _nmppsCrcMaskAcc_32u :label;
 		gr1 = gr1 and gr2;							//		b = b & 0x000000FF;		
 		gr3 = gr7 and gr2;							//		c = CRC32 & 0x000000FF ;		
 		gr4	= gr1 xor gr3;							//		addr=b^c;		
-		gr6	= [ar4+=gr4]	with gr5--;				//		t=pTable[addr];		
+		gr6	= [ar4+=gr4]	;				//		t=pTable[addr];		
 		ar4 = ar5;			
-		gr0	=[ar0++];		
-	if <>0 delayed goto Next_CRC32 with gr7>>= 8;	//		i++			//		CRC32 >>= 8 		
-		gr1 = ar1			with gr7 = gr7 xor gr6;			
+		gr0	=[ar0++] 		with gr7 = gr7 xor gr6;		
+		gr1 = ar2			with gr5--;			
+if <>0 delayed goto Next_CRC32 with gr7>>= 8;	//		i++			//		CRC32 >>= 8 			
+		gr1 = ar1 with gr0 = gr0 + gr1	;				
 		gr0 = gr0 and gr1	;						//		a=pSrcVec[i++];CRC32 = CRC32 ^ t;
 		
 	<End_CRC32>	
@@ -98,6 +116,7 @@ global _nmppsCrcMaskAcc_32u :label;
 	pop ar0,gr0;
 	
 return;
+
 
 
 end ".text_nmplv";

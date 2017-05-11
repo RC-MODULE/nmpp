@@ -1,7 +1,7 @@
 #include <malloc.h>
-//#include <math.h>
-float sinf(float);
-float cosf(float);
+#include <math.h>
+//float sinf(float);
+//float cosf(float);
 
 #include "fft_32fc.h"
 

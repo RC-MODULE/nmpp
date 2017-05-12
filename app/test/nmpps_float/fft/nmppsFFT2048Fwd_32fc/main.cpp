@@ -8,18 +8,18 @@ union abc {
 	int IN;
 };
 
-void invfft2048(nm32fc *invX64, nm32fc *invx64);
+void invfft2048(nm32fcr *invX64, nm32fcr *invx64);
 
 int main()
 {
 	int i, tm;
 	clock_t t1, t0;
 	union abc ab;
-	nm32fc *src, *dst, *outInv1;
+	nm32fcr *src, *dst, *outInv1;
 	// (tm = 32044)
-	src = (nm32fc *)malloc(4096);
-	dst = (nm32fc *)malloc(4096);
-	outInv1 = (nm32fc *)malloc(4096);
+	src = (nm32fcr *)malloc(4096);
+	dst = (nm32fcr *)malloc(4096);
+	outInv1 = (nm32fcr *)malloc(4096);
 	for(i = 0; i < 2048; i++) {
 		src[i].im = 0;
 		src[i].re = i;

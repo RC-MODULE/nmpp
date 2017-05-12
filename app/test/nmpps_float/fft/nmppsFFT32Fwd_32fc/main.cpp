@@ -1,38 +1,27 @@
 //#include <math.h>
+#include <stdio.h>
 #include "time.h"
 #include <nmtype.h>
-#include <malloc32.h>
+#include <malloc.h>
 #include "fft_32fc.h"
 #include "math.h"
 #include "nmpp.h"
 
-#define		NU32	64
-
-union abc {
-	float FL;
-	int IN;
-};
-
-
-
 int main()
 {
-
 	int i, tm;
-	union abc ab;
-	nm32fc *src, *dst, *outInv1;
+	nm32fcr *src, *dst, *outInv1;
 	// best conf (tm = 351)
 	//nmppsMallocSetRoute16(0xFF3210);
-	src = nmppsMalloc_32fc(32);
-	dst = nmppsMalloc_32fc(32);
-	outInv1 = nmppsMalloc_32fc(32);
+	// src = nmppsMalloc_32fc(32);
+	// dst = nmppsMalloc_32fc(32);
+	 src = (nm32fcr *) malloc(64 * sizeof(nm32fcr));
+	 dst = (nm32fcr *) malloc(64 * sizeof(nm32fcr));
 	for(i = 0; i < 32; i++) {
-		src[i].im = 3-i;
-		src[i].re = 2*i;
+		src[i].im = 0;
+		src[i].re = i;
 		dst[i].im = 0;
 		dst[i].re = 0;
-		outInv1[i].im = 0;
-		outInv1[i].re = 0;
 	}
 	//return (int)dst;
 	NmppsFFTSpec_32fc *rat;
@@ -40,9 +29,12 @@ int main()
 	if(tm == 123) {
 		return 123;
 	}
+	//return 5;
 	nmppsFFT32Fwd_32fc(src, dst, rat);
-	unsigned int crc=0;
-	nmppsCrcAcc_32f((nm32f *)dst, 8, 32*2, &crc);
+	for(int i = 0; i < 32; i++)
+		printf("%.5f %.5f\n", dst[i].re, dst[i].im);
+	unsigned int crc = 0;
+	nmppsCrcAcc_32f((nm32f *)dst, 9, 32*2, &crc);
 	return crc>>2;
 }
 

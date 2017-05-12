@@ -11,33 +11,33 @@ int nmppsFFT1024FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr1024)
 	int gr1;
 	const float pi = 3.141592653;
     float alpha;
-    nm32fc *SinCos = (nm32fc *) malloc(64 * sizeof(nm32fc));
+    nm32fcr *SinCos = (nm32fcr *) malloc(64 * sizeof(nm32fcr));
 	NmppsFFTSpec_32fc *ratios = (NmppsFFTSpec_32fc *) malloc(sizeof(NmppsFFTSpec_32fc));
 	if(ratios == NULL) {
 		return -1;
 	}
-	ratios->SinCos0 = (nm32fc *) malloc(32 * sizeof(nm32fc));
+	ratios->SinCos0 = (nm32fcr *) malloc(32 * sizeof(nm32fcr));
 	if (ratios->SinCos0 == NULL)
 		return -2;
-	ratios->SinCos1 = (nm32fc *) malloc1(32 * sizeof(nm32fc));
+	ratios->SinCos1 = (nm32fcr *) malloc1(32 * sizeof(nm32fcr));
 	if (ratios->SinCos1 == NULL)
 		return -3;
-	ratios->buff_fft = (nm32fc *) malloc2(512 * sizeof(nm32fc));
+	ratios->buff_fft = (nm32fcr *) malloc2(512 * sizeof(nm32fcr));
 	if (ratios->buff_fft == NULL)
 		return -2;
-	ratios->buff_fftxW = (nm32fc *) malloc3(512 * sizeof(nm32fc));
+	ratios->buff_fftxW = (nm32fcr *) malloc3(512 * sizeof(nm32fcr));
 	if (ratios->buff_fftxW == NULL)
 		return -3;
-    ratios->buff1024 = (nm32fc *) malloc1(512 * sizeof(nm32fc));
+    ratios->buff1024 = (nm32fcr *) malloc1(512 * sizeof(nm32fcr));
     if (ratios->buff1024 == NULL)
         return -3;
-	ratios->w8_0 = (nm32fc *) malloc(8 * sizeof(nm32fc));
+	ratios->w8_0 = (nm32fcr *) malloc(8 * sizeof(nm32fcr));
 	if (ratios->w8_0 == NULL)
 		return -4;
-	ratios->w8_1 = (nm32fc *) malloc1(8 * sizeof(nm32fc));
+	ratios->w8_1 = (nm32fcr *) malloc1(8 * sizeof(nm32fcr));
 	if (ratios->w8_1 == NULL)
 		return -5;
-	ratios->w512 = (nm32fc *) malloc(512 * sizeof(nm32fc));
+	ratios->w512 = (nm32fcr *) malloc(512 * sizeof(nm32fcr));
 	if (ratios->w512 == NULL)
 		return -6;
 	*addr1024 = ratios;

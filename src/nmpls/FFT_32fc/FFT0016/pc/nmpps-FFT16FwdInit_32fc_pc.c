@@ -11,11 +11,11 @@ int nmppsFFT16FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr16)
     if(spec_32fc == 0) {
         return -1;
     }
-    spec_32fc->Buffers[0] = (nm32fc *) malloc(64 * sizeof(nm32fc)); // SinCos0
+    spec_32fc->Buffers[0] = (nm32fcr *) malloc(64 * sizeof(nm32fcr)); // SinCos0
     if(!spec_32fc->Buffers[0]) {
         return -2;
     }
-    spec_32fc->Buffers[1] = (nm32fc *) malloc(8 * sizeof(nm32fc)); // W8_0
+    spec_32fc->Buffers[1] = (nm32fcr *) malloc(8 * sizeof(nm32fcr)); // W8_0
     if(!spec_32fc->Buffers[1]) {
         return -3;
     }

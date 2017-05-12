@@ -11,48 +11,48 @@ int nmppsFFT256FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr256)
 	int gr1;
 	const float pi = 3.141592653;
     float alpha;
-    nm32fc *SinCos = (nm32fc *) malloc(64 * sizeof(nm32fc));
+    nm32fcr *SinCos = (nm32fcr *) malloc(64 * sizeof(nm32fcr));
 	NmppsFFTSpec_32fc *ratios = (NmppsFFTSpec_32fc *) malloc(sizeof(NmppsFFTSpec_32fc));
 	if(ratios == NULL) {
 		return -1;
 	}
-	ratios->SinCos0 = (nm32fc *) malloc(32 * sizeof(nm32fc));
+	ratios->SinCos0 = (nm32fcr *) malloc(32 * sizeof(nm32fcr));
 	if (ratios->SinCos0 == NULL)
 		return -2;
-	ratios->SinCos1 = (nm32fc *) malloc1(32 * sizeof(nm32fc));
+	ratios->SinCos1 = (nm32fcr *) malloc1(32 * sizeof(nm32fcr));
 	if (ratios->SinCos1 == NULL)
 		return -3;
-	ratios->buff_fft = (nm32fc *) malloc1(128 * sizeof(nm32fc));
+	ratios->buff_fft = (nm32fcr *) malloc1(128 * sizeof(nm32fcr));
 	if (ratios->buff_fft == NULL)
 		return -4;
-	ratios->buff_fftxW = (nm32fc *) malloc2(128 * sizeof(nm32fc));
+	ratios->buff_fftxW = (nm32fcr *) malloc2(128 * sizeof(nm32fcr));
 	if (ratios->buff_fftxW == NULL)
 		return -5;
-	ratios->w8_0 = (nm32fc *) malloc(8 * sizeof(nm32fc));
+	ratios->w8_0 = (nm32fcr *) malloc(8 * sizeof(nm32fcr));
 	if (ratios->w8_0 == NULL)
 		return -6;
-	ratios->w8_1 = (nm32fc *) malloc3(8 * sizeof(nm32fc));
+	ratios->w8_1 = (nm32fcr *) malloc3(8 * sizeof(nm32fcr));
 	if (ratios->w8_1 == NULL)
 		return -7;
-	ratios->w16_0 = (nm32fc *) malloc(16 * sizeof(nm32fc));
+	ratios->w16_0 = (nm32fcr *) malloc(16 * sizeof(nm32fcr));
 	if (ratios->w16_0 == NULL)
 		return -8;
-	ratios->w16_1 = (nm32fc *) malloc3(16 * sizeof(nm32fc));
+	ratios->w16_1 = (nm32fcr *) malloc3(16 * sizeof(nm32fcr));
 	if (ratios->w16_1 == NULL)
 		return -9;
-	ratios->w32_0 = (nm32fc *) malloc(32 * sizeof(nm32fc));
+	ratios->w32_0 = (nm32fcr *) malloc(32 * sizeof(nm32fcr));
 	if (ratios->w32_0 == NULL)
 		return -10;
-	ratios->w32_1 = (nm32fc *) malloc3(32 * sizeof(nm32fc));
+	ratios->w32_1 = (nm32fcr *) malloc3(32 * sizeof(nm32fcr));
 	if (ratios->w32_1 == NULL)
 		return -11;
-	ratios->w64_0 = (nm32fc *) malloc(64 * sizeof(nm32fc));
+	ratios->w64_0 = (nm32fcr *) malloc(64 * sizeof(nm32fcr));
 	if (ratios->w64_0 == NULL)
 		return -12;
-	ratios->w64_1 = (nm32fc *) malloc3(64 * sizeof(nm32fc));
+	ratios->w64_1 = (nm32fcr *) malloc3(64 * sizeof(nm32fcr));
 	if (ratios->w64_1 == NULL)
 		return -13;
-	ratios->w128 = (nm32fc *) malloc3(128 * sizeof(nm32fc));
+	ratios->w128 = (nm32fcr *) malloc3(128 * sizeof(nm32fcr));
 	if (ratios->w128 == NULL)
 		return -14;
 	*addr256 = ratios;

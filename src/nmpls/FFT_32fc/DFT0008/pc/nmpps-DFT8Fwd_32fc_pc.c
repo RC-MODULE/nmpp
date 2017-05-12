@@ -1,9 +1,9 @@
 #include "FFT_32fc.h"
 
-void nmppsDFT8Fwd_32fc(nm32fc *x8, nm32fc *X8, NmppsFFTSpec_32fc *spec8)
+void nmppsDFT8Fwd_32fc(nm32fcr *x8, nm32fcr *X8, NmppsFFTSpec_32fc *spec8)
 {
    int i, j;
-   nm32fc columns[8][8];
+   nm32fcr columns[8][8];
    for(i = 0; i < 8; i++) {
        columns[0][i].im = spec8->Buffers[0][i].re * x8[0].im + spec8->Buffers[0][i].im * x8[0].re;
        columns[0][i].re = spec8->Buffers[0][i].re * x8[0].re - spec8->Buffers[0][i].im * x8[0].im;

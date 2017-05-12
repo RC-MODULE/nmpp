@@ -8,19 +8,19 @@ union abc {
 	int IN;
 };
 
-void invfft256(nm32fc *invX64, nm32fc *invx64);
+void invfft256(nm32fcr *invX64, nm32fcr *invx64);
 
 int main()
 {
 	int i, tm;
 	clock_t t1, t0;
 	union abc ab;
-	nm32fc *src, *dst, *outInv1;
+	nm32fcr *src, *dst, *outInv1;
 	// best config (tm = 2155, src - malloc, dst - malloc2, or
 	// src - malloc3, dst - malloc1)
-	src = (nm32fc *)malloc(512);
-	dst = (nm32fc *)malloc(512);
-	outInv1 = (nm32fc *)malloc(512);
+	src = (nm32fcr *)malloc(512);
+	dst = (nm32fcr *)malloc(512);
+	outInv1 = (nm32fcr *)malloc(512);
 	for(i = 0; i < 256; i++) {
 		src[i].im = 0;
 		src[i].re = i;

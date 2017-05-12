@@ -21,7 +21,7 @@
   - nmppi  - функции обработки изображений 
 
   
-#Состав бинарных библиотек:  
+# Состав бинарных библиотек:  
 - Целевые **NMC3/NMC4** библиотеки:  
   /lib/nmpp_nmc3.lib   (Release)  
   /lib/nmpp_nmc3d.lib  (Debug)  
@@ -41,12 +41,12 @@
 
 
 # Установка NMPP 
-##Системные требования
+## Системные требования
 *  Сборка компонент (статические lib-библиотеки, тесты, примеры) построена на сборочных скриптах Makefile. Для корректного запуска сборочных Makefile-ов  под Windows требуется установленный GNU **make**.
 Для ОС Windows рекомендуется версия make 3.81  (3.82- проявляет себя нестабильно). make 3.81 - входит в состав [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite) (см.ниже)
 
-* Для обеспечения полной функциональности Makefile-ов (тестов/примеров/генерации проектов и .т.д.), а также кросс-платформенной работы Makefile как в ОС Windows, так и в Linux  используются UNIX-утилиты (rm,cp,which,...).  В среде ОС Windows вызываются их аналоги из [GnuWin](http://gnuwin32.sourceforge.net/) в виду чего требуется их предварительная установка. 
-Сокращенный необходмый набор всех необходимых GnuWin утилит включая: make,cmake,gzip и пр. можно установить с помощью online-установщика [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite)
+* Для обеспечения полной функциональности Makefile-ов (тестов/примеров/генерации проектов и .т.д.), а также кросс-платформенной работы Makefile как в ОС Windows, так и в Linux  используются UNIX-утилиты (rm,cp,which,...).  В среде ОС Windows вызываются их аналоги из пакета [GnuWin](http://gnuwin32.sourceforge.net/), в виду чего требуется их предварительная установка. 
+Сокращенный необходимый комплект всех необходимых GnuWin утилит включая: make,cmake,gzip и пр. можно установить с помощью online-установщика [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite)
 * NeuroMatrix SDK  
   Для сборки библиотек под NeuroMatrix требуется NMSDK версией не ниже 3.07
 
@@ -58,7 +58,7 @@
 
  
 
-##Сборка NeuroMatrix библиотек  
+## Сборка NeuroMatrix библиотек  
   Сборка осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp_archictecture*. 
   
 ```
@@ -66,17 +66,17 @@ nmpp> cd make/nmpp-nmc3
 nmpp/make/nmpp-nmc3> make 
 nmpp/make/nmpp-nmc3> make DEBUG=y
 ```
-##Сборка x86/x64 библиотек  
+## Сборка x86/x64 библиотек  
   Генерация самих проектов оcуществляется средствами **cmake**.  
  Сконфигурировать проект можно командой   
 ```\nmpp\make\nmpp-x86-x64> make vs8 ```  
 ```\nmpp\make\nmpp-x86-x64> make vs14 ```  
 где с помощью ключей:  vs8, vs12, vs12x64, vs12x64, unix, mingw ...
 указывается требуемый компилятор   
-##Настройка переменных окружения 
+## Настройка переменных окружения  
 Для удобства подключения библиотек к собственным проектам рекомендуется использовать переменную окружения **NMPP**. Создать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  ```make install``` из папки *./make*.
 
-##Зависимости
+## Зависимости  
 Для сборки примеров и тестов могут потребоваться некоторые дополнительные средства разработки, визуализации, системные и прикладные библиотеки. За установку комплекта ПО зависимостей отвечает  online-установщик [dev-kit](https://github.com/RC-MODULE/dev-kit)
 Необходимые зависимости для данного проекта NMPP можно скачать и установить локально в папке */deps* командой:
 * Вариант A:
@@ -102,7 +102,7 @@ nmpp/deps>set https_proxy=http://username:password@proxy:port/
 
   
   
-##EXAMPLES:  
+## EXAMPLES:  
 Each library component contains several examples in *./app/examples*.
 Each example can be built for different targets.  
 
@@ -127,7 +127,7 @@ Action of **global.mk** may be overriden by **local.mk** if exists.
   Building and running of examples for some targets may be skipped if appropriate environment    variable (**VS80COMNTOOLS**,**VS120COMNTOOLS**,**CROSS_COMPILE**)
   containing path to according SDK  is not defined in your system.
 
-##TESTS:  
+## TESTS:  
 Running tests is performed by execution and comparision of results on different target paltforms:
 ```bat
   cd /app/test
@@ -140,7 +140,7 @@ Macro PLATFORMS in ./global.mk defines list of platforms for which tests need to
 PLATFORMS = vs80 mc5103 emu6405 mc7601 mb7707_libload
 ```
 
-##STRUCTURE OF LIBRARY:  
+## STRUCTURE OF LIBRARY:  
 ```bat
 NMPP    
 ¦    
@@ -251,7 +251,7 @@ L---src                           - Sources
 ```
 
 
-##Обратная связь:  
+## Обратная связь:  
 Предложения , вопросы , замечания  можно направлять на  Sergey Mushkaev <mushkaev@module.ru>
 
 

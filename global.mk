@@ -54,9 +54,6 @@ $(PATH);
    PS_UNZIP = powershell  -ExecutionPolicy Bypass -file unzip.ps1 
    OS_UNZIP = $(PS_UNZIP)
   
-  define BACKSLASH
-	$(subst /,\,$(1))
-  endef
 
   MB7707_MAC ?= 1A-2B-3C-4D-5E-6F
 else
@@ -115,14 +112,18 @@ endif
 #gcc
 #mc7601
 #PLATFORMS = vs80 mc5103 emu6405  mb7707 mc12101
-PLATFORMS = vs80 mc12101_float
+PLATFORMS = vs80 mc12101_nmc0 mc5103
 
-TARGET1=mc12101_float
+TARGET1=mc12101_nmc0
 TARGET2=vs80
 
 define newline
 
 
 endef	
+
+define BACKSLASH
+	$(subst /,\,$(1))
+endef
 
  

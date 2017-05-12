@@ -69,8 +69,8 @@ global _nmppsCrcAcc_32f :label;
 		gr2 = 000000FFh;
 	ar5 = _CRC32_Table;
 	gr0=[ar0++];									//		a=pSrcVec[i++];
-	gr1 = ar2;
-	gr1 = ar1 with gr0+= gr1;
+	gr1 = ar1;
+	gr1 = ar2 with gr0+= gr1;
 	gr0 = gr0 and gr1;
 	
 	ar4 = ar5;
@@ -98,12 +98,13 @@ global _nmppsCrcAcc_32f :label;
 		gr4	= gr1 xor gr3;							//		addr=b^c;		
 		gr6	= [ar4+=gr4]	;				//		t=pTable[addr];		
 		ar4 = ar5;			
-		gr0	=[ar0++] 		with gr7 = gr7 xor gr6;		
-		gr1 = ar2			with gr5--;			
-if <>0 delayed goto Next_CRC32 with gr7>>= 8;	//		i++			//		CRC32 >>= 8 			
-		gr1 = ar1 with gr0 = gr0 + gr1	;				
+		gr0	=[ar0++] 		with gr7>>= 8;		
+		gr1 = ar1			with gr5--;			
+if <>0 delayed goto Next_CRC32 with gr7 = gr7 xor gr6;	//		i++			//		CRC32 >>= 8 			
+		gr1 = ar2 with gr0 = gr0 + gr1	;				
 		gr0 = gr0 and gr1	;						//		a=pSrcVec[i++];CRC32 = CRC32 ^ t;
-		
+	
+	
 	<End_CRC32>	
 	gr7 = not gr7;									//	CRC32 = ~ CRC32;
 	[ar6] = gr7;

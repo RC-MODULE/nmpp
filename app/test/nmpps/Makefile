@@ -42,13 +42,13 @@ ROOT=../../..
 
 
 
-
+-include local.mk
 include $(ROOT)/global.mk
 # get list of all sub-foldfers
 WORK_DIRS=$(subst /,,$(wildcard */))
 
 # override all sub-foldfers by custom list in local.mk
--include local.mk
+
 WORK_DIRS := $(filter-out $(SKIP_DIRS),$(WORK_DIRS))
 
 # for each sub-folder try to start Makefile with (build/test/run/clean targets) 

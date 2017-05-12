@@ -86,8 +86,8 @@ nmpp/make/nmpp-nmc3> make DEBUG=y
  nmpp/deps> make install
 ```
 >в случае proxy-авторизации необходимо установить переменные:
->```
-nmpp/deps>set  http_proxy=http://username:password@proxy:port/
+```
+nmpp/deps>set  http_proxy=http://username:password@proxy:port/  
 nmpp/deps>set https_proxy=http://username:password@proxy:port/
 ```
 

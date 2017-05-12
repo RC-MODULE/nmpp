@@ -1,6 +1,6 @@
 #include "nmtype.h"
 //#include <math.h>
-float nmppsMSD_32sc(nm32sc* x0,nm32sc* x1, int size)
+float nmppsMSD_32sc(const nm32sc* x0, const nm32sc* x1, int size)
 {
 	int i;
 	float msdF;

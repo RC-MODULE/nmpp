@@ -1,11 +1,11 @@
 #include "fft_32fc.h"
 #include <malloc.h>
 
-void nmppsFFT32Fwd_32fc(nm32fc *x32, nm32fc *X32, NmppsFFTSpec_32fc *spec32)
+void nmppsFFT32Fwd_32fc(nm32fcr *x32, nm32fcr *X32, NmppsFFTSpec_32fc *spec32)
 {
     int i;
-    nm32fc *buff32 = (nm32fc *)malloc(16 * sizeof(nm32fc));
-    nm32fc *buff32xW = (nm32fc *)malloc(16 * sizeof(nm32fc));
+    nm32fcr *buff32 = (nm32fcr *)malloc(16 * sizeof(nm32fcr));
+    nm32fcr *buff32xW = (nm32fcr *)malloc(16 * sizeof(nm32fcr));
     for(i = 0; i < 16; i++) {
         buff32[i].im = x32[2 * i].im;
         buff32[i].re = x32[2 * i].re;

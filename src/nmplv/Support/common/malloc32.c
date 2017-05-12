@@ -447,6 +447,7 @@ float*  nmppsMalloc_32f(unsigned size)     { return (float*)  nmppsMalloc32(size
 double* nmppsMalloc_64f(unsigned size)     { return (double*) nmppsMalloc32(size<<1);}
 nm32sc* nmppsMalloc_32sc(unsigned size)    { return (nm32sc*) nmppsMalloc32(size<<1);}
 nm32fc* nmppsMalloc_32fc(unsigned size)    { return (nm32fc*) nmppsMalloc32(size<<1);}
+nm32fcr* nmppsMalloc_32fcr(unsigned size)  { return (nm32fcr*) nmppsMalloc32(size<<1);}
 nm32u*  nmppsMalloc_32u(unsigned sizeInt32){ return (nm32u*)  nmppsMalloc32(sizeInt32+(1&sizeInt32));}
 nm64s*  nmppsMalloc_64s(unsigned sizeInt64){ return (nm64s*)  nmppsMalloc32((sizeInt64)<<1);}
 nm64u*  nmppsMalloc_64u(unsigned sizeInt64){ return (nm64u*)  nmppsMalloc32((sizeInt64)<<1);}

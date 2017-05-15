@@ -4,7 +4,7 @@ include $(ROOT)/global.mk
 
 .SUFFIXES:
 
-NMPP?=
+#NMPP?=
 
 ifndef VS80COMNTOOLS
 $(warning *** WARNING: 'VS80COMNTOOLS' environment variable is not defined! Microsoft Visual Studio 8  might not have installed correctly. )

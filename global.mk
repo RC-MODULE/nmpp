@@ -71,11 +71,11 @@ else
   MB7707_MAC = eth0
 endif
 
-#PLATFORMS = vs80 mc5103 emu6405  mb7707 mc12101 gcc
-PLATFORMS = vs80 mc12101_nmc0 mc5103
+#PLATFORMS = vs8 mc5103 emu6405  mb7707 mc12101 gcc
+PLATFORMS = vs8 mc12101_nmc0 mc5103
 
 TARGET1=mc12101_nmc0
-TARGET2=vs80
+TARGET2=vs8
 
 define newline
 

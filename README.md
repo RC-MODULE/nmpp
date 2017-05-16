@@ -112,7 +112,7 @@ There are next supported targets:
  - M77601 board  
  - MB7707 board (Specify MAC-address of your Ethernet adapter in /app/templates/sometest/make_mb7707/Makefile )  
  - x86(gcc)  host  
- - x86(vs80) host   
+ - x86(vs8) host   
  - x86(vs13) host  
 
 List of actual target platforms is specified by **PLATFORMS** variable in **global.mk**.
@@ -133,11 +133,11 @@ Running tests is performed by execution and comparision of results on different 
   cd /app/test
   make configure
   make 
-  make test TARGET1=mc5103 TARGET2=vs80
+  make test TARGET1=mc5103 TARGET2=vs8
 ```
 Macro PLATFORMS in ./global.mk defines list of platforms for which tests need to be compiled.
 ```bat
-PLATFORMS = vs80 mc5103 emu6405 mc7601 mb7707_libload
+PLATFORMS = vs8 mc5103 emu6405 mc7601 mb7707_libload
 ```
 
 ## STRUCTURE OF LIBRARY:  
@@ -162,7 +162,7 @@ NMPP
 ¦   ¦   ¦   ¦   +---make_gcc               - build for x86 by gcc   
 ¦   ¦   ¦   ¦   +---make_mb7707            - build for MB7707  
 ¦   ¦   ¦   ¦   +---make_mc5103            - build for MC5103  
-¦   ¦   ¦   ¦   L---make_vs80              - build for Microsoft Visual Studio 8.0  
+¦   ¦   ¦   ¦   L---make_vs8              - build for Microsoft Visual Studio 8.0  
 ¦   ¦   ¦   ¦   L---make_vs13              - build for Microsoft Visual Studio 13.0  
 ¦   ¦   ¦   +---IMG_Filter_8s16s  
 .....  
@@ -172,7 +172,7 @@ NMPP
 ¦   ¦   ¦   ¦   +---make_gcc  
 ¦   ¦   ¦   ¦   +---make_mb7707  
 ¦   ¦   ¦   ¦   +---make_mc5103  
-¦   ¦   ¦   ¦   L---make_vs80  
+¦   ¦   ¦   ¦   L---make_vs8  
 ¦   ¦   ¦   ¦   L---make_vs13  
 ¦   ¦   ¦   L---Simple  
 .....  
@@ -183,7 +183,7 @@ NMPP
 ¦   ¦   ¦   ¦   ¦    +---make_gcc  
 ¦   ¦   ¦   ¦   ¦    +---make_mb7707  
 ¦   ¦   ¦   ¦   ¦    +---make_mc5103  
-¦   ¦   ¦   ¦   ¦    L---make_vs80  
+¦   ¦   ¦   ¦   ¦    L---make_vs8  
 ¦   ¦   ¦   ¦   ¦    L---make_vs13  
 .....  
 ¦   ¦   ¦   +---Filter  
@@ -207,7 +207,7 @@ NMPP
 ¦   ¦       +---make_mb7707  
 ¦   ¦       +---make_mc5103  
 ¦   ¦       +---make_mc7601  
-¦   ¦       L---make_vs80  
+¦   ¦       L---make_vs8  
 ....  
 +---doc                             - Documentation folder  
 +---include                         - Header folder  

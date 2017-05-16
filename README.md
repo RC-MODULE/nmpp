@@ -23,18 +23,18 @@
   
 # Состав бинарных библиотек:  
 - Целевые **NMC3/NMC4** библиотеки:  
-  /lib/nmpp_nmc3.lib   (Release)  
-  /lib/nmpp_nmc3d.lib  (Debug)  
-  /lib/nmpp_nmc4.lib   (Release)  
-  /lib/nmpp_nmc4d.lib  (Debug)  
+  /lib/nmpp-nmc3.lib   (Release)   :NM6405,NM6406,soc
+  /lib/nmpp-nmc3d.lib  (Debug)     :NM6405,NM6406,soc
+  /lib/nmpp-nmc4.lib   (Release)   :NM6407 NMC1 (Fixed point)
+  /lib/nmpp-nmc4d.lib  (Debug)     :NM6407 NMC1 (Fixed point)
+  /lib/nmpp-nmc4f.lib   (Release)  :NM6407 NMC0 (FPU)
+  /lib/nmpp-nmc4fd.lib  (Debug)    :NM6407 NMC0 (FPU)
  
 - **x86/x64** эмуляторы nmc-библиотек на ПК:   
-  /lib/libnmpp_gcc.a - compiled by GNU GCC 
-  /lib/nmpp_x86.lib  - (Release) compiled by Microsoft Visual Studio
-  /lib/nmpp_x86d.lib - (Debug)  
-  /lib/nmpp_x64.lib  - (Release) 
-  /lib/nmpp_x64d.lib - (Debug)  
-
+  /lib/libnmpp-x86.a - compiled by GNU GCC 
+  /lib/nmpp-x86.lib  - (Release) compiled by Microsoft Visual Studio
+  /lib/nmpp-x86d.lib - (Debug)   compiled by Microsoft Visual Studio
+  
 - **ARM** библиотека вызов NMC функций со стороны ARM-ядра средствами rpc (для систем на кристалле с ARM ядром):  
   /lib/libnmpp-arm-rpc.a
   
@@ -51,9 +51,9 @@
   Для сборки библиотек под NeuroMatrix требуется NMSDK версией не ниже 3.07
 
 * x86/x64 SDK   
-  Для эмуляции NeuroMatrix функций из состава NMPP под x86/x64 возможна сборка библиотек с помощью   Gnu GCC.  http://www.mingw.org/  или Microsoft Visual Studio, и в частности версиями Express:  
+  Для эмуляции NeuroMatrix функций из состава NMPP под x86/x64 возможна сборка библиотек с помощью   Gnu GCC.  http://www.mingw.org/  или http://win-builds.org/doku.php или Microsoft Visual Studio, и в частности версиями Express:  
 [Visual Studio 2005 Express](http://apdubey.blogspot.ru/2009/04/microsoft-visual-studio-2005-express.html)  
- [Visual Studio 2013 Express](https://www.microsoft.com/en-US/download/details.aspx?id=44914)  
+[Visual Studio 2013 Express](https://www.microsoft.com/en-US/download/details.aspx?id=44914)  
 
 
  
@@ -222,19 +222,15 @@ NMPP
 ¦   +---libnmpp_gcc.a                 - emulation library compiled by GNU GCC(mingw32)  
 ¦   +---nmpp_nmc3.lib                 - NeuroMatrix Core3 compatible library (Release)  
 ¦   +---nmpp_nmc3d.lib                - NeuroMatrix Core3 copatibale library (Debug)  
-¦   +---nmpp_vs80.lib                 - emulation library compiled by Microsoft Visual Studio 8.0 (Release)  
-¦   L---nmpp_vs80d.lib                - emulation library compiled by Microsoft Visual Studio 8.0 (Debug)  
-¦   +---nmpp_vs13.lib                 - emulation library compiled by Microsoft Visual Studio 13.0 (Release)  
-¦   L---nmpp_vs13d.lib                - emulation library compiled by Microsoft Visual Studio 13.0 (Debug)  
-  
+¦   +---nmpp_x86.lib                 - emulation library compiled by Microsoft Visual Studio (Release)  
+¦   L---nmpp_x86d.lib                - emulation library compiled by Microsoft Visual Studio  (Debug)  
+¦
 +---make                           - Make folder  
 ¦   +---distrib                        
 ¦   +---doxy                           
 ¦   +---nmc3                           - library project for NMSDK/NMC3 architecture  
-¦   L---pc  
-¦       +---gcc                        - library project for GNU GCC for x86  
-¦       L---vs80                       - library project for Visual Studio 8.0 for x86  
-¦       L---vs13                       - library project for Visual Studio 13.0 for x86  
+¦   +---nmpp-x86-x64                   - cmake folder to generate  x86 library  with GNU GCC  / Visual Studio 8.0/  Visual Studio 13.0 ...
+¦
 L---src                           - Sources  
     +---nmplc                        - Scalar   
 	...  

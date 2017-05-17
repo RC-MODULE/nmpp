@@ -27,11 +27,11 @@ d:\GIT\dev-kit> install.bat install-nmsdk install-mc12101sdk install-nm_io nmser
 префикс "install-" означает, что соответствующий пакет будет распакован с установкой (модификацией)
 соответствующих переменных окружения (NEURO, MC12101 , NM_IO, PATH ...)
 
-Если без префикса  "install-", то будет произведена только распаковка , без модификации переменных окружения.
+Если без префикса  "install-", то будет произведена только распаковка без модификации переменных окружения.
 
 
 
-Должен быть установлен Visual Studio 2005 либо gcc (MinGW)
+Должен быть установлен Visual Studio 2005 либо GCC(MinGW)
 
 Установка MinGW может быть осуществлена также через install.bat :
 ```
@@ -45,16 +45,22 @@ d:\GIT\dev-kit> install.bat mingw
 ## СБОРКА NMPP:  
 
 - Собрать библиотеку nmpp-nmc4f.lib:
+```
 d:\GIT\nmpp\make\nmpp-nmc4f> make
+```
 должна собраться d:\GIT\nmpp\lib\nmpp-nmc4f.lib
 
 Собрать библиотеку nmpp под ПК (варианты а,б):
 - a) Собрать библиотеку nmpp-x86.a под ПК  c помощью gcc:
+```
 d:\GIT\nmpp\make\nmpp-x86-x64> make gcc
+```
 должна собраться d:\GIT\nmpp\lib\libnmpp-x86.a
 
 - б). Собрать библиотеку nmpp-x86.lib под ПК  c помощью VisualStudio 2005:
+```
 d:\GIT\nmpp\make\nmpp-x86-x64> make vs8
+```
 должна собраться d:\GIT\nmpp\lib\nmpp-x86.lib
 
 

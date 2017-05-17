@@ -23,17 +23,17 @@
   
 # Состав бинарных библиотек:  
 - Целевые **NMC3/NMC4** библиотеки:  
-  /lib/nmpp-nmc3.lib   (Release)   :NM6405,NM6406,soc
-  /lib/nmpp-nmc3d.lib  (Debug)     :NM6405,NM6406,soc
-  /lib/nmpp-nmc4.lib   (Release)   :NM6407 NMC1 (Fixed point)
-  /lib/nmpp-nmc4d.lib  (Debug)     :NM6407 NMC1 (Fixed point)
-  /lib/nmpp-nmc4f.lib   (Release)  :NM6407 NMC0 (FPU)
-  /lib/nmpp-nmc4fd.lib  (Debug)    :NM6407 NMC0 (FPU)
+  /lib/nmpp-nmc3.lib   (Release)   :NM6405,NM6406,soc  
+  /lib/nmpp-nmc3d.lib  (Debug)     :NM6405,NM6406,soc  
+  /lib/nmpp-nmc4.lib   (Release)   :NM6407 NMC1 (Fixed point)  
+  /lib/nmpp-nmc4d.lib  (Debug)     :NM6407 NMC1 (Fixed point)  
+  /lib/nmpp-nmc4f.lib  (Release)   :NM6407 NMC0 (FPU)  
+  /lib/nmpp-nmc4fd.lib (Debug)     :NM6407 NMC0 (FPU)  
  
 - **x86/x64** эмуляторы nmc-библиотек на ПК:   
-  /lib/libnmpp-x86.a - compiled by GNU GCC 
-  /lib/nmpp-x86.lib  - (Release) compiled by Microsoft Visual Studio
-  /lib/nmpp-x86d.lib - (Debug)   compiled by Microsoft Visual Studio
+  /lib/libnmpp-x86.a - compiled by GNU GCC  
+  /lib/nmpp-x86.lib  - (Release) compiled by Microsoft Visual Studio  
+  /lib/nmpp-x86d.lib - (Debug)   compiled by Microsoft Visual Studio  
   
 - **ARM** библиотека вызов NMC функций со стороны ARM-ядра средствами rpc (для систем на кристалле с ARM ядром):  
   /lib/libnmpp-arm-rpc.a
@@ -108,12 +108,13 @@ Each example can be built for different targets.
 
 There are next supported targets:
  - NM6405 emulator  
+ - MC12101 board  
  - MC5103 board  
  - M77601 board  
  - MB7707 board (Specify MAC-address of your Ethernet adapter in /app/templates/sometest/make_mb7707/Makefile )  
- - x86(gcc)  host  
- - x86(vs8) host   
- - x86(vs13) host  
+ - x86(gcc) host  
+ - x86(vs)  host   
+ 
 
 List of actual target platforms is specified by **PLATFORMS** variable in **global.mk**.
 Action of **global.mk** may be overriden by **local.mk** if exists.

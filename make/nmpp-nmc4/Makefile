@@ -93,7 +93,7 @@ CC               =nmcpp
 CCPP_FLAGS       =-nmc3 -DNEURO -OPT2 -inline 
 CC_FLAGS         =$(CCPP_FLAGS) -Tc99
 BUILDER          =libr
-BUILDER_FLAGS    =-c $(TARGET)
+BUILDER_FLAGS    =-s $(TARGET)
 #--------------  DEBUG config -------------------------
 ifdef DEBUG      
 TARGET           =$(OUT_DIR)/$(PROJECT)d.lib
@@ -128,6 +128,7 @@ endif
 # regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)
 ALL_CPP =$(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
 ALL_ASM =$(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
+#ALL_S   =$(wildcard $(addsuffix /*.s,$(SRC_DIRS)))
 ALL_C   =$(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
 ALL_H   =$(wildcard $(addsuffix /*.h,$(HEADER_DIRS)))
 
@@ -136,7 +137,9 @@ VPATH    = $(SRC_DIRS)
 # collecting of objects
 OBJECTS_CPP = $(notdir $(patsubst %.cpp,%.o,$(ALL_CPP)))
 OBJECTS_ASM = $(notdir $(patsubst %.asm,%.o,$(ALL_ASM)))
+#OBJECTS_S   = $(notdir $(patsubst %.s,%.o,$(ALL_S)))
 OBJECTS_C   = $(notdir $(patsubst %.c,%.o,$(ALL_C)))
+#OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S))
 OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM))
 
 

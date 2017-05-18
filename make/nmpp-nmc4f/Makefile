@@ -93,7 +93,7 @@ CC               =nmcpp
 CCPP_FLAGS       =-nmc3 -DNEURO -OPT2 -inline 
 CC_FLAGS         =$(CCPP_FLAGS) -Tc99
 BUILDER          =libr
-BUILDER_FLAGS    =-c $(TARGET)
+BUILDER_FLAGS    =-s $(TARGET)
 #--------------  DEBUG config -------------------------
 ifdef DEBUG      
 TARGET           =$(OUT_DIR)/$(PROJECT)d.lib

@@ -1,23 +1,16 @@
 #
-# This is a universal Makefile for NeuroMatrix projects (application or library) [EDITION 20]
+# This is a  Makefile for NeuroMatrix projects (application or library) 
 # with automatic recursive search of source files , compiling and linking.
 # Makefile is processed by GNU make and may be used both in Linux and Windows OS
 #
 # To compile it you need: 
-# * Latest NMSDK installed with utilities in your $PATH
+# * Latest NMCGCC installed with utilities in your $PATH
 # * NEURO environment variable pointing to NMSDK directory
 # * Host GCC (Since nmcpp doesn't support generating header dependences, we use gcc for that) 
 #
 # Under OS Windows you need:
 # * GNU Make           http://gnuwin32.sourceforge.net/packages/make.htm
-# * GNU UNIX utilities http://sourceforge.net/projects/unxutils/
-# * PATH enviroment variable pointing to GnuWin32 gcc
-# * PATH enviroment variable pointing to GNU make
-# * PATH enviroment variable pointing to GNU Utilities  (rm,find..)
-#
-# NOTE: You can use all-in-one package for Windows (Mingw32 + GNU make + GNU UNIX Utilities) 
-#   available at \\dragon\distrib\ext_soft\gcc_make\mingw32_plus_gnumake.zip 
-#   set PATH enviroment variable pointing to \mingw32\bin only
+# * GNU UNIX utilities http://sourceforge.net/projects/unxutils/ 
 #
 # USAGE:
 #   For release build                    run 'make'
@@ -29,8 +22,6 @@
 #   To clean DEBUG & RELEASE             run 'make cleanall'
 #   To create VisualStudio 2005 project  run 'make vs8'
 #   For verbose build (no colorizing)    run 'make VERBOSE=y'
-#   Execute target                       run 'make run'
-#   Execute debug target                 run 'make rund'
 #
 # WARNING:
 #   Makefile is sensitive to leading or trailing spaces and backslashes in the pathes
@@ -40,90 +31,47 @@
 #   TARGET          - output target (.lib or .abs) file with path
 #   INC_DIRS        - set of search pathes for the macro libraries and includes (with -I flag separated)
 #   SRC_DIRS        - set of explicit  search pathes of all (.c .cpp .asm) source files (with space separated)
-#   #SRC_DIR_RECURSE - set of recursive search pathes of all (.c .cpp .asm) source files (with space separated)
 #   LIB_DIRS        - set of search library pathes (with -l flag separated)
 #   TMP_DIR         - temporary build-folder (Debug/Release)
-#   LIBS            - set of (.lib) libraries to be linked (with space separated)
 #   
-#   CROSS_COMPILE   - prefix before gcc in crosscompiler full name (for example: i686-w64-mingw32-) needed for generation of header dependences
-#   CC              - C/C++ compiler(nmcpp/nmcc)
-#   CC_FLAGS        - C/C++ compiler(nmcpp/nmcc) flags   
-#   AS				- assembler(asm/nmcc)
-#   AS_FLAGS        - assembler(asm/nmcc) flags for compiling of pure .asm files 
-#   AS_FLAGS_C2ASM  - assembler(asm/nmcc) flags for compiling of .asm files compiled from .c/.cpp sources
-#   BUILDER         - builder  (libr/linker) 			
-#   BUILDER_FLAGS   - build flags of (libr/linker)
-#   RUN_COMMAND     - command line to run target    
-#
-#   HEADER_DIRS     - set of pathes for .h   files to be included into Visual Studio project (with space separated)
-#   RESOURCES       - set of any additionals files to be included into Visual Studio project
+#   CC              - C/C++ compiler
+#   CC_FLAGS        - C/C++ compiler flags   
+#   AS				- assembler
+#   AS_FLAGS        - assembler flags for compiling of pure .asm files 
+#   AR              - librarian
+#   AR_FLAGS        - librarian flags of (libr/linker)
 #
 #============== PROJECT & BUILD CONFIGURATION ==========
-#
-#include .toolchecked.mk
-
-#ifdef NEURO
-#  .DEFAULT_GOAL := default
-#else 
-#  $(error *** ERROR: 'NEURO' environment variable is not defined! NMSDK might not have installed correctly. )
-#  .DEFAULT_GOAL := skip
-#endif
-
-ROOT = ../..
-include $(ROOT)/global.mk
-include	$(ROOT)/make/src-nmc-float.mk
-
-CC =nmc-gcc
-LD =nmc-ld
-AR =nmc-ar
-AS =asm
-OBJCOPY = $(ARM_CC)-objcopy
-OBJDUMP = $(ARM_CC)-objdump
-
-ARCH            ?=nmc4
-
-
+ROOT             = ../..
+include          $(ROOT)/global.mk
+ARCH             = nmc4
 #--------------  target & input dirs -------------------
-PROJECT          = libnmpp-nmc4f
+PROJECT          = libnmpp-$(ARCH)f
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a
-#INC_DIRS         = -I../../include -I../../include/nmpls
-INC_DIRS         = -I../../include -I$(NEURO)/include
-
-include          $(ROOT)/make/src-nmc-float.mk
-					
-					
 TMP_DIR          = Release
+#INC_DIRS        =
+#SRC_DIRS        =
+include          $(ROOT)/make/src-nmc-float.mk
 #------------------------------------------------
-#AS_FLAGS         = $(INC_DIRS)
-#CC_FLAGS 		 = -g -Wall -fPIC $(INC_DIRS)  -std=c99
+CC               = nmc-gcc
+LD               = nmc-ld
+AR               = nmc-ar
+AS               = asm
 CC_FLAGS 		 = $(INC_DIRS)  -std=c99
-
-#-std=c99 -fno-exceptions -Wall -O0 -mcpu=arm1176jzf-s -DGPIO_LEG=6 -fno-zero-initialized-in-bss $(ING_DIRS) 
-
-BUILDER          = $(AR)
-BUILDER_FLAGS    = rcs $(TARGET)
+AR_FLAGS         = rcs $(TARGET)
 AS_FLAGS         =-$(ARCH) -nm2ms  $(INC_DIRS) -split_sir -W-111 -W-109
-
 #--------------  Header dependence parsing -------------------------
-#ifdef HAVE_gcc
-#PREPROCESS_ASM_DEP = $(ARM_CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
-#PREPROCESS_CPP_DEP = $(ARM_CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
-#endif
+PREPROCESS_ASM_DEP = $(CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
+PREPROCESS_CPP_DEP = $(CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
-
-#-include colorizer.mk
-
 .SUFFIXES:
-
-
-
-
-# regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)
+# regular search of *.c *.cpp,*.asm,*.s sources in all $(SRC_DIRS)
 ALL_CPP =$(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
 ALL_ASM =$(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
 ALL_C   =$(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
+ALL_S   =$(wildcard $(addsuffix /*.s,$(SRC_DIRS)))
 ALL_H   =$(wildcard $(addsuffix /*.h,$(HEADER_DIRS)))
 
 VPATH    = $(SRC_DIRS)
@@ -132,24 +80,21 @@ VPATH    = $(SRC_DIRS)
 OBJECTS_CPP = $(notdir $(patsubst %.cpp,%.o,$(ALL_CPP)))
 OBJECTS_ASM = $(notdir $(patsubst %.asm,%.o,$(ALL_ASM)))
 OBJECTS_C   = $(notdir $(patsubst %.c,%.o,$(ALL_C)))
-OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM))
-
-
+OBJECTS_S   = $(notdir $(patsubst %.s,%.o,$(ALL_S)))
+OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S))
 #======================== BUILD RULES ====================================
 .PHONY:all  clean cleanall vs8  skip
 
-#.DEFAULT_GOAL=default
 default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
 
 all: 
 	$(MAKE) -j4
-
 	
 $(TMP_DIR):
 	-mkdir "$(@)"
 
 $(TARGET): $(TMP_DIR) $(OBJECTS) 
-	$(BUILDER) $(BUILDER_FLAGS) $(OBJECTS) 
+	$(AR) $(AR_FLAGS) $(OBJECTS) 
 
 -include $(TMP_DIR)/*.dep
 	
@@ -167,11 +112,13 @@ $(TMP_DIR)/%.o: %.cpp
 $(TMP_DIR)/%.o: %.asm 
 	$(PREPROCESS_ASM_DEP)
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
+
+$(TMP_DIR)/%.o: %.s 
+	$(PREPROCESS_ASM_DEP)
+	$(AS) $(AS_FLAGS) $(<) -o$(@)
 	
 clean:
 	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
 	-$(OS_RD) Debug Release
  
-cleanall:
-	$(MAKE) clean
 	

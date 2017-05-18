@@ -69,53 +69,55 @@
 #  .DEFAULT_GOAL := skip
 #endif
 
+ROOT = ../..
+include $(ROOT)/global.mk
+
+CC =nmc-gcc
+LD =nmc-ld
+AR =nmc-ar
+AS =asm
+OBJCOPY = $(ARM_CC)-objcopy
+OBJDUMP = $(ARM_CC)-objdump
+
+ARCH            ?=nmc4
+
 
 #--------------  target & input dirs -------------------
-ROOT             = ../..
-include 		$(ROOT)/global.mk
-include 		$(ROOT)/make/src-nmc-int.mk
-PROJECT          = nmpp-nmc3
-OUT_DIR          = $(ROOT)/lib
-TARGET           = $(OUT_DIR)/$(PROJECT).lib
-INC_DIRS         = -I"$(NEURO)/include" -I$(ROOT)/include
+PROJECT          = libnmpp-nmc4
+OUT_DIR          = ../../lib
+TARGET           = $(OUT_DIR)/$(PROJECT).a
+#INC_DIRS         = -I../../include -I../../include/nmpls
+INC_DIRS         = -I../../include -I$(NEURO)/include
 
+include          $(ROOT)/make/src-nmc-int.mk
+					
+					#../../src/nmplv/Support/common \
+					#../../src/nmplv/Support/nm \
+					
+#					../../src/nmpls/FFT/FFT0256/common
+					
+TMP_DIR          = Release
+#------------------------------------------------
+#AS_FLAGS         = $(INC_DIRS)
+#CC_FLAGS 		 = -g -Wall -fPIC $(INC_DIRS)  -std=c99
+CC_FLAGS 		 = $(INC_DIRS)  -std=c99
 
+#-std=c99 -fno-exceptions -Wall -O0 -mcpu=arm1176jzf-s -DGPIO_LEG=6 -fno-zero-initialized-in-bss $(ING_DIRS) 
 
-CC               =nmcc
-AS               =asm 				 
-BUILDER          =libr
-CROSS_COMPILE   ?=
-#--------------  RELEASE/ALL config -------------------
-AS_FLAGS         =-nmc3 -nm2ms  $(INC_DIRS)
-CCPP_FLAGS       =-nmc3 -DNEURO -O2  -Snolink 
-CC_FLAGS         =$(CCPP_FLAGS) -Tc99
-BUILDER_FLAGS    =-c $(TARGET)
-TMP_DIR          =Release
-#--------------  DEBUG config -------------------------
-ifdef DEBUG      
-TARGET           =$(OUT_DIR)/$(PROJECT)d.lib
-CCPP_FLAGS       =-nmc3 -DNEURO -O0 -g -Snolink 
-CC_FLAGS         =$(CCPP_FLAGS) -Tc99
-AS_FLAGS        +=-ga
-BUILDER_FLAGS   +=-d0
-TMP_DIR          =Debug
-endif 
-#--------------  Visual Studio config (for vs8.mk)--
-HEADER_DIRS      =../../include ../../include/nmplv ../../include/nmpli ../../include/nmpls ../../include/nmplm ../../include/nmplc
-RESOURCES        =Makefile
-
-
+BUILDER          = $(AR)
+BUILDER_FLAGS    = rcs $(TARGET)
+AS_FLAGS         =-$(ARCH) -nm2ms  $(INC_DIRS) -split_sir -W-111 -W-109
 
 #--------------  Header dependence parsing -------------------------
-ifdef HAVE_gcc
-PREPROCESS_ASM_DEP = $(CROSS_COMPILE)gcc -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
-PREPROCESS_CPP_DEP = $(CROSS_COMPILE)gcc -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
-endif
+#ifdef HAVE_gcc
+#PREPROCESS_ASM_DEP = $(ARM_CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
+#PREPROCESS_CPP_DEP = $(ARM_CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
+#endif
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 
 #-include colorizer.mk
--include $(TMP_DIR)/*.dep
+
 .SUFFIXES:
 
 
@@ -137,13 +139,12 @@ OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM
 
 
 #======================== BUILD RULES ====================================
-.PHONY:all  clean cleanall vs8  skip $(PROJECT)-nmcc.vcproj
+.PHONY:all  clean cleanall vs8  skip
 
 #.DEFAULT_GOAL=default
 default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
 
 all: 
-	$(MAKE) -j4 DEBUG=y
 	$(MAKE) -j4
 
 	
@@ -153,46 +154,27 @@ $(TMP_DIR):
 $(TARGET): $(TMP_DIR) $(OBJECTS) 
 	$(BUILDER) $(BUILDER_FLAGS) $(OBJECTS) 
 
+-include $(TMP_DIR)/*.dep
+	
 $(OUT_DIR): 
 	-mkdir "$(@)"
+	
+$(TMP_DIR)/%.o: %.c 
+	$(PREPROCESS_ASM_DEP)
+	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
+
+$(TMP_DIR)/%.o: %.cpp
+	$(PREPROCESS_ASM_DEP)
+	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 	
 $(TMP_DIR)/%.o: %.asm 
 	$(PREPROCESS_ASM_DEP)
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
-
-$(TMP_DIR)/%.o: %.cpp 
-	$(PREPROCESS_CPP_DEP)
-	$(CC) $(CCPP_FLAGS) $(<) -o$(@) $(INC_DIRS) 
-
-$(TMP_DIR)/%.o: %.c
-	$(PREPROCESS_CPP_DEP)
-	$(CC) $(CC_FLAGS) $(<) -o$(@) $(INC_DIRS) 
-
 	
-
 clean:
-	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk null
+	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
 	-$(OS_RD) Debug Release
  
 cleanall:
 	$(MAKE) clean
-	$(MAKE) clean DEBUG=y
 	
-#.toolchecked.mk:
-#	$(MAKE) -f checktools.mk
-
-#========================== Visual Studio 8 support ===================
-#export ALL_CPP ALL_ASM ALL_C ALL_H
-
-vs8: $(PROJECT)-nmcc.vcproj
-
-$(PROJECT)-nmcc.vcproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs8.mk nmc-app --silent >$(@)
-
-vs13: $(PROJECT).vcxproj
-
-$(PROJECT)-nmcc.vcxproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs13.mk nmc-app --silent >$(@)
-
-skip:
-	@echo SDK missing. Compilation is skipped!

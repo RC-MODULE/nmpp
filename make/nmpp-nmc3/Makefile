@@ -73,7 +73,7 @@ ARCH            ?=nmc3
 #--------------  target & input dirs -------------------
 ROOT             = ../..
 include          $(ROOT)/global.mk
-include          $(ROOT)/make/src.mk
+include          $(ROOT)/make/src-nmc-int.mk
 
 PROJECT          = nmpp-$(ARCH)
 OUT_DIR          = $(ROOT)/lib

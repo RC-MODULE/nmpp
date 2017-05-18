@@ -1,4 +1,3 @@
-ROOT=../../../../../..
 include $(ROOT)/global.mk
 # BUILD AND RUN MAKEFILE
 # This makefile builds simple nmc-application containing single cpp-file  
@@ -17,8 +16,8 @@ $(error *** ERROR: 'NMPP' environment variable is not defined!  )
 endif 
 
 
-INC_DIRS = -I"$(NMPP)/include" -I"$(MC12101)/include"
-LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12101)/lib" -L$(NM_IO)/lib
+INC_DIRS = -I"$(NMPP)/include" -I"$(MC12101)/include" -I"$(NEURO)/include"
+LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12101)/lib" -L$(NM_IO)/lib -L"$(NEURO)/lib"
 LIBS     = mc12101lib_nm.lib libc4f.lib libc4.lib nmpp-nmc4f.lib nm_io4.lib
 TARGET   = main.abs
 CFG      = mc12101brd-nmc0.cfg

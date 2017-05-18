@@ -14,10 +14,10 @@ else
   OS_SET_ENV = export NMPP=$(realpath ..)
 endif
 
-.PHONY : all nmpp-nmc3 gcc vs80 vs13 clean 
+.PHONY : all nmpp-nmc3 gcc vs8 vs13 clean 
 
 
-all: gcc vs80 nmpp-nmc3
+all: gcc vs8 nmpp-nmc3
 
 nmpp-nmc3:
 	$(MAKE) -C ./nmpp-nmc3
@@ -26,8 +26,8 @@ nmpp-nmc3:
 gcc:	
 	$(MAKE) -C ./pc/gcc
 	
-vs80:	
-	$(MAKE) -C ./pc/vs80
+vs8:	
+	$(MAKE) -C ./pc/vs8
 
 vs13:	
 	$(MAKE) -C ./pc/vs13
@@ -50,7 +50,7 @@ clean:
 	$(MAKE) -C ./nmpp-arm-rpc clean
 	$(MAKE) -C ./nmpp-arm clean
 	$(MAKE) -C ./pc/gcc  clean
-	$(MAKE) -C ./pc/vs80 clean
+	$(MAKE) -C ./pc/vs8 clean
 	$(MAKE) -C ./pc/vs13 clean
 	$(MAKE) -C ./doc  clean 
 	-rm -f -r *.suo *.ncb

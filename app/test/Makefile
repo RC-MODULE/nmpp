@@ -11,7 +11,7 @@ ROOT = ../..
 # > make configure 
 #  - recursive generates Makefiles for all tests for different platforms defined in $(PLATFORMS) list
 #
-# > make test TARGET1=mc5103 TARGET2=vs80
+# > make test TARGET1=mc5103 TARGET2=vs8
 # - recursive build and run all test from current folder 
 # - each test compares exitcode of programs runned on  $(TARGET1) and $(TARGET2) platforms 
 # - if exitcodes are identical - test is passed

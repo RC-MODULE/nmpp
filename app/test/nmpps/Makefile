@@ -26,7 +26,7 @@ ROOT=../../..
 # /> make run 
 #  Recursivly runs all tests/examples from current folder on all platforms from $(PLATFORMS) list defined in global.mk 
 #
-# /> make test TARGET1=mc5103 TARGET2=vs80
+# /> make test TARGET1=mc5103 TARGET2=vs8
 #  Recursivly builds and runs all tests from current folder  
 #  Then two exitcodes fo $(TARGET1) and $(TARGET2) platforms are compared
 #  if exitcodes are identical - test is passed

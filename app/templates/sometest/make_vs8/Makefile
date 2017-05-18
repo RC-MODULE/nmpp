@@ -4,7 +4,7 @@ include $(ROOT)/global.mk
 
 .SUFFIXES:
 
-NMPP?=
+#NMPP?=
 
 ifndef VS80COMNTOOLS
 $(warning *** WARNING: 'VS80COMNTOOLS' environment variable is not defined! Microsoft Visual Studio 8  might not have installed correctly. )
@@ -48,9 +48,9 @@ VPATH    = $(subst -l,,$(LIB_DIRS))
 
 $(TARGETD): $(PROJECT).vcproj $(ALL_CPP) $(NMPP)/lib/$(LIBSD)
 	rm -f -r $(@)
-	@echo $(CURDIR)>> $(ROOT)/app/test/build-vs80.txt
+	@echo $(CURDIR)>> $(ROOT)/app/test/build-vs8.txt
 	"$(VS80COMNTOOLS)vsvars32" && vcbuild $(PROJECT).vcproj
-	@echo -OK>> $(ROOT)/app/test/build-vs80.txt
+	@echo -OK>> $(ROOT)/app/test/build-vs8.txt
 
 run:	$(TARGETD)
 	$(TARGETD)

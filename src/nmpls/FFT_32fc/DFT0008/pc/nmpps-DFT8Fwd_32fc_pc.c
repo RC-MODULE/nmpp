@@ -1,4 +1,4 @@
-#include "FFT_32fc.h"
+#include "fft_32fc.h"
 
 void nmppsDFT8Fwd_32fc(nm32fcr *x8, nm32fcr *X8, NmppsFFTSpec_32fc *spec8)
 {

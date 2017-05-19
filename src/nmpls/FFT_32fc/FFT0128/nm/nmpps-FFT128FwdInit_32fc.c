@@ -2,9 +2,6 @@
 #include <math.h>
 #include "fft_32fc.h"
 
-//float sinf(float);
-//float cosf(float);
-
 int nmppsFFT128FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr128)
 {
 	int i, j, k;
@@ -12,50 +9,47 @@ int nmppsFFT128FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr128)
 	const float pi = 3.141592653;
     float alpha;
     nm32fcr *SinCos = (nm32fcr *) malloc(64 * sizeof(nm32fcr));
-	NmppsFFTSpec_32fc *ratios = (NmppsFFTSpec_32fc *) malloc(sizeof(NmppsFFTSpec_32fc));
-	if(ratios == NULL) {
+	NmppsFFTSpec_32fc *spec_32fc = (NmppsFFTSpec_32fc *) malloc(sizeof(NmppsFFTSpec_32fc));
+	if(!spec_32fc) {
 		return -1;
 	}
-	ratios->SinCos0 = (nm32fcr *) malloc2(32 * sizeof(nm32fcr));
-	if (ratios->SinCos0 == NULL)
-		return -2;
-	ratios->SinCos1 = (nm32fcr *) malloc1(32 * sizeof(nm32fcr));
-	if (ratios->SinCos1 == NULL)
-		return -3;
-	ratios->buff_fft = (nm32fcr *) malloc2(64 * sizeof(nm32fcr));
-	if (ratios->buff_fft == NULL)
-		return -4;
-	ratios->buff_fftxW = (nm32fcr *) malloc3(64 * sizeof(nm32fcr));
-	if (ratios->buff_fftxW == NULL)
-		return -5;
-	ratios->tmp_128 = (nm32fcr *) malloc3(32 * sizeof(nm32fcr));
-	if (ratios->tmp_128 == NULL)
-		return -6;
-	ratios->tmp_128xW = (nm32fcr *) malloc2(32 * sizeof(nm32fcr));
-	if (ratios->tmp_128xW == NULL)
-		return -7;
-	ratios->w8_0 = (nm32fcr *) malloc(8 * sizeof(nm32fcr));
-	if (ratios->w8_0 == NULL)
-		return -8;
-	ratios->w8_1 = (nm32fcr *) malloc1(8 * sizeof(nm32fcr));
-	if (ratios->w8_1 == NULL)
-		return -9;
-	ratios->w16_0 = (nm32fcr *) malloc(16 * sizeof(nm32fcr));
-	if (ratios->w16_0 == NULL)
-		return -10;
-	ratios->w16_1 = (nm32fcr *) malloc1(16 * sizeof(nm32fcr));
-	if (ratios->w16_1 == NULL)
-		return -11;
-	ratios->w32_0 = (nm32fcr *) malloc(32 * sizeof(nm32fcr));
-	if (ratios->w32_0 == NULL)
-		return -12;
-	ratios->w32_1 = (nm32fcr *) malloc1(32 * sizeof(nm32fcr));
-	if (ratios->w32_1 == NULL)
-		return -13;
-	ratios->w64_0 = (nm32fcr *) malloc(64 * sizeof(nm32fcr));
-	if (ratios->w64_0 == NULL)
-		return -14;
-	*addr128 = ratios;
+    for(i = 0; i < NUMBUFF2; i++) {
+        spec_32fc->Buffs[i] = 0;
+    }
+    spec_32fc->Buffs[0] = (nm32fcr *) malloc((8 + 16 + 32 + 64) * sizeof(nm32fcr));
+    if(!spec_32fc->Buffs[0])
+        return -2;
+
+    spec_32fc->Buffers[4] = spec_32fc->Buffs[0];	   // W8_0
+    spec_32fc->Buffers[6] = spec_32fc->Buffs[0] + 8;   // W16_0
+    spec_32fc->Buffers[10] = spec_32fc->Buffs[0] + 24; // W32_0
+    spec_32fc->Buffers[12] = spec_32fc->Buffs[0] + 56; // W64_0
+
+    spec_32fc->Buffs[1] = (nm32fcr *) malloc1((32 + 8 + 16 + 32) * sizeof(nm32fcr));
+    if(!spec_32fc->Buffs[0])
+        return -3;
+
+    spec_32fc->Buffers[1] = spec_32fc->Buffs[1];	   // SinCos1
+    spec_32fc->Buffers[5] = spec_32fc->Buffs[1] + 32;   // W8_1
+    spec_32fc->Buffers[7] = spec_32fc->Buffs[1] + 40; // W16_1
+    spec_32fc->Buffers[11] = spec_32fc->Buffs[1] + 56; // W32_1
+
+    spec_32fc->Buffs[2] = (nm32fcr *) malloc2((32 + 64 + 32) * sizeof(nm32fcr));
+    if(!spec_32fc->Buffs[0])
+        return -4;
+
+    spec_32fc->Buffers[0] = spec_32fc->Buffs[2];	   // SinCos0
+    spec_32fc->Buffers[2] = spec_32fc->Buffs[2] + 32;   // buff_fft
+    spec_32fc->Buffers[9] = spec_32fc->Buffs[2] + 96; // tmp_128xW
+
+    spec_32fc->Buffs[3] = (nm32fcr *) malloc3((64 + 32) * sizeof(nm32fcr));
+    if(!spec_32fc->Buffs[3])
+        return -5;
+
+    spec_32fc->Buffers[3] = spec_32fc->Buffs[3];	   // buff_fftxW
+    spec_32fc->Buffers[8] = spec_32fc->Buffs[3] + 64;   // tmp_128
+    
+	*addr128 = spec_32fc;
 	k = 0;
     for(i = 0; i <  8; i++) {
         for(j = 0; j < 64; j = j + 8) {
@@ -67,38 +61,38 @@ int nmppsFFT128FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr128)
         k = 0;
     }
     for(i = 0; i < 32; i++) {
-        ratios->SinCos0[i].im = SinCos[i].im;
-        ratios->SinCos0[i].re = SinCos[i].re;
-        ratios->SinCos1[i].im = SinCos[i + 32].im;
-        ratios->SinCos1[i].re = SinCos[i + 32].re;
+        spec_32fc->Buffers[0][i].im = SinCos[i].im;
+        spec_32fc->Buffers[0][i].re = SinCos[i].re;
+        spec_32fc->Buffers[1][i].im = SinCos[i + 32].im;
+        spec_32fc->Buffers[1][i].re = SinCos[i + 32].re;
     }
     for(i = 0; i < 64; i++) {
         alpha = (0.04908738521 * (float)i);
-        ratios->w64_0[i].im = -sinf(alpha);
-        ratios->w64_0[i].re = cosf(alpha);
+        spec_32fc->Buffers[12][i].im = -sinf(alpha);
+        spec_32fc->Buffers[12][i].re = cosf(alpha);
     }
     gr1 = 0;
     for(i = 0; i < 8; i++) {
-        ratios->w8_0[i].im = ratios->w64_0[gr1].im;
-        ratios->w8_0[i].re = ratios->w64_0[gr1].re;
-        ratios->w8_1[i].im = ratios->w64_0[gr1].im;
-        ratios->w8_1[i].re = ratios->w64_0[gr1].re;
+        spec_32fc->Buffers[4][i].im = spec_32fc->Buffers[12][gr1].im;
+        spec_32fc->Buffers[4][i].re = spec_32fc->Buffers[12][gr1].re;
+        spec_32fc->Buffers[5][i].im = spec_32fc->Buffers[12][gr1].im;
+        spec_32fc->Buffers[5][i].re = spec_32fc->Buffers[12][gr1].re;
         gr1 += 8;
     }
     gr1 = 0;
     for(i = 0; i < 16; i++) {
-        ratios->w16_0[i].im = ratios->w64_0[gr1].im;
-        ratios->w16_0[i].re = ratios->w64_0[gr1].re;
-        ratios->w16_1[i].im = ratios->w64_0[gr1].im;
-        ratios->w16_1[i].re = ratios->w64_0[gr1].re;
+        spec_32fc->Buffers[6][i].im = spec_32fc->Buffers[12][gr1].im;
+        spec_32fc->Buffers[6][i].re = spec_32fc->Buffers[12][gr1].re;
+        spec_32fc->Buffers[7][i].im = spec_32fc->Buffers[12][gr1].im;
+        spec_32fc->Buffers[7][i].re = spec_32fc->Buffers[12][gr1].re;
         gr1 += 4;
     }
     gr1 = 0;
     for(i = 0; i < 32; i++) {
-        ratios->w32_0[i].im = ratios->w64_0[gr1].im;
-        ratios->w32_0[i].re = ratios->w64_0[gr1].re;
-        ratios->w32_1[i].im = ratios->w64_0[gr1].im;
-        ratios->w32_1[i].re = ratios->w64_0[gr1].re;
+        spec_32fc->Buffers[10][i].im = spec_32fc->Buffers[12][gr1].im;
+        spec_32fc->Buffers[10][i].re = spec_32fc->Buffers[12][gr1].re;
+        spec_32fc->Buffers[11][i].im = spec_32fc->Buffers[12][gr1].im;
+        spec_32fc->Buffers[11][i].re = spec_32fc->Buffers[12][gr1].re;
         gr1 += 2;
     }
     free(SinCos);

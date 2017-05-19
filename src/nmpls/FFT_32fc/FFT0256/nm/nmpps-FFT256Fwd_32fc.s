@@ -118,7 +118,7 @@ begin ".text"
 	ar0 = gr2; // buff_fft256
 	ar6 = gr7; // buff_fft256xW
 	gr4 = gr1 >> 5;
-	ar5 = ar5 + 5;
+	//ar5 = ar5 + 5;
 	ar1 = [ar5++]; // W8_0
 	ar2 = [ar5++]; // W8_1
 	ar3 = ar1;

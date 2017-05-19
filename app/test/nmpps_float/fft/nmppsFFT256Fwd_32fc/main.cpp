@@ -3,7 +3,6 @@
 #include "time.h"
 #include "fft_32fc.h"
 #include "nmpp.h"
-#include <stdio.h>
 
 int main()
 {
@@ -25,8 +24,6 @@ int main()
 		return 123;
 	}
 	nmppsFFT256Fwd_32fc(src, dst, rat);
-	for(int i=0;i<256;i++)
-		printf("%.7f %.7f\n", dst[i].re, dst[i].im);
 	tm = nmppsFFTFree_32fc(rat);
 	unsigned int crc = 0;
 	nmppsCrcAcc_32f((nm32f *)dst, 16, 256*2, &crc);

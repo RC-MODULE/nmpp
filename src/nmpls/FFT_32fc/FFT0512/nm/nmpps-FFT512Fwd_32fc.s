@@ -40,7 +40,7 @@ macro INMEM(N512)
 	fpu N512 rep 32 [ar2++] = vreg1;
 end INMEM;
 
-begin ".text"
+begin ".text512"
 <_nmppsFFT512Fwd_32fc>
 	set fp_branch;
 	ar5 = ar7 - 2;
@@ -122,7 +122,7 @@ begin ".text"
 // END COMPUTE 32 PART OF DFT16
 
 // COMPUTE 32 PART OF FFT16
-	ar5 = ar5 + 5;
+	//ar5 = ar5 + 5;
 	ar1 = [ar5++]; // W8_0
 	ar2 = [ar5++]; // W8_1
 	ar3 = ar1;
@@ -186,7 +186,7 @@ begin ".text"
 // END FFT32
 
 // COMPUTE 8 PART FFT64
-	ar5 = ar5 + 5;
+	//ar5 = ar5 + 5;
 	ar1 = [ar5++]; // W256
 	gr4 = ar1;
 	gr1 >>= 3;
@@ -351,4 +351,4 @@ begin ".text"
 	pop ar4, gr4;
 	pop ar6, gr6;
 	return;
-end ".text";
+end ".text512";

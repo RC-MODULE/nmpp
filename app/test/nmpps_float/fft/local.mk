@@ -1,2 +1,2 @@
-WORK_DIRS = nmppsFFT32Fwd_32fc
+WORK_DIRS = nmppsFFT32Fwd_32fc nmppsFFT64Fwd_32fc nmppsFFT128Fwd_32fc nmppsFFT256Fwd_32fc nmppsFFT512Fwd_32fc nmppsFFT1024Fwd_32fc nmppsFFT2048Fwd_32fc 
 

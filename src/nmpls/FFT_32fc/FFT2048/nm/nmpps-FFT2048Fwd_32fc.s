@@ -163,10 +163,10 @@ begin ".text"
 // END 256 DFT8
 
 // COMPUTE 128 PART OF FFT16
-	ar5 = ar5 + 16;
+	//ar5 = ar5 + 16;
 	gr1 >>= 1; // 256
 	gr0 = gr1 >> 4; // 16
-	ar1 = [ar5]; // W1024
+	ar1 = [ar5++]; // W1024
 	gr4 = ar1;
 	ar0 = gr2; // buff_fft2048
 	ar6 = gr7; // buff_fft2048xW
@@ -341,7 +341,7 @@ begin ".text"
 // END FFT256
 
 // COMPUTE 4 OF FFT512
-	ar5 = ar5 - 13;
+	//ar5 = ar5 - 13;
 	gr1 >>= 1; // 4
 	ar0 = gr2; // buff_fft2048
 	ar6 = gr7; // buff_fft2048xW

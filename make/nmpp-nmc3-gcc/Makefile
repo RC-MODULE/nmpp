@@ -58,12 +58,12 @@ CC               = nmc-gcc
 LD               = nmc-ld
 AR               = nmc-ar
 AS               = asm
-CC_FLAGS 		 = $(INC_DIRS)  -std=c99
+CC_FLAGS 		 = -m$(ARCH) $(INC_DIRS)  -std=c99
 AR_FLAGS         = rcs $(TARGET)
-AS_FLAGS         = -6405 -nm2ms  $(INC_DIRS) 
+AS_FLAGS         = -$(ARCH) -nm2ms  $(INC_DIRS) 
 #--------------  Header dependence parsing -------------------------
-PREPROCESS_ASM_DEP = $(CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
-PREPROCESS_CPP_DEP = $(CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
+#PREPROCESS_ASM_DEP = $(CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
+#PREPROCESS_CPP_DEP = $(CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 .SUFFIXES:
@@ -118,6 +118,7 @@ $(TMP_DIR)/%.o: %.s
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
 	
 clean:
+	-$(OS_RM) $(TARGET)
 	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
 	-$(OS_RD) Debug Release
  

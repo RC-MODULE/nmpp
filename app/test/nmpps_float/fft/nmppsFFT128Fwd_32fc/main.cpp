@@ -19,11 +19,11 @@ int main()
 		dst[i].re = 0;
 	}
 	NmppsFFTSpec_32fc *rat;
-	tm = nmppsFFT256FwdInitAlloc_32fc(&rat);
+	tm = nmppsFFT128FwdInitAlloc_32fc(&rat);
 	if(tm < 0) {
 		return 123;
 	}
-	nmppsFFT256Fwd_32fc(src, dst, rat);
+	nmppsFFT128Fwd_32fc(src, dst, rat);
 	tm = nmppsFFTFree_32fc(rat);
 	unsigned int crc = 0;
 	nmppsCrcAcc_32f((nm32f *)dst, 13, 128*2, &crc);

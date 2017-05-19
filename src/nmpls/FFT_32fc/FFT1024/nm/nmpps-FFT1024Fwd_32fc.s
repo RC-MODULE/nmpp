@@ -159,7 +159,7 @@ begin ".text"
 // END 128 DFT8 
 
 // COMPUTE 64 PART OF FFT16
-	ar5 = ar5 + 5;
+	//ar5 = ar5 + 5;
 	ar1 = [ar5++]; // W8_0
 	ar2 = [ar5++]; // W8_1
 	ar3 = ar1;
@@ -191,7 +191,7 @@ begin ".text"
 // END FFT16
 
 // COMPUTE 32 OF FFT32
-	ar5 = ar5 + 8;
+	//ar5 = ar5 + 8;
 	ar0 = gr2;
 	ar6 = gr7;
 	gr1 >>= 2;
@@ -395,7 +395,7 @@ begin ".text"
 // END FFT256
 
 // COMPUTE 2 OF FFT512
-	ar5 = ar5 - 14;
+	//ar5 = ar5 - 14;
 	ar0 = gr2;
 	ar6 = gr7;
 	ar3 = [ar5++];

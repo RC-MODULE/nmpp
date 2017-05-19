@@ -1,4 +1,4 @@
-#include "FFT_32fc.h"
+#include "fft_32fc.h"
 #include <malloc.h>
 
 void nmppsFFT16Fwd_32fc(nm32fcr *x16, nm32fcr *X16, NmppsFFTSpec_32fc *spec16)

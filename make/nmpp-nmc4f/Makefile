@@ -73,11 +73,11 @@ ARCH            ?=nmc4
 #--------------  target & input dirs -------------------
 ROOT             = ../..
 include          $(ROOT)/global.mk
-include          $(ROOT)/make/src.mk
+include          $(ROOT)/make/src-nmc-float.mk
 PROJECT          = nmpp-$(ARCH)f
 OUT_DIR          = $(ROOT)/lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib
-INC_DIRS         = -I"$(NEURO)/include"  -I$(ROOT)/include
+#INC_DIRS         = -I"$(NEURO)/include"  -I$(ROOT)/include
 
 LIB_DIRS         = 
 TMP_DIR          =Release
@@ -123,6 +123,7 @@ endif
 .SUFFIXES:
 
 
+<<<<<<< HEAD
 SRC_DIRS = $(ROOT)/src/nmpls/Metric
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0032/nm 
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0064/nm
@@ -139,6 +140,8 @@ SRC_DIRS+= $(ROOT)/src/nmplv/Support/common
 SRC_DIRS+= $(ROOT)/src/nmplv/Stat/nm
 SRC_DIRS+= $(ROOT)/src/nmplv/Stat/common
 SRC_DIRS+= $(ROOT)/src/nmplv/Arithmetics/common
+=======
+>>>>>>> 51fc97146a53c7c106a5a37d893b9a1596e78220
 
 					
 # regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)

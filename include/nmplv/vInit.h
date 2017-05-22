@@ -143,6 +143,8 @@ __INLINE__ void nmppsRandUniform_16u(nm16u* pDstVec, int nSize) {nmppsRandUnifor
 __INLINE__ void nmppsRandUniform_32u(nm32u* pDstVec, int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize>>1);}
 __INLINE__ void nmppsRandUniform_64u(nm64u* pDstVec, int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize   );}
 
+void nmppsRandUniform_64f(nm64f* pDstVec, int nSize);
+
 //__INLINE__ void nmppsRandUniform_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRandUniform_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
 
 /**

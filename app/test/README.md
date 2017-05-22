@@ -79,7 +79,7 @@ d:\GIT\nmpp\app\test\nmpps_float>make configure PLATFORMS="gcc mc12101_nmc0"
 d:\GIT\nmpp\app\test\nmpps_float>make configure PLATFORMS="vs8 mc12101_nmc0"
 ```
 
-В результате команды ``` make confogure``` под заданные платформы для всех тестов рекурсивно из  d:\GIT\nmpp\app\test\nmpps_float> будут созданы сборочные проекты. Т.е. рядом с каждым тестом должны появиться сборочные проекты, например:
+В результате команды ``` make configure``` под заданные платформы для всех тестов рекурсивно из  d:\GIT\nmpp\app\test\nmpps_float> будут созданы сборочные проекты. Т.е. рядом с каждым тестом должны появиться сборочные проекты, например:
 d:\GIT\nmpp\app\test\nmpps_float\Arithmetic\nmppsAdd_32f\make_mc12101_nmc0
 d:\GIT\nmpp\app\test\nmpps_float\Arithmetic\nmppsAdd_32f\make_vs8
 

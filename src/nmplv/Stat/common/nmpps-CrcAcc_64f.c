@@ -2,7 +2,7 @@
 //
 //  $Workfile:: 32Clc.cp $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   32Clc.cpp
-//! \author Сергей Мушкаев
-//! \brief  Функции подсчета циклического кода для векторов.
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  Р¤СѓРЅРєС†РёРё РїРѕРґСЃС‡РµС‚Р° С†РёРєР»РёС‡РµСЃРєРѕРіРѕ РєРѕРґР° РґР»СЏ РІРµРєС‚РѕСЂРѕРІ.
 //!
 //! \endif
 //!
@@ -21,8 +21,8 @@ extern unsigned int CRC32_Table[];
 //#include "vcrc.h"
 #include "nmpp.h"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-unsigned nmppsCrcAcc_32f(
-    const float * pSrcVec, // Input Vector			:long Any[Size/2]
+unsigned nmppsCrcAcc_64f(
+    const double * pSrcVec, // Input Vector			:long Any[Size/2]
 	int numBitsToClear,
     int nSize,             // Vector size        	:[0,1,2...]
     unsigned int* crcAccumulator     // Init/Output crc
@@ -30,15 +30,15 @@ unsigned nmppsCrcAcc_32f(
        
 {
 	nm32u* pTable=CRC32_Table; 
-    unsigned a,b;
+    unsigned long long a,b;
 	int i;
 
     
-	unsigned mask=-1<<numBitsToClear;
-	unsigned rounder=0;
-	unsigned *p=(unsigned*)pSrcVec;
+	long long mask=(0xFFFFFFFFFFFFFFFF)<<numBitsToClear;
+	long long rounder=0;
+	long long *p=(long long*)pSrcVec;
 	if (numBitsToClear)
-		rounder=1<<(numBitsToClear-1);
+		rounder=1L<<(numBitsToClear-1);
     for( i = 0; i < nSize; i++ )
     {
 		a = (p[i]+rounder)&mask;
@@ -49,8 +49,19 @@ unsigned nmppsCrcAcc_32f(
         b = ( a >> 16 ) & 0x000000FF;
         *crcAccumulator = ( *crcAccumulator >> 8 ) ^ pTable[( b ^ ( *crcAccumulator & 0x000000FF ) )];
         b = ( a >> 24 ) & 0x000000FF;
+       
+		*crcAccumulator = ( *crcAccumulator >> 8 ) ^ pTable[( b ^ ( *crcAccumulator & 0x000000FF ) )];
+        b = ( a >> 32 ) & 0x000000FF;
         *crcAccumulator = ( *crcAccumulator >> 8 ) ^ pTable[( b ^ ( *crcAccumulator & 0x000000FF ) )];
-    }
+        b = ( a >> 40 ) & 0x000000FF;
+        *crcAccumulator = ( *crcAccumulator >> 8 ) ^ pTable[( b ^ ( *crcAccumulator & 0x000000FF ) )];
+        b = ( a >> 48 ) & 0x000000FF;
+		*crcAccumulator = ( *crcAccumulator >> 8 ) ^ pTable[( b ^ ( *crcAccumulator & 0x000000FF ) )];
+        b = ( a >> 56 ) & 0x000000FF;
+		*crcAccumulator = ( *crcAccumulator >> 8 ) ^ pTable[( b ^ ( *crcAccumulator & 0x000000FF ) )];
+		
+        
+	}
     *crcAccumulator = ~ *crcAccumulator;
 	return *crcAccumulator;
 }

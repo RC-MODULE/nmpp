@@ -73,14 +73,12 @@ ARCH            ?=nmc3
 #--------------  target & input dirs -------------------
 ROOT             = ../..
 include          $(ROOT)/global.mk
-include          $(ROOT)/make/src.mk
+include          $(ROOT)/make/src-nmc-int.mk
 
-$(info ---)
-$(info $(PATH))
 PROJECT          = nmpp-$(ARCH)
 OUT_DIR          = $(ROOT)/lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib
-INC_DIRS         = -I"$(NEURO)/include"  -I$(ROOT)/include
+#INC_DIRS         = -I"$(NEURO)/include"  -I$(ROOT)/include
 
 LIB_DIRS         = 
 TMP_DIR          =Release

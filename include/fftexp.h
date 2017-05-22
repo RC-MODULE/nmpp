@@ -12,8 +12,8 @@
 template<int power> void expFFT(int arg, float* re, float* im)
 {
 	float rad=-2.0*PI/power*arg;
-	*re=cosf(rad);
-	*im=sinf(rad);
+	*re=cosf((float)rad);
+	*im=sinf((float)rad);
 }
 
 template<int power> void expIFFT(int arg, float* re, float* im)

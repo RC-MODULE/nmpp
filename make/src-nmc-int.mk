@@ -1,3 +1,6 @@
+INC_DIRS         = -I"$(NEURO)/include"  -I$(ROOT)/include
+
+
 SRC_DIRS         = 	 \
 					$(ROOT)/src/nmplc/arithmetic/common \
 					$(ROOT)/src/nmplc/fixpoint32/nm \

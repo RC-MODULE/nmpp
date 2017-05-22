@@ -95,7 +95,8 @@ __INLINE__ unsigned nmppsCrcAcc_64u(nm64u* pSrcVec, int nSize, unsigned int* crc
 __INLINE__ unsigned nmppsCrcAcc_16u(nm16u* pSrcVec, int nSize, unsigned int* crcAccumulator) {  return nmppsCrcAcc_32u((unsigned*)pSrcVec, nSize>>1, crcAccumulator); }
 __INLINE__ unsigned nmppsCrcAcc_8u (nm8u*  pSrcVec, int nSize, unsigned int* crcAccumulator) {  return nmppsCrcAcc_32u((unsigned*)pSrcVec, nSize>>2, crcAccumulator); }
 
-unsigned nmppsCrcAcc_32f(const nm32f* pSrcVec, int numBitsToClear, int nSize,  unsigned int* crcAccumulator) ;//{  return nmppsCrcMaskAcc_32u((unsigned*)pSrcVec, (-1<<numBitsToClear), nSize,    crcAccumulator); }                                                                                                           
+unsigned nmppsCrcAcc_32f(const nm32f* pSrcVec, int numBitsToClear, int nSize,  unsigned int* crcAccumulator) ;                                                                                                          
+unsigned nmppsCrcAcc_64f(const nm64f* pSrcVec, int numBitsToClear, int nSize,  unsigned int* crcAccumulator) ;
 
     //! \}
 	

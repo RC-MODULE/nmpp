@@ -1,7 +1,7 @@
 //#include <math.h>
 #include <nmtype.h>
 #include <malloc.h>
-#include <stdio.h>
+//#include <stdio.h>
 #include "fft_32fc.h"
 #include "math.h"
 #include "nmpp.h"
@@ -36,8 +36,8 @@ int main()
 	tm = nmppsFFTFwd_32fc(src, dst, rat);
 	tm = nmppsFFTFree_32fc(rat);
 	nmppsCrcAcc_32f((nm32f *)dst, 9, 32*2, &crc2);
-	printf("%d\n", crc1>>2);
-	printf("%d\n", crc2>>2);
-	return (crc1^crc2) + 32;
+	// printf("%d\n", crc1>>2);
+	// printf("%d\n", crc2>>2);
+	return (crc1+crc2)>>2;
 }
 

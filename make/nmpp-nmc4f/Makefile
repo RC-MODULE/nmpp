@@ -122,27 +122,6 @@ endif
 -include $(TMP_DIR)/*.dep
 .SUFFIXES:
 
-
-<<<<<<< HEAD
-SRC_DIRS = $(ROOT)/src/nmpls/Metric
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0032/nm 
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0064/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0128/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0256/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0512/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT1024/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT2048/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/common
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFTFree/common
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/norm/common
-SRC_DIRS+= $(ROOT)/src/nmplv/Support/nm
-SRC_DIRS+= $(ROOT)/src/nmplv/Support/common
-SRC_DIRS+= $(ROOT)/src/nmplv/Stat/nm
-SRC_DIRS+= $(ROOT)/src/nmplv/Stat/common
-SRC_DIRS+= $(ROOT)/src/nmplv/Arithmetics/common
-=======
->>>>>>> 51fc97146a53c7c106a5a37d893b9a1596e78220
-
 					
 # regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)
 ALL_CPP =$(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))

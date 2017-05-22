@@ -122,8 +122,6 @@ endif
 -include $(TMP_DIR)/*.dep
 .SUFFIXES:
 
-
-
 					
 # regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)
 ALL_CPP =$(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))

@@ -15,6 +15,7 @@ typedef struct
 {   
     nm32fcr *Buffers[NUMBUFF1];
     nm32fcr *Buffs[NUMBUFF2];
+    int order;
 } NmppsFFTSpec_32fc;
 
 void nmppsDFT8Fwd_32fc(nm32fcr *x8, nm32fcr *X8, NmppsFFTSpec_32fc *spec8);
@@ -27,6 +28,8 @@ void nmppsFFT512Fwd_32fc(nm32fcr *x512, nm32fcr *X512, NmppsFFTSpec_32fc *spec51
 void nmppsFFT1024Fwd_32fc(nm32fcr *x1024, nm32fcr *X1024, NmppsFFTSpec_32fc *spec1024);
 void nmppsFFT2048Fwd_32fc(nm32fcr *x2048, nm32fcr *X2048, NmppsFFTSpec_32fc *spec2048);
 
+int nmppsFFTFwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *Spc);
+
 int nmppsFFT16FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr16);
 int nmppsFFT32FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr32);
 int nmppsFFT64FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr64);
@@ -35,6 +38,8 @@ int nmppsFFT256FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr256);
 int nmppsFFT512FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr512);
 int nmppsFFT1024FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr1024);
 int nmppsFFT2048FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr2048);
+
+int nmppsFFTFwdInitAlloc_32fc(NmppsFFTSpec_32fc **Spec, int Order);
 
 int nmppsFFTFree_32fc(NmppsFFTSpec_32fc *specN);
 

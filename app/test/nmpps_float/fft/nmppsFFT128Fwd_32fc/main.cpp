@@ -24,6 +24,8 @@ int main()
 		return 123;
 	}
 	nmppsFFT128Fwd_32fc(src, dst, rat);
+	for(i=0; i < 128; i++)
+		printf("%.5f %.5f\n", dst[i].re, dst[i].im);
 	tm = nmppsFFTFree_32fc(rat);
 	unsigned int crc = 0;
 	nmppsCrcAcc_32f((nm32f *)dst, 13, 128*2, &crc);

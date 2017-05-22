@@ -131,6 +131,7 @@ SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0256/nm
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0512/nm
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT1024/nm
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT2048/nm
+SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/common
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFTFree/common
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/norm/common
 SRC_DIRS+= $(ROOT)/src/nmplv/Support/nm

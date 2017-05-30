@@ -26,8 +26,8 @@ DEF_MIN_REP();
 macro VEC_OR_REP(N)
 .if (NMPP_MIN_REP <= N);
 	delayed return;
-		rep N data = [ar0++gr0] with data;
-		rep N data = [ar1++gr1] with data or afifo;
+		rep N ram = [ar0++gr0] ;
+		rep N data = [ar1++gr1] with data or ram;
 		rep N [ar6++gr6] = afifo;
 .endif;
 end   VEC_OR_REP;
@@ -47,8 +47,8 @@ global vec_Or :label;
 	if =0 delayed goto Or_repN with gr2>>=25;
 		ar2 = Or_rep0 with gr5--;
 	<next_Or_rep32>
-		rep 32 data = [ar0++gr0] with data;
-		rep 32 data = [ar1++gr1] with data or afifo;
+		rep 32 ram = [ar0++gr0] ;
+		rep 32 data = [ar1++gr1] with data or ram;
 	if <>0 delayed goto next_Or_rep32 with gr5--;
 		nul;
 		rep 32 [ar6++gr6] = afifo;

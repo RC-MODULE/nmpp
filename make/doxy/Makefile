@@ -23,9 +23,10 @@ open:
 	
 	#pdf
 	#cp ./latex/refman.pdf ./html/nmpp.pdf
-github: clean chm nmpp.html ipp-nmpp.html 
+github: clean chm pdf nmpp.html ipp-nmpp.html 
 	copy ipp-nmpp.html html\ipp-nmpp.html
 	copy nmpp.html html\nmpp.html
+	copy nmpp.pdf html\nmpp.pdf
 	cd html &&\
 	git init . && git checkout --orphan gh-pages &&\
 	git add * &&\

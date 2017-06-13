@@ -370,6 +370,19 @@ typedef struct s_nm2u{
 	\~	\f$[0,\ldots,+2^4-1]=[0,\ldots,15]\f$
 	*/
 typedef struct s_nm4u{ unsigned long long int vec;} nm4u;
+/**
+	\ingroup nmvectype
+	\ru “ип характеризует векторные данные как массив 4-х разр€дных чисел без знака. \n Ќачальный адрес массива должен быть выровнен по границе 64р слова.  \n ѕо умолчанию передаваемый размер в функцию должен быть кратен 16. 
+  	\en Type characterizes vec data as array of 4-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 16.
+
+		\~
+	\ru ƒиапазон значений: 
+	\en Number range is: 
+		\~
+	\~	\f$[0,\ldots,+2^3-1]=[0,\ldots,7]\f$
+	*/
+
+typedef struct s_nm4u3b{ unsigned long long int vec;} nm4u3b;
 
 //-----------------------------------------------------------------------------
     /**

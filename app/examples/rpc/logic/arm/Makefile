@@ -1,73 +1,83 @@
+ROOT=../../../../..
+#########################################################################
+#                                                                       #
+# This Makefile recursivly allows to :                                  #
+# configurate,build,run or test given tests or examples                 #
+# from currect folder                                                   #
+#                                                                       #
+# S.Mushkaev  (RC)Module 2015                                           #
+#                                                                       #
+#                                                                       #
+#########################################################################
+# USAGE:
+#
+# /> make configure PLATFORMS="mc5103 emu6405 mc12101"
+#  Recursively generates Makefiles for all tests/axamples for mc5103,emu6405,mc12101 platforms 
+#
+# /> make configure 
+#  Recursively generates Makefiles for all tests/axamples for default platform list defined by $(PLATFORMS) in global.mk
+#
+# /> make 
+#  Recursivly makes(builds) all Makefiles  from current folder 
+#
+# /> make run PLATFORMS="mc5103 emu6405"
+#  Recursivly runs all tests/examples from current folder on mc5103 board and emulator
+#
+# /> make run 
+#  Recursivly runs all tests/examples from current folder on all platforms from $(PLATFORMS) list defined in global.mk 
+#
+# /> make test TARGET1=mc5103 TARGET2=vs80
+#  Recursivly builds and runs all tests from current folder  
+#  Then two exitcodes fo $(TARGET1) and $(TARGET2) platforms are compared
+#  if exitcodes are identical - test is passed
+#
+# /> make test 
+#  Recursively builds and runs all tests from current folder with default $(TARGET1) and $(TARGET2) defined in global.mk 
+#
+# /> make clean 
+#  Recursive cleanup (Remove all builds)
+#
+# /> make kill
+#  Recursive clean with Makefile removal 
 
-.SUFFIXES:
-ROOT 		= ../../../../..
-include 	$(ROOT)/global.mk
-
-$(info DEVPACK = $(DEVPACK))
-TARGET  	=  rpc-demo
-CC_FLAGS 	= \
-	-march=armv6 -mtune=arm1176jz-s -mfpu=vfp -mfloat-abi=hard -marm \
-	--sysroot=$(ROOTFS) \
-	-D_GNU_SOURCE \
-	-I$(ROOTFS)/usr/include/arm-linux-gnueabihf/aura-0.1.2/ \
-	-I$(ROOTFS)/usr/include/ \
-	-I$(ROOTFS)/usr/include/arm-linux-gnueabihf/ \
-	-I$(NMPP)/include 
-
-LD_FLAGS = \
-	-march=armv6 -mtune=arm1176jz-s -mfpu=vfp -mfloat-abi=hard -marm \
-	-Wl,--sysroot=$(ROOTFS) \
-	-Wl,-unresolved-symbols=ignore-in-shared-libs \
-	-Wl,-L$(ROOTFS)/lib \
-	-Wl,-L$(ROOTFS)/lib/arm-linux-gnueabihf \
-	-Wl,-L$(ROOTFS)/usr/lib/arm-linux-gnueabihf \
-	-Wl,-L$(NMPP)/lib 
-
-#VPATH    = $(AURA) $(AURA)/nmc-utils
-ALL_C    = ./main-arm.c 
-OBJECTS_C= $(notdir $(patsubst %.c,%.o,$(ALL_C)))
 
 
-all: $(TARGET) nmc
 
-nmc:
-	$(MAKE) -C ../nmc
+include $(ROOT)/global.mk
+# get list of all sub-foldfers
+WORK_DIRS=$(subst /,,$(wildcard */))
+
+# override all sub-foldfers by custom list in local.mk
+-include local.mk
+WORK_DIRS := $(filter-out $(SKIP_DIRS),$(WORK_DIRS))
+
+# for each sub-folder try to start Makefile with (build/test/run/clean targets) 
+#.default 
+test run clean: 
+	@echo ***** build *************
+	$(foreach dir,$(WORK_DIRS), $(MAKE) -C $(dir) $(MAKECMDGOALS) 	$(newline))
 	
-lib: 
-	$(MAKE) -C $(ROOT)/make rpc
-
-
-upload: ./$(TARGET) ../nmc/rpc-demo.abs
-	pscp -pw 12345678 ../nmc/rpc-demo.abs root@192.168.20.9: 
-	pscp -pw 12345678 ./$(TARGET) root@192.168.20.9: 
-
-upload2: ./$(TARGET) ./arm-demo nmc
-	pscp -pw 12345678 ../nmc/rpc-demo.abs root@192.168.20.9: 
-	pscp -pw 12345678 ./$(TARGET) root@192.168.20.9: 
-	pscp -pw 12345678 ./arm-demo  root@192.168.20.9: 
+# for each sub-folder try to create Makefile
+configure: $(addsuffix /Makefile,$(WORK_DIRS))
+	@echo ***** configure **********
+	$(foreach dir,$(WORK_DIRS), $(MAKE) -C ./$(dir) $(MAKECMDGOALS) $(newline))
 	
-run: 
-	putty -ssh 192.168.20.9 -l root -pw 12345678 -m run.putty -t
+#recursive delete all sub-makefiles
+kill: 
+	$(foreach mak,$(wildcard */Makefile), $(MAKE) -C $(dir $(mak)) kill				$(newline))
+	$(foreach mak,$(wildcard */Makefile), -rm   $(mak) 								$(newline))
 	
-%.o: %.c 
-	$(ARM_CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
-
-$(TARGET): $(OBJECTS_C) $(ROOT)/lib/libnmpp-arm-rpc.a $(ROOT)/lib/libnmpp-arm.a
-	$(ARM_CC) -o $(@)  $(LD_FLAGS) $(OBJECTS_C) -laura -lnmpp-arm-rpc -lnmpp-arm
-
-arm-demo: $(OBJECTS_C) $(ROOT)/lib/libnmpp-arm-rpc.a
-	$(ARM_CC) -o $(@)  $(LD_FLAGS) $(OBJECTS_C) -laura -lnmpp-arm
-
 	
-$(ROOT)/lib/libnmpp-arm-rpc.a:
-		$(MAKE) -C $(ROOT)/make/nmpp-arm-rpc
-
-clean:
-	-$(OS_RM) *.o $(TARGET) arm-demo
-	$(MAKE) -C ../nmc clean
-
-#	make -cd nmc-utils && make clean
-
-#rpc-demo uses VFP register arguments, main-arm.o does not
-
+define configure_makefile
+$(1)/Makefile:
+	-$(OS_FIND) $(1)/*.cpp && echo ROOT=../$(ROOT)| $(OS_CAT) - "$(ROOT)/app/templates/sometest/Makefile" > $(1)/Makefile
+	-$(OS_FIND) $(1)/*.cpp || echo ROOT=../$(ROOT)| $(OS_CAT) - "$(ROOT)/app/templates/Makefile" > $(1)/Makefile
+endef
 	
+$(foreach dir,$(WORK_DIRS), $(eval $(call configure_makefile,$(dir))) )	
+
+
+define newline
+
+
+endef	

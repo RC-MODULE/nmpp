@@ -1,4 +1,4 @@
-#include "fft2.h"
+#include "fft.h"
 #include "malloc32.h"
 #include "math.h"
 #include "nmpp.h"

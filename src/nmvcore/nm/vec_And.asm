@@ -27,8 +27,8 @@ DEF_MIN_REP();
 macro VEC_AND_REP(N)
 .if (NMPP_MIN_REP <= N);
 	delayed return;
-		rep N data = [ar0++gr0] with data;
-		rep N data = [ar1++gr1] with data and afifo;
+		rep N ram = [ar0++gr0];
+		rep N data = [ar1++gr1] with data and ram;
 		rep N [ar6++gr6] = afifo;
 .endif;
 end   VEC_AND_REP;
@@ -48,8 +48,8 @@ global vec_And :label;
 	if =0 delayed goto And_repN with gr2>>=25;
 		ar2 = And_rep0 with gr5--;
 	<next_And_rep32>
-		rep 32 data = [ar0++gr0] with data;
-		rep 32 data = [ar1++gr1] with data and afifo;
+		rep 32 ram = [ar0++gr0] ;
+		rep 32 data = [ar1++gr1] with data and ram;
 	if <>0 delayed goto next_And_rep32 with gr5--;
 		nul;
 		rep 32 [ar6++gr6] = afifo;

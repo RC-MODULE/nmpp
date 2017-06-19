@@ -3,7 +3,7 @@
 #include "time.h"
 #include "fft_32fc.h"
 #include "nmpp.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 int main()
 {
@@ -20,12 +20,22 @@ int main()
 	}
 	NmppsFFTSpec_32fc *rat;
 	tm = nmppsFFT128FwdInitAlloc_32fc(&rat);
-	if(tm < 0) {
+	if(tm == 123) {
 		return 123;
 	}
 	nmppsFFT128Fwd_32fc(src, dst, rat);
 	tm = nmppsFFTFree_32fc(rat);
-	unsigned int crc = 0;
-	nmppsCrcAcc_32f((nm32f *)dst, 13, 128*2, &crc);
-	return crc>>2;
+	unsigned int crc1 = 0;
+	unsigned int crc2 = 0;
+	nmppsCrcAcc_32f((nm32f *)dst, 13, 128*2, &crc1);
+	tm = nmppsFFTFwdInitAlloc_32fc(&rat, 7);
+	if(tm == 123) {
+		return 123;
+	}
+	tm = nmppsFFTFwd_32fc(src, dst, rat);
+	tm = nmppsFFTFree_32fc(rat);
+	nmppsCrcAcc_32f((nm32f *)dst, 13, 128*2, &crc2);
+	// printf("%d\n", crc1>>2);
+	// printf("%d\n", crc2>>2);
+	return (crc1+crc2)>>2;
 }

@@ -4,7 +4,7 @@
 #include "math.h"
 #include "nmpp.h"
 
-#include "fft2.h"
+#include "fft.h"
 
 #ifndef PI
 #define PI 3.14159265359

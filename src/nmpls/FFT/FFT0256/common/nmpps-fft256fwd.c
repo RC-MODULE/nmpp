@@ -3,7 +3,7 @@
 
 #include "time.h"
 #include "malloc32.h"
-#include "fft2.h"
+#include "fft.h"
 
 void  FFT_Fwd256(
 			const nm32sc*	GSrcBuffer,		// Source buffer :long[256]

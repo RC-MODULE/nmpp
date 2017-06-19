@@ -1,4 +1,4 @@
-#include "fft2.h"
+#include "fft.h"
 #include "nmpp.h"
 #include "minrep.h"
 #include <time.h>

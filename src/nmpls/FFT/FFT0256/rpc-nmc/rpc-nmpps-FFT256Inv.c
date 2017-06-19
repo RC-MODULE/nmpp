@@ -1,5 +1,5 @@
 #include "rpc/rpc-nmc.h"
-#include "fft2.h"
+#include "fft.h"
 
 void rpc_nmppsFFT256InvInitAlloc(void *in, void *out) 
 {

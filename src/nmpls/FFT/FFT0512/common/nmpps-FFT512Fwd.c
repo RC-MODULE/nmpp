@@ -9,7 +9,7 @@ void  FFT_Fwd512(
 			int			ShiftR	// Right shift normalization
 			);
 			
-#include "fft2.h"
+#include "fft.h"
 
 
 	void nmppsFFT512Fwd(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)

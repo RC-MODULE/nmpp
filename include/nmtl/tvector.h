@@ -564,13 +564,13 @@ template <class T> vec<T> Sqr(vec<T>& A)
 		Res[i]=A[i]*A[i];
 	return Res;
 }
-//template <class T> vec<T> Sqrt(vec<T>& A)
-//{
-//	vec<T> Res(A);
-//	for (int i=0;i<A.size;i	++)
-//		Res[i]=(T)sqrt((double)A[i]);
-//	return Res;
-//}
+template <class T> vec<T> Sqrt(vec<T>& A)
+{
+	vec<T> Res(A);
+	for (int i=0;i<A.size;i	++)
+		Res[i]=(T)sqrt((double)A[i]);
+	return Res;
+}
 
 template <class T> T Summ(vec<T>& A)
 {

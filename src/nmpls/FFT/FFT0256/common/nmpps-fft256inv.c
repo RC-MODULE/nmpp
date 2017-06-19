@@ -1,7 +1,7 @@
 //#include "fft.h"
 #include "time.h"
 #include "malloc32.h"
-#include "fft2.h"
+#include "fft.h"
 
 void FFT_Inv256Set7bit();	
 

@@ -19,7 +19,7 @@
 
 //#include "internal.h"
 #include "fft.h"
-#include "fft2.h"
+#include "fft.h"
 //#include "fftext.h"
 #include "nmtl/tcmplx_spec.h"
 #include <math.h>

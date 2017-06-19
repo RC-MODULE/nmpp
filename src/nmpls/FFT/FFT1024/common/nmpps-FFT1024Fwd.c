@@ -1,6 +1,6 @@
 //#include "fft.h"
 #include "stdio.h"
-#include "fft2.h"
+#include "fft.h"
 void FFT_Fwd1024Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
 void  FFT_Fwd1024(
 	const 	nm32sc*	GSrcBuffer,	// Source buffer :long[1024]

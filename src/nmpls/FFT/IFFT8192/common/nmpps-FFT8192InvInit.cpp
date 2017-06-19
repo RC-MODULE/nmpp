@@ -1,4 +1,4 @@
-#include "fft2.h"
+#include "fft.h"
 #include <math.h>
 #include "fftexp.h"
 #include "nmpp.h"

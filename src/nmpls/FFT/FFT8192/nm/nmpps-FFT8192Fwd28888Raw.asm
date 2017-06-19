@@ -19,7 +19,7 @@
 	//!
 	//! \perfinclude nmppsFFT32FwdRaw.html
     //==================================
-extern _clock:label;
+//extern _clock:label;
 macro START_TIMER()
 	//call _clock;
 	//[t]=gr7;

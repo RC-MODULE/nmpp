@@ -30,7 +30,7 @@
 
 #include<string.h>
 #include "nmtype.h"
-
+#include <math.h>
 
 
 

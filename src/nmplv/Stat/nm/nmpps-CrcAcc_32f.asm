@@ -74,7 +74,16 @@ global _nmppsCrcAcc_32f :label;
 	gr0 = gr0 and gr1;
 	
 	ar4 = ar5;
-	<Next_CRC32>									
+	<Next_CRC32>	
+		// checking zero and reset sign bit
+		//gr7 = gr0 << 1;
+		//gr7--;
+		//gr7 = gr0 xor gr7;
+		//gr7 A>>=31;
+		//gr7--;
+		//gr7 R>>=1;
+		//gr0 = gr0 and gr7;
+		
 		gr1 = gr0 and gr2;							//		b = a & 0x000000FF;		
 		gr3 = gr7 and gr2;							//		c = CRC32 & 0x000000FF ;		
 		gr4 = gr1 xor gr3;							//		addr=b^c;			

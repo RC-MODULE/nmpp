@@ -1,4 +1,5 @@
 global _nmppsFFT2048Fwd_32fc: label;
+global _nmppsFFT2048Inv_32fc: label;
 data ".data_imu1"
 AddrFor256DFT8: word[256] = (
 	0, 256, 128, 384, 64, 320, 192, 448, 32, 288, 160, 416, 96, 352, 224, 480, 16, 272, 144, 400, 80, 336, 208, 464, 48, 304, 176, 432, 112, 368, 240, 496, 8, 
@@ -83,6 +84,7 @@ end INMEM2048;
 
 begin ".text"
 <_nmppsFFT2048Fwd_32fc>
+<_nmppsFFT2048Inv_32fc>
 	set fp_branch;
 	ar5 = ar7 - 2;
 	push ar6, gr6;

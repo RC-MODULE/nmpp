@@ -1,4 +1,5 @@
 global _nmppsFFT64Fwd_32fc: label;
+global _nmppsFFT64Inv_32fc: label;
 data ".data_imu1"
 AddrForDFT8_64: word[8] = (0, 8, 4, 12, 2, 10, 6, 14);
 end ".data_imu1";
@@ -23,6 +24,7 @@ end SAVE_FFT16_32;
 
 begin ".data_imu7"
 <_nmppsFFT64Fwd_32fc>
+<_nmppsFFT64Inv_32fc>
 	set fp_branch;
 	ar5 = ar7 - 2;
 	push ar6, gr6;

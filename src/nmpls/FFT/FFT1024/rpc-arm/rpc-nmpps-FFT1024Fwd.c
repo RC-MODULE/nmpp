@@ -1,4 +1,4 @@
-#include "fft2.h"
+#include "fft.h"
 #include "rpc-host.h"	
 
 	void nmppsFFT1024Fwd(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)

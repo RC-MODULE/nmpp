@@ -10,7 +10,7 @@ void  FFT_Inv1024(
 			int			ShiftR2	// Final Right shift normalization
 			);
 			
-#include "fft2.h"
+#include "fft.h"
 
 	void nmppsFFT1024Inv(const nm32sc* src, nm32sc* dst,const  NmppsFFTSpec* spec)
 	{

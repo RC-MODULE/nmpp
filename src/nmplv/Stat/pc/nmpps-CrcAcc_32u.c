@@ -47,7 +47,7 @@ unsigned nmppsCrcAcc_32u(
         *crcAccumulator = ( *crcAccumulator >> 8 ) ^ pTable[( b ^ ( *crcAccumulator & 0x000000FF ) )];
     }
     *crcAccumulator = ~ *crcAccumulator;
-	return crcAccumulator;
+	return *crcAccumulator;
 }
 
 

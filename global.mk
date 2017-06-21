@@ -72,7 +72,7 @@ else
 endif
 
 #PLATFORMS = vs8 mc5103 emu6405  mb7707 mc12101 gcc
-PLATFORMS = vs8 mc12101_nmc0 mc5103 mc7601
+PLATFORMS = vs8 mc12101_nmc0 mc5103 mc7601 gcc
 
 TARGET1=mc12101_nmc0
 TARGET2=vs8

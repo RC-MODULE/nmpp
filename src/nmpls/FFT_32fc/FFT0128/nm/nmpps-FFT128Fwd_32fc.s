@@ -1,4 +1,16 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-FFT128Fwd_32fc.s                             	*/
+//*   Contents:         Routine for forward FFT 128                         */
+//*                     of complex array with 32 bit elements               */                                                        */
+//***************************************************************************/
+
 global _nmppsFFT128Fwd_32fc: label;
+global _nmppsFFT128Inv_32fc: label;
 data ".data_imu1"
 AddrForDFT8_128: word[16] = (
 						0, 16, 8, 24, 4, 20, 12, 28,
@@ -40,6 +52,7 @@ end SAVE_FFT128;
 
 begin ".text128"
 <_nmppsFFT128Fwd_32fc>
+<_nmppsFFT128Inv_32fc>
 	set fp_branch;
 	ar5 = ar7 - 2;
 	push ar6, gr6;

@@ -170,6 +170,15 @@ FILE(GLOB  SRC
 		${ROOT}/src/nmpls/FFT_32fc/FFT0512/pc/*.c
 		${ROOT}/src/nmpls/FFT_32fc/FFT1024/pc/*.c
 		${ROOT}/src/nmpls/FFT_32fc/FFT2048/pc/*.c
+		${ROOT}/src/nmpls/FFT_32fc/IDFT0008/pc/*.c
+		${ROOT}/src/nmpls/FFT_32fc/IFFT0016/pc/*.c
+		${ROOT}/src/nmpls/FFT_32fc/IFFT0032/pc/*.c
+		${ROOT}/src/nmpls/FFT_32fc/IFFT0064/pc/*.c
+		${ROOT}/src/nmpls/FFT_32fc/IFFT0128/pc/*.c
+		${ROOT}/src/nmpls/FFT_32fc/IFFT0256/pc/*.c
+		${ROOT}/src/nmpls/FFT_32fc/IFFT0512/pc/*.c
+		${ROOT}/src/nmpls/FFT_32fc/IFFT1024/pc/*.c
+		${ROOT}/src/nmpls/FFT_32fc/IFFT2048/pc/*.c
 		${ROOT}/src/nmpls/FFT_32fc/common/*.c
 		${ROOT}/src/nmpls/FFT_32fc/FFTFree/common/*.c
 		${ROOT}/src/nmpls/FFT0032/pc/*.c

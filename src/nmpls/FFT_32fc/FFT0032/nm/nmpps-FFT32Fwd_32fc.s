@@ -1,10 +1,12 @@
 global _nmppsFFT32Fwd_32fc: label;
+global _nmppsFFT32Inv_32fc: label;
 data ".data_imu1"
 AddrForDFT8_32: word[4] = (0, 4, 2, 6);
 end ".data_imu1";
 
 begin ".text"
 <_nmppsFFT32Fwd_32fc>
+<_nmppsFFT32Inv_32fc>
 	set fp_branch;
 	ar5 = ar7 - 2;
 	push ar6, gr6;

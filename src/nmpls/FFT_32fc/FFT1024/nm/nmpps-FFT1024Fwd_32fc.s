@@ -1,4 +1,16 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-FFT1024Fwd_32fc.s                             */
+//*   Contents:         Routine for forward and inverse FFT 1024            */
+//*                     of complex array with 32 bit elements               */
+//***************************************************************************/
+
 global _nmppsFFT1024Fwd_32fc: label;
+global _nmppsFFT1024Inv_32fc: label;
 data ".data_imu1"
 AddrFor64DFT8: word[128] = (
 	0, 128, 64, 192, 32, 160, 96, 224, 16, 144, 80, 208, 48, 176, 112, 240, 8, 136, 72, 200, 40, 168, 104, 232, 24, 152, 88, 216, 56, 184, 120, 248, 4, 
@@ -79,6 +91,7 @@ end INMEM1024;
 
 begin ".text"
 <_nmppsFFT1024Fwd_32fc>
+<_nmppsFFT1024Inv_32fc>
 	set fp_branch;
 	ar5 = ar7 - 2;
 	push ar6, gr6;

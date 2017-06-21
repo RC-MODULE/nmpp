@@ -1,3 +1,17 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Fast Fourie Transform Library                                         */
+//*                                                                         */
+//*   File:             nmpps-FFT256Fwd_32fc_pc.c                           */
+//*   Contents:         C Equivalent function of the FFTFwd256              */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*                                                                         */
+//***************************************************************************/
+
 #include "fft_32fc.h"
 #include <malloc.h>
 

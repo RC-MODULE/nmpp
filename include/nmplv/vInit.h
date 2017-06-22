@@ -2,7 +2,7 @@
 //
 //  $Workfile:: vInit. $
 //
-//  Âåêòîðíî-ìàòðè÷íàÿ áèáëèîòåêà
+//  Ã‚Ã¥ÃªÃ²Ã®Ã°Ã­Ã®-Ã¬Ã Ã²Ã°Ã¨Ã·Ã­Ã Ã¿ Ã¡Ã¨Ã¡Ã«Ã¨Ã®Ã²Ã¥ÃªÃ 
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   vInit.h
-//! \author Ñåðãåé Ìóøêàåâ
-//! \brief  Îïðåäåëåíèå ôóíêöèé èíèöèàëèçàöèè äëÿ âåêòîðîâ.
+//! \author Ã‘Ã¥Ã°Ã£Ã¥Ã© ÃŒÃ³Ã¸ÃªÃ Ã¥Ã¢
+//! \brief  ÃŽÃ¯Ã°Ã¥Ã¤Ã¥Ã«Ã¥Ã­Ã¨Ã¥ Ã´Ã³Ã­ÃªÃ¶Ã¨Ã© Ã¨Ã­Ã¨Ã¶Ã¨Ã Ã«Ã¨Ã§Ã Ã¶Ã¨Ã¨ Ã¤Ã«Ã¿ Ã¢Ã¥ÃªÃ²Ã®Ã°Ã®Ã¢.
 //!
 //! \endif
 //!
@@ -28,7 +28,7 @@
     \defgroup nmppsSet nmppsSet
     \ingroup vInit
     \brief
-        \ru Ôóíêöèÿ èíèöèàëèçàöèè ýëåìåíòîâ ìàññèâà ïîñòîÿííûì çíà÷åíèåì. 
+        \ru Ã”Ã³Ã­ÃªÃ¶Ã¨Ã¿ Ã¨Ã­Ã¨Ã¶Ã¨Ã Ã«Ã¨Ã§Ã Ã¶Ã¨Ã¨ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¢ Ã¬Ã Ã±Ã±Ã¨Ã¢Ã  Ã¯Ã®Ã±Ã²Ã®Ã¿Ã­Ã­Ã»Ã¬ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥Ã¬. 
         \en Function of array initialization with a constant value.  
     
 		\~
@@ -42,15 +42,15 @@
     \f]
     
     \param nSize    
-        \ru Ðàçìåð âåêòîðà â ýëåìåíòàõ. 
+        \ru ÃÃ Ã§Ã¬Ã¥Ã° Ã¢Ã¥ÃªÃ²Ã®Ã°Ã  Ã¢ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã Ãµ. 
         \en Size of vec in elements. 
 		\~
     \param nVal     
-        \ru Êîíñòàíòà. Äèàïàçîí çíà÷åíèé nVal äîëæåí ñîîòâåòñâîâàòü òèïó ðåçóëüòèðóþùåãî âåêòîðà. 
+        \ru ÃŠÃ®Ã­Ã±Ã²Ã Ã­Ã²Ã . Ã„Ã¨Ã Ã¯Ã Ã§Ã®Ã­ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã© nVal Ã¤Ã®Ã«Ã¦Ã¥Ã­ Ã±Ã®Ã®Ã²Ã¢Ã¥Ã²Ã±Ã¢Ã®Ã¢Ã Ã²Ã¼ Ã²Ã¨Ã¯Ã³ Ã°Ã¥Ã§Ã³Ã«Ã¼Ã²Ã¨Ã°Ã³Ã¾Ã¹Ã¥Ã£Ã® Ã¢Ã¥ÃªÃ²Ã®Ã°Ã . 
         \en A constant. Range of nVal must correspond to type of result vec
 		\~
     \retval pVec    
-        \ru Ðåçóëüòèðóþùèé âåêòîð. 
+        \ru ÃÃ¥Ã§Ã³Ã«Ã¼Ã²Ã¨Ã°Ã³Ã¾Ã¹Ã¨Ã© Ã¢Ã¥ÃªÃ²Ã®Ã°. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -94,21 +94,21 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64
     \defgroup nmppsRandUniform nmppsRandUniform
     \ingroup vInit
     \brief
-        \ru Èíèöèàëèçàöèÿ ìàññèâà ñëó÷àéíûìè ÷èñëàìè. 
+        \ru ÃˆÃ­Ã¨Ã¶Ã¨Ã Ã«Ã¨Ã§Ã Ã¶Ã¨Ã¿ Ã¬Ã Ã±Ã±Ã¨Ã¢Ã  Ã±Ã«Ã³Ã·Ã Ã©Ã­Ã»Ã¬Ã¨ Ã·Ã¨Ã±Ã«Ã Ã¬Ã¨. 
         \en Initialization of an array with random numbers. 
 		\~
     \param nSize		
-        \ru Ðàçìåð âåêòîðà. 
+        \ru ÃÃ Ã§Ã¬Ã¥Ã° Ã¢Ã¥ÃªÃ²Ã®Ã°Ã . 
         \en Vector size. 
 		\~
     \param nRandomize    
-        \ru Ïðîèçâîëüíîå ÷èñëî äëÿ èíèöèàëèçàöèè 
-                            ãåíåðàòîðà ñëó÷àéíûõ ÷èñåë. 
+        \ru ÃÃ°Ã®Ã¨Ã§Ã¢Ã®Ã«Ã¼Ã­Ã®Ã¥ Ã·Ã¨Ã±Ã«Ã® Ã¤Ã«Ã¿ Ã¨Ã­Ã¨Ã¶Ã¨Ã Ã«Ã¨Ã§Ã Ã¶Ã¨Ã¨ 
+                            Ã£Ã¥Ã­Ã¥Ã°Ã Ã²Ã®Ã°Ã  Ã±Ã«Ã³Ã·Ã Ã©Ã­Ã»Ãµ Ã·Ã¨Ã±Ã¥Ã«. 
         \en Arbitrary number for initialization 
                             of a random-number generator. 
 		\~
     \retval pDstVec     
-        \ru Ðåçóëüòèðóþùèé âåêòîð. 
+        \ru ÃÃ¥Ã§Ã³Ã«Ã¼Ã²Ã¨Ã°Ã³Ã¾Ã¹Ã¨Ã© Ã¢Ã¥ÃªÃ²Ã®Ã°. 
         \en Result vec. 
 		\~
     \return \e void
@@ -129,7 +129,7 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64
     */
     //! \{
 /**
-	/ru  Èíèöèàëèçàöèÿ ìàññèâà 32-ðàçðÿäíûìè ñëó÷àéíûìè ÷èñëàìè. 
+	/ru  ÃˆÃ­Ã¨Ã¶Ã¨Ã Ã«Ã¨Ã§Ã Ã¶Ã¨Ã¿ Ã¬Ã Ã±Ã±Ã¨Ã¢Ã  32-Ã°Ã Ã§Ã°Ã¿Ã¤Ã­Ã»Ã¬Ã¨ Ã±Ã«Ã³Ã·Ã Ã©Ã­Ã»Ã¬Ã¨ Ã·Ã¨Ã±Ã«Ã Ã¬Ã¨. 
 	/en Random initialization of 32-bit buffer
 	/~
 */
@@ -143,12 +143,15 @@ __INLINE__ void nmppsRandUniform_16u(nm16u* pDstVec, int nSize) {nmppsRandUnifor
 __INLINE__ void nmppsRandUniform_32u(nm32u* pDstVec, int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize>>1);}
 __INLINE__ void nmppsRandUniform_64u(nm64u* pDstVec, int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize   );}
 
-void nmppsRandUniform_64f(nm64f* pDstVec, int nSize);
+void nmppsRandUniform_64f(nm64f* pDstVec, int nSize, double low, double hi);
+void nmppsRand_32f(nm32f* pDstVec, int nSize,float low,float hi);
+
+void nmppsRandUniform_32f_integer(nm32f *pDstVec,int nSize,int hi,int low);
 
 //__INLINE__ void nmppsRandUniform_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRandUniform_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
 
 /**
-	/ru  Èíèöèàëèçàöèÿ ìàññèâà 64-ðàçðÿäíûìè ñëó÷àéíûìè ÷èñëàìè. 
+	/ru  ÃˆÃ­Ã¨Ã¶Ã¨Ã Ã«Ã¨Ã§Ã Ã¶Ã¨Ã¿ Ã¬Ã Ã±Ã±Ã¨Ã¢Ã  64-Ã°Ã Ã§Ã°Ã¿Ã¤Ã­Ã»Ã¬Ã¨ Ã±Ã«Ã³Ã·Ã Ã©Ã­Ã»Ã¬Ã¨ Ã·Ã¨Ã±Ã«Ã Ã¬Ã¨. 
 	/en Random initialization of 64-bit buffer
 	/~
 
@@ -164,26 +167,26 @@ void nmppsRandUniform_64f(nm64f* pDstVec, int nSize);
     \defgroup nmppsRandUniform_ nmppsRandUniform_
     \ingroup vInit
     \brief 
-        \ru Ãåíåðàöèÿ ñëó÷àéíîãî ÷èñëà ñ ðàâíîìåðíûì ðàcïðåäåëåíèåì.
+        \ru ÃƒÃ¥Ã­Ã¥Ã°Ã Ã¶Ã¨Ã¿ Ã±Ã«Ã³Ã·Ã Ã©Ã­Ã®Ã£Ã® Ã·Ã¨Ã±Ã«Ã  Ã± Ã°Ã Ã¢Ã­Ã®Ã¬Ã¥Ã°Ã­Ã»Ã¬ Ã°Ã cÃ¯Ã°Ã¥Ã¤Ã¥Ã«Ã¥Ã­Ã¨Ã¥Ã¬.
         \en Random number generation with uniform distribution.
 
 		\~
 	  \~
     \param nMin		
-        \ru Ìèíèìàëüíîå âîçìîæíîå çíà÷åíèå ñëó÷àéíîãî ÷èñëà.
+        \ru ÃŒÃ¨Ã­Ã¨Ã¬Ã Ã«Ã¼Ã­Ã®Ã¥ Ã¢Ã®Ã§Ã¬Ã®Ã¦Ã­Ã®Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã±Ã«Ã³Ã·Ã Ã©Ã­Ã®Ã£Ã® Ã·Ã¨Ã±Ã«Ã .
         \en Minimal value for random number.
 		\~
     \param nMax    
-        \ru Ìàêñèìàëüíîå âîçìîæíîå çíà÷åíèå ñëó÷àéíîãî ÷èñëà.
+        \ru ÃŒÃ ÃªÃ±Ã¨Ã¬Ã Ã«Ã¼Ã­Ã®Ã¥ Ã¢Ã®Ã§Ã¬Ã®Ã¦Ã­Ã®Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã±Ã«Ã³Ã·Ã Ã©Ã­Ã®Ã£Ã® Ã·Ã¨Ã±Ã«Ã .
         \en Maximal value for random number.
 		\~
     \param nDivisible     
-        \ru Çíà÷åíèå, êîòîðîìó áóäåò êðàòíî ñëó÷àéíîå ÷èñëî.
+        \ru Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥, ÃªÃ®Ã²Ã®Ã°Ã®Ã¬Ã³ Ã¡Ã³Ã¤Ã¥Ã² ÃªÃ°Ã Ã²Ã­Ã® Ã±Ã«Ã³Ã·Ã Ã©Ã­Ã®Ã¥ Ã·Ã¨Ã±Ã«Ã®.
         \en Random number will be divisible by this value.
 		\~
     \return \e int
-		\ru Ñëó÷àéíîå ÷èñëî â äèàïàçîíå ëèáî [nMin, nMax]. Äëÿ ôóíêöèè áåç ïàðàìåòðîâ
-			äàííûé äèàïàçîí [-2^31; 2^31-1].
+		\ru Ã‘Ã«Ã³Ã·Ã Ã©Ã­Ã®Ã¥ Ã·Ã¨Ã±Ã«Ã® Ã¢ Ã¤Ã¨Ã Ã¯Ã Ã§Ã®Ã­Ã¥ Ã«Ã¨Ã¡Ã® [nMin, nMax]. Ã„Ã«Ã¿ Ã´Ã³Ã­ÃªÃ¶Ã¨Ã¨ Ã¡Ã¥Ã§ Ã¯Ã Ã°Ã Ã¬Ã¥Ã²Ã°Ã®Ã¢
+			Ã¤Ã Ã­Ã­Ã»Ã© Ã¤Ã¨Ã Ã¯Ã Ã§Ã®Ã­ [-2^31; 2^31-1].
         \en Random number in range [nMin, nMax]. For function without parameters
 			this range is [-2^31; 2^31-1].
 
@@ -225,7 +228,7 @@ int nmppsRandUniform();
     \defgroup nmppsRamp_ nmppsRamp_
     \ingroup vInit
     \brief
-        \ru Èíèöèàëèçàöèÿ ìàññèâà ýëåìåíòàìè àðèôìåòè÷åñêîé ïðîãðåññèè. 
+        \ru ÃˆÃ­Ã¨Ã¶Ã¨Ã Ã«Ã¨Ã§Ã Ã¶Ã¨Ã¿ Ã¬Ã Ã±Ã±Ã¨Ã¢Ã  Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã Ã¬Ã¨ Ã Ã°Ã¨Ã´Ã¬Ã¥Ã²Ã¨Ã·Ã¥Ã±ÃªÃ®Ã© Ã¯Ã°Ã®Ã£Ã°Ã¥Ã±Ã±Ã¨Ã¨. 
         \en Initialization of an array by ramped numbers. 
     
 		\~
@@ -240,19 +243,19 @@ int nmppsRandUniform();
     
     \~
     \param nOffset		
-        \ru Ïåðâûé ÷ëåí àðèôìåòè÷åñêîé ïðîãðåññèè.
+        \ru ÃÃ¥Ã°Ã¢Ã»Ã© Ã·Ã«Ã¥Ã­ Ã Ã°Ã¨Ã´Ã¬Ã¥Ã²Ã¨Ã·Ã¥Ã±ÃªÃ®Ã© Ã¯Ã°Ã®Ã£Ã°Ã¥Ã±Ã±Ã¨Ã¨.
         \en Init value.
 		\~
     \param nSlope		
-        \ru Ðàçíîñòü àðèôìåòè÷åñêîé ïðîãðåññèè.
+        \ru ÃÃ Ã§Ã­Ã®Ã±Ã²Ã¼ Ã Ã°Ã¨Ã´Ã¬Ã¥Ã²Ã¨Ã·Ã¥Ã±ÃªÃ®Ã© Ã¯Ã°Ã®Ã£Ã°Ã¥Ã±Ã±Ã¨Ã¨.
         \en Common difference.
 		\~
     \param nSize		
-        \ru Ðàçìåð âåêòîðà. 
+        \ru ÃÃ Ã§Ã¬Ã¥Ã° Ã¢Ã¥ÃªÃ²Ã®Ã°Ã . 
         \en Vector size. 
 		\~
     \retval pVec     
-        \ru Ðåçóëüòèðóþùèé ìàññèâ. 
+        \ru ÃÃ¥Ã§Ã³Ã«Ã¼Ã²Ã¨Ã°Ã³Ã¾Ã¹Ã¨Ã© Ã¬Ã Ã±Ã±Ã¨Ã¢. 
         \en Result array. 
 		\~
     \return \e void
@@ -299,16 +302,16 @@ void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
     \defgroup nmppsConvert nmppsConvert
     \ingroup vInit
     \brief
-        \ru Èçìåíåíèå ðàçðÿäíîñòè ýëåìåíòîâ âåêòîðà. 
+        \ru ÃˆÃ§Ã¬Ã¥Ã­Ã¥Ã­Ã¨Ã¥ Ã°Ã Ã§Ã°Ã¿Ã¤Ã­Ã®Ã±Ã²Ã¨ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¢ Ã¢Ã¥ÃªÃ²Ã®Ã°Ã . 
         \en Change of vec elements word-length. 
     
 		\~
-        \ru Ïðåîáðàçîâàíèå çíàêîâûõ äàííûõ ê ìåíüøåé ðàçðÿäíîñòè îñóùåñòâëÿåòñÿ 
-	        îòáðàñûâàíèåì ñòàðøèõ áèòîâ.
-	        Ïðåîáðàçîâàíèå çíàêîâûõ äàííûõ ê áîëüøåé ðàçðÿäíîñòè îñóùåñòâëÿåòñÿ 
-	        c ðàñïðîñòðàíåíèåì âëåâî ñòàðøåãî (çíàêîâîãî) áèòà.
-            Ïðåîáðàçîâàíèå áåççíàêîâûõ äàííûõ ê áîëüøåé ðàçðÿäíîñòè îñóùåñòâëÿåòñÿ 
-	        äîáàâëåíèåì ñëåâà ñòàðøèõ íóëåâûõ áèòîâ. 
+        \ru ÃÃ°Ã¥Ã®Ã¡Ã°Ã Ã§Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã§Ã­Ã ÃªÃ®Ã¢Ã»Ãµ Ã¤Ã Ã­Ã­Ã»Ãµ Ãª Ã¬Ã¥Ã­Ã¼Ã¸Ã¥Ã© Ã°Ã Ã§Ã°Ã¿Ã¤Ã­Ã®Ã±Ã²Ã¨ Ã®Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ 
+	        Ã®Ã²Ã¡Ã°Ã Ã±Ã»Ã¢Ã Ã­Ã¨Ã¥Ã¬ Ã±Ã²Ã Ã°Ã¸Ã¨Ãµ Ã¡Ã¨Ã²Ã®Ã¢.
+	        ÃÃ°Ã¥Ã®Ã¡Ã°Ã Ã§Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã§Ã­Ã ÃªÃ®Ã¢Ã»Ãµ Ã¤Ã Ã­Ã­Ã»Ãµ Ãª Ã¡Ã®Ã«Ã¼Ã¸Ã¥Ã© Ã°Ã Ã§Ã°Ã¿Ã¤Ã­Ã®Ã±Ã²Ã¨ Ã®Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ 
+	        c Ã°Ã Ã±Ã¯Ã°Ã®Ã±Ã²Ã°Ã Ã­Ã¥Ã­Ã¨Ã¥Ã¬ Ã¢Ã«Ã¥Ã¢Ã® Ã±Ã²Ã Ã°Ã¸Ã¥Ã£Ã® (Ã§Ã­Ã ÃªÃ®Ã¢Ã®Ã£Ã®) Ã¡Ã¨Ã²Ã .
+            ÃÃ°Ã¥Ã®Ã¡Ã°Ã Ã§Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã¡Ã¥Ã§Ã§Ã­Ã ÃªÃ®Ã¢Ã»Ãµ Ã¤Ã Ã­Ã­Ã»Ãµ Ãª Ã¡Ã®Ã«Ã¼Ã¸Ã¥Ã© Ã°Ã Ã§Ã°Ã¿Ã¤Ã­Ã®Ã±Ã²Ã¨ Ã®Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ 
+	        Ã¤Ã®Ã¡Ã Ã¢Ã«Ã¥Ã­Ã¨Ã¥Ã¬ Ã±Ã«Ã¥Ã¢Ã  Ã±Ã²Ã Ã°Ã¸Ã¨Ãµ Ã­Ã³Ã«Ã¥Ã¢Ã»Ãµ Ã¡Ã¨Ã²Ã®Ã¢. 
         \en Signed data are converted to lesser word-length is made by means of 
             the most significant bits truncation.
             Signed data are converted to greater word-length is made with
@@ -317,15 +320,15 @@ void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
             addition of the most significant zero bits on the left. 
 		\~
     \param pSrcVec  
-        \ru Âõîäíîé âåêòîð. 
+        \ru Ã‚ÃµÃ®Ã¤Ã­Ã®Ã© Ã¢Ã¥ÃªÃ²Ã®Ã°. 
         \en Input vec. 
 		\~
     \param nSize    
-        \ru Ðàçìåð âåêòîðîâ â ýëåìåíòàõ. 
+        \ru ÃÃ Ã§Ã¬Ã¥Ã° Ã¢Ã¥ÃªÃ²Ã®Ã°Ã®Ã¢ Ã¢ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã Ãµ. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Ðåçóëüòèðóþùèé âåêòîð. 
+        \ru ÃÃ¥Ã§Ã³Ã«Ã¼Ã²Ã¨Ã°Ã³Ã¾Ã¹Ã¨Ã© Ã¢Ã¥ÃªÃ²Ã®Ã°. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -404,7 +407,7 @@ void nmppsConvert_64s16s(const nm64s* pSrcVec, nm16s* pDstVec, int nSize);
     \defgroup nmppsCopy_ nmppsCopy_
     \ingroup vInit
     \brief
-        \ru Êîïèðîâàíèå âåêòîðà. 
+        \ru ÃŠÃ®Ã¯Ã¨Ã°Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã¢Ã¥ÃªÃ²Ã®Ã°Ã . 
         \en Vector copying. 
     
 		\~
@@ -418,15 +421,15 @@ void nmppsConvert_64s16s(const nm64s* pSrcVec, nm16s* pDstVec, int nSize);
     \f]
     
     \param pSrcVec  
-        \ru Âõîäíîé âåêòîð. 
+        \ru Ã‚ÃµÃ®Ã¤Ã­Ã®Ã© Ã¢Ã¥ÃªÃ²Ã®Ã°. 
         \en Input vec. 
 		\~
     \param nSize    
-        \ru Ðàçìåð âåêòîðîâ â ýëåìåíòàõ. 
+        \ru ÃÃ Ã§Ã¬Ã¥Ã° Ã¢Ã¥ÃªÃ²Ã®Ã°Ã®Ã¢ Ã¢ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã Ãµ. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Ðåçóëüòèðóþùèé âåêòîð. 
+        \ru ÃÃ¥Ã§Ã³Ã«Ã¼Ã²Ã¨Ã°Ã³Ã¾Ã¹Ã¨Ã© Ã¢Ã¥ÃªÃ²Ã®Ã°. 
         \en The result vec. 
 		\~
     \return \e void
@@ -467,7 +470,7 @@ __INLINE__ void nmppsCopy_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize) {
     \defgroup nmppsCopyua_ nmppsCopyua_
     \ingroup vInit
     \brief
-        \ru Êîïèðîâàíèå âåêòîðà ñ íåâûðîâíåííîé áàéòîâîé ïîçèöèè â âûðîâíåííóþ. 
+        \ru ÃŠÃ®Ã¯Ã¨Ã°Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã¢Ã¥ÃªÃ²Ã®Ã°Ã  Ã± Ã­Ã¥Ã¢Ã»Ã°Ã®Ã¢Ã­Ã¥Ã­Ã­Ã®Ã© Ã¡Ã Ã©Ã²Ã®Ã¢Ã®Ã© Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã¨ Ã¢ Ã¢Ã»Ã°Ã®Ã¢Ã­Ã¥Ã­Ã­Ã³Ã¾. 
         \en Copying a vec from an unaligned byte position to aligned one. 
     
 		\~
@@ -480,25 +483,25 @@ __INLINE__ void nmppsCopy_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize) {
         i = \overline{0 \ldots nSize-1}
     \f]
 
-	\ru Ïîçèöèÿ áàéòà ñ÷èòàåòñÿ âûðîâíåííîé åñëè îíà ñîâïàäàåò ñ ãðàíèöåé 64ð. ñëîâ â ïàìÿòè. 
+	\ru ÃÃ®Ã§Ã¨Ã¶Ã¨Ã¿ Ã¡Ã Ã©Ã²Ã  Ã±Ã·Ã¨Ã²Ã Ã¥Ã²Ã±Ã¿ Ã¢Ã»Ã°Ã®Ã¢Ã­Ã¥Ã­Ã­Ã®Ã© Ã¥Ã±Ã«Ã¨ Ã®Ã­Ã  Ã±Ã®Ã¢Ã¯Ã Ã¤Ã Ã¥Ã² Ã± Ã£Ã°Ã Ã­Ã¨Ã¶Ã¥Ã© 64Ã°. Ã±Ã«Ã®Ã¢ Ã¢ Ã¯Ã Ã¬Ã¿Ã²Ã¨. 
     \en Position is defined as aligned if it points to 64-bit words boundary in memory.
 	
 		\~
 	\~
 	\param pSrcVec      
-        \ru Âõîäíîé âåêòîð. 
+        \ru Ã‚ÃµÃ®Ã¤Ã­Ã®Ã© Ã¢Ã¥ÃªÃ²Ã®Ã°. 
         \en Input vec. 
 		\~
     \param pDstVec      
-        \ru Ðåçóëüòèðóþùèé âåêòîð. 
+        \ru ÃÃ¥Ã§Ã³Ã«Ã¼Ã²Ã¨Ã°Ã³Ã¾Ã¹Ã¨Ã© Ã¢Ã¥ÃªÃ²Ã®Ã°. 
         \en Output vec. 
 		\~
     \param nSrcOffset  
-        \ru Ñìåùåíèå â ýëåìåíòàõ îòíîñèòåëüíî íà÷àëà âåêòîðà. nSrcOffset Ìîæåò ïðèíèìàòü ëþáîå çíà÷åíèå.
+        \ru Ã‘Ã¬Ã¥Ã¹Ã¥Ã­Ã¨Ã¥ Ã¢ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã Ãµ Ã®Ã²Ã­Ã®Ã±Ã¨Ã²Ã¥Ã«Ã¼Ã­Ã® Ã­Ã Ã·Ã Ã«Ã  Ã¢Ã¥ÃªÃ²Ã®Ã°Ã . nSrcOffset ÃŒÃ®Ã¦Ã¥Ã² Ã¯Ã°Ã¨Ã­Ã¨Ã¬Ã Ã²Ã¼ Ã«Ã¾Ã¡Ã®Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥.
         \en Shift in elements relatively to the origin of the vec. nSrcOffset may be any. 
 		\~
     \param nSize   
-        \ru Êîë-âî êîïèðóåìûõ ýëåìåíòîâ. 
+        \ru ÃŠÃ®Ã«-Ã¢Ã® ÃªÃ®Ã¯Ã¨Ã°Ã³Ã¥Ã¬Ã»Ãµ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¢. 
         \en Number of elements being copied. 
 		\~
     \return \e void
@@ -536,21 +539,21 @@ void nmppsCopyua_8s(const nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSi
     \defgroup nmppsSwap_ nmppsSwap_
     \ingroup vInit
     \brief
-        \ru Ïåðåñòàíîâêà äâóõ âåêòîðîâ. 
+        \ru ÃÃ¥Ã°Ã¥Ã±Ã²Ã Ã­Ã®Ã¢ÃªÃ  Ã¤Ã¢Ã³Ãµ Ã¢Ã¥ÃªÃ²Ã®Ã°Ã®Ã¢. 
         \en Swap of two vectors. 
     
  
 		\~
     \param pSrcVec1  
-        \ru Ïåðâûé âõîäíîé âåêòîð. 
+        \ru ÃÃ¥Ã°Ã¢Ã»Ã© Ã¢ÃµÃ®Ã¤Ã­Ã®Ã© Ã¢Ã¥ÃªÃ²Ã®Ã°. 
         \en The first input vec. 
 		\~
     \param pSrcVec2  
-        \ru Âòîðîé âõîäíîé âåêòîð. 
+        \ru Ã‚Ã²Ã®Ã°Ã®Ã© Ã¢ÃµÃ®Ã¤Ã­Ã®Ã© Ã¢Ã¥ÃªÃ²Ã®Ã°. 
         \en The second input vec. 
 		\~
     \param nSize     
-        \ru Ðàçìåð âåêòîðîâ â ýëåìåíòàõ. 
+        \ru ÃÃ Ã§Ã¬Ã¥Ã° Ã¢Ã¥ÃªÃ²Ã®Ã°Ã®Ã¢ Ã¢ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã Ãµ. 
         \en Vector size in elements. 
 		\~
     \return \e void

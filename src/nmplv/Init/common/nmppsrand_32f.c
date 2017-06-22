@@ -37,12 +37,12 @@ void nmppsRand_32f(
 		float hi
 		)
 {
-	//__int64 Rand=Randomize&0xFFFFFFFFL;
 	int i;
-	unsigned int r,rounder;
+	int r;
+	unsigned int rounder;
 	float k,temp;
 	float* pointer_float;
-	unsigned int* pointer;
+	int* pointer;
 	const float range = 1.0/(float)(0x100000000);
 	float b = 0.5*(hi+low);
 	if((low == 0)&(hi == 0)){return;}
@@ -55,10 +55,11 @@ void nmppsRand_32f(
 		Randomize=1664525*Randomize+1013904223;
 		r=Randomize;
 		temp = k*r+b;
-		pointer = (unsigned int*)&temp;
+		pointer = (int*)&temp;
 		rounder = *pointer;
-		rounder>>=9;
-		rounder<<=9;
+		rounder += 0x1;
+		rounder>>=11;
+		rounder<<=11;
 		pointer_float = (float*)&rounder;
 		pDstVec[i] = *pointer_float;
 	}

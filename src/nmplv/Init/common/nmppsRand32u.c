@@ -18,6 +18,7 @@
 //!
 //------------------------------------------------------------------------
 #include "nmtype.h"
+static long long 				Randomize=-1;
 ////////////////////////////////////////////////////////////////////////////
 //  Random initalization of 32-bit buffer
 
@@ -26,18 +27,30 @@
 //! \perfinclude _nmppsRandUniform__FPUiiUi_.html
 //! 
 
-/*
-void nmppsRandUniform_32u(nm32u*	pDstVec,		// array									:int Global [SizeInt]
-		int				nSize,		// nSize of Source array in 32-bit elements	:nSize=    [0,1,2,3,4...]
-		unsigned nRandomize
+void nmppsRandUniform_32f_integer(
+		nm32f*	pDstVec,		// array									:int Global [SizeInt]
+		int		nSize,		// nSize of Source array in 32-bit elements	:nSize=    [0,1,2,3,4...]
+		int     hi,
+		int     low
 		)
 {
-
-	for(int i=0;i<nSize;i++)
-	{
-		nRandomize=1664525L*nRandomize+1013904223L;
-		pDstVec[i]=nRandomize;
+	const int range = 1.0/(0x100000000);
+	int i;
+	int r;
+	int result_int;
+	unsigned int R;
+	int b = 0.5*(hi+low);
+	int k = (hi-low)*range;
+	if((low == 0)&(hi == 0)){return;}
+	
+	for(i=0;i<nSize;i++){
+		R=Randomize<<63;
+		Randomize>>=1;
+		Randomize|=R;
+		Randomize=1664525*Randomize+1013904223;
+		r=Randomize;
+		result_int = k*r+b;
+		pDstVec[i] = (float)result_int; 
 	}
+	return;
 }
-
-*/

@@ -25,15 +25,15 @@ begin ".text_nmplm"
 
 
 //--------------------------------------------------------------------
-//! \fn void MTR_Copy( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nHeight, int nWidth)
+//! \fn void nmppmCopy_32u( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nHeight, int nWidth)
 //!
-//! \perfinclude _MTR_Copy__FPiiPiiii.html
+//! \perfinclude nmppmCopy_32u.html
 //--------------------------------------------------------------------
 
-global _MTR_Copy__FPiiPiiii:label;
-global _void._.8.8MTR_Copy.1int._.0.9._int.9._int._.0.9._int.9._int.9._int.2 :label;
-<_MTR_Copy__FPiiPiiii>
-<_void._.8.8MTR_Copy.1int._.0.9._int.9._int._.0.9._int.9._int.9._int.2>
+global nmppmCopy_32u:label;
+global nmppmCopy_32s:label;
+<nmppmCopy_32s>
+<nmppmCopy_32u>
 .branch;
 
 	ar5 = sp-2		with gr7=false;	

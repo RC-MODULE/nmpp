@@ -34,10 +34,10 @@ begin ".text_nmplm"
 //! \perfinclude _MTR_Copyua__FPciiPciii.html
 //--------------------------------------------------------------------
 
-global _MTR_Copyua__FPciiPciii:label;
-global _void._.8.8MTR_Copyua.1char._.0.9._int.9._int.9._char._.0.9._int.9._int.9._int.2 :label;
-<_MTR_Copyua__FPciiPciii>
-<_void._.8.8MTR_Copyua.1char._.0.9._int.9._int.9._char._.0.9._int.9._int.9._int.2>
+global nmppmCopyua_8s:label;
+global nmppmCopyua_8u:label;
+<nmppmCopyua_8s>
+<nmppmCopyua_8u>
 .branch;
 
 	ar5 = sp-2;	

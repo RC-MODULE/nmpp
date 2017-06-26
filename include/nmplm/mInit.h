@@ -20,6 +20,13 @@
 #ifndef _MINIT_H_INCLUDED_
 #define _MINIT_H_INCLUDED_
 
+
+#ifdef __cplusplus
+		extern "C" {
+#endif		
+
+		
+		
 //*****************************************************************************
 
     //--------------------------------------------------------------------
@@ -34,7 +41,7 @@
 //*****************************************************************************
 
     /**
-    \defgroup MTR_Copyua MTR_Copyua
+    \defgroup nmppmCopyua nmppmCopyua
     \ingroup mInit
     \brief
         \ru Копирование подматрицы с невыровненной по границам 64- разрядного слова
@@ -111,9 +118,9 @@
     \endxmlonly
     */
     //! \{
-void MTR_Copyua_8s (  nm8s* pSrcMtr, int nSrcStride, int nSrcOffset, nm8s* pDstMtr,  int nDstStride,int nHeight, int nWidth);
-void MTR_Copyua_16s( nm16s* pSrcMtr, int nSrcStride, int nSrcOffset, nm16s* pDstMtr, int nDstStride,int nHeight, int nWidth);
-void MTR_Copyua_32s( nm32s* pSrcMtr, int nSrcStride, int nSrcOffset, nm32s* pDstMtr, int nDstStride,int nHeight, int nWidth);
+void nmppmCopyua_8s (  nm8s* pSrcMtr, int nSrcStride, int nSrcOffset, nm8s* pDstMtr,  int nDstStride,int nHeight, int nWidth);
+void nmppmCopyua_16s( nm16s* pSrcMtr, int nSrcStride, int nSrcOffset, nm16s* pDstMtr, int nDstStride,int nHeight, int nWidth);
+void nmppmCopyua_32s( nm32s* pSrcMtr, int nSrcStride, int nSrcOffset, nm32s* pDstMtr, int nDstStride,int nHeight, int nWidth);
     //! \}
 
 
@@ -192,9 +199,9 @@ void MTR_Copyua_32s( nm32s* pSrcMtr, int nSrcStride, int nSrcOffset, nm32s* pDst
      
     */
     //! \{
-void MTR_Copyau_8s (  nm8s* pSrcMtr, int nSrcStride, nm8s* pDstMtr,  int nDstStride, int nDstOffset,int nHeight, int nWidth);
-void MTR_Copyau_16s( nm16s* pSrcMtr, int nSrcStride, nm16s* pDstMtr, int nDstStride, int nDstOffset,int nHeight, int nWidth);
-void MTR_Copyau_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nDstOffset,int nHeight, int nWidth);
+void nmppmCopyau_8s (  nm8s* pSrcMtr, int nSrcStride, nm8s* pDstMtr,  int nDstStride, int nDstOffset,int nHeight, int nWidth);
+void nmppmCopyau_16s( nm16s* pSrcMtr, int nSrcStride, nm16s* pDstMtr, int nDstStride, int nDstOffset,int nHeight, int nWidth);
+void nmppmCopyau_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nDstOffset,int nHeight, int nWidth);
     //! \}
 
 
@@ -264,10 +271,10 @@ void MTR_Copyau_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStr
        
     */
     //! \{
-void MTR_Copy_8s (  nm8s* pSrcMtr, int nSrcStride,  nm8s* pDstMtr, int nDstStride, int nHeight, int nWidth);
-void MTR_Copy_16s( nm16s* pSrcMtr, int nSrcStride, nm16s* pDstMtr, int nDstStride, int nHeight, int nWidth);
-void MTR_Copy_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nHeight, int nWidth);
-void MTR_Copy_64s( nm64s* pSrcMtr, int nSrcStride, nm64s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+void nmppmCopy_8s (  nm8s* pSrcMtr, int nSrcStride,  nm8s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+void nmppmCopy_16s( nm16s* pSrcMtr, int nSrcStride, nm16s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+void nmppmCopy_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nHeight, int nWidth);
+void nmppmCopy_64s( nm64s* pSrcMtr, int nSrcStride, nm64s* pDstMtr, int nDstStride, int nHeight, int nWidth);
     //! \}
 
 
@@ -324,6 +331,9 @@ void MTR_Fill_8s(nm8s* pMtr,  int8b nVal, int nMtrStride, int nMtrHeight, int nM
     //! \}
     
 
+#ifdef __cplusplus
+		};
+#endif
     
 
 #endif // _MINIT_H_INCLUDED_

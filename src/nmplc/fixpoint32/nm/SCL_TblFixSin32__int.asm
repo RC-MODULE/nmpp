@@ -28,11 +28,11 @@ begin ".text_nmplñ"
 //                            Fixed  Point Sine                             //
 //                                                                          //
 //////////////////////////////////////////////////////////////////////////////
-//! \fn int SCL_TblFixSin32(int nArg)
+//! \fn int nmppcTblFixSin32(int nArg)
 //! 
-//! \perfinclude _SCL_TblFixSin32__Fi.html
-global _SCL_TblFixSin32:label;
-<_SCL_TblFixSin32>
+//! \perfinclude _nmppcTblFixSin32__Fi.html
+global _nmppcTblFixSin32:label;
+<_nmppcTblFixSin32>
 .branch;
 	ar5 = sp-2;
 	gr7 = [--ar5];

@@ -73,11 +73,11 @@ begin ".text_nmplс"
 // +50 тактов - вызов функции из Си
 //////////////////////////////////////////////////////////////////////////////
 
-//! \fn int SCL_FixInv32(int nVal, int nFixpoint)
+//! \fn int nmppcFixInv32(int nVal, int nFixpoint)
 //!
-//! \perfinclude _SCL_FixInv32__Fii.html
-global _SCL_FixInv32 :label;
-<_SCL_FixInv32>
+//! \perfinclude _nmppcFixInv32__Fii.html
+global _nmppcFixInv32 :label;
+<_nmppcFixInv32>
 
 .branch;
 	EndDiv :label;

@@ -25,7 +25,7 @@
 //#include "./nmpli/nmpli.h"	
 	/**
     *
-    *     \defgroup SCL_Group —кал€рные функции 
+    *     \defgroup nmppcGroup —кал€рные функции 
     */
 #include "./nmplc/nmplc.h"	
 	/**

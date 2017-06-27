@@ -51,12 +51,12 @@ begin ".text_nmplñ"
 //                                                                          //
 //////////////////////////////////////////////////////////////////////////////
 
-//! \fn void SCL_FixDivMod32(int nDividend, int nDivisor, int* nQuotient, int* nReminder)
+//! \fn void nmppcFixDivMod32(int nDividend, int nDivisor, int* nQuotient, int* nReminder)
 //!
-//! \perfinclude _SCL_FixDivMod32__FiiPiPi.html
+//! \perfinclude _nmppcFixDivMod32__FiiPiPi.html
 
-global _SCL_FixDivMod32 :label;
-<_SCL_FixDivMod32>
+global _nmppcFixDivMod32 :label;
+<_nmppcFixDivMod32>
 .branch;
 	//pswr set 30000h;
 	//t1=0;

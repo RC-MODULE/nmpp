@@ -124,16 +124,16 @@ int ADDC(unsigned a, unsigned b) {
 
 
 //begin ".text_nmplñ"
-//! \fn 	unsigned int SCL_FixSqrt32(unsigned int x);
+//! \fn 	unsigned int nmppcFixSqrt32(unsigned int x);
 //!
-//! \perfinclude _SCL_FixSqrt32__FUi.html
+//! \perfinclude _nmppcFixSqrt32__FUi.html
 
 
 // gr0-Arg
 // gr7-Res
-//global _SCL_FixSqrt32 :label;
-//<_SCL_FixSqrt32>
-int SCL_FixSqrt32(int val){
+//global _nmppcFixSqrt32 :label;
+//<_nmppcFixSqrt32>
+int nmppcFixSqrt32(int val){
 	//.branch;
 	//ar5=sp-2;
 	//push ar0,gr0;

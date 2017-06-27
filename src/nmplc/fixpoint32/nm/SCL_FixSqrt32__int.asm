@@ -50,15 +50,15 @@ macro SQRTNEG(JumpPos)
 end SQRTNEG;
 
 begin ".text_nmplñ"
-//! \fn 	unsigned int SCL_FixSqrt32(unsigned int x);
+//! \fn 	unsigned int nmppcFixSqrt32(unsigned int x);
 //!
-//! \perfinclude _SCL_FixSqrt32__FUi.html
+//! \perfinclude _nmppcFixSqrt32__FUi.html
 
 
 // gr0-Arg
 // gr7-Res
-global _SCL_FixSqrt32 :label;
-<_SCL_FixSqrt32>
+global _nmppcFixSqrt32 :label;
+<_nmppcFixSqrt32>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0;

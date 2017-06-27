@@ -50,12 +50,12 @@ begin ".text_nmplñ"
 //                     Signed Fixed  Point division                         //
 //                                                                          //
 //////////////////////////////////////////////////////////////////////////////
-//! \fn void SCL_FixDivPosMod32(unsigned int nDividend, unsigned int nDivisor,  int* nQuotient,  int* nReminder);
+//! \fn void nmppcFixDivPosMod32(unsigned int nDividend, unsigned int nDivisor,  int* nQuotient,  int* nReminder);
 //!
-//! \perfinclude _SCL_FixDivPosMod32__FUiUiPiPi.html
+//! \perfinclude _nmppcFixDivPosMod32__FUiUiPiPi.html
 
-global _SCL_FixDivPosMod32 :label;
-<_SCL_FixDivPosMod32>
+global _nmppcFixDivPosMod32 :label;
+<_nmppcFixDivPosMod32>
 .branch;
 	ar5 = sp-2;
 	push ar0,gr0;

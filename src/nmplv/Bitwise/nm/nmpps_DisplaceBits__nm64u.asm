@@ -101,6 +101,8 @@ begin ".text_nmplv"
 
 
 global _nmppsFwdShiftBitstream:label;
+extern _nmppsFwdShiftBitstream_Odd:label;	//for odd nBits
+
 <_nmppsFwdShiftBitstream>
 .branch;
 	ar5 = sp - 2;
@@ -113,9 +115,21 @@ global _nmppsFwdShiftBitstream:label;
 	gr6 = [--ar5];	// nBits
 	ar1 = [--ar5];	// nSize
 	
+	gr7 = gr6 << 31;
+	gr7 = gr7 >> 31;
+	
+	if <>0 delayed goto _nmppsFwdShiftBitstream_Odd;	//if odd nBits
+		nul;
+		nul;
+	
 	ar3,gr3=[ar2];
 	[Tmp]=ar3,gr3;
 	
+	
+	
+	
+	
+		
 	//	nb1	0000000000000002hl	gr0,gr1
 	//	sb	2000000000000000hl  gr2,gr0
 	//	wo	0000000000000001hl  gr0,gr3

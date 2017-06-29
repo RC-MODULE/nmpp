@@ -27,8 +27,8 @@ DEF_MIN_REP();
 macro VEC_ADD_REP(N)
 	.if (NMPP_MIN_REP <= N);
 	delayed return;
-		rep N data = [ar0++gr0] with data;
-		rep N data = [ar1++gr1] with data + afifo;
+		rep N ram = [ar0++gr0] ;
+		rep N data = [ar1++gr1] with ram+ data ;
 		rep N [ar6++gr6] = afifo;
 	.endif;
 end   VEC_ADD_REP;

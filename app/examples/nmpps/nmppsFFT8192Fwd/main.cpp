@@ -1,4 +1,4 @@
-#include "fft2.h"
+#include "fft.h"
 #include "nmpp.h"
 #include <time.h>
 #include <stdio.h>
@@ -6,7 +6,7 @@
 #define FFT_SIZE 8192
 //8192
 
-#define SPEEDTEST ON
+//#define SPEEDTEST ON
 
 #ifdef SPEEDTEST
 	#define BUF_SIZE FFT8192_TBL0_SIZE64+FFT8192_TBL1_SIZE64

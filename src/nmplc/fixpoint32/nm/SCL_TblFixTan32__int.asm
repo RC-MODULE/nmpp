@@ -29,11 +29,11 @@ begin ".text_nmplñ"
 //                            Fixed  Point Tangens                          //
 //                                                                          //
 //////////////////////////////////////////////////////////////////////////////
-//! \fn int SCL_TblFixTan32(int nArg)
+//! \fn int nmppcTblFixTan32(int nArg)
 //!
-//! \perfinclude _SCL_TblFixTan32__Fi.html
-global _SCL_TblFixTan32:label;
-<_SCL_TblFixTan32>
+//! \perfinclude _nmppcTblFixTan32__Fi.html
+global _nmppcTblFixTan32:label;
+<_nmppcTblFixTan32>
 .branch;
 	ar5 = sp-2;
 	push ar0,gr0;

@@ -139,12 +139,12 @@ macro VEC_DIV_STEP()								// A-уменьшаемое делимое, B-делитель
 	rep	1				with afifo-ram;			//afifo=(2A-2B)-B or 2A-B
 end VEC_DIV_STEP;	
 
-//! \fn  void SCL_FixDiv64(long* nDividend,	long* nDivisor, int nFixpoint, long* nQuotient)
+//! \fn  void nmppcFixDiv64(long* nDividend,	long* nDivisor, int nFixpoint, long* nQuotient)
 //!
-//! \perfinclude _SCL_FixDiv64__FPlPliPl.html
+//! \perfinclude _nmppcFixDiv64__FPlPliPl.html
 
-global _SCL_FixDiv64:label;
-<_SCL_FixDiv64>
+global _nmppcFixDiv64:label;
+<_nmppcFixDiv64>
 .branch;
 EndVecDiv:label;
 EndMakeQuotient:label;

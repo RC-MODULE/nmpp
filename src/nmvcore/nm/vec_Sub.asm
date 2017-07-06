@@ -27,8 +27,8 @@ DEF_MIN_REP();
 macro VEC_SUB_REP(N)
 .if (NMPP_MIN_REP <= N);
 	delayed return;
-		rep N data = [ar0++gr0] with data;
-		rep N data = [ar1++gr1] with afifo - data;
+		rep N ram = [ar0++gr0];
+		rep N data = [ar1++gr1] with ram - data;
 		rep N [ar6++gr6] = afifo;
 .endif;
 end   VEC_SUB_REP;
@@ -51,8 +51,8 @@ global vec_Sub :label;
 	ar5 = next_Sub_rep32;
 	<next_Sub_rep32>
 	if <>0 delayed goto ar5 with gr5--;	
-		rep 32 data = [ar0++gr0] with data;
-		rep 32 data = [ar1++gr1] with afifo - data;
+		rep 32 ram = [ar0++gr0];
+		rep 32 data = [ar1++gr1] with ram - data;
 		rep 32 [ar6++gr6] = afifo;
 	<Sub_repN>
 	ar2+=gr2;

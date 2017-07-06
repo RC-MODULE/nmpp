@@ -132,12 +132,12 @@ void ATANROTATE(int Shift){
 //*********** TEXT ****************
 
 
-//global _SCL_FixArcTan32 :label;
-//<_SCL_FixArcTan32>
+//global _nmppcFixArcTan32 :label;
+//<_nmppcFixArcTan32>
 
 
 
-int SCL_FixArcTan32(int val){
+int nmppcFixArcTan32(int val){
 
 	gr4 = val;
 //.branch;

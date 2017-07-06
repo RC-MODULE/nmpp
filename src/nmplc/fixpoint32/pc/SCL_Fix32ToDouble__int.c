@@ -93,11 +93,11 @@ begin ".text_nmplс"
 //////////////////////////////////////////////////////////////////////////////
 // На входе число FixedPoint64(long) передается через стек
 // На выходе число Double передается через gr7 и gr6. (Показатель находится в gr7)
-//! \fn  double SCL_Fix32ToDouble(int Fix32)
+//! \fn  double nmppcFix32ToDouble(int Fix32)
 //!
-//! \perfinclude _SCL_Fix32ToDouble__Fi.html
-global _SCL_Fix32ToDouble :label;
-<_SCL_Fix32ToDouble>
+//! \perfinclude _nmppcFix32ToDouble__Fi.html
+global _nmppcFix32ToDouble :label;
+<_nmppcFix32ToDouble>
 	.branch;
 	ar5=sp-2;
 	push ar1,gr1;
@@ -136,7 +136,7 @@ global _SCL_Fix32ToDouble :label;
 end ".text_nmplс";
 */
 
-double SCL_Fix32ToDouble(int x){
+double nmppcFix32ToDouble(int x){
 	double d=x>>16;
 	double p=x&0xFFFF;
 	p/=65536;

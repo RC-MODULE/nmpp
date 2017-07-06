@@ -3,7 +3,7 @@
 
 
  //! \defgroup funcs Функции деинтерлейсинга
- //! \ingroup SCL_Group
+ //! \ingroup nmppcGroup
  //! \{
 	//! Функция разделяет кадр на два полукадра.
 	//! \param pSrcImg указатель на исходный кадр.

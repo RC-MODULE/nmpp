@@ -12,11 +12,11 @@
 import from rtmacro.mlb;
 
 begin ".text_nmplñ"
-//! \fn	long SCL_DoubleToFix64(double arg, int fixpoint);
+//! \fn	long nmppcDoubleToFix64(double arg, int fixpoint);
 //!
-//! \perfinclude _SCL_DoubleToFix64__F6doublei.html
-global _SCL_DoubleToFix64 :label;
-<_SCL_DoubleToFix64>
+//! \perfinclude _nmppcDoubleToFix64__F6doublei.html
+global _nmppcDoubleToFix64 :label;
+<_nmppcDoubleToFix64>
 .branch;
 	ar5=sp-2;
     push ar0,gr0;

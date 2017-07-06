@@ -97,11 +97,11 @@ begin ".text_nmplñ"
 //----------------------------------------             
 
 
-//! \fn int SCL_DoubleToFix32(double x)
+//! \fn int nmppcDoubleToFix32(double x)
 //!
-//! \perfinclude _SCL_DoubleToFix32__F6double.html
-global _SCL_DoubleToFix32 :label;
-<_SCL_DoubleToFix32>
+//! \perfinclude _nmppcDoubleToFix32__F6double.html
+global _nmppcDoubleToFix32 :label;
+<_nmppcDoubleToFix32>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0;
@@ -149,7 +149,7 @@ end ".text_nmplñ";
 
 
 
-int SCL_DoubleToFix32(double val){
+int nmppcDoubleToFix32(double val){
 	int a=val*0x10000;
 	return a;
 }

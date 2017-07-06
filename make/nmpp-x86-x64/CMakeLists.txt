@@ -51,6 +51,7 @@ FILE(GLOB  SRC
 		${ROOT}/src/nmplc/fixpoint64/pc/*.cpp
 		${ROOT}/src/nmplc/init/common/*.cpp
 		${ROOT}/src/nmplc/init/common/*.c
+		${ROOT}/src/nmplc/integer/pc/*.c
 		${ROOT}/src/nmplc/integer/pc/*.cpp
 		${ROOT}/src/nmpli/Arithmetics/pc/*.cpp
 		${ROOT}/src/nmpli/Convert/common/*.cpp

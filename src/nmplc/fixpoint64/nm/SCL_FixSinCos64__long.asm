@@ -162,11 +162,11 @@ begin ".text_nmplс"
 //   !!!! аргумент должен лежать в пределах [-pi/2;+pi/2]
 
 
-//! \fn void SCL_FixSinCos64(long nArg, long* pnSin, long *pnCos)
+//! \fn void nmppcFixSinCos64(long nArg, long* pnSin, long *pnCos)
 //! 
-//! \perfinclude _SCL_FixSinCos64__FlPlPl.html
-global _SCL_FixSinCos64 :label; 
-<_SCL_FixSinCos64>
+//! \perfinclude _nmppcFixSinCos64__FlPlPl.html
+global _nmppcFixSinCos64 :label; 
+<_nmppcFixSinCos64>
 .branch;
 	ar5=sp-2;
 

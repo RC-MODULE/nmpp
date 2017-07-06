@@ -29,32 +29,32 @@ int main()
 	t0=clock();
 	// Conversion from double to fixed-point 64 format
 	long fixp64  ;
-	fixp64=SCL_DoubleToFix64(0.25,32);
-	fixp64=SCL_DoubleToFix64(0.33,32);
-	fixp64=SCL_DoubleToFix64(0.5,32);
-	fixp64=SCL_DoubleToFix64(0.99,32);
-	fixp64=SCL_DoubleToFix64(1.0,32);
-	fixp64=SCL_DoubleToFix64(1.0,34);
+	fixp64=nmppcDoubleToFix64(0.25,32);
+	fixp64=nmppcDoubleToFix64(0.33,32);
+	fixp64=nmppcDoubleToFix64(0.5,32);
+	fixp64=nmppcDoubleToFix64(0.99,32);
+	fixp64=nmppcDoubleToFix64(1.0,32);
+	fixp64=nmppcDoubleToFix64(1.0,34);
 	// Conversion from fixed-point 64 format to double
-	x=SCL_Fix64ToDouble(fixp64,34);
+	x=nmppcFix64ToDouble(fixp64,34);
 	// Division of two numbers
 	long nDividend=64;
 	long nDivisor=128;
 	long nQuotient;
-	SCL_FixDiv64(&nDividend,	&nDivisor, 32, &nQuotient);
+	nmppcFixDiv64(&nDividend,	&nDivisor, 32, &nQuotient);
 	// Calculation sin & cos in fixedpoint format 32.32
 	long nSin;
 	long nCos;
 	long nArg=0x80000000; // (0.5) 
-	SCL_FixSinCos64(nArg,&nSin,&nCos);
+	nmppcFixSinCos64(nArg,&nSin,&nCos);
 	// Calculation of arctan in fixedpoint format 32.32
-	long nArctan= SCL_FixArcTan64(nArg);
+	long nArctan= nmppcFixArcTan64(nArg);
 	
 	nArg=0x1l<<60;
-	long e=SCL_Fix64Exp01(nArg);
+	long e=nmppcFix64Exp01(nArg);
 	
 	double d=1.333;
-	e=SCL_FrExp(d);
+	e=nmppcFrExp(d);
 	t1=clock();
 	
 	

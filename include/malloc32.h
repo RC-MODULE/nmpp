@@ -58,7 +58,7 @@ struct NmppsTmpSpec {
 } ;
 
 	
-//void*  nmppsMalloc32  (unsigned sizeInt32);
+
 //nm1*   nmppsMalloc_1  (unsigned sizeInt1) ;
 //nm2s*  nmppsMalloc_2s (unsigned sizeInt2) ;
 //nm2u*  nmppsMalloc_2u (unsigned sizeInt2) ;
@@ -69,11 +69,6 @@ struct NmppsTmpSpec {
 //nm16s* nmppsMalloc_16s(unsigned sizeInt16);
 //nm16u* nmppsMalloc_16u(unsigned sizeInt16);
 //nm32s* nmppsMalloc_32s(unsigned sizeInt32);
-//nm32sc*  nmppsMalloc_32sc(unsigned sizeCmplxInt32);
-//nm32fc*  nmppsMalloc_32fc(unsigned sizeCmplxFloat);
-//nm32fcr* nmppsMalloc_32fcr(unsigned sizeCmplxFloat);
-//float* nmppsMalloc_32f(unsigned sizeFloat);
-//double* nmppsMalloc_64f(unsigned sizeDouble);
 //nm32u* nmppsMalloc_32u(unsigned sizeInt32);
 //nm64s* nmppsMalloc_64s(unsigned sizeInt64);
 //nm64u* nmppsMalloc_64u(unsigned sizeInt64);
@@ -242,21 +237,26 @@ extern struct NmppsMallocSpec nmppsMallocSpec;
 		\~
     */
     //! \{
+void*  nmppsMalloc32  (unsigned sizeInt32);
+nm64s* nmppsMalloc_64s(unsigned nSize);
+nm1*   nmppsMalloc_1  (unsigned nSize) ;//{return  (nm1*  )nmppsMalloc_64s((nSize>>6) +1);}
+nm2s*  nmppsMalloc_2s (unsigned nSize) ;//{return  (nm2s* )nmppsMalloc_64s((nSize>>5) +1);}
+nm2u*  nmppsMalloc_2u (unsigned nSize) ;//{return  (nm2u* )nmppsMalloc_64s((nSize>>5) +1);}
+nm4s*  nmppsMalloc_4s (unsigned nSize) ;//{return  (nm4s* )nmppsMalloc_64s((nSize>>4) +1);}
+nm4u*  nmppsMalloc_4u (unsigned nSize) ;//{return  (nm4u* )nmppsMalloc_64s((nSize>>4) +1);}
+nm8u*  nmppsMalloc_8u (unsigned nSize) ;//{return  (nm8u* )nmppsMalloc_64s((nSize>>3) +1);}
+nm8s*  nmppsMalloc_8s (unsigned nSize) ;//{return  (nm8s* )nmppsMalloc_64s((nSize>>3) +1);}
+nm16u* nmppsMalloc_16u(unsigned nSize) ;//{return  (nm16u*)nmppsMalloc_64s((nSize>>2) +1);}
+nm16s* nmppsMalloc_16s(unsigned nSize) ;//{return  (nm16s*)nmppsMalloc_64s((nSize>>2) +1);}
+nm32u* nmppsMalloc_32u(unsigned nSize) ;//{return  (nm32u*)nmppsMalloc_64s((nSize>>1) +1);}
+nm32s* nmppsMalloc_32s(unsigned nSize) ;//{return  (nm32s*)nmppsMalloc_64s((nSize>>1) +1);}
+nm64u* nmppsMalloc_64u(unsigned nSize) ;//{return  (nm64u*)nmppsMalloc_64s(nSize);}
 
-nm64s* nmppsMalloc_64s(int nSize);
-
-__INLINE__ nm1*   nmppsMalloc_1  (int nSize) {return  (nm1*  )nmppsMalloc_64s((nSize>>6) +1);}
-__INLINE__ nm2s*  nmppsMalloc_2s (int nSize) {return  (nm2s* )nmppsMalloc_64s((nSize>>5) +1);}
-__INLINE__ nm2u*  nmppsMalloc_2u (int nSize) {return  (nm2u* )nmppsMalloc_64s((nSize>>5) +1);}
-__INLINE__ nm4s*  nmppsMalloc_4s (int nSize) {return  (nm4s* )nmppsMalloc_64s((nSize>>4) +1);}
-__INLINE__ nm4u*  nmppsMalloc_4u (int nSize) {return  (nm4u* )nmppsMalloc_64s((nSize>>4) +1);}
-__INLINE__ nm8u*  nmppsMalloc_8u (int nSize) {return  (nm8u* )nmppsMalloc_64s((nSize>>3) +1);}
-__INLINE__ nm8s*  nmppsMalloc_8s (int nSize) {return  (nm8s* )nmppsMalloc_64s((nSize>>3) +1);}
-__INLINE__ nm16u* nmppsMalloc_16u(int nSize) {return  (nm16u*)nmppsMalloc_64s((nSize>>2) +1);}
-__INLINE__ nm16s* nmppsMalloc_16s(int nSize) {return  (nm16s*)nmppsMalloc_64s((nSize>>2) +1);}
-__INLINE__ nm32u* nmppsMalloc_32u(int nSize) {return  (nm32u*)nmppsMalloc_64s((nSize>>1) +1);}
-__INLINE__ nm32s* nmppsMalloc_32s(int nSize) {return  (nm32s*)nmppsMalloc_64s((nSize>>1) +1);}
-__INLINE__ nm64u* nmppsMalloc_64u(int nSize) {return  (nm64u*)nmppsMalloc_64s(nSize);}
+nm32sc*  nmppsMalloc_32sc(unsigned sizeCmplxInt32);
+nm32fc*  nmppsMalloc_32fc(unsigned sizeCmplxFloat);
+nm32fcr* nmppsMalloc_32fcr(unsigned sizeCmplxFloat);
+float*   nmppsMalloc_32f(unsigned sizeFloat);
+double* nmppsMalloc_64f(unsigned sizeDouble);
 
 
 /*

@@ -3,8 +3,8 @@
 
 /////////////////////////////////////////////////////////////////////////////////
 // Copying short submatrix from 64 bit odd position of source mtr
-void MTR_Copy(
-		nm16s*	SrcMtr,
+void nmppmCopy_16s(
+			nm16s*	SrcMtr,
 			int		nSrcStride,
 			nm16s*	DstMtr,
 			int		nDstStride,
@@ -30,8 +30,8 @@ void MTR_Copy(
 
 /////////////////////////////////////////////////////////////////////////////////
 // Copying char submatrix from 64 bit odd position of source mtr
-void MTR_Copy(
-		nm8s*	SrcMtr,
+void nmppmCopy_8s(
+			nm8s*	SrcMtr,
 			int		nSrcStride,
 			nm8s*	DstMtr,
 			int		nDstStride,
@@ -54,7 +54,7 @@ void MTR_Copy(
 
 /////////////////////////////////////////////////////////////////////////////////
 // Copying int submatrix from 64 bit odd position of source mtr
-void MTR_Copy(
+void nmppmCopy_32s(
 		nm32s*	SrcMtr,
 			int		nSrcStride,
 			nm32s*	DstMtr,
@@ -73,7 +73,7 @@ void MTR_Copy(
 
 /////////////////////////////////////////////////////////////////////////////////
 // Copying long submatrix from 64 bit odd position of source mtr
-void MTR_Copy(
+void nmppmCopy_64s(
 		nm64s*	SrcMtr,
 			int		nSrcStride,
 			nm64s*	DstMtr,
@@ -92,7 +92,7 @@ void MTR_Copy(
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 // Copying char submatrix from any position of source mtr
-void MTR_Copyua(
+void nmppmCopyua_8s(
 		nm8s*	SrcMtr,
 			int		nSrcStride,
 			int		SrcDsp,
@@ -112,7 +112,7 @@ void MTR_Copyua(
 
 /////////////////////////////////////////////////////////////////////////////////
 // Copying short submatrix from any position of source mtr
-void MTR_Copyua(
+void nmppmCopyua_16s(
 		nm16s*	SrcMtr,
 			int		nSrcStride,
 			int		SrcDsp,
@@ -133,7 +133,7 @@ void MTR_Copyua(
 
 /////////////////////////////////////////////////////////////////////////////////
 // Copying int submatrix from any position of source mtr
-void MTR_Copyua(
+void nmppmCopyua_32s(
 		nm32s*	SrcMtr,
 			int		nSrcStride,
 			int		SrcDsp,
@@ -159,7 +159,7 @@ void MTR_Copyua(
 
 /////////////////////////////////////////////////////////////////////////////////
 // Copying char submatrix from any position of source mtr
-void MTR_Copyau(
+void nmppmCopyau_8s(
 		nm8s*	SrcMtr,
 			int		nSrcStride,
 			nm8s*	DstMtr,
@@ -179,7 +179,7 @@ void MTR_Copyau(
 
 /////////////////////////////////////////////////////////////////////////////////
 // Copying short submatrix from any position of source mtr
-void MTR_Copyau(
+void nmppmCopyau_16s(
 		nm16s*	SrcMtr,
 			int		nSrcStride,
 			nm16s*	DstMtr,
@@ -200,8 +200,8 @@ void MTR_Copyau(
 
 /////////////////////////////////////////////////////////////////////////////////
 // Copying int submatrix from any position of source mtr
-void MTR_Copyau(
-		nm32s*	SrcMtr,
+void nmppmCopyau_32s(
+			nm32s*	SrcMtr,
 			int		nSrcStride,
 			nm32s*	DstMtr,
 			int		nDstStride,

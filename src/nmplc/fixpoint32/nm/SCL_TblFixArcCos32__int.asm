@@ -33,11 +33,11 @@ begin ".text_nmplс"
 //////////////////////////////////////////////////////////////////////////////
 // gr0 заменить на gr7 !!!
 
-//! \fn int SCL_TblFixArcCos32(int nArg)
+//! \fn int nmppcTblFixArcCos32(int nArg)
 //! 
-//! \perfinclude _SCL_TblFixArcCos32__Fi.html
-global _SCL_TblFixArcCos32:label;
-<_SCL_TblFixArcCos32>
+//! \perfinclude _nmppcTblFixArcCos32__Fi.html
+global _nmppcTblFixArcCos32:label;
+<_nmppcTblFixArcCos32>
 .branch;
 	ar5 = sp-2;
 	gr7 = [--ar5];

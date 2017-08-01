@@ -28,12 +28,12 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsMul_AddC (nm64s *pSrcVec1,nm64s *pSrcVec2, nm64s* pnAddVal, nm64s *pDstVec, int nSize) 
+//! \fn void nmppsMul_AddC_64s (nm64s *pSrcVec1,nm64s *pSrcVec2, nm64s* pnAddVal, nm64s *pDstVec, int nSize) 
 //!
-//! \perfinclude nmppsMul_AddC.html
+//! \perfinclude nmppsMul_AddC_64s.html
 
-global _nmppsMul_AddC64s:label;
-<_nmppsMul_AddC64s>
+global _nmppsMul_AddC_64s:label;
+<_nmppsMul_AddC_64s>
  
 .branch;
 

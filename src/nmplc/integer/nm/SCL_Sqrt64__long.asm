@@ -67,11 +67,11 @@ end SQRTNEG;
 
 begin ".text_nmplñ"
 
-//! \fn 	unsigned long SCL_Sqrt64(unsigned long x);
+//! \fn 	unsigned int nmppcSqrt64(unsigned long x);
 //!
-//! \perfinclude _SCL_Sqrt64__FUl.html
-global _SCL_Sqrt64 :label; 
-<_SCL_Sqrt64>
+//! \perfinclude _nmppcSqrt64__FUl.html
+global _nmppcSqrt_64u :label; 
+<_nmppcSqrt_64u>
 .branch;
 	ar5=sp-2;
 

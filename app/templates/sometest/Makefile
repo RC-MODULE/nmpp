@@ -40,9 +40,10 @@ kill:
 test: make_$(TARGET1)/Makefile make_$(TARGET2)/Makefile
 	$(MAKE) -C./make_$(TARGET1) test 
 	$(MAKE) -C./make_$(TARGET2) test
-	echo $(CURDIR)>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
+	@echo $(CURDIR)>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
 	$(OS_DIFF) make_$(TARGET1)/.exitcode make_$(TARGET2)/.exitcode
-	echo OK>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
+	@echo TEST-OK!
+	@echo OK>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
 
 	
 ########### Produces automake rule for all platforms like ############################

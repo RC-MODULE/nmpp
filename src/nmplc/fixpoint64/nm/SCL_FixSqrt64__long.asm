@@ -69,12 +69,12 @@ end SQRTNEG;
 
 begin ".text_nmplñ"
 
-//! \fn unsigned long SCL_FixSqrt64(unsigned long x);
+//! \fn unsigned long nmppcFixSqrt64(unsigned long x);
 //!
-//! \perfinclude _SCL_FixSqrt64__FUl.html
+//! \perfinclude _nmppcFixSqrt64__FUl.html
 
-global _SCL_FixSqrt64 :label; 
-<_SCL_FixSqrt64>
+global _nmppcFixSqrt64 :label; 
+<_nmppcFixSqrt64>
 .branch;
 	ar5=sp-2;
 

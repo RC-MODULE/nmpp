@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: SCL_DivC__nm64sc_nm64sc.cpp             $
+//  $Workfile:: nmppcDivC__nm64sc_nm64sc.cpp             $
 //
 //  nmplc
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   SCL_DivC__nm64sc_nm64sc.cpp
+//! \file   nmppcDivC__nm64sc_nm64sc.cpp
 //! \author Sergey V. Vaganov esq.
 //! \brief  <Brief Description>
 //!
@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 #include "nmtype.h"
 
-void SCL_DivC(nm64sc *pnSrcA, nm64s *pnSrcB, nm64sc *Dst)
+void nmppcDivC(nm64sc *pnSrcA, nm64s *pnSrcB, nm64sc *Dst)
 {
 	Dst->re = pnSrcA->re/ *pnSrcB;
 	Dst->im = pnSrcA->im/ *pnSrcB;

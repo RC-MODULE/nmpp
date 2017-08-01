@@ -59,12 +59,12 @@ end LOG_STEP;
 //Max error : 6.057355e-003 %     Step=1.030000e-003
 // 316 тактов/ exp
 
-//! \fn int SCL_FixExp32( int Arg);
+//! \fn int nmppcFixExp32( int Arg);
 //! 
-//! \perfinclude _SCL_FixExp32__Fi.html
+//! \perfinclude _nmppcFixExp32__Fi.html
 
-global _SCL_FixExp32 :label;
-<_SCL_FixExp32>
+global _nmppcFixExp32 :label;
+<_nmppcFixExp32>
 .branch;
 	ar5=sp-2 with gr7=false;
 	push ar0,gr0 with gr7=gr7+1;

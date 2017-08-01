@@ -164,11 +164,11 @@ begin ".text_nmplñ"
 //                                                                          //
 //////////////////////////////////////////////////////////////////////////////
 
-//! \fn long SCL_FixArcTan64(long nArg)
+//! \fn long nmppcFixArcTan64(long nArg)
 //! 
-//! \perfinclude _SCL_FixArcTan64__Fl.html
-global _SCL_FixArcTan64 :label; 
-<_SCL_FixArcTan64>
+//! \perfinclude _nmppcFixArcTan64__Fl.html
+global _nmppcFixArcTan64 :label; 
+<_nmppcFixArcTan64>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0 with gr6-=gr6;

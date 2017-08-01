@@ -15,7 +15,7 @@ extern "C" 	{
 
 //=============================================================================
 	/**
-	\defgroup SCL_FixExp32 SCL_FixExp32
+	\defgroup nmppcFixExp32 nmppcFixExp32
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление вычисления экспоненты числа в формате fixed-point (16.16)
@@ -40,11 +40,11 @@ extern "C" 	{
     \endxmlonly
 	*/
     //! \{	
-int SCL_FixExp32( int nVal);
+int nmppcFixExp32( int nVal);
     //! \}
 //=============================================================================
 	/**
-	\defgroup SCL_FixSinCos32 SCL_FixSinCos32
+	\defgroup nmppcFixSinCos32 nmppcFixSinCos32
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление синуса и косинуса от аргумента в формате fixed-point (16.16)
@@ -75,12 +75,12 @@ int SCL_FixExp32( int nVal);
     \endxmlonly
 	*/
     //! \{	
-void SCL_FixSinCos32(int nArg, int* pnSin, int* pnCos);
+void nmppcFixSinCos32(int nArg, int* pnSin, int* pnCos);
     //! \}
 
 //=============================================================================
 	/**
-	\defgroup SCL_FixArcTan32 SCL_FixArcTan32
+	\defgroup nmppcFixArcTan32 nmppcFixArcTan32
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление арктангенса от аргумента в формате fixed-point (16.16)
@@ -105,13 +105,13 @@ void SCL_FixSinCos32(int nArg, int* pnSin, int* pnCos);
     \endxmlonly
 	*/
     //! \{	
- int SCL_FixArcTan32(int nArg);
+ int nmppcFixArcTan32(int nArg);
     //! \}
 
 
 //=============================================================================
 	/**
-	\defgroup SCL_DoubleToFix32 SCL_DoubleToFix32
+	\defgroup nmppcDoubleToFix32 nmppcDoubleToFix32
 	\ingroup cFixpoint32
 	\brief
 		\ru Функция перевода из Fixed-Point (16.16) в Double
@@ -141,7 +141,7 @@ void SCL_FixSinCos32(int nArg, int* pnSin, int* pnCos);
     \endxmlonly
 	*/
     //! \{
-int SCL_DoubleToFix32(double arg);
+int nmppcDoubleToFix32(double arg);
     //! \}
 
 
@@ -149,7 +149,7 @@ int SCL_DoubleToFix32(double arg);
 
 
 	/**
-	\defgroup SCL_Fix32ToDouble SCL_Fix32ToDouble
+	\defgroup nmppcFix32ToDouble nmppcFix32ToDouble
 	\ingroup cFixpoint32
 	\brief
 		\ru Преобразование 32р. числа с фиксированной точкой (16.16) в число с плвающей точкой типа double 
@@ -174,11 +174,11 @@ int SCL_DoubleToFix32(double arg);
     \endxmlonly
 	*/
     //! \{
-double SCL_Fix32ToDouble(int arg);
+double nmppcFix32ToDouble(int arg);
     //! \}
 //=============================================================================
 	/**
-	\defgroup SCL_FixSqrt32 SCL_FixSqrt32
+	\defgroup nmppcFixSqrt32 nmppcFixSqrt32
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление квадратного корня числа в формате fixed-point (16.16)
@@ -203,13 +203,13 @@ double SCL_Fix32ToDouble(int arg);
     \endxmlonly
 	*/
     //! \{	
-	unsigned int SCL_FixSqrt32( unsigned int nVal );
+	unsigned int nmppcFixSqrt32( unsigned int nVal );
 	//! \}
 
 //=============================================================================
 
 	/**
-	\defgroup SCL_FixMul32 SCL_FixMul32
+	\defgroup nmppcFixMul32 nmppcFixMul32
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление произведения двух числе в формате fixed-point (16.16)
@@ -239,12 +239,12 @@ double SCL_Fix32ToDouble(int arg);
     \endxmlonly
 	*/
     //! \{	
-	int SCL_FixMul32(int nX, int nY);
+	int nmppcFixMul32(int nX, int nY);
 	//! \}
 
 //=============================================================================
 	/**
-	\defgroup SCL_FixMul32 SCL_FixMul32
+	\defgroup nmppcFixMul32 nmppcFixMul32
 	\ingroup cFixpoint32
 	\brief
 		\ru Деление двух целых чисел с записью результата в формате fixed-point (16.16)
@@ -274,11 +274,11 @@ double SCL_Fix32ToDouble(int arg);
     \endxmlonly
 	*/
     //! \{	
-	int SCL_FixDiv32(int nX, int nY);
+	int nmppcFixDiv32(int nX, int nY);
 	//! \}
 //=============================================================================
 	/**
-	\defgroup SCL_FixInv32 SCL_FixInv32
+	\defgroup nmppcFixInv32 nmppcFixInv32
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление обратного значения целого числа с записью результата в формате fixed-point 
@@ -313,13 +313,13 @@ double SCL_Fix32ToDouble(int arg);
     \endxmlonly
 	*/
     //! \{	
-	int SCL_FixInv32(int nVal, int nFixpoint);
+	int nmppcFixInv32(int nVal, int nFixpoint);
 	//! \}
 
 //=============================================================================
 
 	/**
-	\defgroup SCL_TblFixArcSin32 SCL_TblFixArcSin32
+	\defgroup nmppcTblFixArcSin32 nmppcTblFixArcSin32
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление функции arcsin по таблице. Входные и выходные значения задаются в формате  fixed-point (16.16)
@@ -344,12 +344,12 @@ double SCL_Fix32ToDouble(int arg);
     \endxmlonly
 	*/
     //! \{	
-	int SCL_TblFixArcSin32(int nArg);
+	int nmppcTblFixArcSin32(int nArg);
     //! \}
 //=============================================================================
 
 	/**
-	\defgroup SCL_TblFixArcCos32 SCL_TblFixArcCos32
+	\defgroup nmppcTblFixArcCos32 nmppcTblFixArcCos32
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление функции arccos по таблице. Входные и выходные значения задаются в формате  fixed-point (16.16)
@@ -374,14 +374,14 @@ double SCL_Fix32ToDouble(int arg);
     \endxmlonly
 	*/
     //! \{	
-	int SCL_TblFixArcCos32(int nArg);
+	int nmppcTblFixArcCos32(int nArg);
     //! \}
 
 
 //=============================================================================
 
 	/**
-	\defgroup SCL_TblFixCos32 SCL_TblFixCos32
+	\defgroup nmppcTblFixCos32 nmppcTblFixCos32
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление функции cos по таблице. Входные и выходные значения задаются в формате  fixed-point (16.16)
@@ -406,13 +406,13 @@ double SCL_Fix32ToDouble(int arg);
     \endxmlonly
 	*/
     //! \{	
-	int SCL_TblFixCos32(int nArg);
+	int nmppcTblFixCos32(int nArg);
     //! \}
 
 //=============================================================================
 
 	/**
-	\defgroup SCL_TblFixSin32 SCL_TblFixSin32
+	\defgroup nmppcTblFixSin32 nmppcTblFixSin32
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление функции sin по таблице. Входные и выходные значения задаются в формате  fixed-point (16.16)
@@ -437,13 +437,13 @@ double SCL_Fix32ToDouble(int arg);
     \endxmlonly
 	*/
     //! \{	
-	int SCL_TblFixSin32(int nArg);
+	int nmppcTblFixSin32(int nArg);
     //! \}
 
 //=============================================================================
 
 	/**
-	\defgroup SCL_FixDivMod32 SCL_FixDivMod32
+	\defgroup nmppcFixDivMod32 nmppcFixDivMod32
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление частного и остатка при делении чисел с фиксированной запятой в формате fixed-point (16.16)
@@ -479,8 +479,8 @@ double SCL_Fix32ToDouble(int arg);
     \endxmlonly
 	*/
     //! \{	
-	void SCL_FixDivMod32(int nDividend, int nDivisor, int* pnQuotient, int* pnReminder);
-	void SCL_FixDivPosMod32(unsigned int nDividend, unsigned int nDivisor,  int* pnQuotient, int* pnReminder);
+	void nmppcFixDivMod32(int nDividend, int nDivisor, int* pnQuotient, int* pnReminder);
+	void nmppcFixDivPosMod32(unsigned int nDividend, unsigned int nDivisor,  int* pnQuotient, int* pnReminder);
     //! \}
 #ifdef __cplusplus
 		};

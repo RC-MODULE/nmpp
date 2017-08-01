@@ -12,7 +12,7 @@
 	\en 
 	\page intro Introduction
 	\~
-    \ingroup SCL_Group
+    \ingroup nmppcGroup
 
 	\ru 
 Назначением данной библиотеки является предоставление базовых операций по работе со скалярными данными для процессора NM6403, NM6404, NM6405. 
@@ -37,7 +37,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup cInit Initialization
 	* \~
-    * \ingroup SCL_Group
+    * \ingroup nmppcGroup
 	*/
 
 #include "cInit.h"
@@ -50,7 +50,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup cInteger Integer operations
 	* \~
-    * \ingroup SCL_Group
+    * \ingroup nmppcGroup
 	*/
 #include "cInteger.h"
 
@@ -61,7 +61,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup cFixpoint64 Fix-point 64
 	* \~
-    * \ingroup SCL_Group
+    * \ingroup nmppcGroup
 	*/
 #include "cfixpnt64.h"
 	/**
@@ -71,7 +71,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup cFixpoint32 Fix-point 32
 	* \~
-    * \ingroup SCL_Group
+    * \ingroup nmppcGroup
 	*/
 #include "cfixpnt32.h"
 
@@ -83,7 +83,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup cArithmetic Arithmetic operation
 	* \~
-    * \ingroup SCL_Group
+    * \ingroup nmppcGroup
 	*/
 #include "cArithmetic.h"
 

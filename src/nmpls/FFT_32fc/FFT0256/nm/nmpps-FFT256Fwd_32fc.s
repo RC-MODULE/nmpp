@@ -1,4 +1,16 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-FFT256Fwd_32fc.s                             	*/
+//*   Contents:         Routine for forward and inverse FFT 256             */
+//*                     of complex array with 32 bit elements               */                                                        */
+//***************************************************************************/
+
 global _nmppsFFT256Fwd_32fc: label;
+global _nmppsFFT256Inv_32fc: label;
 data ".data_imu1"
 AddrForDFT16_256: word[32] = (
 						0, 32, 16, 48, 8, 40, 24, 56,
@@ -35,6 +47,7 @@ end COMPUTE_FFT128;
 
 begin ".text"
 <_nmppsFFT256Fwd_32fc>
+<_nmppsFFT256Inv_32fc>
 	set fp_branch;
 	ar5 = ar7 - 2;
 	push ar6, gr6;
@@ -118,7 +131,7 @@ begin ".text"
 	ar0 = gr2; // buff_fft256
 	ar6 = gr7; // buff_fft256xW
 	gr4 = gr1 >> 5;
-	ar5 = ar5 + 5;
+	//ar5 = ar5 + 5;
 	ar1 = [ar5++]; // W8_0
 	ar2 = [ar5++]; // W8_1
 	ar3 = ar1;

@@ -1,6 +1,6 @@
 #include "nmpp.h"
 //#include "fft.h"
-#include "fft2.h"
+#include "fft.h"
 #include <time.h>
 
 

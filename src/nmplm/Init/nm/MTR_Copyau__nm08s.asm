@@ -34,15 +34,15 @@ begin ".text_nmplm"
 
 
 //--------------------------------------------------------------------
-//! \fn void MTR_Copyau(  nm8s* pSrcMtr, int nSrcStride, nm8s* pDstMtr,  int nDstStride, int nDstOffset, int nHeight, int nWidth)
+//! \fn void nmppmCopyau_8s(  nm8s* pSrcMtr, int nSrcStride, nm8s* pDstMtr,  int nDstStride, int nDstOffset, int nHeight, int nWidth)
 //!
-//! \perfinclude _MTR_Copyau__FPciPciiii.html
+//! \perfinclude _nmppmCopyau_8s.html
 //--------------------------------------------------------------------
 
-global _MTR_Copyau__FPciPciiii:label;
-global _void._.8.8MTR_Copyau.1char._.0.9._int.9._char._.0.9._int.9._int.9._int.9._int.2 :label;
-<_MTR_Copyau__FPciPciiii>
-<_void._.8.8MTR_Copyau.1char._.0.9._int.9._char._.0.9._int.9._int.9._int.9._int.2>
+global nmppmCopyau_8s:label;
+global nmppmCopyau_8u:label;
+<nmppmCopyau_8s>
+<nmppmCopyau_8u>
 .branch;
 
 	ar5 = sp-2;	

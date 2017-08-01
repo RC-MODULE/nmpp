@@ -14,7 +14,7 @@ endif
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MC7601)/include"
 LIB_DIRS = -L"$(NMPP)/lib"  -L"$(MC7601)/lib" -L$(NM_IO)/lib
-LIBS     = nm_io_dummy.lib mc7601_LL_NM.lib nmpp-nmc3d.lib libint_soc.lib  
+LIBS     = nm_io_dummy.lib mc7601_ll_nm.lib nmpp-nmc3d.lib libint_soc.lib  
 TARGET   = main.abs
 CFG      = mc7601brd.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))

@@ -6,7 +6,7 @@
 
 
 	/**
-	\defgroup SCL_DivC SCL_DivC
+	\defgroup nmppcDivC nmppcDivC
 	\ingroup <cArithmetic>
 	\brief
 		\ru частное двух комплексных чисел
@@ -24,11 +24,11 @@
 		\en
 	*/
 	//! \{	
-void SCL_DivC(nm64sc *pnSrcA, nm64s *pnSrcB, nm64sc *Dst);
+void nmppcDivC(nm64sc *pnSrcA, nm64s *pnSrcB, nm64sc *Dst);
     //! \}
 
 	/**
-	\defgroup SCL_ProdC SCL_ProdC
+	\defgroup nmppcProdC nmppcProdC
 	\ingroup cArithmetic
 	\brief
 		\ru произведение двух комплексных чисел.
@@ -46,7 +46,7 @@ void SCL_DivC(nm64sc *pnSrcA, nm64s *pnSrcB, nm64sc *Dst);
 		\en
 	*/
 //! \{	
-void SCL_ProdC(nm64sc *pnSrcA, nm64sc *pnSrcB, nm64sc *Dst);//ASM
+void nmppcProdC(nm64sc *pnSrcA, nm64sc *pnSrcB, nm64sc *Dst);//ASM
 //! \}
 
 #endif

@@ -74,12 +74,12 @@ end ATANROTATE;
 begin ".text_nmplñ"
 
 
-//! \fn void SCL_FixSinCos32(int nArg, int* pnSin, int* pnCos)
+//! \fn void nmppcFixSinCos32(int nArg, int* pnSin, int* pnCos)
 //!
-//! \perfinclude _SCL_FixSinCos32__FiPiPi.html
+//! \perfinclude _nmppcFixSinCos32__FiPiPi.html
 
-global _SCL_FixSinCos32 :label;
-<_SCL_FixSinCos32>
+global _nmppcFixSinCos32 :label;
+<_nmppcFixSinCos32>
 .branch;
 	ar5 = sp-2;
 	push ar0,gr0;

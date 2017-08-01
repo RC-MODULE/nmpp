@@ -23,15 +23,15 @@ end SHIFTLEFT64;
 begin ".text_nmplс"
 
 
-//! \fn double SCL_Fix64ToDouble(long arg , int fixpoint );
+//! \fn double nmppcFix64ToDouble(long arg , int fixpoint );
 //!
-//! \perfinclude _SCL_Fix64ToDouble__Fli.html
+//! \perfinclude _nmppcFix64ToDouble__Fli.html
 
 // На входе число FixedPoint64(long) передается через стек
 // На выходе число Double передается через gr7 и gr6. (Показатель находится в gr7)
 
-<_SCL_Fix64ToDouble>
-global _SCL_Fix64ToDouble :label;
+<_nmppcFix64ToDouble>
+global _nmppcFix64ToDouble :label;
 .branch;
 	ar5=sp-2;
     push ar1,gr1;

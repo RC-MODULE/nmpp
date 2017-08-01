@@ -16,7 +16,7 @@ extern "C" {
 //=============================================================================
 	
 	/**
-	\defgroup SCL_Sqrt64 SCL_Sqrt64
+	\defgroup nmppcSqrt nmppcSqrt
 	\ingroup cInteger
 	\brief
 		\ru Вычисление квадратного корня 
@@ -41,7 +41,8 @@ extern "C" {
     \endxmlonly
 	*/
     //! \{	
-	unsigned long SCL_Sqrt64(unsigned long x);
+	unsigned int nmppcSqrt_64u(unsigned long long x);
+//unsigned int nmppcSqrt_32u(unsigned int x);
     //! \}
 //=============================================================================
 

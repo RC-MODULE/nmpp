@@ -1,5 +1,5 @@
 #include "malloc32.h"
-#include "fft2.h"
+#include "fft.h"
 #include "rpc-host.h"	
 
 	void nmppsFFT256Inv(const nm32sc* src, nm32sc* dst,const  NmppsFFTSpec* spec)

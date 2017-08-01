@@ -44,12 +44,12 @@ end ALIGN;
 
 begin ".text_nmplñ"
 
-//! \fn  int SCL_FixDiv32(int nX, int nY)
+//! \fn  int nmppcFixDiv32(int nX, int nY)
 //!
-//! \perfinclude _SCL_FixDiv32__Fii.html
+//! \perfinclude _nmppcFixDiv32__Fii.html
 
-global _SCL_FixDiv32 :label;
-<_SCL_FixDiv32>
+global _nmppcFixDiv32 :label;
+<_nmppcFixDiv32>
 .branch;
 	ar5=ar7-4;
 	push ar0,gr0;

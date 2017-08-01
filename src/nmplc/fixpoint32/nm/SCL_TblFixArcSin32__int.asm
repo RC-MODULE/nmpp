@@ -31,11 +31,11 @@ begin ".text_nmplñ"
 //                                                                          //
 //////////////////////////////////////////////////////////////////////////////
 
-//! \fn  int SCL_TblFixArcSin32(int nArg)
+//! \fn  int nmppcTblFixArcSin32(int nArg)
 //! 
-//! \perfinclude _SCL_TblFixArcSin32__Fi.html
-global _SCL_TblFixArcSin32:label;
-<_SCL_TblFixArcSin32>
+//! \perfinclude _nmppcTblFixArcSin32__Fi.html
+global _nmppcTblFixArcSin32:label;
+<_nmppcTblFixArcSin32>
 .branch;
 	ar5 = sp-2;
 	gr7 = [--ar5];

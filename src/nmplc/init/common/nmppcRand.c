@@ -23,7 +23,7 @@
 unsigned nmppcRandomize=1;
 
 //! 
-//! \perfinclude _SCL_Rand__Fiii.html
+//! \perfinclude _nmppcRand__Fiii.html
 //! 
 
 int nmppcRandMinMax(

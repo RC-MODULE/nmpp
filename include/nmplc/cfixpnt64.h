@@ -15,7 +15,7 @@ extern "C" {
 
 //=============================================================================
 	/**
-	\defgroup SCL_FixSqrt64 SCL_FixSqrt64
+	\defgroup nmppcFixSqrt64 nmppcFixSqrt64
 	\ingroup cFixpoint64
 	\brief
 		\ru Вычисление квадратного корня числа в формате fixed-point (32.32)
@@ -40,11 +40,11 @@ extern "C" {
     \endxmlonly
 	*/
     //! \{	
-	unsigned long SCL_FixSqrt64(unsigned long x);
+	unsigned long nmppcFixSqrt64(unsigned long x);
     //! \}
 //=============================================================================
 	/**
-	\defgroup SCL_DoubleToFix64 SCL_DoubleToFix64
+	\defgroup nmppcDoubleToFix64 nmppcDoubleToFix64
 	\ingroup cFixpoint64
 	\brief
 		\ru Функция перевода из Fixed-Point 64 в Double
@@ -75,7 +75,7 @@ extern "C" {
     \endxmlonly
 	*/
     //! \{
-long SCL_DoubleToFix64(double arg, int fixpoint);
+long nmppcDoubleToFix64(double arg, int fixpoint);
     //! \}
 
 
@@ -83,7 +83,7 @@ long SCL_DoubleToFix64(double arg, int fixpoint);
 
 
 	/**
-	\defgroup SCL_Fix64ToDouble SCL_Fix64ToDouble
+	\defgroup nmppcFix64ToDouble nmppcFix64ToDouble
 	\ingroup cFixpoint64
 	\brief
 		\ru Преобразование 64р. числа с фиксированной точкой в число с плвающей точкой типа double 
@@ -114,13 +114,13 @@ long SCL_DoubleToFix64(double arg, int fixpoint);
     \endxmlonly
 	*/
     //! \{
-double SCL_Fix64ToDouble(long arg , int fixpoint );
+double nmppcFix64ToDouble(long arg , int fixpoint );
     //! \}
 //=============================================================================
 
 
 	/**
-	\defgroup SCL_FixDiv64 SCL_FixDiv64
+	\defgroup nmppcFixDiv64 nmppcFixDiv64
 	\ingroup cFixpoint64
 	\brief
 		\ru Деление двух целых чисел с записью результата в формате fixed-point 
@@ -158,13 +158,13 @@ double SCL_Fix64ToDouble(long arg , int fixpoint );
 
 	*/
     //! \{
-void SCL_FixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotient);
+void nmppcFixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotient);
     //! \}
 	//     Функция деления A/B для целых чисел со знаком 2*abs(A)<abs(B)         
 
 //=============================================================================
 	/**
-	\defgroup SCL_FixSinCos64 SCL_FixSinCos64
+	\defgroup nmppcFixSinCos64 nmppcFixSinCos64
 	\ingroup cFixpoint64
 	\brief
 		\ru Вычисление синуса и косинуса от аргумента в формате fixed-point (32.32)
@@ -195,11 +195,11 @@ void SCL_FixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotien
     \endxmlonly
 	*/
     //! \{	
-	void SCL_FixSinCos64(long nArg, long* pnSin, long *pnCos);
+	void nmppcFixSinCos64(long nArg, long* pnSin, long *pnCos);
     //! \}
 //=============================================================================
 	/**
-	\defgroup SCL_FixArcTan64 SCL_FixArcTan64
+	\defgroup nmppcFixArcTan64 nmppcFixArcTan64
 	\ingroup cFixpoint64
 	\brief
 		\ru Вычисление арктангенса от аргумента в формате fixed-point (32.32)
@@ -224,12 +224,12 @@ void SCL_FixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotien
     \endxmlonly
 	*/
     //! \{	
- long SCL_FixArcTan64(long nArg);
+ long nmppcFixArcTan64(long nArg);
     //! \}
 
  //=============================================================================
 	/**
-	\defgroup SCL_Fix64Exp01 SCL_Fix64Exp01
+	\defgroup nmppcFix64Exp01 nmppcFix64Exp01
 	\ingroup cFixpoint32
 	\brief
 		\ru Вычисление вычисления экспоненты числа в формате fixed-point (4.60)
@@ -254,10 +254,10 @@ void SCL_FixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotien
     \endxmlonly
 	*/
     //! \{	
-	long SCL_Fix64Exp01(long nArg);
+	long nmppcFix64Exp01(long nArg);
     //! \}
 
-	long SCL_FrExp(double nArg);
+	long nmppcFrExp(double nArg);
 
 #ifdef __cplusplus
 		};

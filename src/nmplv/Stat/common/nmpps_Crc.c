@@ -1,6 +1,6 @@
 #include "nmpp.h"
-unsigned nmppsCrc_32u(
-    unsigned int* pSrcVec, 	// Input Vector			:long Any[Size/2]
+	unsigned int nmppsCrc_32u(
+    const unsigned int* pSrcVec, 	// Input Vector			:long Any[Size/2]
     int nSize             	// Vector size        	:[0,1,2...]
     )
 {

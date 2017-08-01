@@ -34,7 +34,7 @@ PATH:=$(MC12101)/bin;$(PATH)
 
 	
 run: $(TARGET)
-	mc12101run $(TARGET)
+	mc12101run $(TARGET) -p
 
 test: .exitcode
 	

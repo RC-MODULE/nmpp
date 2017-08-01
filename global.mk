@@ -12,7 +12,6 @@ MC12101   ?=$(DEVKIT)/mc12101sdk
 NM_IO     ?=$(DEVKIT)/nm_io
 
 
-
 ifeq ($(OS),Windows_NT)
 SHELL       = cmd
 export PATH:=$(GNUWIN32);\
@@ -74,47 +73,8 @@ endif
 
 #PLATFORMS = vs8 mc5103 emu6405  mb7707 mc12101 gcc
 PLATFORMS = vs8 mc12101_nmc0 mc12101_nmc1 mc5103 mc7601 gcc emu6405
-
-<<<<<<< HEAD
-PLATFORMS:=emu6405
-ifdef MB7707
-PLATFORMS += mb7707
-ifndef MB7707_MAC
-$(error MB7707_MAC is not defiened) 
-endif
-endif
- 
-#ifdef HAVE_edcltool
-#PLATFORMS += mb7707_edcltool
-#ifndef MB7707_ETH
-#$(error MB7707_ETH is not defiened) 
-#endif
-#endif 
-
-PLATFORMS  += mc5103
-
-ifdef MC7601
-PLATFORMS += mc7601
-endif 
-
-ifdef VS80COMNTOOLS
-PLATFORMS += vs80
-endif 
-
-ifdef VS120COMNTOOLS
-PLATFORMS += vs13
-endif
-
-#gcc
-#mc7601
-PLATFORMS = vs80 mc5103 emu6405 mb7707 mc12101
-
-TARGET1=mc5103
-TARGET2=vs80
-=======
-TARGET1=mc12101_nmc0
+TARGET1=mc12101_nmc1
 TARGET2=vs8
->>>>>>> 80630cec3e90d1d697262e0d064a47a0ea321597
 
 define newline
 

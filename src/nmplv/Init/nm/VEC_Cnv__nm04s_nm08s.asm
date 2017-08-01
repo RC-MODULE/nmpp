@@ -20,7 +20,7 @@ data ".MyData"
 						   0100000000000000hl);
 end ".MyData";
 
-begin ".textAAA"
+begin ".text_nmplv"
 <_nmppsConvert_4s8s>
 .branch;
 	ar5 = ar7 -2;
@@ -64,4 +64,4 @@ begin ".textAAA"
 	pop ar0,gr0;
 .wait;
 	return;
-end ".textAAA";   
+end ".text_nmplv";   

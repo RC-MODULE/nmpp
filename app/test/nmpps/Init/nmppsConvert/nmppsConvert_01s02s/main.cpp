@@ -14,6 +14,7 @@ nm64s *G1;
  int SizeG0=60*KB;
  int SizeG1=60*KB;
 
+ 
 int main()
 {
 	
@@ -36,7 +37,7 @@ int main()
 	nmppsRandUniform_64s(L0,SizeL0);
 	nmppsSet_64s(G0,-1,SizeG0);
 	
-	for(int nSize=64*32;nSize<longTestSize;nSize+=64*32)
+	for(int nSize=64;nSize<longTestSize;nSize+=64)
 	{
 		nmppsConvert_1s2s((nm1*)L0,(nm2s*)G0,nSize);
 		nmppsCrcAcc_32u((nm32u*)G0,(nSize)/64*2,&crc);

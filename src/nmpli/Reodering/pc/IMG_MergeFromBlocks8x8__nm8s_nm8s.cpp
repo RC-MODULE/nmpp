@@ -1,10 +1,11 @@
-
+#include "nmtl.h"
+#include "nmtype.h"
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 void IMG_MergeFromBlocks8x8(
-		char*	pSrcBlockSeq,	// Source one-dimensional Array	:long Local[Width*Height/8]
-			char*	pDstImg,	// Result Image					:long Global[Width*Height/8]
+		nm8s*	pSrcBlockSeq,	// Source one-dimensional Array	:long Local[Width*Height/8]
+			nm8s*	pDstImg,	// Result Image					:long Global[Width*Height/8]
 			int		nWidth,	// Source Image Width;			:Width=[8,16,24...]
 			int		nHeight	// Source Image Height;			:Height=[8,16,24..]
 			)

@@ -15,7 +15,7 @@ nm64s *G1;
  int SizeG0=60*KB;
  int SizeG1=60*KB;
 
-//! \fn	void nmppsConvert_8s(nm8s* pSrc,nm4s* pDst,int)
+//! \fn	void nmppsConvert_8s4s(nm8s* pSrc,nm4s* pDst,int)
 int main()
 {
 	
@@ -31,9 +31,9 @@ int main()
 
 	nmppsRandUniform_32u((nm32u*)L0,SizeL0*2);
 	nmppsSet_32u((nm32u*)G0,(0xCCCCCCCC),SizeG0*2);
-	for(int nSize=0; nSize<SizeG0*64/4/2; nSize+=64/4)
+	for(int nSize=0; nSize<SizeG0*16; nSize+=16)
 	{
-		nmppsConvert_(( nm8s*)L0,(nm4s*)G0,nSize);	
+		nmppsConvert_8s4s(( nm8s*)L0,(nm4s*)G0,nSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,nSize/8+128,&crc);
 	}
 

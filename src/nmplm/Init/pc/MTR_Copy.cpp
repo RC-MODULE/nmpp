@@ -30,7 +30,7 @@ void MTR_Copy(
 
 /////////////////////////////////////////////////////////////////////////////////
 // Copying char submatrix from 64 bit odd position of source mtr
-void MTR_Copy(
+void MTR_Copy_8s(
 		nm8s*	SrcMtr,
 			int		nSrcStride,
 			nm8s*	DstMtr,
@@ -44,6 +44,23 @@ void MTR_Copy(
 		nmppsCopy_8s(SrcMtr,DstMtr,nWidth);
 		SrcMtr+=nSrcStride;
 		DstMtr+=nDstStride;
+	}
+}
+
+void nmppmCopy_1(
+		nm1*	SrcMtr,
+			int		nSrcStride,
+			nm1*	DstMtr,
+			int		nDstStride,
+			int		nHeight,
+			int		nWidth)
+
+{
+	for(int i=0;i<nHeight;i++)
+	{
+		nmppsCopy_8u((nm8u*)SrcMtr,(nm8u*)DstMtr,nWidth/8);
+		SrcMtr = nmppsAddr_1(SrcMtr,nSrcStride);
+		DstMtr = nmppsAddr_1(DstMtr,nDstStride);
 	}
 }
 /////////////////////////////////////////////////////////////////////////////////

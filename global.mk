@@ -2,17 +2,18 @@
 #export https_proxy       = $(http_proxy)
 
 export  NMPP       = $(ROOT)
-export  DEVKIT    ?= d:/GIT/dev-kit
+export  DEVKIT    = d:/GIT/dev-kit
 export  ARMTOOLCH ?=$(DEVKIT)/arm-rcm-linux-gnueabihf
 export  NEURO     ?=$(DEVKIT)/nmsdk
 export  VSHELL32  ?=$(DEVKIT)/vshell32
 EASYNMC   ?=$(DEVKIT)/nmc-utils-0.1.1/libeasynmc-nmc
 
 GNUWIN32          ?=c:/gnuwin32-lite/bin
-MC5103            ?=(DEVKIT)/mc12101sdk
-MC7601            ?=(DEVKIT)/mc7601sdk
-MB7707            ?=(DEVKIT)/mb7707sdk
-
+MC12101           ?=$(DEVKIT)/mc12101sdk
+MC5103            ?=$(DEVKIT)/mc5103sdk
+MC7601            ?=$(DEVKIT)/mc7601sdk
+MB7707            ?=$(DEVKIT)/mb7707sdk
+export NM_IO			  ?=$(DEVKIT)/nm_io
 
 ifeq ($(OS),Windows_NT)
 SHELL       = cmd
@@ -114,7 +115,7 @@ endif
 
 #gcc
 #mc7601
-PLATFORMS = vs80 mc5103 emu6405  mb7707 mc12101
+PLATFORMS = vs80 mc5103 emu6405 mb7707 mc12101
 
 TARGET1=mc5103
 TARGET2=vs80

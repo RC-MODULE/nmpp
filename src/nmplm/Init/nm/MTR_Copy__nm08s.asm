@@ -34,9 +34,11 @@ begin ".text_nmplm"
 //--------------------------------------------------------------------
 
 global _MTR_Copy__FPciPciii:label;
-global _void._.8.8MTR_Copy.1char._.0.9._int.9._char._.0.9._int.9._int.9._int.2 :label;
+//global _void._.8.8MTR_Copy.1char._.0.9._int.9._char._.0.9._int.9._int.9._int.2 :label;
+global _void._.8.8MTR_Copy_8s.1signed._char._.0.9._int.9._signed._char._.0.9._int.9._int.9._int.2 :label;
 <_MTR_Copy__FPciPciii>
-<_void._.8.8MTR_Copy.1char._.0.9._int.9._char._.0.9._int.9._int.9._int.2>
+//<_void._.8.8MTR_Copy.1char._.0.9._int.9._char._.0.9._int.9._int.9._int.2>
+<_void._.8.8MTR_Copy_8s.1signed._char._.0.9._int.9._signed._char._.0.9._int.9._int.9._int.2>
 .branch;
 
 	ar5 = sp-2		with gr7=false;	

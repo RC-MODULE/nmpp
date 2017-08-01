@@ -35,9 +35,9 @@ global _nmppsCmpEqC_8u7b:label;
         //--------------------------------
         // Заполнение матрицы и векторов.
     ar1 = _nmppsTmpBuffer64_L_;
-    call nmppsBuildDiagWeights8_;
-    call nmppsDupValueInVector8_;
-    call nmppsDupValueInVector8_ with gr1 = gr7;
+    call nmppsBuildDiagWeights8_;     			//      ar1 - Буфер весов.   	//      gr1 - значение (8 бит) (shTrueFlag)	// Изменяет регистры: ar1.
+    call nmppsDupValueInVector8_;     			//      ar1 - Вектор.   		//      gr1 - значение (8 бит) (shTrueFlag)	// Изменяет регистры: ar1, 
+    call nmppsDupValueInVector8_ with gr1 = gr7;//      ar1 - Вектор.   		//      gr1 - значение (8 бит) (shCmpVal)   // Изменяет регистры: ar1, 
         //--------------------------------
     
     ar1 = _nmppsTmpBuffer64_L_;

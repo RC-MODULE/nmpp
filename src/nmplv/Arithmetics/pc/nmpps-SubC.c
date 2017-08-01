@@ -25,6 +25,33 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 // Decrement of vec elements by constant value
 // pDstVec[i]=pSrcVec[i]-Decrement
+void nmppsSubC_4s(
+const 	nm4s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
+		int4b			nVal,				// decrement		:
+		nm4s*			pDstVec,			// output buffer	:long Global[VecSize/8]
+		int				nSize		// size of input buffer in 4-bit elements. nSize=[0,16,32...]
+		)
+{
+	int i,j;
+	int	iSize = nSize>>4;
+	int value = nVal & 0xf;
+	long long int uiSrc, *puiSrc = (nm64s*)pSrcVec;
+	long long int *puiDst = (nm64s*)pDstVec;
+	for (i=0; i<iSize; i++)
+	{
+		uiSrc = puiSrc[i];
+		for (j=0;j<16;j++)
+		{
+			puiDst[i]<<4;
+			puiDst[i] |= ((uiSrc >> 60) - nVal) & 0xf;
+			uiSrc<<4;
+		}
+	}
+}
+
+
+// Decrement of vec elements by constant value
+// pDstVec[i]=pSrcVec[i]-Decrement
 void nmppsSubC_8s(
 const 	nm8s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		int8b			nVal,				// decrement		:

@@ -46,6 +46,23 @@ void nmppmCopy_8s(
 		DstMtr+=nDstStride;
 	}
 }
+
+void nmppmCopy_1(
+		nm1*	SrcMtr,
+			int		nSrcStride,
+			nm1*	DstMtr,
+			int		nDstStride,
+			int		nHeight,
+			int		nWidth)
+
+{
+	for(int i=0;i<nHeight;i++)
+	{
+		nmppsCopy_8u((nm8u*)SrcMtr,(nm8u*)DstMtr,nWidth/8);
+		SrcMtr = nmppsAddr_1(SrcMtr,nSrcStride);
+		DstMtr = nmppsAddr_1(DstMtr,nDstStride);
+	}
+}
 /////////////////////////////////////////////////////////////////////////////////
 //*****************************************************************************//
 //*****************************************************************************//

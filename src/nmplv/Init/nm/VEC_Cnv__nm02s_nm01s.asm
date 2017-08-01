@@ -28,7 +28,7 @@ macro convert_2s1s_tail (N)
 	nul;
 end convert_2s1s_tail;
 
-begin ".textAAA"
+begin ".text_nmplv"
 <_nmppsConvert_2s1s>
 .branch;
 	ar5 = ar7 -2;
@@ -136,4 +136,4 @@ begin ".textAAA"
 	pop ar0,gr0;
 .wait;
 	return;
-end ".textAAA";   
+end ".text_nmplv";   

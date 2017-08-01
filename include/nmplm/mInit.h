@@ -271,6 +271,8 @@ void nmppmCopyau_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstSt
        
     */
     //! \{
+void nmppmCopy_1 (  nm1*  pSrcMtr, int nSrcStride,  nm1*  pDstMtr, int nDstStride, int nHeight, int nWidth);
+void nmppmCopy_4s(  nm4s* pSrcMtr, int nSrcStride,  nm4s* pDstMtr, int nDstStride, int nHeight, int nWidth);
 void nmppmCopy_8s (  nm8s* pSrcMtr, int nSrcStride,  nm8s* pDstMtr, int nDstStride, int nHeight, int nWidth);
 void nmppmCopy_16s( nm16s* pSrcMtr, int nSrcStride, nm16s* pDstMtr, int nDstStride, int nHeight, int nWidth);
 void nmppmCopy_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstStride, int nHeight, int nWidth);

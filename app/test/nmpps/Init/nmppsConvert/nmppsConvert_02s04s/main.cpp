@@ -11,6 +11,9 @@ int main()
 	int maxSize64=32*KB;
 	int maxSize=maxSize64*8;
 	clock_t t0,t1;
+	nmppsMallocSpec.route[0]=0x321;
+	nmppsMallocSetRouteMode();
+	
 	nm2s* src=nmppsMalloc_2s(maxSize);
 	nm4s* dst=nmppsMalloc_4s(maxSize);
 	if ((src==0)||(dst==0)) return -1;

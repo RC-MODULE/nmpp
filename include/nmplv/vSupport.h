@@ -113,6 +113,8 @@ __INLINE__ nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nI
  __INLINE__ nm32s* nmppsAddr_32s(const nm32s* pVec, int nIndex) {return (nm32s*)((nm64u*)pVec+(nIndex>>1));}
  __INLINE__ nm64s* nmppsAddr_64s(const nm64s* pVec, int nIndex) {return (nm64s*)((nm64u*)pVec+nIndex)     ;}
                                                        
+ __INLINE__ nm2u * nmppsAddr_2u (const nm2u*  pVec, int nIndex) {return (nm2u* )((nm64u*)pVec+(nIndex>>5));}
+ __INLINE__ nm4u * nmppsAddr_4u (const nm4u*  pVec, int nIndex) {return (nm4u* )((nm64u*)pVec+(nIndex>>4));}
  __INLINE__ nm8u * nmppsAddr_8u (const nm8u*  pVec, int nIndex) {return (nm8u* )((nm64u*)pVec+(nIndex>>3));}
  __INLINE__ nm16u* nmppsAddr_16u(const nm16u* pVec, int nIndex) {return (nm16u*)((nm64u*)pVec+(nIndex>>2));}
  __INLINE__ nm32u* nmppsAddr_32u(const nm32u* pVec, int nIndex) {return (nm32u*)((nm64u*)pVec+(nIndex>>1));}

@@ -368,6 +368,7 @@ void nmppsConvert_2s1s	(const nm2s* pSrcVec, nm1*  pDstVec, int nSize);
 void nmppsConvert_2s4s  (const nm2s* pSrcVec, nm4s* pDstVec, int nSize);
 void nmppsConvert_2u4u  (const nm2u* pSrcVec, nm4u* pDstVec, int nSize);
 						 
+void nmppsConvert_4s1s	(const nm4s* pSrcVec, nm1*  pDstVec, int nSize);
 void nmppsConvert_4s2s	(const nm4s* pSrcVec, nm2s* pDstVec, int nSize);
 void nmppsConvert_4s8s  (const nm4s* pSrcVec, nm8s* pDstVec, int nSize);
 void nmppsConvert_4u8u  (const nm4u* pSrcVec, nm8u* pDstVec, int nSize);

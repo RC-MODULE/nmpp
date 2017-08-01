@@ -78,12 +78,12 @@ begin ".text_nmplñ"
 //		}
 //	}
 
-//! \fn long SCL_Fix64Exp01(long nArg)
+//! \fn long nmppcFix64Exp01(long nArg)
 //!
-//! \perfinclude _SCL_Fix64Exp01__Fl.html
+//! \perfinclude _nmppcFix64Exp01__Fl.html
 
-global _SCL_Fix64Exp01:label;
-<_SCL_Fix64Exp01>
+global _nmppcFix64Exp01:label;
+<_nmppcFix64Exp01>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0;

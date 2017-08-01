@@ -1279,15 +1279,26 @@ typedef struct s_nm32sc
 	//nm32sc(nm32s b) : re(b), im(0) {}
 }nm32sc;
 
+
 typedef struct s_nm32fc
 {
-
 	float re;
 	float im;
-	
+}nm32fc;
+
+
+typedef struct s_nm32fcr
+{
+
+	float im;
+	float re;
+
 	//nm32sc() : re(0), im(0) {}
 	//nm32sc(nm32s b) : re(b), im(0) {}
-}nm32fc;
+}nm32fcr;
+
+typedef float  nm32f;
+typedef double nm64f;
 
 //-----------------------------------------------------------------------------
 

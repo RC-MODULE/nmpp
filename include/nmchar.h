@@ -165,18 +165,24 @@ public:
 	
 
 	__INLINE__ int operator - (uint8ptr ptr){
-		int a=(int)addr;
-		int b=(int)ptr.addr;
+	  
+		
 
 #ifdef __NM__
+		int a=(int)addr;
+		int b=(int)ptr.addr;
 		//a&=0x0FFFFFFF;
 		//b&=0x0FFFFFFF;
 		a<<=2;
 		b<<=2;
-#endif
 		a+=indx;
 		b+=ptr.indx;
 		return a-b;
+#else
+		//a+=indx;
+		//b+=ptr.indx;
+		return addr-ptr.addr+indx-ptr.indx;
+#endif		
 	}
 
 	
@@ -285,9 +291,9 @@ return *this;
 		return *this;
 	}
 
-	__INLINE__ unsigned int operator== (unsigned int N){
-		return (((unsigned int)addr)==N);
-	}
+	//__INLINE__ unsigned int operator== (unsigned int N){
+	//	return (((unsigned int)addr)==N);
+	//}
 	
 	__INLINE__ bool operator == (uint8ptr ptr){
 		if (addr==ptr.addr && indx==ptr.indx)

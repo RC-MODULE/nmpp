@@ -7,7 +7,7 @@
 //*                                                                         */
 //***************************************************************************/
 
-#include "fft2.h"
+#include "fft.h"
 #include "nmpp.h"
 #include "nmtl.h"
 #include "fftexp.h"

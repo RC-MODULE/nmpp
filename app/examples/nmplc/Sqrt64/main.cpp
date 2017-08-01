@@ -28,7 +28,7 @@ int main()
 	// Conversion from double to fixed-point 64 format
 	unsigned long x=64*64;
 	unsigned long y;
-	y=SCL_Sqrt64(x);
+	y=nmppcSqrt64(x);
 	
 	t1=clock();
 

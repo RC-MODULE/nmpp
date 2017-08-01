@@ -1,29 +1,28 @@
-#export  http_proxy       = http://user:pass@proxy:80/       (for wget usage)
-#export https_proxy       = $(http_proxy)
-
-export  NMPP       = $(ROOT)
-export  DEVKIT    = d:/GIT/dev-kit
-export  ARMTOOLCH ?=$(DEVKIT)/arm-rcm-linux-gnueabihf
-export  NEURO     ?=$(DEVKIT)/nmsdk
-export  VSHELL32  ?=$(DEVKIT)/vshell32
+GNUWIN32  ?=c:/gnuwin32/bin
+NMPP       =$(ROOT)
+DEVKIT    ?=$(ROOT)/deps/dev-kit-master
+ARMTOOLCH ?=$(DEVKIT)/arm-rcm-linux-gnueabihf
+NEURO     ?=$(DEVKIT)/nmsdk
+VSHELL32  ?=$(DEVKIT)/vshell32
 EASYNMC   ?=$(DEVKIT)/nmc-utils-0.1.1/libeasynmc-nmc
+MC5103    ?=$(DEVKIT)/mc5103sdk
+MC7601    ?=$(DEVKIT)/mc7601sdk
+MB7707    ?=$(DEVKIT)/mb7707sdk
+MC12101   ?=$(DEVKIT)/mc12101sdk
+NM_IO     ?=$(DEVKIT)/nm_io
 
-GNUWIN32          ?=c:/gnuwin32-lite/bin
-MC12101           ?=$(DEVKIT)/mc12101sdk
-MC5103            ?=$(DEVKIT)/mc5103sdk
-MC7601            ?=$(DEVKIT)/mc7601sdk
-MB7707            ?=$(DEVKIT)/mb7707sdk
-export NM_IO			  ?=$(DEVKIT)/nm_io
+
 
 ifeq ($(OS),Windows_NT)
 SHELL       = cmd
 export PATH:=$(GNUWIN32);\
-$(NEURO)/bin;\
-$(MC5103)/bin;\
-$(MB7707)/bin;\
-$(MC7601)/bin;\
-$(VSHELL32)/bin;\
-$(ARMTOOLCH)/bin;\
+$(realpath $(NEURO)/bin);\
+$(realpath $(MC12101)/bin);\
+$(realpath $(MC5103)/bin);\
+$(realpath $(MB7707)/bin);\
+$(realpath $(MC7601)/bin);\
+$(realpath $(VSHELL32)/bin);\
+$(realpath $(ARMTOOLCH)/bin);\
 $(PATH);
   
    CROSS_COMPILE=arm-rcm-linux-gnueabihf-
@@ -39,8 +38,7 @@ $(PATH);
    OS_DIFF  = diff
    OS_SCP   = pscp
    OS_CAT   = cat
-
-   
+  
 #  OS_MV    = rename
    OS_RM    = del /Q
    RM       = rm -f -r
@@ -48,16 +46,7 @@ $(PATH);
 #  OS_CP    = $(call BACKSLASH,$(GNUWIN32)/cp)
    OS_CP    = cp
    OS_WHICH =$(windir)/system32/where
-#  OS_UNZIP = unzip 
-   OS_UNZIP = powershell  -ExecutionPolicy Bypass -file $(NMPP)\deps\unzip.ps1 
-   GNU_WGET = wget -nc --no-check-certificate --content-disposition 
-   PS_WGET  = powershell  -ExecutionPolicy Bypass -file $(ROOT)\deps\wget.ps1 
-   PS_UNZIP = powershell  -ExecutionPolicy Bypass -file unzip.ps1 
-   OS_UNZIP = $(PS_UNZIP)
-  
-  define BACKSLASH
-	$(subst /,\,$(1))
-  endef
+ 
 
   MB7707_MAC ?= 1A-2B-3C-4D-5E-6F
 else
@@ -83,7 +72,10 @@ else
   MB7707_MAC = eth0
 endif
 
+#PLATFORMS = vs8 mc5103 emu6405  mb7707 mc12101 gcc
+PLATFORMS = vs8 mc12101_nmc0 mc12101_nmc1 mc5103 mc7601 gcc emu6405
 
+<<<<<<< HEAD
 PLATFORMS:=emu6405
 ifdef MB7707
 PLATFORMS += mb7707
@@ -119,10 +111,18 @@ PLATFORMS = vs80 mc5103 emu6405 mb7707 mc12101
 
 TARGET1=mc5103
 TARGET2=vs80
+=======
+TARGET1=mc12101_nmc0
+TARGET2=vs8
+>>>>>>> 80630cec3e90d1d697262e0d064a47a0ea321597
 
 define newline
 
 
 endef	
+
+define BACKSLASH
+	$(subst /,\,$(1))
+endef
 
  

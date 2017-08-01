@@ -16,11 +16,11 @@
 const FIXPOINT=16; //Положение двоичной точки в 32-х разрядном слове
 
 begin ".text_nmplс"
-//! \fn  int SCL_FixMul32(int nX, int nY)
+//! \fn  int nmppcFixMul32(int nX, int nY)
 //!
-//! \perfinclude _SCL_FixMul32__Fii.html
-global _SCL_FixMul32 :label;
-<_SCL_FixMul32>
+//! \perfinclude _nmppcFixMul32__Fii.html
+global _nmppcFixMul32 :label;
+<_nmppcFixMul32>
 .branch;
 	ar5=ar7-4;
 	push ar0,gr0;

@@ -1,4 +1,4 @@
-#include "fft2.h"
+#include "fft.h"
 #include "rpc/rpc-nmc.h"
 
 void rpc_nmppsFFT512FwdInitAlloc(void *in, void *out) 

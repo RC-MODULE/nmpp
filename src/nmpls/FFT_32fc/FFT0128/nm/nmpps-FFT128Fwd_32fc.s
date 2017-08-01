@@ -1,4 +1,16 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-FFT128Fwd_32fc.s                             	*/
+//*   Contents:         Routine for forward FFT 128                         */
+//*                     of complex array with 32 bit elements               */                                                        */
+//***************************************************************************/
+
 global _nmppsFFT128Fwd_32fc: label;
+global _nmppsFFT128Inv_32fc: label;
 data ".data_imu1"
 AddrForDFT8_128: word[16] = (
 						0, 16, 8, 24, 4, 20, 12, 28,
@@ -40,6 +52,7 @@ end SAVE_FFT128;
 
 begin ".text128"
 <_nmppsFFT128Fwd_32fc>
+<_nmppsFFT128Inv_32fc>
 	set fp_branch;
 	ar5 = ar7 - 2;
 	push ar6, gr6;
@@ -120,7 +133,7 @@ begin ".text128"
 // END COMPUTE 16 things of DFT8
 
 // COMPUTE 8 things of FFT16
-	ar5 = ar5 + 5;
+	//ar5 = ar5 + 5;
 	ar1 = [ar5++]; // W8_0
 	ar2 = [ar5++]; // W8_1
 	ar3 = ar1;
@@ -155,7 +168,7 @@ begin ".text128"
 	fpu 1 rep 16 vreg0 = [ar2++];
 	COMPUTE_FFT16_32_64(0, 16); // 2 FFT32
 	COMPUTE_FFT16_32_64(1, 16); // 2 FFT32
-	ar5 = ar5 - 9;
+	//ar5 = ar5 - 9;
 	ar0 = [ar5++]; // tmp_128
 	ar6 = [ar5++]; // tmp_128xW
 	gr0 = ar0;
@@ -173,7 +186,7 @@ begin ".text128"
 // END COMPUTE 4 things FFT32
 
 // COMPUTE 2 things FFT64
-	ar5 = ar5 + 7;
+	//ar5 = ar5 + 7;
 	ar1 = [ar5++]; // W32_0
 	ar2 = [ar5++]; // W32_1
 	ar0 = gr2; // buff_fft128

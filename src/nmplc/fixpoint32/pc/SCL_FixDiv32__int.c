@@ -96,12 +96,12 @@ int ADDC(unsigned a, unsigned b) {
 
 //begin ".text_nmplñ"
 
-//! \fn  int SCL_FixDiv32(int nX, int nY)
+//! \fn  int nmppcFixDiv32(int nX, int nY)
 //!
-//! \perfinclude _SCL_FixDiv32__Fii.html
+//! \perfinclude _nmppcFixDiv32__Fii.html
 
-//obal _SCL_FixDiv32 :label;
-int SCL_FixDiv32(int a, int b){
+//obal _nmppcFixDiv32 :label;
+int nmppcFixDiv32(int a, int b){
 	//.branch;
 	//ar5=ar7-4;
 	//push ar0,gr0;
@@ -340,7 +340,7 @@ Div01:
 		return gr7;
 }
 */
-int SCL_FixDiv32(int a, int b){
+int nmppcFixDiv32(int a, int b){
 	long long aa=a;
 	aa<<=16;
 	aa/=b;

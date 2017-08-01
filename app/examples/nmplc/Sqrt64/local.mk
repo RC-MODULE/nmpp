@@ -1,1 +1,1 @@
-PLATFORMS := $(filter-out vs80,$(PLATFORMS))
+PLATFORMS := $(filter-out vs8,$(PLATFORMS))

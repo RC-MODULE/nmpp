@@ -1,11 +1,12 @@
 ROOT = ..
 
--include proxy.mk
+-include $(ROOT)/proxy.mk
 -include $(ROOT)/global.mk
 
 OS_WGET  = wget -nc --no-check-certificate --content-disposition 
 OS_UNZIP = unzip -u -o -q 
    
+$(info $(http_proxy))   
 #http_proxy ?=http://username:password@proxy:80/
 
 download: dev-kit-master.zip

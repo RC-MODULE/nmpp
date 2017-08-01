@@ -1,4 +1,5 @@
 global _nmppsFFT64Fwd_32fc: label;
+global _nmppsFFT64Inv_32fc: label;
 data ".data_imu1"
 AddrForDFT8_64: word[8] = (0, 8, 4, 12, 2, 10, 6, 14);
 end ".data_imu1";
@@ -23,6 +24,7 @@ end SAVE_FFT16_32;
 
 begin ".data_imu7"
 <_nmppsFFT64Fwd_32fc>
+<_nmppsFFT64Inv_32fc>
 	set fp_branch;
 	ar5 = ar7 - 2;
 	push ar6, gr6;
@@ -103,7 +105,7 @@ begin ".data_imu7"
 	gr3 = [ar4++];
 	nul;
 // COMPUTE 4 things of FFT16
-	ar5 = ar5 + 5;
+	//ar5 = ar5 + 5;
 	ar1 = [ar5++]; // W8
 	ar0 = gr5;
 	ar6 = gr6;
@@ -119,7 +121,7 @@ begin ".data_imu7"
 
 // COMPUTE 2 things of FFT32
 	ar2 = gr2; // output X
-	ar5++;
+	//ar5++;
 	ar1 = [ar5++]; // W16
 	ar0 = gr5;
 	ar6 = gr6;
@@ -131,7 +133,7 @@ begin ".data_imu7"
 // END COMPUTE 2 things of FFT32
 
 // COMPUTE 1 FFT64
-	ar5++;
+	//ar5++;
 	ar1 = [ar5++]; // W32
 	ar0 = gr5;
 	ar6 = gr6;

@@ -24,15 +24,15 @@ extern mtr_CpyCore_nm64:label;
 begin ".text_nmplm"
 
 //--------------------------------------------------------------------
-//! \fn void MTR_Copy( nm64s* pSrcMtr, int nSrcStride, nm64s* pDstMtr, int nDstStride, int nHeight, int nWidth)
+//! \fn void nmppmCopy_64s( nm64s* pSrcMtr, int nSrcStride, nm64s* pDstMtr, int nDstStride, int nHeight, int nWidth)
 //!
-//! \perfinclude _MTR_Copy__FPliPliii.html
+//! \perfinclude _nmppmCopy_64s.html
 //--------------------------------------------------------------------
 
-global _MTR_Copy__FPliPliii:label;
-global _void._.8.8MTR_Copy.1long._.0.9._int.9._long._.0.9._int.9._int.9._int.2 :label;
-<_MTR_Copy__FPliPliii>
-<_void._.8.8MTR_Copy.1long._.0.9._int.9._long._.0.9._int.9._int.9._int.2>
+global nmppmCopy_64u:label;
+global nmppmCopy_64s:label;
+<nmppmCopy_64s>
+<nmppmCopy_64u>
 .branch;
 
 	ar5 = sp-2		with gr7=false;	

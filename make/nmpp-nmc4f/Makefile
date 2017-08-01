@@ -73,11 +73,11 @@ ARCH            ?=nmc4
 #--------------  target & input dirs -------------------
 ROOT             = ../..
 include          $(ROOT)/global.mk
-include          $(ROOT)/make/src.mk
+include          $(ROOT)/make/src-nmc-float.mk
 PROJECT          = nmpp-$(ARCH)f
 OUT_DIR          = $(ROOT)/lib
 TARGET           = $(OUT_DIR)/$(PROJECT).lib
-INC_DIRS         = -I"$(NEURO)/include"  -I$(ROOT)/include
+#INC_DIRS         = -I"$(NEURO)/include"  -I$(ROOT)/include
 
 LIB_DIRS         = 
 TMP_DIR          =Release
@@ -121,20 +121,6 @@ endif
 #-include colorizer.mk
 -include $(TMP_DIR)/*.dep
 .SUFFIXES:
-
-
-SRC_DIRS = $(ROOT)/src/nmpls/Metric
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0032/nm 
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0064/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0128/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0256/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0512/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT1024/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT2048/nm
-SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/norm/common
-SRC_DIRS+= $(ROOT)/src/nmplv/Support/nm
-SRC_DIRS+= $(ROOT)/src/nmplv/Support/common
-SRC_DIRS+= $(ROOT)/src/nmplv/Stat/nm 
 
 					
 # regular search of *.c *.cpp,*.asm sources in all $(SRC_DIRS)

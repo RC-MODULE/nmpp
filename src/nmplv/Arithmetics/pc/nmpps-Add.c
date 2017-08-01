@@ -122,4 +122,14 @@ void nmppsAdd_64sc(
 	}
 }
 
+void nmppsAddEx_64s (const nm64s *pSrcVec1, int srcStep1, const nm64s *pSrcVec2, int srcStep2, nm64s *pDstVec, int dstStep, int nSize  )
+{
+	int i;
+	for (i=0; i<nSize; i++){
+		*pDstVec = *pSrcVec1 + *pSrcVec2;
+		pDstVec +=dstStep;
+		pSrcVec1+=srcStep1;
+		pSrcVec2+=srcStep2;
+	}
+}
 

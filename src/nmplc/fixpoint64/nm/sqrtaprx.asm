@@ -19,8 +19,8 @@
 //////////////////////////////////////////////////////////////////////////////
 
 begin ".text_nmplñ"
-global _SCL_FrExp :label;
-<_SCL_FrExp>
+global _nmppcFrExp :label;
+<_nmppcFrExp>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0;

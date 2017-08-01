@@ -20,11 +20,11 @@ extern FixSinDat:word;
 
 begin ".text_nmplñ"
 
-//! \fn int SCL_TblFixCos32(int nArg)
+//! \fn int nmppcTblFixCos32(int nArg)
 //! 
-//! \perfinclude _SCL_TblFixCos32__Fi.html
-global _SCL_TblFixCos32:label;
-<_SCL_TblFixCos32>
+//! \perfinclude _nmppcTblFixCos32__Fi.html
+global _nmppcTblFixCos32:label;
+<_nmppcTblFixCos32>
 .branch;
 	ar5 = sp-2;
 	gr7 = [--ar5];

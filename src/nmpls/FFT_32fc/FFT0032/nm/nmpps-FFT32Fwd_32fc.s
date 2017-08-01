@@ -1,10 +1,12 @@
 global _nmppsFFT32Fwd_32fc: label;
+global _nmppsFFT32Inv_32fc: label;
 data ".data_imu1"
 AddrForDFT8_32: word[4] = (0, 4, 2, 6);
 end ".data_imu1";
 
 begin ".text"
 <_nmppsFFT32Fwd_32fc>
+<_nmppsFFT32Inv_32fc>
 	set fp_branch;
 	ar5 = ar7 - 2;
 	push ar6, gr6;
@@ -118,7 +120,7 @@ fpu 0 rep 8 vreg2 = [ar3++];
 
 // COMPUTE 2 FFT16
 	ar2 = gr6;
-	ar5 = ar5 + 5;
+	//ar5 = ar5 + 5;
 	ar1 = [ar5++]; // W8
 	//ar1 = W8;
 	ar0 = gr2;
@@ -135,7 +137,7 @@ fpu 0 rep 8 vreg2 = [ar3++];
 // END FFT16
 
 // COMPUTE 1 FFT32
-	ar5++;
+	//ar5++;
 	ar1 = [ar5++]; // W16
 	fpu 0 rep 8 vreg0 = [ar1++];
 	fpu 0 rep 8 vreg1 = [ar1++];

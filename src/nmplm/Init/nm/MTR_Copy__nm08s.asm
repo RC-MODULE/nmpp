@@ -28,17 +28,15 @@ begin ".text_nmplm"
 /////////////////////////////////////////////////////////////////////////////////
 
 //--------------------------------------------------------------------
-//! \fn void MTR_Copy(  nm8s* pSrcMtr, int nSrcStride,  nm8s* pDstMtr, int nDstStride, int nHeight, int nWidth)
+//! \fn void nmppmCopy_8s(  nm8s* pSrcMtr, int nSrcStride,  nm8s* pDstMtr, int nDstStride, int nHeight, int nWidth)
 //!
-//! \perfinclude _MTR_Copy__FPciPciii.html
+//! \perfinclude _nmppmCopy_8s.html
 //--------------------------------------------------------------------
 
-global _MTR_Copy__FPciPciii:label;
-//global _void._.8.8MTR_Copy.1char._.0.9._int.9._char._.0.9._int.9._int.9._int.2 :label;
-global _void._.8.8MTR_Copy_8s.1signed._char._.0.9._int.9._signed._char._.0.9._int.9._int.9._int.2 :label;
-<_MTR_Copy__FPciPciii>
-//<_void._.8.8MTR_Copy.1char._.0.9._int.9._char._.0.9._int.9._int.9._int.2>
-<_void._.8.8MTR_Copy_8s.1signed._char._.0.9._int.9._signed._char._.0.9._int.9._int.9._int.2>
+global nmppmCopy_8u:label;
+global nmppmCopy_8s:label;
+<nmppmCopy_8s>
+<nmppmCopy_8u>
 .branch;
 
 	ar5 = sp-2		with gr7=false;	

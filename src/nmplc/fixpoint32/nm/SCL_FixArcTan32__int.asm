@@ -71,12 +71,12 @@ end ATANROTATE;
 begin ".text_nmplñ"
 
 
-//! \fn int SCL_FixArcTan32(int nArg)
+//! \fn int nmppcFixArcTan32(int nArg)
 //!
-//! \perfinclude _SCL_FixArcTan32__Fi.html
+//! \perfinclude _nmppcFixArcTan32__Fi.html
 
-global _SCL_FixArcTan32 :label;
-<_SCL_FixArcTan32>
+global _nmppcFixArcTan32 :label;
+<_nmppcFixArcTan32>
 .branch;
 	ar5 = sp-2;
 	push ar0,gr0;

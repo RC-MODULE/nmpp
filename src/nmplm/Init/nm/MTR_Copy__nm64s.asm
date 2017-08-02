@@ -29,10 +29,10 @@ begin ".text_nmplm"
 //! \perfinclude _nmppmCopy_64s.html
 //--------------------------------------------------------------------
 
-global nmppmCopy_64u:label;
-global nmppmCopy_64s:label;
-<nmppmCopy_64s>
-<nmppmCopy_64u>
+global _nmppmCopy_64u:label;
+global _nmppmCopy_64s:label;
+<_nmppmCopy_64s>
+<_nmppmCopy_64u>
 .branch;
 
 	ar5 = sp-2		with gr7=false;	

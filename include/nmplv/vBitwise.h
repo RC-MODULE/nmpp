@@ -205,6 +205,7 @@ void nmppsAndC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize
     \endxmlonly
     */
     //! \{
+void nmppsAnd_1  (const nm1*   pSrcVec1, const nm1*  pSrcVec2,  nm1*   pDstVec, int nSize);
 void nmppsAnd_4u (const nm4u*  pSrcVec1, const nm4u* pSrcVec2,  nm4u*  pDstVec, int nSize);
 void nmppsAnd_8u (const nm8u*  pSrcVec1, const nm8u* pSrcVec2,  nm8u*  pDstVec, int nSize);
 void nmppsAnd_16u(const nm16u* pSrcVec1, const nm16u* pSrcVec2, nm16u* pDstVec, int nSize);

@@ -22,7 +22,7 @@
 #include "stdio.h"
  int ststic_arr[100];
  int init_arr[2]={1,2};
-//extern "C" void nmppsConvert_2s1s(const nm2s* pSrcVec, nm1*  pDstVec, int nSize);
+extern "C" void nmppsConvert_2s1s(const nm2s* pSrcVec, nm1*  pDstVec, int nSize);
 
 nm2s* nmppsMalloc_2s(int size){
 	
@@ -45,7 +45,7 @@ int main()
 		 int local_arr[100];
 		 local_arr[1]=ststic_arr[1];
 	clock_t t0,t1;
-	int size=102400;
+	int size=2112;
 	nm2s *src;
 	nm1 *dst;
 	

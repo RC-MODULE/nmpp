@@ -61,3 +61,23 @@ const 	nm8u*	Src,		// Input Buffer
 	for (i=0; i<Size; i++)
 		Dst[i] = Src[i] & Mask;
 }
+
+/*void nmppsAndC_4u(
+const 	nm4u*	Src,		// Input Buffer
+		uint4b	Mask,		// Input mask
+		nm4u*	Dst,		// Output Buffer
+		int		Size		// size of input buffer in 3 bit elements. nSize={2,4..,n}
+	)
+{
+	int i,j;
+	int iSize = Size>>4;
+	Mask &= 0xf;
+	long long lMask = Mask & 0xf;
+	lMask |= lMask << 4;
+	lMask |= lMask << 8;
+	lMask |= lMask << 16;
+	lMask |= lMask << 32;
+	long long int *puiSrc = (nm64u*)Src, *puiDst = (nm64u*)Dst;
+	for (i=0; i<iSize; i++)
+		puiDst[i] = puiSrc[i] & lMask;
+}*/

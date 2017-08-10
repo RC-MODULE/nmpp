@@ -1,9 +1,10 @@
-
+#include "nmtl.h"
+#include "nmtype.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 void IMG_SplitIntoBlocks8x8(
-		char*	pSrcImg,	// Source Image						:long Local[Width*Height/8]
-			char*	pDstBlockSeq,	// Result one-dimensional Array:	:long Global[Width*Heihgt/8]
+		nm8s*	pSrcImg,	// Source Image						:long Local[Width*Height/8]
+			nm8s*	pDstBlockSeq,	// Result one-dimensional Array:	:long Global[Width*Heihgt/8]
 			int		nWidth,	// Source Image Width;				:Width =[8,16,24...]
 			int		nHeight	// Source Image Height;				:Height=[8,16,24...]
 			)

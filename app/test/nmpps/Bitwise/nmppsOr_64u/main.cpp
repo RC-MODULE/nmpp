@@ -38,10 +38,10 @@ int main()
 	nmppsRandUniform_32u((nm32u*)L1,SizeL1*2);
 	nmppsSet_32s((nm32s*)G0,(int)0xCCCCCCCC,(SizeG0*2));
 	
-	for(int LongSize=0;LongSize<=MaxLongSize;LongSize+=NMPP_MIN_REP)
+	for(int LongSize=0;LongSize<=MaxLongSize;LongSize+=NMPP_MIN_REP*16)
 	{
-		nmppsOr_64u((nm64u*)L0,(nm64u*)L1,(nm64u*)G0,LongSize);	
-		nmppsCrcAcc_32u((nm32u*)G0,MIN(LongSize+128,SizeG0),&crc);
+		nmppsOr_4u((nm4u*)L0,(nm4u*)L1,(nm4u*)G0,LongSize);	
+		nmppsCrcAcc_32u((nm32u*)G0,MIN(LongSize/8+128/8,SizeG0),&crc);
 	}
 	//! \fn void nmppsOr_64u(nm64u*,nm64u*,nm64u*,int)		
 

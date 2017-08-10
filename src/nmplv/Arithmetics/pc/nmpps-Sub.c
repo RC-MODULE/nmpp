@@ -25,21 +25,6 @@
 // 2826 ticks per 10240 elements with C++ call (0.276 clocks per element)
 // The order of intermediate data transmissions in function is:
 //		Buf1[],Buf2			=> pDstVec[]				- Subtraction	(in-place is supported)
-void nmppsSub_8s(
-		const nm8s*			pSrcVec1,	// input buffer		:long Local [VecSize/8]
-		const nm8s*			pSrcVec2,	// input buffer		:long Local [VecSize/8]
-		nm8s*			pDstVec,		// output buffer	:long Global[VecSize/8]
-		int				nSize		// size of input buffer in 32 bit elements. nSize=[8,16,32...]
-		)
-{
-
-	int i;
-	for (i=0; i<nSize; i++)
-		pDstVec[i] = pSrcVec1[i] - pSrcVec2[i];
-
-}
-
-
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two short vectors

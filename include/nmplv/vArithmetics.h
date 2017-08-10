@@ -87,13 +87,13 @@
     
     */
     //! \{
-
+void nmppsAbs_4s (const nm4s* pSrcVec,  nm4s* pDstVec, int nSize);
 void nmppsAbs_8s (const nm8s* pSrcVec,  nm8s* pDstVec, int nSize);
 void nmppsAbs_16s(const nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 void nmppsAbs_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
 void nmppsAbs_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
-void nmppsAbs_4s(const nm4s* pSrcVec, nm4s* pDstVec, int nSize);
+
 
 
  /**
@@ -330,6 +330,7 @@ void nmppsAddC_p64s(const nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSi
     \endxmlonly
     */
     //! \{
+void nmppsAdd_4s (const nm4s*  pSrcVec1, const nm4s*  pSrcVec2, nm4s*  pDstVec, int nSize);
 void nmppsAdd_8s (const nm8s*  pSrcVec1, const nm8s*  pSrcVec2, nm8s*  pDstVec, int nSize);
 void nmppsAdd_16s(const nm16s* pSrcVec1, const nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
 void nmppsAdd_32s(const nm32s* pSrcVec1, const nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
@@ -471,7 +472,8 @@ void nmppsAdd_AddC_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVe
     \endxmlonly
     */
     //! \{
-void nmppsSubC_8s (const nm8s* pSrcVec,  int8b nVal,    nm8s*  pDstVec,  int nSize);
+void nmppsSubC_4s (const nm4s* pSrcVec,  int4b nVal,    nm4s*  pDstVec, int nSize);
+void nmppsSubC_8s (const nm8s* pSrcVec,  int8b nVal,    nm8s*  pDstVec, int nSize);
 void nmppsSubC_16s(const nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSize);
 void nmppsSubC_32s(const nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
 void nmppsSubC_64s(const nm64s* pSrcVec, int64b nVal,   nm64s* pDstVec, int nSize);
@@ -600,6 +602,7 @@ void nmppsSubCRev_64s(const nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSi
     \endxmlonly
     */
     //! \{
+void nmppsSub_4s (const nm4s* pSrcVec1, nm4s* pSrcVec2, nm4s* pDstVec, int nSize);
 void nmppsSub_8s (const nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
 void nmppsSub_16s(const nm16s* pSrcVec1, nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
 void nmppsSub_32s(const nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, int nSize);

@@ -300,10 +300,10 @@ const	nm2s* pSrcVec,
 {
 	int i, j;
 	nm64s*pi64Dst = (nm64s*)pDstVec;
-	int iSize = nSize >> 5;
+	int iSize = nSize >> 4;
 	int iSrc, *piSrc = (nm32s*)pSrcVec;
 
-	for(i=0; i<iSize*2; i++)
+	for(i=0; i<iSize; i++)
 	{
 		pi64Dst[i] = 0;
 		iSrc = piSrc[i];
@@ -471,6 +471,25 @@ void nmppsConvert_1u4u(const	nm1* pSrcVec, nm4u* pDstVec, int nSize)
 			pi64Dst[i] <<= 4;
 			pi64Dst[i] |= (uiSrc >> 15);
 			uiSrc <<= 1;
+		}
+	}
+}
+
+void nmppsConvert_4s1s(const	nm4s* pSrcVec, nm1* pDstVec, int nSize)
+{
+	int i,j;
+	nm16s*pi16Dst = (nm16s*)pDstVec;
+	int iSize = nSize >> 4;
+	long long int uiSrc, *puiSrc = (nm64s*)pSrcVec;
+	
+	for(i=0; i<iSize; i++)
+	{
+		uiSrc = puiSrc[i];
+		for(j=0; j<16; j++)
+		{
+			pi16Dst[i] <<= 1;
+			pi16Dst[i] |= ((uiSrc >> 60) & 0x1);
+			uiSrc <<= 4;
 		}
 	}
 }

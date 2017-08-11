@@ -819,6 +819,8 @@ void nmppsMulC_32s64s(const nm32s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSi
 void nmppsMulC_64s   (const nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
     //! \}
 
+void nmppsMul_32fc(int N, nm32fcr *vec1, nm32fcr *vec2, nm32fcr *dst);
+void nmppsMulConj_32fc(int N, nm32fcr *vec1, nm32fcr *vec2, nm32fcr *dst);
 
 //*****************************************************************************
 

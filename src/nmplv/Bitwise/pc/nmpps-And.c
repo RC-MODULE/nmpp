@@ -66,6 +66,20 @@ const	nm4u*	Src2,		// Input Buffer
 		puiDst[i] = puiSrc1[i] & puiSrc2[i];
 }
 
+void nmppsAnd_2u(
+const	nm2u*	Src1,		// Input Buffer
+const	nm2u*	Src2,		// Input Buffer
+		nm2u*	Dst,	// Output Buffer
+		int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
+	)
+{
+	int i,iSize = nSize>>5;
+	unsigned long long int *puiSrc1 = (nm64u*)Src1, *puiSrc2 = (nm64u*)Src2;
+	unsigned long long int *puiDst  = (nm64u*)Dst;
+	for (i=0; i<iSize; i++)
+		puiDst[i] = puiSrc1[i] & puiSrc2[i];
+}
+
 void nmppsAnd_1(
 const	nm1*	Src1,		// Input Buffer
 const	nm1*	Src2,		// Input Buffer

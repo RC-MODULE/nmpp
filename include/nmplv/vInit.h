@@ -451,6 +451,7 @@ void nmppsConvert_64s16s(const nm64s* pSrcVec, nm16s* pDstVec, int nSize);
     
         */
     //! \{
+void nmppsCopy_2s (const nm2s*  pSrcVec, nm2s*  pDstVec, int nSize);
 void nmppsCopy_8s (const nm8s*  pSrcVec, nm8s*  pDstVec, int nSize);
 void nmppsCopy_16s(const nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 void nmppsCopy_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);

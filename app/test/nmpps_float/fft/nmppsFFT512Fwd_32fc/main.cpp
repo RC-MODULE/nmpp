@@ -3,15 +3,16 @@
 #include "time.h"
 #include "fft_32fc.h"
 #include "nmpp.h"
-//#include <stdio.h>
+#include <stdio.h>
 
 int main()
 {
-	int i, tm;
+	int i, tm, t;
+	clock_t t1, t2;
 	nm32fcr *src, *dst, *outInv1;
 	// best config (tm = 5389, src - malloc, dst - malloc1)
 	src = (nm32fcr *)malloc(512 * sizeof(nm32fcr));
-	dst = (nm32fcr *)malloc(512 * sizeof(nm32fcr));
+	dst = (nm32fcr *)malloc3(512 * sizeof(nm32fcr));
 	for(i = 0; i < 512; i++) {
 		src[i].im = 0;
 		src[i].re = i;
@@ -23,7 +24,11 @@ int main()
 	if(tm == 123) {
 		return 123;
 	}
+	t1 = clock();
 	nmppsFFT512Fwd_32fc(src, dst, rat);
+	t2 = clock();
+	t = t2 - t1;
+	printf("%d\n", t);
 	tm = nmppsFFTFree_32fc(rat);
 	unsigned int crc1 = 0;
 	unsigned int crc2 = 0;

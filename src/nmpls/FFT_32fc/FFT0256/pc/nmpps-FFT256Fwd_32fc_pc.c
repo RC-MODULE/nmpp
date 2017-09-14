@@ -25,6 +25,10 @@ void nmppsFFT256Fwd_32fc(nm32fcr *x256, nm32fcr *X256, NmppsFFTSpec_32fc *spec25
         buff256[i].re = x256[2 * i].re;
         buff256xW[i].im = x256[2 * i + 1].im;
         buff256xW[i].re = x256[2 * i + 1].re;
+        //X256[i].im = 0;
+       // X256[i].re = 0;
+        //X256[i + 128].im = 0;
+       // X256[i + 128].re = 0;
     }
     nmppsFFT128Fwd_32fc(buff256, buff256, spec256);
     nmppsFFT128Fwd_32fc(buff256xW, buff256xW, spec256);

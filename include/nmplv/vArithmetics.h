@@ -817,8 +817,16 @@ void nmppsMulC_16s32s(const nm16s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSi
 void nmppsMulC_32s   (const nm32s* pSrcVec, int32b nVal, nm32s* pDstVec, int nSize);
 void nmppsMulC_32s64s(const nm32s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
 void nmppsMulC_64s   (const nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSize);
+
+void nmppsMulC_2s16s   (const nm2s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
     //! \}
 
+void nmppsMul_32fc(int N, nm32fcr *vec1, nm32fcr *vec2, nm32fcr *dst);
+void nmppsMulConj_32fc(int N, nm32fcr *vec1, nm32fcr *vec2, nm32fcr *dst);
+//*******************************************************************
+
+
+void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* pDstVec, int nSize);
 
 //*****************************************************************************
 

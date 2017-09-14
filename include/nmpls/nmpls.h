@@ -72,6 +72,19 @@ For convenience of application programs development the library has implementati
 
 #include "sResample.h"
 
+//*****************************************************************************
+
+	/**
+    *
+    * \ru
+    *     \defgroup sFFT_32fc Быстрое преобразование Фурье
+    * \en
+    *     \defgroup sFFT_32fc Fast Fourier Trasform
+    * \~
+	* \ingroup SIG_Group
+	*/
+
+
 #include "fft.h"
 
 

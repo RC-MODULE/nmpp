@@ -1,5 +1,20 @@
 #include "nmpp.h"
 
+void nmppsNot_2u(
+const 	nm2u*			pSrcVec,		// input buffer		:long Local [VecSize/8]
+		nm2u*			pDstVec,		// output buffer	:long Global[VecSize/8]
+		int				nSize		// size of input buffer in 8 bit elements. nSize=[8,16,32...]
+		)
+{
+	int i=0;
+	int iSize = nSize>>5;
+	long long int *src = pSrcVec;
+	long long int *dst = pDstVec;
+	for(i=0; i<iSize; i++)
+		src[i] = ~(dst[i]);
+}
+
+
 void nmppsNot_8u(
 const 	nm8u*			pSrcVec,		// input buffer		:long Local [VecSize/8]
 		nm8u*			pDstVec,		// output buffer	:long Global[VecSize/8]

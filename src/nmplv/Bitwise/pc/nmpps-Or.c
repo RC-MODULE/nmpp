@@ -69,6 +69,22 @@ const	nm4u*	Src2,		// Input Buffer
 		ldst[i] = lsrc1[i] | lsrc2[i];
 }
 
+void nmppsOr_2u(
+const	nm2u*	Src1,		// Input Buffer
+const	nm2u*	Src2,		// Input Buffer
+		nm2u*	pDstVec,	// Output Buffer
+		int		nSize		// size of input buffer in 64 bit elements. nSize={1,2,..,n}
+	)
+{
+	int i;
+	int iSize = nSize >> 5;
+	nm64u* lsrc1 = (nm64u*) Src1;
+	nm64u* lsrc2 = (nm64u*) Src2;
+	nm64u* ldst  = (nm64u*) pDstVec;
+	for (i=0; i<iSize; i++)
+		ldst[i] = lsrc1[i] | lsrc2[i];
+}
+
 void nmppsOr_1(
 const	nm1*	Src1,		// Input Buffer
 const	nm1*	Src2,		// Input Buffer

@@ -62,6 +62,18 @@ void nmppsCopy_8s(const nm8s*	pSrcVec,		// Source array							:long Global[SizeI
 	memcpy(pDstVec,pSrcVec,SizeInt8);
 }
 
+void nmppsCopy_2s(const nm2s*	pSrcVec,		// Source array							:long Global[SizeInt8/8]
+			nm2s*	pDstVec,		// Destination array					:long Local [SizeInt8/8]
+			int		SizeInt2	// nSize of Source array in 2-bit chars; :SizeInt2=  [0,32,64.....]
+		)
+{
+	int i,iSize = SizeInt2>>5;
+	long long int *src = pSrcVec;
+	long long int *dst = pDstVec;
+	for(i=0;i<iSize;i++)
+		dst[i]=src[i];
+}
+
 void nmppsCopyua_8s(const nm8s*			pSrcVec,		// input buffer		:long Long[...]
 		int				nOffset,	// start copy from index SrcVecIndx	:[0,1,2,3,4...]
 		nm8s*			pDstVec,		// output buffer	:long Long[DstVecSize>>3]	

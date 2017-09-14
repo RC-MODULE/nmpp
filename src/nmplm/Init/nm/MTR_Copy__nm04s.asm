@@ -23,20 +23,20 @@
 extern mtr_CpyCore_nm64:label;
 begin ".text_nmplm"
 /////////////////////////////////////////////////////////////////////////////////
-// Copying long submatrix from 8 bit odd position of source matrix
+// Copying long submatrix from 4 bit odd position of source matrix
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 
 //--------------------------------------------------------------------
-//! \fn void nmppmCopy_8s(  nm8s* pSrcMtr, int nSrcStride,  nm8s* pDstMtr, int nDstStride, int nHeight, int nWidth)
+//! \fn void nmppmCopy_4u(  nm4s* pSrcMtr, int nSrcStride,  nm4s* pDstMtr, int nDstStride, int nHeight, int nWidth)
 //!
-//! \perfinclude _nmppmCopy_8s.html
+//! \perfinclude _nmppmCopy_4u.html
 //--------------------------------------------------------------------
 
-global _nmppmCopy_8u:label;
-global _nmppmCopy_8s:label;
-<_nmppmCopy_8s>
-<_nmppmCopy_8u>
+global _nmppmCopy_4u:label;
+global _nmppmCopy_4s:label;
+<_nmppmCopy_4s>
+<_nmppmCopy_4u>
 .branch;
 
 	ar5 = sp-2		with gr7=false;	
@@ -50,18 +50,18 @@ global _nmppmCopy_8s:label;
 	push ar6,gr6;
 
 
-	ar0 = [--ar5];	// nm8s*	SrcMtr,			// Src matrix				:long Local   [nSrcRows*nSrcStride]
-	gr1 = [--ar5];	// int		nSrcStride,	// Src matrix Stride		:nSrcStride=[0,1,2,3....]
-	ar6 = [--ar5];	// nm8s*	DstMtr,			// Dst matrix				:long Global  [nDstRows*nDstStride]
-	gr4 = [--ar5];	// int		nDstStride,	// Dst matrix Stride		:nDstRows=[0,1,2,3,...]
-	gr2 = [--ar5];	// int		nHeight,		// Dst matrix height		:nDstRows=[0,1,2,3,...]
-	gr3 = [--ar5];	// int		nWidth		// Dst matrix width			:nDstStride =[0,8,16,24..]
+	ar0 = [--ar5];	// nm4s*	SrcMtr,		// Src matrix				:long Local   [nSrcRows*nSrcStride]
+	gr1 = [--ar5];	// int		nSrcStride,	// Src matrix Stride		:nSrcStride in elements
+	ar6 = [--ar5];	// nm4s*	DstMtr,		// Dst matrix				:long Global  [nDstRows*nDstStride]
+	gr4 = [--ar5];	// int		nDstStride,	// Dst matrix Stride		:nDstRows in elements
+	gr2 = [--ar5];	// int		nHeight,	// Dst matrix height		:nDstRows in elements
+	gr3 = [--ar5];	// int		nWidth		// Dst matrix width			:nDstStride in elements =[0,16,32..]
 
 
 
-	delayed call mtr_CpyCore_nm64 with gr3>>=3;
-		with gr1>>=2;
-		with gr4>>=2;
+	delayed call mtr_CpyCore_nm64 with gr3>>=4;
+		with gr1>>=3;
+		with gr4>>=3;
 
 
 	pop ar6,gr6;

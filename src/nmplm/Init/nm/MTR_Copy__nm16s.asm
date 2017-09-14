@@ -33,10 +33,10 @@ begin ".text_nmplm"
 //! \perfinclude _nmppmCopy_16s.html
 //--------------------------------------------------------------------
 
-global nmppmCopy_16u:label;
-global nmppmCopy_16s:label;
-<nmppmCopy_16s>
-<nmppmCopy_16u>
+global _nmppmCopy_16u:label;
+global _nmppmCopy_16s:label;
+<_nmppmCopy_16s>
+<_nmppmCopy_16u>
 .branch;
 
 	ar5 = sp-2		with gr7=false;	

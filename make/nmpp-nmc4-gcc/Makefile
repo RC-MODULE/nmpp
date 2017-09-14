@@ -42,8 +42,14 @@
 #   AR_FLAGS        - librarian flags of (libr/linker)
 #
 #============== PROJECT & BUILD CONFIGURATION ==========
+#@echo off
+#@set "INSTALL_PATH=%cd:\=/%"
+#@set GCC_EXEC_PREFIX=/cygdrive/%INSTALL_PATH:~0,1%/%INSTALL_PATH:~3,-4%/lib/gcc/
+PATH :=$(NMC_GCC_TOOLPATH)/nmc4-ide/bin;$(NMC_GCC_TOOLPATH)/nmc4-ide/lib;$(PATH)
+
+
 ROOT             = ../..
-include          $(ROOT)/global.mk
+#include          $(ROOT)/global.mk
 ARCH             = nmc4
 #--------------  target & input dirs -------------------
 PROJECT          = libnmpp-$(ARCH)
@@ -62,7 +68,7 @@ CC_FLAGS 		 = $(INC_DIRS)  -std=c99
 AR_FLAGS         = rcs $(TARGET)
 AS_FLAGS         =-$(ARCH) -nm2ms  $(INC_DIRS) -split_sir -W-111 -W-109
 #--------------  Header dependence parsing -------------------------
-PREPROCESS_ASM_DEP = $(CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
+#PREPROCESS_ASM_DEP = $(CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
 PREPROCESS_CPP_DEP = $(CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================

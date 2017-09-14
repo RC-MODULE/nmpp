@@ -66,16 +66,21 @@ begin ".text"
 
 // Read SinCos
 	fpu 0 rep 8 vreg1 = [ar2++];
+	fpu 1 rep 8 vreg1 = [ar6++];
+	fpu 2 vreg1 = fpu 0 vreg1;
+	fpu 3 vreg1 = fpu 1 vreg1;
 	fpu 0 rep 8 vreg2 = [ar2++];
-
-	fpu 1 rep 8 vreg1 = [ar2++];
-	fpu 1 rep 8 vreg2 = [ar2++];
-	
-	fpu 2 rep 8 vreg1 = [ar6++];
-	fpu 2 rep 8 vreg2 = [ar6++];
-
-	fpu 3 rep 8 vreg1 = [ar6++];
-	fpu 3 rep 8 vreg2 = [ar6++];
+	fpu 1 rep 8 vreg2 = [ar6++];
+	fpu 2 vreg2 = fpu 0 vreg2;
+	fpu 3 vreg2 = fpu 1 vreg2;
+	fpu 0 rep 8 vreg3 = [ar2++];
+	fpu 1 rep 8 vreg3 = [ar6++];
+	fpu 2 vreg3 = fpu 0 vreg3;
+	fpu 3 vreg3 = fpu 1 vreg3;
+	fpu 0 rep 8 vreg4 = [ar2++];
+	fpu 1 rep 8 vreg4 = [ar6++];
+	fpu 2 vreg4 = fpu 0 vreg4;
+	fpu 3 vreg4 = fpu 1 vreg4;
 // end read SinCos
 
 // Compute 32 things of DFT8
@@ -83,72 +88,43 @@ begin ".text"
 	gr3 = [ar4++];
 	ar0 = [ar5++]; // buff_fft256
 	ar6 = [ar5++]; // buff_fft256xW
-	
 	gr2 = ar0;
 	gr7 = ar6;
 <COMP_64_8_256>
 	ar1 = ar3 + gr3;
-	fpu rep 8 .packer  = [ar1++gr1] with .fixed_64 <= .fixed_64;
-	//fpu 0 rep 2 vreg0 = [ar1++gr1];
+	fpu 0 rep 4 vreg0 = [ar1++gr1];
+    fpu 1 rep 4 vreg0 = [ar1++gr1];
+	fpu 0 .complex vreg5 = vreg1 * .retrive(vreg0);
+	fpu 1 .complex vreg5 = vreg1 * .retrive(vreg0);
+	fpu 0 .complex vreg6 = vreg2 * .retrive(vreg0) + vreg5;
+	fpu 1 .complex vreg6 = vreg2 * .retrive(vreg0) + vreg5;
+	fpu 0 .complex vreg7 = vreg3 * .retrive(vreg0) + vreg6;
+	fpu 1 .complex vreg7 = vreg3 * .retrive(vreg0) + vreg6;
+	fpu 0 .complex vreg6 = vreg4 * .retrive(vreg0) + vreg7;
+	fpu 1 .complex vreg6 = vreg4 * .retrive(vreg0) + vreg7;
+	fpu 1 vreg5 = fpu 0 vreg6;
+	fpu 1 .float vreg7 = vreg6 + vreg5;
+	fpu 1 rep 8 [ar0++] = vreg7; // save First DFT8
 
-	//fpu 1 rep 2 vreg0 = [ar1++gr1];
-
-	//fpu 2 rep 2 vreg0 = [ar1++gr1];
-
-	//fpu 3 rep 2 vreg0 = [ar1++gr1];
-
-	fpu 0 rep 2 vreg0 = .packer;
-
-
-
-	fpu 0 .complex vreg3 = vreg1 * .retrive(vreg0);
-	fpu 0 .complex vreg4 = vreg2 * .retrive(vreg0) + vreg3;
-
-	fpu 1 vreg5 = fpu 0 vreg4;
-	fpu 1 rep 2 vreg0 = .packer;
-	fpu 1 .complex vreg3 = vreg1 * .retrive(vreg0) + vreg5;
-	fpu 1 .complex vreg4 = vreg2 * .retrive(vreg0) + vreg3;
-
-	fpu 2 vreg5 = fpu 0 vreg4;
-	fpu 2 rep 2 vreg0 = .packer;
 	gr3 = [ar4++];
 	ar1 = ar3 + gr3;
-	fpu 2 .complex vreg3 = vreg1 * .retrive(vreg0) + vreg5;
-	fpu 2 .complex vreg4 = vreg2 * .retrive(vreg0) + vreg3;
-
-	fpu 3 vreg5 = fpu 0 vreg4;
-	fpu 3 rep 2 vreg0 = .packer;
-	fpu 3 .complex vreg3 = vreg1 * .retrive(vreg0) + vreg5;
-	fpu 3 .complex vreg4 = vreg2 * .retrive(vreg0) + vreg3;
-	fpu 3 rep 8 [ar0++] = vreg4;
-
-
-	fpu rep 8 .packer  = [ar1++gr1] with .fixed_64 <= .fixed_64;
-	fpu 0 .complex vreg3 = vreg1 * .retrive(vreg0);
-	fpu 0 .complex vreg4 = vreg2 * .retrive(vreg0) + vreg3;
-
-	fpu 1 vreg5 = fpu 0 vreg4;
-	fpu 1 rep 2 vreg0 = .packer;
-	fpu 1 .complex vreg3 = vreg1 * .retrive(vreg0) + vreg5;
-	fpu 1 .complex vreg4 = vreg2 * .retrive(vreg0) + vreg3;
-
-	fpu 2 vreg5 = fpu 0 vreg4;
-	fpu 2 rep 2 vreg0 = .packer;
-
-	fpu 2 .complex vreg3 = vreg1 * .retrive(vreg0) + vreg5;
-	fpu 2 .complex vreg4 = vreg2 * .retrive(vreg0) + vreg3;
-
-	fpu 3 vreg5 = fpu 0 vreg4;
-	fpu 3 rep 2 vreg0 = .packer;
-	fpu 3 .complex vreg3 = vreg1 * .retrive(vreg0) + vreg5;
-	fpu 3 .complex vreg4 = vreg2 * .retrive(vreg0) + vreg3;
-	fpu 3 rep 8 [ar6++] = vreg4;
-
-	
+	fpu 2 rep 4 vreg0 = [ar1++gr1];
+    fpu 3 rep 4 vreg0 = [ar1++gr1];
+    fpu 2 .complex vreg5 = vreg1 * .retrive(vreg0);
+    fpu 3 .complex vreg5 = vreg1 * .retrive(vreg0);
+	fpu 2 .complex vreg6 = vreg2 * .retrive(vreg0) + vreg5;
+	fpu 3 .complex vreg6 = vreg2 * .retrive(vreg0) + vreg5;
+	fpu 2 .complex vreg7 = vreg3 * .retrive(vreg0) + vreg6;
+	fpu 3 .complex vreg7 = vreg3 * .retrive(vreg0) + vreg6;
+	fpu 2 .complex vreg6 = vreg4 * .retrive(vreg0) + vreg7;
+	fpu 3 .complex vreg6 = vreg4 * .retrive(vreg0) + vreg7;
+	fpu 3 vreg5 = fpu 2 vreg6;
+	fpu 3 .float vreg7 = vreg6 + vreg5;
+	fpu 3 rep 8 [ar6++] = vreg7; // save Second DFT8
 	gr0--;
 	if > delayed goto COMP_64_8_256;
 	gr3 = [ar4++];
-	nul;//ar1 = ar3 + gr3;
+	nul;
 // end 32 DFT8
 
 // COMPUTE 16 PART OF FFT16

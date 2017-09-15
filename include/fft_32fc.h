@@ -32,10 +32,6 @@ typedef struct
     \ingroup sFFT_32fc
    	\brief Функция для вычисления прямого ДПФ с плавающей точкой над вектором, состоящим из 8 комплексных чисел
     */
-    //! \{
-void nmppsDFT8Fwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
-    //! \}
-	
 	/**
  *  \ingroup sDFT-8 
 	\brief Функция для вычисления прямого ДПФ с плавающей точкой над вектором, состоящим из 8 комплексных чисел
@@ -51,10 +47,6 @@ void nmppsDFT8Fwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
     \defgroup sFFT-16 FFT-16
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT16Fwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
-int nmppsFFT16FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
-    //! \}	
 	
 	
 	/**
@@ -85,10 +77,6 @@ int nmppsFFT16FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
     \defgroup sFFT-32 FFT-32
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT32Fwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
-int nmppsFFT32FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
-    //! \}	
 	
 	
 	/**
@@ -120,10 +108,6 @@ int nmppsFFT32FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
     \defgroup sFFT-64 FFT-64
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT64Fwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
-int nmppsFFT64FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
-    //! \}	
 	
 	
 	/**
@@ -154,10 +138,6 @@ int nmppsFFT64FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
     \defgroup sFFT-128 FFT-128
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT128Fwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
-int nmppsFFT128FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
-    //! \}	
 	
 	
 	/**
@@ -188,10 +168,6 @@ int nmppsFFT128FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
     \defgroup sFFT-256 FFT-256
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT256Fwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
-int nmppsFFT128FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
-    //! \}	
 	
 	
 	/**
@@ -222,10 +198,6 @@ int nmppsFFT256FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
     \defgroup sFFT-512 FFT-512
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT512Fwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
-int nmppsFFT512FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
-    //! \}	
 	
 	
 	/**
@@ -255,10 +227,6 @@ int nmppsFFT512FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
     \defgroup sFFT-1024 FFT-1024
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT1024Fwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
-int nmppsFFT1024FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
-    //! \}	
 	
 	
 	/**
@@ -287,11 +255,7 @@ int nmppsFFT1024FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
     /**
     \defgroup sFFT-2048 FFT-2048
     \ingroup sFFT_32fc
-    */
-    //! \{
-void nmppsFFT2048Fwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
-int nmppsFFT2048FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr);
-    //! \}	
+    */	
 	
 	
 	/**
@@ -344,11 +308,7 @@ void nmppsDFT8Inv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *ispec);
 	/**
     \defgroup sIFFT-16 IFFT-16
     \ingroup sFFT_32fc
-    */
-    //! \{
-void nmppsFFT16Inv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *ispec);
-int nmppsFFT16InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
-    //! \}	
+    */	
 	
 	
 	/**
@@ -380,10 +340,6 @@ int nmppsFFT16InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
     \defgroup sIFFT-32 IFFT-32
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT32Inv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *ispec);
-int nmppsFFT32InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
-    //! \}	
 	
 	
 	/**
@@ -415,10 +371,6 @@ int nmppsFFT32InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
     \defgroup sIFFT-64 IFFT-64
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT64Inv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *ispec);
-int nmppsFFT64InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
-    //! \}	
 	
 	
 	/**
@@ -449,11 +401,7 @@ int nmppsFFT64InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
 	/**
     \defgroup sIFFT-128 IFFT-128
     \ingroup sFFT_32fc
-    */
-    //! \{
-void nmppsFFT128Inv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *ispec);
-int nmppsFFT128InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
-    //! \}	
+    */	
 	
 	
 	/**
@@ -486,10 +434,6 @@ int nmppsFFT128InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
     \defgroup sIFFT-256 IFFT-256
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT256Inv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *ispec);
-int nmppsFFT256InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
-    //! \}	
 	
 	
 	/**
@@ -519,10 +463,6 @@ int nmppsFFT256InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
     \defgroup sIFFT-512 IFFT-512
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT512Inv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *ispec);
-int nmppsFFT512InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
-    //! \}	
 	
 	
 	/**
@@ -554,10 +494,6 @@ int nmppsFFT512InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
     \defgroup sIFFT-1024 IFFT-1024
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFT1024Inv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *ispec);
-int nmppsFFT1024InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
-    //! \}	
 	
 	
 	/**
@@ -588,11 +524,7 @@ int nmppsFFT1024InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
 	/**
     \defgroup sIFFT-2048 IFFT-2048
     \ingroup sFFT_32fc
-    */
-    //! \{
-void nmppsFFT2048Inv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *ispec);
-int nmppsFFT2048InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
-    //! \}	
+    */	
 	
 	
 	/**
@@ -625,12 +557,6 @@ int nmppsFFT2048InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr);
     \defgroup sFFT-Common FFT-Common
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFTFwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
-int nmppsFFTFwdInitAlloc_32fc(NmppsFFTSpec_32fc **Spec, int Order);
-    //! \}	
-	
-	
 	/**
  *  \ingroup sFFT-Common
 	\brief Функция для вычисления прямого БПФ с плавающей точкой над вектором длины от 8 до 2048
@@ -640,7 +566,7 @@ int nmppsFFTFwdInitAlloc_32fc(NmppsFFTSpec_32fc **Spec, int Order);
 	\param [in] spec структра, содержащая необходимые коэффициенты, для вычисления прямого БПФ определенного размера
  * 
  */
-void nmppsFFTFwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *spec);
+int nmppsFFTFwd_32fc(nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fc *Spc);
 
 
 /**
@@ -662,11 +588,6 @@ int nmppsFFTFwdInitAlloc_32fc(NmppsFFTSpec_32fc **Spec, int Order);
     \defgroup sIFFT-Common IFFT-Common
     \ingroup sFFT_32fc
     */
-    //! \{
-void nmppsFFTInv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *ispec);
-int nmppsFFTInvInitAlloc_32fc(NmppsFFTSpec_32fc **iSpec, int iOrder);
-    //! \}	
-	
 	
 	/**
  *  \ingroup sIFFT-Common
@@ -677,7 +598,7 @@ int nmppsFFTInvInitAlloc_32fc(NmppsFFTSpec_32fc **iSpec, int iOrder);
 	\param [in] ispec структра, содержащая необходимые коэффициенты, для вычисления обратного БПФ определенного размера
  * 
  */
-void nmppsFFTInv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *ispec);
+int nmppsFFTInv_32fc(nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fc *iSpc);
 
 
 /**
@@ -695,17 +616,10 @@ int nmppsFFTInvInitAlloc_32fc(NmppsFFTSpec_32fc **iSpec, int iOrder);
 
 	
 	
-		/**
-    \defgroup sFFTFree FFTFree
-    \ingroup sFFT_32fc
-    */
-    //! \{
-int nmppsFFTFree_32fc(NmppsFFTSpec_32fc *spec);
-    //! \}	
-	
+
 	
 	/**
- *  \ingroup sFFTFree
+ *  \ingroup sFFT_32fc
 	\brief Функция освобождает память, выделенную под коэффициенты, необходимые для вычисления БПФ определенного размера 
 	
 	\param [in] spec структра, содержащая необходимые коэффициенты, для вычисления обратного БПФ определенного размера
@@ -713,10 +627,6 @@ int nmppsFFTFree_32fc(NmppsFFTSpec_32fc *spec);
  * 
  */
 int nmppsFFTFree_32fc(NmppsFFTSpec_32fc *spec);
-
-
-
-
 
 #ifdef __cplusplus
 		};

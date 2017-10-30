@@ -28,9 +28,11 @@ begin "text"
 //  i=MulC_2s16s ( (short*)&psrc, C, (short*)&pdst, N2s, VC);
 extern vec_vsum_data_vr: label;
 global _MulC_2s16s: label;
+global _nmppsMulC_AddC_2s16s: label;
 global _int._.8.8MulC_2s16s.1short._.0.9._short.9._short._.0.9._int.9._int.2 : label;
 <_int._.8.8MulC_2s16s.1short._.0.9._short.9._short._.0.9._int.9._int.2>
 <_MulC_2s16s>
+<_nmppsMulC_AddC_2s16s>
 // аргументы пушнуты в обратном порядке
    push ar6, gr6;
    ar6 = ar7;
@@ -39,6 +41,7 @@ global _int._.8.8MulC_2s16s.1short._.0.9._short.9._short._.0.9._int.9._int.2 : l
    push ar2,gr2;
    push ar3,gr3 with gr2=false;
    push ar4,gr4 with gr2++;
+   push ar5,gr5;
    ar1 = [ar6+-5]with gr2++; // psrc,  gr2=2
    gr1 = [ar6+-6]; // C
    gr0=gr1<<16;// формирование matr1
@@ -113,7 +116,7 @@ global _int._.8.8MulC_2s16s.1short._.0.9._short.9._short._.0.9._int.9._int.2 : l
 //-----------------------------------------------------7:
      sb=[ar2++];     // поля на входе X: 8,2,2,2,2,48
      ar3=matr1;
-     rep 6 wfifo = [ar3++], ftw, wtw;
+     rep 5 wfifo = [ar3++], ftw, wtw;
      ar0=ar1;
      ar6=gr3 with gr3=gr3+gr0;
      call vec_vsum_data_vr;
@@ -130,6 +133,7 @@ global _int._.8.8MulC_2s16s.1short._.0.9._short.9._short._.0.9._int.9._int.2 : l
 //so time=7109+0.43*N2s
 //==========================================
 <fin>
+   pop ar5,gr5;
    pop ar4,gr4;
    pop ar3,gr3;
    pop ar2,gr2;

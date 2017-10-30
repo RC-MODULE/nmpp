@@ -1,5 +1,14 @@
 #include "nmtype.h"
-int btnum( void *src, int n);
+//int btnum( void *src, int n);
+int btnum( void *src, int n)
+{ _asm {
+   push ebx
+   mov ebx,src
+   mov eax,n
+   bt [ebx],eax
+   sbb eax,eax
+   pop ebx
+}}
 
 int s2(int *Q, int j) // 2х битное число со знаком, начиная с номера бита=j
 { if (btnum(Q,j++)) // интерфейс команды bt [ptr],reg
@@ -19,5 +28,5 @@ void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* 
      *p++=(short)(j & 0xffff);
    }
     
-    return (int)p;
+   return (int)p;
 } // MulC_2s16s

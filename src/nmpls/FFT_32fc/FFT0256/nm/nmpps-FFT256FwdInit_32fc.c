@@ -2,105 +2,93 @@
 #include <math.h>
 #include "fft_32fc.h"
 
-int nmppsFFT256FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr256)
+int nmppsFFT256FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr)
 {
-    int i, j, k;
-    int gr1;
-    const float pi = 3.141592653;
+    int i;
+    int offset = 0;
     float alpha;
-    nm32fcr *SinCos = (nm32fcr *) malloc(64 * sizeof(nm32fcr));
     NmppsFFTSpec_32fc *spec_32fc = (NmppsFFTSpec_32fc *) malloc(sizeof(NmppsFFTSpec_32fc));
     if(!spec_32fc) {
         return -1;
     }
-    spec_32fc->Buffs[0] = (nm32fcr *) malloc((32+8+16+32+64) * sizeof(nm32fcr));
+
+/**********************************Bank1**********************************/
+    spec_32fc->Buffs[0] = (nm32fcr *) malloc((64 + 128) * sizeof(nm32fcr));
     if(!spec_32fc->Buffs[0])
         return -2;
 
-    spec_32fc->Buffers[0] = spec_32fc->Buffs[0];       // SinCos0
-    spec_32fc->Buffers[4] = spec_32fc->Buffs[0] + 32;  // W8_0
-    spec_32fc->Buffers[6] = spec_32fc->Buffs[0] + 40;  // W16_0
-    spec_32fc->Buffers[8] = spec_32fc->Buffs[0] + 56;  // W32_0
-    spec_32fc->Buffers[10] = spec_32fc->Buffs[0] + 88; // W64_0
+    spec_32fc->Buffers[11] = spec_32fc->Buffs[0];         // W64_0
+    spec_32fc->Buffers[10] = spec_32fc->Buffs[0] + 64;    // W128
 
-    spec_32fc->Buffs[1] = (nm32fcr *) malloc1((32 + 128) * sizeof(nm32fcr));
+    spec_32fc->Buffs[1] = (nm32fcr *) malloc1((7 + 64) * sizeof(nm32fcr));
     if(!spec_32fc->Buffs[1])
         return -3;
     
-    spec_32fc->Buffers[1] = spec_32fc->Buffs[1];      // SinCos1
-    spec_32fc->Buffers[2] = spec_32fc->Buffs[1] + 32; // buff_fft
+    spec_32fc->Buffers[3] = spec_32fc->Buffs[1];          // W4_16
+    spec_32fc->Buffers[4] = spec_32fc->Buffs[1] + 1;      // W2_16
+    spec_32fc->Buffers[5] = spec_32fc->Buffs[1] + 2;      // W6_16
+    spec_32fc->Buffers[6] = spec_32fc->Buffs[1] + 3;      // W1_16
+    spec_32fc->Buffers[7] = spec_32fc->Buffs[1] + 4;      // W3_16
+    spec_32fc->Buffers[8] = spec_32fc->Buffs[1] + 5;      // W5_16
+    spec_32fc->Buffers[9] = spec_32fc->Buffs[1] + 6;      // W7_16
+    spec_32fc->Buffers[12] = spec_32fc->Buffs[1] + 7;     // W64_1
 
+/**********************************Bank2**********************************/
     spec_32fc->Buffs[2] = (nm32fcr *) malloc2((128) * sizeof(nm32fcr));
     if(!spec_32fc->Buffs[2])
         return -4;
 
-    spec_32fc->Buffers[3] = spec_32fc->Buffs[2]; // buff_fftxW
+    spec_32fc->Buffers[1] = spec_32fc->Buffs[2];          // buff_fft
 
-    spec_32fc->Buffs[3] = (nm32fcr *) malloc3((8 + 16 + 32 + 64 + 128) * sizeof(nm32fcr));
+/**********************************Bank3**********************************/
+    spec_32fc->Buffs[3] = (nm32fcr *) malloc3((128 + 1) * sizeof(nm32fcr));
     if(!spec_32fc->Buffs[3])
         return -5;
 
-    spec_32fc->Buffers[5] = spec_32fc->Buffs[3];        // W8_1
-    spec_32fc->Buffers[7] = spec_32fc->Buffs[3] + 8;    // W16_1
-    spec_32fc->Buffers[9] = spec_32fc->Buffs[3] + 24;   // W32_1
-    spec_32fc->Buffers[11] = spec_32fc->Buffs[3] + 56;  // W64_1
-    spec_32fc->Buffers[12] = spec_32fc->Buffs[3] + 120; // W128
-    *addr256 = spec_32fc;
-    k = 0;
-    for(i = 0; i <  8; i++) {
-        for(j = 0; j < 64; j = j + 8) {
-            alpha = (2 * pi * (float)i * (float)k) / 8.0;
-            SinCos[i + j].im = -sinf(alpha);
-            SinCos[i + j].re = cosf(alpha);
-            k++;
-        }
-        k = 0;
-    }
-    for(i = 0; i < 32; i++) {
-        spec_32fc->Buffers[0][i].im = SinCos[i].im;
-        spec_32fc->Buffers[0][i].re = SinCos[i].re;
-        spec_32fc->Buffers[1][i].im = SinCos[i + 32].im;
-        spec_32fc->Buffers[1][i].re = SinCos[i + 32].re;
-    }
+    spec_32fc->Buffers[2] = spec_32fc->Buffs[3];        // buff_fftxW
+    spec_32fc->Buffers[0] = spec_32fc->Buffs[3] + 128;  // 1.0
 
+    *addr = spec_32fc;
+
+/**********************************Fields_Fuliling**********************************/
+    spec_32fc->Buffers[3]->im = -1.0;                   // W4_16
+    spec_32fc->Buffers[3]->re = -4.3711388286738e-08;  
+
+    spec_32fc->Buffers[4]->im = -0.70710676908493;      // W2_16  
+    spec_32fc->Buffers[4]->re = 0.70710676908493;
+
+    spec_32fc->Buffers[5]->im = -0.70710676908493;      // W6_16
+    spec_32fc->Buffers[5]->re = -0.70710676908493;
+
+    spec_32fc->Buffers[6]->im = -0.38268345594406;      // W1_16
+    spec_32fc->Buffers[6]->re = 0.9238795042038;
+
+    spec_32fc->Buffers[7]->im = -0.9238795042038;       // W3_16
+    spec_32fc->Buffers[7]->re = 0.38268342614174;
+
+    spec_32fc->Buffers[8]->im = -0.9238795042038;       // W5_16
+    spec_32fc->Buffers[8]->re = -0.38268342614174;
+
+    spec_32fc->Buffers[9]->im = -0.38268327713013;      // W7_16
+    spec_32fc->Buffers[9]->re = -0.92387962341309;
+
+    spec_32fc->Buffers[0]->im = 0;
+    spec_32fc->Buffers[0]->re = 1.0; // 1.0 for any FFTFwd (1/N for FFTInv on the N-samples)
+
+/**********************************W128**********************************/
     for(i = 0; i < 128; i++) {
-        alpha = (0.024543692606 * (float)i);
-        spec_32fc->Buffers[12][i].im = -sinf(alpha);
-        spec_32fc->Buffers[12][i].re = cosf(alpha);
+        alpha = (0.02454369 * (float)i);
+        spec_32fc->Buffers[10][i].im = -sinf(alpha);
+        spec_32fc->Buffers[10][i].re = cosf(alpha);
     }
-    gr1 = 0;
-    for(i = 0; i < 8; i++) {
-        spec_32fc->Buffers[4][i].im = spec_32fc->Buffers[12][gr1].im;
-        spec_32fc->Buffers[4][i].re = spec_32fc->Buffers[12][gr1].re;
-        spec_32fc->Buffers[5][i].im = spec_32fc->Buffers[12][gr1].im;
-        spec_32fc->Buffers[5][i].re = spec_32fc->Buffers[12][gr1].re;
 
-        gr1 += 16;
-    }
-    gr1 = 0;
-    for(i = 0; i < 16; i++) {
-        spec_32fc->Buffers[6][i].im = spec_32fc->Buffers[12][gr1].im;
-        spec_32fc->Buffers[6][i].re = spec_32fc->Buffers[12][gr1].re;
-        spec_32fc->Buffers[7][i].im = spec_32fc->Buffers[12][gr1].im;
-        spec_32fc->Buffers[7][i].re = spec_32fc->Buffers[12][gr1].re;
-        gr1 += 8;
-    }
-    gr1 = 0;
-    for(i = 0; i < 32; i++) {
-        spec_32fc->Buffers[8][i].im = spec_32fc->Buffers[12][gr1].im;
-        spec_32fc->Buffers[8][i].re = spec_32fc->Buffers[12][gr1].re;
-        spec_32fc->Buffers[9][i].im = spec_32fc->Buffers[12][gr1].im;
-        spec_32fc->Buffers[9][i].re = spec_32fc->Buffers[12][gr1].re;
-        gr1 += 4;
-    }
-    gr1 = 0;
+/*******************************W64_0, W64_1**********************************/
     for(i = 0; i < 64; i++) {
-        spec_32fc->Buffers[10][i].im = spec_32fc->Buffers[12][gr1].im;
-        spec_32fc->Buffers[10][i].re = spec_32fc->Buffers[12][gr1].re;
-        spec_32fc->Buffers[11][i].im = spec_32fc->Buffers[12][gr1].im;
-        spec_32fc->Buffers[11][i].re = spec_32fc->Buffers[12][gr1].re;
-        gr1 += 2;
+        spec_32fc->Buffers[11][i].im = spec_32fc->Buffers[10][offset].im;
+        spec_32fc->Buffers[11][i].re = spec_32fc->Buffers[10][offset].re;
+        spec_32fc->Buffers[12][i].im = spec_32fc->Buffers[10][offset].im;
+        spec_32fc->Buffers[12][i].re = spec_32fc->Buffers[10][offset].re;
+        offset += 2;
     }
-    free(SinCos);
     return 0;
 }

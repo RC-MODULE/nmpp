@@ -48,14 +48,14 @@ int nmppsFFT256InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr)
     if(!spec_32fc->Buffs[3])
         return -5;
 
-    spec_32fc->Buffers[2] = spec_32fc->Buffs[3];    // buff_fftxW
+    spec_32fc->Buffers[2] = spec_32fc->Buffs[3];    	  // buff_fftxW
     spec_32fc->Buffers[0] = spec_32fc->Buffs[3] + 128;    // 1/256
 
     *iaddr = spec_32fc;
 
 /**********************************Fields_Fuliling**********************************/
     spec_32fc->Buffers[3]->im = 1.0;                   // W4_16
-    spec_32fc->Buffers[4]->re = -4.3711388286738e-08;  
+    spec_32fc->Buffers[3]->re = -4.3711388286738e-08;  
 
     spec_32fc->Buffers[4]->im = 0.70710676908493;      // W2_16  
     spec_32fc->Buffers[4]->re = 0.70710676908493;
@@ -76,7 +76,7 @@ int nmppsFFT256InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr)
     spec_32fc->Buffers[9]->re = -0.92387962341309;
 
     spec_32fc->Buffers[0]->im = 0;
-    spec_32fc->Buffers[0]->re = 0.00390625; // // 1/256 for FFT256Inv (1.0 for any FFTFwd)
+    spec_32fc->Buffers[0]->re = 0.00390625; // 1/256 for FFT256Inv (1.0 for any FFTFwd)
 
 /**********************************W128**********************************/
     for(i = 0; i < 128; i++) {

@@ -2,7 +2,7 @@
 #include "time.h"
 #include "fft_32fc.h"
 #include "malloc.h"
-//#include <stdio.h>
+#include <stdio.h>
 #include "nmpp.h"
 
 #pragma data_section ".data_imu1"
@@ -29,8 +29,8 @@ int main()
 	//out = (nm32fcr *) malloc (256 * sizeof(nm32fcr));
 	//outInv = (nm32fcr *) malloc (256 * sizeof(nm32fcr));
 	for(i = 0; i < 256; i++) {
-		in[i].re = i;
-		in[i].im = 0;
+		in[i].re = i + 1;
+		in[i].im = i + 1;
 		outInv[i].re = 0;
 		outInv[i].im = 0;
 		out[i].re = 0;
@@ -45,11 +45,11 @@ int main()
 	tm = nmppsFFTFree_32fc(spec);
 	tm = nmppsFFTFree_32fc(ispec);
 	unsigned int crc = 0;
-	nmppsCrcAcc_32f((nm32f *)outInv, 26, 256*2, &crc);
-	//printf("%.7f", norm);
+	nmppsCrcAcc_32f((nm32f *)outInv, 14, 256*2, &crc);
+	printf("%.7f\n", norm);
 	//printf("\n");
 	//printf("%d\n", time);
-	//for(i = 0; i < 256; i++)
-	//	printf("%.5f %.5f\n", out[i].re, out[i].im);
+	for(i = 0; i < 256; i++)
+		//printf("%.5f %.5f\n", outInv[i].re, outInv[i].im);
 	return crc>>2;
 }

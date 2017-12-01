@@ -2,7 +2,7 @@
 #include <malloc.h>
 #include <math.h>
 
-int nmppsFFT512FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr512)
+int nmppsFFT512FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr)
 {
     int i, j, k;
     int gr1;

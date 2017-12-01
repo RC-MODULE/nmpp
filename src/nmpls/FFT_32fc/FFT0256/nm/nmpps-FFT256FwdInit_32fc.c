@@ -50,7 +50,7 @@ int nmppsFFT256FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr)
 
     *addr = spec_32fc;
 
-/**********************************Fields_Fuliling**********************************/
+/**********************************Fields Fuliling**********************************/
     spec_32fc->Buffers[3]->im = -1.0;                   // W4_16
     spec_32fc->Buffers[3]->re = -4.3711388286738e-08;  
 

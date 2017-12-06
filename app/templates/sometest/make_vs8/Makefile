@@ -29,7 +29,7 @@ RUN_COMMAND      =$(TARGET)
 #--------------  DEBUG config -------------------------
 TMP_DIRD         =Debug
 TARGETD          =$(TMP_DIRD)\$(PROJECT)d.exe
-LIBSD            =nmpp-x86d.lib
+LIBSD            =nmpp-x86.lib
 RUND_COMMAND     =$(TARGETD)
 #--------------  Visual Studio config (for vs8.mk)--
 HEADER_DIRS      =$(NMPP)/nmplv/include

@@ -41,7 +41,12 @@ unsigned nmppsCrcAcc_32f(
 		rounder=1<<(numBitsToClear-1);
     for( i = 0; i < nSize; i++ )
     {
-		a = (p[i]+rounder)&mask;
+		unsigned v=p[i];
+		unsigned mantissa=v&0x7FFFFF;
+		unsigned nearzero=(mantissa-rounder)&0x80000000;
+		mask=mask&(~nearzero);
+		a = (v+rounder)&mask;
+		
         b = a & 0x000000FF;
         *crcAccumulator = ( *crcAccumulator >> 8 ) ^ pTable[( b ^ ( *crcAccumulator & 0x000000FF ) )];
         b = ( a >> 8 ) & 0x000000FF;

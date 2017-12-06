@@ -1,4 +1,4 @@
-#include "fft2.h"
+#include "fft.h"
 #include "nmpp.h"
 #include <time.h>
 #include <stdio.h>
@@ -29,7 +29,7 @@ int speedTest(){
 		if (!nmppsMallocFail())	 {
 			
 			t0=clock();
-			dt=nmppsFFT2048Fwd         (src,dst,spec); // 36573   121231 best route
+			nmppsFFT2048Fwd         (src,dst,spec); // 36573   121231 best route
 			t1=clock();
 			dt =t1-t0;
 			if (dt<bestTime){
@@ -88,15 +88,14 @@ int selfTest(){
 	
 	nmppsMallocWipe();
 	
-	//return t1-t0;
+	return t1-t0;
 	return crc;//t1-t0;
 	
 }
 
 #define pi 3.1415926535897932384626433832795
 int main()
-{
- 	return selfTest();
-	//return speedTest();
+{	//return selfTest();
+	return speedTest();
 	
 }

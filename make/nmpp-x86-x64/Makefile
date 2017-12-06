@@ -37,15 +37,17 @@ endif
 #	$(CP)  		$(call OSX,$(VS8)/Release/*.lib) $(call OSX,../../lib/)
 
 
-all: vs8 vs12 vs12x64 vs12x64 unix mingw
+all: vs8
+
+#vs8 vs12 vs12x64 vs12x64 unix mingw
 					   
 configure-vs8   $(VS8)/nmpp-x86.vcproj: 
 	-$(RMDIR)	$(VS8)
 	$(MKDIR) 	$(VS8)
 	cd    		$(VS8) &&	cmake .. -G "Visual Studio 8 2005"
             
-vs8:            $(VS8)/nmpp-x86.vcproj
-	cd    		$(VS8) && "$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp-x86.vcproj
+#vs8:            $(VS8)/nmpp-x86.vcproj
+#	cd    		$(VS8) && "$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp-x86.vcproj
 	
 
 	
@@ -104,7 +106,20 @@ configure-unix Unix/Makefile:
 unix: Unix/Makefile
 	$(MAKE) -C Unix
 #	-DCMAKE_C_COMPILER="d:/SDK/MinGW/bin/gcc" -DCMAKE_CXX_COMPILER="d:/SDK/MinGW/bin/g++"  -DCMAKE_MAKE_PROGRAM="d:/SDK/MinGW/bin/mingw32-make" 
+
+
+vs8:     	nmpp-x86.vcproj
+	"$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp-x86.vcproj
+
 	
+nmpp-x86.vcproj vs2005:	premake5.lua 
+	premake5 vs2005
+
+kill: clean
+	-$(OS_RM) *.vcproj *.sln *.vcxproj
+
 clean:
-	$(RMDIR) $(VS8) $(VS12)  $(VS12X64) $(VS14) $(VS14X64) MinGW Unix
+	-$(OS_RM) *.abs *.elf *.ncb *.map *.elf *.suo *.user *.filters
+	-$(OS_RD) bin obj obj0 obj1 $(VS8) $(VS12)  $(VS12X64) $(VS14) $(VS14X64) MinGW Unix Obj
+			
 	

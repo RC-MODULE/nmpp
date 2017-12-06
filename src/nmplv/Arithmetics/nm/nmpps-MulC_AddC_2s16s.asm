@@ -27,11 +27,7 @@ end "data1";
 begin "text"
 //  i=MulC_2s16s ( (short*)&psrc, C, (short*)&pdst, N2s, VC);
 extern vec_vsum_data_vr: label;
-global _MulC_2s16s: label;
 global _nmppsMulC_AddC_2s16s: label;
-global _int._.8.8MulC_2s16s.1short._.0.9._short.9._short._.0.9._int.9._int.2 : label;
-<_int._.8.8MulC_2s16s.1short._.0.9._short.9._short._.0.9._int.9._int.2>
-<_MulC_2s16s>
 <_nmppsMulC_AddC_2s16s>
 // аргументы пушнуты в обратном порядке
    push ar6, gr6;

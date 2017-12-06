@@ -580,6 +580,9 @@ void nmppsCopyua_8s(const nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSi
 void nmppsSwap_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize);
     //! \}
 
+	void nmppsSplitEco_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size);
+	void nmppsSplit_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size, nm8s* tmpSizeofDst);
+
 #ifdef __cplusplus
 		};
 #endif

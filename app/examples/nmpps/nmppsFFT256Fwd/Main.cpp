@@ -21,9 +21,9 @@ int main()
 	nmppsRShiftC_32u((nm32u*)src,24, (nm32u*)src, 256*2);
 	
 	NmppsFFTSpec* specFFT256Fwd;
-	//fseq64 route=0xF10;
-	//nmppsFFT256FwdOptimize(src,dst,&route);
-	//nmppsMallocSetRouteMode(route);
+	fseq64 route=0xF10;
+	nmppsFFT256FwdOptimize(src,dst,&route);
+	nmppsMallocSetShortRoute(route);
 	nmppsFFT256FwdInitAlloc(&specFFT256Fwd,src,dst,0);
 	t0=clock();
 	nmppsFFT256Fwd(src,dst,specFFT256Fwd);

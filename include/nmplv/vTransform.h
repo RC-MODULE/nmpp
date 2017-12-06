@@ -209,5 +209,43 @@ void nmppsRemap_8u(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVec
 	//! \{
 void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	//! \}
+	
+	
+	/**
+	    \defgroup nmppSplit nmppSplit
+        \ingroup vTransform
+    
+	 *  \brief Расщепляет массив на два, группируя по четным и нечетным элементам
+	 *  
+	 *  \param [in]  src  Входной массив
+	 *  \param [out] dst1 Выходной массив размера size/2 
+	 *  \param [out] dst2 Выходной массив размера size/2 
+	 *  \param [in]  size Размер исходного массива в элементах. Кратность параметра size должна соответстовать двум длинным 64-р. словам. 
+	 *  \param [in]  tmpSizeofDst Временный массив размера size/2 
+	 *  \return 
+	 *  
+	 *  \details Details 
+	 *  Максимальная производительность достигается при размещении входных, выходных и временных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
+	 *  Макс  производиельность  на 64-р. слово результата = 2.1 такта (при size=10240 байт) и 2.5 такта (при size=4096 байт)
+	 */
+	void nmppsSplit_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size, nm8s* tmpSizeofDst);
+	
+   /**
+	    \defgroup nmppSplitEco nmppSplitEco
+        \ingroup vTransform
+    
+	 *  \brief Расщепляет массив на два, группируя по четным и нечетным элементам
+	 *  
+	 *  \param [in]  src  Входной массив
+	 *  \param [out] dst1 Выходной массив размера size/2 
+	 *  \param [out] dst2 Выходной массив размера size/2 
+	 *  \param [in]  size Размер исходного массива в элементах. Кратность параметра size должна соответстовать двум длинным 64-р. словам. 
+	 *  \return 
+	 *  
+	 *  \details Details 
+	 *  Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
+	 *  Макс  производиельность  на 64-р. слово результата = 2.14 такта (при size=10240 байт) и 2.6 такта (при size=4096 байт)
+	 */
+	void nmppsSplitEco_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size);	
 
 #endif //_VTRANSFORM_H_INCLUDED_

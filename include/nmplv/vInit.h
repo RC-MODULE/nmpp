@@ -1,8 +1,8 @@
-//------------------------------------------------------------------------
+﻿//------------------------------------------------------------------------
 //
 //  $Workfile:: vInit. $
 //
-//  Âåêòîðíî-ìàòðè÷íàÿ áèáëèîòåêà
+//  Векторно-матричная библиотека
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   vInit.h
-//! \author Ñåðãåé Ìóøêàåâ
-//! \brief  Îïðåäåëåíèå ôóíêöèé èíèöèàëèçàöèè äëÿ âåêòîðîâ.
+//! \author Сергей Мушкаев
+//! \brief  Определение функций инициализации для векторов.
 //!
 //! \endif
 //!
@@ -28,7 +28,7 @@
     \defgroup nmppsSet nmppsSet
     \ingroup vInit
     \brief
-        \ru Ôóíêöèÿ èíèöèàëèçàöèè ýëåìåíòîâ ìàññèâà ïîñòîÿííûì çíà÷åíèåì. 
+        \ru Функция инициализации элементов массива постоянным значением. 
         \en Function of array initialization with a constant value.  
     
 		\~
@@ -42,15 +42,15 @@
     \f]
     
     \param nSize    
-        \ru Ðàçìåð âåêòîðà â ýëåìåíòàõ. 
+        \ru Размер вектора в элементах. 
         \en Size of vec in elements. 
 		\~
     \param nVal     
-        \ru Êîíñòàíòà. Äèàïàçîí çíà÷åíèé nVal äîëæåí ñîîòâåòñâîâàòü òèïó ðåçóëüòèðóþùåãî âåêòîðà. 
+        \ru Константа. Диапазон значений nVal должен соответсвовать типу результирующего вектора. 
         \en A constant. Range of nVal must correspond to type of result vec
 		\~
     \retval pVec    
-        \ru Ðåçóëüòèðóþùèé âåêòîð. 
+        \ru Результирующий вектор. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -94,21 +94,21 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64
     \defgroup nmppsRandUniform nmppsRandUniform
     \ingroup vInit
     \brief
-        \ru Èíèöèàëèçàöèÿ ìàññèâà ñëó÷àéíûìè ÷èñëàìè. 
+        \ru Инициализация массива случайными числами. 
         \en Initialization of an array with random numbers. 
 		\~
     \param nSize		
-        \ru Ðàçìåð âåêòîðà. 
+        \ru Размер вектора. 
         \en Vector size. 
 		\~
     \param nRandomize    
-        \ru Ïðîèçâîëüíîå ÷èñëî äëÿ èíèöèàëèçàöèè 
-                            ãåíåðàòîðà ñëó÷àéíûõ ÷èñåë. 
+        \ru Произвольное число для инициализации 
+                            генератора случайных чисел. 
         \en Arbitrary number for initialization 
                             of a random-number generator. 
 		\~
     \retval pDstVec     
-        \ru Ðåçóëüòèðóþùèé âåêòîð. 
+        \ru Результирующий вектор. 
         \en Result vec. 
 		\~
     \return \e void
@@ -129,7 +129,7 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64
     */
     //! \{
 /**
-	/ru  Èíèöèàëèçàöèÿ ìàññèâà 32-ðàçðÿäíûìè ñëó÷àéíûìè ÷èñëàìè. 
+	/ru  Инициализация массива 32-разрядными случайными числами. 
 	/en Random initialization of 32-bit buffer
 	/~
 */
@@ -151,7 +151,7 @@ void nmppsRandUniform_32f_integer(nm32f *pDstVec,int nSize,int hi,int low);
 //__INLINE__ void nmppsRandUniform_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRandUniform_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
 
 /**
-	/ru  Èíèöèàëèçàöèÿ ìàññèâà 64-ðàçðÿäíûìè ñëó÷àéíûìè ÷èñëàìè. 
+	/ru  Инициализация массива 64-разрядными случайными числами. 
 	/en Random initialization of 64-bit buffer
 	/~
 
@@ -167,26 +167,26 @@ void nmppsRandUniform_32f_integer(nm32f *pDstVec,int nSize,int hi,int low);
     \defgroup nmppsRandUniform_ nmppsRandUniform_
     \ingroup vInit
     \brief 
-        \ru Ãåíåðàöèÿ ñëó÷àéíîãî ÷èñëà ñ ðàâíîìåðíûì ðàcïðåäåëåíèåì.
+        \ru Генерация случайного числа с равномерным раcпределением.
         \en Random number generation with uniform distribution.
 
 		\~
 	  \~
     \param nMin		
-        \ru Ìèíèìàëüíîå âîçìîæíîå çíà÷åíèå ñëó÷àéíîãî ÷èñëà.
+        \ru Минимальное возможное значение случайного числа.
         \en Minimal value for random number.
 		\~
     \param nMax    
-        \ru Ìàêñèìàëüíîå âîçìîæíîå çíà÷åíèå ñëó÷àéíîãî ÷èñëà.
+        \ru Максимальное возможное значение случайного числа.
         \en Maximal value for random number.
 		\~
     \param nDivisible     
-        \ru Çíà÷åíèå, êîòîðîìó áóäåò êðàòíî ñëó÷àéíîå ÷èñëî.
+        \ru Значение, которому будет кратно случайное число.
         \en Random number will be divisible by this value.
 		\~
     \return \e int
-		\ru Ñëó÷àéíîå ÷èñëî â äèàïàçîíå ëèáî [nMin, nMax]. Äëÿ ôóíêöèè áåç ïàðàìåòðîâ
-			äàííûé äèàïàçîí [-2^31; 2^31-1].
+		\ru Случайное число в диапазоне либо [nMin, nMax]. Для функции без параметров
+			данный диапазон [-2^31; 2^31-1].
         \en Random number in range [nMin, nMax]. For function without parameters
 			this range is [-2^31; 2^31-1].
 
@@ -228,7 +228,7 @@ int nmppsRandUniform();
     \defgroup nmppsRamp_ nmppsRamp_
     \ingroup vInit
     \brief
-        \ru Èíèöèàëèçàöèÿ ìàññèâà ýëåìåíòàìè àðèôìåòè÷åñêîé ïðîãðåññèè. 
+        \ru Инициализация массива элементами арифметической прогрессии. 
         \en Initialization of an array by ramped numbers. 
     
 		\~
@@ -243,19 +243,19 @@ int nmppsRandUniform();
     
     \~
     \param nOffset		
-        \ru Ïåðâûé ÷ëåí àðèôìåòè÷åñêîé ïðîãðåññèè.
+        \ru Первый член арифметической прогрессии.
         \en Init value.
 		\~
     \param nSlope		
-        \ru Ðàçíîñòü àðèôìåòè÷åñêîé ïðîãðåññèè.
+        \ru Разность арифметической прогрессии.
         \en Common difference.
 		\~
     \param nSize		
-        \ru Ðàçìåð âåêòîðà. 
+        \ru Размер вектора. 
         \en Vector size. 
 		\~
     \retval pVec     
-        \ru Ðåçóëüòèðóþùèé ìàññèâ. 
+        \ru Результирующий массив. 
         \en Result array. 
 		\~
     \return \e void
@@ -302,16 +302,16 @@ void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
     \defgroup nmppsConvert nmppsConvert
     \ingroup vInit
     \brief
-        \ru Èçìåíåíèå ðàçðÿäíîñòè ýëåìåíòîâ âåêòîðà. 
+        \ru Изменение разрядности элементов вектора. 
         \en Change of vec elements word-length. 
     
 		\~
-        \ru Ïðåîáðàçîâàíèå çíàêîâûõ äàííûõ ê ìåíüøåé ðàçðÿäíîñòè îñóùåñòâëÿåòñÿ 
-	        îòáðàñûâàíèåì ñòàðøèõ áèòîâ.
-	        Ïðåîáðàçîâàíèå çíàêîâûõ äàííûõ ê áîëüøåé ðàçðÿäíîñòè îñóùåñòâëÿåòñÿ 
-	        c ðàñïðîñòðàíåíèåì âëåâî ñòàðøåãî (çíàêîâîãî) áèòà.
-            Ïðåîáðàçîâàíèå áåççíàêîâûõ äàííûõ ê áîëüøåé ðàçðÿäíîñòè îñóùåñòâëÿåòñÿ 
-	        äîáàâëåíèåì ñëåâà ñòàðøèõ íóëåâûõ áèòîâ. 
+        \ru Преобразование знаковых данных к меньшей разрядности осуществляется 
+	        отбрасыванием старших битов.
+	        Преобразование знаковых данных к большей разрядности осуществляется 
+	        c распространением влево старшего (знакового) бита.
+            Преобразование беззнаковых данных к большей разрядности осуществляется 
+	        добавлением слева старших нулевых битов. 
         \en Signed data are converted to lesser word-length is made by means of 
             the most significant bits truncation.
             Signed data are converted to greater word-length is made with
@@ -320,15 +320,15 @@ void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
             addition of the most significant zero bits on the left. 
 		\~
     \param pSrcVec  
-        \ru Âõîäíîé âåêòîð. 
+        \ru Входной вектор. 
         \en Input vec. 
 		\~
     \param nSize    
-        \ru Ðàçìåð âåêòîðîâ â ýëåìåíòàõ. 
+        \ru Размер векторов в элементах. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Ðåçóëüòèðóþùèé âåêòîð. 
+        \ru Результирующий вектор. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -408,7 +408,7 @@ void nmppsConvert_64s16s(const nm64s* pSrcVec, nm16s* pDstVec, int nSize);
     \defgroup nmppsCopy_ nmppsCopy_
     \ingroup vInit
     \brief
-        \ru Êîïèðîâàíèå âåêòîðà. 
+        \ru Копирование вектора. 
         \en Vector copying. 
     
 		\~
@@ -422,15 +422,15 @@ void nmppsConvert_64s16s(const nm64s* pSrcVec, nm16s* pDstVec, int nSize);
     \f]
     
     \param pSrcVec  
-        \ru Âõîäíîé âåêòîð. 
+        \ru Входной вектор. 
         \en Input vec. 
 		\~
     \param nSize    
-        \ru Ðàçìåð âåêòîðîâ â ýëåìåíòàõ. 
+        \ru Размер векторов в элементах. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Ðåçóëüòèðóþùèé âåêòîð. 
+        \ru Результирующий вектор. 
         \en The result vec. 
 		\~
     \return \e void
@@ -472,7 +472,7 @@ __INLINE__ void nmppsCopy_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize) {
     \defgroup nmppsCopyua_ nmppsCopyua_
     \ingroup vInit
     \brief
-        \ru Êîïèðîâàíèå âåêòîðà ñ íåâûðîâíåííîé áàéòîâîé ïîçèöèè â âûðîâíåííóþ. 
+        \ru Копирование вектора с невыровненной байтовой позиции в выровненную. 
         \en Copying a vec from an unaligned byte position to aligned one. 
     
 		\~
@@ -485,25 +485,25 @@ __INLINE__ void nmppsCopy_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize) {
         i = \overline{0 \ldots nSize-1}
     \f]
 
-	\ru Ïîçèöèÿ áàéòà ñ÷èòàåòñÿ âûðîâíåííîé åñëè îíà ñîâïàäàåò ñ ãðàíèöåé 64ð. ñëîâ â ïàìÿòè. 
+	\ru Позиция байта считается выровненной если она совпадает с границей 64р. слов в памяти. 
     \en Position is defined as aligned if it points to 64-bit words boundary in memory.
 	
 		\~
 	\~
 	\param pSrcVec      
-        \ru Âõîäíîé âåêòîð. 
+        \ru Входной вектор. 
         \en Input vec. 
 		\~
     \param pDstVec      
-        \ru Ðåçóëüòèðóþùèé âåêòîð. 
+        \ru Результирующий вектор. 
         \en Output vec. 
 		\~
     \param nSrcOffset  
-        \ru Ñìåùåíèå â ýëåìåíòàõ îòíîñèòåëüíî íà÷àëà âåêòîðà. nSrcOffset Ìîæåò ïðèíèìàòü ëþáîå çíà÷åíèå.
+        \ru Смещение в элементах относительно начала вектора. nSrcOffset Может принимать любое значение.
         \en Shift in elements relatively to the origin of the vec. nSrcOffset may be any. 
 		\~
     \param nSize   
-        \ru Êîë-âî êîïèðóåìûõ ýëåìåíòîâ. 
+        \ru Кол-во копируемых элементов. 
         \en Number of elements being copied. 
 		\~
     \return \e void
@@ -541,21 +541,21 @@ void nmppsCopyua_8s(const nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSi
     \defgroup nmppsSwap_ nmppsSwap_
     \ingroup vInit
     \brief
-        \ru Ïåðåñòàíîâêà äâóõ âåêòîðîâ. 
+        \ru Перестановка двух векторов. 
         \en Swap of two vectors. 
     
  
 		\~
     \param pSrcVec1  
-        \ru Ïåðâûé âõîäíîé âåêòîð. 
+        \ru Первый входной вектор. 
         \en The first input vec. 
 		\~
     \param pSrcVec2  
-        \ru Âòîðîé âõîäíîé âåêòîð. 
+        \ru Второй входной вектор. 
         \en The second input vec. 
 		\~
     \param nSize     
-        \ru Ðàçìåð âåêòîðîâ â ýëåìåíòàõ. 
+        \ru Размер векторов в элементах. 
         \en Vector size in elements. 
 		\~
     \return \e void
@@ -580,8 +580,8 @@ void nmppsCopyua_8s(const nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSi
 void nmppsSwap_64s(nm64s* pSrcVec1, nm64s* pSrcVec2, int nSize);
     //! \}
 
-	void nmppsSplitEco_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size);
-	void nmppsSplit_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size, nm8s* tmpSizeofDst);
+
+
 
 #ifdef __cplusplus
 		};

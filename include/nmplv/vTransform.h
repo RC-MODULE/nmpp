@@ -20,6 +20,9 @@
 #ifndef _VTRANSFORM_H_INCLUDED_
 #define _VTRANSFORM_H_INCLUDED_
 
+#ifdef __cplusplus
+		extern "C" {
+#endif		
 
     /**
     \defgroup VEC_QSort VEC_QSort
@@ -247,5 +250,9 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 *  ћакс  производиельность  на 64-р. слово результата = 2.14 такта (при size=10240 байт) и 2.6 такта (при size=4096 байт)
 	 */
 	void nmppsSplitEco_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size);	
+
+#ifdef __cplusplus
+		};
+#endif
 
 #endif //_VTRANSFORM_H_INCLUDED_

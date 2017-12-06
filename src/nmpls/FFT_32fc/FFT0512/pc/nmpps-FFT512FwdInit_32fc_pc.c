@@ -36,7 +36,7 @@ int nmppsFFT512FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr)
     spec_32fc->Buffers[6] = (nm32fcr *) malloc(256 * sizeof(nm32fcr)); // W256
     if (!spec_32fc->Buffers[6])
         return -8;
-    *addr512 = spec_32fc;
+    *addr = spec_32fc;
     k = 0;
     for(i = 0; i <  8; i++) {
         for(j = 0; j < 64; j = j + 8) {

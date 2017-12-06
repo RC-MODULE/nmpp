@@ -41,7 +41,7 @@ int main()
 	nmppsFFT512Inv_32fc(out, outInv, ispec);
 	t2 = clock();
 	time = t2 - t1;
-	nmppsNormDiff_L2_32fc(in, outInv, 512, &norm);
+	nmppsNormDiff_L2_32fcr(in, outInv, 512, &norm);
 	tm = nmppsFFTFree_32fc(spec);
 		
 	//tm = nmppsFFTFree_32fc(ispec);

@@ -2,7 +2,7 @@
 #include "fft_32fc.h"
 #include "malloc.h"
 #include "time.h"
-#include <stdio.h>
+//#include <stdio.h>
 #include "nmpp.h"
 
 #pragma data_section ".data_imu1"
@@ -39,13 +39,13 @@ int main()
 	nmppsFFT1024Inv_32fc(out, outInv, ispec);
 	t2 = clock();
 	time = t2 - t1;
-	nmppsNormDiff_L2_32fc(in, outInv, 1024, &norm);
+	nmppsNormDiff_L2_32fcr(in, outInv, 1024, &norm);
 	tm = nmppsFFTFree_32fc(spec);
 	tm = nmppsFFTFree_32fc(ispec);
 	unsigned int crc = 0;
 	nmppsCrcAcc_32f((nm32f *)outInv, 26, 1024*2, &crc);
-	printf("%.7f\n", norm);
-	printf("%d\n", time);
+	//printf("%.7f\n", norm);
+	//printf("%d\n", time);
 	//for(i = 0; i < 1024; i++)
 	//	printf("%.5f %.5f\n", outInv[i].re, outInv[i].im);
 	return crc>>2;

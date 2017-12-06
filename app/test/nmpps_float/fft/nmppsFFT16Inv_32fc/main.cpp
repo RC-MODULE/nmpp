@@ -1,7 +1,7 @@
 #include "math.h"
 #include "fft_32fc.h"
 #include "malloc.h"
-#include <stdio.h>
+//#include <stdio.h>
 #include "nmpp.h"
 
 union abc {
@@ -51,6 +51,6 @@ int main()
     SKO_dft16 = SKO_dft16 / 32.0;
     SKO_dft16 = sqrtf(SKO_dft16);
     ab.FL = SKO_dft16;
-    printf("0x%08x\n", ab.IN);
+    //printf("0x%08x\n", ab.IN);
 	return crc>>2;
 }

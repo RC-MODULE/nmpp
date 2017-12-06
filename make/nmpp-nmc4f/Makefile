@@ -187,13 +187,10 @@ clean:
 
 vs8: $(PROJECT).vcproj
 
-$(PROJECT).vcproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs8.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(@)
 
-vs13: $(PROJECT).vcxproj
-
-$(PROJECT).vcxproj: Makefile
-	make --file=$(ROOT)/deps/projector/vs13.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(@)
+$(PROJECT).vcproj  vs2005:	premake5.lua 
+	premake5 vs2005
+	
 
 skip:
 	@echo SDK missing. Compilation is skipped!

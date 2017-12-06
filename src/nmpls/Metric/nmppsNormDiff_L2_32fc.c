@@ -2,7 +2,7 @@
 #include "math.h"
 
 
-void nmppsNormDiff_L2_32fc(const nm32fcr *src1, const nm32fcr *src2, int num, float* pNorm)
+void nmppsNormDiff_L2_32fcr(const nm32fcr *src1, const nm32fcr *src2, int num, float* pNorm)
 {
     int i;
     float norm, diff;

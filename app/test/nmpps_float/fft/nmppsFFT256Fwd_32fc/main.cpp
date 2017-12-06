@@ -3,11 +3,11 @@
 #include "time.h"
 #include "fft_32fc.h"
 #include "nmpp.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 #pragma data_section ".data_imu1"
 	nm32fcr src[256];
-#pragma data_section ".data_imu5"
+#pragma data_section ".data_imu1"
 	nm32fcr dst[256];
 
 int main()
@@ -42,6 +42,6 @@ int main()
 	nmppsCrcAcc_32f((nm32f *)dst, 16, 256*2, &crc2);
 	// printf("%d\n", crc1>>2);
 	// printf("%d\n", crc2>>2);
-	printf("%d\n", time);
+	// printf("%d\n", time);
 	return crc1 >> 2;
 }

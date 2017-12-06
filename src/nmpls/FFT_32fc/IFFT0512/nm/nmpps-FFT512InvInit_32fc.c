@@ -39,7 +39,7 @@ int nmppsFFT512InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr)
 
     spec_32fc->Buffers[2] = spec_32fc->Buffs[3]; // buff_fftxW
 
-    *addr = spec_32fc;
+    *iaddr = spec_32fc;
 
     spec_32fc->Buffers[0]->im = 0;
     spec_32fc->Buffers[0]->re = 0.001953125; // 1/512 for FFT512Inv (1.0 for any FFTFwd)

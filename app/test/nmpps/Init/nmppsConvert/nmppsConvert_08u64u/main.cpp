@@ -8,7 +8,7 @@ nm64s *L0;
 nm64s *L1;
 nm64s *G0;
 nm64s *G1;
- int KB=1024/8;
+ int KB=1024/8/2;
  int SizeL0=60*KB;
  int SizeL1=60*KB;
 
@@ -37,7 +37,7 @@ int main()
 	nmppsSet_32u((nm32u*)G0,(0xCCCCCCCC),(LONG2INT(SizeG0)));
 	for(int nSize=0;nSize<charTestSize;nSize+=8*NMPP_MIN_REP)
 	{
-		nmppsConvert_(( nm8u*)L0,(nm64u*)G0,nSize);	
+		nmppsConvert_8u64u(( nm8u*)L0,(nm64u*)G0,nSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(long2INT(nSize)+128,LONG2INT(SizeG0)),&crc);
 	}
 

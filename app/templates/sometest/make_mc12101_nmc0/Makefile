@@ -16,9 +16,9 @@ $(error *** ERROR: 'NMPP' environment variable is not defined!  )
 endif 
 
 
-INC_DIRS = -I"$(NMPP)/include" -I"$(MC12101)/include" -I"$(NEURO)/include"
-LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12101)/lib" -L$(NM_IO)/lib -L"$(NEURO)/lib"
-LIBS     = mc12101lib_nm.lib libc4f.lib libc4.lib nmpp-nmc4f.lib nm_io4.lib
+INC_DIRS = -I"$(NMPP)/include" -I"$(MC12101)/include" -I"$(NEURO)/include" -I"$(HAL)/include"
+LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12101)/lib" -L$(HAL)/lib -L"$(NEURO)/lib"
+LIBS     = mc12101lib_nm.lib libc4f.lib libc4.lib nmpp-nmc4f.lib hal-mc12101.lib
 TARGET   = main.abs
 CFG      = mc12101brd-nmc0.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))

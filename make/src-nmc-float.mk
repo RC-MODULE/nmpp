@@ -24,5 +24,6 @@ SRC_DIRS+= $(ROOT)/src/nmplv/Stat/common
 SRC_DIRS+= $(ROOT)/src/nmplv/Arithmetics/common
 SRC_DIRS+= $(ROOT)/src/nmplv/Arithmetics/nm_f
 SRC_DIRS+= $(ROOT)/src/nmplv/Init/common
+SRC_DIRS+= $(ROOT)/src/nmplv/Init/nm_f
 
 

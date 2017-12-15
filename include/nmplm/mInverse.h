@@ -2,7 +2,7 @@
 //
 //  $Workfile:: mInverse.h  $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   mtrInverse.h
-//! \author Сергей Мушкаев
-//! \brief  Обращение матрицы.
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  РћР±СЂР°С‰РµРЅРёРµ РјР°С‚СЂРёС†С‹.
 //!
 //! \endif
 //!
@@ -26,7 +26,7 @@
 	/*
     *
     * \if Russian
-    *     \defgroup mInverse Обращение матрицы
+    *     \defgroup mInverse РћР±СЂР°С‰РµРЅРёРµ РјР°С‚СЂРёС†С‹
     * \endif
     * \if English
     *     \defgroup mInverse Matrix inverse
@@ -41,7 +41,7 @@
     \defgroup MTR_fpResolve_Gauss MTR_fpResolve_Gauss
     \ingroup mInverse
     \brief
-        \ru Решение системы линейных уравнений методом Гаусса. 
+        \ru Р РµС€РµРЅРёРµ СЃРёСЃС‚РµРјС‹ Р»РёРЅРµР№РЅС‹С… СѓСЂР°РІРЅРµРЅРёР№ РјРµС‚РѕРґРѕРј Р“Р°СѓСЃСЃР°. 
         \en Solve linear system by Gauss method . 
     
 		\~
@@ -51,30 +51,30 @@
 	\f]
     
     \param	pSrcMtrA		
-        \ru Квадтратная матрица уравнения A. 
+        \ru РљРІР°РґС‚СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р° СѓСЂР°РІРЅРµРЅРёСЏ A. 
         \en Square system mtr A. 
 		\~
     \param	pSrcVecB		
-        \ru Свободный вектор. 
+        \ru РЎРІРѕР±РѕРґРЅС‹Р№ РІРµРєС‚РѕСЂ. 
         \en Free vec b. 
 		\~
     \param	nSize			
-        \ru Размер матрицы. 
+        \ru Р Р°Р·РјРµСЂ РјР°С‚СЂРёС†С‹. 
         \en Matrix size. 
 		\~
     \retval	pDstVecX		
-        \ru Вектор решения x. 
+        \ru Р’РµРєС‚РѕСЂ СЂРµС€РµРЅРёСЏ x. 
         \en Solution vec. 
 		\~
     \return \e void
     
     \restr 
-        \ru Выбор ведущего элемента не производится - 
-              возможно деление на нуль. 
+        \ru Р’С‹Р±РѕСЂ РІРµРґСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµ РїСЂРѕРёР·РІРѕРґРёС‚СЃСЏ - 
+              РІРѕР·РјРѕР¶РЅРѕ РґРµР»РµРЅРёРµ РЅР° РЅСѓР»СЊ. 
         \en The function implements Gauss method without
               leading element selection. 
 		\~
-    \note \ru Функция в данный момент не оптимизирована. 
+    \note \ru Р¤СѓРЅРєС†РёСЏ РІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РЅРµ РѕРїС‚РёРјРёР·РёСЂРѕРІР°РЅР°. 
           \en The function is not optimized yet. 
 		\~
     \par
@@ -100,8 +100,8 @@ void MTR_fpResolve_Gauss(double* pSrcMtrA, double* pSrcVecB, double* pDstVecX, i
     \defgroup MTR_fpResolve_PivotGauss MTR_fpResolve_PivotGauss
     \ingroup mInverse
     \brief
-        \ru Решение системы линейных уравнений методом Гаусса с выбором 
-        ведущего элемента. 
+        \ru Р РµС€РµРЅРёРµ СЃРёСЃС‚РµРјС‹ Р»РёРЅРµР№РЅС‹С… СѓСЂР°РІРЅРµРЅРёР№ РјРµС‚РѕРґРѕРј Р“Р°СѓСЃСЃР° СЃ РІС‹Р±РѕСЂРѕРј 
+        РІРµРґСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р°. 
         \en Solve system of linear equations by Gauss method with leading
         element selection. 
     
@@ -111,17 +111,17 @@ void MTR_fpResolve_Gauss(double* pSrcMtrA, double* pSrcVecB, double* pDstVecX, i
     	A \cdot X = B
     \f]
     \param	pSrcMtrAB   
-        \ru Матрица уравнения A, дополненная 
-                            справа вектором B. 
+        \ru РњР°С‚СЂРёС†Р° СѓСЂР°РІРЅРµРЅРёСЏ A, РґРѕРїРѕР»РЅРµРЅРЅР°СЏ 
+                            СЃРїСЂР°РІР° РІРµРєС‚РѕСЂРѕРј B. 
         \en Equation mtr A augmented with 
                             vec B from the right. 
 		\~
     \param	nSize     
-        \ru Высота матрицы. 
+        \ru Р’С‹СЃРѕС‚Р° РјР°С‚СЂРёС†С‹. 
         \en Matrix height. 
 		\~
     \retval	pDstVecX    
-        \ru Вектор решения X. 
+        \ru Р’РµРєС‚РѕСЂ СЂРµС€РµРЅРёСЏ X. 
         \en Solution vec X. 
 		\~
     \return \e void

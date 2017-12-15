@@ -2,7 +2,7 @@
 //
 //  $Workfile:: vStat.h  $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   vMinMax.h
-//! \author Сергей Мушкаев
-//! \brief  Определение функций поиска минимума и максимума
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  РћРїСЂРµРґРµР»РµРЅРёРµ С„СѓРЅРєС†РёР№ РїРѕРёСЃРєР° РјРёРЅРёРјСѓРјР° Рё РјР°РєСЃРёРјСѓРјР°
 //!
 //! \endif
 //!
@@ -31,22 +31,22 @@
     \defgroup nmppsCrc_ nmppsCrc_
     \ingroup vStat
 		\brief 
-		    \ru Подсчет циклического кода.
+		    \ru РџРѕРґСЃС‡РµС‚ С†РёРєР»РёС‡РµСЃРєРѕРіРѕ РєРѕРґР°.
 		    \en Cyclic code calculation.
 
 		\~
 	  \~
 		\param pSrcVec
-			\ru Входной вектор.
+			\ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ.
 			\en Input vec.
 		\~
 		\param nSize
-			\ru Размер входного вектора.
+			\ru Р Р°Р·РјРµСЂ РІС…РѕРґРЅРѕРіРѕ РІРµРєС‚РѕСЂР°.
 			\en Input vec size.
 
 		\~
 		\retval nCrc
-			\ru Циклический код.
+			\ru Р¦РёРєР»РёС‡РµСЃРєРёР№ РєРѕРґ.
 			\en Cyclic code.
 
 		\~
@@ -109,16 +109,16 @@ unsigned nmppsCrcAcc_64f(const nm64f* pSrcVec, int numBitsToClear, int nSize,  u
     \defgroup nmppsSadV16_ nmppsSadV16_
     \ingroup vStat
 	\brief 
-		\ru Сумма абсолютных разностей двух массивов (SAD) размером в 16 элементов 
+		\ru РЎСѓРјРјР° Р°Р±СЃРѕР»СЋС‚РЅС‹С… СЂР°Р·РЅРѕСЃС‚РµР№ РґРІСѓС… РјР°СЃСЃРёРІРѕРІ (SAD) СЂР°Р·РјРµСЂРѕРј РІ 16 СЌР»РµРјРµРЅС‚РѕРІ 
 		\en Sum of absolute differences (SAD) between two array with size of 16 numbers 
 
 		\~
 	\param pSrc1
-		\ru Массив из 16 элементов. 
+		\ru РњР°СЃСЃРёРІ РёР· 16 СЌР»РµРјРµРЅС‚РѕРІ. 
         \en array of 16 numbers
 		\~
 	\param pSrc2
-		\ru Массив из 16 элементов. 
+		\ru РњР°СЃСЃРёРІ РёР· 16 СЌР»РµРјРµРЅС‚РѕРІ. 
         \en array of 16 numbers
 		\~
 	\return int		

@@ -2,7 +2,7 @@
 //*                                                                         */
 //*                    Neuroprocessor NM6403 SDK v.1.2                      */
 //*                                                                         */
-//*               Заголовочный файл fixpoint64  функций                     */
+//*               Р—Р°РіРѕР»РѕРІРѕС‡РЅС‹Р№ С„Р°Р№Р» fixpoint64  С„СѓРЅРєС†РёР№                     */
 //*                1999 (c) RC Module Inc., Moscow, Russia                  */
 //*                                                                         */
 //*                                                                         */
@@ -19,17 +19,17 @@ extern "C" {
 	\defgroup nmppcSqrt nmppcSqrt
 	\ingroup cInteger
 	\brief
-		\ru Вычисление квадратного корня 
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ РєРІР°РґСЂР°С‚РЅРѕРіРѕ РєРѕСЂРЅСЏ 
 		\en Calculation of square root
 
 		\~
 	\~
 	\param x
-		\ru Входное число 
+		\ru Р’С…РѕРґРЅРѕРµ С‡РёСЃР»Рѕ 
 		\en input number
 		\~
 	\return 
-		\ru Квадратный корень 
+		\ru РљРІР°РґСЂР°С‚РЅС‹Р№ РєРѕСЂРµРЅСЊ 
 		\en Squared root 
 		\~
 	\par
@@ -46,12 +46,12 @@ extern "C" {
     //! \}
 //=============================================================================
 
-//     Функция деления A/B для целых чисел со знаком 2*abs(A)<abs(B)         
+//     Р¤СѓРЅРєС†РёСЏ РґРµР»РµРЅРёСЏ A/B РґР»СЏ С†РµР»С‹С… С‡РёСЃРµР» СЃРѕ Р·РЅР°РєРѕРј 2*abs(A)<abs(B)         
 void IDivInv64(
-			long*		Dividend,		// делимое 
-			long*		Divisor,		// делитель
-	const	int			DivIterations,	// кол-во итераций при пошаговом(побитовом) делении
-			long*		Quotient		// частное
+			long*		Dividend,		// РґРµР»РёРјРѕРµ 
+			long*		Divisor,		// РґРµР»РёС‚РµР»СЊ
+	const	int			DivIterations,	// РєРѕР»-РІРѕ РёС‚РµСЂР°С†РёР№ РїСЂРё РїРѕС€Р°РіРѕРІРѕРј(РїРѕР±РёС‚РѕРІРѕРј) РґРµР»РµРЅРёРё
+			long*		Quotient		// С‡Р°СЃС‚РЅРѕРµ
 				);
 long Fix64Exp01(long arg);
 

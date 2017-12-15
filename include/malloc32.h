@@ -209,6 +209,7 @@ void nmppsMallocSetBestRoute(int historyEnable);
 int  nmppsMallocSetRoute(fseq64* route, int count); // implemented 
 void nmppsMallocSetShortRoute(fseq64 route);
 void nmppsMallocSetRoute16(fseq64 route);
+void nmppsMallocGetRoute16(fseq64* route);
 extern struct NmppsMallocSpec nmppsMallocSpec;
 
 
@@ -216,22 +217,22 @@ extern struct NmppsMallocSpec nmppsMallocSpec;
     \defgroup nmppsMalloc nmppsMalloc
     \ingroup vSupport
     \brief
-        \ru Распределение памяти для векторов библиотеки. 
+        \ru Р Р°СЃРїСЂРµРґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РґР»СЏ РІРµРєС‚РѕСЂРѕРІ Р±РёР±Р»РёРѕС‚РµРєРё. 
         \en Memory allocation for library vectors. 
 		\~
     \param nSize 
-        \ru Число элементов в векторе. 
+        \ru Р§РёСЃР»Рѕ СЌР»РµРјРµРЅС‚РѕРІ РІ РІРµРєС‚РѕСЂРµ. 
         \en Number of elements in vec. 
 		\~
     \param hint 
-        \ru Номер банка памяти. Может принимать значения 
+        \ru РќРѕРјРµСЂ Р±Р°РЅРєР° РїР°РјСЏС‚Рё. РњРѕР¶РµС‚ РїСЂРёРЅРёРјР°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ 
                     MEM_LOCAL, MEM_GLOBAL. 
         \en Number of memory bank. Admissible values for memory bank
                     are MEM_LOCAL, MEM_GLOBAL. 
 		\~
     \note 
-		\ru Память, распределенная с помощью функций nmppsMalloc_ должна
-              освобождаться с помощью функции nmppsFree(). 
+		\ru РџР°РјСЏС‚СЊ, СЂР°СЃРїСЂРµРґРµР»РµРЅРЅР°СЏ СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёР№ nmppsMalloc_ РґРѕР»Р¶РЅР°
+              РѕСЃРІРѕР±РѕР¶РґР°С‚СЊСЃСЏ СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёРё nmppsFree(). 
         \en Memory allocated with function nmppsMalloc_ should be 
               freed with function nmppsFree()
 		\~
@@ -281,12 +282,12 @@ __INLINE__ void nmppsMalloc_64u(nm64u** pptr, int nSize, int hint) { nmppsMalloc
     \defgroup nmppsFree nmppsFree
     \ingroup vSupport
     \brief
-        \ru Освобождение памяти для векторов. 
+        \ru РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё РґР»СЏ РІРµРєС‚РѕСЂРѕРІ. 
         \en Memory deallocation for vectors. 
 		\~
     \note 
-		  \ru Данная функция должна вызываться только для
-              векторов, распределенных с помощью функций 
+		  \ru Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РґРѕР»Р¶РЅР° РІС‹Р·С‹РІР°С‚СЊСЃСЏ С‚РѕР»СЊРєРѕ РґР»СЏ
+              РІРµРєС‚РѕСЂРѕРІ, СЂР°СЃРїСЂРµРґРµР»РµРЅРЅС‹С… СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёР№ 
               nmppsMalloc_.
           \en This function should be called only for matrixis
               allocated by nmppsMalloc_ functions. 

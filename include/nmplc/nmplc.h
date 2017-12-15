@@ -8,18 +8,18 @@
 
 
 /*! \ru 
-	\page intro Введение 
+	\page intro Р’РІРµРґРµРЅРёРµ 
 	\en 
 	\page intro Introduction
 	\~
     \ingroup nmppcGroup
 
 	\ru 
-Назначением данной библиотеки является предоставление базовых операций по работе со скалярными данными для процессора NM6403, NM6404, NM6405. 
+РќР°Р·РЅР°С‡РµРЅРёРµРј РґР°РЅРЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРё СЏРІР»СЏРµС‚СЃСЏ РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅРёРµ Р±Р°Р·РѕРІС‹С… РѕРїРµСЂР°С†РёР№ РїРѕ СЂР°Р±РѕС‚Рµ СЃРѕ СЃРєР°Р»СЏСЂРЅС‹РјРё РґР°РЅРЅС‹РјРё РґР»СЏ РїСЂРѕС†РµСЃСЃРѕСЂР° NM6403, NM6404, NM6405. 
 
-В состав библиотеки входят арифметические, тригонометрические функции, функции для работы с данными в формате с фиксированной точкой. 
+Р’ СЃРѕСЃС‚Р°РІ Р±РёР±Р»РёРѕС‚РµРєРё РІС…РѕРґСЏС‚ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёРµ, С‚СЂРёРіРѕРЅРѕРјРµС‚СЂРёС‡РµСЃРєРёРµ С„СѓРЅРєС†РёРё, С„СѓРЅРєС†РёРё РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РґР°РЅРЅС‹РјРё РІ С„РѕСЂРјР°С‚Рµ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№. 
 
-Библиотека предназначена для быстрой разработки эффективных пользовательских программ на языке высокого уровня(С++). 
+Р‘РёР±Р»РёРѕС‚РµРєР° РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅР° РґР»СЏ Р±С‹СЃС‚СЂРѕР№ СЂР°Р·СЂР°Р±РѕС‚РєРё СЌС„С„РµРєС‚РёРІРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёС… РїСЂРѕРіСЂР°РјРј РЅР° СЏР·С‹РєРµ РІС‹СЃРѕРєРѕРіРѕ СѓСЂРѕРІРЅСЏ(РЎ++). 
 	\en
 The purpose of the library is to support the base operations with image processing on NM6403, NM6404, NM6405 processors. Library contains two-dimensional filters, arithmetical operations with images, color conversions. The library is meant for fast development of effective user programs in a high level language using the advantages of this processor architecture. 
 
@@ -33,7 +33,7 @@ For convenience of application programs development the library has implementati
 	/**
     *
     * \ru
-    *     \defgroup cInit Инициализация
+    *     \defgroup cInit РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
     * \en
     *     \defgroup cInit Initialization
 	* \~
@@ -79,7 +79,7 @@ For convenience of application programs development the library has implementati
 	/**
     *
     * \ru
-    *     \defgroup cArithmetic Арифметические операции
+    *     \defgroup cArithmetic РђСЂРёС„РјРµС‚РёС‡РµСЃРєРёРµ РѕРїРµСЂР°С†РёРё
     * \en
     *     \defgroup cArithmetic Arithmetic operation
 	* \~

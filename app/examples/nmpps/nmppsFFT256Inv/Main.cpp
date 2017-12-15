@@ -1,6 +1,5 @@
 #include "nmpp.h"
-//#include "fft.h"
-#include "fft2.h"
+#include "fft.h"
 #include <time.h>
 
 
@@ -23,7 +22,7 @@ int main()
 	NmppsFFTSpec* spec;
 	//fseq64 route=0xF10;
 	//nmppsFFT256FwdOptimize(src,dst,&route);
-	//nmppsMallocSetRouteMode(route);
+	nmppsMallocSetRoute16(route);
 	if (nmppsFFT256InvInitAlloc(&spec, src,dst, 0))
 		return -1;
 		
@@ -33,7 +32,7 @@ int main()
 	
 	
 	//return route;
-	//return t1-t0;
+	return t1-t0;
 	return  nmppsCrc_32s((nm32s*)dst,256*2)>>2;
 	
 	nmppsFree(src);

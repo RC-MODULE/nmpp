@@ -2,7 +2,7 @@
 //
 //  $Workfile:: CellTexture.h             $
 //
-//  <Название библиотеки>
+//  <РќР°Р·РІР°РЅРёРµ Р±РёР±Р»РёРѕС‚РµРєРё>
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -12,7 +12,7 @@
 //!
 //! \file   CellTexture.h
 //! \author Sergey V. Vaganov esq.
-//! \brief  <Краткое описание>
+//! \brief  <РљСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ>
 //!
 //! \endif
 //!
@@ -21,7 +21,7 @@
 #define __CELLTEXTURE_H
 
 
-//Класс определяет точку на плоскости
+//РљР»Р°СЃСЃ РѕРїСЂРµРґРµР»СЏРµС‚ С‚РѕС‡РєСѓ РЅР° РїР»РѕСЃРєРѕСЃС‚Рё
 class RPoint {
  public:
 	double x;
@@ -60,22 +60,22 @@ class RPoint {
 	\defgroup CellTexture CellTexture
 	\ingroup iInit
 	\brief
-		\ru Создание "клеточной" текстуры на изображении
+		\ru РЎРѕР·РґР°РЅРёРµ "РєР»РµС‚РѕС‡РЅРѕР№" С‚РµРєСЃС‚СѓСЂС‹ РЅР° РёР·РѕР±СЂР°Р¶РµРЅРёРё
 		\en Creates  "cell" texture on image
 
 		\~
 	\~
 	\param width
-      \ru Ширина изображения; 
+      \ru РЁРёСЂРёРЅР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ; 
       \en Image width; 
 		\~
 	\param height
-      \ru Высота изображения. 
+      \ru Р’С‹СЃРѕС‚Р° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ. 
       \en Image height. 
 
 		\~
   \retval texture_img		
-      \ru Результирующее изображение; 
+      \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ; 
       \en Output image. 
 	  \~
 
@@ -93,18 +93,18 @@ void IMG_CreateComplexTexture(unsigned char *texture_img, int width, int height)
 	\defgroup PointInRectangle PointInRectangle
 	\ingroup iCell
 	\brief
-		\ru определяет, находится ли точка внутри четырехугольника
+		\ru РѕРїСЂРµРґРµР»СЏРµС‚, РЅР°С…РѕРґРёС‚СЃСЏ Р»Рё С‚РѕС‡РєР° РІРЅСѓС‚СЂРё С‡РµС‚С‹СЂРµС…СѓРіРѕР»СЊРЅРёРєР°
 		\en
 
 	\~
 	\param p
-		\ru координаты точки
+		\ru РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РѕС‡РєРё
 		\en
 	\param borders
-		\ru координаты вершин четырехугольника
+		\ru РєРѕРѕСЂРґРёРЅР°С‚С‹ РІРµСЂС€РёРЅ С‡РµС‚С‹СЂРµС…СѓРіРѕР»СЊРЅРёРєР°
 		\en
 
-	\return 1 - внутри, 0 - снаружи
+	\return 1 - РІРЅСѓС‚СЂРё, 0 - СЃРЅР°СЂСѓР¶Рё
 	*/
 //! \{
 int PointInRectangle(RPoint& p, RPoint *borders);

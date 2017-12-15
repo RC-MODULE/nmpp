@@ -8,19 +8,19 @@
 #include "sfir.h"
 
 /*! \ru 
-	\page intro Введение 
+	\page intro Р’РІРµРґРµРЅРёРµ 
 	\en 
 	\page intro Introduction
 	\~
 	\ingroup SIG_Group
 	\ru 
-Назначением данной библиотеки является предоставление базовых функций по обработке сигналов  для процессоров NM6403,NM6404,NM6405. В состав библиотеки входят функции одномерной КИХ фильтрации, нелинейной фильтрации, передискретизации. Библиотека предназначена для быстрой разработки эффективных пользовательских программ как на языке высокого уровня(С++). 
+РќР°Р·РЅР°С‡РµРЅРёРµРј РґР°РЅРЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРё СЏРІР»СЏРµС‚СЃСЏ РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅРёРµ Р±Р°Р·РѕРІС‹С… С„СѓРЅРєС†РёР№ РїРѕ РѕР±СЂР°Р±РѕС‚РєРµ СЃРёРіРЅР°Р»РѕРІ  РґР»СЏ РїСЂРѕС†РµСЃСЃРѕСЂРѕРІ NM6403,NM6404,NM6405. Р’ СЃРѕСЃС‚Р°РІ Р±РёР±Р»РёРѕС‚РµРєРё РІС…РѕРґСЏС‚ С„СѓРЅРєС†РёРё РѕРґРЅРѕРјРµСЂРЅРѕР№ РљРРҐ С„РёР»СЊС‚СЂР°С†РёРё, РЅРµР»РёРЅРµР№РЅРѕР№ С„РёР»СЊС‚СЂР°С†РёРё, РїРµСЂРµРґРёСЃРєСЂРµС‚РёР·Р°С†РёРё. Р‘РёР±Р»РёРѕС‚РµРєР° РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅР° РґР»СЏ Р±С‹СЃС‚СЂРѕР№ СЂР°Р·СЂР°Р±РѕС‚РєРё СЌС„С„РµРєС‚РёРІРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёС… РїСЂРѕРіСЂР°РјРј РєР°Рє РЅР° СЏР·С‹РєРµ РІС‹СЃРѕРєРѕРіРѕ СѓСЂРѕРІРЅСЏ(РЎ++). 
 
-Функции библиотеки имеют C++ интерфейс. Большинство функций библиотеки реализованы на языке ассемблера с использованием векторных инструкций и оптимизированы под архитектуру процессоров NM6403. 
+Р¤СѓРЅРєС†РёРё Р±РёР±Р»РёРѕС‚РµРєРё РёРјРµСЋС‚ C++ РёРЅС‚РµСЂС„РµР№СЃ. Р‘РѕР»СЊС€РёРЅСЃС‚РІРѕ С„СѓРЅРєС†РёР№ Р±РёР±Р»РёРѕС‚РµРєРё СЂРµР°Р»РёР·РѕРІР°РЅС‹ РЅР° СЏР·С‹РєРµ Р°СЃСЃРµРјР±Р»РµСЂР° СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј РІРµРєС‚РѕСЂРЅС‹С… РёРЅСЃС‚СЂСѓРєС†РёР№ Рё РѕРїС‚РёРјРёР·РёСЂРѕРІР°РЅС‹ РїРѕРґ Р°СЂС…РёС‚РµРєС‚СѓСЂСѓ РїСЂРѕС†РµСЃСЃРѕСЂРѕРІ NM6403. 
 
-Для удобства разработки прикладных программ библиотека содержит аналогичные реализации функций для процессоров серии x86, выполненных на языке С++. Данные реализации позволяют выполнять написанные с использованием данной библиотеки прикладные программы на персональном компьютере. 
+Р”Р»СЏ СѓРґРѕР±СЃС‚РІР° СЂР°Р·СЂР°Р±РѕС‚РєРё РїСЂРёРєР»Р°РґРЅС‹С… РїСЂРѕРіСЂР°РјРј Р±РёР±Р»РёРѕС‚РµРєР° СЃРѕРґРµСЂР¶РёС‚ Р°РЅР°Р»РѕРіРёС‡РЅС‹Рµ СЂРµР°Р»РёР·Р°С†РёРё С„СѓРЅРєС†РёР№ РґР»СЏ РїСЂРѕС†РµСЃСЃРѕСЂРѕРІ СЃРµСЂРёРё x86, РІС‹РїРѕР»РЅРµРЅРЅС‹С… РЅР° СЏР·С‹РєРµ РЎ++. Р”Р°РЅРЅС‹Рµ СЂРµР°Р»РёР·Р°С†РёРё РїРѕР·РІРѕР»СЏСЋС‚ РІС‹РїРѕР»РЅСЏС‚СЊ РЅР°РїРёСЃР°РЅРЅС‹Рµ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј РґР°РЅРЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРё РїСЂРёРєР»Р°РґРЅС‹Рµ РїСЂРѕРіСЂР°РјРјС‹ РЅР° РїРµСЂСЃРѕРЅР°Р»СЊРЅРѕРј РєРѕРјРїСЊСЋС‚РµСЂРµ. 
 	\en
-The purpose of the library is to support the base functions for signal processing on  NM6403,NM6404,NM6405 processors. The library сontains FIR-filters, non-linear filters and resampling functions. The library is meant for fast development of effective user programs in a high level language(С++). 
+The purpose of the library is to support the base functions for signal processing on  NM6403,NM6404,NM6405 processors. The library СЃontains FIR-filters, non-linear filters and resampling functions. The library is meant for fast development of effective user programs in a high level language(РЎ++). 
 
 The library functions have a C++ interface. Most of the library functions are implemented in assembly language with using vector core instructions and optimized for the processor architecture. 
 
@@ -35,7 +35,7 @@ For convenience of application programs development the library has implementati
 	/**
     *
     * \ru
-    *     	\defgroup sConvolution Свертка
+    *     	\defgroup sConvolution РЎРІРµСЂС‚РєР°
     * \en
     *     	\defgroup sConvolution Convolution
     * \~
@@ -48,7 +48,7 @@ For convenience of application programs development the library has implementati
 	/**
     *
     * \ru
-    *     \defgroup sFiltration Масочная фильтрация
+    *     \defgroup sFiltration РњР°СЃРѕС‡РЅР°СЏ С„РёР»СЊС‚СЂР°С†РёСЏ
     * \en
     *     \defgroup sFiltration Mask filtration
     * \~
@@ -63,7 +63,7 @@ For convenience of application programs development the library has implementati
 	/**
     *
     * \ru
-    *     \defgroup sResample Изменение размеров
+    *     \defgroup sResample РР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂРѕРІ
     * \en
     *     \defgroup sResample Resample
     * \~
@@ -77,7 +77,7 @@ For convenience of application programs development the library has implementati
 	/**
     *
     * \ru
-    *     \defgroup sFFT_32fc Быстрое преобразование Фурье
+    *     \defgroup sFFT_32fc Р‘С‹СЃС‚СЂРѕРµ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ Р¤СѓСЂСЊРµ
     * \en
     *     \defgroup sFFT_32fc Fast Fourier Trasform
     * \~

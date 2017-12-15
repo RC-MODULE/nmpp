@@ -4,6 +4,7 @@
 #include "time.h"
 #include "malloc32.h"
 #include "fft.h"
+#include "stdio.h"
 
 void  FFT_Fwd256(
 			const nm32sc*	GSrcBuffer,		// Source buffer :long[256]
@@ -57,33 +58,45 @@ int nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder)
 {
 	unsigned heapIndx0;
 	unsigned heapIndx1;
-	fseq64   route;
+	fseq64   route,bestRoute;
 	NmppsFFTSpec* spec;
 	clock_t t0,t1;
 	clock_t bestTime=0x1000000;
 	*allocOrder=0xFFFFFF00;
 
-	for(heapIndx0=0; heapIndx0<4; heapIndx0++){
-		for(heapIndx1=0; heapIndx1<4; heapIndx1++){
+	//for(heapIndx0=0; heapIndx0<4; heapIndx0++){
+		//for(heapIndx1=0; heapIndx1<4; heapIndx1++){
+	nmppsMallocSetRouteMode();
+	nmppsMallocResetRoute();
+	//nmppsMallocSpec.route[0]=0x0;
+	nmppsMallocGetRoute16(allocOrder);
+	printf("%x--\n",*allocOrder);
+	do{
+		//nmppsMallocSpec.route[0]=0x0;
+		nmppsMallocResetPos();
+		//route =0xF00|(heapIndx1<<4)|(heapIndx0); 
+		//!nmppsMallocSetRouteMode(route);
+		//nmppsMallocSetRoute16(route);
+		
+		if (nmppsFFT256FwdInitAllocCustom(&spec, nmppsMalloc32, nmppsFree, NMPP_OPTIMIZE_DISABLE )==NMPP_OK){
+			t0=clock();
+			nmppsFFT256Fwd((nm32sc*)src, (nm32sc*)dst, spec);
+			t1=clock();
 
-
-			route =0xF0|(heapIndx1<<4)|(heapIndx0); 
-			//!nmppsMallocSetRouteMode(route);
-			
-			if (nmppsFFT256FwdInitAllocCustom(&spec, nmppsMalloc32, nmppsFree, NMPP_OPTIMIZE_DISABLE )==NMPP_OK){
-				t0=clock();
-				nmppsFFT256Fwd((nm32sc*)src, (nm32sc*)dst, spec);
-				t1=clock();
-
-				if (bestTime>t1-t0){
-					bestTime=t1-t0;
-					//!nmppsMallocGetHistory(allocOrder,2);
-				}
+			if (bestTime>t1-t0){
+				bestTime=t1-t0;
+				nmppsMallocGetRoute16(allocOrder);
+				printf("%x\n",*allocOrder);
+				//!nmppsMallocGetHistory(allocOrder,2);
 			}
-			nmppsMallocSpec.status=0;
-			nmppsFFTFree(spec);
 		}
+		nmppsMallocSpec.status=0;
+		nmppsFFTFree(spec);
 	}
+	while (!nmppsMallocIncrementRoute());
+
+	
+
 	if (bestTime<0x1000000)	return NMPP_OK;
 	else					return NMPP_ERROR;
 }

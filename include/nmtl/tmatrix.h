@@ -22,11 +22,11 @@
 //*****************************************************************************
 /**
 	 \ingroup nmtl
-	 \ru Êëàññ ìàòğèö.
+	 \ru ĞšĞ»Ğ°ÑÑ Ğ¼Ğ°Ñ‚Ñ€Ğ¸Ñ†.
 	 \en Class mtr
 	
 		\~
-	   \ru \par Ïğèìåğû:
+	   \ru \par ĞŸÑ€Ğ¸Ğ¼ĞµÑ€Ñ‹:
 		 \en \par Example:
 			\~
 			\code
@@ -212,7 +212,7 @@ public:
 		}
 	};
 */
-	// constructoê of matrix over existing data
+	// constructoĞº of matrix over existing data
 	void assign(T* Data,int nHeight,int nWidth,int nStride=0){
 		m_height=nHeight;
 		m_width=nWidth;

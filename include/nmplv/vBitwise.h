@@ -2,7 +2,7 @@
 //
 //  $Workfile:: vBitwis $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   vLogic.h
-//! \author Сергей Мушкаев
-//! \brief  Определение бинарных и логических функций для векторов.
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  РћРїСЂРµРґРµР»РµРЅРёРµ Р±РёРЅР°СЂРЅС‹С… Рё Р»РѕРіРёС‡РµСЃРєРёС… С„СѓРЅРєС†РёР№ РґР»СЏ РІРµРєС‚РѕСЂРѕРІ.
 //!
 //! \endif
 //!
@@ -31,7 +31,7 @@
     \defgroup nmppsNot_ nmppsNot_
     \ingroup vBitwise
     \brief
-        \ru Функция логического "НЕ". 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ "РќР•". 
         \en Logical NOT function. 
     
 		\~
@@ -42,24 +42,24 @@
     
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
-    \ru Функция изменяет  значения всех битов входного 
-        вектора  на  противоположные. 
+    \ru Р¤СѓРЅРєС†РёСЏ РёР·РјРµРЅСЏРµС‚  Р·РЅР°С‡РµРЅРёСЏ РІСЃРµС… Р±РёС‚РѕРІ РІС…РѕРґРЅРѕРіРѕ 
+        РІРµРєС‚РѕСЂР°  РЅР°  РїСЂРѕС‚РёРІРѕРїРѕР»РѕР¶РЅС‹Рµ. 
     \en The function changes the values of all bits of the 
         input vec elements for the opposite ones. 
 
 		\~
 		\~
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 
 		\~
@@ -94,7 +94,7 @@ void nmppsNot_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize);
     \defgroup nmppsAndC nmppsAndC
     \ingroup vBitwise
     \brief
-        \ru Функция логического "И" между вектором и константой. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ "Р" РјРµР¶РґСѓ РІРµРєС‚РѕСЂРѕРј Рё РєРѕРЅСЃС‚Р°РЅС‚РѕР№. 
         \en Logical AND function between vec and constant. 
     
 		\~
@@ -106,23 +106,23 @@ void nmppsNot_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize);
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nVal     
-        \ru Константа. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р°. 
         \en Constant. 
 		\~
     \param pnVal    
-        \ru Указатель на константу. 
+        \ru РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕРЅСЃС‚Р°РЅС‚Сѓ. 
         \en Pointer to the constant. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \retval pDstVec 
-		    \ru Результирующий вектор.
+		    \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ.
         \en Result vec. 
 		\~
     \return \e void 
@@ -159,7 +159,7 @@ void nmppsAndC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize
     \defgroup nmppsAnd nmppsAnd
     \ingroup vBitwise
     \brief
-        \ru Функция логического "И" между двумя векторами. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ "Р" РјРµР¶РґСѓ РґРІСѓРјСЏ РІРµРєС‚РѕСЂР°РјРё. 
         \en Logical AND function between two vectors. 
     
 		\~
@@ -171,19 +171,19 @@ void nmppsAndC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec1 
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param pSrcVec2 
-        \ru Второй входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -219,7 +219,7 @@ void nmppsAnd_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, 
     \defgroup nmppsAnd4V_ nmppsAnd4V_
     \ingroup vBitwise
     \brief
-        \ru Функция логического "И" между четырьмя векторами. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ "Р" РјРµР¶РґСѓ С‡РµС‚С‹СЂСЊРјСЏ РІРµРєС‚РѕСЂР°РјРё. 
         \en The function of logical AND between four vectors. 
     
 		\~
@@ -231,27 +231,27 @@ void nmppsAnd_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, 
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec1 
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param pSrcVec2 
-        \ru Второй входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
 	\param pSrcVec3 
-        \ru Третий входной вектор. 
+        \ru РўСЂРµС‚РёР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The third input vec. 
 		\~
 	\param pSrcVec4 
-        \ru Четвертый входной вектор. 
+        \ru Р§РµС‚РІРµСЂС‚С‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The fourth input vec. 
 		\~	
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -285,7 +285,7 @@ void nmppsAndNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
     \defgroup nmppsAndNotV_ nmppsAndNotV_
     \ingroup vBitwise
     \brief
-        \ru Функция логического "И-НЕ" между двумя векторами. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ "Р-РќР•" РјРµР¶РґСѓ РґРІСѓРјСЏ РІРµРєС‚РѕСЂР°РјРё. 
         \en Logical AND NOT function between two vectors. 
     
 		\~
@@ -297,19 +297,19 @@ void nmppsAndNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec1 
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param pSrcVec2 
-        \ru Второй входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -341,7 +341,7 @@ void nmppsAndNotV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSiz
     \defgroup nmppsOrC nmppsOrC
     \ingroup vBitwise
     \brief
-        \ru Функция логического "ИЛИ" между вектором и константой. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ "РР›Р" РјРµР¶РґСѓ РІРµРєС‚РѕСЂРѕРј Рё РєРѕРЅСЃС‚Р°РЅС‚РѕР№. 
         \en The function of logical OR between a vectors and a constant. 
     
 		\~
@@ -353,23 +353,23 @@ void nmppsAndNotV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSiz
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nVal     
-        \ru Константа. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р°. 
         \en Constant. 
 		\~
     \param pnVal    
-        \ru Указатель на константу.
+        \ru РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕРЅСЃС‚Р°РЅС‚Сѓ.
         \en Pointer to constant. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -404,7 +404,7 @@ void nmppsOrC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize)
     \defgroup nmppsOr nmppsOr
     \ingroup vBitwise
     \brief
-        \ru Функция логического "ИЛИ" между двумя векторами. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ "РР›Р" РјРµР¶РґСѓ РґРІСѓРјСЏ РІРµРєС‚РѕСЂР°РјРё. 
         \en The function of logical OR between two vectors. 
     
 		\~
@@ -416,19 +416,19 @@ void nmppsOrC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize)
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec1 
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param pSrcVec2 
-        \ru Второй входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -464,7 +464,7 @@ void nmppsOr_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, i
     \defgroup nmppsOr3V_ nmppsOr3V_
     \ingroup vBitwise
     \brief
-        \ru Функция логического "ИЛИ" между четырьмя векторами. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ "РР›Р" РјРµР¶РґСѓ С‡РµС‚С‹СЂСЊРјСЏ РІРµРєС‚РѕСЂР°РјРё. 
         \en The function of logical OR between four vectors. 
     
 		\~
@@ -476,23 +476,23 @@ void nmppsOr_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, i
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec1 
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param pSrcVec2 
-        \ru Второй входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
 	\param pSrcVec3 
-        \ru Третий входной вектор. 
+        \ru РўСЂРµС‚РёР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The third input vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -522,7 +522,7 @@ void nmppsOr3V_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pDs
     \defgroup nmppsOr4V_ nmppsOr4V_
     \ingroup vBitwise
     \brief
-        \ru Функция логического "ИЛИ" между четырьмя векторами. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ "РР›Р" РјРµР¶РґСѓ С‡РµС‚С‹СЂСЊРјСЏ РІРµРєС‚РѕСЂР°РјРё. 
         \en The function of logical OR between four vectors. 
     
 		\~
@@ -534,27 +534,27 @@ void nmppsOr3V_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pDs
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec1 
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param pSrcVec2 
-        \ru Второй входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
 	\param pSrcVec3 
-        \ru Третий входной вектор. 
+        \ru РўСЂРµС‚РёР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The third input vec. 
 		\~
 	\param pSrcVec4 
-        \ru Четвертый входной вектор. 
+        \ru Р§РµС‚РІРµСЂС‚С‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The fourth input vec. 
 		\~	
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -589,7 +589,7 @@ void nmppsOrNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
     \defgroup nmppsXorC nmppsXorC
     \ingroup vBitwise
     \brief
-        \ru Функция логического "Исключающего ИЛИ" между вектором и константой. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ "РСЃРєР»СЋС‡Р°СЋС‰РµРіРѕ РР›Р" РјРµР¶РґСѓ РІРµРєС‚РѕСЂРѕРј Рё РєРѕРЅСЃС‚Р°РЅС‚РѕР№. 
         \en Logical Exclusive OR function between a vec and a constant.   
     
 		\~
@@ -601,23 +601,23 @@ void nmppsOrNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nVal     
-        \ru Константа. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р°. 
         \en Constant. 
 		\~
     \param pnVal    
-        \ru Указатель на константу. 
+        \ru РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕРЅСЃС‚Р°РЅС‚Сѓ. 
         \en Pointer to constant. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -653,7 +653,7 @@ void nmppsXorC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize
     \defgroup nmppsXor nmppsXor
     \ingroup vBitwise
     \brief
-        \ru Функция логического "Исключающего ИЛИ" между двумя векторами. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ "РСЃРєР»СЋС‡Р°СЋС‰РµРіРѕ РР›Р" РјРµР¶РґСѓ РґРІСѓРјСЏ РІРµРєС‚РѕСЂР°РјРё. 
         \en Logical Exclusive OR function between two vectors.   
     
 		\~
@@ -665,19 +665,19 @@ void nmppsXorC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec1 
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param pSrcVec2 
-        \ru Второй Входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -712,7 +712,7 @@ void nmppsXor_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, 
     \defgroup nmppsMaskV_ nmppsMaskV_
     \ingroup vBitwise
     \brief
-        \ru Функция логического ИЛИ с предварительным маскированием двух векторов. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ РР›Р СЃ РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Рј РјР°СЃРєРёСЂРѕРІР°РЅРёРµРј РґРІСѓС… РІРµРєС‚РѕСЂРѕРІ. 
         \en Logical OR function with preliminary masking of two vectors.  
     
 		\~
@@ -725,23 +725,23 @@ void nmppsXor_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, 
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec1 
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param pSrcVec2 
-        \ru Второй Входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
     \param pMaskVec 
-        \ru Вектор маски. 
+        \ru Р’РµРєС‚РѕСЂ РјР°СЃРєРё. 
         \en Mask vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -775,7 +775,7 @@ void nmppsMaskV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pMaskVec, nm64u* pD
     \defgroup nmppsRShiftC nmppsRShiftC
     \ingroup vBitwise
     \brief
-        \ru Операция арифметического сдвига вправо. 
+        \ru РћРїРµСЂР°С†РёСЏ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРіРѕ СЃРґРІРёРіР° РІРїСЂР°РІРѕ. 
         \en Arithmetic shift to the right. 
     
 		\~
@@ -788,9 +788,9 @@ void nmppsMaskV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pMaskVec, nm64u* pD
         i = \overline{0 \ldots nSize-1}
     \f]
     
-    \ru Функции реализуют операции арифметического сдвига вправо  битов 
-        элементов вектора. 
-        Освободившиеся биты заполняются знаковым битом - старшим битом. 
+    \ru Р¤СѓРЅРєС†РёРё СЂРµР°Р»РёР·СѓСЋС‚ РѕРїРµСЂР°С†РёРё Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРіРѕ СЃРґРІРёРіР° РІРїСЂР°РІРѕ  Р±РёС‚РѕРІ 
+        СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°. 
+        РћСЃРІРѕР±РѕРґРёРІС€РёРµСЃСЏ Р±РёС‚С‹ Р·Р°РїРѕР»РЅСЏСЋС‚СЃСЏ Р·РЅР°РєРѕРІС‹Рј Р±РёС‚РѕРј - СЃС‚Р°СЂС€РёРј Р±РёС‚РѕРј. 
     \en The functions implement operations of arithmetic shift to the right 
         of vec element bits. 
         The freed bits are filled with sign bit. 
@@ -798,22 +798,22 @@ void nmppsMaskV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pMaskVec, nm64u* pD
 		\~
 		\~
     \param	pSrcVec		
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param	nSize		
-        \ru Размер вектора в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vectors size in elements. 
 		\~
     \param	nShift		
-        \ru Параметр определяет на сколько позиций нужно 
-                            сдвинуть биты элементов вектора. 
+        \ru РџР°СЂР°РјРµС‚СЂ РѕРїСЂРµРґРµР»СЏРµС‚ РЅР° СЃРєРѕР»СЊРєРѕ РїРѕР·РёС†РёР№ РЅСѓР¶РЅРѕ 
+                            СЃРґРІРёРЅСѓС‚СЊ Р±РёС‚С‹ СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°. 
         \en This parameter defines for how many positions 
                             vec elements should be shifted. 
 
 		\~
     \retval	pDstVec		
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en Result vec. 
 
 		\~
@@ -854,7 +854,7 @@ void nmppsRShiftC_64s(const nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSiz
     \defgroup nmppsRShiftC_ nmppsRShiftC_
     \ingroup vBitwise
     \brief
-        \ru Операция логического сдвига. 
+        \ru РћРїРµСЂР°С†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СЃРґРІРёРіР°. 
         \en Logical shift operation. 
     
 		\~
@@ -865,9 +865,9 @@ void nmppsRShiftC_64s(const nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSiz
     
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
-    \ru Функции реализуют операции логического сдвига вправо  битов элементов вектора. 
-        Сдвиг осуществляется на число бит, указанных  в  соответствующем операнде.
-        Освободившиеся биты заполняются нулями. 
+    \ru Р¤СѓРЅРєС†РёРё СЂРµР°Р»РёР·СѓСЋС‚ РѕРїРµСЂР°С†РёРё Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СЃРґРІРёРіР° РІРїСЂР°РІРѕ  Р±РёС‚РѕРІ СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°. 
+        РЎРґРІРёРі РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚СЃСЏ РЅР° С‡РёСЃР»Рѕ Р±РёС‚, СѓРєР°Р·Р°РЅРЅС‹С…  РІ  СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРј РѕРїРµСЂР°РЅРґРµ.
+        РћСЃРІРѕР±РѕРґРёРІС€РёРµСЃСЏ Р±РёС‚С‹ Р·Р°РїРѕР»РЅСЏСЋС‚СЃСЏ РЅСѓР»СЏРјРё. 
     \en The functions implement the operations of logical shift to the right of vec element bits. 
         The shift is made for the number of bits indicated in the corresponding operand.
         The freed bits are filled with zeros. 
@@ -875,21 +875,21 @@ void nmppsRShiftC_64s(const nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSiz
 		\~
 		\~
     \param	pSrcVec		
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param	nSize		
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \param	nShift		
-        \ru Определяет на сколько позиций нужно сдвинуть 
-                            биты элемента вектора. 
+        \ru РћРїСЂРµРґРµР»СЏРµС‚ РЅР° СЃРєРѕР»СЊРєРѕ РїРѕР·РёС†РёР№ РЅСѓР¶РЅРѕ СЃРґРІРёРЅСѓС‚СЊ 
+                            Р±РёС‚С‹ СЌР»РµРјРµРЅС‚Р° РІРµРєС‚РѕСЂР°. 
         \en Defines for how many positions the vec element bits should be shifted. 
 
 		\~
     \retval	pDstVec		
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en Result vec. 
 
 		\~
@@ -930,7 +930,7 @@ void  nmppsRShiftC_64u(const nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSi
     \defgroup nmppsRShiftC_AddC_ nmppsRShiftC_AddC_
     \ingroup vBitwise
     \brief
-        \ru Операция логического сдвига. 
+        \ru РћРїРµСЂР°С†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СЃРґРІРёРіР°. 
         \en Logical shift operation. 
     
 		\~
@@ -941,10 +941,10 @@ void  nmppsRShiftC_64u(const nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSi
     
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
-    \ru Функции реализуют операции логического сдвига вправо  битов элементов вектора 
-		с прибавлением консанты.
-        Сдвиг осуществляется на число бит, указанных  в  соответствующем операнде.
-        Освободившиеся биты заполняются нулями. 
+    \ru Р¤СѓРЅРєС†РёРё СЂРµР°Р»РёР·СѓСЋС‚ РѕРїРµСЂР°С†РёРё Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СЃРґРІРёРіР° РІРїСЂР°РІРѕ  Р±РёС‚РѕРІ СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР° 
+		СЃ РїСЂРёР±Р°РІР»РµРЅРёРµРј РєРѕРЅСЃР°РЅС‚С‹.
+        РЎРґРІРёРі РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚СЃСЏ РЅР° С‡РёСЃР»Рѕ Р±РёС‚, СѓРєР°Р·Р°РЅРЅС‹С…  РІ  СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРј РѕРїРµСЂР°РЅРґРµ.
+        РћСЃРІРѕР±РѕРґРёРІС€РёРµСЃСЏ Р±РёС‚С‹ Р·Р°РїРѕР»РЅСЏСЋС‚СЃСЏ РЅСѓР»СЏРјРё. 
     \en The functions implement the operations of logical shift to the right of vec element bits  
 		with constant addition.
 		The shift is made for the number of bits indicated in the corresponding operand.
@@ -953,23 +953,23 @@ void  nmppsRShiftC_64u(const nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSi
 		\~
 		\~
     \param	pSrcVec		
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param	nAddVal		
-        \ru Константа для суммирования. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р° РґР»СЏ СЃСѓРјРјРёСЂРѕРІР°РЅРёСЏ. 
         \en Constant for addition. 
 		\~
 	\param	nSize		
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \param	nShift		
-        \ru Определяет на сколько позиций нужно сдвинуть биты элемента вектора. 
+        \ru РћРїСЂРµРґРµР»СЏРµС‚ РЅР° СЃРєРѕР»СЊРєРѕ РїРѕР·РёС†РёР№ РЅСѓР¶РЅРѕ СЃРґРІРёРЅСѓС‚СЊ Р±РёС‚С‹ СЌР»РµРјРµРЅС‚Р° РІРµРєС‚РѕСЂР°. 
         \en Defines for how many positions the vec element bits should be shifted. 
 		\~
     \retval	pDstVec		
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en Result vec. 
 
 		\~
@@ -1013,25 +1013,25 @@ void nmppsRShiftC_AddC_32u(const nm32u *pSrcVec,  int nShift, uint32b nAddVal,  
     \defgroup nmppsDisplaceBits nmppsDisplaceBits
     \ingroup vBitwise
     \brief
-		\ru Непрерывное смещение битов внутри бинарного массива в сторону конца массива
+		\ru РќРµРїСЂРµСЂС‹РІРЅРѕРµ СЃРјРµС‰РµРЅРёРµ Р±РёС‚РѕРІ РІРЅСѓС‚СЂРё Р±РёРЅР°СЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ СЃС‚РѕСЂРѕРЅСѓ РєРѕРЅС†Р° РјР°СЃСЃРёРІР°
 		\en Continuous displacement of bits within binary array in direction to the end of array
 		
 		\~
 		\ru
-			Функция смещает биты внутри бинарного массива на несколько позиций (nBits) в сторону конца массива. 
-			Внутри 64р. слова младшие биты сдвигаются на старшие позиции того же слова, а старшие биты 
-			перемещаются в младшие позиции следующего 64р. слова. Освободившееся место в первом 64р. слове 
-			заполняется старшими битами 64р. слова с адреса pnBits.  Сдвинутые биты сохраняются в массиве pDst.
-			Пример сдвига на 8 бит : 
+			Р¤СѓРЅРєС†РёСЏ СЃРјРµС‰Р°РµС‚ Р±РёС‚С‹ РІРЅСѓС‚СЂРё Р±РёРЅР°СЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РЅР° РЅРµСЃРєРѕР»СЊРєРѕ РїРѕР·РёС†РёР№ (nBits) РІ СЃС‚РѕСЂРѕРЅСѓ РєРѕРЅС†Р° РјР°СЃСЃРёРІР°. 
+			Р’РЅСѓС‚СЂРё 64СЂ. СЃР»РѕРІР° РјР»Р°РґС€РёРµ Р±РёС‚С‹ СЃРґРІРёРіР°СЋС‚СЃСЏ РЅР° СЃС‚Р°СЂС€РёРµ РїРѕР·РёС†РёРё С‚РѕРіРѕ Р¶Рµ СЃР»РѕРІР°, Р° СЃС‚Р°СЂС€РёРµ Р±РёС‚С‹ 
+			РїРµСЂРµРјРµС‰Р°СЋС‚СЃСЏ РІ РјР»Р°РґС€РёРµ РїРѕР·РёС†РёРё СЃР»РµРґСѓСЋС‰РµРіРѕ 64СЂ. СЃР»РѕРІР°. РћСЃРІРѕР±РѕРґРёРІС€РµРµСЃСЏ РјРµСЃС‚Рѕ РІ РїРµСЂРІРѕРј 64СЂ. СЃР»РѕРІРµ 
+			Р·Р°РїРѕР»РЅСЏРµС‚СЃСЏ СЃС‚Р°СЂС€РёРјРё Р±РёС‚Р°РјРё 64СЂ. СЃР»РѕРІР° СЃ Р°РґСЂРµСЃР° pnBits.  РЎРґРІРёРЅСѓС‚С‹Рµ Р±РёС‚С‹ СЃРѕС…СЂР°РЅСЏСЋС‚СЃСЏ РІ РјР°СЃСЃРёРІРµ pDst.
+			РџСЂРёРјРµСЂ СЃРґРІРёРіР° РЅР° 8 Р±РёС‚ : 
 			\~
 			\verbatim
 				pnBits =[AB00000000000000]
 				pSrcVec=[0807060504030201][FF0F0E0D0C0B0A09]
 				pDstVec=[07060504030201AB][0F0E0D0C0B0A0908]
 			\endverbatim
-			Последние 8 бит массива pDstVec будут потеряны.
-			Если же указатель pBits установить на последнее 64р. слово в результате получится цикличическое 
-			перемещение бит.
+			РџРѕСЃР»РµРґРЅРёРµ 8 Р±РёС‚ РјР°СЃСЃРёРІР° pDstVec Р±СѓРґСѓС‚ РїРѕС‚РµСЂСЏРЅС‹.
+			Р•СЃР»Рё Р¶Рµ СѓРєР°Р·Р°С‚РµР»СЊ pBits СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР° РїРѕСЃР»РµРґРЅРµРµ 64СЂ. СЃР»РѕРІРѕ РІ СЂРµР·СѓР»СЊС‚Р°С‚Рµ РїРѕР»СѓС‡РёС‚СЃСЏ С†РёРєР»РёС‡РёС‡РµСЃРєРѕРµ 
+			РїРµСЂРµРјРµС‰РµРЅРёРµ Р±РёС‚.
 		\en
 			Function dispaces bits within binary array by several positions (nBits) in direction to the 
 			end of array. Buffer pSrcVec is considered as a bitstream which is contained in 64-bit array.
@@ -1049,26 +1049,26 @@ void nmppsRShiftC_AddC_32u(const nm32u *pSrcVec,  int nShift, uint32b nAddVal,  
 
 		\~
     \param	pSrcVec		
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param	nSize		
-        \ru Размер векторов в 64р. элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ 64СЂ. СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in 64-bit words. 
 
 		\~
     \param	pnBits		
-        \ru Указатель на 64р-слово, старшие биты которого записываются на освобождающуюся при сдвиге младшую часть первого 64р. слова
+        \ru РЈРєР°Р·Р°С‚РµР»СЊ РЅР° 64СЂ-СЃР»РѕРІРѕ, СЃС‚Р°СЂС€РёРµ Р±РёС‚С‹ РєРѕС‚РѕСЂРѕРіРѕ Р·Р°РїРёСЃС‹РІР°СЋС‚СЃСЏ РЅР° РѕСЃРІРѕР±РѕР¶РґР°СЋС‰СѓСЋСЃСЏ РїСЂРё СЃРґРІРёРіРµ РјР»Р°РґС€СѓСЋ С‡Р°СЃС‚СЊ РїРµСЂРІРѕРіРѕ 64СЂ. СЃР»РѕРІР°
         \en Pointer to 64bit word whose highset bit are placed to the remaining low part of the first 64bit-word of array. 
 
 		\~
     \param	nBits		
-        \ru Кол-во позиций на которое происходит смещение бит :nBits=[2,4,6....62].
+        \ru РљРѕР»-РІРѕ РїРѕР·РёС†РёР№ РЅР° РєРѕС‚РѕСЂРѕРµ РїСЂРѕРёСЃС…РѕРґРёС‚ СЃРјРµС‰РµРЅРёРµ Р±РёС‚ :nBits=[2,4,6....62].
         \en Value of bit displacement 	:nBits=[2,4,6....62].
 
 		\~
     \retval	pDstVec		
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en Result vec. 
 
 		\~

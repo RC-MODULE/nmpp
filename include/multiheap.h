@@ -10,27 +10,27 @@ typedef unsigned size_t32;
 
 #define GUARD_BITS 0x600DB1D5
 #define MAX_BUFFER32_SIZE 16*1024*1024/4 
-/// класс буфер - заголовок в начале выделяемой данамической памяти 
+/// РєР»Р°СЃСЃ Р±СѓС„РµСЂ - Р·Р°РіРѕР»РѕРІРѕРє РІ РЅР°С‡Р°Р»Рµ РІС‹РґРµР»СЏРµРјРѕР№ РґР°РЅР°РјРёС‡РµСЃРєРѕР№ РїР°РјСЏС‚Рё 
 struct S_BufferInfo{
 	int 			guardInfoBits0;
-	size_t32		size32Buffer;	///<< размер массива данных в буфере в 32-р словах
-	S_BufferInfo*	pPrevBuffer;	///<< указатель на предыдущий буфер в списке 
-	S_BufferInfo*	pNextBuffer;	///<< указатель на следующий буфер в списке 
-	bool			isLocked;		///<< флаг блокировки буфера, запрещаюий его удаление с помощью Release()
+	size_t32		size32Buffer;	///<< СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР° РґР°РЅРЅС‹С… РІ Р±СѓС„РµСЂРµ РІ 32-СЂ СЃР»РѕРІР°С…
+	S_BufferInfo*	pPrevBuffer;	///<< СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїСЂРµРґС‹РґСѓС‰РёР№ Р±СѓС„РµСЂ РІ СЃРїРёСЃРєРµ 
+	S_BufferInfo*	pNextBuffer;	///<< СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃР»РµРґСѓСЋС‰РёР№ Р±СѓС„РµСЂ РІ СЃРїРёСЃРєРµ 
+	bool			isLocked;		///<< С„Р»Р°Рі Р±Р»РѕРєРёСЂРѕРІРєРё Р±СѓС„РµСЂР°, Р·Р°РїСЂРµС‰Р°СЋРёР№ РµРіРѕ СѓРґР°Р»РµРЅРёРµ СЃ РїРѕРјРѕС‰СЊСЋ Release()
 	int				guardInfoBits1;
 
 	
-	/// Возвращает указатель на данные в буфере 
+	/// Р’РѕР·РІСЂР°С‰Р°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РґР°РЅРЅС‹Рµ РІ Р±СѓС„РµСЂРµ 
 	int* DataBegin(){
 		return ((int*)this+sizeof(S_BufferInfo)/sizeof(int));
 	};
 
-	/// Возвращает указатель на конец данных в буфере (следу)
+	/// Р’РѕР·РІСЂР°С‰Р°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕРЅРµС† РґР°РЅРЅС‹С… РІ Р±СѓС„РµСЂРµ (СЃР»РµРґСѓ)
 	int* DataEnd(){
 		int *p=((int*)this+sizeof(S_BufferInfo)/sizeof(int)+size32Buffer);
 		return p;
 	}
-	/// Возвращает указатель на конечные защитные поля (2 слова)
+	/// Р’РѕР·РІСЂР°С‰Р°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕРЅРµС‡РЅС‹Рµ Р·Р°С‰РёС‚РЅС‹Рµ РїРѕР»СЏ (2 СЃР»РѕРІР°)
 	int* EndGuardBits(){
 		return DataEnd()-2;
 	}
@@ -60,13 +60,13 @@ struct S_BufferInfo{
 };
 
 
-/// класс - куча
+/// РєР»Р°СЃСЃ - РєСѓС‡Р°
 class  C_Heap{
 public:
-	S_BufferInfo*	pZeroBuffer;		///<< указатель на нулевой буфер в списке (c нулевым размером)
-	int*			pHeapEnd;			///<< указатель на слово следуюшее за концом кучи 
-	int				size32HeapAvail;	///<< размер общей свободной памяти в куче
-	bool			isHeapLocked;		///<< запрещает операции с кучей 
+	S_BufferInfo*	pZeroBuffer;		///<< СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РЅСѓР»РµРІРѕР№ Р±СѓС„РµСЂ РІ СЃРїРёСЃРєРµ (c РЅСѓР»РµРІС‹Рј СЂР°Р·РјРµСЂРѕРј)
+	int*			pHeapEnd;			///<< СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃР»РѕРІРѕ СЃР»РµРґСѓСЋС€РµРµ Р·Р° РєРѕРЅС†РѕРј РєСѓС‡Рё 
+	int				size32HeapAvail;	///<< СЂР°Р·РјРµСЂ РѕР±С‰РµР№ СЃРІРѕР±РѕРґРЅРѕР№ РїР°РјСЏС‚Рё РІ РєСѓС‡Рµ
+	bool			isHeapLocked;		///<< Р·Р°РїСЂРµС‰Р°РµС‚ РѕРїРµСЂР°С†РёРё СЃ РєСѓС‡РµР№ 
 	int				status;
 	C_Heap() {
 		pZeroBuffer   = 0;
@@ -75,15 +75,15 @@ public:
 		isHeapLocked=false;
 		status =0;
 	}
-	/// конструктор - создает кучу в указанной памяти
+	/// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ - СЃРѕР·РґР°РµС‚ РєСѓС‡Сѓ РІ СѓРєР°Р·Р°РЅРЅРѕР№ РїР°РјСЏС‚Рё
 	C_Heap (void* addrHeap, size_t32 size32Heap){
 		Create(addrHeap,size32Heap);
 	}
 
-	/// создает кучу в указанной памяти
+	/// СЃРѕР·РґР°РµС‚ РєСѓС‡Сѓ РІ СѓРєР°Р·Р°РЅРЅРѕР№ РїР°РјСЏС‚Рё
 	void Create( void* addrHeap, size_t32 size32Heap){
 		
-		pZeroBuffer= (S_BufferInfo*)addrHeap;								// начальный адрес кучи
+		pZeroBuffer= (S_BufferInfo*)addrHeap;								// РЅР°С‡Р°Р»СЊРЅС‹Р№ Р°РґСЂРµСЃ РєСѓС‡Рё
 		pZeroBuffer->pPrevBuffer=0;
 		pZeroBuffer->pNextBuffer=0;
 		pZeroBuffer->size32Buffer=0;
@@ -91,18 +91,18 @@ public:
 		pZeroBuffer->guardInfoBits0=GUARD_BITS;
 		pZeroBuffer->guardInfoBits1=GUARD_BITS;
 
-		pHeapEnd   = (int*)addrHeap+size32Heap;								// конечный адрес кучи (следующий за последним байтом кучи)
+		pHeapEnd   = (int*)addrHeap+size32Heap;								// РєРѕРЅРµС‡РЅС‹Р№ Р°РґСЂРµСЃ РєСѓС‡Рё (СЃР»РµРґСѓСЋС‰РёР№ Р·Р° РїРѕСЃР»РµРґРЅРёРј Р±Р°Р№С‚РѕРј РєСѓС‡Рё)
 		size32HeapAvail=pHeapEnd-(int*)pZeroBuffer->DataEnd();
 	}
 	
-	/// устанавливает принадлежность к куче
+	/// СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїСЂРёРЅР°РґР»РµР¶РЅРѕСЃС‚СЊ Рє РєСѓС‡Рµ
 	int IsMine(void* addr){
 		if ((int*)pZeroBuffer < (int*)addr && (int*)addr < pHeapEnd)
 			return 1;
 		return 0;
 	}
 
-	/// Возвращает объем свободной памяти в пуле в 32р. словах
+	/// Р’РѕР·РІСЂР°С‰Р°РµС‚ РѕР±СЉРµРј СЃРІРѕР±РѕРґРЅРѕР№ РїР°РјСЏС‚Рё РІ РїСѓР»Рµ РІ 32СЂ. СЃР»РѕРІР°С…
 	//int HeapAvail(){
 	//	return (size32FreeMem-sizeof(S_BufferInfo)/sizeof(int));
 	//}
@@ -111,7 +111,7 @@ public:
 	//	return size32HeapAvail;
 	//}
 	
-	/// Возвращает максимальный размер буфера  в 32р. словах, который можно выделить в куче
+	/// Р’РѕР·РІСЂР°С‰Р°РµС‚ РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ Р±СѓС„РµСЂР°  РІ 32СЂ. СЃР»РѕРІР°С…, РєРѕС‚РѕСЂС‹Р№ РјРѕР¶РЅРѕ РІС‹РґРµР»РёС‚СЊ РІ РєСѓС‡Рµ
 	size_t32 AllocateMaxAvail(){
 		int size32Max=0;
 		S_BufferInfo* pBuffer=pZeroBuffer;
@@ -120,7 +120,7 @@ public:
 			if (size32Between>size32Max) 
 				size32Max=size32Between;
 		} 
-		// находимся на последнем буфере
+		// РЅР°С…РѕРґРёРјСЃСЏ РЅР° РїРѕСЃР»РµРґРЅРµРј Р±СѓС„РµСЂРµ
 		int size32Between=(int*)pHeapEnd - pBuffer->DataEnd();
 		if (size32Between>size32Max) 
 			size32Max=size32Between;
@@ -128,69 +128,69 @@ public:
 		return size32Max;
 	}
 
-	/// Выделяет буфер в куче
+	/// Р’С‹РґРµР»СЏРµС‚ Р±СѓС„РµСЂ РІ РєСѓС‡Рµ
 	int* Allocate(size_t32 size32Buffer){
 		if (isHeapLocked) 
 			return 0;
 		if (size32Buffer==0)
 			return 0;
-		size32Buffer+=(size32Buffer&1);	// округляем вверх до четного размера
-		size32Buffer+=2;					// добавляем 2 слова для защитного поля
+		size32Buffer+=(size32Buffer&1);	// РѕРєСЂСѓРіР»СЏРµРј РІРІРµСЂС… РґРѕ С‡РµС‚РЅРѕРіРѕ СЂР°Р·РјРµСЂР°
+		size32Buffer+=2;					// РґРѕР±Р°РІР»СЏРµРј 2 СЃР»РѕРІР° РґР»СЏ Р·Р°С‰РёС‚РЅРѕРіРѕ РїРѕР»СЏ
 		S_BufferInfo* pBuffer=pZeroBuffer;
 		int size32Between=0;
 		for(; pBuffer->pNextBuffer!=0; pBuffer=pBuffer->pNextBuffer){
-			// проверяем влезает ли массив в промежуток между буферами
+			// РїСЂРѕРІРµСЂСЏРµРј РІР»РµР·Р°РµС‚ Р»Рё РјР°СЃСЃРёРІ РІ РїСЂРѕРјРµР¶СѓС‚РѕРє РјРµР¶РґСѓ Р±СѓС„РµСЂР°РјРё
 			size32Between=(int*)pBuffer->pNextBuffer - pBuffer->DataEnd();
 			if (size32Between>=size32Buffer+sizeof(S_BufferInfo)/sizeof(int)){
-				// создаем новый буфер
+				// СЃРѕР·РґР°РµРј РЅРѕРІС‹Р№ Р±СѓС„РµСЂ
 				S_BufferInfo* pAllocateBuffer=(S_BufferInfo*)pBuffer->DataEnd();
-				// устанавливаем связи в следующем буфере
+				// СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЃРІСЏР·Рё РІ СЃР»РµРґСѓСЋС‰РµРј Р±СѓС„РµСЂРµ
 				pBuffer->pNextBuffer->pPrevBuffer=pAllocateBuffer;
-				// устнавливаем связи в новом буфере
+				// СѓСЃС‚РЅР°РІР»РёРІР°РµРј СЃРІСЏР·Рё РІ РЅРѕРІРѕРј Р±СѓС„РµСЂРµ
 				pAllocateBuffer->pPrevBuffer=pBuffer;
 				pAllocateBuffer->pNextBuffer=pBuffer->pNextBuffer;
 				pAllocateBuffer->size32Buffer=size32Buffer;
 				pAllocateBuffer->isLocked=false;
-				// устанавливаем защитные биты
+				// СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·Р°С‰РёС‚РЅС‹Рµ Р±РёС‚С‹
 				pAllocateBuffer->guardInfoBits0=GUARD_BITS;
 				pAllocateBuffer->guardInfoBits1=GUARD_BITS;
 				int* guardEndBits=pAllocateBuffer->EndGuardBits();
 				*guardEndBits    =GUARD_BITS;
 				*(guardEndBits+1)=GUARD_BITS;			
-				// устанавливаем связи в предыдущем буфере
+				// СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЃРІСЏР·Рё РІ РїСЂРµРґС‹РґСѓС‰РµРј Р±СѓС„РµСЂРµ
 				pBuffer->pNextBuffer=pAllocateBuffer;
-				// уменьшаем сободный размер				
+				// СѓРјРµРЅСЊС€Р°РµРј СЃРѕР±РѕРґРЅС‹Р№ СЂР°Р·РјРµСЂ				
 				size32HeapAvail-=(size32Buffer+sizeof(S_BufferInfo)/sizeof(int));
 
 				return pAllocateBuffer->DataBegin();
 			} 
 		}
-		// дошли до последнего буфера (у которого ->pNextBuffer=0)
+		// РґРѕС€Р»Рё РґРѕ РїРѕСЃР»РµРґРЅРµРіРѕ Р±СѓС„РµСЂР° (Сѓ РєРѕС‚РѕСЂРѕРіРѕ ->pNextBuffer=0)
 		size32Between=(int*)pHeapEnd - pBuffer->DataEnd();
 		if (size32Between>=size32Buffer+sizeof(S_BufferInfo)/sizeof(int)){
-			// создаем новый буфер
+			// СЃРѕР·РґР°РµРј РЅРѕРІС‹Р№ Р±СѓС„РµСЂ
 			S_BufferInfo* pAllocateBuffer=(S_BufferInfo*)pBuffer->DataEnd();
-			// устнавливаем связи в новом буфере
+			// СѓСЃС‚РЅР°РІР»РёРІР°РµРј СЃРІСЏР·Рё РІ РЅРѕРІРѕРј Р±СѓС„РµСЂРµ
 			pAllocateBuffer->pPrevBuffer=pBuffer;
 			pAllocateBuffer->pNextBuffer=0;
 			pAllocateBuffer->size32Buffer=size32Buffer;
 			pAllocateBuffer->isLocked=false;
-			// устанавливаем защитные биты
+			// СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·Р°С‰РёС‚РЅС‹Рµ Р±РёС‚С‹
 			pAllocateBuffer->guardInfoBits0=GUARD_BITS;
 			pAllocateBuffer->guardInfoBits1=GUARD_BITS;
 			int* guardEndBits=pAllocateBuffer->EndGuardBits();
 			*guardEndBits    =GUARD_BITS;
 			*(guardEndBits+1)=GUARD_BITS;
-			// устанавливаем связи в предыдущем буфере
+			// СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЃРІСЏР·Рё РІ РїСЂРµРґС‹РґСѓС‰РµРј Р±СѓС„РµСЂРµ
 			pBuffer->pNextBuffer=pAllocateBuffer;
 			size32HeapAvail-=(size32Buffer+sizeof(S_BufferInfo)/sizeof(int));
-			// уменьшаем сободный размер				
+			// СѓРјРµРЅСЊС€Р°РµРј СЃРѕР±РѕРґРЅС‹Р№ СЂР°Р·РјРµСЂ				
 			return pAllocateBuffer->DataBegin();
 		} 
 		return 0;
 	}
 	
-	/// удаляет структуру буфера из списка 
+	/// СѓРґР°Р»СЏРµС‚ СЃС‚СЂСѓРєС‚СѓСЂСѓ Р±СѓС„РµСЂР° РёР· СЃРїРёСЃРєР° 
 	int ReleaseBuffer(S_BufferInfo* pDelBuffer){
 		if (isHeapLocked) 
 			return 0;
@@ -199,15 +199,15 @@ public:
 		if (pDelBuffer->size32Buffer==0)
 			return 0;
 		
-		pDelBuffer->pPrevBuffer->pNextBuffer=pDelBuffer->pNextBuffer;		// связываем ссылку предыдущего буфера на следующий 
-		if (pDelBuffer->pNextBuffer)										// если есть следующий
-			pDelBuffer->pNextBuffer->pPrevBuffer=pDelBuffer->pPrevBuffer;	// связываем ссылку следующего буфера на предыдущий 
+		pDelBuffer->pPrevBuffer->pNextBuffer=pDelBuffer->pNextBuffer;		// СЃРІСЏР·С‹РІР°РµРј СЃСЃС‹Р»РєСѓ РїСЂРµРґС‹РґСѓС‰РµРіРѕ Р±СѓС„РµСЂР° РЅР° СЃР»РµРґСѓСЋС‰РёР№ 
+		if (pDelBuffer->pNextBuffer)										// РµСЃР»Рё РµСЃС‚СЊ СЃР»РµРґСѓСЋС‰РёР№
+			pDelBuffer->pNextBuffer->pPrevBuffer=pDelBuffer->pPrevBuffer;	// СЃРІСЏР·С‹РІР°РµРј СЃСЃС‹Р»РєСѓ СЃР»РµРґСѓСЋС‰РµРіРѕ Р±СѓС„РµСЂР° РЅР° РїСЂРµРґС‹РґСѓС‰РёР№ 
 		size32HeapAvail+=(pDelBuffer->size32Buffer+sizeof(S_BufferInfo)/sizeof(int));
 		pDelBuffer->size32Buffer=0;
 		return 1;
 	}
 	
-	/// осообождат память по адресу
+	/// РѕСЃРѕРѕР±РѕР¶РґР°С‚ РїР°РјСЏС‚СЊ РїРѕ Р°РґСЂРµСЃСѓ
 	int Release(void* p){
 		if (isHeapLocked) 
 			return 0;
@@ -215,13 +215,13 @@ public:
 		return ReleaseBuffer(pDelBuffer);
 	}
 	
-	/// блокирует указатель от удаления через Release
+	/// Р±Р»РѕРєРёСЂСѓРµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РѕС‚ СѓРґР°Р»РµРЅРёСЏ С‡РµСЂРµР· Release
 	void Lock(void* p){
 		S_BufferInfo* pBuffer=(S_BufferInfo*)p-1;
 		pBuffer->isLocked=true;
 	}
 
-	/// блокирует все указатели от удаления через Release
+	/// Р±Р»РѕРєРёСЂСѓРµС‚ РІСЃРµ СѓРєР°Р·Р°С‚РµР»Рё РѕС‚ СѓРґР°Р»РµРЅРёСЏ С‡РµСЂРµР· Release
 	void LockAll(){
 		S_BufferInfo* pBuffer=pZeroBuffer->pNextBuffer;
 		while (pBuffer) {
@@ -229,7 +229,7 @@ public:
 			pBuffer=pBuffer->pNextBuffer;
 		}
 	}
-	/// разблокирует все указатели для удаления через Release
+	/// СЂР°Р·Р±Р»РѕРєРёСЂСѓРµС‚ РІСЃРµ СѓРєР°Р·Р°С‚РµР»Рё РґР»СЏ СѓРґР°Р»РµРЅРёСЏ С‡РµСЂРµР· Release
 	void UnlockAll(){
 		S_BufferInfo* pBuffer=pZeroBuffer->pNextBuffer;
 		while (pBuffer) {
@@ -238,14 +238,14 @@ public:
 		}
 	}
 
-	/// разблокирует все указатели для удаления через Release
+	/// СЂР°Р·Р±Р»РѕРєРёСЂСѓРµС‚ РІСЃРµ СѓРєР°Р·Р°С‚РµР»Рё РґР»СЏ СѓРґР°Р»РµРЅРёСЏ С‡РµСЂРµР· Release
 	void Unlock(void* p){
 		S_BufferInfo* pBuffer=(S_BufferInfo*)p-1;
 		pBuffer->isLocked=false;
 		//numHeapLocked--;
 	}
 
-	/// удаляет все указатели из кучи
+	/// СѓРґР°Р»СЏРµС‚ РІСЃРµ СѓРєР°Р·Р°С‚РµР»Рё РёР· РєСѓС‡Рё
 	void ReleaseAll(){
 		S_BufferInfo* pBuffer=pZeroBuffer->pNextBuffer;
 		if (isHeapLocked) 
@@ -257,11 +257,11 @@ public:
 			pBuffer=pBuffer->pNextBuffer;
 		}
 	}
-	/// Запрещает операции с кучей
+	/// Р—Р°РїСЂРµС‰Р°РµС‚ РѕРїРµСЂР°С†РёРё СЃ РєСѓС‡РµР№
 	void LockHeap(){
 		isHeapLocked=true;
 	}
-	/// Разрещает операции с кучей
+	/// Р Р°Р·СЂРµС‰Р°РµС‚ РѕРїРµСЂР°С†РёРё СЃ РєСѓС‡РµР№
 	void UnlockHeap(){
 		isHeapLocked=false;
 	}
@@ -334,14 +334,14 @@ class C_Allocator32 {
 };
 
 class C_MultiHeap: public C_Allocator32 {
-	unsigned m_z;							///< переменная для генератора случайных чисел
-	unsigned m_w;							///< переменная для генератора случайных чисел
+	unsigned m_z;							///< РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ РіРµРЅРµСЂР°С‚РѕСЂР° СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»
+	unsigned m_w;							///< РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ РіРµРЅРµСЂР°С‚РѕСЂР° СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»
 public:
-	C_Heap pHeap[MAX_NUM_BANKS];			///< массив куч
-	unsigned numHeaps;						///< число проининицализированных куч 
-	unsigned numAllocateFails;					///< число ошибок выделения куч
-	unsigned AllocateMode ;						///< порядок обхода куч при поиске свободного места
-	void**  pAllocateLegend;					///< история номеров куч использованных в последних 8 Allocate 
+	C_Heap pHeap[MAX_NUM_BANKS];			///< РјР°СЃСЃРёРІ РєСѓС‡
+	unsigned numHeaps;						///< С‡РёСЃР»Рѕ РїСЂРѕРёРЅРёРЅРёС†Р°Р»РёР·РёСЂРѕРІР°РЅРЅС‹С… РєСѓС‡ 
+	unsigned numAllocateFails;					///< С‡РёСЃР»Рѕ РѕС€РёР±РѕРє РІС‹РґРµР»РµРЅРёСЏ РєСѓС‡
+	unsigned AllocateMode ;						///< РїРѕСЂСЏРґРѕРє РѕР±С…РѕРґР° РєСѓС‡ РїСЂРё РїРѕРёСЃРєРµ СЃРІРѕР±РѕРґРЅРѕРіРѕ РјРµСЃС‚Р°
+	void**  pAllocateLegend;					///< РёСЃС‚РѕСЂРёСЏ РЅРѕРјРµСЂРѕРІ РєСѓС‡ РёСЃРїРѕР»СЊР·РѕРІР°РЅРЅС‹С… РІ РїРѕСЃР»РµРґРЅРёС… 8 Allocate 
 	unsigned idxAllocateLegend;
 	long long allocateHistory;
 	C_MultiHeap(int Mode=ALLOCATE_FORWARD) {
@@ -364,7 +364,7 @@ public:
 		AllocateMode=mode;
 	}
 
-	/// Генератор случайных чисел
+	/// Р“РµРЅРµСЂР°С‚РѕСЂ СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»
 	unsigned Rand()
 	{
 		m_z = 36969 * (m_z & 0xFFFF) + (m_z >> 16);
@@ -382,7 +382,7 @@ public:
 		return pHeap[idxHeap];
 	}
 
-	/// создает кучу по адресууказанного размера (полный размер со служебными данными)
+	/// СЃРѕР·РґР°РµС‚ РєСѓС‡Сѓ РїРѕ Р°РґСЂРµСЃСѓСѓРєР°Р·Р°РЅРЅРѕРіРѕ СЂР°Р·РјРµСЂР° (РїРѕР»РЅС‹Р№ СЂР°Р·РјРµСЂ СЃРѕ СЃР»СѓР¶РµР±РЅС‹РјРё РґР°РЅРЅС‹РјРё)
 	int CreateHeap(void* addrHeap, size_t32 size32Heap){
 		if (numHeaps>MAX_NUM_BANKS)
 			return 0;
@@ -393,7 +393,7 @@ public:
 		return 1;
 	}
 	
-	/// обходит кучи в заднном в AllocateMode порядке и выделяет память заданного размера
+	/// РѕР±С…РѕРґРёС‚ РєСѓС‡Рё РІ Р·Р°РґРЅРЅРѕРј РІ AllocateMode РїРѕСЂСЏРґРєРµ Рё РІС‹РґРµР»СЏРµС‚ РїР°РјСЏС‚СЊ Р·Р°РґР°РЅРЅРѕРіРѕ СЂР°Р·РјРµСЂР°
 	void* Allocate(size_t32 size32Buffer){
 		
 		void *p;
@@ -475,7 +475,7 @@ public:
 		return 0;
 	} 
 
-	/// обходит кучи в заднном порядке и выделяет память заданного размера
+	/// РѕР±С…РѕРґРёС‚ РєСѓС‡Рё РІ Р·Р°РґРЅРЅРѕРј РїРѕСЂСЏРґРєРµ Рё РІС‹РґРµР»СЏРµС‚ РїР°РјСЏС‚СЊ Р·Р°РґР°РЅРЅРѕРіРѕ СЂР°Р·РјРµСЂР°
 	void* Allocate(size_t32 size32Buffer, int nPriorHeap0, int nPriorHeap1=-1,int nPriorHeap2=-1,int nPriorHeap3=-1,int nPriorHeap4=-1,int nPriorHeap5=-1){
 		
 		int* p;
@@ -544,7 +544,7 @@ public:
 		numAllocateFails++;
 		return 0;
 	} 
-	/// выделяет массив в той же куче где и указатель
+	/// РІС‹РґРµР»СЏРµС‚ РјР°СЃСЃРёРІ РІ С‚РѕР№ Р¶Рµ РєСѓС‡Рµ РіРґРµ Рё СѓРєР°Р·Р°С‚РµР»СЊ
 	void* AllocateWith(size_t32 size32Buffer, void* addrInTheSameHeap){
 		for(int i=0; i<numHeaps; i++){
 			if (pHeap[i].IsMine(addrInTheSameHeap)){
@@ -561,7 +561,7 @@ public:
 		return 0;
 	}
 
-	/// Возвращает номер кучи к которой принадлежит адрес 
+	/// Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅРѕРјРµСЂ РєСѓС‡Рё Рє РєРѕС‚РѕСЂРѕР№ РїСЂРёРЅР°РґР»РµР¶РёС‚ Р°РґСЂРµСЃ 
 	int Which(void *addr){
 		for(int i=0; i<numHeaps; i++){
 			if (pHeap[i].IsMine(addr))
@@ -605,18 +605,18 @@ public:
 		return 0;
 	}
 
-	/// Удваляет все назаблокированные указатели из куч
+	/// РЈРґРІР°Р»СЏРµС‚ РІСЃРµ РЅР°Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅРЅС‹Рµ СѓРєР°Р·Р°С‚РµР»Рё РёР· РєСѓС‡
 	void ReleaseAll(){
 		for(int i=0; i<numHeaps; i++){
 			pHeap[i].ReleaseAll();
 		}
 	}
 
-	/// Запрещает операции Allocate и Release с кучей
+	/// Р—Р°РїСЂРµС‰Р°РµС‚ РѕРїРµСЂР°С†РёРё Allocate Рё Release СЃ РєСѓС‡РµР№
 	void LockHeap(int idxHeap){
 		pHeap[idxHeap].LockHeap();
 	}
-	/// Разрещает операции Allocate и Release с кучей 
+	/// Р Р°Р·СЂРµС‰Р°РµС‚ РѕРїРµСЂР°С†РёРё Allocate Рё Release СЃ РєСѓС‡РµР№ 
 	void UnlockHeap(int idxHeap){
 		pHeap[idxHeap].UnlockHeap();
 	}

@@ -1,5 +1,5 @@
 
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -8,8 +8,8 @@
 //! \if file_doc
 //!
 //! \file   vInit.h
-//! \author Сергей Мушкаев
-//! \brief  Определение функций инициализации для векторов.
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  РћРїСЂРµРґРµР»РµРЅРёРµ С„СѓРЅРєС†РёР№ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РґР»СЏ РІРµРєС‚РѕСЂРѕРІ.
 //!
 //! \endif
 //!
@@ -22,10 +22,10 @@
 #endif		
 
     /**
-    \defgroup nmppsSet nmppsSet
+    \defgroup nmppsSet nmppsSet-РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
     \ingroup vInit
     \brief
-        \ru Функция инициализации элементов массива постоянным значением. 
+        \ru Р¤СѓРЅРєС†РёСЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° РїРѕСЃС‚РѕСЏРЅРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј. 
         \en Function of array initialization with a constant value.  
     
 		\~
@@ -39,15 +39,15 @@
     \f]
     
     \param nSize    
-        \ru Размер вектора в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Size of vec in elements. 
 		\~
     \param nVal     
-        \ru Константа. Диапазон значений nVal должен соответсвовать типу результирующего вектора. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р°. Р”РёР°РїР°Р·РѕРЅ Р·РЅР°С‡РµРЅРёР№ nVal РґРѕР»Р¶РµРЅ СЃРѕРѕС‚РІРµС‚СЃРІРѕРІР°С‚СЊ С‚РёРїСѓ СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµРіРѕ РІРµРєС‚РѕСЂР°. 
         \en A constant. Range of nVal must correspond to type of result vec
 		\~
     \retval pVec    
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -91,21 +91,21 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64
     \defgroup nmppsRandUniform nmppsRandUniform
     \ingroup vInit
     \brief
-        \ru Инициализация массива случайными числами. 
+        \ru РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјР°СЃСЃРёРІР° СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё. 
         \en Initialization of an array with random numbers. 
 		\~
     \param nSize		
-        \ru Размер вектора. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР°. 
         \en Vector size. 
 		\~
     \param nRandomize    
-        \ru Произвольное число для инициализации 
-                            генератора случайных чисел. 
+        \ru РџСЂРѕРёР·РІРѕР»СЊРЅРѕРµ С‡РёСЃР»Рѕ РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё 
+                            РіРµРЅРµСЂР°С‚РѕСЂР° СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР». 
         \en Arbitrary number for initialization 
                             of a random-number generator. 
 		\~
     \retval pDstVec     
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en Result vec. 
 		\~
     \return \e void
@@ -126,7 +126,7 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64
     */
     //! \{
 /**
-	/ru  Инициализация массива 32-разрядными случайными числами. 
+	/ru  РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјР°СЃСЃРёРІР° 32-СЂР°Р·СЂСЏРґРЅС‹РјРё СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё. 
 	/en Random initialization of 32-bit buffer
 	/~
 */
@@ -148,7 +148,7 @@ void nmppsRandUniform_32f_integer(nm32f *pDstVec,int nSize,int hi,int low);
 //__INLINE__ void nmppsRandUniform_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRandUniform_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
 
 /**
-	/ru  Инициализация массива 64-разрядными случайными числами. 
+	/ru  РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјР°СЃСЃРёРІР° 64-СЂР°Р·СЂСЏРґРЅС‹РјРё СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё. 
 	/en Random initialization of 64-bit buffer
 	/~
 
@@ -164,26 +164,26 @@ void nmppsRandUniform_32f_integer(nm32f *pDstVec,int nSize,int hi,int low);
     \defgroup nmppsRandUniform_ nmppsRandUniform_
     \ingroup vInit
     \brief 
-        \ru Генерация случайного числа с равномерным раcпределением.
+        \ru Р“РµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ С‡РёСЃР»Р° СЃ СЂР°РІРЅРѕРјРµСЂРЅС‹Рј СЂР°cРїСЂРµРґРµР»РµРЅРёРµРј.
         \en Random number generation with uniform distribution.
 
 		\~
 	  \~
     \param nMin		
-        \ru Минимальное возможное значение случайного числа.
+        \ru РњРёРЅРёРјР°Р»СЊРЅРѕРµ РІРѕР·РјРѕР¶РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ С‡РёСЃР»Р°.
         \en Minimal value for random number.
 		\~
     \param nMax    
-        \ru Максимальное возможное значение случайного числа.
+        \ru РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РІРѕР·РјРѕР¶РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ С‡РёСЃР»Р°.
         \en Maximal value for random number.
 		\~
     \param nDivisible     
-        \ru Значение, которому будет кратно случайное число.
+        \ru Р—РЅР°С‡РµРЅРёРµ, РєРѕС‚РѕСЂРѕРјСѓ Р±СѓРґРµС‚ РєСЂР°С‚РЅРѕ СЃР»СѓС‡Р°Р№РЅРѕРµ С‡РёСЃР»Рѕ.
         \en Random number will be divisible by this value.
 		\~
     \return \e int
-		\ru Случайное число в диапазоне либо [nMin, nMax]. Для функции без параметров
-			данный диапазон [-2^31; 2^31-1].
+		\ru РЎР»СѓС‡Р°Р№РЅРѕРµ С‡РёСЃР»Рѕ РІ РґРёР°РїР°Р·РѕРЅРµ Р»РёР±Рѕ [nMin, nMax]. Р”Р»СЏ С„СѓРЅРєС†РёРё Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
+			РґР°РЅРЅС‹Р№ РґРёР°РїР°Р·РѕРЅ [-2^31; 2^31-1].
         \en Random number in range [nMin, nMax]. For function without parameters
 			this range is [-2^31; 2^31-1].
 
@@ -225,7 +225,7 @@ int nmppsRandUniform();
     \defgroup nmppsRamp_ nmppsRamp_
     \ingroup vInit
     \brief
-        \ru Инициализация массива элементами арифметической прогрессии. 
+        \ru РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјР°СЃСЃРёРІР° СЌР»РµРјРµРЅС‚Р°РјРё Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕР№ РїСЂРѕРіСЂРµСЃСЃРёРё. 
         \en Initialization of an array by ramped numbers. 
     
 		\~
@@ -240,19 +240,19 @@ int nmppsRandUniform();
     
     \~
     \param nOffset		
-        \ru Первый член арифметической прогрессии.
+        \ru РџРµСЂРІС‹Р№ С‡Р»РµРЅ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕР№ РїСЂРѕРіСЂРµСЃСЃРёРё.
         \en Init value.
 		\~
     \param nSlope		
-        \ru Разность арифметической прогрессии.
+        \ru Р Р°Р·РЅРѕСЃС‚СЊ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕР№ РїСЂРѕРіСЂРµСЃСЃРёРё.
         \en Common difference.
 		\~
     \param nSize		
-        \ru Размер вектора. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР°. 
         \en Vector size. 
 		\~
     \retval pVec     
-        \ru Результирующий массив. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РјР°СЃСЃРёРІ. 
         \en Result array. 
 		\~
     \return \e void
@@ -299,16 +299,16 @@ void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
     \defgroup nmppsConvert nmppsConvert
     \ingroup vInit
     \brief
-        \ru Изменение разрядности элементов вектора. 
+        \ru РР·РјРµРЅРµРЅРёРµ СЂР°Р·СЂСЏРґРЅРѕСЃС‚Рё СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°. 
         \en Change of vec elements word-length. 
     
 		\~
-        \ru Преобразование знаковых данных к меньшей разрядности осуществляется 
-	        отбрасыванием старших битов.
-	        Преобразование знаковых данных к большей разрядности осуществляется 
-	        c распространением влево старшего (знакового) бита.
-            Преобразование беззнаковых данных к большей разрядности осуществляется 
-	        добавлением слева старших нулевых битов. 
+        \ru РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ Р·РЅР°РєРѕРІС‹С… РґР°РЅРЅС‹С… Рє РјРµРЅСЊС€РµР№ СЂР°Р·СЂСЏРґРЅРѕСЃС‚Рё РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚СЃСЏ 
+	        РѕС‚Р±СЂР°СЃС‹РІР°РЅРёРµРј СЃС‚Р°СЂС€РёС… Р±РёС‚РѕРІ.
+	        РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ Р·РЅР°РєРѕРІС‹С… РґР°РЅРЅС‹С… Рє Р±РѕР»СЊС€РµР№ СЂР°Р·СЂСЏРґРЅРѕСЃС‚Рё РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚СЃСЏ 
+	        c СЂР°СЃРїСЂРѕСЃС‚СЂР°РЅРµРЅРёРµРј РІР»РµРІРѕ СЃС‚Р°СЂС€РµРіРѕ (Р·РЅР°РєРѕРІРѕРіРѕ) Р±РёС‚Р°.
+            РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ Р±РµР·Р·РЅР°РєРѕРІС‹С… РґР°РЅРЅС‹С… Рє Р±РѕР»СЊС€РµР№ СЂР°Р·СЂСЏРґРЅРѕСЃС‚Рё РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚СЃСЏ 
+	        РґРѕР±Р°РІР»РµРЅРёРµРј СЃР»РµРІР° СЃС‚Р°СЂС€РёС… РЅСѓР»РµРІС‹С… Р±РёС‚РѕРІ. 
         \en Signed data are converted to lesser word-length is made by means of 
             the most significant bits truncation.
             Signed data are converted to greater word-length is made with
@@ -317,15 +317,15 @@ void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
             addition of the most significant zero bits on the left. 
 		\~
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -405,7 +405,7 @@ void nmppsConvert_64s16s(const nm64s* pSrcVec, nm16s* pDstVec, int nSize);
     \defgroup nmppsCopy_ nmppsCopy_
     \ingroup vInit
     \brief
-        \ru Копирование вектора. 
+        \ru РљРѕРїРёСЂРѕРІР°РЅРёРµ РІРµРєС‚РѕСЂР°. 
         \en Vector copying. 
     
 		\~
@@ -419,15 +419,15 @@ void nmppsConvert_64s16s(const nm64s* pSrcVec, nm16s* pDstVec, int nSize);
     \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void
@@ -469,7 +469,7 @@ __INLINE__ void nmppsCopy_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize) {
     \defgroup nmppsCopyua_ nmppsCopyua_
     \ingroup vInit
     \brief
-        \ru Копирование вектора с невыровненной байтовой позиции в выровненную. 
+        \ru РљРѕРїРёСЂРѕРІР°РЅРёРµ РІРµРєС‚РѕСЂР° СЃ РЅРµРІС‹СЂРѕРІРЅРµРЅРЅРѕР№ Р±Р°Р№С‚РѕРІРѕР№ РїРѕР·РёС†РёРё РІ РІС‹СЂРѕРІРЅРµРЅРЅСѓСЋ. 
         \en Copying a vec from an unaligned byte position to aligned one. 
     
 		\~
@@ -482,25 +482,25 @@ __INLINE__ void nmppsCopy_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize) {
         i = \overline{0 \ldots nSize-1}
     \f]
 
-	\ru Позиция байта считается выровненной если она совпадает с границей 64р. слов в памяти. 
+	\ru РџРѕР·РёС†РёСЏ Р±Р°Р№С‚Р° СЃС‡РёС‚Р°РµС‚СЃСЏ РІС‹СЂРѕРІРЅРµРЅРЅРѕР№ РµСЃР»Рё РѕРЅР° СЃРѕРІРїР°РґР°РµС‚ СЃ РіСЂР°РЅРёС†РµР№ 64СЂ. СЃР»РѕРІ РІ РїР°РјСЏС‚Рё. 
     \en Position is defined as aligned if it points to 64-bit words boundary in memory.
 	
 		\~
 	\~
 	\param pSrcVec      
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param pDstVec      
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en Output vec. 
 		\~
     \param nSrcOffset  
-        \ru Смещение в элементах относительно начала вектора. nSrcOffset Может принимать любое значение.
+        \ru РЎРјРµС‰РµРЅРёРµ РІ СЌР»РµРјРµРЅС‚Р°С… РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РЅР°С‡Р°Р»Р° РІРµРєС‚РѕСЂР°. nSrcOffset РњРѕР¶РµС‚ РїСЂРёРЅРёРјР°С‚СЊ Р»СЋР±РѕРµ Р·РЅР°С‡РµРЅРёРµ.
         \en Shift in elements relatively to the origin of the vec. nSrcOffset may be any. 
 		\~
     \param nSize   
-        \ru Кол-во копируемых элементов. 
+        \ru РљРѕР»-РІРѕ РєРѕРїРёСЂСѓРµРјС‹С… СЌР»РµРјРµРЅС‚РѕРІ. 
         \en Number of elements being copied. 
 		\~
     \return \e void
@@ -538,21 +538,21 @@ void nmppsCopyua_8s(const nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSi
     \defgroup nmppsSwap_ nmppsSwap_
     \ingroup vInit
     \brief
-        \ru Перестановка двух векторов. 
+        \ru РџРµСЂРµСЃС‚Р°РЅРѕРІРєР° РґРІСѓС… РІРµРєС‚РѕСЂРѕРІ. 
         \en Swap of two vectors. 
     
  
 		\~
     \param pSrcVec1  
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param pSrcVec2  
-        \ru Второй входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
     \param nSize     
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \return \e void

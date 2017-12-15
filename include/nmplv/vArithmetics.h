@@ -2,7 +2,7 @@
 //
 //  $Workfile:: vArithmetics.h             $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   vArithm.h
-//! \author Сергей Мушкаев
-//! \brief  Определение базовых арифметических функций над векторами
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  РћРїСЂРµРґРµР»РµРЅРёРµ Р±Р°Р·РѕРІС‹С… Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёС… С„СѓРЅРєС†РёР№ РЅР°Рґ РІРµРєС‚РѕСЂР°РјРё
 //!
 //! \endif
 //!
@@ -31,7 +31,7 @@
     \defgroup nmppsAbs nmppsAbs
     \ingroup vArithmetics
     \brief
-        \ru Вычисление абсолютных значений для элементов вектора. 
+        \ru Р’С‹С‡РёСЃР»РµРЅРёРµ Р°Р±СЃРѕР»СЋС‚РЅС‹С… Р·РЅР°С‡РµРЅРёР№ РґР»СЏ СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°. 
         \en Calculation of absolute values for vec elements. 
     
 		\~
@@ -45,25 +45,25 @@
     \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
     
         
     \restr
-        \ru Значения элементов вектора не должны быть равны минимальному 
-            значению для соответствующего типа (т.е. -128, -2^15 и т.д).
-            В противном случае, абсолютное значение для таких элементов
-            вычисляется неверно, давая на выходе то же самое число.
+        \ru Р—РЅР°С‡РµРЅРёСЏ СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР° РЅРµ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ СЂР°РІРЅС‹ РјРёРЅРёРјР°Р»СЊРЅРѕРјСѓ 
+            Р·РЅР°С‡РµРЅРёСЋ РґР»СЏ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРіРѕ С‚РёРїР° (С‚.Рµ. -128, -2^15 Рё С‚.Рґ).
+            Р’ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ, Р°Р±СЃРѕР»СЋС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ С‚Р°РєРёС… СЌР»РµРјРµРЅС‚РѕРІ
+            РІС‹С‡РёСЃР»СЏРµС‚СЃСЏ РЅРµРІРµСЂРЅРѕ, РґР°РІР°СЏ РЅР° РІС‹С…РѕРґРµ С‚Рѕ Р¶Рµ СЃР°РјРѕРµ С‡РёСЃР»Рѕ.
         \en Values of elements must not be equal
             to the minimum value of element type. (i.e. -128, -2^15 ...)
             Otherwise absolute values for such elements
@@ -100,7 +100,7 @@ void nmppsAbs_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     \defgroup nmppsAbs1 nmppsAbs1
     \ingroup vArithmetics
     \brief
-        \ru Функция логического вычесления модулей элементов вектора. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ РІС‹С‡РµСЃР»РµРЅРёСЏ РјРѕРґСѓР»РµР№ СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°. 
         \en Logical-based calculation of absolute values for vec elements. 
     
 		\~
@@ -115,15 +115,15 @@ void nmppsAbs_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -159,7 +159,7 @@ void nmppsAbs1_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     \defgroup nmppsNeg nmppsNeg
     \ingroup vArithmetics
     \brief
-        \ru Изменение знака элементов вектора на противоположный. 
+        \ru РР·РјРµРЅРµРЅРёРµ Р·РЅР°РєР° СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР° РЅР° РїСЂРѕС‚РёРІРѕРїРѕР»РѕР¶РЅС‹Р№. 
         \en Change of the vec element sign for the opposite one.   
     
     
@@ -172,15 +172,15 @@ void nmppsAbs1_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 	\f[ i = \overline{0 \ldots nSize-1} \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -213,7 +213,7 @@ void nmppsNeg_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     \defgroup nmppsAddC nmppsAddC
     \ingroup vArithmetics
     \brief
-        \ru Добавление к вектору константы. 
+        \ru Р”РѕР±Р°РІР»РµРЅРёРµ Рє РІРµРєС‚РѕСЂСѓ РєРѕРЅСЃС‚Р°РЅС‚С‹. 
         \en Addition of a constant to a vec. 
     
 		\~
@@ -227,23 +227,23 @@ void nmppsNeg_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     \f]
     
     \param  pSrcVec 
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param  nVal    
-        \ru Добавляемая константа. 
+        \ru Р”РѕР±Р°РІР»СЏРµРјР°СЏ РєРѕРЅСЃС‚Р°РЅС‚Р°. 
         \en Added constant. 
 		\~
     \param  pnVal   
-        \ru Указатель на добавляемую константу. 
+        \ru РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РґРѕР±Р°РІР»СЏРµРјСѓСЋ РєРѕРЅСЃС‚Р°РЅС‚Сѓ. 
         \en Pointer to the added constant. 
 		\~
     \param  nSize   
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -281,7 +281,7 @@ void nmppsAddC_p64s(const nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSi
     \defgroup nmppsAdd nmppsAdd
     \ingroup vArithmetics
     \brief
-        \ru Сложение двух векторов. 
+        \ru РЎР»РѕР¶РµРЅРёРµ РґРІСѓС… РІРµРєС‚РѕСЂРѕРІ. 
         \en Two vectors addition. 
     
 		\~
@@ -295,19 +295,19 @@ void nmppsAddC_p64s(const nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSi
     \f]
     
     \param pSrcVec1 
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param pSrcVec2 
-        \ru Второй входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
     \param nSize    
-        \ru Размер вектора в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -354,7 +354,7 @@ void nmppsAdd4V_16s(
     \defgroup nmppsAdd_AddC nmppsAdd_AddC
     \ingroup vArithmetics
     \brief
-        \ru Сложение двух векторов с прибавлением константы. 
+        \ru РЎР»РѕР¶РµРЅРёРµ РґРІСѓС… РІРµРєС‚РѕСЂРѕРІ СЃ РїСЂРёР±Р°РІР»РµРЅРёРµРј РєРѕРЅСЃС‚Р°РЅС‚С‹. 
         \en Summation of two vectors with addition of a constant. 
     
 		\~
@@ -368,23 +368,23 @@ void nmppsAdd4V_16s(
     \f]
     
     \param pSrcVec1 
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param pSrcVec2 
-        \ru Второй входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
     \param nVal     
-        \ru Добавляемая константа. 
+        \ru Р”РѕР±Р°РІР»СЏРµРјР°СЏ РєРѕРЅСЃС‚Р°РЅС‚Р°. 
         \en Added constant. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -417,7 +417,7 @@ void nmppsAdd_AddC_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVe
     \defgroup nmppsSubC nmppsSubC
     \ingroup vArithmetics
     \brief
-        \ru Вычитание константы из  вектора. 
+        \ru Р’С‹С‡РёС‚Р°РЅРёРµ РєРѕРЅСЃС‚Р°РЅС‚С‹ РёР·  РІРµРєС‚РѕСЂР°. 
         \en Subtraction of a constant from a vec.  
     
 		\~
@@ -431,23 +431,23 @@ void nmppsAdd_AddC_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVe
     \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nVal     
-        \ru Вычитаемая константа. 
+        \ru Р’С‹С‡РёС‚Р°РµРјР°СЏ РєРѕРЅСЃС‚Р°РЅС‚Р°. 
         \en The deducted constant. 
 		\~
     \param  pnVal   
-        \ru Указатель на вычитаемую константу. 
+        \ru РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РІС‹С‡РёС‚Р°РµРјСѓСЋ РєРѕРЅСЃС‚Р°РЅС‚Сѓ. 
         \en Pointer to the deducted constant. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec	
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void
@@ -485,7 +485,7 @@ void nmppsSubC_64s(const nm64s* pSrcVec, int64b nVal,   nm64s* pDstVec, int nSiz
     \defgroup nmppsSubCRev nmppsSubCRev
     \ingroup vArithmetics
     \brief
-        \ru Вычитание константы из  вектора  с переменой знака элементов вектора. 
+        \ru Р’С‹С‡РёС‚Р°РЅРёРµ РєРѕРЅСЃС‚Р°РЅС‚С‹ РёР·  РІРµРєС‚РѕСЂР°  СЃ РїРµСЂРµРјРµРЅРѕР№ Р·РЅР°РєР° СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°. 
         \en Subtraction of a constant from a vec with change of the vec elements sign.  
     
 		\~
@@ -499,23 +499,23 @@ void nmppsSubC_64s(const nm64s* pSrcVec, int64b nVal,   nm64s* pDstVec, int nSiz
     \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nVal     
-        \ru Константа. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р°. 
         \en Constant. 
 		\~
     \param  pnVal   
-        \ru Указатель на константу. 
+        \ru РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕРЅСЃС‚Р°РЅС‚Сѓ. 
         \en Pointer to the constant. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec	
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void
@@ -553,7 +553,7 @@ void nmppsSubCRev_64s(const nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSi
     \defgroup nmppsSub nmppsSub
     \ingroup vArithmetics
     \brief
-        \ru Вычитание двух вектров. 
+        \ru Р’С‹С‡РёС‚Р°РЅРёРµ РґРІСѓС… РІРµРєС‚СЂРѕРІ. 
         \en Two vectors subtraction. 
     
 		\~
@@ -567,19 +567,19 @@ void nmppsSubCRev_64s(const nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSi
     \f]
     
     \param pSrcVec1 
-        \ru Уменьшаемый вектор. 
+        \ru РЈРјРµРЅСЊС€Р°РµРјС‹Р№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param pSrcVec2 
-        \ru Вычитаемый вектор. 
+        \ru Р’С‹С‡РёС‚Р°РµРјС‹Р№ РІРµРєС‚РѕСЂ. 
         \en The deducted vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec	
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void
@@ -616,7 +616,7 @@ void nmppsSub_64s(const nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nS
     \defgroup nmppsAbsDiff nmppsAbsDiff
     \ingroup vArithmetics
     \brief
-        \ru Вычисление вектора модулей разности элементов двух векторов. 
+        \ru Р’С‹С‡РёСЃР»РµРЅРёРµ РІРµРєС‚РѕСЂР° РјРѕРґСѓР»РµР№ СЂР°Р·РЅРѕСЃС‚Рё СЌР»РµРјРµРЅС‚РѕРІ РґРІСѓС… РІРµРєС‚РѕСЂРѕРІ. 
         \en Calculation of the vec of modules of two vectors difference.       
 		\~
     
@@ -629,28 +629,28 @@ void nmppsSub_64s(const nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nS
     \f]
     
     \param pSrcVec1 
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param pSrcVec2 
-        \ru Вычитаемый вектор. 
+        \ru Р’С‹С‡РёС‚Р°РµРјС‹Р№ РІРµРєС‚РѕСЂ. 
         \en The deducted vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec	
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void
 
     \restr
-        \ru Разность элементов векторов не должна быть равна минимальному 
-            значению для соответствующего типа (т.е. -128, -2^15 и т.д).
-            В противном случае, абсолютное значение для таких элементов
-            вычисляется не верно, давая на выходе то же самое число.
+        \ru Р Р°Р·РЅРѕСЃС‚СЊ СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂРѕРІ РЅРµ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ СЂР°РІРЅР° РјРёРЅРёРјР°Р»СЊРЅРѕРјСѓ 
+            Р·РЅР°С‡РµРЅРёСЋ РґР»СЏ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРіРѕ С‚РёРїР° (С‚.Рµ. -128, -2^15 Рё С‚.Рґ).
+            Р’ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ, Р°Р±СЃРѕР»СЋС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ С‚Р°РєРёС… СЌР»РµРјРµРЅС‚РѕРІ
+            РІС‹С‡РёСЃР»СЏРµС‚СЃСЏ РЅРµ РІРµСЂРЅРѕ, РґР°РІР°СЏ РЅР° РІС‹С…РѕРґРµ С‚Рѕ Р¶Рµ СЃР°РјРѕРµ С‡РёСЃР»Рѕ.
          \en Difference between vec elements must not be equal
             to the minimum value of element type. (i.e. -128, -2^15 ...)
             Otherwise absolute values for such elements
@@ -688,7 +688,7 @@ void nmppsAbsDiff_64s(const nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, in
     \defgroup nmppsAbsDiff1 nmppsAbsDiff1
     \ingroup vArithmetics
     \brief
-        \ru Функция логического вычисления модулей разностей элементов двух векторов. 
+        \ru Р¤СѓРЅРєС†РёСЏ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ РІС‹С‡РёСЃР»РµРЅРёСЏ РјРѕРґСѓР»РµР№ СЂР°Р·РЅРѕСЃС‚РµР№ СЌР»РµРјРµРЅС‚РѕРІ РґРІСѓС… РІРµРєС‚РѕСЂРѕРІ. 
         \en Logical-based calculation of absolute values of two vec difference.     
 		\~
     
@@ -704,28 +704,28 @@ void nmppsAbsDiff_64s(const nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, in
     \f]
     
     \param pSrcVec1 
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param pSrcVec2 
-        \ru Вычитаемый вектор. 
+        \ru Р’С‹С‡РёС‚Р°РµРјС‹Р№ РІРµРєС‚РѕСЂ. 
         \en The deducted vec. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec	
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void
 
     \restr
-        \ru Разность элементов векторов не должна быть равна минимальному 
-            значению для соответствующего типа (т.е. -128, -2^15 и т.д).
-            В противном случае, абсолютное значение для таких элементов
-            вычисляется не верно, давая на выходе то же самое число.
+        \ru Р Р°Р·РЅРѕСЃС‚СЊ СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂРѕРІ РЅРµ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ СЂР°РІРЅР° РјРёРЅРёРјР°Р»СЊРЅРѕРјСѓ 
+            Р·РЅР°С‡РµРЅРёСЋ РґР»СЏ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРіРѕ С‚РёРїР° (С‚.Рµ. -128, -2^15 Рё С‚.Рґ).
+            Р’ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ, Р°Р±СЃРѕР»СЋС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ С‚Р°РєРёС… СЌР»РµРјРµРЅС‚РѕРІ
+            РІС‹С‡РёСЃР»СЏРµС‚СЃСЏ РЅРµ РІРµСЂРЅРѕ, РґР°РІР°СЏ РЅР° РІС‹С…РѕРґРµ С‚Рѕ Р¶Рµ СЃР°РјРѕРµ С‡РёСЃР»Рѕ.
          \en Difference between vec elements must not be equal
             to the minimum value of element type. (i.e. -128, -2^15 ...)
             Otherwise absolute values for such elements
@@ -760,7 +760,7 @@ void nmppsAbsDiff1_8s(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
     \defgroup nmppsMulC nmppsMulC
     \ingroup vArithmetics
     \brief
-        \ru Умножение вектора на константу. 
+        \ru РЈРјРЅРѕР¶РµРЅРёРµ РІРµРєС‚РѕСЂР° РЅР° РєРѕРЅСЃС‚Р°РЅС‚Сѓ. 
         \en Vector by constant multiplication. 
     
 		\~
@@ -774,19 +774,19 @@ void nmppsAbsDiff1_8s(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
     \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nVal     
-        \ru Константа-множитель. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р°-РјРЅРѕР¶РёС‚РµР»СЊ. 
         \en Multiplier constant. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void
@@ -834,7 +834,7 @@ void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* 
     \defgroup nmppsMul_AddC nmppsMul_AddC
     \ingroup vArithmetics
     \brief
-        \ru Поэлементное умножение векторов с прибавлением константы. 
+        \ru РџРѕСЌР»РµРјРµРЅС‚РЅРѕРµ СѓРјРЅРѕР¶РµРЅРёРµ РІРµРєС‚РѕСЂРѕРІ СЃ РїСЂРёР±Р°РІР»РµРЅРёРµРј РєРѕРЅСЃС‚Р°РЅС‚С‹. 
         \en Elementwise multiplication of two vectors with constat addition 
     
 		\~
@@ -848,23 +848,23 @@ void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* 
     \f]
     
     \param pSrcVec1  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
 	\param pSrcVec2  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nVal     
-        \ru указаель на константу-инкремент. 
+        \ru СѓРєР°Р·Р°РµР»СЊ РЅР° РєРѕРЅСЃС‚Р°РЅС‚Сѓ-РёРЅРєСЂРµРјРµРЅС‚. 
         \en pointer to increment-constant. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void
@@ -897,7 +897,7 @@ void nmppsMul_AddC_64s(const nm64s* pSrcVec1,const nm64s* pSrcVec2, const nm64s*
     \defgroup nmppsMulC_AddC nmppsMulC_AddC
     \ingroup vArithmetics
     \brief
-        \ru Умножение вектора на константу с прибавлением константы. 
+        \ru РЈРјРЅРѕР¶РµРЅРёРµ РІРµРєС‚РѕСЂР° РЅР° РєРѕРЅСЃС‚Р°РЅС‚Сѓ СЃ РїСЂРёР±Р°РІР»РµРЅРёРµРј РєРѕРЅСЃС‚Р°РЅС‚С‹. 
         \en Vector by constant multiplication with addition of a constant. 
     
 		\~
@@ -911,23 +911,23 @@ void nmppsMul_AddC_64s(const nm64s* pSrcVec1,const nm64s* pSrcVec2, const nm64s*
     \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nMulVal   
-        \ru Константа-множитель. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р°-РјРЅРѕР¶РёС‚РµР»СЊ. 
         \en Multiplier constant. 
 		\~
     \param nAddVal   
-        \ru Добавляемая константа.
+        \ru Р”РѕР±Р°РІР»СЏРµРјР°СЏ РєРѕРЅСЃС‚Р°РЅС‚Р°.
         \en Addition constant. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -1021,7 +1021,7 @@ void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg,
     \defgroup nmppsMulC_AddV_AddC nmppsMulC_AddV_AddC
     \ingroup vArithmetics
     \brief
-        \ru Умножение вектора на константу с прибавлением вектора и константы. 
+        \ru РЈРјРЅРѕР¶РµРЅРёРµ РІРµРєС‚РѕСЂР° РЅР° РєРѕРЅСЃС‚Р°РЅС‚Сѓ СЃ РїСЂРёР±Р°РІР»РµРЅРёРµРј РІРµРєС‚РѕСЂР° Рё РєРѕРЅСЃС‚Р°РЅС‚С‹. 
         \en Vector by constant multiplication with addition of a vec and a  constant. 
     
 		\~
@@ -1035,27 +1035,27 @@ void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg,
     \f]
     
     \param pSrcVec1 
-        \ru Первый входной вектор. 
+        \ru РџРµСЂРІС‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The first input vec. 
 		\~
     \param nMulVal   
-        \ru Константа-множитель. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р°-РјРЅРѕР¶РёС‚РµР»СЊ. 
         \en Multiplier constant. 
 		\~
     \param pSrcVec2 
-        \ru Второй входной вектор. 
+        \ru Р’С‚РѕСЂРѕР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second input vec. 
 		\~
     \param nAddVal   
-        \ru Добавляемая константа.
+        \ru Р”РѕР±Р°РІР»СЏРµРјР°СЏ РєРѕРЅСЃС‚Р°РЅС‚Р°.
         \en Addition constant. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -1090,7 +1090,7 @@ void nmppsMulC_AddV_AddC_32s(nm32s* pSrcVec1, int nMulVal, nm32s* pSrcVec2, int 
     \defgroup nmppsSumN nmppsSumN
     \ingroup vArithmetics
     \brief
-        \ru Сложение нескольких векторов. 
+        \ru РЎР»РѕР¶РµРЅРёРµ РЅРµСЃРєРѕР»СЊРєРёС… РІРµРєС‚РѕСЂРѕРІ. 
         \en Summation of several vectors. 
     
 		\~
@@ -1100,19 +1100,19 @@ void nmppsMulC_AddV_AddC_32s(nm32s* pSrcVec1, int nMulVal, nm32s* pSrcVec2, int 
     \f]
     
     \param ppSrcVec 
-        \ru Массив указателей на суммируемые вектора. 
+        \ru РњР°СЃСЃРёРІ СѓРєР°Р·Р°С‚РµР»РµР№ РЅР° СЃСѓРјРјРёСЂСѓРµРјС‹Рµ РІРµРєС‚РѕСЂР°. 
         \en The array of pointers to the summable vectors. 
 		\~
     \param nNumberOfVectors 
-        \ru Число суммируемых векторов. 
+        \ru Р§РёСЃР»Рѕ СЃСѓРјРјРёСЂСѓРµРјС‹С… РІРµРєС‚РѕСЂРѕРІ. 
         \en The number of summable vectors. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах =[32*PACK]
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С… =[32*PACK]
         \en Vector size in elements =[32*PACK]
 		\~
     \retval pDstVec 
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void 
@@ -1160,7 +1160,7 @@ void nmppsSum4_16s(
     \defgroup nmppsDivC  nmppsDivC
     \ingroup vArithmetics
     \brief
-        \ru Деление вектора на константу. 
+        \ru Р”РµР»РµРЅРёРµ РІРµРєС‚РѕСЂР° РЅР° РєРѕРЅСЃС‚Р°РЅС‚Сѓ. 
         \en Division of a vec by a constant. 
     
 		\~
@@ -1174,50 +1174,50 @@ void nmppsSum4_16s(
     \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nDivisor	
-        \ru Константа-делитель. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р°-РґРµР»РёС‚РµР»СЊ. 
         \en Constant-divisor. 
 		\~
     \param nSize	
-        \ru Размер входного вектора в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІС…РѕРґРЅРѕРіРѕ РІРµРєС‚РѕСЂР° РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Input vec size in elements. 
 		\~
     \param pTmpBuf1	
-        \ru Временный массив размером nSize 64-х разрядных слов. 
+        \ru Р’СЂРµРјРµРЅРЅС‹Р№ РјР°СЃСЃРёРІ СЂР°Р·РјРµСЂРѕРј nSize 64-С… СЂР°Р·СЂСЏРґРЅС‹С… СЃР»РѕРІ. 
         \en Temporary array sized nSize of 64-bit words. 
 		\~
     \param pTmpBuf2	
-        \ru Временный массив размером nSize 64-х разрядных слов. 
+        \ru Р’СЂРµРјРµРЅРЅС‹Р№ РјР°СЃСЃРёРІ СЂР°Р·РјРµСЂРѕРј nSize 64-С… СЂР°Р·СЂСЏРґРЅС‹С… СЃР»РѕРІ. 
         \en Temporary array sized nSize of 64-bit words. 
 		\~
     \retval pDstVec	
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return void
     
     \restr
-        - \ru Допустимые значения для элементов входного вектора лежат
-            в диапазоне [-4095,...,4095];
+        - \ru Р”РѕРїСѓСЃС‚РёРјС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РґР»СЏ СЌР»РµРјРµРЅС‚РѕРІ РІС…РѕРґРЅРѕРіРѕ РІРµРєС‚РѕСЂР° Р»РµР¶Р°С‚
+            РІ РґРёР°РїР°Р·РѕРЅРµ [-4095,...,4095];
           \en Admissible values for input vec elements are in the range [-4095,...,4095];
 		\~
-        - \ru Допустимые значения для делителя лежат в диапазоне [1,2,..145].
+        - \ru Р”РѕРїСѓСЃС‚РёРјС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РґР»СЏ РґРµР»РёС‚РµР»СЏ Р»РµР¶Р°С‚ РІ РґРёР°РїР°Р·РѕРЅРµ [1,2,..145].
           \en Admissible values for devisor are in the range [1,2,..145]. 
 
 		\~
     \note 
-        \ru Для коректного использования in-place параметров
-    	    следует учитывать порядок получения промежуточных результатов:\n
+        \ru Р”Р»СЏ РєРѕСЂРµРєС‚РЅРѕРіРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ in-place РїР°СЂР°РјРµС‚СЂРѕРІ
+    	    СЃР»РµРґСѓРµС‚ СѓС‡РёС‚С‹РІР°С‚СЊ РїРѕСЂСЏРґРѕРє РїРѕР»СѓС‡РµРЅРёСЏ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ:\n
     	\en To use in-place parameters correctly one should take into account
 		\~
     	    the order of obtaining intermediate results: \n
         \~  pSrcVec			=> pTmpBuf1		(1cpl:L<=>G)		- 1/x Multiplying	(in-place is supported)\n
     	    pTmpBuf1		=> pTmpBuf2		(1cpl:G<=>L)		- Scaling down		(in-place is supported)\n
     	    pTmpBuf2		=> pDstVec		(2cpl:L<=>G)		- Result correction	(in-place is supported)\n\n
-    	\ru Примеры использования in-place параметров:\n
+    	\ru РџСЂРёРјРµСЂС‹ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ in-place РїР°СЂР°РјРµС‚СЂРѕРІ:\n
     	\en Examples of in-place parameters use: \n
         \~  nmppsDiv_(L0,G0,10240,3,G0,L0);\n
     	    nmppsDiv_(L0,L0,10240,3,L0,L0);\n
@@ -1255,7 +1255,7 @@ void nmppsDivC_32s(nm32s* pSrcVec, int nDivisor, nm32s* pDstVec, int nSize, void
     \defgroup nmppsSum nmppsSum
     \ingroup vArithmetics
     \brief
-        \ru Возвращает сумму всех элементов вектора. 
+        \ru Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃСѓРјРјСѓ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°. 
         \en Returns the sum of all vec elements. 
 
 		\~
@@ -1265,19 +1265,19 @@ void nmppsDivC_32s(nm32s* pSrcVec, int nDivisor, nm32s* pDstVec, int nSize, void
     \f]
     
     \param pSrcVec  
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param pTmpBuf  
-        \ru Временный массив размера nSize 64-х разрядных слов. 
+        \ru Р’СЂРµРјРµРЅРЅС‹Р№ РјР°СЃСЃРёРІ СЂР°Р·РјРµСЂР° nSize 64-С… СЂР°Р·СЂСЏРґРЅС‹С… СЃР»РѕРІ. 
         \en A temporary array sized nSize 64-bit words. 
 		\~
     \param nSize    
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \return         
-        \ru Сумма элементов вектора. 
+        \ru РЎСѓРјРјР° СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°. 
         \en The sum of vec elements. 
     
         
@@ -1313,7 +1313,7 @@ void nmppsSum_64s(const nm64s* pSrcVec, int nSize, int64b *pnRes);
     \defgroup nmppsDotProd nmppsDotProd
     \ingroup vArithmetics
     \brief
-        \ru Скалярное умножение двух векторов. 
+        \ru РЎРєР°Р»СЏСЂРЅРѕРµ СѓРјРЅРѕР¶РµРЅРёРµ РґРІСѓС… РІРµРєС‚РѕСЂРѕРІ. 
         \en Scalar multiplication of two vectors. 
     
 		\~
@@ -1323,23 +1323,23 @@ void nmppsSum_64s(const nm64s* pSrcVec, int nSize, int64b *pnRes);
     \f]
     
     \param pSrcVec1  
-        \ru Первый вектор. 
+        \ru РџРµСЂРІС‹Р№ РІРµРєС‚РѕСЂ. 
         \en The first vec. 
 		\~
     \param pSrcVec2  
-        \ru Второй вектор. 
+        \ru Р’С‚РѕСЂРѕР№ РІРµРєС‚РѕСЂ. 
         \en The second vec. 
 		\~
     \param nSize     
-        \ru Размер векторов в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \retval pnRes    
-        \ru Указатель на результирующее значение. 
+        \ru РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµРµ Р·РЅР°С‡РµРЅРёРµ. 
         \en Pointer to the result value. 
 		\~
 	\return pTmpBuff
-		\ru Временный массив из nSize элементов.
+		\ru Р’СЂРµРјРµРЅРЅС‹Р№ РјР°СЃСЃРёРІ РёР· nSize СЌР»РµРјРµРЅС‚РѕРІ.
 		\en Temporary buffer of nSize elements.
 		\~
     \return \e void
@@ -1411,7 +1411,7 @@ void nmppsDotProd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pn
 	\defgroup nmppsWeightedSum nmppsWeightedSum
 	\ingroup vArithmetics
 	\brief
-		\ru Поэлементное взвешенное суммирование элементов двух векторов
+		\ru РџРѕСЌР»РµРјРµРЅС‚РЅРѕРµ РІР·РІРµС€РµРЅРЅРѕРµ СЃСѓРјРјРёСЂРѕРІР°РЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РґРІСѓС… РІРµРєС‚РѕСЂРѕРІ
 		\en Elementwise weighted multiplication of two vectors
 
 		\~
@@ -1424,27 +1424,27 @@ void nmppsDotProd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize, nm64sc *pn
 
 	\~
 	\param pSrcVec1
-		\ru 1-ый входной вектор. 
+		\ru 1-С‹Р№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
 		\en 1-st input vec
 		\~
 	\param nW1
-		\ru 1-ый весовой коэффициент
+		\ru 1-С‹Р№ РІРµСЃРѕРІРѕР№ РєРѕСЌС„С„РёС†РёРµРЅС‚
 		\en 2-nd weight coefficient 
 		\~
 	\param pSrcVec2
-		\ru 2-ой входной вектор. 
+		\ru 2-РѕР№ РІС…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
 		\en 2-nd input vec
 		\~
 	\param nW2
-		\ru 2-ой весовой коэффициент
+		\ru 2-РѕР№ РІРµСЃРѕРІРѕР№ РєРѕСЌС„С„РёС†РёРµРЅС‚
 		\en 2-nd weight coefficient 
 		\~
 	\param nSize
-		\ru Размер векторов в элементах. 
+		\ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂРѕРІ РІ СЌР»РµРјРµРЅС‚Р°С…. 
 		\en Vector size in elements
 		\~
 	\retval pDstVec
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
    \return \e void 

@@ -254,7 +254,11 @@ int nmppsMallocResetPos(){
 //	nmppsAndC_32u((nm32u*)nmppsMallocSpec.route,0x33333333,(nm32u*)nmppsMallocSpec.route,NMPPS_MALLOC_LIMIT/8);
 //	nmppsMallocSpec.route[NMPPS_MALLOC_LIMIT/16-1]|=0xF000000000000000l;
 //}
-	
+
+void nmppsMallocGetRoute16(fseq64* route){
+	route=nmppsMallocSpec.route;
+	nmppsPut_4u((nm4u*)route,nmppsMallocSpec.routePos,0xF);
+}	
 int nmppsMallocIncrementRoute()
 {
 	int routeIndx;

@@ -2,7 +2,7 @@
 //
 //  $Workfile:: vTransform. $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   vTransform.h
-//! \author Сергей Мушкаев
-//! \brief  Определение функций перетаскивания по таблице.
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  РћРїСЂРµРґРµР»РµРЅРёРµ С„СѓРЅРєС†РёР№ РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёСЏ РїРѕ С‚Р°Р±Р»РёС†Рµ.
 //!
 //! \endif
 //!
@@ -28,25 +28,25 @@
     \defgroup VEC_QSort VEC_QSort
     \ingroup vTransform
     \brief
-        \ru Сортировка массива по убыванию. 
+        \ru РЎРѕСЂС‚РёСЂРѕРІРєР° РјР°СЃСЃРёРІР° РїРѕ СѓР±С‹РІР°РЅРёСЋ. 
         \en Descending sort of an array. 
 		\~
     \param	pSrcDstVec	
-        \ru Входной и результирующий вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ Рё СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en Input and result vec. 
 		\~
     \param	nSize		
-        \ru Размер вектора в элементах. 
+        \ru Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Vector size in elements. 
 		\~
     \return \e void
     
     \restr 
-        \ru Функция работает рекурсивно, передавая параметры через стек,
-			поэтому размер стека должен быть больше 4*log2(nSize) 32-битных слов
-			в лучшем случае (элементы массива расположены беспорядочно)
-			и больше 6*nSize 32-битных слов в худшем случае
-			(элементы массива уже упорядочены) 
+        \ru Р¤СѓРЅРєС†РёСЏ СЂР°Р±РѕС‚Р°РµС‚ СЂРµРєСѓСЂСЃРёРІРЅРѕ, РїРµСЂРµРґР°РІР°СЏ РїР°СЂР°РјРµС‚СЂС‹ С‡РµСЂРµР· СЃС‚РµРє,
+			РїРѕСЌС‚РѕРјСѓ СЂР°Р·РјРµСЂ СЃС‚РµРєР° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ 4*log2(nSize) 32-Р±РёС‚РЅС‹С… СЃР»РѕРІ
+			РІ Р»СѓС‡С€РµРј СЃР»СѓС‡Р°Рµ (СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° СЂР°СЃРїРѕР»РѕР¶РµРЅС‹ Р±РµСЃРїРѕСЂСЏРґРѕС‡РЅРѕ)
+			Рё Р±РѕР»СЊС€Рµ 6*nSize 32-Р±РёС‚РЅС‹С… СЃР»РѕРІ РІ С…СѓРґС€РµРј СЃР»СѓС‡Р°Рµ
+			(СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° СѓР¶Рµ СѓРїРѕСЂСЏРґРѕС‡РµРЅС‹) 
         \en The function operates recursively and transfers elements using the stack. 
 			That is why the stack size should be greater than 4*log2(nSize) 32-bit words
 			at best (elements of the array are located at random) and greater than 6*nSize 32-bit words
@@ -85,7 +85,7 @@ void nmppsQSort_32s(nm32s* pSrcDstVec, int nSize);
     \defgroup nmppsRemap_ nmppsRemap_
     \ingroup vTransform
     \brief
-        \ru Переупорядочивание элементов вектора по таблице. 
+        \ru РџРµСЂРµСѓРїРѕСЂСЏРґРѕС‡РёРІР°РЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР° РїРѕ С‚Р°Р±Р»РёС†Рµ. 
         \en Reodering of vector eements by table . 
 	
 		\~
@@ -98,53 +98,53 @@ void nmppsQSort_32s(nm32s* pSrcDstVec, int nSize);
     
 		\~
     \param pSrcVec     
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param pRemapTable 
-        \ru Таблица новых индексов для переупорядочивания. 
+        \ru РўР°Р±Р»РёС†Р° РЅРѕРІС‹С… РёРЅРґРµРєСЃРѕРІ РґР»СЏ РїРµСЂРµСѓРїРѕСЂСЏРґРѕС‡РёРІР°РЅРёСЏ. 
         \en Index reordering table. 
 		\~
     \param nDstVecSize  
-        \ru Размер результирующего вектора в элементах. 
+        \ru Р Р°Р·РјРµСЂ СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµРіРѕ РІРµРєС‚РѕСЂР° РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Size in elements for destination vec. 
 		\~
     \param pTmpBuf1     
-        \ru Временный массив nm32u pTmpBuf1[nSrcVecSize]. 
+        \ru Р’СЂРµРјРµРЅРЅС‹Р№ РјР°СЃСЃРёРІ nm32u pTmpBuf1[nSrcVecSize]. 
         \en Temporary buffer nm32u pTmpBuf1[nSrcVecSize]. 
 		\~
     \param pTmpBuf2     
-        \ru Временный массив nm32u pTmpBuf2[nDstVecSize]. 
+        \ru Р’СЂРµРјРµРЅРЅС‹Р№ РјР°СЃСЃРёРІ nm32u pTmpBuf2[nDstVecSize]. 
         \en Temporary buffer nm32u pTmpBuf2[nDstVecSize]. 
 
 
     \retval pDstVec		
-        \ru Результирующий вектор nm8u pDstVec[nDstVecSize]. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ nm8u pDstVec[nDstVecSize]. 
         \en Result vec nm8u pDstVec[nDstVecSize]. 
 
 		\~
     \return \e void 
     
 	\code 
-		// Функция 
+		// Р¤СѓРЅРєС†РёСЏ 
 		// void nmppsRemap_8u(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVecSize, int nDstVecSize, void* pTmpBuf1, void* pTmpBuf2);
-		// выполняет следющие действия: 
+		// РІС‹РїРѕР»РЅСЏРµС‚ СЃР»РµРґСЋС‰РёРµ РґРµР№СЃС‚РІРёСЏ: 
 	    nmppsConvert_8u((nm8u*) pSrcVec, (nm32u*)pTmpBuf1,nSrcVecSize);
 	    nmppsRemap_32u((nm32u*)pTmpBuf1,(nm32u*)pTmpBuf2,RemapTable,DstVecSize);
 	    nmppsConvert_32s((nm32s*)pTmpBuf2,(nm8s*) pDstVec, DstVecSize);
 	\endcode
 	
 	\note
-        \ru Возможность использования inplace параметров определяется исходя из 
-	        последовательности процессов чтения/записи: \n
+        \ru Р’РѕР·РјРѕР¶РЅРѕСЃС‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ inplace РїР°СЂР°РјРµС‚СЂРѕРІ РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ РёСЃС…РѕРґСЏ РёР· 
+	        РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё РїСЂРѕС†РµСЃСЃРѕРІ С‡С‚РµРЅРёСЏ/Р·Р°РїРёСЃРё: \n
         \en Possible using of in place parameters can be determined from
 		\~
             the folowing sequence of actions : \n
-	    \~ - pSrcVec => pTmpBuf1 - \ru inplace запрещен; \n 
+	    \~ - pSrcVec => pTmpBuf1 - \ru inplace Р·Р°РїСЂРµС‰РµРЅ; \n 
                                    \en inplace is not valid; \n
-	    \~ - pTmpBuf1=>pTmpBuf2 -  \ru inplace запрещен; \n 
+	    \~ - pTmpBuf1=>pTmpBuf2 -  \ru inplace Р·Р°РїСЂРµС‰РµРЅ; \n 
                                    \en inplce is not valid; \n 
-	    \~ - pTmpBuf2=>pDstVec  -  \ru inplace разрешен; \n
+	    \~ - pTmpBuf2=>pDstVec  -  \ru inplace СЂР°Р·СЂРµС€РµРЅ; \n
                                    \en inplace is not valid; \n 
 
 								   
@@ -177,7 +177,7 @@ void nmppsRemap_8u(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVec
 	\defgroup Manipulation Manipulation
 	\ingroup vTransform
 	\brief
-		\ru Расщепление массива на несколько отдельных массивов
+		\ru Р Р°СЃС‰РµРїР»РµРЅРёРµ РјР°СЃСЃРёРІР° РЅР° РЅРµСЃРєРѕР»СЊРєРѕ РѕС‚РґРµР»СЊРЅС‹С… РјР°СЃСЃРёРІРѕРІ
 		\en Array splitting to several arrays
 		
 		\~
@@ -185,15 +185,15 @@ void nmppsRemap_8u(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVec
 	\f[ pDst4Vec[i][j]=pSrcVec[j][i] \f]	
 	\~
     \param pSrcVec     
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
 	\param pDst4Vec
-		\ru Массив из 4 указателей на отдельные массивы
+		\ru РњР°СЃСЃРёРІ РёР· 4 СѓРєР°Р·Р°С‚РµР»РµР№ РЅР° РѕС‚РґРµР»СЊРЅС‹Рµ РјР°СЃСЃРёРІС‹
 		\en Array of 4 pointers to separeted arrays
 		\~
 	\param nSize
-		\ru Размер массивов
+		\ru Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІРѕРІ
 		\en Size of arrays
 
 		\~
@@ -218,18 +218,18 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	    \defgroup nmppSplit nmppSplit
         \ingroup vTransform
     
-	 *  \brief Расщепляет массив на два, группируя по четным и нечетным элементам
+	 *  \brief Р Р°СЃС‰РµРїР»СЏРµС‚ РјР°СЃСЃРёРІ РЅР° РґРІР°, РіСЂСѓРїРїРёСЂСѓСЏ РїРѕ С‡РµС‚РЅС‹Рј Рё РЅРµС‡РµС‚РЅС‹Рј СЌР»РµРјРµРЅС‚Р°Рј
 	 *  
-	 *  \param [in]  src  Входной массив
-	 *  \param [out] dst1 Выходной массив размера size/2 
-	 *  \param [out] dst2 Выходной массив размера size/2 
-	 *  \param [in]  size Размер исходного массива в элементах. Кратность параметра size должна соответстовать двум длинным 64-р. словам. 
-	 *  \param [in]  tmpSizeofDst Временный массив размера size/2 
+	 *  \param [in]  src  Р’С…РѕРґРЅРѕР№ РјР°СЃСЃРёРІ
+	 *  \param [out] dst1 Р’С‹С…РѕРґРЅРѕР№ РјР°СЃСЃРёРІ СЂР°Р·РјРµСЂР° size/2 
+	 *  \param [out] dst2 Р’С‹С…РѕРґРЅРѕР№ РјР°СЃСЃРёРІ СЂР°Р·РјРµСЂР° size/2 
+	 *  \param [in]  size Р Р°Р·РјРµСЂ РёСЃС…РѕРґРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ СЌР»РµРјРµРЅС‚Р°С…. РљСЂР°С‚РЅРѕСЃС‚СЊ РїР°СЂР°РјРµС‚СЂР° size РґРѕР»Р¶РЅР° СЃРѕРѕС‚РІРµС‚СЃС‚РѕРІР°С‚СЊ РґРІСѓРј РґР»РёРЅРЅС‹Рј 64-СЂ. СЃР»РѕРІР°Рј. 
+	 *  \param [in]  tmpSizeofDst Р’СЂРµРјРµРЅРЅС‹Р№ РјР°СЃСЃРёРІ СЂР°Р·РјРµСЂР° size/2 
 	 *  \return 
 	 *  
 	 *  \details Details 
-	 *  Максимальная производительность достигается при размещении входных, выходных и временных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
-	 *  Макс  производиельность  на 64-р. слово результата = 2.1 такта (при size=10240 байт) и 2.5 такта (при size=4096 байт)
+	 *  РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚СЊ РґРѕСЃС‚РёРіР°РµС‚СЃСЏ РїСЂРё СЂР°Р·РјРµС‰РµРЅРёРё РІС…РѕРґРЅС‹С…, РІС‹С…РѕРґРЅС‹С… Рё РІСЂРµРјРµРЅРЅС‹С… РјР°СЃСЃРёРІРѕРІ РІ СЂР°Р·РЅС‹С… Р±Р°РЅРєР°С… РїР°РјСЏС‚Рё. РњР°СЃСЃРёРІС‹ dst1 Рё dst2 РјРѕРіСѓС‚ РЅР°С…РѕРґРёС‚СЃСЏ РІ РѕРґРЅРѕРј Р±Р°РЅРєРµ.
+	 *  РњР°РєСЃ  РїСЂРѕРёР·РІРѕРґРёРµР»СЊРЅРѕСЃС‚СЊ  РЅР° 64-СЂ. СЃР»РѕРІРѕ СЂРµР·СѓР»СЊС‚Р°С‚Р° = 2.1 С‚Р°РєС‚Р° (РїСЂРё size=10240 Р±Р°Р№С‚) Рё 2.5 С‚Р°РєС‚Р° (РїСЂРё size=4096 Р±Р°Р№С‚)
 	 */
 	void nmppsSplit_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size, nm8s* tmpSizeofDst);
 	
@@ -237,17 +237,17 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	    \defgroup nmppSplitEco nmppSplitEco
         \ingroup vTransform
     
-	 *  \brief Расщепляет массив на два, группируя по четным и нечетным элементам
+	 *  \brief Р Р°СЃС‰РµРїР»СЏРµС‚ РјР°СЃСЃРёРІ РЅР° РґРІР°, РіСЂСѓРїРїРёСЂСѓСЏ РїРѕ С‡РµС‚РЅС‹Рј Рё РЅРµС‡РµС‚РЅС‹Рј СЌР»РµРјРµРЅС‚Р°Рј
 	 *  
-	 *  \param [in]  src  Входной массив
-	 *  \param [out] dst1 Выходной массив размера size/2 
-	 *  \param [out] dst2 Выходной массив размера size/2 
-	 *  \param [in]  size Размер исходного массива в элементах. Кратность параметра size должна соответстовать двум длинным 64-р. словам. 
+	 *  \param [in]  src  Р’С…РѕРґРЅРѕР№ РјР°СЃСЃРёРІ
+	 *  \param [out] dst1 Р’С‹С…РѕРґРЅРѕР№ РјР°СЃСЃРёРІ СЂР°Р·РјРµСЂР° size/2 
+	 *  \param [out] dst2 Р’С‹С…РѕРґРЅРѕР№ РјР°СЃСЃРёРІ СЂР°Р·РјРµСЂР° size/2 
+	 *  \param [in]  size Р Р°Р·РјРµСЂ РёСЃС…РѕРґРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ СЌР»РµРјРµРЅС‚Р°С…. РљСЂР°С‚РЅРѕСЃС‚СЊ РїР°СЂР°РјРµС‚СЂР° size РґРѕР»Р¶РЅР° СЃРѕРѕС‚РІРµС‚СЃС‚РѕРІР°С‚СЊ РґРІСѓРј РґР»РёРЅРЅС‹Рј 64-СЂ. СЃР»РѕРІР°Рј. 
 	 *  \return 
 	 *  
 	 *  \details Details 
-	 *  Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
-	 *  Макс  производиельность  на 64-р. слово результата = 2.14 такта (при size=10240 байт) и 2.6 такта (при size=4096 байт)
+	 *  РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚СЊ РґРѕСЃС‚РёРіР°РµС‚СЃСЏ РїСЂРё СЂР°Р·РјРµС‰РµРЅРёРё РІС…РѕРґРЅС‹С…, РІС‹С…РѕРґРЅС‹С… РјР°СЃСЃРёРІРѕРІ РІ СЂР°Р·РЅС‹С… Р±Р°РЅРєР°С… РїР°РјСЏС‚Рё. РњР°СЃСЃРёРІС‹ dst1 Рё dst2 РјРѕРіСѓС‚ РЅР°С…РѕРґРёС‚СЃСЏ РІ РѕРґРЅРѕРј Р±Р°РЅРєРµ.
+	 *  РњР°РєСЃ  РїСЂРѕРёР·РІРѕРґРёРµР»СЊРЅРѕСЃС‚СЊ  РЅР° 64-СЂ. СЃР»РѕРІРѕ СЂРµР·СѓР»СЊС‚Р°С‚Р° = 2.14 С‚Р°РєС‚Р° (РїСЂРё size=10240 Р±Р°Р№С‚) Рё 2.6 С‚Р°РєС‚Р° (РїСЂРё size=4096 Р±Р°Р№С‚)
 	 */
 	void nmppsSplitEco_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size);	
 

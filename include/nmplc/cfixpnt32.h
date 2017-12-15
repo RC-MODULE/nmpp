@@ -2,7 +2,7 @@
 //*                                                                         */
 //*                    Neuroprocessor NM3203 SDK v.1.2                      */
 //*                                                                         */
-//*               Заголовочный файл fixpoint32  функций                     */
+//*               Р—Р°РіРѕР»РѕРІРѕС‡РЅС‹Р№ С„Р°Р№Р» fixpoint32  С„СѓРЅРєС†РёР№                     */
 //*                1999 (c) RC Module Inc., Moscow, Russia                  */
 //*                                                                         */
 //*                                                                         */
@@ -18,16 +18,16 @@ extern "C" 	{
 	\defgroup nmppcFixExp32 nmppcFixExp32
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление вычисления экспоненты числа в формате fixed-point (16.16)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ РІС‹С‡РёСЃР»РµРЅРёСЏ СЌРєСЃРїРѕРЅРµРЅС‚С‹ С‡РёСЃР»Р° РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Calculation of exponent from number in fixed-point format (16.16)
 		\~
 	\~
 	\param nVal
-		\ru Входное число с фиксированной точкой в формату (16.16)
+		\ru Р’С…РѕРґРЅРѕРµ С‡РёСЃР»Рѕ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ РІ С„РѕСЂРјР°С‚Сѓ (16.16)
 		\en input fixed-point number in format (16.16)
 		\~
 	\return 
-		\ru Экспонента числа в формате с фиксрованной точкой (16.16)
+		\ru Р­РєСЃРїРѕРЅРµРЅС‚Р° С‡РёСЃР»Р° РІ С„РѕСЂРјР°С‚Рµ СЃ С„РёРєСЃСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ (16.16)
 		\en Exponent in fixpoint format with fromat (16.16)
 
 		\~
@@ -47,21 +47,21 @@ int nmppcFixExp32( int nVal);
 	\defgroup nmppcFixSinCos32 nmppcFixSinCos32
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление синуса и косинуса от аргумента в формате fixed-point (16.16)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ СЃРёРЅСѓСЃР° Рё РєРѕСЃРёРЅСѓСЃР° РѕС‚ Р°СЂРіСѓРјРµРЅС‚Р° РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Calculation sine and cosine of argument in fixed-point format (16.16)
 
 		\~
 	\~
 	\param nArg
-		\ru Угол в радианах. Угол должен быть в диапазоне от -PI/2 до +PI/2 
+		\ru РЈРіРѕР» РІ СЂР°РґРёР°РЅР°С…. РЈРіРѕР» РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ -PI/2 РґРѕ +PI/2 
 		\en Angle in radians. Angle must be in range [-PI/2,...,+PI/2]
 		\~
 	\retval pnSin
-		\ru указатель на синус
+		\ru СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃРёРЅСѓСЃ
 		\en pointer to sine
 		\~
 	\retval pnCos
-		\ru указатель на косинус
+		\ru СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕСЃРёРЅСѓСЃ
 		\en pointer to cosine
 		\~
 	\par
@@ -83,17 +83,17 @@ void nmppcFixSinCos32(int nArg, int* pnSin, int* pnCos);
 	\defgroup nmppcFixArcTan32 nmppcFixArcTan32
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление арктангенса от аргумента в формате fixed-point (16.16)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ Р°СЂРєС‚Р°РЅРіРµРЅСЃР° РѕС‚ Р°СЂРіСѓРјРµРЅС‚Р° РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Calculation of arctangent from argument in fixed-point format (16.16)
 
 		\~
 	\~
 	\param nArg
-		\ru Угол в радианах
+		\ru РЈРіРѕР» РІ СЂР°РґРёР°РЅР°С…
 		\en Angle in radians
 		\~
 	\return
-		\ru Арктангенс
+		\ru РђСЂРєС‚Р°РЅРіРµРЅСЃ
 		\en Arctangent
 		\~
 	\par
@@ -114,21 +114,21 @@ void nmppcFixSinCos32(int nArg, int* pnSin, int* pnCos);
 	\defgroup nmppcDoubleToFix32 nmppcDoubleToFix32
 	\ingroup cFixpoint32
 	\brief
-		\ru Функция перевода из Fixed-Point (16.16) в Double
+		\ru Р¤СѓРЅРєС†РёСЏ РїРµСЂРµРІРѕРґР° РёР· Fixed-Point (16.16) РІ Double
 		\en Convertion of number from double format to fixed-point format (16.16)
 
 		\~
 	\~
 	\param arg
-		\ru Входное число с плавающей точкой
+		\ru Р’С…РѕРґРЅРѕРµ С‡РёСЃР»Рѕ СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№
 		\en Input double number 
 		\~
 	\param fixpoint
-		\ru позиция двоичной точки
+		\ru РїРѕР·РёС†РёСЏ РґРІРѕРёС‡РЅРѕР№ С‚РѕС‡РєРё
 		\en position of binary point
 		\~
 	\return 
-		\ru Число с фиксрованной точкой
+		\ru Р§РёСЃР»Рѕ СЃ С„РёРєСЃСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№
 		\en Number in fixpoint format
 
 		\~
@@ -152,17 +152,17 @@ int nmppcDoubleToFix32(double arg);
 	\defgroup nmppcFix32ToDouble nmppcFix32ToDouble
 	\ingroup cFixpoint32
 	\brief
-		\ru Преобразование 32р. числа с фиксированной точкой (16.16) в число с плвающей точкой типа double 
+		\ru РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ 32СЂ. С‡РёСЃР»Р° СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ (16.16) РІ С‡РёСЃР»Рѕ СЃ РїР»РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ С‚РёРїР° double 
 		\en Conversion of 32 bit number of fixed-point format (16.16) to floating-point number with type of double
 
 		\~
 	\~
 	\param arg
-		\ru Входное 32р. число в формате с фиксированной точкой (16.16)
+		\ru Р’С…РѕРґРЅРѕРµ 32СЂ. С‡РёСЃР»Рѕ РІ С„РѕСЂРјР°С‚Рµ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ (16.16)
 		\en Input 32 bit fixed-point number (16.16)
 		\~
 	\return 
-		\ru Число с плавающей точкой
+		\ru Р§РёСЃР»Рѕ СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№
 		\en Number with floating-point format
 		\~
 	\par
@@ -181,16 +181,16 @@ double nmppcFix32ToDouble(int arg);
 	\defgroup nmppcFixSqrt32 nmppcFixSqrt32
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление квадратного корня числа в формате fixed-point (16.16)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ РєРІР°РґСЂР°С‚РЅРѕРіРѕ РєРѕСЂРЅСЏ С‡РёСЃР»Р° РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Calculation of square root from number in fixed-point format (16.16)
 		\~
 	\~
 	\param nVal
-		\ru Входное число с фиксированной точкой в формату (16.16)
+		\ru Р’С…РѕРґРЅРѕРµ С‡РёСЃР»Рѕ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ РІ С„РѕСЂРјР°С‚Сѓ (16.16)
 		\en input fixed-point number in format (16.16)
 		\~
 	\return 
-		\ru Квадратный корень в формате с фиксрованной точкой (16.16)
+		\ru РљРІР°РґСЂР°С‚РЅС‹Р№ РєРѕСЂРµРЅСЊ РІ С„РѕСЂРјР°С‚Рµ СЃ С„РёРєСЃСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ (16.16)
 		\en Squared root in fixpoint format with fromat (16.16)
 
 		\~
@@ -212,20 +212,20 @@ double nmppcFix32ToDouble(int arg);
 	\defgroup nmppcFixMul32 nmppcFixMul32
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление произведения двух числе в формате fixed-point (16.16)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ РїСЂРѕРёР·РІРµРґРµРЅРёСЏ РґРІСѓС… С‡РёСЃР»Рµ РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Calculation of product  of two numbers in fixed-point format (16.16)
 		\~
 	\~
 	\param nX
-		\ru Первое входное число с фиксированной точкой в формату (16.16)
+		\ru РџРµСЂРІРѕРµ РІС…РѕРґРЅРѕРµ С‡РёСЃР»Рѕ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ РІ С„РѕСЂРјР°С‚Сѓ (16.16)
 		\en First input fixed-point number in format (16.16)
 		\~
 	\param nY
-		\ru Второе входное число с фиксированной точкой в формату (16.16)
+		\ru Р’С‚РѕСЂРѕРµ РІС…РѕРґРЅРѕРµ С‡РёСЃР»Рѕ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ РІ С„РѕСЂРјР°С‚Сѓ (16.16)
 		\en First input fixed-point number in format (16.16)
 		\~
 	\return 
-		\ru Произвдение в формате с фиксрованной точкой (16.16)
+		\ru РџСЂРѕРёР·РІРґРµРЅРёРµ РІ С„РѕСЂРјР°С‚Рµ СЃ С„РёРєСЃСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ (16.16)
 		\en Product in fixpoint format with fromat (16.16)
 
 		\~
@@ -247,20 +247,20 @@ double nmppcFix32ToDouble(int arg);
 	\defgroup nmppcFixMul32 nmppcFixMul32
 	\ingroup cFixpoint32
 	\brief
-		\ru Деление двух целых чисел с записью результата в формате fixed-point (16.16)
+		\ru Р”РµР»РµРЅРёРµ РґРІСѓС… С†РµР»С‹С… С‡РёСЃРµР» СЃ Р·Р°РїРёСЃСЊСЋ СЂРµР·СѓР»СЊС‚Р°С‚Р° РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Division of two integer numbers with return of result in fixed-point format (16.16)
 		\~
 	\~
 	\param nX
-		\ru Делимое 
+		\ru Р”РµР»РёРјРѕРµ 
 		\en Divisible
 		\~
 	\param nY
-		\ru Делитель
+		\ru Р”РµР»РёС‚РµР»СЊ
 		\en Devisor
 		\~
 	\return 
-		\ru Частное от деления в формате с фиксрованной точкой (16.16)
+		\ru Р§Р°СЃС‚РЅРѕРµ РѕС‚ РґРµР»РµРЅРёСЏ РІ С„РѕСЂРјР°С‚Рµ СЃ С„РёРєСЃСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ (16.16)
 		\en Quotient from divison in fixed-point format  (16.16)
 
 		\~
@@ -281,7 +281,7 @@ double nmppcFix32ToDouble(int arg);
 	\defgroup nmppcFixInv32 nmppcFixInv32
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление обратного значения целого числа с записью результата в формате fixed-point 
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ РѕР±СЂР°С‚РЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ С†РµР»РѕРіРѕ С‡РёСЃР»Р° СЃ Р·Р°РїРёСЃСЊСЋ СЂРµР·СѓР»СЊС‚Р°С‚Р° РІ С„РѕСЂРјР°С‚Рµ fixed-point 
 		\en Calculation of inverse value of number with return of result in fixed-point format 
 		\~
 	
@@ -291,15 +291,15 @@ double nmppcFix32ToDouble(int arg);
 
 	\~
 	\param nVal
-		\ru Делитель
+		\ru Р”РµР»РёС‚РµР»СЊ
 		\en Devisor
 		\~
 	\param nFixpoint
-		\ru Позиция бинарной точки в результирющем слове
+		\ru РџРѕР·РёС†РёСЏ Р±РёРЅР°СЂРЅРѕР№ С‚РѕС‡РєРё РІ СЂРµР·СѓР»СЊС‚РёСЂСЋС‰РµРј СЃР»РѕРІРµ
 		\en Position of binary point in result number
 		\~
 	\return 
-		\ru Частное от деления нав формате с фиксрованной точкой (16.16)
+		\ru Р§Р°СЃС‚РЅРѕРµ РѕС‚ РґРµР»РµРЅРёСЏ РЅР°РІ С„РѕСЂРјР°С‚Рµ СЃ С„РёРєСЃСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ (16.16)
 		\en Quotient from divison in fixed-point format  (16.16)
 
 		\~
@@ -322,17 +322,17 @@ double nmppcFix32ToDouble(int arg);
 	\defgroup nmppcTblFixArcSin32 nmppcTblFixArcSin32
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление функции arcsin по таблице. Входные и выходные значения задаются в формате  fixed-point (16.16)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ С„СѓРЅРєС†РёРё arcsin РїРѕ С‚Р°Р±Р»РёС†Рµ. Р’С…РѕРґРЅС‹Рµ Рё РІС‹С…РѕРґРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ Р·Р°РґР°СЋС‚СЃСЏ РІ С„РѕСЂРјР°С‚Рµ  fixed-point (16.16)
 		\en Calculation of trigonometric function arcsin by table. Input and ouput value are set in fixed-point format (16.16)
 
 		\~
 	\~
 	\param nArg
-		\ru Входное значение. 
+		\ru Р’С…РѕРґРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ. 
 		\en Angle in radians. Angle must be in range [-PI/2,...,+PI/2]
 		\~
 	\return 
-		\ru Угол в диапазоне от -PI/2 до +PI/2 в формате fixed-point (16.16)
+		\ru РЈРіРѕР» РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ -PI/2 РґРѕ +PI/2 РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Angle in range -PI/2 .. +PI/2 in fixed-point format (16.16)
 		\~
 	\par
@@ -352,17 +352,17 @@ double nmppcFix32ToDouble(int arg);
 	\defgroup nmppcTblFixArcCos32 nmppcTblFixArcCos32
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление функции arccos по таблице. Входные и выходные значения задаются в формате  fixed-point (16.16)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ С„СѓРЅРєС†РёРё arccos РїРѕ С‚Р°Р±Р»РёС†Рµ. Р’С…РѕРґРЅС‹Рµ Рё РІС‹С…РѕРґРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ Р·Р°РґР°СЋС‚СЃСЏ РІ С„РѕСЂРјР°С‚Рµ  fixed-point (16.16)
 		\en Calculation of trigonometric function arccos by table. Input and ouput value are set in fixed-point format (16.16)
 
 		\~
 	\~
 	\param nArg
-		\ru Входное значение. 
+		\ru Р’С…РѕРґРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ. 
 		\en Input value  
 		\~
 	\return 
-		\ru Угол в диапазоне от 0 до PI в формате fixed-point (16.16)
+		\ru РЈРіРѕР» РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 0 РґРѕ PI РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Angle in range from 0..PI in fixed-point format (16.16)
 		\~
 	\par
@@ -384,17 +384,17 @@ double nmppcFix32ToDouble(int arg);
 	\defgroup nmppcTblFixCos32 nmppcTblFixCos32
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление функции cos по таблице. Входные и выходные значения задаются в формате  fixed-point (16.16)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ С„СѓРЅРєС†РёРё cos РїРѕ С‚Р°Р±Р»РёС†Рµ. Р’С…РѕРґРЅС‹Рµ Рё РІС‹С…РѕРґРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ Р·Р°РґР°СЋС‚СЃСЏ РІ С„РѕСЂРјР°С‚Рµ  fixed-point (16.16)
 		\en Calculation of trigonometric function cos by table. Input and ouput value are set in fixed-point format (16.16)
 
 		\~
 	\~
 	\param nArg
-		\ru Угол в диапазоне от 0 до PI в формате fixed-point (16.16)
+		\ru РЈРіРѕР» РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 0 РґРѕ PI РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Angle in range [0..PI] in fixed-point format (16.16)
 		\~
 	\return 
-		\ru значение cos в формате fixed-point (16.16)
+		\ru Р·РЅР°С‡РµРЅРёРµ cos РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en cos value in fixed-point format (16.16)
 		\~
 	\par
@@ -415,17 +415,17 @@ double nmppcFix32ToDouble(int arg);
 	\defgroup nmppcTblFixSin32 nmppcTblFixSin32
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление функции sin по таблице. Входные и выходные значения задаются в формате  fixed-point (16.16)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ С„СѓРЅРєС†РёРё sin РїРѕ С‚Р°Р±Р»РёС†Рµ. Р’С…РѕРґРЅС‹Рµ Рё РІС‹С…РѕРґРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ Р·Р°РґР°СЋС‚СЃСЏ РІ С„РѕСЂРјР°С‚Рµ  fixed-point (16.16)
 		\en Calculation of trigonometric function sin by table. Input and ouput value are set in fixed-point format (16.16)
 
 		\~
 	\~
 	\param nArg
-		\ru Угол в диапазоне от -PI/2 до +PI/2 в формате fixed-point (16.16)
+		\ru РЈРіРѕР» РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ -PI/2 РґРѕ +PI/2 РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Angle in range -PI/2 .. +PI/2 in fixed-point format (16.16)
 		\~
 	\return 
-		\ru значение sin в формате fixed-point (16.16)
+		\ru Р·РЅР°С‡РµРЅРёРµ sin РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en sin value in fixed-point format (16.16)
 		\~
 	\par
@@ -446,25 +446,25 @@ double nmppcFix32ToDouble(int arg);
 	\defgroup nmppcFixDivMod32 nmppcFixDivMod32
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление частного и остатка при делении чисел с фиксированной запятой в формате fixed-point (16.16)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ С‡Р°СЃС‚РЅРѕРіРѕ Рё РѕСЃС‚Р°С‚РєР° РїСЂРё РґРµР»РµРЅРёРё С‡РёСЃРµР» СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ Р·Р°РїСЏС‚РѕР№ РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Calculation of quotient and reminder at division of numbers in fixed-point dormat (16.16)
 
 		\~
 	\~
 	\param nDividend
-		\ru Делимое  в формате fixed-point (16.16)
+		\ru Р”РµР»РёРјРѕРµ  РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Dividend in fixed-point format (16.16)
 		\~
 	\param nDivisor
-		\ru Делитель в формате fixed-point (16.16)
+		\ru Р”РµР»РёС‚РµР»СЊ РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Divisor in fixed-point format (16.16)
 		\~
 	\retval pnQuotient
-		\ru Частное от деления в формате fixed-point (16.16)
+		\ru Р§Р°СЃС‚РЅРѕРµ РѕС‚ РґРµР»РµРЅРёСЏ РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Quotient of division in  fixed-point format (16.16)
 		\~
 	\retval pnReminder
-		\ru Остаток от деления в формате fixed-point (16.16)
+		\ru РћСЃС‚Р°С‚РѕРє РѕС‚ РґРµР»РµРЅРёСЏ РІ С„РѕСЂРјР°С‚Рµ fixed-point (16.16)
 		\en Reminder of division in  fixed-point format (16.16)
 		\~
 	\par

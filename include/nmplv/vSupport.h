@@ -2,7 +2,7 @@
 //
 //  $Workfile:: vSupport. $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -28,34 +28,34 @@
     \defgroup nmppsAddr_ nmppsAddr_
     \ingroup vSupport
     \brief
-        \ru Возвращает адрес ячейки памяти, содержащей указанный элемент. 
+        \ru Р’РѕР·РІСЂР°С‰Р°РµС‚ Р°РґСЂРµСЃ СЏС‡РµР№РєРё РїР°РјСЏС‚Рё, СЃРѕРґРµСЂР¶Р°С‰РµР№ СѓРєР°Р·Р°РЅРЅС‹Р№ СЌР»РµРјРµРЅС‚. 
         \en Returns address of memory cell that contains
         the vec element. 
     
 		\~
-        \ru Реализация для процессора NeuroMatrix возвращает адрес, выровненный 
-            в памяти на 32 бита. 
+        \ru Р РµР°Р»РёР·Р°С†РёСЏ РґР»СЏ РїСЂРѕС†РµСЃСЃРѕСЂР° NeuroMatrix РІРѕР·РІСЂР°С‰Р°РµС‚ Р°РґСЂРµСЃ, РІС‹СЂРѕРІРЅРµРЅРЅС‹Р№ 
+            РІ РїР°РјСЏС‚Рё РЅР° 32 Р±РёС‚Р°. 
         \en Implementation for NeuroMatrix processor returns an addres aligned 
             with 32 bits in the memory.
 		\~
     \param pVec     
-        \ru Входной вектор. 
+        \ru Р’С…РѕРґРЅРѕР№ РІРµРєС‚РѕСЂ. 
         \en Input vec. 
 		\~
     \param nIndex    
-        \ru Индекс элемента. 
+        \ru РРЅРґРµРєСЃ СЌР»РµРјРµРЅС‚Р°. 
         \en Element index. 
 
 		\~
     \return         
-        \ru Адрес ячейки памяти. 
+        \ru РђРґСЂРµСЃ СЏС‡РµР№РєРё РїР°РјСЏС‚Рё. 
         \en Address of memory cell. 
 
 		\~
     \note 
-        \ru Для ускорения работы на PC возможно использование макроса
-            ADDR(ptr, index), который раскрывается на PC как 
-            (ptr+index), а на NM как вызов функции nmppsAddr_. 
+        \ru Р”Р»СЏ СѓСЃРєРѕСЂРµРЅРёСЏ СЂР°Р±РѕС‚С‹ РЅР° PC РІРѕР·РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РјР°РєСЂРѕСЃР°
+            ADDR(ptr, index), РєРѕС‚РѕСЂС‹Р№ СЂР°СЃРєСЂС‹РІР°РµС‚СЃСЏ РЅР° PC РєР°Рє 
+            (ptr+index), Р° РЅР° NM РєР°Рє РІС‹Р·РѕРІ С„СѓРЅРєС†РёРё nmppsAddr_. 
         \en To increase perfomance on PC it's possible to use macros
             ADDR(ptr, index) that equivalent to (ptr+index) expression. 
 
@@ -129,7 +129,7 @@ __INLINE__ nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nI
     \defgroup nmppsSetVal_ nmppsSetVal_
     \ingroup vSupport
     \brief
-        \ru Модификация элемента вектора. 
+        \ru РњРѕРґРёС„РёРєР°С†РёСЏ СЌР»РµРјРµРЅС‚Р° РІРµРєС‚РѕСЂР°. 
         \en Vector element modification. 
     
 		\~
@@ -138,15 +138,15 @@ __INLINE__ nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nI
         pVec(nIndex)  =  Val
     \f]
     \param pVec   
-        \ru Вектор. 
+        \ru Р’РµРєС‚РѕСЂ. 
         \en Vector. 
 		\~
     \param nIndex    
-        \ru Позиция элемента 
+        \ru РџРѕР·РёС†РёСЏ СЌР»РµРјРµРЅС‚Р° 
         \en Position of the element. 
 		\~
     \param nVal  
-        \ru Значение элемента 
+        \ru Р—РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° 
         \en Value of the element. 
 		\~
     \return \e void
@@ -187,19 +187,19 @@ __INLINE__ void nmppsPut_64u(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex
     \defgroup nmppsGetVal_ nmppsGetVal_
     \ingroup vSupport
     \brief
-        \ru Извлекает значение элемента вектора. 
+        \ru РР·РІР»РµРєР°РµС‚ Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІРµРєС‚РѕСЂР°. 
         \en Extracts the vec element value. 
 		\~
     \param pVec     
-        \ru Вектор. 
+        \ru Р’РµРєС‚РѕСЂ. 
         \en Vector. 
 		\~
     \param nIndex   
-        \ru Позиция элемента. 
+        \ru РџРѕР·РёС†РёСЏ СЌР»РµРјРµРЅС‚Р°. 
         \en Position of the element. 
 		\~
     \retval nVal   
-        \ru Значение элемента. 
+        \ru Р—РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°. 
         \en Value of the element. 
 		\~
     \return \e void
@@ -240,19 +240,19 @@ __INLINE__  void	nmppsGetVal_64u(nm64u* pVec, int nIndex, uint64b*  nVal) { *nVa
     \defgroup nmppsGetVal_ret_ nmppsGetVal_(return)
     \ingroup vSupport
     \brief
-        \ru Извлекает значение элемента вектора. 
+        \ru РР·РІР»РµРєР°РµС‚ Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІРµРєС‚РѕСЂР°. 
         \en Extracts the vec element value. 
 		\~
     \param pVec     
-        \ru Вектор. 
+        \ru Р’РµРєС‚РѕСЂ. 
         \en Vector. 
 		\~
     \param nIndex   
-        \ru Позиция элемента. 
+        \ru РџРѕР·РёС†РёСЏ СЌР»РµРјРµРЅС‚Р°. 
         \en Position of the element. 
 		\~
     \return \e 
-        \ru Значение элемента. 
+        \ru Р—РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°. 
         \en Value of the element. 
 		\~
     \par

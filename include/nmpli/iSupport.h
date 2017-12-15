@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   iMalloc.h
-//! \author Дмитрий Рыжов
-//! \brief  Распределение памяти для изображений библиотеки.
+//! \author Р”РјРёС‚СЂРёР№ Р С‹Р¶РѕРІ
+//! \brief  Р Р°СЃРїСЂРµРґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РґР»СЏ РёР·РѕР±СЂР°Р¶РµРЅРёР№ Р±РёР±Р»РёРѕС‚РµРєРё.
 //!
 //! \endif
 //!
@@ -86,31 +86,31 @@ public:
     \defgroup IMG_Malloc IMG_Malloc
     \ingroup iSupport
     \brief
-        \ru Распределение памяти для изображений библиотеки. 
+        \ru Р Р°СЃРїСЂРµРґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РґР»СЏ РёР·РѕР±СЂР°Р¶РµРЅРёР№ Р±РёР±Р»РёРѕС‚РµРєРё. 
         \en Memory allocation for library images.
     
 		\~
-        \ru Начало и конец распределяемой памяти выравнивается на начало 
-        64-х разрядного слова. 
+        \ru РќР°С‡Р°Р»Рѕ Рё РєРѕРЅРµС† СЂР°СЃРїСЂРµРґРµР»СЏРµРјРѕР№ РїР°РјСЏС‚Рё РІС‹СЂР°РІРЅРёРІР°РµС‚СЃСЏ РЅР° РЅР°С‡Р°Р»Рѕ 
+        64-С… СЂР°Р·СЂСЏРґРЅРѕРіРѕ СЃР»РѕРІР°. 
         \en Begin and end of the allocated memory are being 
         aligned to 64-bit word.
 		\~
     \param nWidth   
-        \ru Ширина изображения в пикселях. 
+        \ru РЁРёСЂРёРЅР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РІ РїРёРєСЃРµР»СЏС…. 
         \en Image width in pixels. 
 		\~
     \param nHeight  
-        \ru Высота изображения в пикселях. 
+        \ru Р’С‹СЃРѕС‚Р° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РІ РїРёРєСЃРµР»СЏС…. 
         \en Image height in pixels. 
 		\~
     \param hint     
-        \ru Номер банка памяти. Может принимать значения 
+        \ru РќРѕРјРµСЂ Р±Р°РЅРєР° РїР°РјСЏС‚Рё. РњРѕР¶РµС‚ РїСЂРёРЅРёРјР°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ 
                         MEM_LOCAL, MEM_GLOBAL. 
         \en Number of memory bank. Admissible values for memory bank
                         are MEM_LOCAL, MEM_GLOBAL. 
 		\~
-    \note \ru Память, распределенная с помощью функций IMG_Malloc должна
-              освобождаться только с помощью функции IMG_Free. 
+    \note \ru РџР°РјСЏС‚СЊ, СЂР°СЃРїСЂРµРґРµР»РµРЅРЅР°СЏ СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёР№ IMG_Malloc РґРѕР»Р¶РЅР°
+              РѕСЃРІРѕР±РѕР¶РґР°С‚СЊСЃСЏ С‚РѕР»СЊРєРѕ СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёРё IMG_Free. 
           \en Memory allocated by function IMG_Malloc should be 
               deallocated by IMG_Free function only. 
 			  \~
@@ -139,11 +139,11 @@ void IMG_Malloc(nm64s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
     \defgroup IMG_Free IMG_Free
     \ingroup iSupport
     \brief
-        \ru Освобождение памяти для изображений. 
+        \ru РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё РґР»СЏ РёР·РѕР±СЂР°Р¶РµРЅРёР№. 
         \en Memory deallocation for images. 
 		\~
-    \note \ru Данная функция должна вызываться только для
-              векторов, распределенных с помощью функций 
+    \note \ru Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РґРѕР»Р¶РЅР° РІС‹Р·С‹РІР°С‚СЊСЃСЏ С‚РѕР»СЊРєРѕ РґР»СЏ
+              РІРµРєС‚РѕСЂРѕРІ, СЂР°СЃРїСЂРµРґРµР»РµРЅРЅС‹С… СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёР№ 
               IMG_Malloc.
           \en This function should be called only for matrixis
               allocated by IMG_Malloc functions. 
@@ -159,7 +159,7 @@ void IMG_Free(void* ptr);
 	\defgroup IMG_Release IMG_Release
 	\ingroup iSupport
    \brief
-        \ru Освобождение блоков памяти, выделенных функиями  IMG_Create***. 
+        \ru РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ Р±Р»РѕРєРѕРІ РїР°РјСЏС‚Рё, РІС‹РґРµР»РµРЅРЅС‹С… С„СѓРЅРєРёСЏРјРё  IMG_Create***. 
         \en Deallocation of memory blocks allocated by IMG_Create*** functions. 
 		\~
 */

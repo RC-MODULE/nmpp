@@ -1,36 +1,36 @@
 	/**
     *
-    *     \defgroup TYPE_Group Типы данных
+    *     \defgroup TYPE_Group РўРёРїС‹ РґР°РЅРЅС‹С…
     */
 
 	/**
     *
-    *     \defgroup nmppsGroup_ Векторные функции 
+    *     \defgroup nmppsGroup_ Р’РµРєС‚РѕСЂРЅС‹Рµ С„СѓРЅРєС†РёРё 
     */
 #include "./nmplv/nmplv.h"	
 	/**
     *
-    *     \defgroup MTR_Group Матричные функции 
+    *     \defgroup MTR_Group РњР°С‚СЂРёС‡РЅС‹Рµ С„СѓРЅРєС†РёРё 
     */
 #include "./nmplm/nmplm.h"	
 	/**
     *
-    *     \defgroup SIG_Group Функции обработки сигналов 
+    *     \defgroup SIG_Group Р¤СѓРЅРєС†РёРё РѕР±СЂР°Р±РѕС‚РєРё СЃРёРіРЅР°Р»РѕРІ 
     */
 //#include "./nmpls/nmpls.h"	
 	/**
     *
-    *     \defgroup IMG_Group Функции обработки изображений
+    *     \defgroup IMG_Group Р¤СѓРЅРєС†РёРё РѕР±СЂР°Р±РѕС‚РєРё РёР·РѕР±СЂР°Р¶РµРЅРёР№
     */
 //#include "./nmpli/nmpli.h"	
 	/**
     *
-    *     \defgroup nmppcGroup Скалярные функции 
+    *     \defgroup nmppcGroup РЎРєР°Р»СЏСЂРЅС‹Рµ С„СѓРЅРєС†РёРё 
     */
 #include "./nmplc/nmplc.h"	
 	/**
     *
-    *     \defgroup CORE_Group Базовые регистровые функции библиотеки
+    *     \defgroup CORE_Group Р‘Р°Р·РѕРІС‹Рµ СЂРµРіРёСЃС‚СЂРѕРІС‹Рµ С„СѓРЅРєС†РёРё Р±РёР±Р»РёРѕС‚РµРєРё
     */
 	
 #include "./malloc32.h"

@@ -29,7 +29,7 @@
 #include "nmtype.h"
 
 
-/*! \mainpage Введение 
+/*! \mainpage Р’РІРµРґРµРЅРёРµ 
  *
  * \htmlinclude intro.html 
  * \section intro_sec Introduction
@@ -53,7 +53,7 @@
 	/**
 	*
     * \if Russian
-    *     \defgroup sFFT Быстрое Преобразование Фурье
+    *     \defgroup sFFT Р‘С‹СЃС‚СЂРѕРµ РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ Р¤СѓСЂСЊРµ
     * \endif
     * \if English
     *     \defgroup sFFT Fast Fourier Transform

@@ -9,18 +9,18 @@
 
 #include "warpimg.h"
 /*! \ru 
-	\page intro Введение 
+	\page intro Р’РІРµРґРµРЅРёРµ 
 	\en 
 	\page intro Introduction
 	\~
     \ingroup IMG_Group
 	
 	\ru 
-Назначением данной библиотеки является предоставление базовых операций обработки изображений для процессора NM6403, NM6404, NM6405. В состав библиотеки входят функции двумерной фильтрации, арифметические действия и цветовые преобразования. Библиотека предназначена для быстрой разработки эффективных пользовательских программ на языке высокого уровня с использованием преимуществ архитектуры данного процессора. 
+РќР°Р·РЅР°С‡РµРЅРёРµРј РґР°РЅРЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРё СЏРІР»СЏРµС‚СЃСЏ РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅРёРµ Р±Р°Р·РѕРІС‹С… РѕРїРµСЂР°С†РёР№ РѕР±СЂР°Р±РѕС‚РєРё РёР·РѕР±СЂР°Р¶РµРЅРёР№ РґР»СЏ РїСЂРѕС†РµСЃСЃРѕСЂР° NM6403, NM6404, NM6405. Р’ СЃРѕСЃС‚Р°РІ Р±РёР±Р»РёРѕС‚РµРєРё РІС…РѕРґСЏС‚ С„СѓРЅРєС†РёРё РґРІСѓРјРµСЂРЅРѕР№ С„РёР»СЊС‚СЂР°С†РёРё, Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёРµ РґРµР№СЃС‚РІРёСЏ Рё С†РІРµС‚РѕРІС‹Рµ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ. Р‘РёР±Р»РёРѕС‚РµРєР° РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅР° РґР»СЏ Р±С‹СЃС‚СЂРѕР№ СЂР°Р·СЂР°Р±РѕС‚РєРё СЌС„С„РµРєС‚РёРІРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёС… РїСЂРѕРіСЂР°РјРј РЅР° СЏР·С‹РєРµ РІС‹СЃРѕРєРѕРіРѕ СѓСЂРѕРІРЅСЏ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј РїСЂРµРёРјСѓС‰РµСЃС‚РІ Р°СЂС…РёС‚РµРєС‚СѓСЂС‹ РґР°РЅРЅРѕРіРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°. 
 
-Функции библиотеки имеют C++ интерфейс. Большинство функций библиотеки реализованы на языке ассемблера с использованием векторных инструкций и оптимизированы под архитектуру процессора NM6403. 
+Р¤СѓРЅРєС†РёРё Р±РёР±Р»РёРѕС‚РµРєРё РёРјРµСЋС‚ C++ РёРЅС‚РµСЂС„РµР№СЃ. Р‘РѕР»СЊС€РёРЅСЃС‚РІРѕ С„СѓРЅРєС†РёР№ Р±РёР±Р»РёРѕС‚РµРєРё СЂРµР°Р»РёР·РѕРІР°РЅС‹ РЅР° СЏР·С‹РєРµ Р°СЃСЃРµРјР±Р»РµСЂР° СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј РІРµРєС‚РѕСЂРЅС‹С… РёРЅСЃС‚СЂСѓРєС†РёР№ Рё РѕРїС‚РёРјРёР·РёСЂРѕРІР°РЅС‹ РїРѕРґ Р°СЂС…РёС‚РµРєС‚СѓСЂСѓ РїСЂРѕС†РµСЃСЃРѕСЂР° NM6403. 
 
-Для удобства разработки прикладных программ библиотека содержит аналогичные реализации функций для процессоров серии x86, выполненных на языке С++. Данные реализации позволяют выполнять написанные с использованием данной библиотеки прикладные программы на персональном компьютере. 
+Р”Р»СЏ СѓРґРѕР±СЃС‚РІР° СЂР°Р·СЂР°Р±РѕС‚РєРё РїСЂРёРєР»Р°РґРЅС‹С… РїСЂРѕРіСЂР°РјРј Р±РёР±Р»РёРѕС‚РµРєР° СЃРѕРґРµСЂР¶РёС‚ Р°РЅР°Р»РѕРіРёС‡РЅС‹Рµ СЂРµР°Р»РёР·Р°С†РёРё С„СѓРЅРєС†РёР№ РґР»СЏ РїСЂРѕС†РµСЃСЃРѕСЂРѕРІ СЃРµСЂРёРё x86, РІС‹РїРѕР»РЅРµРЅРЅС‹С… РЅР° СЏР·С‹РєРµ РЎ++. Р”Р°РЅРЅС‹Рµ СЂРµР°Р»РёР·Р°С†РёРё РїРѕР·РІРѕР»СЏСЋС‚ РІС‹РїРѕР»РЅСЏС‚СЊ РЅР°РїРёСЃР°РЅРЅС‹Рµ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј РґР°РЅРЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРё РїСЂРёРєР»Р°РґРЅС‹Рµ РїСЂРѕРіСЂР°РјРјС‹ РЅР° РїРµСЂСЃРѕРЅР°Р»СЊРЅРѕРј РєРѕРјРїСЊСЋС‚РµСЂРµ. 
 	\en
 The purpose of the library is to support the base operations with image processing for NM6403, NM6404, NM6405 processor. Library contains two-dimensional filters, arithmetical operations with images, color conversions. The library is meant for fast development of effective user programs in a high level language using the advantages of this processor architecture. 
 
@@ -35,7 +35,7 @@ For convenience of application programs development the library has implementati
 
     /**
     * \ru
-    *     \defgroup iArithmetics Арифметические действия
+    *     \defgroup iArithmetics РђСЂРёС„РјРµС‚РёС‡РµСЃРєРёРµ РґРµР№СЃС‚РІРёСЏ
     * \en
     *     \defgroup iArithmetics Arithmetics
     * \~
@@ -47,7 +47,7 @@ For convenience of application programs development the library has implementati
 
 	/** 
     * \ru
-    *     \defgroup iFiltration Масочная фильтрация
+    *     \defgroup iFiltration РњР°СЃРѕС‡РЅР°СЏ С„РёР»СЊС‚СЂР°С†РёСЏ
     * \en
     *     \defgroup iFiltration Mask filtration
      * \~
@@ -58,7 +58,7 @@ For convenience of application programs development the library has implementati
 
     /**
     * \ru
-    *     \defgroup iInit Инициализация и копирование 
+    *     \defgroup iInit РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ Рё РєРѕРїРёСЂРѕРІР°РЅРёРµ 
     * \en
     *     \defgroup iInit Initialization and copy
     * \~
@@ -71,7 +71,7 @@ For convenience of application programs development the library has implementati
     /*
 	\internal
     * \ru
-    *     \defgroup iResample Изменение размеров
+    *     \defgroup iResample РР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂРѕРІ
     * \en
     *     \defgroup iResample Resampling
     * \~
@@ -84,7 +84,7 @@ For convenience of application programs development the library has implementati
     /*
 	\internal
     * \ru
-    *     \defgroup iSelect Операции выборки
+    *     \defgroup iSelect РћРїРµСЂР°С†РёРё РІС‹Р±РѕСЂРєРё
     * \en
     *     \defgroup iSelect Select operations
     * \~
@@ -97,7 +97,7 @@ For convenience of application programs development the library has implementati
 
 	/**
 	* \ru 
-	* 	\defgroup iSupport Функции поддержки 
+	* 	\defgroup iSupport Р¤СѓРЅРєС†РёРё РїРѕРґРґРµСЂР¶РєРё 
 	* \en
 	*     \defgroup iSupport Support functions 
     * \~
@@ -117,7 +117,7 @@ For convenience of application programs development the library has implementati
 
 	/**
 	* \ru 
-	* 	\defgroup IMG_Print Функции графического вывода текста 
+	* 	\defgroup IMG_Print Р¤СѓРЅРєС†РёРё РіСЂР°С„РёС‡РµСЃРєРѕРіРѕ РІС‹РІРѕРґР° С‚РµРєСЃС‚Р° 
 	* \en
 	*	\defgroup IMG_Print Graphic print functions
     * \~

@@ -2,7 +2,7 @@
 //*                                                                         */
 //*                    Neuroprocessor NM6403 SDK v.1.2                      */
 //*                                                                         */
-//*               Заголовочный файл fixpoint64  функций                     */
+//*               Р—Р°РіРѕР»РѕРІРѕС‡РЅС‹Р№ С„Р°Р№Р» fixpoint64  С„СѓРЅРєС†РёР№                     */
 //*                1999 (c) RC Module Inc., Moscow, Russia                  */
 //*                                                                         */
 //*                                                                         */
@@ -18,16 +18,16 @@ extern "C" {
 	\defgroup nmppcFixSqrt64 nmppcFixSqrt64
 	\ingroup cFixpoint64
 	\brief
-		\ru Вычисление квадратного корня числа в формате fixed-point (32.32)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ РєРІР°РґСЂР°С‚РЅРѕРіРѕ РєРѕСЂРЅСЏ С‡РёСЃР»Р° РІ С„РѕСЂРјР°С‚Рµ fixed-point (32.32)
 		\en Calculation of square root from number of fixed-point format (32.32)
 		\~
 	\~
 	\param x
-		\ru Входное число с фиксированной точкой в формате (32.32)
+		\ru Р’С…РѕРґРЅРѕРµ С‡РёСЃР»Рѕ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ РІ С„РѕСЂРјР°С‚Рµ (32.32)
 		\en input fixed-point number in format (32.32)
 		\~
 	\return 
-		\ru Квадратный корень в формате с фиксированной точкой (32.32)
+		\ru РљРІР°РґСЂР°С‚РЅС‹Р№ РєРѕСЂРµРЅСЊ РІ С„РѕСЂРјР°С‚Рµ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ (32.32)
 		\en Squared root in fixpoint format with fromat (32.32)
 
 		\~
@@ -47,21 +47,21 @@ extern "C" {
 	\defgroup nmppcDoubleToFix64 nmppcDoubleToFix64
 	\ingroup cFixpoint64
 	\brief
-		\ru Функция перевода из Fixed-Point 64 в Double
+		\ru Р¤СѓРЅРєС†РёСЏ РїРµСЂРµРІРѕРґР° РёР· Fixed-Point 64 РІ Double
 		\en Convertion of number from double format to fixed-point format
 
 		\~
 	\~
 	\param arg
-		\ru Входное число с плавающей точкой
+		\ru Р’С…РѕРґРЅРѕРµ С‡РёСЃР»Рѕ СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№
 		\en Input double number 
 		\~
 	\param fixpoint
-		\ru позиция двоичной точки
+		\ru РїРѕР·РёС†РёСЏ РґРІРѕРёС‡РЅРѕР№ С‚РѕС‡РєРё
 		\en position of binary point
 		\~
 	\return 
-		\ru Число с фиксированной точкой
+		\ru Р§РёСЃР»Рѕ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№
 		\en Number in fixpoint format
 
 		\~
@@ -86,21 +86,21 @@ long nmppcDoubleToFix64(double arg, int fixpoint);
 	\defgroup nmppcFix64ToDouble nmppcFix64ToDouble
 	\ingroup cFixpoint64
 	\brief
-		\ru Преобразование 64р. числа с фиксированной точкой в число с плвающей точкой типа double 
+		\ru РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ 64СЂ. С‡РёСЃР»Р° СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ РІ С‡РёСЃР»Рѕ СЃ РїР»РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ С‚РёРїР° double 
 		\en Conversion of 64 bit number of fixed-point format to floating-point number with type of double
 
 		\~
 	\~
 	\param arg
-		\ru Входное 64р. число в формате с фиксированной точкой
+		\ru Р’С…РѕРґРЅРѕРµ 64СЂ. С‡РёСЃР»Рѕ РІ С„РѕСЂРјР°С‚Рµ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№
 		\en Input 64 bit fixed-point number 
 		\~
 	\param fixpoint
-		\ru Позиция двоичной точки
+		\ru РџРѕР·РёС†РёСЏ РґРІРѕРёС‡РЅРѕР№ С‚РѕС‡РєРё
 		\en Position of binary point
 		\~
 	\return 
-		\ru Число с плавающей точкой
+		\ru Р§РёСЃР»Рѕ СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№
 		\en Number with floating-point format
 
 		\~
@@ -123,25 +123,25 @@ double nmppcFix64ToDouble(long arg , int fixpoint );
 	\defgroup nmppcFixDiv64 nmppcFixDiv64
 	\ingroup cFixpoint64
 	\brief
-		\ru Деление двух целых чисел с записью результата в формате fixed-point 
+		\ru Р”РµР»РµРЅРёРµ РґРІСѓС… С†РµР»С‹С… С‡РёСЃРµР» СЃ Р·Р°РїРёСЃСЊСЋ СЂРµР·СѓР»СЊС‚Р°С‚Р° РІ С„РѕСЂРјР°С‚Рµ fixed-point 
 		\en Division of two integer numbers with retrun of result in fixed-point format 
 
 		\~
 	\~
 	\param nDividend
-		\ru Делимое
+		\ru Р”РµР»РёРјРѕРµ
 		\en Devident
 		\~
 	\param nDivisor
-		\ru Делитель. Делитель должен быть по модулю больше чем делимое.
+		\ru Р”РµР»РёС‚РµР»СЊ. Р”РµР»РёС‚РµР»СЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїРѕ РјРѕРґСѓР»СЋ Р±РѕР»СЊС€Рµ С‡РµРј РґРµР»РёРјРѕРµ.
 		\en Devisor. Devisor must be grater then devident in abslolute meaning
 		\~
 	\param nFixpoint
-		\ru Позиция двоичной точки
+		\ru РџРѕР·РёС†РёСЏ РґРІРѕРёС‡РЅРѕР№ С‚РѕС‡РєРё
 		\en Position of binary point
 		\~
 	\retval nQuotient
-		\ru Частное в формате числа с фиксированной точкой
+		\ru Р§Р°СЃС‚РЅРѕРµ РІ С„РѕСЂРјР°С‚Рµ С‡РёСЃР»Р° СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№
 		\en Quotinet with fixed-point format
 
 		\~
@@ -160,28 +160,28 @@ double nmppcFix64ToDouble(long arg , int fixpoint );
     //! \{
 void nmppcFixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotient);
     //! \}
-	//     Функция деления A/B для целых чисел со знаком 2*abs(A)<abs(B)         
+	//     Р¤СѓРЅРєС†РёСЏ РґРµР»РµРЅРёСЏ A/B РґР»СЏ С†РµР»С‹С… С‡РёСЃРµР» СЃРѕ Р·РЅР°РєРѕРј 2*abs(A)<abs(B)         
 
 //=============================================================================
 	/**
 	\defgroup nmppcFixSinCos64 nmppcFixSinCos64
 	\ingroup cFixpoint64
 	\brief
-		\ru Вычисление синуса и косинуса от аргумента в формате fixed-point (32.32)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ СЃРёРЅСѓСЃР° Рё РєРѕСЃРёРЅСѓСЃР° РѕС‚ Р°СЂРіСѓРјРµРЅС‚Р° РІ С„РѕСЂРјР°С‚Рµ fixed-point (32.32)
 		\en Calculation sine and cosine of argument in fixed-point format (32.32)
 
 		\~
 	\~
 	\param nArg
-		\ru Угол в радианах. Угол должен быть в диапазоне от -PI/2 до +PI/2 
+		\ru РЈРіРѕР» РІ СЂР°РґРёР°РЅР°С…. РЈРіРѕР» РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ -PI/2 РґРѕ +PI/2 
 		\en Angle in radians. Angle must be in range [-PI/2,...,+PI/2]
 		\~
 	\retval pnSin
-		\ru указатель на синус
+		\ru СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃРёРЅСѓСЃ
 		\en pointer to sine
 		\~
 	\retval pnCos
-		\ru указатель на косинус
+		\ru СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕСЃРёРЅСѓСЃ
 		\en pointer to cosine
 		\~
 	\par
@@ -202,17 +202,17 @@ void nmppcFixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotie
 	\defgroup nmppcFixArcTan64 nmppcFixArcTan64
 	\ingroup cFixpoint64
 	\brief
-		\ru Вычисление арктангенса от аргумента в формате fixed-point (32.32)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ Р°СЂРєС‚Р°РЅРіРµРЅСЃР° РѕС‚ Р°СЂРіСѓРјРµРЅС‚Р° РІ С„РѕСЂРјР°С‚Рµ fixed-point (32.32)
 		\en Calculation of arctangent from argument in fixed-point format (32.32)
 
 		\~
 	\~
 	\param nArg
-		\ru Угол в радианах
+		\ru РЈРіРѕР» РІ СЂР°РґРёР°РЅР°С…
 		\en Angle in radians
 		\~
 	\retrun
-		\ru Арктангенс
+		\ru РђСЂРєС‚Р°РЅРіРµРЅСЃ
 		\en Arctangent
 		\~
 	\par
@@ -232,16 +232,16 @@ void nmppcFixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotie
 	\defgroup nmppcFix64Exp01 nmppcFix64Exp01
 	\ingroup cFixpoint32
 	\brief
-		\ru Вычисление вычисления экспоненты числа в формате fixed-point (4.60)
+		\ru Р’С‹С‡РёСЃР»РµРЅРёРµ РІС‹С‡РёСЃР»РµРЅРёСЏ СЌРєСЃРїРѕРЅРµРЅС‚С‹ С‡РёСЃР»Р° РІ С„РѕСЂРјР°С‚Рµ fixed-point (4.60)
 		\en Calculation of exponent from number in fixed-point format (4.60)
 		\~
 	\~
 	\param nVal
-		\ru Входное число с фиксированной точкой в формате (4.60)
+		\ru Р’С…РѕРґРЅРѕРµ С‡РёСЃР»Рѕ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ РІ С„РѕСЂРјР°С‚Рµ (4.60)
 		\en input fixed-point number in format (4.60)
 		\~
 	\return 
-		\ru Экспонента числа в формате с фиксированной точкой (4.60)
+		\ru Р­РєСЃРїРѕРЅРµРЅС‚Р° С‡РёСЃР»Р° РІ С„РѕСЂРјР°С‚Рµ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С‚РѕС‡РєРѕР№ (4.60)
 		\en Exponent in fixpoint format with fromat (4.60)
 
 		\~

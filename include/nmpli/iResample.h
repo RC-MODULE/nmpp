@@ -2,7 +2,7 @@
 //
 //  $Workfile:: iResample. $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   iResample.h
-//! \author Сергей Мушкаев
-//! \brief  Изменение размера изображения.
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  РР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ.
 //!
 //! \endif
 //!
@@ -31,7 +31,7 @@
     \defgroup IMG_ResampleDown2X IMG_ResampleDown2X
     \ingroup iResample
     \brief
-        \ru Уменьшение ширины изображения вдвое. 
+        \ru РЈРјРµРЅСЊС€РµРЅРёРµ С€РёСЂРёРЅС‹ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РІРґРІРѕРµ. 
         \en Image width reduction by factor 2. 
     
 		\~
@@ -40,45 +40,45 @@
         pDst(x,y) = \frac{1}{2} \left( pSrcImg(2*x, y) + pSrcImg(2*x+1, y) \right)
     \f]
     
-    \ru Значение пикселя для выходного изображения получаются 
-        в результате усреднения значений для соседних пикселей входного 
-        изображения. 
+    \ru Р—РЅР°С‡РµРЅРёРµ РїРёРєСЃРµР»СЏ РґР»СЏ РІС‹С…РѕРґРЅРѕРіРѕ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РїРѕР»СѓС‡Р°СЋС‚СЃСЏ 
+        РІ СЂРµР·СѓР»СЊС‚Р°С‚Рµ СѓСЃСЂРµРґРЅРµРЅРёСЏ Р·РЅР°С‡РµРЅРёР№ РґР»СЏ СЃРѕСЃРµРґРЅРёС… РїРёРєСЃРµР»РµР№ РІС…РѕРґРЅРѕРіРѕ 
+        РёР·РѕР±СЂР°Р¶РµРЅРёСЏ. 
     \en Pixel value for output image results from averaging 
         values from neighbour pixels on the input image. 
 
 		\~
 		\~
     \param pSrcImg		
-        \ru Исходное изображение. 
+        \ru РСЃС…РѕРґРЅРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ. 
         \en Input image. 
 		\~
     \param pTmpBuf      
-        \ru Временный буфер размера 2*nSrcWidth*nSrcHeight. 
+        \ru Р’СЂРµРјРµРЅРЅС‹Р№ Р±СѓС„РµСЂ СЂР°Р·РјРµСЂР° 2*nSrcWidth*nSrcHeight. 
         \en Temporary buffer with size 2*nSrcWidth*nSrcHeight. 
 		\~
     \param nSrcWidth		
-        \ru Ширина изображения; 
+        \ru РЁРёСЂРёРЅР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ; 
         \en Image width; 
 		\~
     \param nSrcHeight		
-        \ru Высота изображения. 
+        \ru Р’С‹СЃРѕС‚Р° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ. 
         \en Image height. 
 
 		\~
     \retval pDst		
-        \ru Результирующее изображение; 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ; 
         \en Output image. 
 
 		\~
     \restr 
-        \ru Высота должна быть четным числом.
+        \ru Р’С‹СЃРѕС‚Р° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ С‡РµС‚РЅС‹Рј С‡РёСЃР»РѕРј.
         \en nSrcHeight should be an even number.
     
 		\~
     \note 
-        \ru Для того чтобы избежать переполнения при усреднении,
-              динамический диапазон исходного изображения должен
-              принадлежать диапазону, определенному типом. 
+        \ru Р”Р»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ РїРµСЂРµРїРѕР»РЅРµРЅРёСЏ РїСЂРё СѓСЃСЂРµРґРЅРµРЅРёРё,
+              РґРёРЅР°РјРёС‡РµСЃРєРёР№ РґРёР°РїР°Р·РѕРЅ РёСЃС…РѕРґРЅРѕРіРѕ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РґРѕР»Р¶РµРЅ
+              РїСЂРёРЅР°РґР»РµР¶Р°С‚СЊ РґРёР°РїР°Р·РѕРЅСѓ, РѕРїСЂРµРґРµР»РµРЅРЅРѕРјСѓ С‚РёРїРѕРј. 
         \en To avoid data overflow dynamic range of source
               image should be in interval defined by type. 
     
@@ -116,7 +116,7 @@ void IMG_ResampleDown2X(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHe
     \defgroup IMG_ResampleDown2Y IMG_ResampleDown2Y
     \ingroup iResample
     \brief
-        \ru Уменьшение высоты изображения вдвое. 
+        \ru РЈРјРµРЅСЊС€РµРЅРёРµ РІС‹СЃРѕС‚С‹ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РІРґРІРѕРµ. 
         \en Image height reduction by factor 2. 
     
 		\~
@@ -125,44 +125,44 @@ void IMG_ResampleDown2X(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHe
         pDst(x,y) = \frac{1}{2} \left( pSrcImg(x, 2*y) + pSrcImg(x, 2*y+1) \right)
     \f]
     
-    \ru Значение пикселя для выходного изображения получаются 
-        в результате усреднения значений для соседних пикселей входного 
-        изображения. 
+    \ru Р—РЅР°С‡РµРЅРёРµ РїРёРєСЃРµР»СЏ РґР»СЏ РІС‹С…РѕРґРЅРѕРіРѕ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РїРѕР»СѓС‡Р°СЋС‚СЃСЏ 
+        РІ СЂРµР·СѓР»СЊС‚Р°С‚Рµ СѓСЃСЂРµРґРЅРµРЅРёСЏ Р·РЅР°С‡РµРЅРёР№ РґР»СЏ СЃРѕСЃРµРґРЅРёС… РїРёРєСЃРµР»РµР№ РІС…РѕРґРЅРѕРіРѕ 
+        РёР·РѕР±СЂР°Р¶РµРЅРёСЏ. 
     \en Pixel value for output image results from averaging 
         values from neighbour pixels on the input image. 
 
 		\~
 		\~
     \param pSrcImg		
-        \ru Исходное изображение. 
+        \ru РСЃС…РѕРґРЅРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ. 
         \en Input image. 
 		\~
     \param pTmpBuf      
-        \ru Временный буфер размера 2*nSrcWidth*nSrcHeight. 
+        \ru Р’СЂРµРјРµРЅРЅС‹Р№ Р±СѓС„РµСЂ СЂР°Р·РјРµСЂР° 2*nSrcWidth*nSrcHeight. 
         \en Temporary buffer with size 2*nSrcWidth*nSrcHeight. 
 		\~
     \param nSrcWidth		
-        \ru Ширина изображения; 
+        \ru РЁРёСЂРёРЅР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ; 
         \en Image width; 
 		\~
     \param nSrcHeight		
-        \ru Высота изображения. 
+        \ru Р’С‹СЃРѕС‚Р° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ. 
         \en Image height. 
 
 		\~
     \retval	pDst		
-        \ru Результирующее изображение; 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ; 
         \en Output image. 
 
 		\~
     \restr 
-        \ru Высота должна быть четным числом. 
+        \ru Р’С‹СЃРѕС‚Р° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ С‡РµС‚РЅС‹Рј С‡РёСЃР»РѕРј. 
         \en nSrcHeight should be an even number. 
 
 		\~
-    \note \ru Для того чтобы избежать переполнения при усреднении,
-              динамический диапазон исходного изображения должен
-              принадлежать диапазону, определенному типом. 
+    \note \ru Р”Р»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ РїРµСЂРµРїРѕР»РЅРµРЅРёСЏ РїСЂРё СѓСЃСЂРµРґРЅРµРЅРёРё,
+              РґРёРЅР°РјРёС‡РµСЃРєРёР№ РґРёР°РїР°Р·РѕРЅ РёСЃС…РѕРґРЅРѕРіРѕ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РґРѕР»Р¶РµРЅ
+              РїСЂРёРЅР°РґР»РµР¶Р°С‚СЊ РґРёР°РїР°Р·РѕРЅСѓ, РѕРїСЂРµРґРµР»РµРЅРЅРѕРјСѓ С‚РёРїРѕРј. 
           \en To avoid data overflow dynamic range of source
               image should be in interval defined by type. 
 
@@ -200,7 +200,7 @@ void IMG_ResampleDown2Y(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHe
     \defgroup IMG_ResampleDown2XY IMG_ResampleDown2XY
     \ingroup iResample
     \brief
-        \ru Уменьшение размеров изображения вдвое. 
+        \ru РЈРјРµРЅСЊС€РµРЅРёРµ СЂР°Р·РјРµСЂРѕРІ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РІРґРІРѕРµ. 
         \en Image size reduction by factor 2. 
     
 		\~
@@ -209,44 +209,44 @@ void IMG_ResampleDown2Y(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHe
         pDst(x,y) = \frac{1}{4} \sum_{k=0}^1 \sum_{l=0}^1 pSrcImg(2*x+k, 2*y+l)
     \f]
     
-    \ru Значение пикселя для выходного изображения получаются 
-        в результате усреднения значений для соседних пикселей входного 
-        изображения. 
+    \ru Р—РЅР°С‡РµРЅРёРµ РїРёРєСЃРµР»СЏ РґР»СЏ РІС‹С…РѕРґРЅРѕРіРѕ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РїРѕР»СѓС‡Р°СЋС‚СЃСЏ 
+        РІ СЂРµР·СѓР»СЊС‚Р°С‚Рµ СѓСЃСЂРµРґРЅРµРЅРёСЏ Р·РЅР°С‡РµРЅРёР№ РґР»СЏ СЃРѕСЃРµРґРЅРёС… РїРёРєСЃРµР»РµР№ РІС…РѕРґРЅРѕРіРѕ 
+        РёР·РѕР±СЂР°Р¶РµРЅРёСЏ. 
     \en Pixel value for output image results from averaging 
         values from neighbour pixels on the input image. 
 
 		\~
 		\~
     \param pSrcImg		
-        \ru Исходное изображение. 
+        \ru РСЃС…РѕРґРЅРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ. 
         \en Input image. 
 		\~
     \param pTmpBuf      
-        \ru Временный буфер размера 2*nSrcWidth*nSrcHeight. 
+        \ru Р’СЂРµРјРµРЅРЅС‹Р№ Р±СѓС„РµСЂ СЂР°Р·РјРµСЂР° 2*nSrcWidth*nSrcHeight. 
         \en Temporary buffer with size 2*nSrcWidth*nSrcHeight. 
 		\~
     \param nSrcWidth		
-        \ru Ширина изображения; 
+        \ru РЁРёСЂРёРЅР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ; 
         \en Image width; 
 		\~
     \param nSrcHeight		
-        \ru Высота изображения. 
+        \ru Р’С‹СЃРѕС‚Р° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ. 
         \en Image height. 
 
 		\~
     \retval pDst		
-        \ru Результирующее изображение; 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ; 
         \en Output image. 
 
 		\~
     \restr 
-        \ru Высота должна быть четным числом. 
+        \ru Р’С‹СЃРѕС‚Р° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ С‡РµС‚РЅС‹Рј С‡РёСЃР»РѕРј. 
         \en nSrcHeight should be an even number. 
 
 		\~
-    \note \ru Для того чтобы избежать переполнения при усреднении,
-              динамический диапазон исходного изображения должен
-              принадлежать диапазону, определенному типом. 
+    \note \ru Р”Р»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ РїРµСЂРµРїРѕР»РЅРµРЅРёСЏ РїСЂРё СѓСЃСЂРµРґРЅРµРЅРёРё,
+              РґРёРЅР°РјРёС‡РµСЃРєРёР№ РґРёР°РїР°Р·РѕРЅ РёСЃС…РѕРґРЅРѕРіРѕ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РґРѕР»Р¶РµРЅ
+              РїСЂРёРЅР°РґР»РµР¶Р°С‚СЊ РґРёР°РїР°Р·РѕРЅСѓ, РѕРїСЂРµРґРµР»РµРЅРЅРѕРјСѓ С‚РёРїРѕРј. 
           \en To avoid data overflow dynamic range of source
               image should be in interval defined by type. 
 		\~

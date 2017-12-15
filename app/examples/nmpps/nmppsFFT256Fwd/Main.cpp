@@ -21,9 +21,11 @@ int main()
 	nmppsRShiftC_32u((nm32u*)src,24, (nm32u*)src, 256*2);
 	
 	NmppsFFTSpec* specFFT256Fwd;
-	fseq64 route=0xF10;
-	nmppsFFT256FwdOptimize(src,dst,&route);
-	nmppsMallocSetShortRoute(route);
+	fseq64 route=0xF3210;
+	//nmppsFFT256FwdOptimize(src,dst,&route);
+	//return route;
+	//nmppsMallocSetShortRoute(route);
+	nmppsMallocSetRoute16(route);
 	nmppsFFT256FwdInitAlloc(&specFFT256Fwd,src,dst,0);
 	t0=clock();
 	nmppsFFT256Fwd(src,dst,specFFT256Fwd);
@@ -48,3 +50,4 @@ int main()
 	//return crc;
 	return t1-t0;
 }
+// 3856

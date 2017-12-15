@@ -2,7 +2,7 @@
 //
 //  $Workfile:: tnmvec. $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   tnmvec.h
-//! \author Сергей Мушкаев
-//! \brief  Определяет шаблон для класса вектор.
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  РћРїСЂРµРґРµР»СЏРµС‚ С€Р°Р±Р»РѕРЅ РґР»СЏ РєР»Р°СЃСЃР° РІРµРєС‚РѕСЂ.
 //!
 //! \endif
 //!
@@ -29,11 +29,11 @@
 //*****************************************************************************
 /**
 	 \ingroup nmtl
-	 \ru Класс векторов.
+	 \ru РљР»Р°СЃСЃ РІРµРєС‚РѕСЂРѕРІ.
 	 \en Class nmvec
 	
 		\~
-	   \ru \par Примеры:
+	   \ru \par РџСЂРёРјРµСЂС‹:
 		 \en \par Example:
 			\~
 			\code
@@ -95,7 +95,7 @@ public:
 
 	}
 
-	inline nmvec<T>& operator= (const nmvec<T>& vec) // спец. добавил const - nmcpp ругается
+	inline nmvec<T>& operator= (const nmvec<T>& vec) // СЃРїРµС†. РґРѕР±Р°РІРёР» const - nmcpp СЂСѓРіР°РµС‚СЃСЏ
 	{
 		ASSERTE(vec.size==size);
 		memcpy(m_data,vec.m_data,size*sizeof(T));

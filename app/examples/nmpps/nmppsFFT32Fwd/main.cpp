@@ -1,4 +1,4 @@
-#include "fft2.h"
+#include "fft.h"
 #include "nmpp.h"
 #include <time.h>
 #include <stdio.h>
@@ -80,7 +80,7 @@ int selfTest(){
 	nmppsFFT32Fwd(src,dst,&spec);		msd=nmppsMSD_32sc(dstRef_f,dst,32); 	printf("msd[ref_f:fwd] =%f\n",msd);
 		                                                                      
 	nmppsFFT32FwdRaw(src,dst,&spec);									
-	nmppsAddC_32s((nm32s*)dst,spec.round[0],(nm32s*)dst,FFT_SIZE*2); 	
+	//nmppsAddC_32s((nm32s*)dst,spec.round[0],(nm32s*)dst,FFT_SIZE*2); 	
 	nmppsRShiftC_32s((nm32s*)dst,spec.shift[0],(nm32s*)dst,FFT_SIZE*2); 
 	msd=nmppsMSD_32sc(dst,dstRef,32);											printf("msd[raw:fwd]   =%f\n",msd);
 	
@@ -95,8 +95,9 @@ int selfTest(){
 int main()
 {
 	
-	if (!selfTest())
-		return -1;
+	//if (!selfTest())
+	//	return -1;
+	//	return -1;
 	return speedTest();
 	
 }

@@ -668,7 +668,8 @@ INPUT                  = 	../../include
 # into libc) for the transcoding. See http://www.gnu.org/software/libiconv for 
 # the list of possible encodings.
 
-INPUT_ENCODING       = Windows-1251
+#INPUT_ENCODING       = Windows-1251
+INPUT_ENCODING       = UTF-8
 
 # If the value of the INPUT tag contains directories, you can use the 
 # FILE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp 
@@ -1056,6 +1057,7 @@ GENERATE_CHI           = NO
 # content.
 
 CHM_INDEX_ENCODING     = windows-1251
+#CHM_INDEX_ENCODING     = UTF-8
 
 # If the GENERATE_HTMLHELP tag is set to YES, the BINARY_TOC flag 
 # controls whether a binary table of contents is generated (YES) or a 

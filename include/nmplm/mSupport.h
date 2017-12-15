@@ -2,7 +2,7 @@
 //
 //  $Workfile:: mSupport.h              $
 //
-//  <Название библиотеки>
+//  <РќР°Р·РІР°РЅРёРµ Р±РёР±Р»РёРѕС‚РµРєРё>
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   mtrMalloc.h
-//! \author Дмитрий Рыжов
-//! \brief  Распределение памяти для изображений.
+//! \author Р”РјРёС‚СЂРёР№ Р С‹Р¶РѕРІ
+//! \brief  Р Р°СЃРїСЂРµРґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РґР»СЏ РёР·РѕР±СЂР°Р¶РµРЅРёР№.
 //!
 //! \endif
 //!
@@ -27,7 +27,7 @@
 	/*
     *
     * \if Russian 
-    *     \defgroup mSupport Функции поддержки 
+    *     \defgroup mSupport Р¤СѓРЅРєС†РёРё РїРѕРґРґРµСЂР¶РєРё 
     * \endif
     * \if English
     *     \defgroup mSupport Support functions 
@@ -41,34 +41,34 @@
     \defgroup MTR_Malloc MTR_Malloc
     \ingroup mSupport
     \brief
-        \ru Распределение памяти для матриц библиотеки. 
+        \ru Р Р°СЃРїСЂРµРґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РґР»СЏ РјР°С‚СЂРёС† Р±РёР±Р»РёРѕС‚РµРєРё. 
         \en Memory allocation for library matrixis.
     
 		\~
-        \ru Начало и конец распределяемой памяти выравнивается на начало 
-        64-х разрядного слова. 
+        \ru РќР°С‡Р°Р»Рѕ Рё РєРѕРЅРµС† СЂР°СЃРїСЂРµРґРµР»СЏРµРјРѕР№ РїР°РјСЏС‚Рё РІС‹СЂР°РІРЅРёРІР°РµС‚СЃСЏ РЅР° РЅР°С‡Р°Р»Рѕ 
+        64-С… СЂР°Р·СЂСЏРґРЅРѕРіРѕ СЃР»РѕРІР°. 
         \en Begin and end of the allocated memory are being 
         aligned to 64-bit word.
 
 		\~
     \~
     \param nHeight    
-        \ru Число строк в матрице. 
+        \ru Р§РёСЃР»Рѕ СЃС‚СЂРѕРє РІ РјР°С‚СЂРёС†Рµ. 
         \en Number of rows in mtr. 
 		\~
     \param nWidth 
-        \ru Число столбцов в матрице. 
+        \ru Р§РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ РІ РјР°С‚СЂРёС†Рµ. 
         \en Number of columns in mtr. 
 		\~
     \param hint     
-        \ru Номер банка памяти. Может принимать значения 
+        \ru РќРѕРјРµСЂ Р±Р°РЅРєР° РїР°РјСЏС‚Рё. РњРѕР¶РµС‚ РїСЂРёРЅРёРјР°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ 
                         MEM_LOCAL, MEM_GLOBAL. 
         \en Number of memory bank. Admissible values for memory bank
                         are MEM_LOCAL, MEM_GLOBAL. 
 
 		\~
-    \note \ru Память, распределенная с помощью функций MTR_Malloc должна
-              освобождаться с помощью функции MTR_Free. 
+    \note \ru РџР°РјСЏС‚СЊ, СЂР°СЃРїСЂРµРґРµР»РµРЅРЅР°СЏ СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёР№ MTR_Malloc РґРѕР»Р¶РЅР°
+              РѕСЃРІРѕР±РѕР¶РґР°С‚СЊСЃСЏ СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёРё MTR_Free. 
           \en Memory allocated by function MTR_Malloc should be 
               deallocated by function MTR_Free. 
 			  \~
@@ -98,13 +98,13 @@ __INLINE__ void MTR_Malloc(nm64u** pptr, int nHeight, int nWidth, int hint = MEM
     \defgroup MTR_Free MTR_Free
     \ingroup mSupport
     \brief
-        \ru Освобождение памяти для матриц. 
+        \ru РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё РґР»СЏ РјР°С‚СЂРёС†. 
         \en Memory deallocation for matrixis. 
 
 		\~
 		\~
-    \note \ru Данная функция должна вызываться только для
-              векторов, распределенных с помощью функций 
+    \note \ru Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РґРѕР»Р¶РЅР° РІС‹Р·С‹РІР°С‚СЊСЃСЏ С‚РѕР»СЊРєРѕ РґР»СЏ
+              РІРµРєС‚РѕСЂРѕРІ, СЂР°СЃРїСЂРµРґРµР»РµРЅРЅС‹С… СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёР№ 
               MTR_Malloc.
           \en This function should be called only for matrixis
               allocated by MTR_Malloc functions. 
@@ -121,46 +121,46 @@ __INLINE__ void MTR_Free(void* ptr) {nmppsFree(ptr);}
     \defgroup MTR_Addr MTR_Addr
     \ingroup mSupport
     \brief
-        \ru Возвращает адрес ячейки памяти, содержащей указанный элемент. 
+        \ru Р’РѕР·РІСЂР°С‰Р°РµС‚ Р°РґСЂРµСЃ СЏС‡РµР№РєРё РїР°РјСЏС‚Рё, СЃРѕРґРµСЂР¶Р°С‰РµР№ СѓРєР°Р·Р°РЅРЅС‹Р№ СЌР»РµРјРµРЅС‚. 
         \en Returns address of memory cell that contains
         the mtr element. 
     
 		\~
-        \ru Реализация для процессора NeuroMatrix возвращает адрес, выровненный 
-            в памяти на 32 бита. 
+        \ru Р РµР°Р»РёР·Р°С†РёСЏ РґР»СЏ РїСЂРѕС†РµСЃСЃРѕСЂР° NeuroMatrix РІРѕР·РІСЂР°С‰Р°РµС‚ Р°РґСЂРµСЃ, РІС‹СЂРѕРІРЅРµРЅРЅС‹Р№ 
+            РІ РїР°РјСЏС‚Рё РЅР° 32 Р±РёС‚Р°. 
         \en Implementation for NeuroMatrix processor returns an addres aligned 
             with 32 bits in the memory.
 
 		\~
 		\~
     \param pMtr     
-        \ru Входная матрица. 
+        \ru Р’С…РѕРґРЅР°СЏ РјР°С‚СЂРёС†Р°. 
         \en Input mtr. 
 		\~
     \param nWidth
-        \ru Ширина таблицы в элементах. 
+        \ru РЁРёСЂРёРЅР° С‚Р°Р±Р»РёС†С‹ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Matrix width in elements. 
    
 		\~
     \param nY    
-        \ru Номер строки. 
+        \ru РќРѕРјРµСЂ СЃС‚СЂРѕРєРё. 
         \en Row index. 
 	
 		\~
 	\param nX    
-        \ru Номер колонки. 
+        \ru РќРѕРјРµСЂ РєРѕР»РѕРЅРєРё. 
         \en Column index. 
 
 		\~
     \return         
-        \ru Адрес ячейки памяти. 
+        \ru РђРґСЂРµСЃ СЏС‡РµР№РєРё РїР°РјСЏС‚Рё. 
         \en Address of memory cell. 
 
 		\~
     \note 
-        \ru Для ускорения работы на PC возможно использование макроса
-            ADDR(ptr, index), который раскрывается на PC как 
-            (ptr+index), а на NM как вызов функции MTR_Addr. 
+        \ru Р”Р»СЏ СѓСЃРєРѕСЂРµРЅРёСЏ СЂР°Р±РѕС‚С‹ РЅР° PC РІРѕР·РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РјР°РєСЂРѕСЃР°
+            ADDR(ptr, index), РєРѕС‚РѕСЂС‹Р№ СЂР°СЃРєСЂС‹РІР°РµС‚СЃСЏ РЅР° PC РєР°Рє 
+            (ptr+index), Р° РЅР° NM РєР°Рє РІС‹Р·РѕРІ С„СѓРЅРєС†РёРё MTR_Addr. 
         \en To increase perfomance on PC it's possible to use macros
             ADDR(ptr, index) that equivalent to (ptr+index) expression. 
 
@@ -199,7 +199,7 @@ __INLINE__ nm64u* MTR_Addr_64u(nm64u* pMTR, int nWidth, int nY, int nX) {	return
     \defgroup MTR_SetVal MTR_SetVal
     \ingroup mSupport
     \brief
-        \ru Зыписывате число в элемент марицы. 
+        \ru Р—С‹РїРёСЃС‹РІР°С‚Рµ С‡РёСЃР»Рѕ РІ СЌР»РµРјРµРЅС‚ РјР°СЂРёС†С‹. 
         \en Set mtr element. 
     
 		\~
@@ -208,23 +208,23 @@ __INLINE__ nm64u* MTR_Addr_64u(nm64u* pMTR, int nWidth, int nY, int nX) {	return
         pMtr[nY][nX] =  nVal
     \f]
     \param pMtr   
-        \ru Матрица. 
+        \ru РњР°С‚СЂРёС†Р°. 
         \en Matrix. 
 		\~
     \param nWidth    
-        \ru Ширина матрицы в элементах
+        \ru РЁРёСЂРёРЅР° РјР°С‚СЂРёС†С‹ РІ СЌР»РµРјРµРЅС‚Р°С…
         \en Matrix width in elements 
 		\~
 	\param nY
-		\ru Номер строки
+		\ru РќРѕРјРµСЂ СЃС‚СЂРѕРєРё
 		\en Row index
 		\~
 	\param nX
-		\ru Номер столбца
+		\ru РќРѕРјРµСЂ СЃС‚РѕР»Р±С†Р°
 		\en Column index
 		\~
     \param nVal  
-        \ru Значение элемента 
+        \ru Р—РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° 
         \en Value of the element. 
 		\~
     \return \e void
@@ -264,7 +264,7 @@ __INLINE__ void MTR_SetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
     \defgroup MTR_GetVal MTR_GetVal
     \ingroup mSupport
     \brief
-        \ru Считывает значение элемента марицы. 
+        \ru РЎС‡РёС‚С‹РІР°РµС‚ Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РјР°СЂРёС†С‹. 
         \en Get mtr element. 
     
 		\~
@@ -273,23 +273,23 @@ __INLINE__ void MTR_SetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
         nVal=pMtr[nY][nX]
     \f]
     \param pMtr   
-        \ru Матрица. 
+        \ru РњР°С‚СЂРёС†Р°. 
         \en Matrix. 
 		\~
     \param nWidth    
-        \ru Ширина матрицы в элементах
+        \ru РЁРёСЂРёРЅР° РјР°С‚СЂРёС†С‹ РІ СЌР»РµРјРµРЅС‚Р°С…
         \en Matrix width in elements 
 		\~
 	\param nY
-		\ru Номер строки
+		\ru РќРѕРјРµСЂ СЃС‚СЂРѕРєРё
 		\en Row index
 		\~
 	\param nX
-		\ru Номер столбца
+		\ru РќРѕРјРµСЂ СЃС‚РѕР»Р±С†Р°
 		\en Column index
 		\~
     \retval nVal  
-        \ru Значение элемента 
+        \ru Р—РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° 
         \en Value of the element. 
 		\~
     \return \e void
@@ -332,27 +332,27 @@ __INLINE__ void MTR_GetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
     \defgroup MTR_GetCol MTR_GetCol
     \ingroup mSupport
     \brief
-        \ru Вынимает из матрицы один столбец. 
+        \ru Р’С‹РЅРёРјР°РµС‚ РёР· РјР°С‚СЂРёС†С‹ РѕРґРёРЅ СЃС‚РѕР»Р±РµС†. 
         \en ********************************. 
 		\~
     \param	pSrcMtr		
-        \ru Исходная матрица. 
+        \ru РСЃС…РѕРґРЅР°СЏ РјР°С‚СЂРёС†Р°. 
         \en Source mtr. 
 		\~
 		\param nCol
-		    \ru Номер вынимаемого столбца.
+		    \ru РќРѕРјРµСЂ РІС‹РЅРёРјР°РµРјРѕРіРѕ СЃС‚РѕР»Р±С†Р°.
 		    \en *************************.
 		\~
     \param	nHeight		
-        \ru Число строк исходной матрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚СЂРѕРє РёСЃС…РѕРґРЅРѕР№ РјР°С‚СЂРёС†С‹. 
         \en Row count in source mtr. 
 		\~
     \param	nWidth		
-        \ru Число столбцов исходной матрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ РёСЃС…РѕРґРЅРѕР№ РјР°С‚СЂРёС†С‹. 
         \en Column count in source mtr. 
 		\~
     \retval	pDstVec		
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void

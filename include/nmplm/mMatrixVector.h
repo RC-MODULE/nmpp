@@ -2,7 +2,7 @@
 //
 //  $Workfile:: mMatrixVec $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   mtrArithm.h
-//! \author Сергей Мушкаев
-//! \brief  Базовы операции над элементами матрицы.
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  Р‘Р°Р·РѕРІС‹ РѕРїРµСЂР°С†РёРё РЅР°Рґ СЌР»РµРјРµРЅС‚Р°РјРё РјР°С‚СЂРёС†С‹.
 //!
 //! \endif
 //!
@@ -29,7 +29,7 @@
 	/*
     *
     * \if Russian
-    *     \defgroup mMatrixVector Векторно-матричные операции
+    *     \defgroup mMatrixVector Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅС‹Рµ РѕРїРµСЂР°С†РёРё
     * \endif
     * \if English
     *     \defgroup mMatrixVector Vector-mtr operations.
@@ -43,31 +43,31 @@
     \defgroup nmppmMul_mm nmppmMul_mm
     \ingroup mMatrixVector
     \brief
-        \ru Умножение матрицы на матрицу. 
+        \ru РЈРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° РјР°С‚СЂРёС†Сѓ. 
         \en Matrix by mtr multiplication. 
 		\~
     \param	pSrcMtr1		
-        \ru Исходная матрица. 
+        \ru РСЃС…РѕРґРЅР°СЏ РјР°С‚СЂРёС†Р°. 
         \en Source mtr. 
 		\~
     \param	pSrcMtr2		
-        \ru Матрица-множитель. 
+        \ru РњР°С‚СЂРёС†Р°-РјРЅРѕР¶РёС‚РµР»СЊ. 
         \en Multiplier mtr. 
 		\~
     \param	nHeight1		
-        \ru Число строк исходной матрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚СЂРѕРє РёСЃС…РѕРґРЅРѕР№ РјР°С‚СЂРёС†С‹. 
         \en Row count in source mtr. 
 		\~
     \param	nWidth1		
-        \ru Число столбцов исходной матрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ РёСЃС…РѕРґРЅРѕР№ РјР°С‚СЂРёС†С‹. 
         \en Column count in source mtr. 
 		\~
     \param	nWidth2		
-        \ru Число столбцов матрицы множителя. 
+        \ru Р§РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ РјР°С‚СЂРёС†С‹ РјРЅРѕР¶РёС‚РµР»СЏ. 
         \en Column count in multiplier mtr. 
 		\~
     \retval	pDstMtr		
-        \ru Результирующая матрица. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰Р°СЏ РјР°С‚СЂРёС†Р°. 
         \en The result mtr. 
 		\~
     \return \e void
@@ -128,31 +128,31 @@ void nmppmMul_mm_colmajor_32s64s(const nm32s* pSrcMtr1, int nHeight1, int nWidth
     \defgroup nmppmMul_mv_ nmppmMul_mv_
     \ingroup mMatrixVector
     \brief
-        \ru Умножение матрицы на вектор. 
+        \ru РЈРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° РІРµРєС‚РѕСЂ. 
         \en Matrix by vec multiplication. 
 		\~
     \param	pSrcMtr		
-        \ru Исходная матрица. 
+        \ru РСЃС…РѕРґРЅР°СЏ РјР°С‚СЂРёС†Р°. 
         \en Source mtr. 
 		\~
     \param	pSrcVec		
-        \ru Вектор-множитель. 
+        \ru Р’РµРєС‚РѕСЂ-РјРЅРѕР¶РёС‚РµР»СЊ. 
         \en Multiplier vec. 
 		\~
     \param	pSrcVec8	
-        \ru Вектор-множитель размерности 8. 
+        \ru Р’РµРєС‚РѕСЂ-РјРЅРѕР¶РёС‚РµР»СЊ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё 8. 
         \en Multiplier vec of 8 elements. 
 		\~
     \param	nHeight		
-        \ru Число строк исходной матрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚СЂРѕРє РёСЃС…РѕРґРЅРѕР№ РјР°С‚СЂРёС†С‹. 
         \en Row count in source mtr. 
 		\~
     \param	nWidth		
-        \ru Число столбцов исходной матрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ РёСЃС…РѕРґРЅРѕР№ РјР°С‚СЂРёС†С‹. 
         \en Column count in source mtr. 
 		\~
     \retval	pDstVec		
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void
@@ -201,35 +201,35 @@ void nmppmMul_mv_colmajor_32s64s(const nm32s* pSrcMtr,const  nm64s* pSrcVec, nm6
 
  	\~
    \brief
-        \ru Умножение матрицы на вектор с добавлением константы. 
+        \ru РЈРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° РІРµРєС‚РѕСЂ СЃ РґРѕР±Р°РІР»РµРЅРёРµРј РєРѕРЅСЃС‚Р°РЅС‚С‹. 
         \en Matrix by vec multiplication with addition of ant . 
 		\~
     \param	pSrcMtr		
-        \ru Исходная матрица. 
+        \ru РСЃС…РѕРґРЅР°СЏ РјР°С‚СЂРёС†Р°. 
         \en Source mtr. 
 		\~
     \param	pSrcVec		
-        \ru Вектор-множитель. 
+        \ru Р’РµРєС‚РѕСЂ-РјРЅРѕР¶РёС‚РµР»СЊ. 
         \en Multiplier vec. 
 		\~
     \param	pSrcVec	
-        \ru Вектор-множитель размерности 2. 
+        \ru Р’РµРєС‚РѕСЂ-РјРЅРѕР¶РёС‚РµР»СЊ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё 2. 
         \en Multiplier vec of 2 elements. 
 		\~
     \param	nAddVal	
-        \ru Константа. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р°. 
         \en The ant. 
 		\~
     \param	nHeight		
-        \ru Число строк исходной матрицы. nHeight = [0, 2, 4, ...]. 
+        \ru Р§РёСЃР»Рѕ СЃС‚СЂРѕРє РёСЃС…РѕРґРЅРѕР№ РјР°С‚СЂРёС†С‹. nHeight = [0, 2, 4, ...]. 
         \en Row count in source mtr. nHeight = [0, 2, 4, ...]. 
 		\~
     \param	nWidth		
-        \ru Число столбцов исходной матрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ РёСЃС…РѕРґРЅРѕР№ РјР°С‚СЂРёС†С‹. 
         \en Column count in source mtr. 
 		\~
     \retval	pDstVec		
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 		\~
     \return \e void
@@ -267,7 +267,7 @@ void nmppmMul_mv__AddC(v2nm32s* pSrcMtr, v2nm32s* pnSrcVec, int nAddVal, nm32s* 
     \defgroup MTR_ProdUnitV MTR_ProdUnitV
     \ingroup mMatrixVector
     \brief
-        \ru Умножение матрицы на единичный вектор. 
+        \ru РЈРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° РµРґРёРЅРёС‡РЅС‹Р№ РІРµРєС‚РѕСЂ. 
         \en Multiplication of a mtr by a unit vec. 
     
 		\~
@@ -276,9 +276,9 @@ void nmppmMul_mv__AddC(v2nm32s* pSrcMtr, v2nm32s* pnSrcVec, int nAddVal, nm32s* 
         pDstVec(i) = \sum_{j=0}^{w-1} pSrcMtr(i, j)
     \f]
     
-    \ru Данная функция эквивалентна суммированию столбцов матрицы.
-        Ширины матрицы, для которых имеется реализация данной функции 
-        указываются в ее названии. 
+    \ru Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ СЌРєРІРёРІР°Р»РµРЅС‚РЅР° СЃСѓРјРјРёСЂРѕРІР°РЅРёСЋ СЃС‚РѕР»Р±С†РѕРІ РјР°С‚СЂРёС†С‹.
+        РЁРёСЂРёРЅС‹ РјР°С‚СЂРёС†С‹, РґР»СЏ РєРѕС‚РѕСЂС‹С… РёРјРµРµС‚СЃСЏ СЂРµР°Р»РёР·Р°С†РёСЏ РґР°РЅРЅРѕР№ С„СѓРЅРєС†РёРё 
+        СѓРєР°Р·С‹РІР°СЋС‚СЃСЏ РІ РµРµ РЅР°Р·РІР°РЅРёРё. 
     \en This function is equivalent to summation of mtr columns.
         Widths of a mtr for which this function is implemented 
         are indicated in the mtr name. 
@@ -286,16 +286,16 @@ void nmppmMul_mv__AddC(v2nm32s* pSrcMtr, v2nm32s* pnSrcVec, int nAddVal, nm32s* 
 		\~
 		\~
     \param	pSrcMtr		
-        \ru Матрица. 
+        \ru РњР°С‚СЂРёС†Р°. 
         \en The mtr. 
 		\~
     \param	nHeight		
-        \ru Число строк матрицы. nHeight=[128,256,....]
+        \ru Р§РёСЃР»Рѕ СЃС‚СЂРѕРє РјР°С‚СЂРёС†С‹. nHeight=[128,256,....]
         \en Row count in mtr. nHeight=[128,256,....]
 
 		\~
     \retval	pDstVec		
-        \ru Результирующий вектор. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РІРµРєС‚РѕСЂ. 
         \en The result vec. 
 
 		\~
@@ -323,7 +323,7 @@ void MTR_ProdUnitV_16s_16xH( v16nm8s* pSrcMtr, nm16s* pDstVec, int nHeight);
     \defgroup MTR_MulC_AddVsVc MTR_MulC_AddVsVc
     \ingroup mMatrixVector
     \brief
-        \ru Умножение матрицы на константу с сумиированием вектора строки и вектора-столбца. 
+        \ru РЈРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° РєРѕРЅСЃС‚Р°РЅС‚Сѓ СЃ СЃСѓРјРёРёСЂРѕРІР°РЅРёРµРј РІРµРєС‚РѕСЂР° СЃС‚СЂРѕРєРё Рё РІРµРєС‚РѕСЂР°-СЃС‚РѕР»Р±С†Р°. 
         \en Multiplication of a mtr by const with summation of vec-string and vec-column. 
     
 		\~

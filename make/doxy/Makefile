@@ -1,17 +1,28 @@
 #include ../../setenv.mk
 SHELL := cmd
+.PHONY: chm pdf
 
 all: pdf
 
-chm:
-	taskkill /FI "windowtitle eq nmpp"
+	
+.cp-utf8:
+	rm -f .cp-win1251
 	doxygen
+	echo "utf8 (without BOM)"> .cp-utf8
+
+.cp-win1251: .cp-utf8
+	rm -f .cp-utf8
+	utf2win.bat
+
+chm: .cp-win1251
+	taskkill /FI "windowtitle eq nmpp"
+	-cd html && hhc index.hhp
 	copy html\*.chm .
 
-
-pdf: chm
-	cd latex &&	call make.bat
+pdf: .cp-utf8
+	cd latex &&	call make.bat	
 	copy .\latex\refman.pdf .\nmpp.pdf
+	
 
 clean: 
 	-rm -f -r -v html latex nmpp.chm nmpp.pdf *.html
@@ -23,16 +34,19 @@ open:
 	
 	#pdf
 	#cp ./latex/refman.pdf ./html/nmpp.pdf
-github: clean chm pdf nmpp.html ipp-nmpp.html 
-	copy ipp-nmpp.html html\ipp-nmpp.html
-	copy nmpp.html html\nmpp.html
-	copy nmpp.pdf html\nmpp.pdf
+	#copy nmpp.pdf  html\nmpp.pdf	
+	#nmpp.html ipp-nmpp.html 
+	#copy ipp-nmpp.html html\ipp-nmpp.html
+	#copy nmpp.html html\nmpp.html
+	
+github: clean .cp-utf8
 	cd html &&\
 	git init . && git checkout --orphan gh-pages &&\
 	git add * &&\
 	git commit -m "documentation-for-gh-pages" &&\
 	git remote add origin https://github.com/RC-MODULE/nmpp.git  &&\
 	git push -u -f origin gh-pages	
+
 
 ipp:
 	doxygen DoxyIPP

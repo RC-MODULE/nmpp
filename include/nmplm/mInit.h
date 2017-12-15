@@ -2,7 +2,7 @@
 //
 //  $Workfile:: mInit.h  $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   mtrInit.h
-//! \author Сергей Мушкаев
-//! \brief  Определение функций для инициализации и копирования.
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  РћРїСЂРµРґРµР»РµРЅРёРµ С„СѓРЅРєС†РёР№ РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё Рё РєРѕРїРёСЂРѕРІР°РЅРёСЏ.
 //!
 //! \endif
 //!
@@ -31,7 +31,7 @@
 
     //--------------------------------------------------------------------
     //! \ru
-    //!     \defgroup mInit Инициализация и копирование
+    //!     \defgroup mInit РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ Рё РєРѕРїРёСЂРѕРІР°РЅРёРµ
     //! \en
     //!     \defgroup mInit Initialization and copy
     //! \~
@@ -44,39 +44,39 @@
     \defgroup nmppmCopyua nmppmCopyua
     \ingroup mInit
     \brief
-        \ru Копирование подматрицы с невыровненной по границам 64- разрядного слова
-			позиции в выровненную. 
+        \ru РљРѕРїРёСЂРѕРІР°РЅРёРµ РїРѕРґРјР°С‚СЂРёС†С‹ СЃ РЅРµРІС‹СЂРѕРІРЅРµРЅРЅРѕР№ РїРѕ РіСЂР°РЅРёС†Р°Рј 64- СЂР°Р·СЂСЏРґРЅРѕРіРѕ СЃР»РѕРІР°
+			РїРѕР·РёС†РёРё РІ РІС‹СЂРѕРІРЅРµРЅРЅСѓСЋ. 
         \en Copying a submatrix from an unaligned to 64 bit word position to an alighed one. 
 
 		\~
 		\~
     \param	pSrcMtr			
-        \ru Исходная матрица. 
+        \ru РСЃС…РѕРґРЅР°СЏ РјР°С‚СЂРёС†Р°. 
         \en Source mtr. 
 		\~
     \param	nSrcStride	
-        \ru Ширина исходной матрицы в элементах. 
+        \ru РЁРёСЂРёРЅР° РёСЃС…РѕРґРЅРѕР№ РјР°С‚СЂРёС†С‹ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Source mtr width in elements. 
 		\~
     \param	nSrcOffset			
-        \ru Смещение в элементах от начала матрицы-источника. 
+        \ru РЎРјРµС‰РµРЅРёРµ РІ СЌР»РµРјРµРЅС‚Р°С… РѕС‚ РЅР°С‡Р°Р»Р° РјР°С‚СЂРёС†С‹-РёСЃС‚РѕС‡РЅРёРєР°. 
         \en nShift in elements from the source mtr origin. 
 		\~
     \param	nDstStride	
-        \ru Ширина результирующей матрицы в элементах. 
+        \ru РЁРёСЂРёРЅР° СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµР№ РјР°С‚СЂРёС†С‹ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Result mtr width in elements. 
 		\~
     \param	nHeight		
-        \ru Число строк подматрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚СЂРѕРє РїРѕРґРјР°С‚СЂРёС†С‹. 
         \en Row count in submatrix. 
 		\~
     \param	nWidth		
-        \ru Число столбцов подматрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ РїРѕРґРјР°С‚СЂРёС†С‹. 
         \en Column count in submatrix. 
 
 		\~
     \retval	pDstMtr			
-        \ru Результирующая матрица. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰Р°СЏ РјР°С‚СЂРёС†Р°. 
         \en The result mtr. 
 
 		\~
@@ -84,9 +84,9 @@
     
     \restr 
         \ru 
-			- Входная и выходная матрицы не должны перекрываться в памяти
-            - Число столбцов копируемой подматрицы nWidth должна быть кратно числу 
-			  элементов в 64-х разрядном слове. 
+			- Р’С…РѕРґРЅР°СЏ Рё РІС‹С…РѕРґРЅР°СЏ РјР°С‚СЂРёС†С‹ РЅРµ РґРѕР»Р¶РЅС‹ РїРµСЂРµРєСЂС‹РІР°С‚СЊСЃСЏ РІ РїР°РјСЏС‚Рё
+            - Р§РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ РєРѕРїРёСЂСѓРµРјРѕР№ РїРѕРґРјР°С‚СЂРёС†С‹ nWidth РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РєСЂР°С‚РЅРѕ С‡РёСЃР»Сѓ 
+			  СЌР»РµРјРµРЅС‚РѕРІ РІ 64-С… СЂР°Р·СЂСЏРґРЅРѕРј СЃР»РѕРІРµ. 
         \en 
 			- The input and output matrixes should not overlap in memory.
             - nWidth should be divisible by element count in 64-bit word. 
@@ -130,44 +130,44 @@ void nmppmCopyua_32s( nm32s* pSrcMtr, int nSrcStride, int nSrcOffset, nm32s* pDs
     \defgroup MTR_Copyau MTR_Copyau
     \ingroup mInit
     \brief
-        \ru Копирование подматрицы с выровненной по границе 64-х разрядных слов
-			позиции в невыровненную позицию.
+        \ru РљРѕРїРёСЂРѕРІР°РЅРёРµ РїРѕРґРјР°С‚СЂРёС†С‹ СЃ РІС‹СЂРѕРІРЅРµРЅРЅРѕР№ РїРѕ РіСЂР°РЅРёС†Рµ 64-С… СЂР°Р·СЂСЏРґРЅС‹С… СЃР»РѕРІ
+			РїРѕР·РёС†РёРё РІ РЅРµРІС‹СЂРѕРІРЅРµРЅРЅСѓСЋ РїРѕР·РёС†РёСЋ.
         \en Copying a submatrix from an aligned to 64 bit word position to an unalighed one. 
 		\~
     \param	pSrcMtr			
-        \ru Исходная матрица. 
+        \ru РСЃС…РѕРґРЅР°СЏ РјР°С‚СЂРёС†Р°. 
         \en Source mtr. 
 		\~
     \param	nSrcStride	
-        \ru Ширина исходной матрицы в элементах. 
+        \ru РЁРёСЂРёРЅР° РёСЃС…РѕРґРЅРѕР№ РјР°С‚СЂРёС†С‹ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Source mtr width in elements. 
 		\~
     \retval	pDstMtr			
-        \ru Результирующая матрица. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰Р°СЏ РјР°С‚СЂРёС†Р°. 
         \en The result mtr. 
 		\~
     \param	nDstStride	
-        \ru Ширина результирующей матрицы в элементах. 
+        \ru РЁРёСЂРёРЅР° СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµР№ РјР°С‚СЂРёС†С‹ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Result mtr width in elements. 
 		\~
     \param	nDstOffset			
-        \ru Индекс столбца (в элементах) куда производится вставка. 
+        \ru РРЅРґРµРєСЃ СЃС‚РѕР»Р±С†Р° (РІ СЌР»РµРјРµРЅС‚Р°С…) РєСѓРґР° РїСЂРѕРёР·РІРѕРґРёС‚СЃСЏ РІСЃС‚Р°РІРєР°. 
         \en nShift in elements from the source mtr origin. 
 		\~
     \param	nHeight		
-        \ru Число строк подматрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚СЂРѕРє РїРѕРґРјР°С‚СЂРёС†С‹. 
         \en Row count in submatrix. 
 		\~
     \param	nWidth		
-        \ru Число столбцов подматрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ РїРѕРґРјР°С‚СЂРёС†С‹. 
         \en Column count in submatrix. 
 		\~
     \return \e void
     
     \restr 
         \ru
-            - Входная и выходная матрицы не должны перекрываться в памяти
-            - Число столбцов копируемой подматрицы nWidth должна быть кратной 64-битам. 
+            - Р’С…РѕРґРЅР°СЏ Рё РІС‹С…РѕРґРЅР°СЏ РјР°С‚СЂРёС†С‹ РЅРµ РґРѕР»Р¶РЅС‹ РїРµСЂРµРєСЂС‹РІР°С‚СЊСЃСЏ РІ РїР°РјСЏС‚Рё
+            - Р§РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ РєРѕРїРёСЂСѓРµРјРѕР№ РїРѕРґРјР°С‚СЂРёС†С‹ nWidth РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РєСЂР°С‚РЅРѕР№ 64-Р±РёС‚Р°Рј. 
         \en 
             - The input and output matrixes should not overlap in memory.
             - The Column count of the copied submatrix nWidth should be divisible by 64 bits.
@@ -211,38 +211,38 @@ void nmppmCopyau_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstSt
     \defgroup MTR_Copy MTR_Copy
     \ingroup mInit
     \brief
-        \ru Функции копирования прямоугольных областей памяти между двумерными массивами. 
+        \ru Р¤СѓРЅРєС†РёРё РєРѕРїРёСЂРѕРІР°РЅРёСЏ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅС‹С… РѕР±Р»Р°СЃС‚РµР№ РїР°РјСЏС‚Рё РјРµР¶РґСѓ РґРІСѓРјРµСЂРЅС‹РјРё РјР°СЃСЃРёРІР°РјРё. 
         \en Functions of copying rectangular memory areas between two-dimensional arrays. 
 		\~
     \param	pSrcMtr			
-        \ru Исходная матрица. 
+        \ru РСЃС…РѕРґРЅР°СЏ РјР°С‚СЂРёС†Р°. 
         \en Source mtr. 
 		\~
     \param	nSrcStride	
-        \ru Ширина исходной матрицы в элементах. 
+        \ru РЁРёСЂРёРЅР° РёСЃС…РѕРґРЅРѕР№ РјР°С‚СЂРёС†С‹ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Source mtr width in elements. 
 		\~
     \param	nDstStride	
-        \ru Ширина результирующей матрицы в элементах. 
+        \ru РЁРёСЂРёРЅР° СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµР№ РјР°С‚СЂРёС†С‹ РІ СЌР»РµРјРµРЅС‚Р°С…. 
         \en Result mtr width in elements. 
 		\~
     \param	nHeight		
-        \ru Число строк подматрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚СЂРѕРє РїРѕРґРјР°С‚СЂРёС†С‹. 
         \en Row count in submatrix. 
 		\~
     \param	nWidth		
-        \ru Число столбцов подматрицы. 
+        \ru Р§РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ РїРѕРґРјР°С‚СЂРёС†С‹. 
         \en Column count in submatrix. 
 		\~
     \retval	pDstMtr			
-        \ru Результирующая матрица. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰Р°СЏ РјР°С‚СЂРёС†Р°. 
         \en The result mtr. 
 		\~
     \return \e void
     
     \restr 
-        \ru Выходная матрица не может быть перезаписана (т.е. помещена непосредственно 
-            на место входной) 
+        \ru Р’С‹С…РѕРґРЅР°СЏ РјР°С‚СЂРёС†Р° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїРµСЂРµР·Р°РїРёСЃР°РЅР° (С‚.Рµ. РїРѕРјРµС‰РµРЅР° РЅРµРїРѕСЃСЂРµРґСЃС‚РІРµРЅРЅРѕ 
+            РЅР° РјРµСЃС‚Рѕ РІС…РѕРґРЅРѕР№) 
         \en The output mtr cannot be rewritten (i.e. placed directly to the 
             input mtr location). 
     
@@ -289,30 +289,30 @@ void nmppmCopy_64s( nm64s* pSrcMtr, int nSrcStride, nm64s* pDstMtr, int nDstStri
 	\defgroup MTR_Fill MTR_Fill 
 	\ingroup mInit
 	\brief
-		\ru Функция инициализации подматрицы постоянным значением. 
+		\ru Р¤СѓРЅРєС†РёСЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РїРѕРґРјР°С‚СЂРёС†С‹ РїРѕСЃС‚РѕСЏРЅРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј. 
 		\en Function of submatrix initialization with a ant value.  
 
 		\~
 	\~
 	\param pMtr
-        \ru Результирующая подматрица. 
+        \ru Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰Р°СЏ РїРѕРґРјР°С‚СЂРёС†Р°. 
         \en The result submatrix. 
 		\~
 	\param nVal
-        \ru Константа. 
+        \ru РљРѕРЅСЃС‚Р°РЅС‚Р°. 
         \en A ant. 
 		\~
 	\param nMtrStride
-		\ru Ширина всей матрицы \n
-			(измеряется в 32-х разрядных словах). 
+		\ru РЁРёСЂРёРЅР° РІСЃРµР№ РјР°С‚СЂРёС†С‹ \n
+			(РёР·РјРµСЂСЏРµС‚СЃСЏ РІ 32-С… СЂР°Р·СЂСЏРґРЅС‹С… СЃР»РѕРІР°С…). 
          \en Width of whole mtr \n
             (measured in 32-bit words). 
 	\param nMtrHeight
-        \ru Высота подматрицы. 
+        \ru Р’С‹СЃРѕС‚Р° РїРѕРґРјР°С‚СЂРёС†С‹. 
         \en Submatrix height. 
 		\~
 	\param nMtrWidth
-		\ru Ширина подмартрицы в элементах
+		\ru РЁРёСЂРёРЅР° РїРѕРґРјР°СЂС‚СЂРёС†С‹ РІ СЌР»РµРјРµРЅС‚Р°С…
 		\en Submatrix width in elements
 
 		\~

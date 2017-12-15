@@ -19,6 +19,9 @@ chm: .cp-win1251
 	-cd html && hhc index.hhp
 	copy html\*.chm .
 
+doxy:
+	doxygen
+	
 pdf: .cp-utf8
 	cd latex &&	call make.bat	
 	copy .\latex\refman.pdf .\nmpp.pdf
@@ -39,7 +42,8 @@ open:
 	#copy ipp-nmpp.html html\ipp-nmpp.html
 	#copy nmpp.html html\nmpp.html
 	
-github: clean .cp-utf8
+github: clean chm .cp-utf8
+	copy nmpp.chm html\nmpp.chm
 	cd html &&\
 	git init . && git checkout --orphan gh-pages &&\
 	git add * &&\

@@ -1,6 +1,6 @@
 #include ../../setenv.mk
 SHELL := cmd
-.PHONY: chm pdf
+.PHONY: chm pdf html
 
 all: pdf
 
@@ -14,21 +14,25 @@ all: pdf
 	rm -f .cp-utf8
 	utf2win.bat
 
-chm: .cp-win1251
+chm: 
+	doxygen
+	utf2win.bat
 	taskkill /FI "windowtitle eq nmpp"
 	-cd html && hhc index.hhp
 	copy html\*.chm .
 
-doxy:
+html:
 	doxygen
 	
-pdf: .cp-utf8
+pdf: 
+	doxygen
+	utf2win.tex.bat
 	cd latex &&	call make.bat	
 	copy .\latex\refman.pdf .\nmpp.pdf
 	
 
 clean: 
-	-rm -f -r -v html latex nmpp.chm nmpp.pdf *.html
+	-rm -f -r -v html xml latex nmpp.chm nmpp.pdf *.html .* 
 	
 open:
 	www.bat
@@ -42,8 +46,10 @@ open:
 	#copy ipp-nmpp.html html\ipp-nmpp.html
 	#copy nmpp.html html\nmpp.html
 	
-github: clean chm .cp-utf8
-	copy nmpp.chm html\nmpp.chm
+github: chm pdf 
+	doxygen
+	copy nmpp.chm html\nmpp.chm /Y
+	copy nmpp.pdf html\nmpp.pdf	/Y
 	cd html &&\
 	git init . && git checkout --orphan gh-pages &&\
 	git add * &&\

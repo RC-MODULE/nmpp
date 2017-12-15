@@ -160,6 +160,7 @@ solution "nmpp"
 		ROOT.."/src/nmpls/FFT_32fc/IFFT2048/pc/*.c",
 		ROOT.."/src/nmpls/FFT_32fc/common/*.c",
 		ROOT.."/src/nmplv/Arithmetics/pc_f/*.c",
+		ROOT.."/src/nmplv/Init/pc_f/*.c",
 		ROOT.."/src/nmpls/FFT_32fc/FFTFree/common/*.c",
 		ROOT.."/src/nmpls/FFT0032/pc/*.c",
 		ROOT.."/src/nmpls/FFT0064/pc/*.c",

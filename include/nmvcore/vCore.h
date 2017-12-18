@@ -1,6 +1,6 @@
 
 
-/*! \ru 
+/** \ru 
 	\page intro Введение 
 	\ingroup CORE_Group
 	\en 
@@ -37,7 +37,7 @@
 
 
 
-/**
+	/**
     *
     * \ru
     *     	\defgroup vCore  Элементарные функции 

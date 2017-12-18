@@ -12,8 +12,8 @@ endif
 
 
 INC_DIRS = -I"$(NMPP)/include"
-LIB_DIRS = -L"$(NMPP)/lib"  -L$(NM_IO)/lib
-LIBS     = nm_io_dummy.lib nmpp-nmc3d.lib libint05.lib  
+LIB_DIRS = -L"$(NMPP)/lib"  
+LIBS     = nmpp-nmc3.lib libint05.lib  
 TARGET   = main.abs
 CFG      = emu6405.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))
@@ -22,7 +22,7 @@ SRC_ASM  = $(wildcard $(addsuffix /*.asm,..))
 
 VPATH    = $(subst -L,,$(LIB_DIRS)) $(NEURO)/lib
 
-$(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc3d.lib
+$(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc3.lib
 	@echo $(CURDIR)>> $(ROOT)/app/test/build-emu6405.txt
 	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) $(NEURO)/crt/clock.asm -6405 -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=16384 -heap1=16384 -heap2=16384 -heap3=16384
 	@echo -OK>> $(ROOT)/app/test/build-emu6405.txt

@@ -205,7 +205,7 @@ TAB_SIZE               = 8
 
 ALIASES                = "ru=\~russian"
 ALIASES		   		  += "en=\~english"
-ALIASES		   		  += "restr=\par Restrictions:" 
+ALIASES		   		  += "restr=\n \par Restrictions:" 
 ALIASES		   		  += "perfinclude=\par Performance:\n \htmlinclude"
 
 # This tag can be used to specify a number of word-keyword mappings (TCL only). 
@@ -1030,7 +1030,7 @@ DOCSET_PUBLISHER_NAME  = Publisher
 # Microsoft HTML help workshop to generate a compiled HTML help file (.chm) 
 # of the generated HTML documentation.
 
-GENERATE_HTMLHELP      = YES
+GENERATE_HTMLHELP      = NO
 
 # If the GENERATE_HTMLHELP tag is set to YES, the CHM_FILE tag can 
 # be used to specify the file name of the resulting .chm file. You 

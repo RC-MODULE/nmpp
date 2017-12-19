@@ -1535,15 +1535,18 @@
     \param gr6 
 		\ru межстрочный шаг для ar6 
 		\en stride for ar6
-	
 		\~
-	 \restr  
+	\restr  
         \ru При выходе из функции изменяется содержимое регистров: ar0,ar1,gr1,ar2,gr2,ar3,gr3,ar4,ar6,gr7. 
-        \en On exiting the function the contents of registers changes: ar0,ar1,gr1,ar2,gr2,ar3,gr3,ar4,ar6,gr7. 
-    */
+        \en On exiting the function the contents of registers changes: ar0,ar1,gr1,ar2,gr2,ar3,gr3,ar4,ar6,gr7.
+	*/
 //! \{ 
  void vec_ClipMulNDNW4_AddVr(nmreg nb1, nmreg sb, nmreg f1cr, nmreg vr, nmreg ar0, nmreg gr0, nmreg ar1, nmreg gr1, nmreg ar4, nmreg gr4, nmreg gr5, nmreg ar6, nmreg gr6); 
  //! \}
+
+// 	 \restr  
+  //      \ru При выходе из функции изменяется содержимое регистров: ar0,ar1,gr1,ar2,gr2,ar3,gr3,ar4,ar6,gr7. 
+    //    \en On exiting the function the contents of registers changes: ar0,ar1,gr1,ar2,gr2,ar3,gr3,ar4,ar6,gr7. 
 
 
 //-----------------------------------------------------------------------------
@@ -3612,25 +3615,27 @@
         \ru задает разбиение на колонки (необходимо wtw) 
         \en sets columns partition (wtw is necessary) 
 		\~
- 	\param f1cr
+		 
+  \param f1cr
         \ru задает функцию активации 
         \en sets activation function 
 		\~
+		
  	\param ar0
         \ru указатель на столбец SrcMtr1
         \en pointer to SrcMtr1 column 
 		\~
     \param gr0 SrcMtr stride
 
-	\param ar4
+ \param ar4
 		\ru указатель на временный массив размером nm64s[64]
 		\en pointer to temporery array with sizr of nm64s[64]
 		\~
-	\param gr5
+  \param gr5
         \ru Высота матрицы SrcMtr1 N = [32,64,...] 
         \en Height of mtr SrcMtr1 N = [32,64,...] 
 		\~
-	\retval ar6
+ \retval ar6
         \ru указатель на 64р. слово результатов (максимумов) 
         \en pointer to 64 bit result word of maximums 
 		\~
@@ -3716,25 +3721,25 @@
         \ru задает разбиение на колонки (необходимо wtw) 
         \en sets columns partition (wtw is necessary) 
 		\~
- 	\param f1cr
+  \param f1cr
         \ru задает функцию активации 
         \en sets activation function 
 		\~
- 	\param ar0
+  \param ar0
         \ru указатель на столбец SrcMtr1
         \en pointer to SrcMtr1 column 
 		\~
     \param gr0 SrcMtr stride
 
-	\param ar4
+  \param ar4
 		\ru указатель на временный массив размером nm64s[64]
 		\en pointer to temporery array with sizr of nm64s[64]
 		\~
-	\param gr5
+ \param gr5
         \ru Высота матрицы SrcMtr1 N = [32,64,...] 
         \en Height of mtr SrcMtr1 N = [32,64,...] 
 		\~
-	\retval ar6
+ \retval ar6
         \ru указатель на 64р. слово результатов (максимумов) 
         \en pointer to 64 bit result word of Minimums 
 		\~

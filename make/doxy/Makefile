@@ -23,10 +23,10 @@ chm:
 
 html:
 	doxygen
-	
+
+#utf2win.tex.bat	
 pdf: 
 	doxygen
-	utf2win.tex.bat
 	cd latex &&	call make.bat	
 	copy .\latex\refman.pdf .\nmpp.pdf
 	
@@ -47,7 +47,6 @@ open:
 	#copy nmpp.html html\nmpp.html
 	
 github: chm pdf 
-	doxygen
 	copy nmpp.chm html\nmpp.chm /Y
 	copy nmpp.pdf html\nmpp.pdf	/Y
 	cd html &&\

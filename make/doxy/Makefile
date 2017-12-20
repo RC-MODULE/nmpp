@@ -4,33 +4,21 @@ SHELL := cmd
 
 all: pdf
 
-	
-.cp-utf8:
-	rm -f .cp-win1251
-	doxygen
-	echo "utf8 (without BOM)"> .cp-utf8
-
-.cp-win1251: .cp-utf8
-	rm -f .cp-utf8
-	utf2win.bat
-
 chm: 
 	doxygen
 	utf2win.bat
 	taskkill /FI "windowtitle eq nmpp"
 	-cd html && hhc index.hhp
 	copy html\*.chm .
-
+    
 html:
 	doxygen
 
-#utf2win.tex.bat	
 pdf: 
 	doxygen
 	cd latex &&	call make.bat	
 	copy .\latex\refman.pdf .\nmpp.pdf
 	
-
 clean: 
 	-rm -f -r -v html xml latex nmpp.chm nmpp.pdf *.html .* 
 	
@@ -38,7 +26,6 @@ open:
 	www.bat
 	
 	#http://rc-module.github.io/nmpp
-	
 	#pdf
 	#cp ./latex/refman.pdf ./html/nmpp.pdf
 	#copy nmpp.pdf  html\nmpp.pdf	
@@ -46,9 +33,10 @@ open:
 	#copy ipp-nmpp.html html\ipp-nmpp.html
 	#copy nmpp.html html\nmpp.html
 	
-github: chm pdf 
+github: clean pdf chm
 	copy nmpp.chm html\nmpp.chm /Y
 	copy nmpp.pdf html\nmpp.pdf	/Y
+	7za a html\nmpp.zip nmpp.chm &&\
 	cd html &&\
 	git init . && git checkout --orphan gh-pages &&\
 	git add * &&\

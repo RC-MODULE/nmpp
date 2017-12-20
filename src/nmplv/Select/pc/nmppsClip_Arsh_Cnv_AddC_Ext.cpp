@@ -80,9 +80,9 @@ void nmppsClipArshCnv_AddC_Ext(nm16u *pnSrc, int *pnClip, int *pnShift,
     int i, i16;
     nm8u nSrc,nSrcPrev;
 
-	nm16s pnClipPos[16];
-	nm16s pnClipNeg[16];
-	nm8s  pnAdd8s[16];
+	short pnClipPos[16];
+	short pnClipNeg[16];
+	char   pnAdd8s[16];
 
 	for(i=0;i<16;i++)
 	{

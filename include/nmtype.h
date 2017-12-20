@@ -91,7 +91,7 @@ struct nmreg { int nVal; };
 		\~
 	\~	\f$[-1,0]\f$
 	*/
-typedef struct s_nm1{ int nVal;} nm1;
+typedef void nm1;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
@@ -106,7 +106,7 @@ typedef struct s_nm1{ int nVal;} nm1;
 	
 	
 	*/
-typedef struct s_nm2s{ int nVal;} nm2s;
+typedef void nm2s;
 //-----------------------------------------------------------------------------    
     /**
 	\ingroup nmvectype
@@ -119,9 +119,7 @@ typedef struct s_nm2s{ int nVal;} nm2s;
 		\~
 	\~	\f$[-2^3,\ldots,+2^3-1]=[-8,\ldots,+7]\f$  
 */
-typedef struct s_nm4s {
-	unsigned long long vec;
-} nm4s;
+typedef void nm4s;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
@@ -143,7 +141,14 @@ struct int8x8{
 #endif	
 };
 
-typedef signed char nm8s;
+#ifdef __NM__	
+	typedef void nm8s;
+#else 
+	typedef signed char nm8s;
+#endif
+
+//typedef signed char nm8s;
+//typedef void nm8s;
 //typedef struct s_nm8s{
 //#ifdef __NM__	
 //	unsigned long vec;
@@ -195,14 +200,12 @@ struct int16x4{
 #endif	
 };
 
-typedef signed short nm16s;
-//typedef struct s_nm16s {
-//#ifdef __NM__	
-//	unsigned long vec;
-//#else 
-//	short num[4];
-//#endif	
-//} nm16s;
+
+#ifdef __NM__	
+	typedef void nm16s;
+#else 
+	typedef signed short nm16s;
+#endif	
 
 
 
@@ -354,9 +357,7 @@ typedef nm64s nm64s63b;
 		\~
 	\~	\f$[0,\ldots,+2^2-1]=[0,\ldots,3]\f$
 	*/
-typedef struct s_nm2u{
-	int nVal;
-} nm2u;
+typedef void nm2u;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
@@ -369,7 +370,7 @@ typedef struct s_nm2u{
 		\~
 	\~	\f$[0,\ldots,+2^4-1]=[0,\ldots,15]\f$
 	*/
-typedef struct s_nm4u{ unsigned long long int vec;} nm4u;
+typedef void nm4u;
 /**
 	\ingroup nmvectype
 	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 16. 

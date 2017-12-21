@@ -2,7 +2,7 @@
 
 # Документация:  
   HTML: http://rc-module.github.io/nmpp/  
-  CHM:  http://rc-module.github.io/nmpp/nmpp.chm (При открытии необзодимо снять галочку "Всегда спрашивать при открытии этого файла")  
+  CHM:  http://rc-module.github.io/nmpp/nmpp.chm (При открытии необходимо снять галочку "Всегда спрашивать при открытии этого файла")  
   PDF:  http://rc-module.github.io/nmpp/nmpp.pdf  
 
 # Назначение  

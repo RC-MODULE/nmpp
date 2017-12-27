@@ -116,7 +116,7 @@ public:
 			  \~
     */
     //! \{
-
+/*
 void IMG_Malloc(nm1** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
 void IMG_Malloc(nm2s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
 void IMG_Malloc(nm2u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
@@ -130,7 +130,7 @@ void IMG_Malloc(nm32u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
 void IMG_Malloc(nm32s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
 void IMG_Malloc(nm64u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
 void IMG_Malloc(nm64s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-
+*/
     //! \}
 
 //*****************************************************************************

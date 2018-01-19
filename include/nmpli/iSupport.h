@@ -134,7 +134,6 @@ void IMG_Malloc(nm64s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
     //! \}
 
 //*****************************************************************************
-
     /**
     \defgroup IMG_Free IMG_Free
     \ingroup iSupport

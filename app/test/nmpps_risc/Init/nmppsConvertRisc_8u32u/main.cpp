@@ -10,9 +10,9 @@
 #pragma data_section ".data_imu2"
 	nm32u out[N_ST];
 
-extern "C" {
-	void nmppsConvertRisc_8u32u(nm32u *x, nm32u *X, int size);
-}
+// extern "C" {
+// 	void nmppsConvertRisc_8u32u(nm32u *x, nm32u *X, int size);
+// }
 
 int main()
 {
@@ -24,7 +24,7 @@ int main()
 	 	in[i] = in[i - 1] + 16843009;
 	}
 	t1 = clock();
-	nmppsConvertRisc_8u32u(in, out, N_ST);
+	nmppsConvertRisc_8u32u((nm8u *)in, out, N_ST);
 	t2 = clock();
 	tm = t2 - t1;
 	// int count = 0;

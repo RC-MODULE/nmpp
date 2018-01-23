@@ -12,9 +12,9 @@
 #pragma data_section ".data_imu2"
 	nm32fcr out[N_ST];
 
-extern "C" {
-	void nmppsConvert_32sc32fcr(nm32sc *x, nm32fcr *X, int N);
-}
+// extern "C" {
+// 	void nmppsConvert_32sc32fcr(nm32sc *x, nm32fcr *X, int N);
+// }
 
 int main()
 {

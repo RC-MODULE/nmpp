@@ -308,7 +308,7 @@ void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
 	        Преобразование знаковых данных к большей разрядности осуществляется 
 	        c распространением влево старшего (знакового) бита.
             Преобразование беззнаковых данных к большей разрядности осуществляется 
-	        добавлением слева старших нулевых битов. 
+	        добавлением слева старших нулевых битов.
         \en Signed data are converted to lesser word-length is made by means of 
             the most significant bits truncation.
             Signed data are converted to greater word-length is made with
@@ -389,15 +389,34 @@ void nmppsConvert_32s8s (const nm32s* pSrcVec, nm8s* pDstVec, int nSize);
 void nmppsConvert_32s16s(const nm32s* pSrcVec, nm16s* pDstVec, int nSize);
 void nmppsConvert_32s64s(const nm32s* pSrcVec, nm64s* pDstVec, int nSize);
 void nmppsConvert_32u64u(const nm32u* pSrcVec, nm64u* pDstVec, int nSize);
-				         
+
 void nmppsConvert_64s32s(const nm64s* pSrcVec, nm32s* pDstVec, int nSize);
 void nmppsConvert_64s16s(const nm64s* pSrcVec, nm16s* pDstVec, int nSize);
+
     //! \}
 //void nmppsConvert_32s(nm32s *pSrcVec, nm4s *pDstVec, int nSize);
 
+/**
+ *  \ingroup nmppsConvert nmppsConvert
+ *  \brief Функция конвертации вектора комплексных чисел с целыми действительной и мнимой частью (32 бита) в вектор комплексных чисел, где мнимая и действителная части - 32-битные числа с плавающей точкой
+ *  
+	\param pSrcVec указатель на входной вектор комплексных чисел
+	\param pDstVec указатель на выходной вектор комплексных чисел
+	\param nSize число элементов во входном векторе
+ *  \details Функция выполняется на сопроцессоре (процессор 1879ВМ6Я) с плавающей точкой с использованием переупаковщика данных
+ */
+void nmppsConvert_32sc32fcr(const nm32sc* pSrcVec, nm32fcr* pDstVec, int nSize);
 
-
-
+/**
+ *  \ingroup nmppsConvert nmppsConvert
+ *  \brief Функция конвертации вектора беззнаковых байт в вектор беззнаковых целых чисел
+ *  
+	\param pSrcVec указатель на входной вектор беззнаковых байт
+	\param pDstVec указатель на выходной вектор беззнаковых целых чисел
+	\param nSize число элементов во входном векторе
+ *  \details Функция выполняется на RISC-процессоре
+ */
+void nmppsConvertRisc_8u32u(const nm8u* pSrcVec, nm32u* pDstVec, int nSize);
 	
 //*****************************************************************************
 

@@ -45,7 +45,17 @@
 #@echo off
 #@set "INSTALL_PATH=%cd:\=/%"
 #@set GCC_EXEC_PREFIX=/cygdrive/%INSTALL_PATH:~0,1%/%INSTALL_PATH:~3,-4%/lib/gcc/
-PATH :=$(NMC_GCC_TOOLPATH)/nmc4-ide/bin;$(NMC_GCC_TOOLPATH)/nmc4-ide/lib;$(PATH)
+#shell=cmd
+#INSTALL_PATH="C:/Program Files/Module/NMCGCC-SDK/nmc4-ide/bin
+#$(NMC_GCC_TOOLPATH)\nmc4-ide\bin
+#GCC_EXEC_PREFIX=/cygdrive/$(NMC_GCC_TOOLPATH)/nmc4-ide/lib/gcc/
+#GCC_EXEC_PREFIX =/cygdrive/C/Program Files/Module/NMCGCC-SDK/nmc4-ide/lib/gcc/
+#PATH :=$(NMC_GCC_TOOLPATH)\nmc4-ide\bin;$(NMC_GCC_TOOLPATH)\nmc4-ide\lib;$(PATH)
+
+$(info $(INSTALL_PATH))
+$(info $(GCC_EXEC_PREFIX))
+$(info $(PATH))
+
 
 
 ROOT             = ../..

@@ -42,9 +42,11 @@
 #   AR_FLAGS        - librarian flags of (libr/linker)
 #
 #============== PROJECT & BUILD CONFIGURATION ==========
+shell = cmd
 ROOT             = ../..
-include          $(ROOT)/global.mk
+#include          $(ROOT)/global.mk
 ARCH             = nmc4
+
 #--------------  target & input dirs -------------------
 PROJECT          = libnmpp-$(ARCH)f
 OUT_DIR          = ../../lib
@@ -62,8 +64,8 @@ CC_FLAGS 		 = $(INC_DIRS)  -std=c99
 AR_FLAGS         = rcs $(TARGET)
 AS_FLAGS         =-$(ARCH) -nm2ms  $(INC_DIRS) -split_sir -W-111 -W-109
 #--------------  Header dependence parsing -------------------------
-PREPROCESS_ASM_DEP = $(CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
-PREPROCESS_CPP_DEP = $(CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
+#PREPROCESS_ASM_DEP = $(CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
+#PREPROCESS_CPP_DEP = $(CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 .SUFFIXES:
@@ -102,20 +104,24 @@ $(OUT_DIR):
 	-mkdir "$(@)"
 	
 $(TMP_DIR)/%.o: %.c 
-	$(PREPROCESS_ASM_DEP)
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
+
+#	$(PREPROCESS_ASM_DEP)
 
 $(TMP_DIR)/%.o: %.cpp
-	$(PREPROCESS_ASM_DEP)
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
-	
+
+#	$(PREPROCESS_ASM_DEP)	
+
 $(TMP_DIR)/%.o: %.asm 
-	$(PREPROCESS_ASM_DEP)
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
 
+#	$(PREPROCESS_ASM_DEP)
+
 $(TMP_DIR)/%.o: %.s 
-	$(PREPROCESS_ASM_DEP)
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
+
+#	$(PREPROCESS_ASM_DEP)
 	
 clean:
 	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 

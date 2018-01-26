@@ -139,6 +139,7 @@ solution "nmpp"
 		ROOT.."/src/nmplv/Transform/common/*.c",
 		ROOT.."/src/nmplv/Transform/pc/*.cpp",
 		ROOT.."/src/nmplv/Transform/pc/*.c",
+		ROOT.."/src/nmplv/Init/pc_risc/*.c",
 		ROOT.."/src/nmpls/FFT_32fc/norm/common/*.c",
 		ROOT.."/src/nmpls/FFT_32fc/DFT0008/pc/*.c",
 		ROOT.."/src/nmpls/FFT_32fc/FFT0016/pc/*.c",

@@ -73,3 +73,4 @@ SRC_DIRS         = 	 \
 					$(ROOT)/src/nmplv/Transform/common \
 					$(ROOT)/src/nmplv/Transform/nm \
 					$(ROOT)/src/nmvcore/nm
+					$(ROOT)/src/nmplv/Init/nm_risc

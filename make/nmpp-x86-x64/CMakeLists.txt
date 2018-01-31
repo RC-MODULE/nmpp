@@ -191,6 +191,11 @@ FILE(GLOB  SRC
 		${ROOT}/src/nmpls/FFT0512/pc/*.c
 		${ROOT}/src/nmpls/FFT1024/pc/*.c
 		${ROOT}/src/nmpls/FFT2048/pc/*.c
+		${ROOT}/src/nmblas/level1/pc/*.c
+		${ROOT}/src/nmblas/level2/pc/*.c
+		${ROOT}/src/nmblas/level2/pc/*.cpp
+
+
 )			
 
 ADD_LIBRARY(nmpp-${ARCH_POSTFIX} ${SRC} )

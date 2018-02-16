@@ -1,3 +1,15 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software, 2017                */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmppsConvert_32sc32fcr.asm                          */
+//*   Contents:         Convert data array from nm32sc to nm32fcr           */
+//*						nm32sc(re) -> nm32fcr(re)							*/
+//*						nm32sc(im) -> nm32fcr(im)            				*/
+//***************************************************************************/
+
 global _nmppsConvert_32sc32fcr: label;
 
 data "data"

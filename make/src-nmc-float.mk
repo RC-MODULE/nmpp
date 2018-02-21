@@ -30,4 +30,4 @@ SRC_DIRS+= $(ROOT)/src/nmblas/level1/nm
 SRC_DIRS+= $(ROOT)/src/nmblas/level1/nmcore
 SRC_DIRS+= $(ROOT)/src/nmblas/level2/nm
 SRC_DIRS+= $(ROOT)/src/nmblas/level2/nmcore
-
+SRC_DIRS+= $(ROOT)/src/nmplm/Init/nmf

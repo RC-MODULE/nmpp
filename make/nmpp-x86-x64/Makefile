@@ -1,3 +1,5 @@
+ROOT             = ../..
+include          $(ROOT)/global.mk
 VS8       = Visual_Studio_8_2005
 VS12      = Visual_Studio_12_2013
 VS12X64   = Visual_Studio_12_2013_Win64

@@ -8,7 +8,7 @@ void nmppsConvert_32sc32fcr(const nm32sc *pSrcVec, nm32fc *pDstVec, int nSize)
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i].re = (float)pSrcVec[i].im;
-		pDstVec[i].im = (float)pSrcVec[i].re;
+		pDstVec[i].re = (nm32f)pSrcVec[i].im;
+		pDstVec[i].im = (nm32f)pSrcVec[i].re;
 	}
 }

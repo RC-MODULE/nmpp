@@ -9,7 +9,7 @@ void nmppsCopy_64s(const double*	pSrcVec,		// Source array
 		pDstVec[idx]=pSrcVec[idx];
 }
 
-void ref_nmppmCopy_64s(
+void nmppmCopy_32fc(
 		double*	SrcMtr,
 			int		nSrcStride,
 			double*	DstMtr,

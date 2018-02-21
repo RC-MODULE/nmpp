@@ -60,8 +60,8 @@ global _nmppmCopy_2s:label;
 
 
 	delayed call mtr_CpyCore_nm64 with gr3>>=5;
-		with gr1>>=2;
-		with gr4>>=2;
+		with gr1>>=4;
+		with gr4>>=4;
 
 
 	pop ar6,gr6;

@@ -12,10 +12,15 @@ class nmchar{
 public:
 	unsigned int *adr;
 	int idx;
-	__INLINE__ nmchar(){
+	/*__INLINE__ nmchar(){
 		//adr=0;
 		//idx=0;
+	}*/
+	__INLINE__ nmchar(unsigned int*p, int offset) {
+		adr = p + (offset >> 2);
+		idx = offset & 3;
 	}
+
 	__INLINE__ nmchar(nmchar& ch){
 		adr=ch.adr;
 		idx=ch.idx;
@@ -36,6 +41,18 @@ public:
 		a+=b;
 //		crc^=a;
 		return a;
+	}
+
+	__INLINE__ nmchar& operator &= (unsigned int val) {
+		//(*adr) &= 0xFFFFFFFF & ((0xFF & val)  << (idx * 8));
+		val = (~val) & 0xFF;
+		(*adr) &= ~(val << (idx * 8));
+		return *this;
+	}
+
+	__INLINE__ nmchar& operator |= (unsigned int val) {
+		(*adr) |= ((0xFF & val) << (idx * 8));
+		return *this;
 	}
 
 	__INLINE__ nmchar& operator = (unsigned int val){
@@ -61,7 +78,7 @@ class uint8ptr {
 public:
 	unsigned int *addr;
 	int indx;
-	nmchar arref;
+	//nmchar arref;
 	__INLINE__ uint8ptr (){
 		addr=0;
 		indx=0;
@@ -119,8 +136,7 @@ public:
 
 	__INLINE__ nmchar& operator [](int idx){
 		
-		arref.adr=addr+(indx+idx)/4;
-		arref.idx=(indx+idx)%4;
+		nmchar arref(addr+(indx+idx)/4,(indx+idx)%4);
 		return arref;
 	}
 	
@@ -138,29 +154,41 @@ public:
 	}
 	
 	__INLINE__ bool operator < (uint8ptr ptr){
+#ifdef __NM__
 		if (addr<ptr.addr)
 			return 1;
 		if (addr==ptr.addr)
 			if (indx<ptr.indx)
 				return 1;
 		return 0;
+#else 
+		return  (addr + indx < ptr.addr + ptr.indx);
+#endif
 	}
 	__INLINE__ bool operator > (uint8ptr ptr){
+#ifdef __NM__
 		if (addr>ptr.addr)
 			return true;
 		if (addr==ptr.addr)
 			if (indx>ptr.indx)
 				return false;
 		return 0;
+#else 
+		return  (addr + indx > ptr.addr + ptr.indx);
+#endif
 	}
 	
 	__INLINE__ bool operator >= (uint8ptr ptr){
+#ifdef __NM__
 		if (addr>ptr.addr)
 			return 1;
 		if (addr==ptr.addr)
 			if (indx>=ptr.indx)
 				return 1;
 		return 0;
+#else 
+		return  (addr + indx >= ptr.addr + ptr.indx);
+#endif
 	}
 	
 
@@ -181,7 +209,7 @@ public:
 #else
 		//a+=indx;
 		//b+=ptr.indx;
-		return addr-ptr.addr+indx-ptr.indx;
+		return (int)addr-(int)ptr.addr+indx-ptr.indx;
 #endif		
 	}
 

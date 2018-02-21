@@ -113,6 +113,14 @@ unix: Unix/Makefile
 vs8:     	nmpp-x86.vcproj
 	"$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp-x86.vcproj
 
+vs2015:    	nmpp-x86.vcxproj
+	"$(VS140COMNTOOLS)vsvars32" && msbuild nmpp-x86.vcxproj
+	"$(VS140COMNTOOLS)vsvars32" && msbuild nmpp-x86.vcxproj /p:Configuration=Release
+
+
+nmpp-x86.vcxproj :	premake5.lua 
+	premake5 vs2015
+
 	
 nmpp-x86.vcproj vs2005:	premake5.lua 
 	premake5 vs2005

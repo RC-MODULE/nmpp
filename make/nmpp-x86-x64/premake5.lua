@@ -55,6 +55,7 @@ solution "nmpp"
 		ROOT.."/src/nmplm/Support/common/*.cpp",
 		ROOT.."/src/nmpls/Correlation/pc/*.cpp",
 		ROOT.."/src/nmpls/FFT/common/*.cpp",
+		ROOT.."/src/nmpls/FFT/pc/*.cpp",
 		ROOT.."/src/nmpls/FFT/FFT0032/pc/*.cpp",
 		ROOT.."/src/nmpls/FFT/FFT0032/pc/*.c",
 		ROOT.."/src/nmpls/FFT/FFT0032/common/*.cpp",

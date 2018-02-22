@@ -17,7 +17,7 @@ void free(uint8ptr& p){
 void nmchar_memcpy (uint8ptr dst, uint8ptr src, unsigned int  len){
 	
 	
-	#ifdef __NM__
+	#ifndef __NM__
 		memcpy((void*)dst.x86addr(), (void*)src.x86addr(),len);
 	#else
 		if (dst.indx==src.indx){

@@ -12,10 +12,10 @@ class nmchar{
 public:
 	unsigned int *adr;
 	int idx;
-	/*__INLINE__ nmchar(){
-		//adr=0;
-		//idx=0;
-	}*/
+	__INLINE__ nmchar(){
+		adr=0;
+		idx=0;
+	}
 	__INLINE__ nmchar(unsigned int*p, int offset) {
 		adr = p + (offset >> 2);
 		idx = offset & 3;
@@ -78,7 +78,7 @@ class uint8ptr {
 public:
 	unsigned int *addr;
 	int indx;
-	//nmchar arref;
+	nmchar arref;
 	__INLINE__ uint8ptr (){
 		addr=0;
 		indx=0;
@@ -134,9 +134,11 @@ public:
 	//	return int(addr);
 	//}
 
-	__INLINE__ nmchar& operator [](int idx){
+	__INLINE__ nmchar & operator [](int idx){
 		
-		nmchar arref(addr+(indx+idx)/4,(indx+idx)%4);
+		arref.adr = addr + (indx + idx) / 4;
+		arref.idx = (indx + idx) % 4;
+		//nmchar arref(addr+(indx+idx)/4,(indx+idx)%4);
 		return arref;
 	}
 	

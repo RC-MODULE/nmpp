@@ -1392,7 +1392,8 @@ typedef uint64 fseq64;
 //
 //
 #ifdef __cplusplus
-#define __INLINE__ static inline
+#define __INLINE__ static inline //  because  1>d:\git\nmpp\include\nmchar.h(17) : error C2574 : 'nmchar::nmchar(void)' : cannot be declared static
+//#define __INLINE__  inline 
 #else
  #ifdef __NM__
    #define __INLINE__ static inline

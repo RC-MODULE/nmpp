@@ -15,7 +15,7 @@
 #ifndef __VSUPPORT_H
 #define __VSUPPORT_H
 //#include <stdlib.h>
-
+#include "nmtype.h"
 #ifdef __cplusplus
 		extern "C" {
 #endif

@@ -4,7 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 //extern unsigned int crc;
-#define __INLINE__ inline
+#ifndef inline 
+#define inline inline
+#endif 
 
 class uint8ptr;
 #define nmcharptr uint8ptr
@@ -12,21 +14,21 @@ class nmchar{
 public:
 	unsigned int *adr;
 	int idx;
-	__INLINE__ nmchar(){
+	nmchar(){
 		adr=0;
 		idx=0;
 	}
-	__INLINE__ nmchar(unsigned int*p, int offset) {
+	nmchar(unsigned int*p, int offset) {
 		adr = p + (offset >> 2);
 		idx = offset & 3;
 	}
 
-	__INLINE__ nmchar(nmchar& ch){
+	nmchar(nmchar& ch){
 		adr=ch.adr;
 		idx=ch.idx;
 //		crc^=ch;
 	}
-	__INLINE__ nmchar& operator = (nmchar ch){
+	nmchar& operator = (nmchar ch){
 		unsigned char val=(ch);
 		(*adr) &= ~(0xFF<<(idx*8));
 		(*adr) |= (val) <<(idx*8);
@@ -35,7 +37,7 @@ public:
 		//idx=ch.idx;
 		return *this;
 	}
-	__INLINE__ unsigned int operator + (nmchar& ch){
+	unsigned int operator + (nmchar& ch){
 		unsigned int a=(ch);
 		unsigned int b=(*this);
 		a+=b;
@@ -43,32 +45,32 @@ public:
 		return a;
 	}
 
-	__INLINE__ nmchar& operator &= (unsigned int val) {
+	nmchar& operator &= (unsigned int val) {
 		//(*adr) &= 0xFFFFFFFF & ((0xFF & val)  << (idx * 8));
 		val = (~val) & 0xFF;
 		(*adr) &= ~(val << (idx * 8));
 		return *this;
 	}
 
-	__INLINE__ nmchar& operator |= (unsigned int val) {
+	inline nmchar& operator |= (unsigned int val) {
 		(*adr) |= ((0xFF & val) << (idx * 8));
 		return *this;
 	}
 
-	__INLINE__ nmchar& operator = (unsigned int val){
+	inline nmchar& operator = (unsigned int val){
 		(*adr) &= ~(0xFF<<(idx*8));
 		(*adr) |= (val&0xFF) <<(idx*8);
 //		crc^=val;
 		return *this;
 	}
-	__INLINE__ operator unsigned char(){
+	inline operator unsigned char(){
 		unsigned char ret=((*adr)>>(idx*8));
 		ret&=0xFF;
 //		crc^=ret;
 		return ret;
 	}
 	
-	__INLINE__ uint8ptr operator &();
+	inline uint8ptr operator &();
 
 };
 
@@ -79,7 +81,7 @@ public:
 	unsigned int *addr;
 	int indx;
 	nmchar arref;
-	__INLINE__ uint8ptr (){
+	inline uint8ptr (){
 		addr=0;
 		indx=0;
 	}
@@ -93,27 +95,27 @@ public:
 	//	addr=p.addr;
 	//}
 	
-	__INLINE__ unsigned char* x86addr(){
+	inline unsigned char* x86addr(){
 		return ((unsigned char*)addr)+indx;
 	}
-	__INLINE__ uint8ptr (void* p){
+	inline uint8ptr (void* p){
 		addr=(unsigned int*)p;
 		indx=0;
 	}
-	__INLINE__ uint8ptr (unsigned char* p){
+	inline uint8ptr (unsigned char* p){
 		addr=(unsigned int*)p;
 		indx=0;
 	}
-	__INLINE__ uint8ptr (const unsigned char* p){
+	inline uint8ptr (const unsigned char* p){
 		addr=(unsigned int*)p;
 		indx=0;
 	}
-	__INLINE__ uint8ptr (char* p){
+	inline uint8ptr (char* p){
 		addr=(unsigned int*)p;
 		indx=0;
 	}
 
-	__INLINE__ uint8ptr(const uint8ptr& p){
+	inline uint8ptr(const uint8ptr& p){
 		indx=p.indx;
 		addr=p.addr;
 	}
@@ -121,11 +123,11 @@ public:
 	//	addr=(unsigned*)p;
 	//	indx=0;
 	//}
-	__INLINE__ uint8ptr(unsigned int*p){
+	inline uint8ptr(unsigned int*p){
 		addr=p;
 		indx=0;
 	}
-	__INLINE__ uint8ptr(unsigned int*p,int offset){
+	inline uint8ptr(unsigned int*p,int offset){
 		addr=p+(offset>>2);
 		indx=offset&3;
 	}
@@ -134,7 +136,7 @@ public:
 	//	return int(addr);
 	//}
 
-	__INLINE__ nmchar & operator [](int idx){
+	inline nmchar & operator [](int idx){
 		
 		arref.adr = addr + (indx + idx) / 4;
 		arref.idx = (indx + idx) % 4;
@@ -149,13 +151,13 @@ public:
 	//}
 
 
-	__INLINE__ uint8ptr& operator = (unsigned int* ptr){
+	inline uint8ptr& operator = (unsigned int* ptr){
 		addr=(unsigned*)ptr;
 		indx=0;
 		return (*this);
 	}
 	
-	__INLINE__ bool operator < (uint8ptr ptr){
+	inline bool operator < (uint8ptr ptr){
 #ifdef __NM__
 		if (addr<ptr.addr)
 			return 1;
@@ -167,7 +169,7 @@ public:
 		return  (addr + indx < ptr.addr + ptr.indx);
 #endif
 	}
-	__INLINE__ bool operator > (uint8ptr ptr){
+	inline bool operator > (uint8ptr ptr){
 #ifdef __NM__
 		if (addr>ptr.addr)
 			return true;
@@ -180,7 +182,7 @@ public:
 #endif
 	}
 	
-	__INLINE__ bool operator >= (uint8ptr ptr){
+	inline bool operator >= (uint8ptr ptr){
 #ifdef __NM__
 		if (addr>ptr.addr)
 			return 1;
@@ -194,7 +196,7 @@ public:
 	}
 	
 
-	__INLINE__ int operator - (uint8ptr ptr){
+	inline int operator - (uint8ptr ptr){
 	  
 		
 
@@ -224,13 +226,13 @@ public:
 	
 	
 	
-	__INLINE__ uint8ptr& operator = (const uint8ptr& p){
+	inline uint8ptr& operator = (const uint8ptr& p){
 		addr=p.addr;
 		indx=p.indx;
 		return (*this);
 	}
 
-	__INLINE__ unsigned int* ptr(){
+	inline unsigned int* ptr(){
 		if (indx==0)
 			return addr;
 		//}
@@ -239,7 +241,7 @@ public:
 			return (unsigned int*)-1;
 		}
 	}
-	__INLINE__ nmchar& operator *(){
+	inline nmchar& operator *(){
 
 		return (nmchar&)(*this);
 	}
@@ -271,14 +273,14 @@ indx=(indx-idx)&0x3;
 return *this;
 }
 */
-	__INLINE__ uint8ptr operator + (int idx){
+	inline uint8ptr operator + (int idx){
 		uint8ptr tmp(*this);
 		tmp.addr=addr+((indx+idx)>>2);
 		tmp.indx=(indx+idx)&0x3;
 		return tmp;
 	}
 
-	__INLINE__ uint8ptr operator- (int idx){
+	inline uint8ptr operator- (int idx){
 		uint8ptr tmp(*this);
 		tmp.addr=addr+((indx-idx)>>2);
 		tmp.indx=(indx-idx)&0x3;
@@ -286,19 +288,19 @@ return *this;
 	}
 
 
-	__INLINE__ uint8ptr& operator+= (int idx){
+	inline uint8ptr& operator+= (int idx){
 		addr=addr+((indx+idx)>>2);
 		indx=(indx+idx)&0x3;
 		return *this;
 	}
 
-	__INLINE__ uint8ptr& operator-= (int idx){
+	inline uint8ptr& operator-= (int idx){
 		addr=addr+((indx-idx)>>2);
 		indx=(indx-idx)&0x3;
 		return *this;
 	}
 
-	__INLINE__ uint8ptr operator++ (int){
+	inline uint8ptr operator++ (int){
 		uint8ptr tmp(*this);
 		if (indx==3){
 			indx=0;
@@ -310,7 +312,7 @@ return *this;
 		return tmp;
 	}
 
-	__INLINE__ uint8ptr& operator++ (){
+	inline uint8ptr& operator++ (){
 		if (indx==3){
 			indx=0;
 			addr++;
@@ -321,11 +323,11 @@ return *this;
 		return *this;
 	}
 
-	//__INLINE__ unsigned int operator== (unsigned int N){
+	//inline unsigned int operator== (unsigned int N){
 	//	return (((unsigned int)addr)==N);
 	//}
 	
-	__INLINE__ bool operator == (uint8ptr ptr){
+	inline bool operator == (uint8ptr ptr){
 		if (addr==ptr.addr && indx==ptr.indx)
 			return 1;
 		return 0;
@@ -333,7 +335,7 @@ return *this;
 
 };
 
-__INLINE__ uint8ptr nmchar::operator &(){
+inline uint8ptr nmchar::operator &(){
 	uint8ptr p;
 	p.addr=adr;
 	p.indx=idx;
@@ -366,20 +368,20 @@ public:
 	nmchar1D(){
 	}
 
-	__INLINE__ nmchar& operator [](int idx){
+	inline nmchar& operator [](int idx){
 		deref.adr=data+idx/4;
 		deref.idx=idx%4;
 		
 		return deref;
 	}
 
-	__INLINE__ operator uint8ptr(){
+	inline operator uint8ptr(){
 		uint8ptr p;
 		p.addr=data;
 		p.indx=0;
 		return p;
 	}
-	__INLINE__ unsigned int* ptr(){
+	inline unsigned int* ptr(){
 		return data;
 	}
 
@@ -473,5 +475,5 @@ void nmchar_memset (uint8ptr dst, int setvalue, unsigned int  len);
 //}
 //
 
-#undef __INLINE__
+#undef inline
 #endif 

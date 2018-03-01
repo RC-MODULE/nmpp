@@ -5,6 +5,7 @@
   CHM:  http://rc-module.github.io/nmpp/nmpp.chm (При открытии необходимо снять галочку "Всегда спрашивать при открытии этого файла")  
   PDF:  http://rc-module.github.io/nmpp/nmpp.pdf  
 
+
 # Назначение  
   NMPP (Neuro Matrix Performance Primitives) - C/C++ библиотека примитивов для архитектуры NeuroMatrix.
   Содержит оптимизированные функции для работы со скалярами, векторами, матрицами, сигналами и изображениями.

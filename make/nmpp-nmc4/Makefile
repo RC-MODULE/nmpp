@@ -72,6 +72,7 @@
 ARCH            ?=nmc4
 #--------------  target & input dirs -------------------
 ROOT             = ../..
+include 		 $(NMC_GCC_TOOLPATH)/nmc4-ide/nmc4vars_win.mk
 include          $(ROOT)/global.mk
 include          $(ROOT)/make/src-nmc-int.mk
 PROJECT          = nmpp-$(ARCH)

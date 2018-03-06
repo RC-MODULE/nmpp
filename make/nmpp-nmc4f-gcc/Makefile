@@ -42,10 +42,11 @@
 #   AR_FLAGS        - librarian flags of (libr/linker)
 #
 #============== PROJECT & BUILD CONFIGURATION ==========
-shell = cmd
+#shell = cmd
 ROOT             = ../..
 #include          $(ROOT)/global.mk
-include 		 $(NMC_GCC_TOOLPATH)/nmc4-ide/nmc4vars_win.mk
+#include 		 $(NMC_GCC_TOOLPATH)\nmc4-ide\nmc4vars_win.mk
+-include 		 nmc4vars_win.mk
 ARCH             = nmc4
 
 #--------------  target & input dirs -------------------
@@ -90,9 +91,13 @@ OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM
 
 default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
 
+init:
+	copy "$(NMC_GCC_TOOLPATH)\nmc4-ide\include\nmc4vars_win.mk" nmc4vars_win.mk
+
 all: 
 	$(MAKE) -j4
 	
+
 $(TMP_DIR):
 	-mkdir "$(@)"
 
@@ -107,22 +112,14 @@ $(OUT_DIR):
 $(TMP_DIR)/%.o: %.c 
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 
-#	$(PREPROCESS_ASM_DEP)
-
 $(TMP_DIR)/%.o: %.cpp
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
-
-#	$(PREPROCESS_ASM_DEP)	
-
+	
 $(TMP_DIR)/%.o: %.asm 
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
 
-#	$(PREPROCESS_ASM_DEP)
-
 $(TMP_DIR)/%.o: %.s 
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
-
-#	$(PREPROCESS_ASM_DEP)
 	
 clean:
 	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 

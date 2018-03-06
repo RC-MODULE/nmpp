@@ -60,13 +60,14 @@ $(info $(INSTALL_PATH))
 $(info $(GCC_EXEC_PREFIX))
 $(info $(PATH))
 
+#MK = "$(NMC_GCC_TOOLPATH)/nmc4-ide/nmc4vars_win.mk"
 
 
 ROOT             = ../..
 #include          $(ROOT)/global.mk
-#include 		 c:/Progra~1/Module/NMCGCC-SDK/nmc4-ide/nmc4vars_win.mk
-include 		 $(NMC_GCC_TOOLPATH)/nmc4-ide/nmc4vars_win.mk
-#include 		 nmc4vars_win.mk
+#include 		 c:/progra~1/Module/NMCGCC-SDK/nmc4-ide/nmc4vars_win.mk
+#include 		 $(MK)
+-include 		 nmc4vars_win.mk
 ARCH             = nmc4
 #--------------  target & input dirs -------------------
 PROJECT          = libnmpp-$(ARCH)
@@ -86,7 +87,7 @@ AR_FLAGS         = rcs $(TARGET)
 AS_FLAGS         =-$(ARCH) -nm2ms  $(INC_DIRS) -split_sir -W-111 -W-109
 #--------------  Header dependence parsing -------------------------
 #PREPROCESS_ASM_DEP = $(CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
-PREPROCESS_CPP_DEP = $(CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
+#PREPROCESS_CPP_DEP = $(CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 .SUFFIXES:
@@ -110,9 +111,13 @@ OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM
 
 default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
 
+init:
+	copy "$(NMC_GCC_TOOLPATH)\nmc4-ide\include\nmc4vars_win.mk" nmc4vars_win.mk
+
 all: 
 	$(MAKE) -j4
 	
+
 $(TMP_DIR):
 	-mkdir "$(@)"
 
@@ -125,19 +130,15 @@ $(OUT_DIR):
 	-mkdir "$(@)"
 	
 $(TMP_DIR)/%.o: %.c 
-	$(PREPROCESS_ASM_DEP)
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 
 $(TMP_DIR)/%.o: %.cpp
-	$(PREPROCESS_ASM_DEP)
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 	
 $(TMP_DIR)/%.o: %.asm 
-	$(PREPROCESS_ASM_DEP)
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
 
 $(TMP_DIR)/%.o: %.s 
-	$(PREPROCESS_ASM_DEP)
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
 	
 clean:

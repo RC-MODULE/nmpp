@@ -73,10 +73,10 @@ ARCH             = nmc4
 PROJECT          = libnmpp-$(ARCH)
 OUT_DIR          = ../../lib
 TARGET           = $(OUT_DIR)/$(PROJECT).a
-TMP_DIR          = Release
+TMP_DIR          = 
 #INC_DIRS        =
 #SRC_DIRS        =
-include          $(ROOT)/make/src-nmc-float.mk
+include          $(ROOT)/make/src-nmc-int.mk
 #------------------------------------------------
 CC               = nmc-gcc
 LD               = nmc-ld
@@ -105,7 +105,8 @@ OBJECTS_CPP = $(notdir $(patsubst %.cpp,%.o,$(ALL_CPP)))
 OBJECTS_ASM = $(notdir $(patsubst %.asm,%.o,$(ALL_ASM)))
 OBJECTS_C   = $(notdir $(patsubst %.c,%.o,$(ALL_C)))
 OBJECTS_S   = $(notdir $(patsubst %.s,%.o,$(ALL_S)))
-OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S))
+export OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S))
+
 #======================== BUILD RULES ====================================
 .PHONY:all  clean cleanall vs8  skip
 
@@ -117,12 +118,15 @@ init:
 all: 
 	$(MAKE) -j4
 	
-
 $(TMP_DIR):
 	-mkdir "$(@)"
+	
 
 $(TARGET): $(TMP_DIR) $(OBJECTS) 
-	$(AR) $(AR_FLAGS) $(OBJECTS) 
+	echo "linking"
+	$(MAKE) -s -f Makefile.print > .objects
+	$(AR) @.objects
+#	$(AR) $(AR_FLAGS) $(OBJECTS) 
 
 -include $(TMP_DIR)/*.dep
 	
@@ -141,8 +145,4 @@ $(TMP_DIR)/%.o: %.asm
 $(TMP_DIR)/%.o: %.s 
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
 	
-clean:
-	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
-	-$(OS_RD) Debug Release
- 
-	
+include $(ROOT)/clean.mk	

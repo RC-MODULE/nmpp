@@ -52,6 +52,10 @@
 #GCC_EXEC_PREFIX =/cygdrive/C/Program Files/Module/NMCGCC-SDK/nmc4-ide/lib/gcc/
 #PATH :=$(NMC_GCC_TOOLPATH)\nmc4-ide\bin;$(NMC_GCC_TOOLPATH)\nmc4-ide\lib;$(PATH)
 
+
+
+# $(NMC_GCC_TOOLPATH)/nmc4-ide/nmc4vars_win.mk
+
 $(info $(INSTALL_PATH))
 $(info $(GCC_EXEC_PREFIX))
 $(info $(PATH))
@@ -60,6 +64,9 @@ $(info $(PATH))
 
 ROOT             = ../..
 #include          $(ROOT)/global.mk
+#include 		 c:/Progra~1/Module/NMCGCC-SDK/nmc4-ide/nmc4vars_win.mk
+include 		 $(NMC_GCC_TOOLPATH)/nmc4-ide/nmc4vars_win.mk
+#include 		 nmc4vars_win.mk
 ARCH             = nmc4
 #--------------  target & input dirs -------------------
 PROJECT          = libnmpp-$(ARCH)

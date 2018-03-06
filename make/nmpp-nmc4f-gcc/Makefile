@@ -45,6 +45,7 @@
 shell = cmd
 ROOT             = ../..
 #include          $(ROOT)/global.mk
+include 		 $(NMC_GCC_TOOLPATH)/nmc4-ide/nmc4vars_win.mk
 ARCH             = nmc4
 
 #--------------  target & input dirs -------------------

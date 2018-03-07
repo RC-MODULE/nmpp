@@ -166,7 +166,7 @@ public:
 				return 1;
 		return 0;
 #else 
-		return  (addr + indx < ptr.addr + ptr.indx);
+		return  (unsigned(addr) + indx < unsigned(ptr.addr) + ptr.indx);
 #endif
 	}
 	inline bool operator > (uint8ptr ptr){
@@ -178,7 +178,7 @@ public:
 				return false;
 		return 0;
 #else 
-		return  (addr + indx > ptr.addr + ptr.indx);
+		return  (unsigned(addr) + indx > unsigned(ptr.addr) + ptr.indx);
 #endif
 	}
 	
@@ -191,7 +191,7 @@ public:
 				return 1;
 		return 0;
 #else 
-		return  (addr + indx >= ptr.addr + ptr.indx);
+		return  (unsigned(addr) + indx >= unsigned(ptr.addr) + ptr.indx);
 #endif
 	}
 	

@@ -42,8 +42,11 @@
 #   AR_FLAGS        - librarian flags of (libr/linker)
 #
 #============== PROJECT & BUILD CONFIGURATION ==========
+#shell = cmd
 ROOT             = ../..
-include          $(ROOT)/global.mk
+-include 		 nmc4vars_win.mk
+#include          $(ROOT)/global.mk
+
 ARCH             = nmc3
 #--------------  target & input dirs -------------------
 PROJECT          = libnmpp-$(ARCH)
@@ -81,20 +84,28 @@ OBJECTS_CPP = $(notdir $(patsubst %.cpp,%.o,$(ALL_CPP)))
 OBJECTS_ASM = $(notdir $(patsubst %.asm,%.o,$(ALL_ASM)))
 OBJECTS_C   = $(notdir $(patsubst %.c,%.o,$(ALL_C)))
 OBJECTS_S   = $(notdir $(patsubst %.s,%.o,$(ALL_S)))
-OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S))
+export OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S))
+
 #======================== BUILD RULES ====================================
 .PHONY:all  clean cleanall vs8  skip
 
 default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
+
+init:
+	copy "$(NMC_GCC_TOOLPATH)\nmc4-ide\include\nmc4vars_win.mk" nmc4vars_win.mk
 
 all: 
 	$(MAKE) -j4
 	
 $(TMP_DIR):
 	-mkdir "$(@)"
+	
 
 $(TARGET): $(TMP_DIR) $(OBJECTS) 
-	$(AR) $(AR_FLAGS) $(OBJECTS) 
+	echo "linking"
+	$(MAKE) -s -f Makefile.print > .objects
+	$(AR) @.objects
+#	$(AR) $(AR_FLAGS) $(OBJECTS) 
 
 -include $(TMP_DIR)/*.dep
 	
@@ -102,24 +113,15 @@ $(OUT_DIR):
 	-mkdir "$(@)"
 	
 $(TMP_DIR)/%.o: %.c 
-	$(PREPROCESS_ASM_DEP)
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 
 $(TMP_DIR)/%.o: %.cpp
-	$(PREPROCESS_ASM_DEP)
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
 	
 $(TMP_DIR)/%.o: %.asm 
-	$(PREPROCESS_ASM_DEP)
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
 
 $(TMP_DIR)/%.o: %.s 
-	$(PREPROCESS_ASM_DEP)
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
 	
-clean:
-	-$(OS_RM) $(TARGET)
-	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
-	-$(OS_RD) Debug Release
- 
-	
+include $(ROOT)/clean.mk	

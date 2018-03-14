@@ -33,7 +33,7 @@ void IMG_ResampleDown2X(
 		nm64s*		pKernel
 		)
 {
-    SIG_ResampleDown2((nm8u7b*)pSrcImg,(nm8u7b*)pDstImg,nSrcHeight*nSrcWidth,pKernel);
+    SIG_ResampleDown2_8u((nm8u7b*)pSrcImg,(nm8u7b*)pDstImg,nSrcHeight*nSrcWidth,pKernel);
 }
 
 //!
@@ -49,7 +49,7 @@ void IMG_ResampleDown2X(
 					  nm64s*		pKernel
                       )
 {
-    SIG_ResampleDown2((nm16u15b*)pSrcImg,(nm16u15b*)pDstImg,nSrcHeight*nSrcWidth,pKernel);
+    SIG_ResampleDown2_16u((nm16u15b*)pSrcImg,(nm16u15b*)pDstImg,nSrcHeight*nSrcWidth,pKernel);
 }
 
 
@@ -68,7 +68,7 @@ void IMG_ResampleDown2X(
 {
     int len = nSrcHeight*nSrcWidth;
     nmppsConvert_8s16s((nm8s*)pSrcImg,(nm16s*)pTmpBuf,len);
-    SIG_ResampleDown2((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,len,pKernel);
+    SIG_ResampleDown2_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,len,pKernel);
 }
 
 //!
@@ -111,7 +111,7 @@ void IMG_ResampleDown2XY(
                        )
 {
     nmppsConvert_8s16s((nm8s*)pSrcImg,(nm16s*)pTmpBuf,nSrcHeight*nSrcWidth);
-    SIG_ResampleDown2((nm16u15b*)pTmpBuf,(nm16u15b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
+    SIG_ResampleDown2_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
     IMG_ResampleDown2Y((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,(nSrcWidth/2));
 }
 
@@ -132,7 +132,7 @@ void IMG_ResampleDown2XY(
                        void*			pTmpBuf	// output buffer	:long Global[h*w/4]	
                        )
 {
-    SIG_ResampleDown2((nm8u7b*)pSrcImg,(nm8u7b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
+    SIG_ResampleDown2_8u((nm8u7b*)pSrcImg,(nm8u7b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
     IMG_ResampleDown2Y((nm8u7b*)pTmpBuf,(nm8u7b*)pDstImg,nSrcHeight,(nSrcWidth/2));
 }
 
@@ -154,7 +154,7 @@ void IMG_ResampleDown2XY(
 						void*		pTmpBuf	// output buffer	:long Global[h*w/4]	
 		)
 {
-    SIG_ResampleDown2((nm16u15b*)pSrcImg,(nm16u15b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
+    SIG_ResampleDown2_16u((nm16u15b*)pSrcImg,(nm16u15b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
     IMG_ResampleDown2Y((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,(nSrcWidth/2));
 }
 

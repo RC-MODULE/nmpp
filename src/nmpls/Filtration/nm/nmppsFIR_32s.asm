@@ -18,19 +18,16 @@
 //!
 //------------------------------------------------------------------------
 
-
 begin ".text_nmpls"
 
-    //--------------------------------------------------------------------
-    //! \fn void SIG_Filter(nm16s* pSrcVec, nm16s* pDstVec, int nSize, nm64s* pKernel)
+	//--------------------------------------------------------------------
+	//! \fn void SIG_Filter(nm32s* pSrcVec, nm32s* pDstVec, int nSize, nm64s* pKernel)
 	//!
-	// \perfinclude _SIG_Filter__FPSsPSsiPl.html
-    //--------------------------------------------------------------------
-extern vec_ClipMulNDNW4_AddVr:label;
-global _SIG_Filter__FPSsPSsiPl:label;
-global _void._.8.8SIG_Filter.1short._.0.9._short._.0.9._int.9._long._.0.2 :label;
-<_SIG_Filter__FPSsPSsiPl>
-<_void._.8.8SIG_Filter.1short._.0.9._short._.0.9._int.9._long._.0.2>
+	// \n
+	//--------------------------------------------------------------------
+extern vec_ClipMulNDNW2_AddVr:label;
+global _nmppsFIR_32s:label;
+<_nmppsFIR_32s>
 .branch;
 	ar5 = sp - 2;
 
@@ -58,12 +55,12 @@ global _void._.8.8SIG_Filter.1short._.0.9._short._.0.9._int.9._long._.0.2 :label
 	gr0 = 2;
 	gr6 = 2;
 
-	sb	= 00020002h;
-	gr4 = 80008000h;
+	sb	= 00000002h;
+	gr4 = 80000000h;
 	nb1 = gr4;
 	f1cr= 0;
 	vr  = 0;
-	call vec_ClipMulNDNW4_AddVr with gr5>>=2;
+	call vec_ClipMulNDNW2_AddVr with gr5>>=1;
 
     pop ar6,gr6;
 	pop ar5,gr5;

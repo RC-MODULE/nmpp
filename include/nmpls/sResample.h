@@ -57,8 +57,8 @@
     */
 
     //! \{
-void SIG_ResampleDown2(nm8u7b* pSrcVec, nm8u7b* pDstVec, int nSrcVecSize, nm64s* pKernel);
-void SIG_ResampleDown2(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm64s* pKernel);
+void SIG_ResampleDown2_8u(nm8u7b* pSrcVec, nm8u7b* pDstVec, int nSrcVecSize, nm64s* pKernel);
+void SIG_ResampleDown2_16u(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm64s* pKernel);
     //! \}
 
 //\param	pTmpBuf		
@@ -66,7 +66,7 @@ void SIG_ResampleDown2(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm
 //    \en Temporary buffer with size 2*nSize. 
 
 //void SIG_ResampleDown2(nm8u* pSrcVec, nm16u* pDstVec, int nSrcVecSize, nm64s* pKernel, void* pTmpBuf);
-void SIG_ResampleDown2(nm8u* pSrcVec,nm16u*	pDstVec,void*	pTmpBuf,int	nSize);
+void SIG_ResampleDown2_8u16u(nm8u* pSrcVec,nm16u*	pDstVec,void*	pTmpBuf,int	nSize);
 
 //*****************************************************************************
 
@@ -189,10 +189,10 @@ int SIG_SetResampleDown2_16u16u(nm64s* pKernel);
 		\ingroup sResample
     */
     //! \{
-void SIG_Decimate16(nm8s* pSrcVec,nm8s* pDstVec,int nDstSize);
-void SIG_Decimate16(nm16s* pSrcVec,nm16s* pDstVec,int nDstSize);
-void SIG_Decimate16(nm32s* pSrcVec,nm32s* pDstVec,int nDstSize);
-void SIG_Decimate16(nm64s* pSrcVec,nm64s* pDstVec,int nDstSize);
+void SIG_Decimate16_8s(nm8s* pSrcVec,nm8s* pDstVec,int nDstSize);
+void SIG_Decimate16_16s(nm16s* pSrcVec,nm16s* pDstVec,int nDstSize);
+void SIG_Decimate16_32s(nm32s* pSrcVec,nm32s* pDstVec,int nDstSize);
+void SIG_Decimate16_64s(nm64s* pSrcVec,nm64s* pDstVec,int nDstSize);
     //! \}
 
 
@@ -263,8 +263,8 @@ void SIG_Decimate16(nm64s* pSrcVec,nm64s* pDstVec,int nDstSize);
     */
     //! \{
 void SIG_ResampleUp3Down2_perf(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize, nm64s* pKernel);
-void SIG_ResampleDown2_perf(nm8u7b* pSrcVec, nm8u7b* pDstVec, int nSrcVecSize, nm64s* pKernel);
-void SIG_ResampleDown2_perf(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm64s* pKernel);
+void SIG_ResampleDown2_perf_8u(nm8u7b* pSrcVec, nm8u7b* pDstVec, int nSrcVecSize, nm64s* pKernel);
+void SIG_ResampleDown2_perf_16u(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm64s* pKernel);
     //! \}
 	
 	
@@ -276,6 +276,7 @@ void SIG_ResampleDown2_perf(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSiz
 //! \tparam nmbits_out Тип указывающий разрядность выходного вектора. Допустимые типы : nm8s,nm16s,nm32s. Разрядность входного вектора не должна превышать разрядности выходного.
 //! \par Пример
 //! \include app\example\Filter\SIG_Filter_16s32s\main.cpp 
+#ifdef EEE
 template <class nmbits_in, class nmbits_out> class CSIG_ResampleUp3Down2
 {
 public:
@@ -317,6 +318,6 @@ public:
 	
 
 };
-
+#endif
 	
 #endif // 

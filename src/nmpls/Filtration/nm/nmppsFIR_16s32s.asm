@@ -31,18 +31,16 @@ end ".data_nmpls_L";
 begin ".text_nmpls"
 
     //--------------------------------------------------------------------
-    //! \fn void SIG_Filter(nm16s* pSrcVec, nm32s* pDstVec, int nSize, nm64s* pKernel)
+    //! \fn void nmppsFIR_16s32s(nm16s* pSrcVec, nm32s* pDstVec, int nSize, nm64s* pKernel)
 	//!
-	// \perfinclude _SIG_Filter__FPSsPiiPl.html
+	// \perfinclude nmppsFIR_16s32s.html
     //--------------------------------------------------------------------
 extern vec_ClipMulNDNW4_AddVr:label;
 extern vec_Mul2D2W4_AddVr:label;
 
 
-global _SIG_Filter__FPSsPiiPl:label;
-global _void._.8.8SIG_Filter.1short._.0.9._int._.0.9._int.9._long._.0.2 :label;
-<_SIG_Filter__FPSsPiiPl>
-<_void._.8.8SIG_Filter.1short._.0.9._int._.0.9._int.9._long._.0.2>
+global _nmppsFIR_16s32s:label;
+<_nmppsFIR_16s32s>
 .branch;
 	ar5 = sp - 2;
 

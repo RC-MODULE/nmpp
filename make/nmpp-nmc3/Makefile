@@ -97,7 +97,7 @@ BUILDER          =libr
 BUILDER_FLAGS    =-c $(TARGET)
 #--------------  DEBUG config -------------------------
 ifdef DEBUG      
-TARGET           =$(OUT_DIR)/$(PROJECT)d.lib
+TARGET           =$(OUT_DIR)/$(PROJECT).lib
 CCPP_FLAGS       =-6405 -DNEURO -OPT0 -inline -debug 
 CC_FLAGS         =$(CCPP_FLAGS) -Tc99
 LIBS            :=

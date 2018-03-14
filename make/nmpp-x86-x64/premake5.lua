@@ -108,6 +108,8 @@ solution "nmpp"
 		ROOT.."/src/nmpls/Filter/common/*.c",
 		ROOT.."/src/nmpls/Filtration/pc/*.cpp",
 		ROOT.."/src/nmpls/Filtration/pc/*.c",
+		ROOT.."/src/nmpls/Filtration/common/*.cpp",
+		ROOT.."/src/nmpls/Filtration/common/*.c",
 		ROOT.."/src/nmpls/Metric/*.cpp",
 		ROOT.."/src/nmpls/Metric/*.c",
 		ROOT.."/src/nmpls/Resample/common/*.cpp",

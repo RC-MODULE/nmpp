@@ -54,8 +54,8 @@ SRC_DIRS         = 	 \
 					$(ROOT)/src/nmpls/FFT/IFFT8192/nm \
 					$(ROOT)/src/nmpls/FFT/IFFT8192/common \
 					$(ROOT)/src/nmpls/FFT/FFTFree/common \
-					$(ROOT)/src/nmpls/Filter/common \
 					$(ROOT)/src/nmpls/Filtration/nm \
+					$(ROOT)/src/nmpls/Filtration/common \
 					$(ROOT)/src/nmpls/Resample/common \
 					$(ROOT)/src/nmpls/Resample/nm \
 					$(ROOT)/src/nmplv/Arithmetics/common \

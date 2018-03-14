@@ -104,7 +104,7 @@ void SIG_CreateFilter_8s8s(int* pWeights, int nSize, nm64s** pKernel, int hint)
 */
 
 /////////////////////////////////////////////////////////////////////////////////////////
-void nmppsFIR_32s32s(
+void nmppsFIR_32s(
 		nm32s*			 pSrcVec,	
 		nm32s*			 pDstVec,	
 		int				 nSize,		
@@ -128,7 +128,7 @@ void nmppsFIR_32s32s(
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
-void nmppsFIR_16s16s(
+void nmppsFIR_16s(
 		nm16s*			 pSrcVec,	
 		nm16s*			 pDstVec,	
 		int				 nSize,		
@@ -174,7 +174,7 @@ void nmppsFIR_16s32s(
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
-void nmppsFIR_8s8s(
+void nmppsFIR_8s(
 		nm8s*			 pSrcVec,	
 		nm8s*			 pDstVec,	
 		int				 nSize,		

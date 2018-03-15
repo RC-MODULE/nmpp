@@ -1,4 +1,4 @@
-#include <malloc.h>
+#include <malloc32.h>
 #include <math.h>
 #include "fft_32fc.h"
 
@@ -7,7 +7,7 @@ int nmppsFFT2048FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr2048)
     int i, j, k;
     const float pi = 3.141592653;
     float alpha;
-    nm32fcr *SinCos = (nm32fcr *) malloc(64 * sizeof(nm32fcr));
+    nm32fcr *SinCos = (nm32fcr *) malloc0(64 * sizeof(nm32fcr));
     NmppsFFTSpec_32fc *spec_32fc = (NmppsFFTSpec_32fc *) malloc(sizeof(NmppsFFTSpec_32fc));
     if(!spec_32fc) {
         return -1;
@@ -15,7 +15,7 @@ int nmppsFFT2048FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr2048)
     for(i = 0; i < NUMBUFF2; i++) {
         spec_32fc->Buffs[i] = 0;
     }
-    spec_32fc->Buffs[0] = (nm32fcr *) malloc((32 + 512 + 1024) * sizeof(nm32fcr));
+    spec_32fc->Buffs[0] = (nm32fcr *) malloc0((32 + 512 + 1024) * sizeof(nm32fcr));
     if(!spec_32fc->Buffs[0])
         return -2;
 

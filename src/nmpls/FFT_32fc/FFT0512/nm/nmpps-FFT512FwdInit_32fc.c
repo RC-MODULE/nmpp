@@ -1,4 +1,4 @@
-#include <malloc.h>
+#include <malloc32.h>
 #include <math.h>
 #include "fft_32fc.h"
 

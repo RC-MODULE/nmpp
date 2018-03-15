@@ -1,4 +1,4 @@
-INC_DIRS         = -I../../include -I$(NEURO)/include
+INC_DIRS         = -I../../include
 
 SRC_DIRS = $(ROOT)/src/nmpls/Metric
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT0032/nm
@@ -17,9 +17,9 @@ SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFT2048/nm
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/IFFT2048/nm
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/common
 SRC_DIRS+= $(ROOT)/src/nmpls/FFT_32fc/FFTFree/common
-#SRC_DIRS+= $(ROOT)/src/nmplv/Support/nm
+SRC_DIRS+= $(ROOT)/src/nmplv/Support/nm
 SRC_DIRS+= $(ROOT)/src/nmplv/Support/common
-SRC_DIRS+= $(ROOT)/src/nmplv/Stat/nmf
+SRC_DIRS+= $(ROOT)/src/nmplv/Stat/nm
 SRC_DIRS+= $(ROOT)/src/nmplv/Stat/common
 SRC_DIRS+= $(ROOT)/src/nmplv/Arithmetics/common
 SRC_DIRS+= $(ROOT)/src/nmplv/Arithmetics/nmf
@@ -30,4 +30,7 @@ SRC_DIRS+= $(ROOT)/src/nmblas/level1/nm
 SRC_DIRS+= $(ROOT)/src/nmblas/level1/nmcore
 SRC_DIRS+= $(ROOT)/src/nmblas/level2/nm
 SRC_DIRS+= $(ROOT)/src/nmblas/level2/nmcore
+SRC_DIRS+= $(ROOT)/src/nmpls/Arithmetics/nmf-gcc
 SRC_DIRS+= $(ROOT)/src/nmplm/Init/nmf
+SRC_DIRS+= $(ROOT)/src/nmplv/Support/common/nm-gcc
+

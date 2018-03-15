@@ -9,7 +9,7 @@
 //*                     of the W-coefficient for FFT1024Fwd                 */
 //***************************************************************************/
 
-#include <malloc.h>
+#include <malloc32.h>
 #include <math.h>
 #include "fft_32fc.h"
 
@@ -24,7 +24,7 @@ int nmppsFFT1024FwdInitAlloc_32fc(NmppsFFTSpec_32fc **addr)
     }
 
 /*************************************Bank1*************************************/
-    spec_32fc->Buffs[0] = (nm32fcr *) malloc((16 + 512 + 1) * sizeof(nm32fcr));
+    spec_32fc->Buffs[0] = (nm32fcr *) malloc0((16 + 512 + 1) * sizeof(nm32fcr));
     if(!spec_32fc->Buffs[0])
         return -2;
 

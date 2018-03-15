@@ -87,6 +87,7 @@ For convenience of application programs development the library has implementati
 
 #include "fft.h"
 
+#include "sArithemitics.h"
 
 #endif
 

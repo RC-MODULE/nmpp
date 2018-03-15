@@ -56,13 +56,13 @@ TARGET           = $(OUT_DIR)/$(PROJECT).a
 TMP_DIR          = Release
 #INC_DIRS        =
 #SRC_DIRS        =
-include          $(ROOT)/make/src-nmc-float.mk
+include          $(ROOT)/make/src-nmc-float-gcc.mk
 #------------------------------------------------
-CC               = nmc-gcc
+CC               = nmc-g++
 LD               = nmc-ld
 AR               = nmc-ar
 AS               = asm
-CC_FLAGS 		 = $(INC_DIRS)  -std=c99
+CC_FLAGS 		 = $(INC_DIRS)  -std=c++11
 AR_FLAGS         = rcs $(TARGET)
 AS_FLAGS         =-$(ARCH) -nm2ms  $(INC_DIRS) -split_sir -W-111 -W-109
 #--------------  Header dependence parsing -------------------------
@@ -121,8 +121,6 @@ $(TMP_DIR)/%.o: %.asm
 $(TMP_DIR)/%.o: %.s 
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
 	
-clean:
-	-$(OS_RM) *.abs *.o *.ncb *.ilk  *.dep *.ac *.map *.suo *.user *.ncb .toolchecked.mk 
-	-$(OS_RD) Debug Release
+include $(ROOT)/clean.mk
  
 	

@@ -17,6 +17,11 @@ typedef void (*t_free_func)(void*);
 #define HEAP_3 8
 
 
+void *malloc0(unsigned int size);
+void *malloc1(unsigned int size);
+void *malloc2(unsigned int size);
+void *malloc3(unsigned int size);
+
 void* malloc32 (unsigned size_int32, unsigned bank_mask);
 void  free32(void* p);
 

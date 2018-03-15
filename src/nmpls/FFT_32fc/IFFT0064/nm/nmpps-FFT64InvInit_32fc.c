@@ -1,4 +1,4 @@
-#include <malloc.h>
+#include <malloc32.h>
 #include <math.h>
 #include "fft_32fc.h"
 
@@ -8,7 +8,7 @@ int nmppsFFT64InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr64)
 	int gr1;
 	const float pi = 3.141592653;
     float alpha;
-    nm32fcr *SinCos = (nm32fcr *) malloc(64 * sizeof(nm32fc));
+    nm32fcr *SinCos = (nm32fcr *) malloc0(64 * sizeof(nm32fc));
 	NmppsFFTSpec_32fc *spec_32fc = (NmppsFFTSpec_32fc *) malloc(sizeof(NmppsFFTSpec_32fc));
 	if(!spec_32fc) {
 		return -1;
@@ -20,7 +20,7 @@ int nmppsFFT64InvInitAlloc_32fc(NmppsFFTSpec_32fc **iaddr64)
         spec_32fc->Buffs[i] = 0;
 
     }
-    spec_32fc->Buffs[0] = (nm32fcr *) malloc(32 * sizeof(nm32fcr)); // SinCos0
+    spec_32fc->Buffs[0] = (nm32fcr *) malloc0(32 * sizeof(nm32fcr)); // SinCos0
     if(!spec_32fc->Buffs[0])
         return -2;
 

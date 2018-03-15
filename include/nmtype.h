@@ -396,7 +396,7 @@ typedef nm4u nm4u3b;
 
 //-----------------------------------------------------------------------------
     
-	/*
+	/**
 	\ingroup nmvectype
 	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8. 
   	\en Type characterizes vec data as array of 8-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 8.
@@ -406,15 +406,12 @@ typedef nm4u nm4u3b;
 	\en Number range is: 
 		\~
 	\~	\f$[0,\ldots,+2^8-1]=[0,\ldots,255]\f$
-	
-typedef struct s_nm8u {
-	#ifdef __NM__	
-		unsigned long vec;
-	#else 
-		unsigned char num[8];
-	#endif	
-} t_nm8u;
-typedef unsigned char nm8u;*/
+	*/
+#ifdef __NM__
+	typedef void nm8u;
+#else 
+	typedef unsigned char nm8u;
+#endif
 //-----------------------------------------------------------------------------
 
 	/**

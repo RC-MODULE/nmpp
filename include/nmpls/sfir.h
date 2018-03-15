@@ -29,48 +29,24 @@
 
 
     /**
-	\internal
     \defgroup sFIR КИХ-фильтрация
 		\ingroup sFiltration
-		\brief 
-			\ru Одномерная КИХ-фильтрация. 
-			\en One-dimensional filtration. 
+		\brief Одномерная КИХ-фильтрация. 
 	*/
 
 	
 //*****************************************************************************
 #define NmppsFIRState void
     /**
-	\internal
     \defgroup nmppsFIR_Xs nmppsFIR_Xs
-		\ingroup sFIR
-		\brief 
-			\ru Одномерная КИХ-фильтрация. 
-			\en One-dimensional filtration. 
-
-		\~
-		\~
-    \param	pSrc		
-        \ru Входной вектор. 
-        \en Input vec. 
-		\~
-    \param	srcSize		
-        \ru Размер входного вектора в элементах. 
-        \en Input vec size in elements. 
-		\~
-	\retval	pDst		
-        \ru Результирующий вектор. 
-        \en The result vec. 
-		\~
-	\param	NmppsFIRState
-        \ru Служебная структура, содержащая весовые коэффициенты фильтра во внутреннем формате. 
-        \en Auxilary structure, which contains filter coefficents in internal format. 
-	
-		\~
-    \note \ru Инициализация служебной структуры производится соответствующей функцией nmppsFIRInit_Xs() или nmppsFIRInitAlloc_Xs().
-	      \en Initialization of Auxilary structure is performed by call of appropriate nmppsFIRInit_Xs function and nmppsFIRInitAlloc_Xs().
-    \perf  \ru Максимальная производительность достигается при размещении pSrc, pDst и pPstate в разных банках памяти .
-		\~    
+	\ingroup sFIR 
+	\brief Одномерная КИХ-фильтрация 
+    \param  [in] pSrc Входной вектор
+    \param	[in] srcSize Размер входного вектора в элементах. Размер вектора должен быть кратен количеству элементов в 64-р. слове. 
+	\param	[out] pDst Результирующий вектор
+	\param	[in] NmppsFIRState  Служебная структура, содержащая весовые коэффициенты фильтра во внутреннем формате. 
+    \note Инициализация служебной структуры производится соответствующей функцией nmppsFIRInit_Xs() или nmppsFIRInitAlloc_Xs().
+    \perf  Максимальная производительность достигается при размещении pSrc, pDst и pPstate в разных банках памяти .
 	*/
 //! \{
 void nmppsFIR_8s	( nm8s* pSrc, nm8s* pDst, int srcSize,  NmppsFIRState* pState);
@@ -82,78 +58,36 @@ void nmppsFIR_32s	( nm32s* pSrc, nm32s* pDst, int srcSize,  NmppsFIRState* pStat
    //! \}
 
 /**
-	\internal
     \defgroup nmppsFIRInit_Xs nmppsFIRInit_Xs
     \ingroup sFIR
-    \brief
-        \ru Инициализация функции одномерной фильтрации. 
-        \en Initialization of the core for one-dimensional filtration. 
-    
-		\~
-        \ru Функция преобразует таблицу весовых коэффициентов окна фильтра во внутренний формат  
-        \en The functions init the table of weight coefficients from the linear array 
-        to internal format . 
+    \brief Инициализация функции одномерной фильтрации 
 
-		\~
-		\~
-    \param	pTaps		
-        \ru Указатель на коэффциенты фильтра . 
-        \en Pointer to the filter coefficients. 
-		\~
-    \param	tapsLen	
-        \ru Размер окна фильтра. nWeights=[3,5,7,9....]. 
-        \en Size of filter window . 
-		\~
-	\retval	NmppsFIRState	
-        \ru Указатель на служебную структуру, содержащую весовые коэффиценты фильтра во внутреннем формате. 
-		 Размер памяти (в 32р.-словах) необходимый для хранения  служебной структуры  можно с помощью функции nmppsFIRGetStateSize_Xs
-        \en Pointer to auxilary structure, which contains filter coefficents in internal format. 
-		\~
-	\return
-		\ru Размер проинициализированной структуры pKernel в 32р. словах
-		\en Size of inited structure pKernel in 32 bit words
-		\~
+	Функция преобразует таблицу весовых коэффициентов окна фильтра во внутренний формат  
+    \param [in]	pTaps Указатель на коэффициенты фильтра  
+    \param [in] tapsLen	Размер окна фильтра. tapsLen=[3,5,7,9....] 
+	\param [out] pState Указатель на служебную структуру, содержащую весовые коэффициенты фильтра во внутреннем формате. 
+		 Размер памяти (в 32р.-словах) необходимый для хранения  служебной структуры  можно получить с помощью функции nmppsFIRGetStateSize_Xs
+	\return Размер проинициализированной структуры pState в 32р. словах
 		*/
 //! \{		
-int  nmppsFIRInit_8s	(NmppsFIRState* ppState, int* pTaps, int tapsLen);
-int  nmppsFIRInit_8s16s	(NmppsFIRState* ppState, int* pTaps, int tapsLen);
-int  nmppsFIRInit_8s32s	(NmppsFIRState* ppState, int* pTaps, int tapsLen);
-int  nmppsFIRInit_16s	(NmppsFIRState* ppState, int* pTaps, int tapsLen);
-int  nmppsFIRInit_16s32s(NmppsFIRState* ppState, int* pTaps, int tapsLen);
-int  nmppsFIRInit_32s	(NmppsFIRState* ppState, int* pTaps, int tapsLen);
+int  nmppsFIRInit_8s	(NmppsFIRState* pState, int* pTaps, int tapsLen);
+int  nmppsFIRInit_8s16s	(NmppsFIRState* pState, int* pTaps, int tapsLen);
+int  nmppsFIRInit_8s32s	(NmppsFIRState* pState, int* pTaps, int tapsLen);
+int  nmppsFIRInit_16s	(NmppsFIRState* pState, int* pTaps, int tapsLen);
+int  nmppsFIRInit_16s32s(NmppsFIRState* pState, int* pTaps, int tapsLen);
+int  nmppsFIRInit_32s	(NmppsFIRState* pState, int* pTaps, int tapsLen);
 //! \}
 
 /**
-	\internal
-    \defgroup nmppsFIRInit_Xs nmppsFIRInit_Xs
+    \defgroup nmppsFIRInitAlloc_Xs nmppsFIRInitAlloc_Xs
     \ingroup sFIR
-    \brief
-        \ru Выделение и инициализация служебной стуктуры для функции одномерной фильтрации. 
-        \en Initialization of the core for one-dimensional filtration. 
+    \brief Выделение и инициализация служебной структуры для функции одномерной фильтрации 
     
-		\~
-        \ru Функция выдляет структуру в куче и преобразует таблицу весовых коэффициентов окна фильтра во внутренний формат  
-        \en The functions init the table of weight coefficients from the linear array 
-        to internal format . 
-
-		\~
-		\~
-    \param	pTaps		
-        \ru Указатель на коэффциенты фильтра . 
-        \en Pointer to the filter coefficients. 
-		\~
-    \param	tapsLen	
-        \ru Размер окна фильтра. nWeights=[3,5,7,9....]. 
-        \en Size of filter window . 
-		\~
-	\retval	NmppsFIRState	
-        \ru Возвращает указатель на служебную структуру, содержащую весовые коэффиценты фильтра во внутреннем формате. 
-		\en Pointer to auxilary structure, which contains filter coefficents in internal format. 
-		\~
-	\return
-		\ru Размер проинициализированной структуры pKernel в 32р. словах
-		\en Size of inited structure pKernel in 32 bit words
-		\~
+	Функция выделяет структуру в куче и преобразует таблицу весовых коэффициентов окна фильтра во внутренний формат  
+    \param [in]	pTaps Указатель на коэффициенты фильтра 
+    \param [in]	tapsLen	Размер окна фильтра. nWeights=[3,5,7,9....] 
+	\retval [out]	ppState Возвращает указатель на служебную структуру, содержащую весовые коэффициенты фильтра во внутреннем формате 
+	\return Размер проинициализированной структуры pState в 32р. словах
 		*/
 //! \{	
 int  nmppsFIRInitAlloc_8s	 (NmppsFIRState** ppState, int* pTaps, int tapsLen);
@@ -165,21 +99,11 @@ int  nmppsFIRInitAlloc_32s	 (NmppsFIRState** ppState, int* pTaps, int tapsLen);
 //! \}
   
 /**
-	\internal
-    \defgroup nmppsFIRInit_Xs nmppsFIRInit_Xs
+    \defgroup nmppsFIRGetStateSize_Xs nmppsFIRGetStateSize_Xs
     \ingroup sFIR
-    \brief
-        \ru Возващает размер памяти (в 32р.-словах) необходимый для хранения  служебной структуры  
-        \en Initialization of the core for one-dimensional filtration. 
-		\~
-    \param	tapsLen	
-        \ru Размер окна фильтра. nWeights=[3,5,7,9....]. 
-        \en Size of filter window . 
-		\~
-	\return
-		\ru Возващает размер памяти (в 32р.-словах), необходимый для хранения  служебной структуры  
-		\en Size of inited structure pKernel in 32 bit words
-		\~
+    \brief Возвращает размер памяти (в 32р.-словах) необходимый для хранения  служебной структуры  
+    \param [in]	tapsLen	Размер окна фильтра. tapsLen=[3,5,7,9....] 
+	\return	Возвращает размер памяти (в 32р.-словах), необходимый для хранения  служебной структуры  NmppsFIRState 
 		*/
 //! \{	
 int nmppsFIRGetStateSize_8s	   (int tapsLen);
@@ -187,21 +111,19 @@ int nmppsFIRGetStateSize_8s16s (int tapsLen);
 int nmppsFIRGetStateSize_8s32s (int tapsLen);
 int nmppsFIRGetStateSize_16s   (int tapsLen);
 int nmppsFIRGetStateSize_16s32s(int tapsLen);
-int nmppsFIRGetStateSize_32s	(int tapsLen);
+int nmppsFIRGetStateSize_32s   (int tapsLen);
 //! \}
    
 /**
-	\internal
     \defgroup nmppsFIRFree nmppsFIRFree
     \ingroup sFIR
-    \brief
-        \ru осоводжадет структру pState в куче
-        \en Initialization of the core for one-dimensional filtration. 
-		\~
-    	*/
+    \brief освобождает структуру pState в куче
+	\param [in]	pState указатель на служебную структуру  NmppsFIRState 
+
+    */
 //! \{   
 void nmppsFIRFree(NmppsFIRState* pState);
-//    //! \}
+//! \}
 
 
 

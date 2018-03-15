@@ -82,7 +82,7 @@ struct nmreg { int nVal; };
 	/**
 		\~
 	\ingroup nmvectype
-    \ru Тип характеризует векторные данные как массив одноразрядных чисел. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 64. 
+    \ru Тип характеризует векторные данные как массив одноразрядных чисел. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  64. 
   	\en Type characterizes vec data as array of 1-bit signed numbers.   \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 64.
 
 		\~
@@ -91,11 +91,15 @@ struct nmreg { int nVal; };
 		\~
 	\~	\f$[-1,0]\f$
 	*/
+	#ifdef __NM__
 typedef void nm1;
+#else 
+	typedef int nm1;
+#endif
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 2-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 32. 
+	\ru Тип характеризует векторные данные как массив 2-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  32. 
   	\en Type characterizes vec data as array of 2-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 32.
 
 		\~
@@ -110,7 +114,7 @@ typedef void nm2s;
 //-----------------------------------------------------------------------------    
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 16. 
+	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  16. 
   	\en Type characterizes vec data as array of 4-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 16.
 
 		\~
@@ -123,7 +127,7 @@ typedef void nm4s;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
- 	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 8. 
+ 	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8. 
   	\en Type characterizes vec data as array of 8-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 8.
 
 		\~
@@ -132,16 +136,16 @@ typedef void nm4s;
 		\~
 	\~	\f$[-2^7,\ldots,+2^7-1]=[-128,\ldots,+127]\f$
 	*/
-	
+	/*
 struct int8x8{
 #ifdef __NM__	
 	unsigned long items;
 #else 
 	signed char item[8];
 #endif	
-};
+};*/
 
-#ifdef __NM__	
+#ifdef __NM__
 	typedef void nm8s;
 #else 
 	typedef signed char nm8s;
@@ -162,7 +166,7 @@ struct int8x8{
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 8. 
+	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8. 
   	\en Type characterizes vec data as array of 8-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 8.
 
 		\~
@@ -172,17 +176,17 @@ struct int8x8{
 	\~	\f$[-2^6,\ldots,+2^6-1]=[-64,\ldots,+63]\f$
 	*/
 typedef signed char nm8s7b;
-struct int7in8x8{
+/*struct int7in8x8{
 #ifdef __NM__	
 	unsigned long items;
 #else 
 	char item[8];
 #endif	
-};
+};*/
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
- 	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 4. 
+ 	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  4. 
   	\en Type characterizes vec data as array of 16-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 4.
 
 		\~
@@ -191,7 +195,7 @@ struct int7in8x8{
 		\~
 	\~	\f$[-2^{15},\ldots,^+2^{15}-1]\f$.
 	*/
-
+/*
 struct int16x4{
 #ifdef __NM__	
 	unsigned long items;
@@ -199,20 +203,21 @@ struct int16x4{
 	signed short item[4];
 #endif	
 };
+*/
 
-
-#ifdef __NM__	
-	typedef void nm16s;
-#else 
-	typedef signed short nm16s;
-#endif	
+#ifdef __NM__
+typedef void nm16s;
+#else
+typedef signed short nm16s;
+#endif
 
 
 
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-  	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 4. 
+  	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел со знаком с ограниченным диапазоном принимаемых значений. \n 
+		Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  4. 
   	\en Type characterizes vec data as array of 16-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 4.
 
 		\~
@@ -221,7 +226,11 @@ struct int16x4{
 		\~
 	\~ \f$[-2^{14},\ldots,+2^{14}-1]\f$
 	*/
-typedef signed short nm16s15b;
+
+
+typedef nm16s nm16s15b;
+
+
 struct int15in16x4{
 #ifdef __NM__	
 	unsigned long items;
@@ -236,7 +245,7 @@ struct int15in16x4{
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 2. 
+	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2. 
   	\en Type characterizes vec data as array of 32-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 2.
 
 		\~
@@ -278,7 +287,7 @@ typedef struct s_int32x2{
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-   \ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 2. 
+   \ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2. 
   	\en Type characterizes vec data as array of 32-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 2.
 
 		\~
@@ -298,7 +307,7 @@ struct int31in32x2{
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-   \ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 2. 
+   \ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2. 
   	\en Type characterizes vec data as array of 32-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 2.
 
 		\~
@@ -347,7 +356,7 @@ typedef nm64s nm64s63b;
 //=============================================================================
 	/**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 2-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 32. 
+	\ru Тип характеризует векторные данные как массив 2-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  32. 
   	\en Type characterizes vec data as array of 2-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 32.
 
 
@@ -361,7 +370,7 @@ typedef void nm2u;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 16. 
+	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  16. 
   	\en Type characterizes vec data as array of 4-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 16.
 
 		\~
@@ -373,7 +382,7 @@ typedef void nm2u;
 typedef void nm4u;
 /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 16. 
+	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  16. 
   	\en Type characterizes vec data as array of 4-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 16.
 
 		\~
@@ -383,12 +392,13 @@ typedef void nm4u;
 	\~	\f$[0,\ldots,+2^3-1]=[0,\ldots,7]\f$
 	*/
 
-typedef struct s_nm4u3b{ unsigned long long int vec;} nm4u3b;
+typedef nm4u nm4u3b;
 
 //-----------------------------------------------------------------------------
-    /**
+    
+	/*
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 8. 
+	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8. 
   	\en Type characterizes vec data as array of 8-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 8.
 
 		\~
@@ -396,7 +406,7 @@ typedef struct s_nm4u3b{ unsigned long long int vec;} nm4u3b;
 	\en Number range is: 
 		\~
 	\~	\f$[0,\ldots,+2^8-1]=[0,\ldots,255]\f$
-	*/
+	
 typedef struct s_nm8u {
 	#ifdef __NM__	
 		unsigned long vec;
@@ -404,12 +414,12 @@ typedef struct s_nm8u {
 		unsigned char num[8];
 	#endif	
 } t_nm8u;
-typedef unsigned char nm8u;
+typedef unsigned char nm8u;*/
 //-----------------------------------------------------------------------------
 
 	/**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 8. 
+	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8. 
   	\en Type characterizes vec data as array of 8-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 8.
 
 		\~
@@ -422,7 +432,8 @@ typedef unsigned char nm8u7b;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 4. 
+	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n 
+	    Предполагается , что размер массива данного типа как минимум кратен 4. 
   	\en Type characterizes vec data as array of 16-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 4.
 
 		\~
@@ -432,19 +443,15 @@ typedef unsigned char nm8u7b;
 	\~	\f$[0,\ldots,2^{16}-1]\f$.
 	*/
 
-//struct uint16x4{
-typedef struct s_nm16u {
 #ifdef __NM__	
-	unsigned long vec;
+	typedef void nm16u;
 #else 
-	unsigned short num[4];
+	typedef unsigned short nm16u;
 #endif	
-} nm16u_t;
-typedef unsigned short  nm16u;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 4. 
+	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  4. 
   	\en Type characterizes vec data as array of 16-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 4.
 
 		\~
@@ -453,19 +460,12 @@ typedef unsigned short  nm16u;
 		\~
 	\~	\f$[-2^{14},\ldots,^+2^{14}-1]\f$.
 	*/
-typedef unsigned short nm16u15b;
-struct uint15in16x4{
-#ifdef __NM__	
-	unsigned long items;
-#else 
-	unsigned short item[4];
-#endif	
-};
+typedef nm16u nm16u15b;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
 
-	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 2. 
+	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2. 
   	\en Type characterizes vec data as array of 32-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 2.
 
 		\~
@@ -475,17 +475,11 @@ struct uint15in16x4{
 	\~	\f$[0,\ldots,2^{32}-1]\f$.
 	*/
 typedef unsigned int nm32u;
-struct uint32x2{
-#ifdef __NM__	
-	unsigned long items;
-#else 
-	unsigned int item[2];
-#endif	
-};
+
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию передаваемый размер в функцию должен быть кратен 2. 
+	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2. 
   	\en Type characterizes vec data as array of 32-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 2.
 
 		\~

@@ -32,8 +32,21 @@ open:
 	#nmpp.html ipp-nmpp.html 
 	#copy ipp-nmpp.html html\ipp-nmpp.html
 	#copy nmpp.html html\nmpp.html
-	
+
 github: clean pdf chm
+	doxygen
+	copy nmpp.chm html\nmpp.chm /Y
+	copy nmpp.pdf html\nmpp.pdf	/Y
+	7za a html\nmpp.zip nmpp.chm &&\
+	cd html &&\
+	git init . && git checkout --orphan gh-pages &&\
+	git add * &&\
+	git commit -m "documentation-for-gh-pages" &&\
+	git remote add origin https://github.com/RC-MODULE/nmpp.git  &&\
+	git push -u -f origin gh-pages	
+
+	
+github0: clean pdf chm
 	copy nmpp.chm html\nmpp.chm /Y
 	copy nmpp.pdf html\nmpp.pdf	/Y
 	7za a html\nmpp.zip nmpp.chm &&\

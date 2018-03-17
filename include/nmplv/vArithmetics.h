@@ -273,6 +273,7 @@ void nmppsAddC_16s (const nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSi
 void nmppsAddC_32s (const nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
 void nmppsAddC_64s (const nm64s* pSrcVec, int64b pnVal,  nm64s* pDstVec, int nSize);
 void nmppsAddC_p64s(const nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
+void nmppsAddC_32fcr(const nm32fcr *pSrcVec, nm32fcr *pDstVec, float C, int nSize);
     //! \}
 
 //*****************************************************************************
@@ -821,8 +822,8 @@ void nmppsMulC_64s   (const nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSi
 void nmppsMulC_2s16s   (const nm2s* pSrcVec, int16b nVal, nm16s* pDstVec, int nSize);
     //! \}
 
-void nmppsMul_32fc(int N, nm32fcr *vec1, nm32fcr *vec2, nm32fcr *dst);
-void nmppsMulConj_32fc(int N, nm32fcr *vec1, nm32fcr *vec2, nm32fcr *dst);
+void nmppsMul_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, nm32fcr *pDstVec, int nSize);
+void nmppsMulConj_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, nm32fcr *pDstVec, int nSize);
 //*******************************************************************
 
 

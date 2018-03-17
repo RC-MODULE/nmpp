@@ -87,5 +87,15 @@ const 	nm64s*			src,				// input buffer		:long Local [VecSize/8]
 
 }
 
-
+void nmppsAddC_32fcr(
+const	nm32fcr *pSrcVec,
+		nm32fcr *pDstVec,
+		float C,
+		int nSize)
+{
+	int i;
+	for(i = 0; i < nSize; i++) {
+		pDstVec[i].re = pSrcVec[i].re + C;
+	}
+}
 

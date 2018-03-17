@@ -114,6 +114,7 @@ solution "nmpp"
 		ROOT.."/src/nmpls/Metric/*.c",
 		ROOT.."/src/nmpls/Resample/common/*.cpp",
 		ROOT.."/src/nmpls/Resample/pc/*.cpp",
+		ROOT.."/src/nmpls/Arithmetics/pc/*.c",
 		ROOT.."/src/nmplv/Arithmetics/common/*.cpp",
 		ROOT.."/src/nmplv/Arithmetics/common/*.c",
 		ROOT.."/src/nmplv/Arithmetics/pc/*.cpp",

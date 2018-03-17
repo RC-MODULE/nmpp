@@ -5,7 +5,7 @@
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
 //*   File:             nmpps-Mul_32fcr.asm                                 */
-//*   Contents:         Multiplies the elements of two vectors              */
+//*   Contents:         The function multiplies the elements of two vectors */
 //***************************************************************************/
 
 // void nmppsMul_32fcr(const nm32fcr *pSrcVec1, nm32fcr *pSrcVec2, nm32fcr *pDstVec, int nSize)

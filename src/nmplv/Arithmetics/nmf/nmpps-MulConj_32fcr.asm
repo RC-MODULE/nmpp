@@ -5,7 +5,7 @@
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
 //*   File:             nmpps-vMulConj_32fcr.asm                            */
-//*   Contents:         Multiplies the elements of two vectors              */
+//*   Contents:         The function multiplies the elements of two vectors */
 //*                     Vector1 * Conjugate(Vector2)                        */
 //***************************************************************************/
 

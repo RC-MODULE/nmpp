@@ -1,3 +1,16 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-AddC_32fcr.asm                                */
+//*   Contents:         The function adds the float const to 		        */
+//*						the every element real part of input complex vector */
+//***************************************************************************/
+
+// void nmppsAddC_32fcr(const nm32fcr *pSrcVec, nm32fcr *pDstVec, float C, int nSize);
+
 global _nmppsAddC_32fcr: label;
 begin "text"
 <_nmppsAddC_32fcr>

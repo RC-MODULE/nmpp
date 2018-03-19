@@ -104,9 +104,9 @@
     \endxmlonly
     */
     //! \{
-void IMG_ResampleDown2X(nm8u7b* pSrcImg, nm8u7b* pDstImg, int nSrcWidth, int nSrcHeight) ;
-void IMG_ResampleDown2X(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, int nSrcHeight);
-void IMG_ResampleDown2X(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
+void IMG_ResampleDown2X_8u(nm8u7b* pSrcImg, nm8u7b* pDstImg, int nSrcWidth, int nSrcHeight) ;
+void IMG_ResampleDown2X_16u(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, int nSrcHeight);
+void IMG_ResampleDown2X_8u16u(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
     //! \}
 
 //*****************************************************************************

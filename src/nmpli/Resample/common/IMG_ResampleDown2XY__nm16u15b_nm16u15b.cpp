@@ -145,7 +145,7 @@ void IMG_ResampleDown2XY(
 //!
 
 
-void IMG_ResampleDown2XY(
+void IMG_ResampleDown2XY_16u(
 						nm16u15b*	pSrcImg,	// input buffer		:long Local	[h*w/8]
 						nm16u15b*	pDstImg,	// output buffer	:long Global[h*w/16]
 						int			nSrcWidth,	//Image width		width = [0,8,16...]

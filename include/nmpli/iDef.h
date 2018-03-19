@@ -21,13 +21,16 @@
 #ifndef _IDEF_H_
 #define _IDEF_H_
 
+#ifdef __NM__
+typedef void RGB24_nm8u;
+#else
 struct RGB24_nm8u
 {
-	nm8u nB;
-	nm8u nG;
-	nm8u nR;
-};
-
+	unsigned char nB:8;
+	unsigned char nG:8;
+	unsigned char nR:8;
+}; 
+#endif
 
 struct RGB32_nm8u
 {

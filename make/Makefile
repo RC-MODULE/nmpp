@@ -14,23 +14,33 @@ else
   OS_SET_ENV = export NMPP=$(realpath ..)
 endif
 
-.PHONY : all nmpp-nmc3 gcc vs8 vs13 clean 
+.PHONY : all nmpp-nmc3 nmpp-nmc4 nmpp-nmc4f nmpp-nmc3-gcc nmpp-nmc4-gcc nmpp-nmc4f-gcc nmpp-x86-x64
 
 
-all: gcc vs8 nmpp-nmc3
+all: nmpp-nmc3 nmpp-nmc4 nmpp-nmc4f nmpp-nmc3-gcc nmpp-nmc4-gcc nmpp-nmc4f-gcc nmpp-x86-x64
+	
 
 nmpp-nmc3:
 	$(MAKE) -C ./nmpp-nmc3
-	$(MAKE) -C ./nmpp-nmc3 DEBUG=y
-	
-gcc:	
-	$(MAKE) -C ./pc/gcc
-	
-vs8:	
-	$(MAKE) -C ./pc/vs8
 
-vs13:	
-	$(MAKE) -C ./pc/vs13
+nmpp-nmc4:
+	$(MAKE) -C ./nmpp-nmc4
+
+nmpp-nmc4f:
+	$(MAKE) -C ./nmpp-nmc4f
+	
+nmpp-nmc3-gcc:
+	$(MAKE) -C ./nmpp-nmc3-gcc
+
+nmpp-nmc4-gcc:
+	$(MAKE) -C ./nmpp-nmc4-gcc
+	
+nmpp-nmc4f-gcc:
+	$(MAKE) -C ./nmpp-nmc4f-gcc
+	
+nmpp-x86-x64:
+	$(MAKE) -C ./$(MAKE) -C ./nmpp-nmc4f-gcc
+
 	
 dist: 
 	$(MAKE) -C ./distrib
@@ -46,15 +56,19 @@ rpc:
 	
 clean:
 	$(MAKE) -C ./nmpp-nmc3 clean
+	$(MAKE) -C ./nmpp-nmc4 clean
+	$(MAKE) -C ./nmpp-nmc4f clean
+	$(MAKE) -C ./nmpp-nmc3-gcc clean
+	$(MAKE) -C ./nmpp-nmc4-gcc clean
+	$(MAKE) -C ./nmpp-nmc4f-gcc clean
+	
+	
 	$(MAKE) -C ./nmpp-nmc3-rpc clean
 	$(MAKE) -C ./nmpp-arm-rpc clean
 	$(MAKE) -C ./nmpp-arm clean
-	$(MAKE) -C ./pc/gcc  clean
-	$(MAKE) -C ./pc/vs8 clean
-	$(MAKE) -C ./pc/vs13 clean
-	$(MAKE) -C ./doc  clean 
-	-rm -f -r *.suo *.ncb
-	-rm -f -r lib
+	$(MAKE) -C ./doxy  clean 
+	#-rm -f -r *.suo *.ncb
+	#-rm -f -r lib
 	
 
 install:

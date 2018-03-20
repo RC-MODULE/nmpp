@@ -1,5 +1,0 @@
-$(info  rcs ../../lib/libnmpp-nmc3.a $(OBJECTS))
-
-.PHONY:all
-all:
-	@# do nothing

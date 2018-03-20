@@ -126,11 +126,5 @@ nmpp-x86.vcxproj :	premake5.lua
 nmpp-x86.vcproj vs2005:	premake5.lua 
 	premake5 vs2005
 
-kill: clean
-	-$(OS_RM) *.vcproj *.sln *.vcxproj
-
-clean:
-	-$(OS_RM) *.abs *.elf *.ncb *.map *.elf *.suo *.user *.filters
-	-$(OS_RD) bin obj obj0 obj1 $(VS8) $(VS12)  $(VS12X64) $(VS14) $(VS14X64) MinGW Unix Obj
-			
+include $(ROOT)/clean.mk
 	

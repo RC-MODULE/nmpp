@@ -112,10 +112,10 @@ export OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJE
 
 default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
 
-init:
+nmc4vars_win.mk init:
 	copy "$(NMC_GCC_TOOLPATH)\nmc4-ide\include\nmc4vars_win.mk" nmc4vars_win.mk
 
-all: 
+all: nmc4vars_win.mk
 	$(MAKE) -j4
 	
 $(TMP_DIR):

@@ -39,7 +39,7 @@ nmpp-nmc4f-gcc:
 	$(MAKE) -C ./nmpp-nmc4f-gcc
 	
 nmpp-x86-x64:
-	$(MAKE) -C ./$(MAKE) -C ./nmpp-nmc4f-gcc
+	$(MAKE) -C ./nmpp-x86-x64
 
 	
 dist: 

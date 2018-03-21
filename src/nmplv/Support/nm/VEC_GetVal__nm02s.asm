@@ -24,7 +24,7 @@ begin ".text_nmplv"
 
 //! \fn void nmppsGetVal_2s(nm2s *pVec, int nIndex, int2b& nVal) 
 //!
-//! \perfinclude nmppsGetVal__2s.html
+//! \perfinclude nmppsGetVal_2s.html
 
 macro EXTRACT(n)
 	delayed return with	gr7<<=n;
@@ -33,8 +33,8 @@ macro EXTRACT(n)
 		nul;
 end EXTRACT;
 
-global _nmppsGetVal__2s:	label;
-<_nmppsGetVal__2s>
+global _nmppsGetVal_2s:	label;
+<_nmppsGetVal_2s>
 
 .branch;
 	ar5 = ar7 - 2;

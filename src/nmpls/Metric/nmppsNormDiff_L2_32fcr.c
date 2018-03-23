@@ -15,5 +15,5 @@ void nmppsNormDiff_L2_32fcr(const nm32fcr *src1, const nm32fcr *src2, int num, f
        diff *= diff;
        norm += diff;
     }
-    *pNorm=sqrtf(norm);
+    *pNorm = sqrtf(norm);
 }

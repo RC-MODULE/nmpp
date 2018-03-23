@@ -1,45 +1,52 @@
+#include "fft_32fcr.h"
+#include "nmpp.h"
+#include "time.h"
 #include <nmtype.h>
 #include <malloc.h>
 #include <stdio.h>
-#include "fft_32fcr.h"
-#include "nmpp.h"
+
+#define		SIZE 		64
 
 int main()
 {
-	int i, tm;
+	int i, st;
+	clock_t t1, t2;
 	nm32fcr *src, *dst;
-	// best config (tm = 592, src - malloc, dst - malloc1)
-	src = (nm32fcr *)malloc(64 * sizeof(nm32fcr));
-	dst = (nm32fcr *)malloc(64 * sizeof(nm32fcr));
-	for(i = 0; i < 64; i++) {
+	// best config (tm = 592)
+	src = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
+	dst = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
+	for(i = 0; i < SIZE; i++) {
 		src[i].im = 1;
 		src[i].re = i;
 		dst[i].im = 0;
 		dst[i].re = 0;
 	}
 	NmppsFFTSpec_32fcr *rat, *irat;
-	tm = nmppsFFT64FwdInitAlloc_32fcr(&rat);
-	if(tm) {
+	st = nmppsFFT64FwdInitAlloc_32fcr(&rat);
+	if(st) {
 		return 123;
 	}
-	tm = nmppsFFT64InvInitAlloc_32fcr(&irat);
-	if(tm) {
+	st = nmppsFFT64InvInitAlloc_32fcr(&irat);
+	if(st) {
 		return 124;
 	}
+	t1 = clock();
 	nmppsFFT64Fwd_32fcr(src, dst, rat);
+	t2 = clock();
 	nmppsFFT64Inv_32fcr(dst, dst, irat);
-	tm = nmppsFFTFree_32fcr(rat);
-	if(tm) {
+	st = nmppsFFTFree_32fcr(rat);
+	if(st) {
 		return 125;
 	}
-	unsigned int crc = 0;
-	nmppsCrcAcc_32f((nm32f *)dst, 11, 64*2, &crc);
-	tm = nmppsFFTFree_32fcr(irat);
-	if(tm) {
+	float norm;
+	nmppsNormDiff_L2_32fcr(src, dst, SIZE, &norm);
+	st = nmppsFFTFree_32fcr(irat);
+	printf("%.7f\n", norm);
+	if(st) {
 		return 126;
 	}
-	for(i = 0; i < 64; i++){
-		printf("%.5f %.5f\n", dst[i].re, dst[i].im);
-	}
-	return crc >> 2;
+	// for(i = 0; i < SIZE; i++) {
+	// 	printf("%.5f %.5f\n", dst[i].re, dst[i].im);
+	// }
+	return t2 - t1;
 }

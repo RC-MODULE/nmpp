@@ -42,17 +42,21 @@
 #   AR_FLAGS        - librarian flags of (libr/linker)
 #
 #============== PROJECT & BUILD CONFIGURATION ==========
-shell = cmd
 ROOT             = ../..
+SHELL 			 = cmd
 -include 		 nmc4vars_win.mk
 #include          $(ROOT)/global.mk
 
-ARCH             = nmc3
+ifndef NEURO
+$(error *** ERROR: 'NEURO' environment variable is not defined! NMSDK might not have installed correctly. )
+endif
+
+ARCH             =nmc3
 #--------------  target & input dirs -------------------
 PROJECT          = libnmpp-$(ARCH)
-OUT_DIR          = ../../lib
-TARGET           = $(OUT_DIR)/$(PROJECT).a
 TMP_DIR          = Release
+OUT_DIR          = $(ROOT)/lib
+TARGET           = $(OUT_DIR)/$(PROJECT).a
 #INC_DIRS        =
 #SRC_DIRS        =
 include          $(ROOT)/make/src-nmc-int.mk
@@ -64,9 +68,6 @@ AS               = asm
 CC_FLAGS 		 = -m$(ARCH) $(INC_DIRS)  -std=c99
 AR_FLAGS         = rcs $(TARGET)
 AS_FLAGS         = -$(ARCH) -nm2ms  $(INC_DIRS) 
-#--------------  Header dependence parsing -------------------------
-#PREPROCESS_ASM_DEP = $(CC) -E -MM -xassembler-with-cpp -MT$(@) $(<) -o$(@).dep $(INC_DIRS) 
-#PREPROCESS_CPP_DEP = $(CC) -E -MM -MT$(@) $(<) -o$(@).dep $(INC_DIRS)
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 .SUFFIXES:
@@ -87,27 +88,21 @@ OBJECTS_S   = $(notdir $(patsubst %.s,%.o,$(ALL_S)))
 export OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S))
 
 #======================== BUILD RULES ====================================
-.PHONY:all  clean cleanall vs8  skip
+.DEFAULT_GOAL=default
+default: 
+	$(MAKE) $(TARGET) -j4 
 
-default: $(TMP_DIR) $(OUT_DIR)  $(TARGET)
-
-nmc4vars_win.mk init:
+$(TARGET): $(TMP_DIR) $(OUT_DIR) $(OBJECTS) 
+	$(info "[Linking...]")
+	echo rcs $(TARGET) > .objects
+	$(MAKE) -s --no-print-directory -f printobj.mk >> .objects
+	$(AR) @.objects
+	
+nmc4vars_win.mk:
 	copy "$(NMC_GCC_TOOLPATH)\nmc4-ide\include\nmc4vars_win.mk" nmc4vars_win.mk
 
-all: nmc4vars_win.mk
-	$(MAKE) -j4
-	
 $(TMP_DIR):
 	-mkdir "$(@)"
-	
-
-$(TARGET): $(TMP_DIR) $(OBJECTS) 
-	echo "linking"
-	$(MAKE) -s -f Makefile.print > .objects
-	$(AR) @.objects
-#	$(AR) $(AR_FLAGS) $(OBJECTS) 
-
--include $(TMP_DIR)/*.dep
 	
 $(OUT_DIR): 
 	-mkdir "$(@)"
@@ -124,4 +119,19 @@ $(TMP_DIR)/%.o: %.asm
 $(TMP_DIR)/%.o: %.s 
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
 	
-include $(ROOT)/clean.mk	
+.phony: time
+time:
+	powershell -c "Measure-Command { $(MAKE)  -j4 | Out-Default }"	
+#========================== Visual Studio support ===================
+HEADER_DIRS      =$(ROOT)/include $(ROOT)/include/nmplv $(ROOT)/include/nmpli $(ROOT)/include/nmpls $(ROOT)/include/nmplm $(ROOT)/include/nmplc
+RESOURCES        =Makefile
+
+
+vs2005: Makefile
+	$(MAKE) -f $(ROOT)/deps/projector/vs8.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(PROJECT).vcproj 
+
+vs2015 : Makefile
+	$(MAKE) -f $(ROOT)/deps/projector/vs13.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(PROJECT).vcxproj
+
+#========================== cleanup ===================
+include $(ROOT)/clean.mk

@@ -9,8 +9,6 @@ MC5103    ?=$(DEVKIT)/mc5103sdk
 MC7601    ?=$(DEVKIT)/mc7601sdk
 MB7707    ?=$(DEVKIT)/mb7707sdk
 MC12101   ?=$(DEVKIT)/mc12101sdk
-NM_IO     ?=$(DEVKIT)/nm_io
-
 
 ifeq ($(OS),Windows_NT)
 SHELL       = cmd

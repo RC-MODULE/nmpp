@@ -425,10 +425,21 @@ void nmppsConvert_32sc32fcr(const nm32sc* pSrcVec, nm32fcr* pDstVec, int nSize);
  *  
 	\param pSrcVec указатель на входной вектор беззнаковых байт
 	\param pDstVec указатель на выходной вектор беззнаковых целых чисел
-	\param nSize число элементов во входном векторе
+	\param nSize число элементов во входном векторе (должно быть кратно 8 и не может быть меньше 8)
  *  \details Функция выполняется на RISC-процессоре
  */
 void nmppsConvertRisc_8u32u(const nm8u* pSrcVec, nm32u* pDstVec, int nSize);
+
+/**
+ *  \ingroup nmppsConvert nmppsConvert
+ *  \brief Функция конвертации вектора беззнаковых байт в вектор беззнаковых целых чисел
+ *  
+    \param pSrcVec указатель на входной вектор беззнаковых целых чисел
+    \param pDstVec указатель на выходной вектор беззнаковых байт
+    \param nSize число элементов во входном векторе (должно быть кратно 4 и не может быть меньше 4)
+ *  \details Функция выполняется на RISC-процессоре
+ */
+void nmppsConvertRisc_32u8u(const nm32u* pSrcVec, nm8u* pDstVec, int nSize);
 	
 //*****************************************************************************
 

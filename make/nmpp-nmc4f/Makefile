@@ -100,7 +100,7 @@ OBJECTS_CPP = $(notdir $(patsubst %.cpp,%.o,$(ALL_CPP)))
 OBJECTS_ASM = $(notdir $(patsubst %.asm,%.o,$(ALL_ASM)))
 OBJECTS_C   = $(notdir $(patsubst %.c,%.o,$(ALL_C)))
 OBJECTS_S   = $(notdir $(patsubst %.s,%.o,$(ALL_S)))
-OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM))
+OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S))
 
 
 #======================== BUILD RULES ====================================
@@ -121,6 +121,9 @@ $(OUT_DIR):
 $(TMP_DIR)/%.o: %.asm 
 	$(AS) $(AS_FLAGS) $(<) -o$(@)
 	
+$(TMP_DIR)/%.o: %.s
+	$(AS) $(AS_FLAGS) $(<) -o$(@)
+
 $(TMP_DIR)/%.o: $(TMP_DIR)/%.asmx 
 	$(AS) $(AS_FLAGS_C2ASM) $(<) -o$(@)
 

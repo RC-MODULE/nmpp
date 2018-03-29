@@ -4,7 +4,7 @@
 //*                                                                         */
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
-//*   File:             nmpps-FFT128Fwd_32fcr.s                             	*/
+//*   File:             nmpps-FFT128Fwd_32fcr.s                             */
 //*   Contents:         Routine for forward FFT 128                         */
 //*                     of complex array with 32 bit elements               */                                                        */
 //***************************************************************************/
@@ -18,42 +18,9 @@ AddrForDFT8_128: word[16] = (
 						);
 end ".data_imu1";
 
-macro COMPUTE_FFT16_32_64(NUM, LEN)
-	fpu NUM rep LEN vreg1 = [ar0++];
-	fpu NUM rep LEN vreg2 = [ar6++];
-	fpu NUM rep LEN vreg3 = [ar0++];
-	fpu NUM rep LEN vreg4 = [ar6++];
-	fpu NUM .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu NUM .complex vreg6 = -vreg0 * vreg2 + vreg1;
-	fpu NUM .complex vreg7 = vreg4 * vreg0 + vreg3;
-	fpu NUM .complex vreg4 = -vreg4 * vreg0 + vreg3;
-end COMPUTE_FFT16_32_64;
-
-macro SAVE_FFT16_32(NUMFP, NEL)
-	fpu NUMFP rep NEL [ar3++] = vreg5;
-	fpu NUMFP rep NEL [ar4++] = vreg7;
-	fpu NUMFP rep NEL [ar3++] = vreg6;
-	fpu NUMFP rep NEL [ar4++] = vreg4;
-end SAVE_FFT16_32;
-
-macro COMPUTE_FFT128(N128)
-	fpu N128 .complex vreg3 = vreg7 * vreg0 + vreg5;
-	fpu N128 .complex vreg2 = vreg4 * vreg1 + vreg6;
-	fpu N128 .complex vreg0 = -vreg7 * vreg0 + vreg5;
-	fpu N128 .complex vreg1 = -vreg4 * vreg1 + vreg6;
-end COMPUTE_FFT128;
-
-macro SAVE_FFT128()
-	fpu 0 rep 32 [ar2++] = vreg3;
-	fpu 0 rep 32 [ar2++] = vreg2;
-	fpu 0 rep 32 [ar2++] = vreg0;
-	fpu 0 rep 32 [ar2++] = vreg1;
-end SAVE_FFT128;
-
 begin ".text128"
 <_nmppsFFT128Fwd_32fcr>
 <_nmppsFFT128Inv_32fcr>
-	set fp_branch;
 	ar5 = ar7 - 2;
 	push ar6, gr6;
 	push ar4, gr4;
@@ -134,6 +101,7 @@ begin ".text128"
 
 // COMPUTE 8 things of FFT16
 	//ar5 = ar5 + 5;
+	gr1 >>= 4;
 	ar1 = [ar5++]; // W8_0
 	ar2 = [ar5++]; // W8_1
 	ar3 = ar1;
@@ -144,17 +112,43 @@ begin ".text128"
 	fpu 1 rep 8 vreg0 = [ar2++];
 	fpu 2 rep 8 vreg0 = [ar3++];
 	fpu 3 rep 8 vreg0 = [ar4++];
-
-	COMPUTE_FFT16_32_64(0, 8); // 2 FFT16
-	COMPUTE_FFT16_32_64(1, 8); // 2 FFT16
-	COMPUTE_FFT16_32_64(2, 8); // 2 FFT16
-	COMPUTE_FFT16_32_64(3, 8); // 2 FFT16
 	ar3 = gr2; // buff_fft128
 	ar4 = gr4; // buff_fft128xW
-	SAVE_FFT16_32(0, 8);
-	SAVE_FFT16_32(1, 8);
-	SAVE_FFT16_32(2, 8);
-	SAVE_FFT16_32(3, 8);
+
+<FFT64_LAYER2>
+	fpu 0 rep 8 vreg1 = [ar0++];
+	fpu 0 rep 8 vreg2 = [ar6++];
+	fpu 0 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 0 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
+	fpu 1 rep 8 vreg1 = [ar0++];
+	fpu 1 rep 8 vreg2 = [ar6++];
+	fpu 1 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 1 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
+	fpu 2 rep 8 vreg1 = [ar0++];
+	fpu 2 rep 8 vreg2 = [ar6++];
+	fpu 2 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 2 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
+	fpu 3 rep 8 vreg1 = [ar0++];
+	fpu 3 rep 8 vreg2 = [ar6++];
+	fpu 3 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 3 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
+	fpu 0 rep 8 [ar3++] = vreg5;
+	fpu 1 rep 8 [ar4++] = vreg5;
+
+	fpu 0 rep 8 [ar3++] = vreg6;
+	fpu 1 rep 8 [ar4++] = vreg6;
+
+	fpu 2 rep 8 [ar3++] = vreg5;
+	fpu 3 rep 8 [ar4++] = vreg5;
+
+	fpu 2 rep 8 [ar3++] = vreg6;
+	fpu 3 rep 8 [ar4++] = vreg6;
+	gr1--;
+	if > goto FFT64_LAYER2;
 // END COMPUTE 8 things of FFT16
 
 // COMPUTE 4 things FFT32
@@ -166,27 +160,48 @@ begin ".text128"
 	ar4 = ar6;
 	fpu 0 rep 16 vreg0 = [ar1++];
 	fpu 1 rep 16 vreg0 = [ar2++];
-	COMPUTE_FFT16_32_64(0, 16); // 2 FFT32
-	COMPUTE_FFT16_32_64(1, 16); // 2 FFT32
-	//ar5 = ar5 - 9;
+	fpu 2 vreg0 = fpu 0 vreg0;
+	fpu 3 vreg0 = fpu 1 vreg0;
+
+	fpu 0 rep 16 vreg1 = [ar0++];
+	fpu 0 rep 16 vreg2 = [ar6++];
+	fpu 0 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 0 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
+	fpu 1 rep 16 vreg1 = [ar0++];
+	fpu 1 rep 16 vreg2 = [ar6++];
+	fpu 1 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 1 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
+	fpu 2 rep 16 vreg1 = [ar0++];
+	fpu 2 rep 16 vreg2 = [ar6++];
+	fpu 2 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 2 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
+	fpu 3 rep 16 vreg1 = [ar0++];
+	fpu 3 rep 16 vreg2 = [ar6++];
+	fpu 3 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 3 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
 	ar0 = [ar5++]; // tmp_128
 	ar6 = [ar5++]; // tmp_128xW
 	gr0 = ar0;
 	gr1 = ar6;
+
 	fpu 0 rep 16 [ar3++] = vreg5;
-	fpu 0 rep 16 [ar4++] = vreg7;
+	fpu 1 rep 16 [ar4++] = vreg5;
+
 	fpu 0 rep 16 [ar3++] = vreg6;
-	fpu 0 rep 16 [ar4++] = vreg4;
+	fpu 1 rep 16 [ar4++] = vreg6;
 
-	fpu 1 rep 16 [ar0++] = vreg5;
-	fpu 1 rep 16 [ar6++] = vreg7;
-	fpu 1 rep 16 [ar0++] = vreg6;
-	fpu 1 rep 16 [ar6++] = vreg4;
+	fpu 2 rep 16 [ar0++] = vreg5;
+	fpu 3 rep 16 [ar6++] = vreg5;
 
+	fpu 2 rep 16 [ar0++] = vreg6;
+	fpu 3 rep 16 [ar6++] = vreg6;
 // END COMPUTE 4 things FFT32
 
 // COMPUTE 2 things FFT64
-	//ar5 = ar5 + 7;
 	ar1 = [ar5++]; // W32_0
 	ar2 = [ar5++]; // W32_1
 	ar0 = gr2; // buff_fft128
@@ -198,10 +213,11 @@ begin ".text128"
 
 	fpu 0 rep 32 vreg1 = [ar0++];
 	fpu 0 rep 32 vreg2 = [ar6++];
-	fpu 1 rep 32 vreg3 = [ar3++];
-	fpu 1 rep 32 vreg4 = [ar4++];
 	fpu 0 .complex vreg5 = vreg0 * vreg2 + vreg1;
 	fpu 0 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
+	fpu 1 rep 32 vreg3 = [ar3++];
+	fpu 1 rep 32 vreg4 = [ar4++];
 	fpu 1 .complex vreg7 = vreg4 * vreg0 + vreg3;
 	fpu 1 .complex vreg4 = -vreg4 * vreg0 + vreg3;
 // END FFT64

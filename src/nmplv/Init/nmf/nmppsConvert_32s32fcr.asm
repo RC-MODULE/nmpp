@@ -6,13 +6,15 @@
 //*                                                                         */
 //*   File:             nmppsConvert_32s32fcr.asm                           */
 //*   Contents:         Convert data array from nm32s to nm32fcr            */
-//*						nm32s -> nm32fcr(re)								*/
-//*						0	  -> nm32fcr(im)            				    */
+//*						nm32s(u) -> nm32fcr(re)								*/
+//*						0	     -> nm32fcr(im)            				    */
 //***************************************************************************/
 
 global _nmppsConvert_32s32fcr: label;
+global _nmppsConvert_32u32fcr: label;
 begin "text"
 <_nmppsConvert_32s32fcr>
+<_nmppsConvert_32u32fcr>
 	ar5 = ar7 - 2;
 	push ar4, gr4;
 	push ar3, gr3;

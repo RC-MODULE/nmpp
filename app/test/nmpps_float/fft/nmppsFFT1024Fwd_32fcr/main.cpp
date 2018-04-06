@@ -7,14 +7,19 @@
 
 #define		SIZE 		1024
 
+// #pragma data_section ".data_imu1"
+// 	nm32fcr src[SIZE];
+// #pragma data_section ".data_imu5"
+// 	nm32fcr dst[SIZE];
+
 int main()
 {
 	int i, st;
 	clock_t t1, t2;
 	nm32fcr *src, *dst;
-	// best config (cycles = 10890)
+	// best config (cycles = 10223) src - imu1, dst - imu5
 	src = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
-	dst = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
+	dst = (nm32fcr *)malloc1(SIZE * sizeof(nm32fcr));
 	for(i = 0; i < SIZE; i++) {
 		src[i].im = 1;
 		src[i].re = i;

@@ -16,7 +16,7 @@ int main()
 	src = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
 	dst = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
 	for(i = 0; i < SIZE; i++) {
-		src[i].im = 1;
+		src[i].im = 0;
 		src[i].re = i;
 		dst[i].im = 0;
 		dst[i].re = 0;
@@ -33,7 +33,7 @@ int main()
 	t1 = clock();
 	nmppsFFT2048Fwd_32fcr(src, dst, rat);
 	t2 = clock();
-	nmppsFFT2048Inv_32fcr(dst, dst, irat);
+	//nmppsFFT2048Inv_32fcr(dst, dst, irat);
 	st = nmppsFFTFree_32fcr(rat);
 	if(st) {
 		return 125;
@@ -45,8 +45,8 @@ int main()
 	float norm;
 	nmppsNormDiff_L2_32fcr(src, dst, SIZE, &norm);
 	printf("%.7f\n", norm);
-	// for(i = 0; i < SIZE; i++){
-	// 	printf("%.2f %.2f\n", dst[i].re, dst[i].im);
-	// }
+	for(i = 0; i < SIZE; i++){
+	 	printf("[%d]  %.2f  %.2f\n", i, dst[i].re, dst[i].im);
+	}
 	return t2 - t1;
 }

@@ -11,13 +11,13 @@ int nmppsFFT256InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
  /**********************************Struct_Creating**********************************/
     NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
     if(!spec_32fcr) {
-        return -1;
+        return 0x256B;
     }
 
 /**********************************Bank1**********************************/
     spec_32fcr->Buffs[0] = (nm32fcr *) malloc0((64 + 128) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[0])
-        return -2;
+        return 0x256B0;
 
     spec_32fcr->Buffers[11] = spec_32fcr->Buffs[0];      // W64_0
     spec_32fcr->Buffers[10] = spec_32fcr->Buffs[0] + 64; // W128
@@ -25,7 +25,7 @@ int nmppsFFT256InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
 /**********************************Bank2**********************************/
     spec_32fcr->Buffs[1] = (nm32fcr *) malloc1((7 + 64) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[1])
-        return -3;
+        return 0x256B1;
     
     spec_32fcr->Buffers[3] = spec_32fcr->Buffs[1];          // W4_16
     spec_32fcr->Buffers[4] = spec_32fcr->Buffs[1] + 1;      // W2_16
@@ -39,14 +39,14 @@ int nmppsFFT256InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
 /**********************************Bank3**********************************/
     spec_32fcr->Buffs[2] = (nm32fcr *) malloc2((128) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[2])
-        return -4;
+        return 0x256B2;
 
     spec_32fcr->Buffers[1] = spec_32fcr->Buffs[2];     // buff_fft
 
 /**********************************Bank4**********************************/
     spec_32fcr->Buffs[3] = (nm32fcr *) malloc3((128 + 1) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[3])
-        return -5;
+        return 0x256B3;
 
     spec_32fcr->Buffers[2] = spec_32fcr->Buffs[3];    	  // buff_fftxW
     spec_32fcr->Buffers[0] = spec_32fcr->Buffs[3] + 128;    // 1/256

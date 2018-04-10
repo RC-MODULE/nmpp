@@ -4,7 +4,7 @@
 //*                                                                         */
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
-//*   File:             nmpps-FFT1024Fwd_32fcr.s                             */
+//*   File:             nmpps-FFT1024Fwd_32fcr.s                            */
 //*   Contents:         Routine for forward and inverse FFT 1024            */
 //*                     of complex array with 32 bit elements               */
 //***************************************************************************/
@@ -59,6 +59,7 @@ begin ".text"
 	gr1 = 128;
 	vlen = 31;
 	gr0 = gr1 >> 3; // cycles number
+	
 // SORT 64 VECTORS FOR FFT16	
 	ar4 = AddrForDFT16;
 	ar2 = [ar5++]; // 1.0 or 1/1024

@@ -6,7 +6,7 @@
 //*                                                                         */
 //*   File:             nmpps-FFT128Fwd_32fcr.s                             */
 //*   Contents:         Routine for forward FFT 128                         */
-//*                     of complex array with 32 bit elements               */                                                        */
+//*                     of complex array with 32 bit elements               */
 //***************************************************************************/
 
 global _nmppsFFT128Fwd_32fcr: label;

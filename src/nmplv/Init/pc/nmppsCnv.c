@@ -493,11 +493,3 @@ void nmppsConvert_4s1s(const	nm4s* pSrcVec, nm1* pDstVec, int nSize)
 		}
 	}
 }
-
-void nmppsConvertRisc_32u8u(const nm32u* pSrcVec, nm8u* pDstVec, int nSize)
-{
-	int i;
-	for(i = 0; i < nSize; i++) {
-		pDstVec[i] = (nm8u)pSrcVec[i];
-	}
-}

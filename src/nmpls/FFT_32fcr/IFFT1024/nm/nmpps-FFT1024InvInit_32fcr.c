@@ -20,13 +20,13 @@ int i;
     float alpha;
     NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
     if(!spec_32fcr) {
-        return -1;
+        return 0x1024B;
     }
 
 /*************************************Bank1*************************************/
     spec_32fcr->Buffs[0] = (nm32fcr *) malloc0((16 + 512 + 1) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[0])
-        return -2;
+        return 0x1024B0;
 
     spec_32fcr->Buffers[11] = spec_32fcr->Buffs[0];       // W16_0
     spec_32fcr->Buffers[1] = spec_32fcr->Buffs[0] + 16;   // buff_fft1024
@@ -35,7 +35,7 @@ int i;
 /*************************************Bank2*************************************/
     spec_32fcr->Buffs[1] = (nm32fcr *) malloc1((16 + 512) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[1])
-        return -3;
+        return 0x1024B1;
 
     spec_32fcr->Buffers[12] = spec_32fcr->Buffs[1];       // W16_1
     spec_32fcr->Buffers[13] = spec_32fcr->Buffs[1] + 16;  // W1024
@@ -43,14 +43,14 @@ int i;
 /*************************************Bank3*************************************/
     spec_32fcr->Buffs[2] = (nm32fcr *) malloc2(512 * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[2])
-        return -4;
+        return 0x1024B2;
 
     spec_32fcr->Buffers[2] = spec_32fcr->Buffs[2]; // buff_fft1024mulW
 
 /*************************************Bank4*************************************/
     spec_32fcr->Buffs[3] = (nm32fcr *) malloc3((7 + 512) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[3])
-        return -5;
+        return 0x1024B3;
 
     spec_32fcr->Buffers[3] = spec_32fcr->Buffs[3];          // W4_16
     spec_32fcr->Buffers[4] = spec_32fcr->Buffs[3] + 1;      // W2_16

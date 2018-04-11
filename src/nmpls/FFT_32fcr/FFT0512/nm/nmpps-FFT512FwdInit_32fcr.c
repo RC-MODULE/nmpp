@@ -1,3 +1,14 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-FFT512FwdInit_32fc.c                          */
+//*   Contents:         Routine for the struct initialization               */
+//*                     of the W-coefficients for FFT512Fwd                 */
+//***************************************************************************/
+
 #include <malloc32.h>
 #include <math.h>
 #include "fft_32fcr.h"
@@ -8,13 +19,13 @@ int nmppsFFT512FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
     float alpha;
     NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
     if(!spec_32fcr) {
-        return -1;
+        return 0x512F;
     }
     spec_32fcr->Buffs[0] = 0;
 
     spec_32fcr->Buffs[1] = (nm32fcr *) malloc1((1 + 7 + 256) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[1])
-        return -2;
+        return 0x512F1;
 
     spec_32fcr->Buffers[0] = spec_32fcr->Buffs[1]; // 1.0
 
@@ -29,13 +40,13 @@ int nmppsFFT512FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
 
     spec_32fcr->Buffs[2] = (nm32fcr *) malloc2(256 * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[2])
-        return -4;
+        return 0x512F2;
 
     spec_32fcr->Buffers[1] = spec_32fcr->Buffs[2]; // buff_fft
 
     spec_32fcr->Buffs[3] = (nm32fcr *) malloc3(256 * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[3])
-        return -5;
+        return 0x512F3;
 
     spec_32fcr->Buffers[2] = spec_32fcr->Buffs[3]; // buff_fftxW
 

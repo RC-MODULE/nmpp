@@ -4,66 +4,82 @@
 
 int nmppsFFT2048InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
 {
-    int i, j, k;
+    int i;
     const float pi = 3.141592653;
     float alpha;
-    nm32fcr *SinCos = (nm32fcr *) malloc0(64 * sizeof(nm32fcr));
-    NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
+    NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc0(sizeof(NmppsFFTSpec_32fcr));
     if(!spec_32fcr) {
-        return -1;
+        return 0x2048B;
     }
-    for(i = 0; i < NUMBUFF2; i++) {
-        spec_32fcr->Buffs[i] = 0;
-    }
-    spec_32fcr->Buffs[0] = (nm32fcr *) malloc0((32 + 512 + 1024) * sizeof(nm32fcr));
+
+/*************************************Bank1*************************************/
+    spec_32fcr->Buffs[0] = (nm32fcr *) malloc0((1 + 1024) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[0])
-        return -2;
+        return 0x2048B0;
 
-    spec_32fcr->Buffers[0] = spec_32fcr->Buffs[0];       // SinCos0
-    spec_32fcr->Buffers[6] = spec_32fcr->Buffs[0] + 32;  // buff2048_1
-    spec_32fcr->Buffers[4] = spec_32fcr->Buffs[0] + 544; // W1024
+    spec_32fcr->Buffers[0] = spec_32fcr->Buffs[0];      // 1.0 or 1/2048
+    spec_32fcr->Buffers[1] = spec_32fcr->Buffs[0] + 1;  // buff_fft2048
 
-    spec_32fcr->Buffs[1] = (nm32fcr *) malloc1((32 + 512) * sizeof(nm32fcr));
+/*************************************Bank2*************************************/
+    spec_32fcr->Buffs[1] = (nm32fcr *) malloc1((1024) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[1])
-        return -3;
+        return 0x2048B1;
 
-    spec_32fcr->Buffers[1] = spec_32fcr->Buffs[1];       // SinCos1
-    spec_32fcr->Buffers[5] = spec_32fcr->Buffs[1] + 32;  // buff2048_0
+    spec_32fcr->Buffers[2] = spec_32fcr->Buffs[1];      // buff_fft2048xW
 
-    spec_32fcr->Buffs[2] = (nm32fcr *) malloc2(1024 * sizeof(nm32fcr));
+/*************************************Bank3*************************************/
+    spec_32fcr->Buffs[2] = (nm32fcr *) malloc2((1024) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[2])
-        return -4;
+        return 0x2048B2;
 
-    spec_32fcr->Buffers[2] = spec_32fcr->Buffs[2]; // buff_fft
+    spec_32fcr->Buffers[11] = spec_32fcr->Buffs[2];     // buff_fft2048mulW
 
-    spec_32fcr->Buffs[3] = (nm32fcr *) malloc3(1024 * sizeof(nm32fcr));
+/*************************************Bank4*************************************/
+    spec_32fcr->Buffs[3] = (nm32fcr *) malloc3((7 + 1024) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[3])
-        return -5;
+        return 0x2048B3;
 
-    spec_32fcr->Buffers[3] = spec_32fcr->Buffs[3]; // buff_fftxW
+    spec_32fcr->Buffers[3] = spec_32fcr->Buffs[3];          // W4_16
+    spec_32fcr->Buffers[4] = spec_32fcr->Buffs[3] + 1;      // W2_16
+    spec_32fcr->Buffers[5] = spec_32fcr->Buffs[3] + 2;      // W6_16
+    spec_32fcr->Buffers[6] = spec_32fcr->Buffs[3] + 3;      // W1_16
+    spec_32fcr->Buffers[7] = spec_32fcr->Buffs[3] + 4;      // W3_16
+    spec_32fcr->Buffers[8] = spec_32fcr->Buffs[3] + 5;      // W5_16
+    spec_32fcr->Buffers[9] = spec_32fcr->Buffs[3] + 6;      // W7_16
+    spec_32fcr->Buffers[10] = spec_32fcr->Buffs[3] + 7;     // W2048
 
     *iaddr = spec_32fcr;
-    k = 0;
-    for(i = 0; i <  8; i++) {
-        for(j = 0; j < 64; j = j + 8) {
-            alpha = (2 * pi * (float)i * (float)k) / 8.0;
-            SinCos[i + j].im = sinf(alpha) * 0.00048828125; // 1/2048 = 0.00048828125
-            SinCos[i + j].re = cosf(alpha) * 0.00048828125;
-            k++;
-        }
-        k = 0;
-    }
-    for(i = 0; i < 32; i++) {
-        spec_32fcr->Buffers[0][i].im = SinCos[i].im;
-        spec_32fcr->Buffers[0][i].re = SinCos[i].re;
-        spec_32fcr->Buffers[1][i].im = SinCos[i + 32].im;
-        spec_32fcr->Buffers[1][i].re = SinCos[i + 32].re;
-    }
+
+/********************************Fields Fulliling********************************/
+    spec_32fcr->Buffers[0]->im = 0;
+    spec_32fcr->Buffers[0]->re = 0.00048828125;           // 1.0
+
+    spec_32fcr->Buffers[3]->im = 1.0;                   // W4_16
+    spec_32fcr->Buffers[3]->re = -4.3711388286738e-08;
+
+    spec_32fcr->Buffers[4]->im = 0.70710676908493;      // W2_16  
+    spec_32fcr->Buffers[4]->re = 0.70710676908493;
+
+    spec_32fcr->Buffers[5]->im = 0.70710676908493;      // W6_16
+    spec_32fcr->Buffers[5]->re = -0.70710676908493;
+
+    spec_32fcr->Buffers[6]->im = 0.38268345594406;      // W1_16
+    spec_32fcr->Buffers[6]->re = 0.9238795042038;
+
+    spec_32fcr->Buffers[7]->im = 0.9238795042038;       // W3_16
+    spec_32fcr->Buffers[7]->re = 0.38268342614174;
+
+    spec_32fcr->Buffers[8]->im = 0.9238795042038;       // W5_16
+    spec_32fcr->Buffers[8]->re = -0.38268342614174;
+
+    spec_32fcr->Buffers[9]->im = 0.38268327713013;      // W7_16
+    spec_32fcr->Buffers[9]->re = -0.92387962341309;
+
+/************************************W2048*************************************/
     for(i = 0; i < 1024; i++) {
         alpha = (2 * pi * (float)i) / 2048.0;
-        spec_32fcr->Buffers[4][i].im = sinf(alpha);
-        spec_32fcr->Buffers[4][i].re = cosf(alpha);
+        spec_32fcr->Buffers[10][i].im = sinf(alpha);
+        spec_32fcr->Buffers[10][i].re = cosf(alpha);
     }
-    free(SinCos);
     return 0;
 }

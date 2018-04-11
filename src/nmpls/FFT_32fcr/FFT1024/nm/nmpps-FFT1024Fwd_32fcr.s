@@ -4,7 +4,7 @@
 //*                                                                         */
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
-//*   File:             nmpps-FFT1024Fwd_32fcr.s                             */
+//*   File:             nmpps-FFT1024Fwd_32fcr.s                            */
 //*   Contents:         Routine for forward and inverse FFT 1024            */
 //*                     of complex array with 32 bit elements               */
 //***************************************************************************/
@@ -59,6 +59,7 @@ begin ".text"
 	gr1 = 128;
 	vlen = 31;
 	gr0 = gr1 >> 3; // cycles number
+	
 // SORT 64 VECTORS FOR FFT16	
 	ar4 = AddrForDFT16;
 	ar2 = [ar5++]; // 1.0 or 1/1024
@@ -344,71 +345,46 @@ begin ".text"
 	ar2 = gr5; // output X
 	ar3 = ar2 + 1024;
 
-	fpu 0 rep 32 vreg0 = [ar1++]; // 1 - W512
-	fpu 0 rep 32 vreg1 = [ar1++]; // 2 - W512
+<LAST_LAYER_1024>
+	fpu 0 rep 32 vreg0 = [ar1++];
+	fpu 1 rep 32 vreg0 = [ar1++];
+	fpu 2 rep 32 vreg0 = [ar1++];
+	fpu 3 rep 32 vreg0 = [ar1++];
 
+	fpu 0 rep 32 vreg1 = [ar0++];
+	fpu 0 rep 32 vreg2 = [ar6++]; // need mul W
+	fpu 0 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 0 .complex vreg6 = -vreg0 * vreg2 + vreg1;
 
-	COMPUTE_FFT128_1024(0); // 1 - FFT1024
-	fpu 1 rep 32 vreg0 = [ar1++]; // 3 - W512
-	fpu 1 rep 32 vreg1 = [ar1++]; // 4 - W512
-	COMPUTE_FFT128_1024(1); // 2 - FFT1024
-	fpu 2 rep 32 vreg0 = [ar1++]; // 5 - W512
-	fpu 2 rep 32 vreg1 = [ar1++]; // 6 - W512
-	fpu 3 rep 32 vreg0 = [ar1++]; // 7 - W512
-	fpu 3 rep 32 vreg1 = [ar1++]; // 8 - W512
-	COMPUTE_FFT128_1024(2); // 3 - FFT1024
-	COMPUTE_FFT128_1024(3); // 4 - FFT1024
+	fpu 1 rep 32 vreg1 = [ar0++];
+	fpu 1 rep 32 vreg2 = [ar6++]; // need mul W
+	fpu 1 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 1 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+	
+	fpu 2 rep 32 vreg1 = [ar0++];
+	fpu 2 rep 32 vreg2 = [ar6++]; // need mul W
+	fpu 2 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 2 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+	
+	fpu 3 rep 32 vreg1 = [ar0++];
+	fpu 3 rep 32 vreg2 = [ar6++]; // need mul W
+	fpu 3 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 3 .complex vreg6 = -vreg0 * vreg2 + vreg1;
 
-	fpu 0 rep 32 [ar2++] = vreg6;
-	fpu 0 rep 32 [ar2++] = vreg7;
-	fpu 1 rep 32 [ar2++] = vreg6;
-	fpu 1 rep 32 [ar2++] = vreg7;
-	fpu 2 rep 32 [ar2++] = vreg6;
-	fpu 2 rep 32 [ar2++] = vreg7;
-	fpu 3 rep 32 [ar2++] = vreg6;
-	fpu 3 rep 32 [ar2++] = vreg7;
+	fpu 0 rep 32 [ar2++] = vreg5;
+	fpu 1 rep 32 [ar2++] = vreg5;
+	fpu 2 rep 32 [ar2++] = vreg5;
+	fpu 3 rep 32 [ar2++] = vreg5;
 
-	fpu 0 rep 32 vreg0 = [ar1++]; // 9 - W512
-	fpu 0 rep 32 vreg1 = [ar1++]; // 10 - W512
-	fpu 1 rep 32 vreg0 = [ar1++]; // 11 - W512
-	fpu 1 rep 32 vreg1 = [ar1++]; // 12 - W512
-	fpu 2 rep 32 vreg0 = [ar1++]; // 13 - W512
-	fpu 2 rep 32 vreg1 = [ar1++]; // 14 - W512
-	fpu 3 rep 32 vreg0 = [ar1++]; // 15 - W512
-	fpu 3 rep 32 vreg1 = [ar1++]; // 16 - W512
-
-	fpu 0 rep 32 [ar3++] = vreg2;
-	fpu 0 rep 32 [ar3++] = vreg4;
-	fpu 1 rep 32 [ar3++] = vreg2;
-	fpu 1 rep 32 [ar3++] = vreg4;
-	fpu 2 rep 32 [ar3++] = vreg2;
-	fpu 2 rep 32 [ar3++] = vreg4;
-	fpu 3 rep 32 [ar3++] = vreg2;
-	fpu 3 rep 32 [ar3++] = vreg4;
-
-	COMPUTE_FFT128_1024(0); // 5 - FFT1024
-	COMPUTE_FFT128_1024(1); // 6 - FFT1024
-	COMPUTE_FFT128_1024(2); // 7 - FFT1024
-	COMPUTE_FFT128_1024(3); // 8 - FFT1024
-
-	fpu 0 rep 32 [ar2++] = vreg6;
-	fpu 0 rep 32 [ar2++] = vreg7;
-	fpu 1 rep 32 [ar2++] = vreg6;
-	fpu 1 rep 32 [ar2++] = vreg7;
-	fpu 2 rep 32 [ar2++] = vreg6;
-	fpu 2 rep 32 [ar2++] = vreg7;
-	fpu 3 rep 32 [ar2++] = vreg6;
-	fpu 3 rep 32 [ar2++] = vreg7;
-
-	fpu 0 rep 32 [ar3++] = vreg2;
-	fpu 0 rep 32 [ar3++] = vreg4;
-	fpu 1 rep 32 [ar3++] = vreg2;
-	fpu 1 rep 32 [ar3++] = vreg4;
-	fpu 2 rep 32 [ar3++] = vreg2;
-	fpu 2 rep 32 [ar3++] = vreg4;
-	fpu 3 rep 32 [ar3++] = vreg2;
-	fpu 3 rep 32 [ar3++] = vreg4;
+	fpu 0 rep 32 [ar3++] = vreg6;
+	fpu 1 rep 32 [ar3++] = vreg6;
+	fpu 2 rep 32 [ar3++] = vreg6;
+	fpu 3 rep 32 [ar3++] = vreg6;
+	gr1--;
+	if > goto LAST_LAYER_1024;
+	
 // END FFT1024
+
 <exit_fft1024>
 	pop ar0, gr0;
 	pop ar1, gr1;

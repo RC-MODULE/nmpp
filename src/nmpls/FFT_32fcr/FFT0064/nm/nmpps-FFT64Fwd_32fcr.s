@@ -4,24 +4,6 @@ data ".data_imu1"
 AddrForDFT8_64: word[8] = (0, 8, 4, 12, 2, 10, 6, 14);
 end ".data_imu1";
 
-macro COMPUTE_FFT16_32_64(NUM, LEN)
-	fpu NUM rep LEN vreg1 = [ar0++];
-	fpu NUM rep LEN vreg2 = [ar6++];
-	fpu NUM rep LEN vreg3 = [ar0++];
-	fpu NUM rep LEN vreg4 = [ar6++];
-	fpu NUM .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu NUM .complex vreg6 = -vreg0 * vreg2 + vreg1;
-	fpu NUM .complex vreg7 = vreg4 * vreg0 + vreg3;
-	fpu NUM .complex vreg4 = -vreg4 * vreg0 + vreg3;
-end COMPUTE_FFT16_32_64;
-
-macro SAVE_FFT16_32(NUMFP, NEL)
-	fpu NUMFP rep NEL [ar3++] = vreg5;
-	fpu NUMFP rep NEL [ar4++] = vreg7;
-	fpu NUMFP rep NEL [ar3++] = vreg6;
-	fpu NUMFP rep NEL [ar4++] = vreg4;
-end SAVE_FFT16_32;
-
 begin ".data_imu7"
 <_nmppsFFT64Fwd_32fcr>
 <_nmppsFFT64Inv_32fcr>
@@ -111,12 +93,42 @@ begin ".data_imu7"
 	ar6 = gr6;
 	fpu 0 rep 8 vreg0 = [ar1++];
 	fpu 1 vreg0 = fpu 0 vreg0;
-	COMPUTE_FFT16_32_64(0, 8); // 2 FFT16
-	COMPUTE_FFT16_32_64(1, 8); // 2 FFT16
+	fpu 2 vreg0 = fpu 1 vreg0;
+	fpu 3 vreg0 = fpu 2 vreg0;
+
+	fpu 0 rep 8 vreg1 = [ar0++];
+	fpu 0 rep 8 vreg2 = [ar6++];
+	fpu 0 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 0 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+	
+	fpu 1 rep 8 vreg1 = [ar0++];
+	fpu 1 rep 8 vreg2 = [ar6++];
+	fpu 1 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 1 .complex vreg6 = -vreg0 * vreg2 + vreg1;
 	ar3 = gr5;
 	ar4 = gr6;
-	SAVE_FFT16_32(0, 8);
-	SAVE_FFT16_32(1, 8);
+	fpu 2 rep 8 vreg1 = [ar0++];
+	fpu 2 rep 8 vreg2 = [ar6++];
+	fpu 2 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 2 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
+	fpu 3 rep 8 vreg1 = [ar0++];
+	fpu 3 rep 8 vreg2 = [ar6++];
+	fpu 3 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 3 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
+	fpu 0 rep 8 [ar3++] = vreg5;
+	fpu 1 rep 8 [ar4++] = vreg5;
+
+	fpu 0 rep 8 [ar3++] = vreg6;
+	fpu 1 rep 8 [ar4++] = vreg6;
+
+	fpu 2 rep 8 [ar3++] = vreg5;
+	fpu 3 rep 8 [ar4++] = vreg5;
+
+	fpu 2 rep 8 [ar3++] = vreg6;
+	fpu 3 rep 8 [ar4++] = vreg6;
+
 // END COMPUTE 4 things of FFT16
 
 // COMPUTE 2 things of FFT32
@@ -125,11 +137,26 @@ begin ".data_imu7"
 	ar1 = [ar5++]; // W16
 	ar0 = gr5;
 	ar6 = gr6;
+
+	fpu 0 rep 16 vreg0 = [ar1++];
+	fpu 1 vreg0 = fpu 0 vreg0;
+
+	fpu 0 rep 16 vreg1 = [ar0++];
+	fpu 0 rep 16 vreg2 = [ar6++];
+	fpu 0 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 0 .complex vreg6 = -vreg0 * vreg2 + vreg1;
 	ar3 = gr5;
 	ar4 = gr6;
-	fpu 0 rep 16 vreg0 = [ar1++];
-	COMPUTE_FFT16_32_64(0, 16); // 2 FFT32
-	SAVE_FFT16_32(0, 16);
+	fpu 1 rep 16 vreg1 = [ar0++];
+	fpu 1 rep 16 vreg2 = [ar6++];
+	fpu 1 .complex vreg5 = vreg0 * vreg2 + vreg1;
+	fpu 1 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+
+	fpu 0 rep 16 [ar3++] = vreg5;
+	fpu 1 rep 16 [ar4++] = vreg5;
+
+	fpu 0 rep 16 [ar3++] = vreg6;
+	fpu 1 rep 16 [ar4++] = vreg6;
 // END COMPUTE 2 things of FFT32
 
 // COMPUTE 1 FFT64

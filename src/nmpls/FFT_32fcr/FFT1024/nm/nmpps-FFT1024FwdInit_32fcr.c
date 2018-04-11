@@ -5,7 +5,7 @@
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
 //*   File:             nmpps-FFT1024FwdInit_32fc.c                         */
-//*   Contents:         Routine for the stuct initializing                  */
+//*   Contents:         Routine for the struct initialization               */
 //*                     of the W-coefficient for FFT1024Fwd                 */
 //***************************************************************************/
 
@@ -20,13 +20,13 @@ int nmppsFFT1024FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
     float alpha;
     NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
     if(!spec_32fcr) {
-        return -1;
+        return 0x1024F;
     }
 
 /*************************************Bank1*************************************/
     spec_32fcr->Buffs[0] = (nm32fcr *) malloc0((16 + 512 + 1) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[0])
-        return -2;
+        return 0x1024F0;
 
     spec_32fcr->Buffers[11] = spec_32fcr->Buffs[0];       // W16_0
     spec_32fcr->Buffers[1] = spec_32fcr->Buffs[0] + 16;   // buff_fft1024
@@ -35,7 +35,7 @@ int nmppsFFT1024FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
 /*************************************Bank2*************************************/
     spec_32fcr->Buffs[1] = (nm32fcr *) malloc1((16 + 512) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[1])
-        return -3;
+        return 0x1024F1;
 
     spec_32fcr->Buffers[12] = spec_32fcr->Buffs[1];       // W16_1
     spec_32fcr->Buffers[13] = spec_32fcr->Buffs[1] + 16;  // W1024
@@ -43,14 +43,14 @@ int nmppsFFT1024FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
 /*************************************Bank3*************************************/
     spec_32fcr->Buffs[2] = (nm32fcr *) malloc2(512 * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[2])
-        return -4;
+        return 0x1024F2;
 
     spec_32fcr->Buffers[2] = spec_32fcr->Buffs[2]; // buff_fft1024mulW
 
 /*************************************Bank4*************************************/
     spec_32fcr->Buffs[3] = (nm32fcr *) malloc3((7 + 512) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[3])
-        return -5;
+        return 0x1024F3;
 
     spec_32fcr->Buffers[3] = spec_32fcr->Buffs[3];          // W4_16
     spec_32fcr->Buffers[4] = spec_32fcr->Buffs[3] + 1;      // W2_16
@@ -88,7 +88,7 @@ int nmppsFFT1024FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
     spec_32fcr->Buffers[9]->im = -0.38268327713013;      // W7_16
     spec_32fcr->Buffers[9]->re = -0.92387962341309;
 
-/**********************************W128**********************************/
+/**********************************W1024**********************************/
     for(i = 0; i < 512; i++) {
         alpha = (0.006135923151 * (float)i);
         spec_32fcr->Buffers[13][i].im = -sinf(alpha);

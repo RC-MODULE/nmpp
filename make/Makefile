@@ -71,6 +71,9 @@ clean:
 	#-rm -f -r lib
 	
 
+install: all setenv 
+	
+	
 setenv:
 	setenv -ua NMPP $(realpath ..)
 

@@ -4,16 +4,16 @@
 //*                                                                         */
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
-//*   File:             nmpps-vMulConj_32fcr.asm                            */
+//*   File:             nmpps-ConjMul_32fcr.asm                             */
 //*   Contents:         The function multiplies the elements of two vectors */
 //*                     Vector1 * Conjugate(Vector2)                        */
 //***************************************************************************/
 
-// void nmppsMulConj_32fcr(const nm32fcr *pSrcVec1, nm32fcr *pSrcVec2, nm32fcr *pDstVec, int nSize);
+// void nmppsConjMul_32fcr(const nm32fcr *pSrcVec1, nm32fcr *pSrcVec2, nm32fcr *pDstVec, int nSize);
 
-global _nmppsMulConj_32fcr: label;
+global _nmppsConjMul_32fcr: label;
 begin ".text"
-<_nmppsMulConj_32fcr>
+<_nmppsConjMul_32fcr>
 	ar5 = ar7 - 2;
 	push ar3, gr3;
 	push ar2, gr2;
@@ -25,9 +25,9 @@ begin ".text"
 	gr0 = [--ar5]; 			// nSize
 
 	gr1 = gr0 >> 5; 		// count of the iterations
-	if =0 goto less32_MulConj_32fcr;
+	if =0 goto less32_ConjMul_32fcr;
 	
-<MulConj_32fcr>
+<ConjMul_32fcr>
 	fpu 0 rep 32 vreg0 = [ar0++];
 	fpu 0 rep 32 vreg1 = [ar1++];
 	fpu 0 .packer = vreg1 with .float .in_low <= .float .in_low;
@@ -35,14 +35,14 @@ begin ".text"
 	fpu 0 .float vreg1 = vreg1 - vreg3;
 	fpu 0 .float vreg1 = vreg1 - vreg3;
 	gr1--;
-	if > delayed goto MulConj_32fcr;
+	if > delayed goto ConjMul_32fcr;
 		fpu 0 .complex vreg2 = vreg0 * vreg1;
 		fpu 0 rep 32 [ar2++] = vreg2;
 
 	gr0 = gr0 << 27;
 	gr0 = gr0 >> 27;		// reminder
-	if =0 delayed goto exit_MulConj_32fcr;
-<less32_MulConj_32fcr>
+	if =0 delayed goto exit_ConjMul_32fcr;
+<less32_ConjMul_32fcr>
 	gr0--;
 	vlen = gr0;
 	fpu 0 rep vlen vreg0 = [ar0++];
@@ -54,7 +54,7 @@ begin ".text"
 	fpu 0 .complex vreg2 = vreg0 * vreg1;
 	fpu 0 rep vlen [ar2++] = vreg2;
 
-<exit_MulConj_32fcr>
+<exit_ConjMul_32fcr>
 	pop ar0, gr0;
 	pop ar1, gr1;
 	pop ar2, gr2;

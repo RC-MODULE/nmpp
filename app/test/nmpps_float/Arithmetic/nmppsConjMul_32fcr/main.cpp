@@ -25,7 +25,7 @@ int main()
 	}
 
 	for(i = 0; i < N; i++) {
-		nmppsMulConj_32fcr(vec0, vec1, dst, N - i);
+		nmppsConjMul_32fcr(vec0, vec1, dst, N - i);
 		nmppsCrcAcc_32f((float *)dst, 11, 2 * (N - i + 2), &crc);
 	}
 

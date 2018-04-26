@@ -22,7 +22,7 @@ end ".data";
 
 begin ".text"
 <_nmppsJoin_32f>
-//void nmppsJoin_32f(int amm, float* src0, float* src1, float* result);	
+//void nmppsJoin_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);	
 	ar5 = ar7 - 2;
 	push ar0,gr0;
 	ar0 = one_zero;
@@ -32,10 +32,10 @@ begin ".text"
 	push ar1,gr1;
 	push ar2,gr2;
 	push ar3,gr3;
-	gr7 = [--ar5];
 	ar0 = [--ar5];
 	ar1 = [--ar5];
 	ar2 = [--ar5];
+	gr7 = [--ar5];
 	gr2 = 4;
 	gr0 = gr7 << 26;
 	gr0 = gr0 >> 27;

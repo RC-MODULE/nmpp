@@ -430,16 +430,17 @@ void nmppsConvert_32s32fcr(const nm32s* pSrcVec, nm32fcr* pDstVec, int nSize);
  *  \details Функция выполняется на сопроцессоре (процессор 1879ВМ6Я) с плавающей точкой с использованием переупаковщика данных
  */
 void nmppsConvert_32sc32fcr(const nm32sc* pSrcVec, nm32fcr* pDstVec, int nSize);
+
 /**
  *  \ingroup nmppsConvert nmppsConvert
- *  \brief Функция соединяет 2 массива чисел float32 в один. Результирующий массив {src0[0],src1[0],src0[1],src1[1],src0[2],src0[2]....  
+ *  \brief Функция соединяет 2 массива 32-х чисел с плавающей точкой (float) в один. Результирующий массив { pSrcVec1[0], pSrcVec2[0], pSrcVec1[1], pSrcVec2[1], pSrcVec1[2], pSrcVec2[2] .... } 
  *  
-    \param amm колличество элементов в массиве src (в массиве dst элементов будет в 2 раза больше)
-    \param src0 указатель на входной массив чисел float
-    \param src1 указатель на входной массив чисел float
-    \param dst указатель на выходной массив чисел float
+    \param pSrcVec1 указатель на входной массив чисел float
+    \param pSrcVec2 указатель на входной массив чисел float
+    \param pDstVec указатель на выходной массив чисел float
+    \param nSize количество элементов в массиве pSrcVec (в массиве pDstVec элементов будет в 2 раза больше)
  */
-void nmppsJoin_32f(const int amm, const float* src0, const float* src1, float* result);   
+void nmppsJoin_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);   
 
 /**
  *  \ingroup nmppsConvert nmppsConvert

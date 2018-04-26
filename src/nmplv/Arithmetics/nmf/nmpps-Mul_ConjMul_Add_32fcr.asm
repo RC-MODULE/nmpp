@@ -29,11 +29,11 @@ begin "text"
 	push ar1, gr1;
 	push ar0, gr0;
 
-	ar0 = [--ar5]; 					// the addres of pSrcVec1
-	ar1 = [--ar5]; 					// the addres of pSrcVec2
-	ar2 = [--ar5]; 					// the addres of pSrcVec3
-	ar3 = [--ar5]; 					// the addres of pSrcVec4
-	ar4 = [--ar5]; 					// the addres of pDstVec
+	ar0 = [--ar5]; 					// the address of pSrcVec1
+	ar1 = [--ar5]; 					// the address of pSrcVec2
+	ar2 = [--ar5]; 					// the address of pSrcVec3
+	ar3 = [--ar5]; 					// the address of pSrcVec4
+	ar4 = [--ar5]; 					// the address of pDstVec
 	gr0 = [--ar5]; 					// nSize
 
 	gr1 = gr0 >> 5; 				// count of the iterations

@@ -18,7 +18,7 @@ push ar4,gr4;
   gr7 = gr7>>26;
   gr5 = gr5>>6;
   
-  if =0 delayed goto REMINDER with gr7;
+  if =0 delayed goto REMAINDER with gr7;
   ar3 = ar0;//x bank 
   ar5 = ar1;//y bank
 	fpu 0 rep 32 vreg0 = [ar0++gr0];//load x0
@@ -64,7 +64,7 @@ push ar4,gr4;
 	ar0 = gr4;
 
 
-<REMINDER>
+<REMAINDER>
 	if =0 delayed goto END;
 	ar0 = ar3;
 	ar1 = ar5;

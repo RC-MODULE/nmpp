@@ -119,7 +119,7 @@ begin "text"
   gr7 = gr5<<26;
   gr7 = gr7>>26;
   gr5 = gr5>>6;
-  if =0 delayed goto REMINDER;
+  if =0 delayed goto REMAINDER;
   ar3 = ar0;
   ar4 = ar1;
 
@@ -143,7 +143,7 @@ begin "text"
   fpu 1 .float vreg2 = vreg0*.retrive(vreg7)+vreg2;//h22*y+h21*x;
   fpu 1 rep 32 [ar4++gr4] = vreg2;//upload result y 
 
-<REMINDER>
+<REMAINDER>
   gr7;
   if =0 delayed goto END;
   gr5 = gr7>>1;

@@ -49,7 +49,7 @@ begin "text"
 	gr0 = gr0 >> 6;//qoutient of collums
 	
 	gr1 = ar6;//init result address keaper
-	if =0 delayed goto REMINDER;
+	if =0 delayed goto REMAINDER;
 	ar4 = gr4;//init row counter keaper
 	ar3 = ar0;//save the matrix address 
 
@@ -83,7 +83,7 @@ begin "text"
 	ar2 = ar2 + gr2; 
 
 
-<REMINDER>
+<REMAINDER>
 	gr4 = ar4;
 	gr7 = vlen;
 	gr7;

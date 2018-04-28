@@ -30,7 +30,7 @@ begin "text"
 
   gr5 = gr5 >> 6;
   ar5 = init;
-  if =0 delayed goto REMINDER;
+  if =0 delayed goto REMAINDER;
   fpu 0 rep 1 vreg4 = [ar5];//init for reminder 
   fpu 0 vreg2 = vreg4;
 //////init;
@@ -74,7 +74,7 @@ begin "text"
   fpu 0 rep 1 vreg0 = .packer;
   fpu 0 .float vreg2 = vreg0 + vreg2;//resalt is in low part
 
-<REMINDER>
+<REMAINDER>
   gr7;
   if =0 delayed goto RESULT;
   gr5 = gr7>>1;
@@ -84,8 +84,8 @@ begin "text"
   vlen = gr5;
   fpu 0 rep vlen vreg0 = [ar0++gr0];
   fpu 0 .float vreg3 = vreg0*vreg0; 
- <LOOP_REMINDER>
-  if <>0 delayed goto LOOP_REMINDER;
+ <LOOP_REMAINDER>
+  if <>0 delayed goto LOOP_REMAINDER;
   fpu 0 .float vreg4 = vreg4 + .retrive(vreg3);
   gr5--;
 ////

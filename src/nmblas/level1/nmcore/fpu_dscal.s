@@ -16,7 +16,7 @@ begin "text"
   gr7 = gr5<<27;//reminder
   gr7 = gr7>>27;
   gr5 = gr5>>5;
-  if =0 delayed goto REMINDER with gr7;
+  if =0 delayed goto REMAINDER with gr7;
   gr0 = gr0<<1;
 
 <LOOP>  
@@ -28,7 +28,7 @@ begin "text"
   fpu 0 .double vreg1 = vreg1 * .retrive(vreg0);//alpha*x
   fpu 0 rep 32 [ar0++gr0] = vreg1;
 
-<REMINDER>
+<REMAINDER>
   if =0 delayed goto END;
   gr7--;
   vlen = gr7;    

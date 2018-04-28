@@ -17,7 +17,7 @@ begin "text"
   gr7 = gr5 << 26;//reminder
   gr7 = gr7 >> 26;
   gr5 = gr5 >> 6;//there is a quotient there
-  if =0 delayed goto REMINDER; 
+  if =0 delayed goto REMAINDER; 
 <LOOP>
   ar5 = ar0;
   ar4 = ar1;
@@ -30,9 +30,9 @@ begin "text"
   fpu 0 rep 32 [ar0++] = vreg1;//upload y into x plase
   fpu 0 rep 32 [ar1++] = vreg0;//upload x intp y plase
 
-<REMINDER>
+<REMAINDER>
   gr5 = gr7>>1;
-  if =0 delayed goto REMINDER_THE_LAST; 
+  if =0 delayed goto REMAINDER_THE_LAST; 
   gr5--;
   vlen = gr5;
   ar5 = ar0;
@@ -43,7 +43,7 @@ begin "text"
   ar1 = ar4;
   fpu 0 rep vlen [ar0++] = vreg1; 
   fpu 0 rep vlen [ar1++] = vreg0;
-<REMINDER_THE_LAST>
+<REMAINDER_THE_LAST>
  
   gr7 = gr7<<31;
   if =0 delayed goto END;

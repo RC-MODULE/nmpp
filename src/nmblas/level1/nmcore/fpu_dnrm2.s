@@ -26,7 +26,7 @@ begin "text"
   gr5 = gr5>>5;
 
   ar5 = _zero;
-  if =0 delayed goto REMINDER;
+  if =0 delayed goto REMAINDER;
   fpu 0 rep 1 vreg2 = [ar5];//init for reminder case 
   gr5--;
   if =0 delayed goto WRAP_UP;
@@ -64,15 +64,15 @@ begin "text"
   fpu 0 rep 1 vreg0 = .packer;
   fpu 0 rep 1 vreg1 = .packer;
   fpu 0 .double vreg2 = vreg0 + vreg1;
-<REMINDER>
+<REMAINDER>
   gr7;
   if =0 delayed goto CALL_SQRT;
   gr7--;
   vlen = gr7;
   fpu 0 rep vlen vreg0 = [ar0++gr0];
   fpu 0 .double vreg0 = vreg0*vreg0;
-<LOOP_REMINDER>
-  if <>0 delayed goto LOOP_REMINDER;
+<LOOP_REMAINDER>
+  if <>0 delayed goto LOOP_REMAINDER;
   fpu 0 .double vreg2 = vreg2 + .retrive(vreg0);
   gr7--;
 

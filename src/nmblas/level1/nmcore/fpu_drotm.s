@@ -63,7 +63,7 @@ begin "text"
   
 <COUNT>
   gr5 = gr5>>5; 
-  if =0 delayed goto REMINDER with gr7;
+  if =0 delayed goto REMAINDER with gr7;
   gr3 = gr0;
   gr4 = gr1;
 <LOOP>
@@ -84,7 +84,7 @@ begin "text"
   fpu 0 rep 32 [ar4++gr4] = vreg3;//y
   fpu 2 rep 32 [ar3++gr3] = vreg3;//x
 
-<REMINDER>  
+<REMAINDER>  
   if =0 delayed goto END;
   gr7--;
   vlen = gr7;

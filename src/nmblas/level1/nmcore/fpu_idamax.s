@@ -55,7 +55,7 @@ begin "text"
   fpu 1 rep 32 vreg0 = [ar0++gr0];//load x0
   fpu 1 .double vreg0 = /vreg0/;
   gr5--;
-  if =0 goto REMINDER;
+  if =0 goto REMAINDER;
  <LOOP> 
   fpu 1 rep 32 vreg1 = [ar0++gr0];//load x1
   fpu 1 .double vreg1 = /vreg1/; 
@@ -71,7 +71,7 @@ begin "text"
   fp0_hmask = fp1_hmask;
   fpu 0 .double vreg0 = mask ? vreg1:vreg0;
 
-<REMINDER>
+<REMAINDER>
   gr7;
   if =0 delayed goto WRAP_UP;
   gr7--;

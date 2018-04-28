@@ -56,7 +56,7 @@ begin "text"
   gr7 = gr7>>27;
   gr5 = gr5>>6;
   
-  if =0 delayed goto REMINDER with gr7;
+  if =0 delayed goto REMAINDER with gr7;
   gr1 = 2;
 
 <MAIN_LOOP>
@@ -86,7 +86,7 @@ begin "text"
   ar4 = ar0 with gr4 = -gr4 noflags;
   ar6 = ar3 with gr6 = -gr6 noflags;
   
-<REMINDER>
+<REMAINDER>
   if =0 delayed goto END;
   gr7--;
   vlen = gr7;

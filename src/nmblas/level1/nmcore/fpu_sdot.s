@@ -34,7 +34,7 @@ begin "text"
   gr5 = gr5>>6;
 
   
-  if =0 delayed goto REMINDER;
+  if =0 delayed goto REMAINDER;
   gr0 = gr0+gr0;
   gr1 = gr1+gr1;
 
@@ -81,7 +81,7 @@ begin "text"
   fpu 0 rep 1 vreg0 = .packer;
   fpu 0 .float vreg2 = vreg0 + vreg2;//resalt is in low part
 
-<REMINDER>
+<REMAINDER>
   gr7;
   if =0 delayed goto RESULT;
   gr5 = gr7>>1;

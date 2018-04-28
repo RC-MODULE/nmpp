@@ -44,7 +44,7 @@ begin "text"
   gr7 = gr7 >> 26;
 
   gr5 = gr5 >> 6;//the quotient
-  if =0 delayed goto REMINDER; 
+  if =0 delayed goto REMAINDER; 
 
 <LOOP>
   ar5 = ar1;
@@ -56,9 +56,9 @@ begin "text"
   fpu 0 .float vreg1 = vreg1*.retrive(vreg0) + vreg2;//getting result y = y + alpha*x
   fpu 0 rep 32 [ar1++] = vreg1;//upload result into y
 
-<REMINDER>
+<REMAINDER>
   gr5 = gr7>>1;
-  if =0 delayed goto REMINDER_THE_LAST;
+  if =0 delayed goto REMAINDER_THE_LAST;
   gr5--;
   vlen = gr5;
   ar5 = ar1;
@@ -68,7 +68,7 @@ begin "text"
   fpu 0 .float vreg1 = vreg1*.retrive(vreg0) + vreg2;//getting result y = y + alpha*x
   fpu 0 rep vlen [ar1++] = vreg1;   
 
-<REMINDER_THE_LAST>  
+<REMAINDER_THE_LAST>  
   gr7 = gr7<<31;
   
   if =0 delayed goto END;

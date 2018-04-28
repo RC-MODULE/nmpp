@@ -26,7 +26,7 @@ begin "text"
   gr0 = gr0 <<1;
   gr1 = gr1 <<1;
   gr5 = gr5 >> 5;//the quotient
-  if =0 delayed goto REMINDER with gr7; 
+  if =0 delayed goto REMAINDER with gr7; 
 
 <LOOP>
   ar5 = ar1;
@@ -38,7 +38,7 @@ begin "text"
   fpu 0 .double vreg1 = vreg1*.retrive(vreg0) + vreg2;//getting result y = y + alpha*x
   fpu 0 rep 32 [ar1++gr1] = vreg1;//upload result into y
 
-<REMINDER>
+<REMAINDER>
   if =0 delayed goto END;
   gr7--;
   vlen = gr7;

@@ -25,11 +25,11 @@ push ar4,gr4;
   ar6 = gr6;
   ar3 = ar1;//save address of x array
 
-  gr7 = gr5<<27;//REMINDER of collums
+  gr7 = gr5<<27;//REMAINDER of collums
   gr7 = gr7>>27;
   gr5 = gr5>>5;//QUOTIEN of collums
 
-  if =0 delayed goto REMINDER_MAIN;
+  if =0 delayed goto REMAINDER_MAIN;
 <MAIN_LOOP>
   gr6 = ar6;
   ar5 = ar2;
@@ -88,7 +88,7 @@ push ar4,gr4;
 
  
 ////////////////////////////////////////////////////////////////////////////////////////////////////REMINDER
-<REMINDER_MAIN>
+<REMAINDER_MAIN>
   gr7;
   if =0 delayed goto END;
   gr7--;

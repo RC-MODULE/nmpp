@@ -32,7 +32,7 @@ push ar4,gr4;
   gr7 = gr7>>27;
   gr5 = gr5>>5;//QUOTIEN of rows
 
-  if =0 delayed goto REMINDER_MAIN;
+  if =0 delayed goto REMAINDER_MAIN;
 
 
 <MAIN_LOOP>
@@ -92,7 +92,7 @@ push ar4,gr4;
     ar2 = ar5;
     fpu 0 rep 32 [ar2++gr2] = vreg2;//upload result
 ////////////////////////////////////////////////////////////////////////////////////////////////////REMINDER
-<REMINDER_MAIN>
+<REMAINDER_MAIN>
   gr6 = ar6;
   //ar1 = ar3;
   ar5 = ar2 with gr7;

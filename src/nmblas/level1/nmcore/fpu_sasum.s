@@ -34,7 +34,7 @@ begin "text"
   gr7 = gr5>>1;//test is N greater then 1 or not 
   if =0 delayed goto CASE_N_IS_ONE_OR_ZERO;
 
-  gr7 = gr5<<26;//REMINDER
+  gr7 = gr5<<26;//REMAINDER
   gr7 = gr7>>26;
   gr5 = gr5>>6;//quotient
 
@@ -86,12 +86,12 @@ begin "text"
   fpu 0 rep 1 vreg0 = .packer;
   fpu 0 .float vreg2 = vreg0 + vreg2;//resalt is in low part
   
-<REMINDER>
+<REMAINDER>
   gr7;
   if =0 delayed goto RESULT;
   gr5 = gr7>>1;
   nop;
-  if =0 delayed goto CASE_REMINDER_EQ_ONE;
+  if =0 delayed goto CASE_REMAINDER_EQ_ONE;
   gr5--;
   vlen = gr5;
   fpu 0 rep vlen vreg3 = [ar0++gr0];
@@ -106,7 +106,7 @@ begin "text"
   fpu 0 .float vreg4 = vreg0 + vreg4;//resalt is in low part
   fpu 0 .float vreg2 = vreg2 + vreg4;//
 ///
-<CASE_REMINDER_EQ_ONE>
+<CASE_REMAINDER_EQ_ONE>
   gr5 = gr7<<31;
   if =0 delayed goto RESULT;
   fpu 0 rep 1 vreg1 = [ar0++gr0];

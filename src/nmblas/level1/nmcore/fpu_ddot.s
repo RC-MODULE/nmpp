@@ -31,7 +31,7 @@ begin "text"
   ar5 = zero_;
   gr5 = gr5>>5;
 
-  if =0 delayed goto REMINDER;
+  if =0 delayed goto REMAINDER;
   fpu 0 rep 1 vreg2 = [ar5];
   //initialisation to apply mulltiply accomulate ferter
   gr5--;
@@ -73,7 +73,7 @@ begin "text"
   fpu 0 rep 1 vreg1 = .packer;
   fpu 0 .double vreg2 = vreg0 + vreg1;
 
-<REMINDER>  
+<REMAINDER>  
   gr7;
   if =0 delayed goto END;
   gr7--;

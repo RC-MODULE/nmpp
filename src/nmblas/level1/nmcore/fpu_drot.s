@@ -25,7 +25,7 @@ begin "text"
   fpu 2 vreg7 = fpu 0 vreg7;
   fpu 3 vreg7 = fpu 0 vreg7;
   fpu 1 vreg6 = fpu 0 vreg6;
-  if =0 delayed goto REMINDER with gr7;
+  if =0 delayed goto REMAINDER with gr7;
   fpu 2 vreg6 = fpu 0 vreg6;
   fpu 3 vreg6 = fpu 0 vreg6;
 
@@ -47,7 +47,7 @@ begin "text"
   fpu 0 rep 32 [ar4++gr4] = vreg3;//y
   fpu 2 rep 32 [ar3++gr3] = vreg3;//x
 
-<REMINDER>  
+<REMAINDER>  
   if =0 delayed goto END;
   gr7--;
   vlen = gr7;

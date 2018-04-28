@@ -60,7 +60,7 @@ begin "text"
   gr7 = gr5<<26;
   gr7 = gr7>>27;//reminder of rows
   gr5 = gr5>>6;//quotient of rows
-  if =0 delayed goto REMINDER;
+  if =0 delayed goto REMAINDER;
   vlen = gr7;
   gr2 = ar2;
 <MAIN_LOOP>
@@ -93,7 +93,7 @@ begin "text"
   if <>0  delayed goto MAIN_LOOP;
   gr6 = gr4;
   gr2 = ar2;
-<REMINDER> 
+<REMAINDER> 
   gr7 = vlen;
   gr7;
   if =0 delayed goto END;

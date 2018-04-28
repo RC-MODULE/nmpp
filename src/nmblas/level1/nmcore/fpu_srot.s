@@ -35,7 +35,7 @@ begin "text"
   fpu 0 rep 1 vreg7 = [ar5++];//load c
   fpu 0 rep 1 vreg6 = [ar5++];//laod s
   fpu 1 vreg6 = fpu 0 vreg6;//coppy s
-  if =0 delayed goto REMINDER with gr7;
+  if =0 delayed goto REMAINDER with gr7;
   fpu 3 vreg6 = fpu 0 vreg6;//coppy s
   fpu 1 vreg7 = fpu 0 vreg7;//coppy c
 
@@ -59,7 +59,7 @@ begin "text"
   fpu 1 .float vreg2 = vreg0*.retrive(vreg7)+vreg2;//cy-sx;
   fpu 1 rep 32 [ar4++gr4] = vreg2;//upload result y 
 
-<REMINDER>
+<REMAINDER>
   gr7;
   if =0 delayed goto END;
   gr5 = gr7>>1;

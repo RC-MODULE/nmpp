@@ -31,7 +31,7 @@ begin "text"
 
   gr5 = gr5>>6;
 
-  if =0 delayed goto REMINDER;
+  if =0 delayed goto REMAINDER;
   gr0 = gr0 << 1; 
 
 <LOOP>
@@ -43,7 +43,7 @@ begin "text"
   ar0  = ar5;
   fpu 0 rep 32 [ar0++gr0] = vreg0;//
 
-<REMINDER>
+<REMAINDER>
   
   gr5 = gr7>>1;
   if =0 delayed goto THE_LAST_ELEMENT;

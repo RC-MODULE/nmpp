@@ -36,7 +36,7 @@ begin "text"
   //vreg 2,vreg3 coupled register for y
   //vreg6 is a accomulator 
   
-  if =0 delayed goto REMINDER;
+  if =0 delayed goto REMAINDER;
   fpu 0 rep 1 vreg6 = [ar5];
   //initialisation to apply mulltiply accomulate ferter
   gr5--;
@@ -88,7 +88,7 @@ begin "text"
   fpu 0 rep 1 vreg1 = .packer;
   fpu 0 .double vreg6 = vreg0 + vreg1;
 
-<REMINDER>  
+<REMAINDER>  
   gr7;
   if =0 delayed goto CONVERTATION_AND_ADDITION_B;
   gr5 = gr7>>1;

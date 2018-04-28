@@ -9,18 +9,18 @@ int nmppsFFT16InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
     const float pi = 3.141592653;
     NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
     if(spec_32fcr == 0) {
-        return -1;
+        return 0x16B;
     }
     for(i = 0; i < NUMBUFF1; i++) {
         spec_32fcr->Buffers[i] = 0;
     }
     spec_32fcr->Buffers[0] = (nm32fcr *) malloc(64 * sizeof(nm32fcr)); // SinCos0
     if(!spec_32fcr->Buffers[0]) {
-        return -2;
+        return 0x16B0;
     }
     spec_32fcr->Buffers[1] = (nm32fcr *) malloc(8 * sizeof(nm32fcr)); // W8_0
     if(!spec_32fcr->Buffers[1]) {
-        return -3;
+        return 0x16B1;
     }
     *iaddr = spec_32fcr;
     k = 0;

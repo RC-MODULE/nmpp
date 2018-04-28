@@ -4,7 +4,7 @@
 //*                                                                         */
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
-//*   File:             nmpps-FFT512Fwd_32fcr.s                             	*/
+//*   File:             nmpps-FFT512Fwd_32fcr.s                             */
 //*   Contents:         Routine for forward and inverse FFT 512             */
 //*                     of complex array with 32 bit elements               */
 //***************************************************************************/

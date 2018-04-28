@@ -19,7 +19,7 @@ int nmppsFFTFree_32fcr(NmppsFFTSpec_32fcr *spec)
 		}
 		#endif
 	} else {
-		return -1;
+		return 0xF6EE;
 	}
 	free(spec);
 	return 0;

@@ -9,10 +9,10 @@
 
 int main()
 {
-	int i, tm;
+	int i, st;
 	clock_t t1, t2;
 	nm32fcr *src, *dst;
-	// best config (cycles = 351)
+	// best config (ticks = 351)
 	src = (nm32fcr *) malloc(SIZE * sizeof(nm32fcr));
 	dst = (nm32fcr *) malloc(SIZE * sizeof(nm32fcr));
 	for(i = 0; i < SIZE; i++) {
@@ -21,24 +21,23 @@ int main()
 		dst[i].im = 0;
 		dst[i].re = 0;
 	}
-	//return (int)dst;
 	NmppsFFTSpec_32fcr *rat, *irat;
-	tm = nmppsFFT32FwdInitAlloc_32fcr(&rat);
-	tm = nmppsFFT32InvInitAlloc_32fcr(&irat);
-	if(tm) {
-		return 123;
+	st = nmppsFFT32FwdInitAlloc_32fcr(&rat);
+	st = nmppsFFT32InvInitAlloc_32fcr(&irat);
+	if(st) {
+		return st;
 	}
 	t1 = clock();
 	nmppsFFT32Fwd_32fcr(src, dst, rat);
 	t2 = clock();
 	nmppsFFT32Inv_32fcr(dst, dst, irat);
-	tm = nmppsFFTFree_32fcr(rat);
-	if(tm) {
-		return 124;
+	st = nmppsFFTFree_32fcr(rat);
+	if(st) {
+		return st;
 	}
-	tm = nmppsFFTFree_32fcr(irat);
-	if(tm) {
-		return 125;
+	st = nmppsFFTFree_32fcr(irat);
+	if(st) {
+		return st;
 	}
 	float norm;
 	nmppsNormDiff_L2_32fcr(src, dst, SIZE, &norm);

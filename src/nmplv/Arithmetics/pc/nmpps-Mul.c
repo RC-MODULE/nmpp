@@ -13,17 +13,23 @@ void nmppsMul_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, nm32fcr *p
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i].re = pSrcVec1[i].re * pSrcVec2[i].re - pSrcVec1[i].im * pSrcVec2[i].im;
-		pDstVec[i].im = pSrcVec1[i].re * pSrcVec2[i].im + pSrcVec1[i].im * pSrcVec2[i].re;	
+		float re, im;
+		re = pSrcVec1[i].re * pSrcVec2[i].re - pSrcVec1[i].im * pSrcVec2[i].im;
+		im = pSrcVec1[i].re * pSrcVec2[i].im + pSrcVec1[i].im * pSrcVec2[i].re;
+		pDstVec[i].re = re;
+		pDstVec[i].im = im;
 	}
 }
 
-void nmppsMulConj_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, nm32fcr *pDstVec, int nSize)
+void nmppsConjMul_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, nm32fcr *pDstVec, int nSize)
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i].re = pSrcVec1[i].re * pSrcVec2[i].re + pSrcVec1[i].im * pSrcVec2[i].im;
-		pDstVec[i].im = -pSrcVec1[i].re * pSrcVec2[i].im + pSrcVec1[i].im * pSrcVec2[i].re;
+		float re, im;
+		re = pSrcVec1[i].re * pSrcVec2[i].re + pSrcVec1[i].im * pSrcVec2[i].im;
+		im = -pSrcVec1[i].re * pSrcVec2[i].im + pSrcVec1[i].im * pSrcVec2[i].re;
+		pDstVec[i].re = re;
+		pDstVec[i].im = im;
 	}
 }
 

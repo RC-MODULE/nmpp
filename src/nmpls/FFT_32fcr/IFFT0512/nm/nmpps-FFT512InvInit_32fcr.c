@@ -8,13 +8,13 @@ int nmppsFFT512InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
     float alpha;
     NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
     if(!spec_32fcr) {
-        return -1;
+        return 0x512B;
     }
     spec_32fcr->Buffs[0] = 0;
 
     spec_32fcr->Buffs[1] = (nm32fcr *) malloc1((1 + 7 + 256) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[1])
-        return -2;
+        return 0x512B1;
 
     spec_32fcr->Buffers[0] = spec_32fcr->Buffs[1]; // 1.0
 
@@ -29,13 +29,13 @@ int nmppsFFT512InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
 
     spec_32fcr->Buffs[2] = (nm32fcr *) malloc2(256 * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[2])
-        return -4;
+        return 0x512B2;
 
     spec_32fcr->Buffers[1] = spec_32fcr->Buffs[2]; // buff_fft
 
     spec_32fcr->Buffs[3] = (nm32fcr *) malloc3(256 * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[3])
-        return -5;
+        return 0x512B3;
 
     spec_32fcr->Buffers[2] = spec_32fcr->Buffs[3]; // buff_fftxW
 

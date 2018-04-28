@@ -10,26 +10,26 @@ int nmppsFFT128FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr128)
     float alpha;
     NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
     if(!spec_32fcr) {
-        return -1;
+        return 0x128F;
     }
     for(i = 0; i < NUMBUFF1; i++) {
         spec_32fcr->Buffers[i] = 0;
     }
     spec_32fcr->Buffers[0] = (nm32fcr *) malloc(64 * sizeof(nm32fcr)); // SinCos0
     if (!spec_32fcr->Buffers[0])
-        return -2;
+        return 0x128F0;
     spec_32fcr->Buffers[1] = (nm32fcr *) malloc(8 * sizeof(nm32fcr)); // W8
     if (!spec_32fcr->Buffers[1])
-        return -3;
+        return 0x128F1;
     spec_32fcr->Buffers[2] = (nm32fcr *) malloc(16 * sizeof(nm32fcr)); // W16
     if (!spec_32fcr->Buffers[2])
-        return -4;
+        return 0x128F2;
     spec_32fcr->Buffers[3] = (nm32fcr *) malloc(32 * sizeof(nm32fcr)); // W32
     if (!spec_32fcr->Buffers[3])
-        return -5;
+        return 0x128F3;
     spec_32fcr->Buffers[4] = (nm32fcr *) malloc(64 * sizeof(nm32fcr)); // W64
     if (!spec_32fcr->Buffers[4])
-        return -6;
+        return 0x128F4;
     *addr128 = spec_32fcr;
     k = 0;
     for(i = 0; i <  8; i++) {

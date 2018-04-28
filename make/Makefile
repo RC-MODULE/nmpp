@@ -71,7 +71,13 @@ clean:
 	#-rm -f -r lib
 	
 
-install:
-	$(OS_SET_ENV)
+install: all setenv 
+	
+	
+setenv:
+	setenv -ua NMPP $(realpath ..)
+
+		
+#	$(OS_SET_ENV)
 
 	

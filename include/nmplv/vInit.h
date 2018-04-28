@@ -418,6 +418,16 @@ void nmppsConvert_32s32fcr(const nm32s* pSrcVec, nm32fcr* pDstVec, int nSize);
  *  \details Функция выполняется на сопроцессоре (процессор 1879ВМ6Я) с плавающей точкой с использованием переупаковщика данных
  */
 void nmppsConvert_32sc32fcr(const nm32sc* pSrcVec, nm32fcr* pDstVec, int nSize);
+/**
+ *  \ingroup nmppsConvert nmppsConvert
+ *  \brief Функция соединяет 2 массива чисел float32 в один. Результирующий массив {src0[0],src1[0],src0[1],src1[1],src0[2],src0[2]....  
+ *  
+    \param amm колличество элементов в массиве src (в массиве dst элементов будет в 2 раза больше)
+    \param src0 указатель на входной массив чисел float
+    \param src1 указатель на входной массив чисел float
+    \param dst указатель на выходной массив чисел float
+ */
+void nmppsJoin_32f(const int amm, const float* src0, const float* src1, float* result);   
 
 /**
  *  \ingroup nmppsConvert nmppsConvert

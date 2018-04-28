@@ -41,7 +41,7 @@ begin "text"
   ar5 = zero_;
   fpu 0 rep 1 vreg4 = [ar5];//init for reminder loop
 
-  if =0 delayed goto REMINDER;
+  if =0 delayed goto REMAINDER;
   fpu 0 vreg2 = vreg4;//init to avoid accumulator of result with next function call in case only reminder is counted
   gr5--;
   //init

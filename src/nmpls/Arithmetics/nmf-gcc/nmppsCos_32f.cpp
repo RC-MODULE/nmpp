@@ -1,7 +1,7 @@
 
 #include "math.h"
-
-#include "macros.h"
+#include "nmtype.h"
+#include "macros_fpu.h"
 
 static const float coeffs_cos[38]= {
 		//	vreg5
@@ -40,7 +40,7 @@ void nmppsCos_32f(const nm32f* pSrcVec, nm32f* pDstVec, int nSize)
 		int i;
 		for (i=0;i<nSize;i++)
 			b4[i]=pSrcVec[i];
-		cos_vfc( o4, b4, 8 );//	ðåêóðñèÿ!
+		nmppsCos_32f( o4, b4, 8 );//	ðåêóðñèÿ!
 		for (i=0;i<nSize;i++)
 			pDstVec[i]=o4[i];
 		return;

@@ -1,7 +1,7 @@
 
 #include "math.h"
-
-#include "macros.h"
+#include "nmtype.h"
+#include "macros_fpu.h"
 
 static const float coeffs_sin[34]= {
 		//	vreg5

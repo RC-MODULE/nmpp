@@ -110,6 +110,16 @@ unix: Unix/Makefile
 #	-DCMAKE_C_COMPILER="d:/SDK/MinGW/bin/gcc" -DCMAKE_CXX_COMPILER="d:/SDK/MinGW/bin/g++"  -DCMAKE_MAKE_PROGRAM="d:/SDK/MinGW/bin/mingw32-make" 
 
 
+export CC = $(CXX)
+gmake:
+	$(CP) Makefile .Makefile.origin
+	premake5 gmake
+	$(CP) Makefile .Makefile.premake
+	$(CP) .Makefile.origin Makefile
+	$(MAKE) -f .Makefile.premake nmpp-x86
+	
+	
+
 vs8:     	nmpp-x86.vcproj
 	"$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp-x86.vcproj
 

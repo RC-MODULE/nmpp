@@ -216,21 +216,20 @@ __INLINE__ void nmppsPut_64u(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex
     */
     //! \{
 		
-void			nmppsGetVal_1  (nm1*   pVec, int nIndex, int1b *nVal);
-void			nmppsGetVal_2s (nm2s*  pVec, int nIndex, int2b *nVal);
-void			nmppsGetVal_4s (nm4s*  pVec, int nIndex, int4b *nVal);
-void			nmppsGetVal_8s (nm8s*  pVec, int nIndex, int8b *nVal);
-void			nmppsGetVal_16s(nm16s* pVec, int nIndex, int16b *nVal);
-__INLINE__ void		nmppsGetVal_32s(nm32s* pVec, int nIndex, int32b* nVal) { *nVal=pVec[nIndex];}
-__INLINE__ void		nmppsGetVal_64s(nm64s* pVec, int nIndex, int64b* nVal) { *nVal=pVec[nIndex];}
-                
+void			nmppsGetVal_1  (const nm1*   pVec, int nIndex, int1b *nVal);
+void			nmppsGetVal_2s (const nm2s*  pVec, int nIndex, int2b *nVal);
+void			nmppsGetVal_4s (const nm4s*  pVec, int nIndex, int4b *nVal);
+void			nmppsGetVal_8s (const nm8s*  pVec, int nIndex, int8b *nVal);
+void			nmppsGetVal_16s(const nm16s* pVec, int nIndex, int16b *nVal);
+__INLINE__ void	nmppsGetVal_32s(const nm32s* pVec, int nIndex, int32b* nVal) { *nVal=pVec[nIndex];}
+__INLINE__ void	nmppsGetVal_64s(const nm64s* pVec, int nIndex, int64b* nVal) { *nVal=pVec[nIndex];}
 
-void			nmppsGetVal_2u (nm2u*  pVec, int nIndex, uint2b *nVal);
-void			nmppsGetVal_4u (nm4u*  pVec, int nIndex, uint4b *nVal);
-void			nmppsGetVal_8u (nm8u*  pVec, int nIndex, uint8b *nVal);
-void			nmppsGetVal_16u(nm16u* pVec, int nIndex, uint16b *nVal);
-__INLINE__  void	nmppsGetVal_32u(nm32u* pVec, int nIndex, uint32b*  nVal) { *nVal=pVec[nIndex];}
-__INLINE__  void	nmppsGetVal_64u(nm64u* pVec, int nIndex, uint64b*  nVal) { *nVal=pVec[nIndex];}
+void			nmppsGetVal_2u (const nm2u*  pVec, int nIndex, uint2b *nVal);
+void			nmppsGetVal_4u (const nm4u*  pVec, int nIndex, uint4b *nVal);
+void			nmppsGetVal_8u (const nm8u*  pVec, int nIndex, uint8b *nVal);
+void			nmppsGetVal_16u(const nm16u* pVec, int nIndex, uint16b *nVal);
+__INLINE__ void	nmppsGetVal_32u(const nm32u* pVec, int nIndex, uint32b*  nVal) { *nVal=pVec[nIndex];}
+__INLINE__ void	nmppsGetVal_64u(const nm64u* pVec, int nIndex, uint64b*  nVal) { *nVal=pVec[nIndex];}
 
     //! \}
 
@@ -266,18 +265,18 @@ __INLINE__  void	nmppsGetVal_64u(nm64u* pVec, int nIndex, uint64b*  nVal) { *nVa
     
     */
     //! \{
-int2b			nmppsGet_2s(nm2s*  pVec, int nIndex);
-int4b			nmppsGet_4s(nm4s*  pVec, int nIndex);
-int8b			nmppsGet_8s(nm8s*  pVec, int nIndex);
-int16b			nmppsGet_16s(nm16s* pVec, int nIndex);
-__INLINE__ int32b	nmppsGet_32s(nm32s* pVec, int nIndex) {return pVec[nIndex];}
+int2b			nmppsGet_2s (const nm2s*  pVec, int nIndex);
+int4b			nmppsGet_4s (const nm4s*  pVec, int nIndex);
+int8b			nmppsGet_8s (const nm8s*  pVec, int nIndex);
+int16b			nmppsGet_16s(const nm16s* pVec, int nIndex);
+__INLINE__ int32b	nmppsGet_32s(const nm32s* pVec, int nIndex) {return pVec[nIndex];}
 
-uint1b			nmppsGet_1(nm1*   pVec, int nIndex);
-uint2b			nmppsGet_2u(nm2u*  pVec, int nIndex);
-uint4b			nmppsGet_4u(nm4u*  pVec, int nIndex);
-uint8b			nmppsGet_8u(nm8u*  pVec, int nIndex);
-uint16b			nmppsGet_16u(nm16u* pVec, int nIndex);
-__INLINE__ uint32b	nmppsGet_32u(nm32u* pVec, int nIndex) {return pVec[nIndex];}
+uint1b			nmppsGet_1  (const nm1*   pVec, int nIndex);
+uint2b			nmppsGet_2u (const nm2u*  pVec, int nIndex);
+uint4b			nmppsGet_4u (const nm4u*  pVec, int nIndex);
+uint8b			nmppsGet_8u (const nm8u*  pVec, int nIndex);
+uint16b			nmppsGet_16u(const nm16u* pVec, int nIndex);
+__INLINE__ uint32b	nmppsGet_32u(const nm32u* pVec, int nIndex) {return pVec[nIndex];}
     //! \}
 
 /*

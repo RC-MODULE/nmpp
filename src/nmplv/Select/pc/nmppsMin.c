@@ -27,7 +27,7 @@ void nmppsMin_8s7b(
 {
 	int i;
 	
-	nm8s7b* pSrcValue=pSrcVec+1;
+	const nm8s7b* pSrcValue=pSrcVec+1;
 	*pMinValue=pSrcVec[0];
 	for(i=1; i<nSize; i++,pSrcValue++){
 		signed char mask=((*pSrcValue)-(*pMinValue));
@@ -45,7 +45,7 @@ void nmppsMin_16s15b(
 {
 	int i;
 	
-	nm16s15b* pSrcValue=pSrcVec+1;
+	const nm16s15b* pSrcValue=pSrcVec+1;
 	*pMinValue=pSrcVec[0];
 	for(i=1; i<nSize; i++,pSrcValue++){
 		signed short mask=((*pSrcValue)-(*pMinValue));
@@ -61,7 +61,7 @@ void nmppsMin_32s31b(
 				int*		pMinValue)	// Minimum
 {
 	int i;
-	nm32s31b* pSrcValue=pSrcVec+1;
+	const nm32s31b* pSrcValue=pSrcVec+1;
 	*pMinValue=pSrcVec[0];
 	
 	for(i=1; i<nSize; i++,pSrcValue++){
@@ -79,7 +79,7 @@ void nmppsMin_64s63b(
 {
 	int i;
 	
-	nm64s63b* pSrcValue=pSrcVec+1;
+	const nm64s63b* pSrcValue=pSrcVec+1;
 	*pMinValue=pSrcVec[0];
 	for(i=1; i<nSize; i++,pSrcValue++){
 		signed long long mask=((*pSrcValue)-(*pMinValue));

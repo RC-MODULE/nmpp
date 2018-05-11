@@ -1,4 +1,5 @@
-#include "nmtype.h"
+#include "nmpp.h"
+/*
 //int btnum( void *src, int n);
 int btnum( void *src, int n)
 { _asm {
@@ -30,3 +31,14 @@ void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* 
     
    return (int)p;
 } // MulC_2s16s
+*/
+
+void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* pDstVec, int nSize)
+{
+	for (int i=0; i<nSize; i++){ 
+		int s= nmppsGet_2s(pSrcVec,i);
+		s*=nMulC;
+		s+=nAddC;
+		pDstVec[i]=s;
+   }
+}

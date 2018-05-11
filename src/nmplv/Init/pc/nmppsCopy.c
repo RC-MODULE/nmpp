@@ -24,54 +24,56 @@
 
 void nmppsCopy_64s(const nm64s*	pSrcVec,		// Source array
 			nm64s*	pDstVec,		// Destination array
-			int			SizeInt64	// nSize of Source array in 64-bit longs; nSize=[0,1,2...]
+			int			sizeInt64	// nSize of Source array in 64-bit longs; nSize=[0,1,2...]
 		)
 {
-	//for(int idx=0;idx<SizeInt64;idx++)
+	//for(int idx=0;idx<sizeInt64;idx++)
 	//	pDstVec[idx]=pSrcVec[idx];
-	memcpy(pDstVec,pSrcVec,SizeInt64*8);
+	memcpy(pDstVec,pSrcVec,sizeInt64*8);
 }
 
-void nmppsCopy_32s(const nm32s*	pSrcVec,		// Source array							:long Global[SizeInt32/2]
-			nm32s*	pDstVec,		// Destination array					:long Local [SizeInt32/2]
-			int		SizeInt32	// nSize of Source array in 32-bit ints; :SizeInt32= [0,2,4.....]
+void nmppsCopy_32s(const nm32s*	pSrcVec,		// Source array							:long Global[sizeInt32/2]
+			nm32s*	pDstVec,		// Destination array					:long Local [sizeInt32/2]
+			int		sizeInt32	// nSize of Source array in 32-bit ints; :sizeInt32= [0,2,4.....]
 		)
 {
-//	for(int idx=0;idx<SizeInt32;idx++)
+//	for(int idx=0;idx<sizeInt32;idx++)
 //		pDstVec[idx]=pSrcVec[idx];
-	memcpy(pDstVec,pSrcVec,SizeInt32*4);
+	memcpy(pDstVec,pSrcVec,sizeInt32*4);
 }
 
-void nmppsCopy_16s(const nm16s*	pSrcVec,		// Source array							:long Global[SizeInt16/4]
-			nm16s*	pDstVec,		// Destination array					:long Local [SizeInt16/4]
-			int		SizeInt16	// nSize of Source array in 16-bit shorts:SizeInt16= [0,4,8....]
+void nmppsCopy_16s(const nm16s*	pSrcVec,		// Source array							:long Global[sizeInt16/4]
+			nm16s*	pDstVec,		// Destination array					:long Local [sizeInt16/4]
+			int		sizeInt16	// nSize of Source array in 16-bit shorts:sizeInt16= [0,4,8....]
 		)
 {
-	//for(int idx=0;idx<SizeInt16;idx++)
+	//for(int idx=0;idx<sizeInt16;idx++)
 	//	pDstVec[idx]=pSrcVec[idx];
-	memcpy(pDstVec,pSrcVec,SizeInt16*2);
+	memcpy(pDstVec,pSrcVec,sizeInt16*2);
 }
 		
-void nmppsCopy_8s(const nm8s*	pSrcVec,		// Source array							:long Global[SizeInt8/8]
-			nm8s*	pDstVec,		// Destination array					:long Local [SizeInt8/8]
-			int		SizeInt8	// nSize of Source array in 8-bit chars; :SizeInt8=  [0,8,16.....]
+void nmppsCopy_8s(const nm8s*	pSrcVec,		// Source array							:long Global[sizeInt8/8]
+			nm8s*	pDstVec,		// Destination array					:long Local [sizeInt8/8]
+			int		sizeInt8	// nSize of Source array in 8-bit chars; :sizeInt8=  [0,8,16.....]
 		)
 {
-	//for(int idx=0;idx<SizeInt8;idx++)
+	//for(int idx=0;idx<sizeInt8;idx++)
 	//	pDstVec[idx]=pSrcVec[idx];
-	memcpy(pDstVec,pSrcVec,SizeInt8);
+	memcpy(pDstVec,pSrcVec,sizeInt8);
 }
 
-void nmppsCopy_2s(const nm2s*	pSrcVec,		// Source array							:long Global[SizeInt8/8]
-			nm2s*	pDstVec,		// Destination array					:long Local [SizeInt8/8]
-			int		SizeInt2	// nSize of Source array in 2-bit chars; :SizeInt2=  [0,32,64.....]
+void nmppsCopy_2s(const nm2s*	pSrcVec,		// Source array							:long Global[sizeInt8/8]
+			nm2s*	pDstVec,		// Destination array					:long Local [sizeInt8/8]
+			int		sizeInt2	// nSize of Source array in 2-bit chars; :sizeInt2=  [0,32,64.....]
 		)
 {
-	int i,iSize = SizeInt2>>5;
-	long long int *src = pSrcVec;
-	long long int *dst = pDstVec;
-	for(i=0;i<iSize;i++)
-		dst[i]=src[i];
+	//int i,iSize = sizeInt2>>5;
+	//long long int *src = pSrcVec;
+	//long long int *dst = pDstVec;
+	//for(i=0;i<iSize;i++)
+	//	dst[i]=src[i];
+	memcpy(pDstVec,pSrcVec,(sizeInt2>>5)<<3);
+	
 }
 
 void nmppsCopyua_8s(const nm8s*			pSrcVec,		// input buffer		:long Long[...]

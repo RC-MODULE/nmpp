@@ -826,6 +826,7 @@ void nmppsMul_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, nm32fcr *p
 void nmppsConjMul_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, nm32fcr *pDstVec, int nSize);
 void nmppsMul_Mul_Add_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, const nm32fcr *pSrcVec3, const nm32fcr *pSrcVec4, nm32fcr *pDstVec, int nSize);
 void nmppsMul_ConjMul_Add_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, const nm32fcr *pSrcVec3, const nm32fcr *pSrcVec4, nm32fcr *pDstVec, int nSize);
+void nmppsMulC_Add_32fcr(nm32fcr* pSrcVec1, nm32fcr* pSrcVec2, nm32fcr* pDstVec, float C, int nSize);
 //*******************************************************************
 
 

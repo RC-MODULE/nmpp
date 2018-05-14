@@ -113,7 +113,7 @@ unix: Unix/Makefile
 export CC = $(CXX)
 gmake:
 	$(CP) Makefile .Makefile.origin
-	premake5 gmake
+	./premake5 gmake
 	$(CP) Makefile .Makefile.premake
 	$(CP) .Makefile.origin Makefile
 	$(MAKE) -f .Makefile.premake nmpp-x86

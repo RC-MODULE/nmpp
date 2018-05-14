@@ -2,7 +2,8 @@
 ROOT = "../.."
 -- A solution contains projects, and defines the available configurations
 solution "nmpp"
-   configurations { "Debug", "Release" }
+    -- configurations { "Debug", "Release" }
+	configurations { "Debug"}
 
 	--project "nmpp-nmc4"
     --  kind "Makefile"
@@ -21,6 +22,7 @@ solution "nmpp"
 		
 		
 	project "nmpp-x86"
+	  --objdir ("o")
       kind "StaticLib"
       files { ROOT.."../include/*.h",
 	  	ROOT.."/src/nmplc/arithmetic/common/*.cpp",

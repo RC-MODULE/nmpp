@@ -6,6 +6,7 @@
 #include "nmplv/vSupport.h"
 #include "nmplv/vInit.h"
 #include "malloc32.h"
+#include <string.h>
 
 typedef struct SS_IMG_FilterKernel {
 #ifdef __NM__

@@ -29,7 +29,7 @@ void nmppsMax_8s7b(
 {
 	int i;
 	
-	nm8s7b* pSrcValue=pSrcVec+1;
+	const nm8s7b* pSrcValue=pSrcVec+1;
 	*pMaxValue=pSrcVec[0];
 	for(i=1; i<nSize; i++,pSrcValue++){
 		signed char mask=((*pMaxValue)-(*pSrcValue));
@@ -47,7 +47,7 @@ void nmppsMax_16s15b(
 {
 	int i;
 	
-	nm16s15b* pSrcValue=pSrcVec+1;
+	const nm16s15b* pSrcValue=pSrcVec+1;
 	*pMaxValue=pSrcVec[0];
 	for(i=1; i<nSize; i++,pSrcValue++){
 		signed short mask=((*pMaxValue)-(*pSrcValue));
@@ -64,7 +64,7 @@ void nmppsMax_32s31b(
 {
 	int i;
 	
-	nm32s31b* pSrcValue=pSrcVec+1;
+	const nm32s31b* pSrcValue=pSrcVec+1;
 	*pMaxValue=pSrcVec[0];
 	for(i=1; i<nSize; i++,pSrcValue++){
 		signed int mask=((*pMaxValue)-(*pSrcValue));
@@ -80,7 +80,7 @@ void nmppsMax_64s63b(
 				int64b*		pMaxValue)	// Maximum
 {
 	int i;
-	nm64s63b* pSrcValue=pSrcVec+1;
+	const nm64s63b* pSrcValue=pSrcVec+1;
 	*pMaxValue=pSrcVec[0];
 	for(i=1; i<nSize; i++,pSrcValue++){
 		signed long long mask=((*pMaxValue)-(*pSrcValue));

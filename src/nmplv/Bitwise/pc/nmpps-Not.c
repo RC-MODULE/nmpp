@@ -8,8 +8,8 @@ const 	nm2u*			pSrcVec,		// input buffer		:long Local [VecSize/8]
 {
 	int i=0;
 	int iSize = nSize>>5;
-	long long int *src = pSrcVec;
-	long long int *dst = pDstVec;
+	long long int *src = (long long int *)pSrcVec;
+	long long int *dst = (long long int *)pDstVec;
 	for(i=0; i<iSize; i++)
 		src[i] = ~(dst[i]);
 }

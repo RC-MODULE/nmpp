@@ -4,19 +4,19 @@ ROOT = "../.."
 solution "nmpp"
    configurations { "Debug", "Release" }
 
-	project "nmpp-nmc4"
-      kind "Makefile"
-      files { "../src/*.*",ROOT.."../include/*.h", "Makefile" }
-	 
-	  configuration "Debug"
-		   buildcommands {"make DEBUG=y -f Makefile"}
-		   rebuildcommands {"make -B DEBUG=y -f Makefile"}
-		   cleancommands {"make clean"}
-		   
-	  configuration "Release"
-		   buildcommands {"make -f Makefile"}
-		   rebuildcommands {"make -B -f Makefile"}
-		   cleancommands {"make clean"}		   
+	--project "nmpp-nmc4"
+    --  kind "Makefile"
+    --  files { "../src/*.*",ROOT.."../include/*.h", "Makefile" }
+	-- 
+	--  configuration "Debug"
+	--	   buildcommands {"make DEBUG=y -f Makefile"}
+	--	   rebuildcommands {"make -B DEBUG=y -f Makefile"}
+	--	   cleancommands {"make clean"}
+	--	   
+	--  configuration "Release"
+	--	   buildcommands {"make -f Makefile"}
+	--	   rebuildcommands {"make -B -f Makefile"}
+	--	   cleancommands {"make clean"}		   
 		
 		
 		

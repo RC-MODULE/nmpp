@@ -10,6 +10,10 @@
 #define		NUMBUFF1		21
 #define		NUMBUFF2		4
 
+#define		FFTFwdInitAlloc_32fcr(SPEC, SIZE)				nmppsFFT##SIZE##FwdInitAlloc_32fcr(SPEC)
+#define		FFTFwd_32fcr(SRC, DST, SPEC, SIZE)				nmppsFFT##SIZE##Fwd_32fcr(SRC, DST, SPEC)
+#define		FFTInv_32fcr(SRC, DST, SPEC, SIZE)				nmppsFFT##SIZE##Inv_32fcr(SRC, DST, SPEC)
+
 typedef struct
 {   
     nm32fcr *Buffers[NUMBUFF1];
@@ -19,8 +23,8 @@ typedef struct
 
 typedef struct
 {
-  NmppsFFTSpec_32fcr *specX;
-  NmppsFFTSpec_32fcr *specY;
+	NmppsFFTSpec_32fcr *factors;
+	nm32fcr *bufferFFT;
 } NmppiFFTSpec_32fcr;
 
 // sFFT_32fcr

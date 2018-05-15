@@ -70,7 +70,7 @@ else
 endif
 
 #PLATFORMS = vs8 mc5103 emu6405  mb7707 mc12101 gcc
-PLATFORMS = vs8 mc12101_nmc0 mc12101_nmc1 mc5103 mc7601 gcc emu6405
+PLATFORMS = vs8 mc12101_nmc0 mc12101_nmc1 mc5103 mc7601 nmc-gcc gcc emu6405
 TARGET1=mc5103
 #mc12101_nmc1
 TARGET2=vs8
@@ -83,5 +83,3 @@ endef
 define BACKSLASH
 	$(subst /,\,$(1))
 endef
-
- 

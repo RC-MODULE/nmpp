@@ -35,7 +35,8 @@ void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* 
 
 void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* pDstVec, int nSize)
 {
-	for (int i=0; i<nSize; i++){ 
+	int i=0;
+	for (i=0; i<nSize; i++){ 
 		int s= nmppsGet_2s(pSrcVec,i);
 		s*=nMulC;
 		s+=nAddC;

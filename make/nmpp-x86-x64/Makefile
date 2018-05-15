@@ -110,7 +110,7 @@ unix: Unix/Makefile
 #	-DCMAKE_C_COMPILER="d:/SDK/MinGW/bin/gcc" -DCMAKE_CXX_COMPILER="d:/SDK/MinGW/bin/g++"  -DCMAKE_MAKE_PROGRAM="d:/SDK/MinGW/bin/mingw32-make" 
 
 
-export CC = $(CXX)
+#export CC = $(CXX)
 gmake:
 	$(CP) Makefile .Makefile.origin
 	premake5 gmake

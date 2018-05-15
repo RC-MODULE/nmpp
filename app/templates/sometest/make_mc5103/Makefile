@@ -33,8 +33,8 @@ $(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc3.lib
 
 PATH:=$(MC5103)/bin;$(PATH)
 
-lib:
-	$(MAKE) -C $(NMPP)/make/nmpp-nmc3 DEBUG=y
+$(NMPP)/lib/nmpp-nmc3.lib:
+	$(MAKE) -C $(NMPP)/make/nmpp-nmc3
 	
 run: $(TARGET)
 	mc5103run $(TARGET)
@@ -53,8 +53,7 @@ else
 	mc5103run ./$(TARGET) ; echo $$? > .exitcode
 endif
 
-clean:
-	-$(OS_RM) *.abs *.elf .*
+-include $(NMPP)/local.mk
 
 
 	

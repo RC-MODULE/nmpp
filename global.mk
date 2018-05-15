@@ -35,13 +35,18 @@ $(PATH);
    OS_DIFF  = diff
    OS_SCP   = pscp
    OS_CAT   = cat
+    define OSX
+	$(subst /,\,$(1))
+  endef  
   
 #  OS_MV    = rename
    OS_RM    = del /Q
    RM       = rm -f -r
+   CP    = copy                
    OS_RD    = rd /Q /S 
 #  OS_CP    = $(call BACKSLASH,$(GNUWIN32)/cp)
-   OS_CP    = cp
+   OS_CP    = copy
+   CP       = cp
    OS_WHICH =$(windir)/system32/where
  
 
@@ -51,6 +56,7 @@ else
   define OS_PATH
 	$(1)
   endef 
+
   OS_DIFF  = diff   
   OS_SCP   = scp
   OS_RM    = rm -f -r
@@ -59,6 +65,13 @@ else
   OS_FIND  = find
   OS_CAT   = cat
   OS_CP    = cp  
+  CP       = cp
+
+  
+  define OSX
+	$(subst \,/,$(1))
+  endef  
+  
   OS_WHICH = which
   OS_WGET  = wget  
   OS_UNZIP = unzip
@@ -70,7 +83,7 @@ else
 endif
 
 #PLATFORMS = vs8 mc5103 emu6405  mb7707 mc12101 gcc
-PLATFORMS = vs8 mc12101_nmc0 mc12101_nmc1 mc5103 mc7601 gcc emu6405
+PLATFORMS = x86 mc12101_nmc0 mc12101_nmc1 mc5103 mc7601 gcc emu6405
 TARGET1=mc5103
 #mc12101_nmc1
 TARGET2=vs8

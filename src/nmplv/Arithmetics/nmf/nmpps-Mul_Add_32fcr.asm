@@ -48,7 +48,7 @@ begin ".text"
 	fpu 1 rep 32 vreg2 = [ar2++]; 	
 	if > delayed goto ar5 with gr5--;
 		fpu 1 vreg6 = fpu 0 vreg6; 
-		fpu 1 .complex vreg7 = vreg6+vreg2; 
+		fpu 1 .float vreg7 = vreg6+vreg2; 
 		fpu 1 rep 32 [ar6++] = vreg7;
 <Tail>	
 	gr7;		//flag tail

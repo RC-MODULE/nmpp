@@ -95,7 +95,8 @@ int selfTest(){
 
 #define pi 3.1415926535897932384626433832795
 int main()
-{	//return selfTest();
-	return speedTest();
+{	
+	return selfTest();
+	//return speedTest();
 	
 }

@@ -22,7 +22,7 @@ void nmppsConvert_32s32fcr(const nm32s* pSrcVec, nm32fcr* pDstVec, int nSize)
 	}
 }
 
-void nmppsConvert_32sc32fcr(const nm32sc *pSrcVec, nm32fc *pDstVec, int nSize)
+void nmppsConvert_32sc32fcr(const nm32sc *pSrcVec, nm32fcr *pDstVec, int nSize)
 {
 	int i;
 	for(i = 0; i < nSize; i++) {

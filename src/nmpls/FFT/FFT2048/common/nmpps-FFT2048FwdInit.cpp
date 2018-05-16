@@ -89,9 +89,38 @@ void nmppsFFT2048FwdInitSinCos4888(NmppsFFTSpec* spec)
 	}
 }
 
+void nmppsFFT2048FwdInit (NmppsFFTSpec* spec, void* datbuf0, void* datbuf1, void* tblbuf0, void* tblbuf1, int settings )
+{
+	nmppsFFTResetSpec(spec);
+	spec->buffer[0]  =(nm32sc*)datbuf0; //nmppsMalloc_32sc(2048);
+	spec->buffer[1]  =(nm32sc*)datbuf1; //nmppsMalloc_32sc(2048);
+	spec->fftTable[0]=(nm8s*)tblbuf0; //nmppsMalloc_8s(4*4*2+4*8*8+32*8*8+256*8*8);	// Bytes
+	spec->fftTable[1]=(nm8s*)tblbuf1; //nmppsMalloc_8s(4*4*2+4*8*8+32*8*8+256*8*8);	// Bytes
+	
+	spec->shift[0]=0;
+	spec->shift[1]=7;
+	spec->shift[2]=7;
+	spec->shift[3]=7;
+	
+	spec->amp[0]=1;
+	spec->amp[1]=128;
+	spec->amp[2]=128;
+	spec->amp[3]=128;
+
+	if (!(settings&SKIP_SINCOS)){
+		nmppsFFT2048FwdInitSinCos4888(spec);
+	}	
+
+	
+}
+
+
+
 //#define NMPP_OPTIMIZE_ALLOC 1
 //#define NMPP_CUSTOM_ALLOC 2
 //#define SKIP_SINCOS 4
+
+
 int  nmppsFFT2048FwdInitAlloc4888( NmppsFFTSpec** specFFT, const void* src, const void* dst,  int settings)
 {
 	if (settings&NMPP_OPTIMIZE_ALLOC){

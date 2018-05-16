@@ -26,7 +26,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 // Absolute difference calculation
 void nmppsAbsDiff_8s(
-		nm8s*			pSrcVec1,	// input buffer		:long Local			[VecSize/8]
+		const nm8s*			pSrcVec1,	// input buffer		:long Local			[VecSize/8]
 		nm8s*			pSrcVec2,	// input buffer		:long Local/Global	[VecSize/8]
 		nm8s*			pDstVec,		// output buffer	:long Global		[VecSize/8]
 		int				nSize		// size of input buffer in 32 bit elements. nSize=[0,8,16,32...]
@@ -41,7 +41,7 @@ void nmppsAbsDiff_8s(
 // Absolute difference calculation
 // pDstVec[i]=|pSrcVec1[i]-pSrcVec2[i]|
 void nmppsAbsDiff_16s(
-		nm16s*			pSrcVec1,		// input buffer		:long Local	[VecSize/4]
+		const nm16s*			pSrcVec1,		// input buffer		:long Local	[VecSize/4]
 		nm16s*			pSrcVec2,		// input buffer		:long Any   [VecSize/4]
 		nm16s*			pDstVec,			// output buffer	:long Global[VecSize/4]
 		int				nSize			// size of input buffer in 32 bit elements. nSize=[0,4,8...]
@@ -56,7 +56,7 @@ void nmppsAbsDiff_16s(
 // Absolute difference calculation
 // pDstVec[i]=|pSrcVec1[i]-pSrcVec2[i]|
 void nmppsAbsDiff_32s(
-		nm32s*			pSrcVec1,		// input buffer		:long Local	[VecSize/2]
+		const nm32s*			pSrcVec1,		// input buffer		:long Local	[VecSize/2]
 		nm32s*			pSrcVec2,		// input buffer		:long Any   [VecSize/2]
 		nm32s*			pDstVec,			// output buffer	:long Global[VecSize/2]
 		int				nSize			// size of input buffer in 32 bit elements. nSize=[0,2,4..]
@@ -72,7 +72,7 @@ void nmppsAbsDiff_32s(
 // Absolute difference calculation
 // pDstVec[i]=|pSrcVec1[i]-pSrcVec2[i]|
 void nmppsAbsDiff_64s(
-		nm64s*			pSrcVec1,		// input buffer		:long Local	[VecSize/2]
+		const nm64s*			pSrcVec1,		// input buffer		:long Local	[VecSize/2]
 		nm64s*			pSrcVec2,		// input buffer		:long Any   [VecSize/2]
 		nm64s*			pDstVec,		// output buffer	:long Global[VecSize/2]
 		int				nSize			// size of input buffer in 32 bit elements. nSize=[0,2,4..]

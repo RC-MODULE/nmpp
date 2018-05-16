@@ -204,6 +204,7 @@
 	int  nmppsFFT1024InvInitAllocCustom(  NmppsFFTSpec** specFFT, Malloc32Func* allocate, Free32Func* free,  int settings);
 	
 	void nmppsFFT2048Fwd        	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);
+	void nmppsFFT2048FwdInit		(NmppsFFTSpec* specFFT, void* datbuf0, void* datbuf1, void* tblbuf0, void* tblbuf1, int settings );
 	void nmppsFFT2048Fwd4888    	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	void nmppsFFT2048Fwd4888Raw 	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
 	void nmppsFFT2048FwdRaw     	(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec);	
@@ -236,6 +237,11 @@
 	#define nmppsFFT8192InvInit			nmppsFFT8192Inv28888Init	
 	#define nmppsFFT8192InvInitAlloc	nmppsFFT8192Inv28888InitAlloc
 
+	#define FFT2048_TBL0_SIZE64 2048
+	#define FFT2048_TBL1_SIZE64 2048
+	#define FFT2048_TBL2_SIZE64 (4*4*2+4*8*8+32*8*8+256*8*8)/8
+	#define FFT2048_TBL3_SIZE64 (4*4*2+4*8*8+32*8*8+256*8*8)/8
+	
 	#define FFT8192_TBL0_SIZE64 9344/8
 	#define FFT8192_TBL1_SIZE64 65536/8
 	#define FFT8192_TBL2_SIZE64 9344/8

@@ -4,7 +4,7 @@
 //*                                                                         */
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
-//*   File:             nmpps-FFT256Fwd_32fcr.s                             	*/
+//*   File:             nmpps-FFT256Fwd_32fcr.s                             */
 //*   Contents:         Routine for forward and inverse FFT 256             */
 //*                     of complex array with 32 bit elements				*/
 //*	  Max Speed:		1812 ticks											*/
@@ -180,11 +180,11 @@ begin ".text"
 	fpu 1 rep 32 vreg0 = [ar1++];
 	fpu 2 rep 32 vreg0 = [ar2++];
 	fpu 3 rep 32 vreg0 = [ar2++];
-	
-	fpu 0 vreg4 = fpu 1 vreg5;
+
 	fpu 1 vreg4 = fpu 0 vreg6;
-	fpu 2 vreg4 = fpu 3 vreg5;
+	fpu 0 vreg4 = fpu 1 vreg5;
 	fpu 3 vreg4 = fpu 2 vreg6;
+	fpu 2 vreg4 = fpu 3 vreg5;
 
 	fpu 0 .complex vreg1 = vreg4 * vreg0 + vreg5;
 	fpu 0 .complex vreg2 = -vreg4 * vreg0 + vreg5;

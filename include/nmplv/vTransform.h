@@ -233,7 +233,7 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 */
 	void nmppsSplit_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size, nm8s* tmpSizeofDst);
 	
-   /**
+    /**
 	    \defgroup nmppSplitEco nmppSplitEco
         \ingroup vTransform
     
@@ -251,7 +251,24 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 */
 	void nmppsSplitEco_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size);	
 
-	
+	/**
+	    \defgroup nmppSplit_32fcr nmppSplit_32fcr
+        \ingroup vTransform
+    
+	 *  \brief Расщепляет массив на два, группируя по четным и нечетным элементам
+	 *  
+	 *  \param [in]  pSrcVec  Входной массив
+	 *  \param [out] pDstVec1 Выходной массив размера size/2 
+	 *  \param [out] pDstVec2 Выходной массив размера size/2 
+	 *  \param [in]  sizeSrc Размер исходного массива в элементах (должен быть четным)
+	 *  \return 
+	 *  
+	 *  \details Details 
+	 *  Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
+	 *  Макс  производиельность  на 64-р. слово результата = 1 такт
+	 */
+	void nmppsSplit_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec1, nm32fcr* pDstVec2, int sizeSrc);
+
 	/**
 	    \defgroup nmppsDecimate nmppsDecimate
         \ingroup vTransform

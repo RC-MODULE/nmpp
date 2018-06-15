@@ -38,7 +38,7 @@ void nmppsSplitEco_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int sizeSrc)
 	}
 }
 
-void nmppsSplit_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec1, nm32fcr* pDstVec2, int sizeSrc);
+void nmppsSplit_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec1, nm32fcr* pDstVec2, int sizeSrc)
 {
 	int i;
 	for (i = 0; i < sizeSrc / 2; i++) {

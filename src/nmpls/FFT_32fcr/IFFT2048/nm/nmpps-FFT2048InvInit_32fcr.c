@@ -77,7 +77,7 @@ int nmppsFFT2048InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
 
 /************************************W2048*************************************/
     for(i = 0; i < 1024; i++) {
-        alpha = (2 * pi * (float)i) / 2048.0;
+        alpha = (2.0 * pi * (float)i) / 2048.0;
         spec_32fcr->Buffers[10][i].im = sinf(alpha);
         spec_32fcr->Buffers[10][i].re = cosf(alpha);
     }

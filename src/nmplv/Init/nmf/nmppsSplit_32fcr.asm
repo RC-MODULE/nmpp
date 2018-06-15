@@ -1,6 +1,6 @@
-global _Split_32fcr: label;
+global _nmppsSplit_32fcr: label;
 begin "text"
-<_Split_32fcr>
+<_nmppsSplit_32fcr>
 	ar5 = ar7 - 2;
 	push ar3, gr3;
 	push ar2, gr2;

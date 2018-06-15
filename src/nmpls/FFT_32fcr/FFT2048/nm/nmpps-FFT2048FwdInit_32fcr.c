@@ -4,7 +4,7 @@
 //*                                                                         */
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
-//*   File:             nmpps-FFT2048FwdInit_32fc.c                         */
+//*   File:             nmpps-FFT2048FwdInit_32fcr.c                        */
 //*   Contents:         Routine for the struct initialization               */
 //*                     of the W-coefficients for FFT2048Fwd                */
 //***************************************************************************/

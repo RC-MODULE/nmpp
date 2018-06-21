@@ -13,45 +13,39 @@ begin "text"
 	ar3 = [--ar5];		// W
 	gr1 = [--ar5];		// N
 
-	ar5 = ar2 + 4096 with gr1--;
+	ar5 = ar2 + 4096;
 
 <LAST_LAYER>
 	fpu 0 rep 32 vreg0 = [ar3++];
-	fpu 1 rep 32 vreg0 = [ar3++];
+	fpu 1 vreg0 = fpu 0 vreg0;
+
 	fpu 2 rep 32 vreg0 = [ar3++];
-	fpu 3 rep 32 vreg0 = [ar3++];
+	fpu 3 vreg0 = fpu 2 vreg0;
 
 	fpu 0 rep 32 vreg1 = [ar0++];
-	fpu 0 rep 32 vreg2 = [ar1++]; // need mul W
-	fpu 0 .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu 0 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+	fpu 1 rep 32 vreg1 = [ar1++]; // xW
+	fpu 0 vreg2 = fpu 1 vreg1;    // xW
+	fpu 1 vreg2 = fpu 0 vreg1;
 
-	fpu 1 rep 32 vreg1 = [ar0++];
-	fpu 1 rep 32 vreg2 = [ar1++]; // need mul W
-	fpu 1 .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu 1 .complex vreg6 = -vreg0 * vreg2 + vreg1;
-	
+	fpu 0 .complex vreg3 = vreg0 * vreg2 + vreg1;
+	fpu 1 .complex vreg3 = -vreg0 * vreg1 + vreg2;
+
 	fpu 2 rep 32 vreg1 = [ar0++];
-	fpu 2 rep 32 vreg2 = [ar1++]; // need mul W
-	fpu 2 .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu 2 .complex vreg6 = -vreg0 * vreg2 + vreg1;
-	
-	fpu 3 rep 32 vreg1 = [ar0++];
-	fpu 3 rep 32 vreg2 = [ar1++]; // need mul W
-	fpu 3 .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu 3 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+	fpu 3 rep 32 vreg1 = [ar1++]; // xW
+	fpu 2 vreg2 = fpu 3 vreg1;    // xW
+	fpu 3 vreg2 = fpu 2 vreg1;
 
-	fpu 0 rep 32 [ar2++] = vreg5;
-	fpu 1 rep 32 [ar2++] = vreg5;
-	fpu 2 rep 32 [ar2++] = vreg5;
-	fpu 3 rep 32 [ar2++] = vreg5;
+	fpu 2 .complex vreg3 = vreg0 * vreg2 + vreg1;
+	fpu 3 .complex vreg3 = -vreg0 * vreg1 + vreg2;
 
-	fpu 0 rep 32 [ar5++] = vreg6;
-	fpu 1 rep 32 [ar5++] = vreg6;
+	fpu 0 rep 32 [ar2++] = vreg3;
+	fpu 2 rep 32 [ar2++] = vreg3;
 
-	if > delayed goto LAST_LAYER with gr1--;
-		fpu 2 rep 32 [ar5++] = vreg6;
-		fpu 3 rep 32 [ar5++] = vreg6;
+	fpu 1 rep 32 [ar5++] = vreg3;
+	fpu 3 rep 32 [ar5++] = vreg3;
+	gr1--;
+	if > goto LAST_LAYER;
+
 
 <exit_LastLayerFFT_32fcr>
 	pop ar0, gr0;

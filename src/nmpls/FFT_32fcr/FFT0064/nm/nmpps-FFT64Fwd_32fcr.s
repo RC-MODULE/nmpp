@@ -7,17 +7,17 @@ end ".data_imu1";
 begin ".data_imu7"
 <_nmppsFFT64Fwd_32fcr>
 <_nmppsFFT64Inv_32fcr>
-	set fp_branch;
 	ar5 = ar7 - 2;
 	push ar6, gr6;
+	push ar5, gr5;
 	push ar4, gr4;
 	push ar3, gr3;
 	push ar2, gr2;
 	push ar1, gr1;
 	push ar0, gr0;
+
 	ar3 = [--ar5]; // input x
-	ar0 = [--ar5]; // output X
-	gr2 = ar0;
+	gr2 = [--ar5]; // output X
 	gr1 = 16;
 	gr0 = gr1 >> 2;
 	ar5 = [--ar5];
@@ -87,98 +87,107 @@ begin ".data_imu7"
 	gr3 = [ar4++];
 	nul;
 // COMPUTE 4 things of FFT16
-	//ar5 = ar5 + 5;
 	ar1 = [ar5++]; // W8
-	ar0 = gr5;
+	ar0 = gr5 with gr4 = gr1 >> 3;
 	ar6 = gr6;
+	ar3 = ar0;
+	ar4 = ar6;
+
 	fpu 0 rep 8 vreg0 = [ar1++];
 	fpu 1 vreg0 = fpu 0 vreg0;
 	fpu 2 vreg0 = fpu 1 vreg0;
 	fpu 3 vreg0 = fpu 2 vreg0;
 
+<COMP_4_16_64>
 	fpu 0 rep 8 vreg1 = [ar0++];
-	fpu 0 rep 8 vreg2 = [ar6++];
-	fpu 0 .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu 0 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+	fpu 1 rep 8 vreg1 = [ar6++]; // xW
+	fpu 0 vreg2 = fpu 1 vreg1;   // xW
+	fpu 1 vreg2 = fpu 0 vreg1;
 	
-	fpu 1 rep 8 vreg1 = [ar0++];
-	fpu 1 rep 8 vreg2 = [ar6++];
-	fpu 1 .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu 1 .complex vreg6 = -vreg0 * vreg2 + vreg1;
-	ar3 = gr5;
-	ar4 = gr6;
+	fpu 0 .complex vreg3 = vreg0 * vreg2 + vreg1;
+	fpu 1 .complex vreg3 = -vreg0 * vreg1 + vreg2;
+
 	fpu 2 rep 8 vreg1 = [ar0++];
-	fpu 2 rep 8 vreg2 = [ar6++];
-	fpu 2 .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu 2 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+	fpu 3 rep 8 vreg1 = [ar6++]; // xW
+	fpu 2 vreg2 = fpu 3 vreg1;   // xW
+	fpu 3 vreg2 = fpu 2 vreg1;
+	
+	fpu 2 .complex vreg3 = vreg0 * vreg2 + vreg1;
+	fpu 3 .complex vreg3 = -vreg0 * vreg1 + vreg2;
 
-	fpu 3 rep 8 vreg1 = [ar0++];
-	fpu 3 rep 8 vreg2 = [ar6++];
-	fpu 3 .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu 3 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+	fpu 0 rep 8 [ar3++] = vreg3;
+	fpu 2 rep 8 [ar4++] = vreg3;
 
-	fpu 0 rep 8 [ar3++] = vreg5;
-	fpu 1 rep 8 [ar4++] = vreg5;
-
-	fpu 0 rep 8 [ar3++] = vreg6;
-	fpu 1 rep 8 [ar4++] = vreg6;
-
-	fpu 2 rep 8 [ar3++] = vreg5;
-	fpu 3 rep 8 [ar4++] = vreg5;
-
-	fpu 2 rep 8 [ar3++] = vreg6;
-	fpu 3 rep 8 [ar4++] = vreg6;
-
+	fpu 1 rep 8 [ar3++] = vreg3;
+	fpu 3 rep 8 [ar4++] = vreg3;
+	gr4--;
+	if > goto COMP_4_16_64;
 // END COMPUTE 4 things of FFT16
 
 // COMPUTE 2 things of FFT32
 	ar2 = gr2; // output X
-	//ar5++;
 	ar1 = [ar5++]; // W16
 	ar0 = gr5;
 	ar6 = gr6;
+	ar3 = ar0;
+	ar4 = ar6;
 
 	fpu 0 rep 16 vreg0 = [ar1++];
 	fpu 1 vreg0 = fpu 0 vreg0;
+	fpu 2 vreg0 = fpu 1 vreg0;
+	fpu 3 vreg0 = fpu 2 vreg0;
 
 	fpu 0 rep 16 vreg1 = [ar0++];
-	fpu 0 rep 16 vreg2 = [ar6++];
-	fpu 0 .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu 0 .complex vreg6 = -vreg0 * vreg2 + vreg1;
-	ar3 = gr5;
-	ar4 = gr6;
-	fpu 1 rep 16 vreg1 = [ar0++];
-	fpu 1 rep 16 vreg2 = [ar6++];
-	fpu 1 .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu 1 .complex vreg6 = -vreg0 * vreg2 + vreg1;
+	fpu 1 rep 16 vreg1 = [ar6++]; // xW
+	fpu 0 vreg2 = fpu 1 vreg1;    // xW
+	fpu 1 vreg2 = fpu 0 vreg1;
+	
+	fpu 0 .complex vreg3 = vreg0 * vreg2 + vreg1;
+	fpu 1 .complex vreg3 = -vreg0 * vreg1 + vreg2;
 
-	fpu 0 rep 16 [ar3++] = vreg5;
-	fpu 1 rep 16 [ar4++] = vreg5;
+	fpu 2 rep 16 vreg1 = [ar0++];
+	fpu 3 rep 16 vreg1 = [ar6++]; // xW
+	fpu 2 vreg2 = fpu 3 vreg1;    // xW
+	fpu 3 vreg2 = fpu 2 vreg1;
+	
+	fpu 2 .complex vreg3 = vreg0 * vreg2 + vreg1;
+	fpu 3 .complex vreg3 = -vreg0 * vreg1 + vreg2;
 
-	fpu 0 rep 16 [ar3++] = vreg6;
-	fpu 1 rep 16 [ar4++] = vreg6;
+	fpu 0 rep 16 [ar3++] = vreg3;
+	fpu 2 rep 16 [ar4++] = vreg3;
+
+	fpu 1 rep 16 [ar3++] = vreg3;
+	fpu 3 rep 16 [ar4++] = vreg3;
+
 // END COMPUTE 2 things of FFT32
 
 // COMPUTE 1 FFT64
-	//ar5++;
 	ar1 = [ar5++]; // W32
 	ar0 = gr5;
 	ar6 = gr6;
 	fpu 0 rep 32 vreg0 = [ar1++];
+	fpu 1 vreg0 = fpu 0 vreg0;
+
 	fpu 0 rep 32 vreg1 = [ar0++];
-	fpu 0 rep 32 vreg2 = [ar6++];
-	fpu 0 .complex vreg3 = vreg2 * vreg0 + vreg1;
-	fpu 0 .complex vreg4 = -vreg2 * vreg0 + vreg1;
+	fpu 1 rep 32 vreg1 = [ar6++]; // xW
+	fpu 0 vreg2 = fpu 1 vreg1;    // xW
+	fpu 1 vreg2 = fpu 0 vreg1;
+
+	fpu 0 .complex vreg3 = vreg0 * vreg2 + vreg1;
+	fpu 1 .complex vreg3 = -vreg0 * vreg1 + vreg2;
+
 // END COMPUTE FFT64
 
 	fpu 0 rep 32 [ar2++] = vreg3;
-	fpu 0 rep 32 [ar2++] = vreg4;
+	fpu 1 rep 32 [ar2++] = vreg3;
+
 <exit_fft64>
 	pop ar0, gr0;
 	pop ar1, gr1;
 	pop ar2, gr2;
 	pop ar3, gr3;
 	pop ar4, gr4;
+	pop ar5, gr5;
 	pop ar6, gr6;
 	return;
 end ".data_imu7";

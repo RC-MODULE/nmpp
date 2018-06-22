@@ -5,7 +5,7 @@
 #include <malloc.h>
 #include <stdio.h>
 
-#pragma data_section ".data_imu3"
+#pragma data_section ".data_imu5"
 	nm32fcr src[4096];
 #pragma data_section ".data_imu5"
 	nm32fcr dst[4096 + 12];
@@ -17,7 +17,7 @@ int main()
 	int i, st;
 	clock_t t1, t2;
 	//nm32fcr *src, *dst;
-	// best config (ticks = 24219)
+	// best config (ticks = 55977)
 	//src = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
 	//dst = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
 	for(i = 0; i < SIZE; i++) {

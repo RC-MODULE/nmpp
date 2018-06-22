@@ -24,13 +24,6 @@ AddrForDFT16: word[64] = (
 AddrForFFT16: word[16] = (0, 16, 8, 24, 4, 20, 12, 28, 2, 18, 10, 26, 6, 22, 14, 30);
 end ".data_imu2";
 
-macro COMPUTE_FFT16_32_64_1024(NMF, LEN)
-	fpu NMF rep LEN vreg1 = [ar0++];
-	fpu NMF rep LEN vreg2 = [ar6++]; // need mul W
-	fpu NMF .complex vreg5 = vreg0 * vreg2 + vreg1; // 1 part of FFT64
-	fpu NMF .complex vreg6 = -vreg0 * vreg2 + vreg1; // 2 part of FFT64
-end COMPUTE_FFT16_32_64_1024;
-
 begin ".text"
 <_nmppsFFT1024Fwd_32fcr>
 <_nmppsFFT1024Inv_32fcr>
@@ -47,18 +40,15 @@ begin ".text"
 	ar5 = [--ar5]; // adress of the struct with W 
 	gr1 = 128;
 	vlen = 31;
-	gr0 = gr1 >> 3; // cycles number
-	
+
 // SORT 64 VECTORS FOR FFT16	
 	ar4 = AddrForDFT16;
-	ar2 = [ar5++]; // 1.0 or 1/1024
-	ar0 = [ar5++]; // buff_fft1024
-	ar6 = [ar5++]; // buff_fft1024_mulW
-	fpu 0 rep 1 vreg1 = [ar2]; // 1.0 or 1/1024
+	ar2 = [ar5++]; 					// 1.0 or 1/1024
+	ar0 = [ar5++]; 					// buff_fft1024
+	ar6 = [ar5++]; 					// buff_fft1024_mulW
+	fpu 0 rep 1 vreg1 = [ar2]; 		// 1.0 or 1/1024
 	fpu 1 vreg1 = fpu 0 vreg1;
-	fpu 2 vreg1 = fpu 1 vreg1;
-	fpu 3 vreg1 = fpu 2 vreg1;
-	gr4 = ar0;
+	gr4 = ar0 with gr0 = gr1 >> 2;  // cycles number;
 	gr7 = ar6;
 <SORT_64_FFT16>
 	gr3 = [ar4++];
@@ -69,30 +59,19 @@ begin ".text"
 	ar1 = ar3 + gr3;
 	fpu 1 rep 16 vreg0 = [ar1++gr1];
 	fpu 1 .complex vreg0 = vreg0 * .retrive(vreg1);
-	gr3 = [ar4++];
-	ar1 = ar3 + gr3;
-	fpu 2 rep 16 vreg0 = [ar1++gr1];
-	fpu 2 .complex vreg0 = vreg0 * .retrive(vreg1);
-	gr3 = [ar4++];
-	ar1 = ar3 + gr3;
-	fpu 3 rep 16 vreg0 = [ar1++gr1];
-	fpu 3 .complex vreg0 = vreg0 * .retrive(vreg1);
 
 	fpu 0 rep 16 [ar0++] = vreg0;
 	fpu 1 rep 16 [ar6++] = vreg0;
-	fpu 2 rep 16 [ar0++] = vreg0;
-	fpu 3 rep 16 [ar6++] = vreg0;
 	gr0--;
 	if > goto SORT_64_FFT16;
 // END SORT
 
 // COMPUTE 64 PART OF FFT16
-	gr1 >>= 2; // step for FFT16 = 32 for input
-	ar3 = gr4; // addr for input buff_fft1024
-	gr6 = gr5; // addr for output buff_fft1024
+	ar3 = gr4 with gr1 >>= 2; // step for FFT16 = 32 for input // addr for input buff_fft1024
+	gr6 = gr5; 				  // addr for output buff_fft1024
 	delayed call _FFTFwd16x32Core;
-		ar0 = AddrForFFT16; // addr for index
-	gr6 = [ar5]; // buff_fft1024xW
+		ar0 = AddrForFFT16;  // addr for index
+	gr6 = [ar5]; 			 // buff_fft1024xW
 	ar3 = gr7;
 	ar5 = ar5 - 7;
 	delayed call _FFTFwd16x32Core;
@@ -100,18 +79,18 @@ begin ".text"
 // END FFT16
 
 // COMPUTE 32 OF FFT32
-	ar5++;
-	ar1 = [ar5++]; // W16_0
-	ar2 = [ar5++]; // W16_1
-	ar0 = gr5; // output X
-	ar6 = gr6; // buff_fft1024xW
-	ar3 = gr4; // buff_fft1024
-	ar4 = gr7; // buff_fft1024_mulW
-	gr0 = gr1 >> 2;
-	fpu 0 rep 16 vreg0 = [ar1++];
-	fpu 1 rep 16 vreg0 = [ar2++];
-	fpu 2 vreg0 = fpu 0 vreg0;
-	fpu 3 vreg0 = fpu 1 vreg0;
+	ar5++ with gr1 <<= 1;
+	ar0 = gr5 with gr2 = gr1 >> 3;      // output X
+	ar1 = [ar5++];  					// W1024
+	ar6 = gr6;      					// buff_fft1024xW
+	gr0 = ar1;							// saving of W1024 addr
+	ar3 = gr4;      					// buff_fft1024
+	ar4 = gr7;      					// buff_fft1024_mulW
+	
+	fpu 0 rep 16 vreg0 = [ar1++gr1];
+	fpu 1 vreg0 = fpu 0 vreg0;
+	fpu 2 vreg0 = fpu 1 vreg0;
+	fpu 3 vreg0 = fpu 2 vreg0;
 
 <COMP_FFT32_1024>
 	fpu 0 rep 16 vreg1 = [ar0++];
@@ -145,19 +124,17 @@ begin ".text"
 	fpu 3 rep 16 [ar4++] = vreg5;
 	fpu 2 rep 16 [ar3++] = vreg6;
 	fpu 3 rep 16 [ar4++] = vreg6;
-	gr0--;
+	gr2--;
 	if > goto COMP_FFT32_1024 ;
 // END FFT32
 
 // COMPUTE 16 OF FFT64
-	ar0 = gr4; // buff_fft1024
-	ar6 = gr7; // buff_fft1024_mulW
-	ar1 = [ar5++]; // W1024
-	gr2 = gr1 >> 3;
-	ar3 = gr5; // output X
-	gr0 = ar1; // saving W1024
-	ar4 = gr6; // buff_fft1024xW
-	fpu 0 rep 32 vreg0 = [ar1++gr1]; // W32
+	ar1 = gr0;
+	ar0 = gr4 with gr1 >>= 1; 				// buff_fft1024
+	ar6 = gr7; 								// buff_fft1024_mulW
+	ar3 = gr5; 								// output X
+	ar4 = gr6 with gr2 = gr1 >> 3;			// buff_fft1024xW
+	fpu 0 rep 32 vreg0 = [ar1++gr1]; 		// W32
 	fpu 1 vreg0 = fpu 0 vreg0;
 	fpu 2 vreg0 = fpu 1 vreg0;
 	fpu 3 vreg0 = fpu 2 vreg0;
@@ -199,14 +176,14 @@ begin ".text"
 // END FFT64
 
 // COMPUTE 8 OF FFT128
-	ar0 = gr5; // output X
-	ar6 = gr6; // buff_fft1024xW
-	ar1 = gr0 with gr1 >>= 1; // gr1 = 16 // W1024
-	ar3 = gr4 with gr3 = gr1 >> 2; // buff_fft1024
-	ar4 = gr7; // buff_fft1024_mulW
+	ar0 = gr5; 								// output X
+	ar6 = gr6; 								// buff_fft1024xW
+	ar1 = gr0 with gr1 >>= 1; // gr1 = 16 	// W1024
+	ar3 = gr4 with gr3 = gr1 >> 2; 			// buff_fft1024
+	ar4 = gr7; 								// buff_fft1024_mulW
 
-	fpu 0 rep 32 vreg0 = [ar1++gr1]; // 1 - W64
-	fpu 1 rep 32 vreg0 = [ar1++gr1]; // 2 - W64
+	fpu 0 rep 32 vreg0 = [ar1++gr1]; 		// 1 - W64
+	fpu 1 rep 32 vreg0 = [ar1++gr1]; 		// 2 - W64
 	fpu 2 vreg0 = fpu 0 vreg0;
 	fpu 3 vreg0 = fpu 1 vreg0;
 
@@ -248,11 +225,11 @@ begin ".text"
 // END FFT 128
 
 // COMPUTE 4 OF FFT256
-	ar0 = gr4; // buff_fft1024
-	ar6 = gr7; // buff_fft1024_mulW
-	ar1 = gr0 with gr1 >>= 1; // gr1 = 8 // W1024
-	ar3 = gr5; // output X
-	ar4 = gr6 with gr2 = gr1 >> 2; // buff_fft1024xW
+	ar0 = gr4; 								// buff_fft1024
+	ar6 = gr7; 							   // buff_fft1024_mulW
+	ar1 = gr0 with gr1 >>= 1; // gr1 = 8  // W1024
+	ar3 = gr5; 							 // output X
+	ar4 = gr6 with gr2 = gr1 >> 2; 		// buff_fft1024xW
 
 	fpu 0 rep 32 vreg0 = [ar1++gr1]; // 1 - W128
 	fpu 1 rep 32 vreg0 = [ar1++gr1]; // 2 - W128
@@ -474,12 +451,12 @@ begin ".text"
 // END FFT512
 
 // COMPUTE 1 OF FFT1024
-	gr1 <<= 1;
-	ar0 = gr4; // buff_fft1024
-	ar6 = gr7; // buff_fft1024_mulW
-	ar1 = gr0; // W1024
-	ar2 = gr5; // output X
-	ar3 = ar2 + 1024;
+
+	ar0 = gr4; 							// buff_fft1024
+	ar6 = gr7; 							// buff_fft1024_mulW
+	ar1 = gr0; 							// W1024
+	ar2 = gr5; 							// output X
+	ar3 = ar2 + 1024 with gr1 <<= 1;
 
 <LAST_LAYER_1024>
 	fpu 0 rep 32 vreg0 = [ar1++];

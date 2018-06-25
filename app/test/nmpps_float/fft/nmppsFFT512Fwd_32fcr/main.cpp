@@ -7,7 +7,7 @@
 
 #define		SIZE 		512
 
-#pragma data_section ".data_imu1"
+#pragma data_section ".data_imu2"
 	nm32fcr src[512];
 #pragma data_section ".data_imu5"
 	nm32fcr dst[512];

@@ -15,13 +15,12 @@ global _nmppsFFT1024Inv_32fcr: label;
 extern _FFTFwd16x32Core: label;
 
 data ".data_imu2"
-AddrForDFT16: word[64] = (
+AddrForFFT16: word[64] = (
 	0, 64, 32, 96, 16, 80, 48, 112, 8, 72, 40, 104, 24, 88, 56, 120,
 	4, 68, 36, 100, 20, 84, 52, 116, 12, 76, 44, 108, 28, 92, 60, 124,
 	2, 66, 34, 98, 18, 82, 50, 114, 10, 74, 42, 106, 26, 90, 58, 122,
 	6, 70, 38, 102, 22, 86, 54, 118, 14, 78, 46, 110, 30, 94, 62, 126
 	);
-AddrForFFT16: word[16] = (0, 16, 8, 24, 4, 20, 12, 28, 2, 18, 10, 26, 6, 22, 14, 30);
 end ".data_imu2";
 
 begin ".text"
@@ -42,7 +41,7 @@ begin ".text"
 	vlen = 31;
 
 // SORT 64 VECTORS FOR FFT16	
-	ar4 = AddrForDFT16;
+	ar4 = AddrForFFT16;
 	ar2 = [ar5++]; 					// 1.0 or 1/1024
 	ar0 = [ar5++]; 					// buff_fft1024
 	ar6 = [ar5++]; 					// buff_fft1024_mulW
@@ -67,15 +66,16 @@ begin ".text"
 // END SORT
 
 // COMPUTE 64 PART OF FFT16
-	ar3 = gr4 with gr1 >>= 2; // step for FFT16 = 32 for input // addr for input buff_fft1024
-	gr6 = gr5; 				  // addr for output buff_fft1024
+	
 	delayed call _FFTFwd16x32Core;
-		ar0 = AddrForFFT16;  // addr for index
-	gr6 = [ar5]; 			 // buff_fft1024xW
-	ar3 = gr7;
+		ar3 = gr4 with gr1 >>= 2; // step for FFT16 = 32 for input // addr for input buff_fft1024
+		gr6 = gr5; 				  // addr for output buff_fft1024
+	
 	ar5 = ar5 - 7;
+	
 	delayed call _FFTFwd16x32Core;
-		ar0 = AddrForFFT16;
+		gr6 = [ar5]; 			 // buff_fft1024xW
+		ar3 = gr7;
 // END FFT16
 
 // COMPUTE 32 OF FFT32

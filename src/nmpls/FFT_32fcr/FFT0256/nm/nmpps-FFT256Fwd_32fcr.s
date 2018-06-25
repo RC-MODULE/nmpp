@@ -16,7 +16,6 @@ global _nmppsFFT256Inv_32fcr: label;
 extern _FFTFwd16x32Core: label;
 
 data ".data_imu2"
-AddrForFFT16_256: word[16] = (0, 16, 8, 24, 4, 20, 12, 28, 2, 18, 10, 26, 6, 22, 14, 30);
 AddrForDFT16_256: word[16] = (
 					0, 16, 8, 24,
 					 4, 20, 12, 28,
@@ -82,15 +81,15 @@ begin ".text"
 // end 16 FFT16
 
 /**********************Computing of 16 part of FFT16**********************/
-	ar3 = gr4; // addr for input buff_fft256
-	gr6 = ar3; // addr for output buff_fft256
 	delayed call _FFTFwd16x32Core;
-		ar0 = AddrForFFT16_256; // addr for index
+		ar3 = gr4; // addr for input buff_fft256
+		gr6 = ar3; // addr for output buff_fft256
+
 	ar5 = ar5 - 7;
-	ar3 = gr7; // buff_fft256xW
-	gr6 = ar3;
+	
 	delayed call _FFTFwd16x32Core;
-		ar0 = AddrForFFT16_256;
+		ar3 = gr7; // buff_fft256xW
+		gr6 = ar3;
 // END FFT16
 
 /**********************Computing of 8 part of FFT32**********************/

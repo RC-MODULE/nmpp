@@ -21,20 +21,7 @@ AddrFor128xFFT16: word[128] = (
 	4, 132, 68, 196, 36, 164, 100, 228, 20, 148, 84, 212, 52, 180, 116, 244, 12, 140, 76, 204, 44, 172, 108, 236, 28, 156, 92, 220, 60, 188, 124, 252,
 	2, 130, 66, 194, 34, 162, 98, 226, 18, 146, 82, 210, 50, 178, 114, 242, 10, 138, 74, 202, 42, 170, 106, 234, 26, 154, 90, 218, 58, 186, 122, 250,
 	6, 134, 70, 198, 38, 166, 102, 230, 22, 150, 86, 214, 54, 182, 118, 246, 14, 142, 78, 206, 46, 174, 110, 238, 30, 158, 94, 222, 62, 190, 126, 254);
-
-AddrForFFT16: word[16] = (0, 16, 8, 24, 4, 20, 12, 28, 2, 18, 10, 26, 6, 22, 14, 30);
 end ".data_imu1";
-
-macro COMPUTE_FFT128_2048(NN)
-	fpu NN rep 32 vreg2 = [ar0++];
-	fpu NN rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu NN rep 32 vreg4 = [ar0++];
-	fpu NN rep 32 vreg5 = [ar6++]; // need mul W128
-	fpu NN .complex vreg6 = vreg0 * vreg3 + vreg2;
-	fpu NN .complex vreg7 = vreg1 * vreg5 + vreg4;
-	fpu NN .complex vreg2 = -vreg0 * vreg3 + vreg2;
-	fpu NN .complex vreg4 = -vreg1 * vreg5 + vreg4;
-end COMPUTE_FFT128_2048;
 
 begin ".data_2048"
 <_nmppsFFT2048Fwd_32fcr>
@@ -82,31 +69,26 @@ begin ".data_2048"
 // END SORT
 
 // COMPUTE 128 PART OF FFT16
-	gr1 >>= 3;						// step for FFT16 = 32 for input
-	ar3 = gr4;						// addr for input buff_fft1024
-	gr6 = ar3;						// addr for output buff_fft1024
 	delayed call _FFTFwd16x32Core;
-		ar0 = AddrForFFT16;			// addr for index
-
+		ar3 = gr4 with gr1 >>= 3;	// step for FFT16 = 32 for input // addr for input buff_fft1024
+		gr6 = ar3;					// addr for output buff_fft1024
+	
 	ar3 = gr4;
-	ar5 -= 7;
 	ar3 += 1024;
 	gr6 = ar3;
 	delayed call _FFTFwd16x32Core;
-		ar0 = AddrForFFT16;			// addr for index
+		ar5 -= 7;
 	
 	ar3 = gr5;
-	ar5 -= 7;
 	gr6 = ar3;
 	delayed call _FFTFwd16x32Core;
-		ar0 = AddrForFFT16;
+		ar5 -= 7;
 
 	ar3 = gr5;
-	ar5 -= 7;
 	ar3 += 1024;
 	gr6 = ar3;
 	delayed call _FFTFwd16x32Core;
-		ar0 = AddrForFFT16;
+		ar5 -= 7;
 // END FFT16
 
 // COMPUTE 64 OF FFT32

@@ -40,7 +40,7 @@ endif
 #	$(CP)  		$(call OSX,$(VS8)/Release/*.lib) $(call OSX,../../lib/)
 
 
-all: vs8
+all: vs2015
 
 #vs8 vs12 vs12x64 vs12x64 unix mingw
 					   

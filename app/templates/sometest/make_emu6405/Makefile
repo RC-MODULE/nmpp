@@ -45,9 +45,7 @@ else
 endif
 
 
-clean:
-	-rm -f *.abs *.elf .*
-
+include $(ROOT)/clean.mk	
 
 	
 

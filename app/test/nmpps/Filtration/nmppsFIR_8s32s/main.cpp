@@ -47,7 +47,7 @@ int main()
 	
 	
 	for(int size=0; size<maxSize; size+=8){
-		for(int kernelSize=3; kernelSize<33; kernelSize+=2){
+		for(int kernelSize=3; kernelSize<207; kernelSize+=2){
 			if (nmppsFIRInitAlloc_8s32s(&state,pWeights,kernelSize))
 				return -1;
 			nmppsFIR_8s32s(src,dst,size,state);

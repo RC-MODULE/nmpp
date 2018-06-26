@@ -54,6 +54,7 @@ else
 endif
 
 -include $(NMPP)/local.mk
+-include $(NMPP)/clean.mk
 
 
 	

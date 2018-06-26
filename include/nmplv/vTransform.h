@@ -215,7 +215,7 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	
 	
 	/**
-	    \defgroup nmppSplit nmppSplit
+	    \defgroup nmppSplitTmp nmppSplitTmp
         \ingroup vTransform
     
 	 *  \brief Расщепляет массив на два, группируя по четным и нечетным элементам
@@ -223,34 +223,54 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 *  \param [in]  src  Входной массив
 	 *  \param [out] dst1 Выходной массив размера size/2 
 	 *  \param [out] dst2 Выходной массив размера size/2 
-	 *  \param [in]  size Размер исходного массива в элементах. Кратность параметра size должна соответстовать двум длинным 64-р. словам. 
-	 *  \param [in]  tmpSizeofDst Временный массив размера size/2 
+	 *  \param [in]  size Размер исходного массива в элементах. Кратность параметра size должна соответствовать двум длинным 64-р. словам. 
+	 *  \param [in]  tmpSizeOfDst Временный массив размера size/2 
 	 *  \return 
 	 *  
 	 *  \details Details 
 	 *  Максимальная производительность достигается при размещении входных, выходных и временных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
-	 *  Макс  производиельность  на 64-р. слово результата = 2.1 такта (при size=10240 байт) и 2.5 такта (при size=4096 байт)
+	 *  Макс  производительность  на 64-р. слово результата = 2.1 такта (при size=10240 байт) и 2.5 такта (при size=4096 байт)
 	 */
-	void nmppsSplit_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size, nm8s* tmpSizeofDst);
+	void nmppsSplitTmp_8s(const nm8s* src, nm8s* dst1, nm8s* dst2, int size, nm8s* tmpSizeOfDst);
 	
    /**
-	    \defgroup nmppSplitEco nmppSplitEco
+	    \defgroup nmppSplit nmppSplit
         \ingroup vTransform
     
-	 *  \brief Расщепляет массив на два, группируя по четным и нечетным элементам
+	 *  \brief Расщепляет массив на два массива, группируя по четным и нечетным элементам
 	 *  
 	 *  \param [in]  src  Входной массив
 	 *  \param [out] dst1 Выходной массив размера size/2 
 	 *  \param [out] dst2 Выходной массив размера size/2 
-	 *  \param [in]  size Размер исходного массива в элементах. Кратность параметра size должна соответстовать двум длинным 64-р. словам. 
+	 *  \param [in]  size Размер исходного массива в элементах. Кратность параметра size должна соответствовать двум длинным 64-р. словам. 
 	 *  \return 
 	 *  
 	 *  \details Details 
 	 *  Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
-	 *  Макс  производиельность  на 64-р. слово результата = 2.14 такта (при size=10240 байт) и 2.6 такта (при size=4096 байт)
+	 *  Макс  производительность  на 64-р. слово результата = 2.14 такта (при size=10240 байт) и 2.6 такта (при size=4096 байт)
 	 */
-	void nmppsSplitEco_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size);	
+	void nmppsSplit_8s (const nm8s* src,  nm8s*  dst1, nm8s* dst2,  int size);	
+	void nmppsSplit_16s(const nm16s* src, nm16s* dst1, nm16s* dst2, int size);
+	void nmppsSplit_32s(const nm32s* src, nm32s* dst1, nm32s* dst2, int size);
 
+   /**
+	    \defgroup nmppMerge nmppMerge
+        \ingroup vTransform
+    
+	 *  \brief Собирает массив из двух, чередуя элементы из каждого. Функция обратная nmppsSplit
+	 *  
+	 *  \param [in]  src0 Входной массив  размера size 
+	 *  \param [in]  src1 Входной массив  размера size 
+	 *  \param [out] dst  Выходной массив размера 2*size 
+	 *  \param [in]  size Размер выходного массива в элементах. Кратность параметра size должна соответствовать 64-р. слову. 
+	 *  \return 
+	 *  
+	 *  \details Details 
+	 */
+	void nmppsMerge_8s (const nm8s*  src0, const nm8s*  src1, nm8s*  dst, int size);	
+	void nmppsMerge_16s(const nm16s* src0, const nm16s* src1, nm16s* dst, int size);
+	void nmppsMerge_32s(const nm32s* src0, const nm32s* src1, nm32s* dst, int size);
+	
 #ifdef __cplusplus
 		};
 #endif

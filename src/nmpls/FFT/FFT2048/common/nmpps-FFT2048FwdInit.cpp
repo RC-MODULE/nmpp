@@ -89,11 +89,11 @@ void nmppsFFT2048FwdInitSinCos4888(NmppsFFTSpec* spec)
 	}
 }
 
-void nmppsFFT2048FwdInit (NmppsFFTSpec* spec, void* datbuf0, void* datbuf1, void* tblbuf0, void* tblbuf1, int settings )
+void nmppsFFT2048FwdInit (NmppsFFTSpec* spec, void* tmpbuf0, void* tmpbuf1, void* tblbuf0, void* tblbuf1, int settings )
 {
 	nmppsFFTResetSpec(spec);
-	spec->buffer[0]  =(nm32sc*)datbuf0; //nmppsMalloc_32sc(2048);
-	spec->buffer[1]  =(nm32sc*)datbuf1; //nmppsMalloc_32sc(2048);
+	spec->buffer[0]  =(nm32sc*)tmpbuf0; //nmppsMalloc_32sc(2048);
+	spec->buffer[1]  =(nm32sc*)tmpbuf1; //nmppsMalloc_32sc(2048);
 	spec->fftTable[0]=(nm8s*)tblbuf0; //nmppsMalloc_8s(4*4*2+4*8*8+32*8*8+256*8*8);	// Bytes
 	spec->fftTable[1]=(nm8s*)tblbuf1; //nmppsMalloc_8s(4*4*2+4*8*8+32*8*8+256*8*8);	// Bytes
 	

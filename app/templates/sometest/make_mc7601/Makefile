@@ -52,7 +52,7 @@ else
 endif
 
 -include $(NMPP)/local.mk
-
+include $(ROOT)/clean.mk	
 
 	
 

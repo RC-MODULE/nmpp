@@ -20,11 +20,10 @@
 
 
 
-extern vec_vsum_data_0:label;
-extern vec_data_add_afifo:label;
-extern vec_Mul2D2W8_AddVr:label;
+extern vec_vsum_data_vr:label;
+extern vec_ClipMul1D1W_AddClipD:label;
 
-data ".GlobalSRAM"
+data ".data_nmplv_L"
 	Weights:	long[17] = (
 		00000000000000000hl,
 		00000000000000001hl,
@@ -45,7 +44,7 @@ data ".GlobalSRAM"
 		00100000000000000hl,
 		00000000000000000hl);
 
-end ".GlobalSRAM";
+end ".data_nmplv_L";
 
 
 begin ".text_nmplv"
@@ -55,13 +54,13 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsSplit_8s(nm8s* src, nm8s* dst1, nm8s* dst2, int size);
+//! \fn void nmppsSplitTmp_8s(const m8s* src, nm8s* dst1, nm8s* dst2, int size);
 //!
 //! \perfinclude nmppsSplit_8s.html
 
 
-global _nmppsSplitEco_8s:label;
-<_nmppsSplitEco_8s>
+global _nmppsSplitTmp_8s:label;
+<_nmppsSplitTmp_8s>
 
 .branch;
 
@@ -69,29 +68,48 @@ global _nmppsSplitEco_8s:label;
 	push ar0,gr0	with gr7++;
 	push ar1,gr1	with gr7++;
 	push ar2,gr2    with gr0=gr7<<1;	// gr0 = 4
-	push ar3,gr3    with gr1=gr7<<1;	// gr1 = 4
+	push ar3,gr3    with gr1=gr7;		// gr1 = 2
 	push ar4,gr4	with gr3=gr6;		// gr3 = 2
 	push ar5,gr5;	
 	push ar6,gr6    with gr6=gr7;		// gr6 = 2
 
-	ar3=[--ar5];	//	nm8s*		pSrc,			// input buffer		:long Long[nSize]
-	ar6=[--ar5];	//	nm8s*		pDstVecEven,	// output buffer	:long Long[nSize]	
-	ar2=[--ar5];	//	nm8s*		pDstVecOdd,		// output buffer	:long Long[nSize]	
-	gr5=[--ar5];	//	int			nSize			// buffer size in 8-bit elemetns	:[0,8,16,24...]
-	
 	nb1 = 080808080h;
 	sb  = 02020202h;
 	vr  = 0;
+	f1cr=0;
+	f2cr=0;
 	ar4 = Weights+2;
-	delayed call vec_Mul2D2W8_AddVr with gr5 = gr5>>4;
-		ar0 = ar3;
-		ar1 = ar3+gr3;
+	rep 16 wfifo=[ar4++],ftw,wtw;
 	
-	ar6 = ar2;
+	gr2=[--ar5];	//	nm8s*		pSrc,			// input buffer		:long Long[nSize]
+	ar2=[--ar5];	//	nm8s*		pDstVecEven,	// output buffer	:long Long[nSize]	
+	ar3=[--ar5];	//	nm8s*		pDstVecOdd,		// output buffer	:long Long[nSize]	
+	gr5=[--ar5];	//	int			nSize			// buffer size in 8-bit elemetns	:[0,8,16,24...]
+	ar5=[--ar5]; 	// 	tmp
+	
+	//------- even bytes extraction --------------------------------------
+	delayed call vec_vsum_data_vr with gr5 = gr5>>4;
+		ar0 = gr2;	// ar0 = src	; gr0 = 4
+		ar6 = ar5;	// ar6 = tmp	; gr6 = 2
+	
+	ftw,wtw;
+	ar6 = ar2 ;		// ar6 = dstEven
+	delayed call vec_ClipMul1D1W_AddClipD  with gr7 = gr2 + gr6;
+		ar0 = gr7 ;	// ar0 = src+2 	; gr0 = 4
+		ar1 = ar5;	// ar1 = tmp	; gr1 = 2
+	
+	//------- odd byte extraction --------------------------------------
 	ar4 = Weights;
-	delayed call vec_Mul2D2W8_AddVr;
-		ar0 = ar3;
-		ar1 = ar3+gr3;
+	rep 16 wfifo=[ar4++],ftw,wtw;
+	delayed call vec_vsum_data_vr;
+		ar0 = gr2;	// ar0 = src
+		ar6 = ar5;	// ar6 = tmp
+	
+	ftw,wtw;
+	ar6 = ar3;		// ar6 = dstOdd
+	delayed call vec_ClipMul1D1W_AddClipD with gr7 = gr2 + gr6;
+		ar0 = gr7;	// ar0 = src+2 ; gr0 = 4	
+		ar1 = ar5;	// ar1 = tmp
 
 		
 	pop ar6,gr6;

@@ -4,7 +4,7 @@
 //*                                                                         */
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
-//*   File:             nmpps-FFT2048FwdInit_32fc.c                         */
+//*   File:             nmpps-FFT2048FwdInit_32fcr.c                        */
 //*   Contents:         Routine for the struct initialization               */
 //*                     of the W-coefficients for FFT2048Fwd                */
 //***************************************************************************/
@@ -24,7 +24,7 @@ int nmppsFFT2048FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
     }
 
 /*************************************Bank1*************************************/
-    spec_32fcr->Buffs[0] = (nm32fcr *) malloc0((1 + 1024) * sizeof(nm32fcr));
+    spec_32fcr->Buffs[0] = (nm32fcr *) malloc1((1 + 1024) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[0])
         return 0x2048F0;
 
@@ -32,21 +32,21 @@ int nmppsFFT2048FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
     spec_32fcr->Buffers[1] = spec_32fcr->Buffs[0] + 1;  // buff_fft2048
 
 /*************************************Bank2*************************************/
-    spec_32fcr->Buffs[1] = (nm32fcr *) malloc1((1024) * sizeof(nm32fcr));
+    spec_32fcr->Buffs[1] = (nm32fcr *) malloc2((1024) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[1])
         return 0x2048F1;
 
     spec_32fcr->Buffers[2] = spec_32fcr->Buffs[1];      // buff_fft2048xW
 
 /*************************************Bank3*************************************/
-    spec_32fcr->Buffs[2] = (nm32fcr *) malloc2((1024) * sizeof(nm32fcr));
+    spec_32fcr->Buffs[2] = (nm32fcr *) malloc3((1024) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[2])
         return 0x2048F2;
 
     spec_32fcr->Buffers[11] = spec_32fcr->Buffs[2];     // buff_fft2048mulW
 
 /*************************************Bank4*************************************/
-    spec_32fcr->Buffs[3] = (nm32fcr *) malloc3((7 + 1024) * sizeof(nm32fcr));
+    spec_32fcr->Buffs[3] = (nm32fcr *) malloc0((7 + 1024) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[3])
         return 0x2048F3;
 

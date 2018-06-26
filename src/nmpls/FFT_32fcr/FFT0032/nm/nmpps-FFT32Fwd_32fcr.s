@@ -15,16 +15,7 @@ begin ".text"
 	push ar2, gr2;
 	push ar1, gr1;
 	push ar0, gr0;
-/*
-ar0 = [--ar5];
-ar6 = [--ar5];
-ar5 = [--ar5];
-ar2 = [ar5++];
-ar3 = [ar5++];
 
-fpu 0 rep 8 vreg1 = [ar2++];
-fpu 0 rep 8 vreg2 = [ar3++];
-*/
 	ar3 = [--ar5]; // input x
 	ar0 = [--ar5]; // output X
 	gr6 = ar0;
@@ -34,24 +25,6 @@ fpu 0 rep 8 vreg2 = [ar3++];
 	ar1 = [ar5++];
 	ar2 = [ar5++];
 
-// SinCos
-/*	fpu 0 rep 8 vreg1 = [ar1++];
-	fpu 1 rep 8 vreg1 = [ar1++];
-	fpu 2 vreg1 = fpu 0 vreg1;
-	fpu 3 vreg1 = fpu 1 vreg1;
-	fpu 0 rep 8 vreg2 = [ar1++];
-	fpu 1 rep 8 vreg2 = [ar1++];
-	fpu 2 vreg2 = fpu 0 vreg2;
-	fpu 3 vreg2 = fpu 1 vreg2;
-	fpu 0 rep 8 vreg3 = [ar1++];
-	fpu 1 rep 8 vreg3 = [ar1++];
-	fpu 2 vreg3 = fpu 0 vreg3;
-	fpu 3 vreg3 = fpu 1 vreg3;
-	fpu 0 rep 8 vreg4 = [ar1++];
-	fpu 1 rep 8 vreg4 = [ar1++];
-	fpu 2 vreg4 = fpu 0 vreg4;
-	fpu 3 vreg4 = fpu 1 vreg4;
-*/
 	fpu 0 rep 8 vreg1 = [ar1++];
 	fpu 0 rep 8 vreg2 = [ar1++];
 	fpu 0 rep 8 vreg3 = [ar1++];
@@ -126,32 +99,53 @@ fpu 0 rep 8 vreg2 = [ar3++];
 	ar0 = gr2;
 	ar6 = gr7;
 	fpu 0 rep 8 vreg0 = [ar1++];
+	fpu 1 vreg0 = fpu 0 vreg0;
+	fpu 2 vreg0 = fpu 1 vreg0;
+	fpu 3 vreg0 = fpu 2 vreg0;
+
 	fpu 0 rep 8 vreg1 = [ar0++];
-	fpu 0 rep 8 vreg2 = [ar6++];
-	fpu 0 rep 8 vreg3 = [ar0++];
-	fpu 0 rep 8 vreg4 = [ar6++];
-	fpu 0 .complex vreg5 = vreg0 * vreg2 + vreg1;
-	fpu 0 .complex vreg6 = -vreg0 * vreg2 + vreg1;
-	fpu 0 .complex vreg7 = vreg4 * vreg0 + vreg3;
-	fpu 0 .complex vreg4 = -vreg4 * vreg0 + vreg3;
+	fpu 1 rep 8 vreg1 = [ar6++]; // xW
+	fpu 0 vreg2 = fpu 1 vreg1;   // xW
+	fpu 1 vreg2 = fpu 0 vreg1;
+	
+	fpu 0 .complex vreg3 = vreg0 * vreg2 + vreg1;
+	fpu 1 .complex vreg3 = -vreg0 * vreg1 + vreg2;
+
+	fpu 2 rep 8 vreg1 = [ar0++];
+	fpu 3 rep 8 vreg1 = [ar6++]; // xW
+	fpu 2 vreg2 = fpu 3 vreg1;   // xW
+	fpu 3 vreg2 = fpu 2 vreg1;
+	
+	fpu 2 .complex vreg3 = vreg0 * vreg2 + vreg1;
+	fpu 3 .complex vreg3 = -vreg0 * vreg1 + vreg2;
 // END FFT16
 
 // COMPUTE 1 FFT32
 	//ar5++;
 	ar1 = [ar5++]; // W16
 	fpu 0 rep 8 vreg0 = [ar1++];
-	fpu 0 rep 8 vreg1 = [ar1++];
-	fpu 0 .complex vreg2 = vreg0 * vreg7 + vreg5;
-	fpu 0 .complex vreg3 = vreg1 * vreg4 + vreg6;
-	fpu 0 .complex vreg0 = -vreg0 * vreg7 + vreg5;
-	fpu 0 .complex vreg1 = -vreg1 * vreg4 + vreg6;
+	fpu 2 vreg0 = fpu 0 vreg0;
+
+	fpu 1 rep 8 vreg0 = [ar1++];
+	fpu 3 vreg0 = fpu 1 vreg0;
+
+	fpu 0 vreg4 = fpu 2 vreg3; // xW
+	fpu 2 vreg4 = fpu 0 vreg3;
+	fpu 1 vreg4 = fpu 3 vreg3; // xW
+	fpu 3 vreg4 = fpu 1 vreg3;
+
+	fpu 0 .complex vreg5 = vreg0 * vreg4 + vreg3;
+	fpu 2 .complex vreg5 = -vreg0 * vreg3 + vreg4;
+	fpu 1 .complex vreg5 = vreg0 * vreg4 + vreg3;
+	fpu 3 .complex vreg5 = -vreg0 * vreg3 + vreg4;
+
 // END FFT32
 
-	fpu 0 rep 8 [ar2++] = vreg2;
-	fpu 0 rep 8 [ar2++] = vreg3;
-	fpu 0 rep 8 [ar2++] = vreg0;
-	fpu 0 rep 8 [ar2++] = vreg1;
-	
+	fpu 0 rep 8 [ar2++] = vreg5;
+	fpu 1 rep 8 [ar2++] = vreg5;
+	fpu 2 rep 8 [ar2++] = vreg5;
+	fpu 3 rep 8 [ar2++] = vreg5;
+
 <exit_fft32>
 	pop ar0, gr0;
 	pop ar1, gr1;

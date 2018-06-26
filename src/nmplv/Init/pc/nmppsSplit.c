@@ -55,3 +55,14 @@ void nmppsSplit_32s(const nm32s* src, nm32s* dst1, nm32s* dst2, int sizeSrc)
 		dst2[i]=src[2*i+1];
 	}
 }
+
+void nmppsSplit_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec1, nm32fcr* pDstVec2, int sizeSrc)
+{
+	int i;
+	for (i = 0; i < sizeSrc / 2; i++) {
+		pDstVec1[i].re = pSrcVec[2 * i].re;
+		pDstVec1[i].im = pSrcVec[2 * i].im;
+		pDstVec2[i].re = pSrcVec[2 * i + 1].re;
+		pDstVec2[i].im = pSrcVec[2 * i + 1].im;
+	}
+}

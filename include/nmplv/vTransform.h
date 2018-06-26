@@ -271,6 +271,44 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	void nmppsMerge_16s(const nm16s* src0, const nm16s* src1, nm16s* dst, int size);
 	void nmppsMerge_32s(const nm32s* src0, const nm32s* src1, nm32s* dst, int size);
 	
+	/**
+	    \defgroup nmppSplit_32fcr nmppSplit_32fcr
+        \ingroup vTransform
+    
+	 *  \brief Расщепляет массив на два, группируя по четным и нечетным элементам
+	 *  
+	 *  \param [in]  pSrcVec  Входной массив
+	 *  \param [out] pDstVec1 Выходной массив размера size/2 
+	 *  \param [out] pDstVec2 Выходной массив размера size/2 
+	 *  \param [in]  sizeSrc Размер исходного массива в элементах (должен быть четным)
+	 *  \return 
+	 *  
+	 *  \details Details 
+	 *  Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
+	 *  Макс  производительность  на 64-р. слово результата = 1 такт
+	 */
+	void nmppsSplit_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec1, nm32fcr* pDstVec, int sizeSrc);
+
+	/**
+	    \defgroup nmppsDecimate nmppsDecimate
+        \ingroup vTransform
+    
+	 *  \brief Делает выборку элементов из массива c некоторым шагом
+	 *  
+	 *  \param [in]  pSrc  Входной массив
+	 *  \param [in]  startPos Положение элемента в 64-р. слове
+	 *  \param [out] step Шаг выборки. Кратность параметра step должна соответстовать длинному 64-р. слову.
+	 *  \param [out] pDst Выходной массив 
+	 *  \param [in]  size Размер исходного массива в элементах. Кратность параметра size должна соответстовать длинному 64-р. слову. 
+	 *  \return 
+	 *  
+	 *  \details Details 
+	 *  Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти.
+	 */
+	void nmppsDecimate_16s(nm16s* pSrc, int startPos, int step, nm16s* pDst, int nSize);
+	void nmppsDecimate_32s(nm32s* pSrc, int startPos, int step, nm32s* pDst, int nSize);
+
+	
 #ifdef __cplusplus
 		};
 #endif

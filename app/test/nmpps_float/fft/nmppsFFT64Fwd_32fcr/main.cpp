@@ -12,7 +12,7 @@ int main()
 	int i, st;
 	clock_t t1, t2;
 	nm32fcr *src, *dst;
-	// best config (ticks = 525)
+	// best config (ticks = 520)
 	src = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
 	dst = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
 	for(i = 0; i < SIZE; i++) {

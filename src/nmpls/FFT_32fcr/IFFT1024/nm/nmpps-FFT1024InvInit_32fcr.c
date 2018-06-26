@@ -24,21 +24,19 @@ int i;
     }
 
 /*************************************Bank1*************************************/
-    spec_32fcr->Buffs[0] = (nm32fcr *) malloc0((16 + 512 + 1) * sizeof(nm32fcr));
+    spec_32fcr->Buffs[0] = (nm32fcr *) malloc0((512 + 1) * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[0])
         return 0x1024B0;
 
-    spec_32fcr->Buffers[11] = spec_32fcr->Buffs[0];       // W16_0
-    spec_32fcr->Buffers[1] = spec_32fcr->Buffs[0] + 16;   // buff_fft1024
-    spec_32fcr->Buffers[0] = spec_32fcr->Buffs[0] + 528;  // 1.0 or 1/1024
+    spec_32fcr->Buffers[1] = spec_32fcr->Buffs[0];   // buff_fft1024
+    spec_32fcr->Buffers[0] = spec_32fcr->Buffs[0] + 512;  // 1.0 or 1/1024
 
 /*************************************Bank2*************************************/
-    spec_32fcr->Buffs[1] = (nm32fcr *) malloc1((16 + 512) * sizeof(nm32fcr));
+    spec_32fcr->Buffs[1] = (nm32fcr *) malloc1(512 * sizeof(nm32fcr));
     if(!spec_32fcr->Buffs[1])
         return 0x1024B1;
 
-    spec_32fcr->Buffers[12] = spec_32fcr->Buffs[1];       // W16_1
-    spec_32fcr->Buffers[13] = spec_32fcr->Buffs[1] + 16;  // W1024
+    spec_32fcr->Buffers[11] = spec_32fcr->Buffs[1];  // W1024
 
 /*************************************Bank3*************************************/
     spec_32fcr->Buffs[2] = (nm32fcr *) malloc2(512 * sizeof(nm32fcr));
@@ -91,18 +89,8 @@ int i;
 /**********************************W128**********************************/
     for(i = 0; i < 512; i++) {
         alpha = (0.006135923151 * (float)i);
-        spec_32fcr->Buffers[13][i].im = sinf(alpha);
-        spec_32fcr->Buffers[13][i].re = cosf(alpha);
-    }
-
-/*******************************W16_0, W16_1**********************************/
-    step = 0;
-    for(i = 0; i < 16; i++) {
-        spec_32fcr->Buffers[11][i].im = spec_32fcr->Buffers[13][step].im;
-        spec_32fcr->Buffers[11][i].re = spec_32fcr->Buffers[13][step].re;
-        spec_32fcr->Buffers[12][i].im = spec_32fcr->Buffers[13][step].im;
-        spec_32fcr->Buffers[12][i].re = spec_32fcr->Buffers[13][step].re;
-        step += 32;
+        spec_32fcr->Buffers[11][i].im = sinf(alpha);
+        spec_32fcr->Buffers[11][i].re = cosf(alpha);
     }
     return 0;
 }

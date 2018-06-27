@@ -240,11 +240,20 @@ begin ".data_2048"
 	ar1 = gr2;
 	ar3 = gr4;
 	ar4 = gr5;
+
+	ar2 = ar0 + 256;
+	ar5 = ar6 + 256;
+
 	fpu 0 rep 32 vreg0 = [ar1++gr1]; // 1 - W128
 	fpu 1 rep 32 vreg0 = [ar1++gr1]; // 2 - W128
-	fpu 2 rep 32 vreg0 = [ar1++gr1]; // 3 - W128
-	fpu 3 rep 32 vreg0 = [ar1++gr1]; // 4 - W128
+	fpu 2 vreg1 = fpu 0 vreg0;
+	fpu 3 vreg1 = fpu 1 vreg0;
 
+	fpu 0 rep 32 vreg1 = [ar1++gr1]; // 3 - W128
+	fpu 1 rep 32 vreg1 = [ar1++gr1]; // 4 - W128
+	fpu 2 vreg0 = fpu 0 vreg1;
+	fpu 3 vreg0 = fpu 1 vreg1;
+	
 <COMP_FFT256_2048>
 	fpu 0 rep 32 vreg2 = [ar0++];
 	fpu 0 rep 32 vreg3 = [ar6++]; // need mul W128
@@ -254,83 +263,85 @@ begin ".data_2048"
 	fpu 1 rep 32 vreg3 = [ar6++]; // need mul W128
 	fpu 1 .complex vreg6 = vreg0 * vreg3 + vreg2;
 
-	fpu 2 rep 32 vreg2 = [ar0++];
-	fpu 2 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 2 .complex vreg6 = vreg0 * vreg3 + vreg2;
+	fpu 2 rep 32 vreg2 = [ar2++];
+	fpu 2 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 2 .complex vreg6 = vreg1 * vreg3 + vreg2;
 
-	fpu 3 rep 32 vreg2 = [ar0++];
-	fpu 3 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 3 .complex vreg6 = vreg0 * vreg3 + vreg2;
+	fpu 3 rep 32 vreg2 = [ar2++];
+	fpu 3 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 3 .complex vreg6 = vreg1 * vreg3 + vreg2;
 	
 	fpu 0 rep 32 [ar3++] = vreg6;
-	fpu 1 rep 32 [ar3++] = vreg6;
-	fpu 2 rep 32 [ar3++] = vreg6;
-	fpu 3 rep 32 [ar3++] = vreg6;
-
-	fpu 0 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	fpu 1 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	fpu 2 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	fpu 3 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	
-	fpu 0 rep 32 vreg2 = [ar0++];
-	fpu 0 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 0 .complex vreg6 = vreg0 * vreg3 + vreg2;
-
-	fpu 1 rep 32 vreg2 = [ar0++];
-	fpu 1 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 1 .complex vreg6 = vreg0 * vreg3 + vreg2;
-
-	fpu 2 rep 32 vreg2 = [ar0++];
-	fpu 2 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 2 .complex vreg6 = vreg0 * vreg3 + vreg2;
-
-	fpu 3 rep 32 vreg2 = [ar0++];
-	fpu 3 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 3 .complex vreg6 = vreg0 * vreg3 + vreg2;
-	
-	fpu 0 rep 32 [ar3++] = vreg7;
-	fpu 1 rep 32 [ar3++] = vreg7;
-
-	fpu 0 rep 32 [ar4++] = vreg6;
-	fpu 1 rep 32 [ar4++] = vreg6;
-
-	fpu 2 rep 32 [ar3++] = vreg7;
-	fpu 3 rep 32 [ar3++] = vreg7;
-
 	fpu 2 rep 32 [ar4++] = vreg6;
+	fpu 1 rep 32 [ar3++] = vreg6;
 	fpu 3 rep 32 [ar4++] = vreg6;
 
 	fpu 0 .complex vreg7 = -vreg0 * vreg3 + vreg2;
 	fpu 1 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	fpu 2 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	fpu 3 .complex vreg7 = -vreg0 * vreg3 + vreg2;
+	fpu 2 .complex vreg7 = -vreg1 * vreg3 + vreg2;
+	fpu 3 .complex vreg7 = -vreg1 * vreg3 + vreg2;
 	
-	fpu 0 rep 32 [ar4++] = vreg7;
-	fpu 1 rep 32 [ar4++] = vreg7;
+	fpu 0 rep 32 vreg2 = [ar0++];
+	fpu 0 rep 32 vreg3 = [ar6++]; // need mul W128
+	fpu 0 .complex vreg6 = vreg1 * vreg3 + vreg2;
 
+	fpu 1 rep 32 vreg2 = [ar0++];
+	fpu 1 rep 32 vreg3 = [ar6++]; // need mul W128
+	fpu 1 .complex vreg6 = vreg1 * vreg3 + vreg2;
+
+	fpu 2 rep 32 vreg2 = [ar2++];
+	fpu 2 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 2 .complex vreg6 = vreg0 * vreg3 + vreg2;
+
+	fpu 3 rep 32 vreg2 = [ar2++];
+	fpu 3 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 3 .complex vreg6 = vreg0 * vreg3 + vreg2;
+	
+	fpu 0 rep 32 [ar3++] = vreg6;
+	fpu 2 rep 32 [ar4++] = vreg6;
+	fpu 1 rep 32 [ar3++] = vreg6;
+	fpu 3 rep 32 [ar4++] = vreg6;
+
+	ar0 = ar2;
+	ar6 = ar5;
+
+	fpu 0 .complex vreg5 = -vreg1 * vreg3 + vreg2;
+	fpu 1 .complex vreg5 = -vreg1 * vreg3 + vreg2;
+	fpu 2 .complex vreg5 = -vreg0 * vreg3 + vreg2;
+	fpu 3 .complex vreg5 = -vreg0 * vreg3 + vreg2;
+	
+	fpu 0 rep 32 [ar3++] = vreg7;
 	fpu 2 rep 32 [ar4++] = vreg7;
+	fpu 1 rep 32 [ar3++] = vreg7;
 	fpu 3 rep 32 [ar4++] = vreg7;
+
+	fpu 0 rep 32 [ar3++] = vreg5;
+	fpu 2 rep 32 [ar4++] = vreg5;
+	fpu 1 rep 32 [ar3++] = vreg5;
+	fpu 3 rep 32 [ar4++] = vreg5;
+
+	ar2 += 256;
 	gr0--;
-	if > goto COMP_FFT256_2048;
+	if > delayed goto COMP_FFT256_2048;
+		ar5 += 256;
 // END FFT256
 
 // COMPUTE 4 OF FFT512
-	ar1 = gr2 with gr1 >>= 1; 			// 8
-	ar0 = gr4;
+	ar0 = gr4 with gr1 >>= 1; 			// 8
 	ar6 = gr5 with gr0 = gr1 >> 2; 		// 2
 	ar3 = gr7;
 	ar4 = gr6;
 	
-	fpu 0 rep 32 vreg0 = [ar1++gr1]; // 1 - W128
-	fpu 1 rep 32 vreg0 = [ar1++gr1]; // 2 - W128
-	fpu 2 rep 32 vreg0 = [ar1++gr1]; // 3 - W128
-	fpu 3 rep 32 vreg0 = [ar1++gr1]; // 4 - W128
-	fpu 0 rep 32 vreg1 = [ar1++gr1]; // 1 - W128
-	fpu 1 rep 32 vreg1 = [ar1++gr1]; // 2 - W128
-	fpu 2 rep 32 vreg1 = [ar1++gr1]; // 3 - W128
-	fpu 3 rep 32 vreg1 = [ar1++gr1]; // 4 - W128
+	ar2 = ar0 + 512;
+	ar5 = ar6 + 512;
 
 <COMP_FFT512_2048>
+	ar1 = gr2;
+	fpu 0 rep 32 vreg0 = [ar1++gr1]; // 1 - W128
+	fpu 1 rep 32 vreg0 = [ar1++gr1]; // 2 - W128
+	fpu 2 vreg1 = fpu 0 vreg0;
+	fpu 3 vreg1 = fpu 1 vreg0;
+
 	fpu 0 rep 32 vreg2 = [ar0++];
 	fpu 0 rep 32 vreg3 = [ar6++]; // need mul W128
 	fpu 0 .complex vreg6 = vreg0 * vreg3 + vreg2;
@@ -339,23 +350,28 @@ begin ".data_2048"
 	fpu 1 rep 32 vreg3 = [ar6++]; // need mul W128
 	fpu 1 .complex vreg6 = vreg0 * vreg3 + vreg2;
 
-	fpu 2 rep 32 vreg2 = [ar0++];
-	fpu 2 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 2 .complex vreg6 = vreg0 * vreg3 + vreg2;
+	fpu 2 rep 32 vreg2 = [ar2++];
+	fpu 2 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 2 .complex vreg6 = vreg1 * vreg3 + vreg2;
 
-	fpu 3 rep 32 vreg2 = [ar0++];
-	fpu 3 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 3 .complex vreg6 = vreg0 * vreg3 + vreg2;
+	fpu 3 rep 32 vreg2 = [ar2++];
+	fpu 3 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 3 .complex vreg6 = vreg1 * vreg3 + vreg2;
 
 	fpu 0 rep 32 [ar3++] = vreg6;
+	fpu 2 rep 32 [ar4++] = vreg6;
 	fpu 1 rep 32 [ar3++] = vreg6;
-	fpu 2 rep 32 [ar3++] = vreg6;
-	fpu 3 rep 32 [ar3++] = vreg6;
+	fpu 3 rep 32 [ar4++] = vreg6;
+
+	fpu 0 rep 32 vreg1 = [ar1++gr1]; // 3 - W128
+	fpu 1 rep 32 vreg1 = [ar1++gr1]; // 4 - W128
+	fpu 2 vreg0 = fpu 0 vreg1;
+	fpu 3 vreg0 = fpu 1 vreg1;
 
 	fpu 0 .complex vreg7 = -vreg0 * vreg3 + vreg2;
 	fpu 1 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	fpu 2 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	fpu 3 .complex vreg7 = -vreg0 * vreg3 + vreg2;
+	fpu 2 .complex vreg7 = -vreg1 * vreg3 + vreg2;
+	fpu 3 .complex vreg7 = -vreg1 * vreg3 + vreg2;
 
 	fpu 0 rep 32 vreg2 = [ar0++];
 	fpu 0 rep 32 vreg3 = [ar6++]; // need mul W128
@@ -365,99 +381,113 @@ begin ".data_2048"
 	fpu 1 rep 32 vreg3 = [ar6++]; // need mul W128
 	fpu 1 .complex vreg6 = vreg1 * vreg3 + vreg2;
 
-	fpu 2 rep 32 vreg2 = [ar0++];
-	fpu 2 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 2 .complex vreg6 = vreg1 * vreg3 + vreg2;
+	fpu 2 rep 32 vreg2 = [ar2++];
+	fpu 2 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 2 .complex vreg6 = vreg0 * vreg3 + vreg2;
 
-	fpu 3 rep 32 vreg2 = [ar0++];
-	fpu 3 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 3 .complex vreg6 = vreg1 * vreg3 + vreg2;
+	fpu 3 rep 32 vreg2 = [ar2++];
+	fpu 3 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 3 .complex vreg6 = vreg0 * vreg3 + vreg2;
 
 	fpu 0 rep 32 [ar3++] = vreg6;
+	fpu 2 rep 32 [ar4++] = vreg6;
 	fpu 1 rep 32 [ar3++] = vreg6;
-	fpu 2 rep 32 [ar3++] = vreg6;
-	fpu 3 rep 32 [ar3++] = vreg6;
+	fpu 3 rep 32 [ar4++] = vreg6;
+
+	fpu 0 rep 32 vreg4 = [ar1++gr1]; // 3 - W128
+	fpu 1 rep 32 vreg4 = [ar1++gr1]; // 4 - W128
+	fpu 2 vreg5 = fpu 0 vreg4;
+	fpu 3 vreg5 = fpu 1 vreg4;
 
 	fpu 0 .complex vreg5 = -vreg1 * vreg3 + vreg2;
 	fpu 1 .complex vreg5 = -vreg1 * vreg3 + vreg2;
-	fpu 2 .complex vreg5 = -vreg1 * vreg3 + vreg2;
-	fpu 3 .complex vreg5 = -vreg1 * vreg3 + vreg2;
+	fpu 2 .complex vreg4 = -vreg0 * vreg3 + vreg2;
+	fpu 3 .complex vreg4 = -vreg0 * vreg3 + vreg2;
+
+	fpu 0 rep 32 vreg2 = [ar0++];
+	fpu 0 rep 32 vreg3 = [ar6++]; // need mul W128
+	fpu 0 .complex vreg6 = vreg4 * vreg3 + vreg2;
+
+	fpu 1 rep 32 vreg2 = [ar0++];
+	fpu 1 rep 32 vreg3 = [ar6++]; // need mul W128
+	fpu 1 .complex vreg6 = vreg4 * vreg3 + vreg2;
+
+	fpu 2 rep 32 vreg2 = [ar2++];
+	fpu 2 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 2 .complex vreg6 = vreg5 * vreg3 + vreg2;
+
+	fpu 3 rep 32 vreg2 = [ar2++];
+	fpu 3 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 3 .complex vreg6 = vreg5 * vreg3 + vreg2;
+
+	fpu 0 rep 32 [ar3++] = vreg6;
+	fpu 2 rep 32 [ar4++] = vreg6;
+	fpu 1 rep 32 [ar3++] = vreg6;
+	fpu 3 rep 32 [ar4++] = vreg6;
+
+	fpu 0 .complex vreg0 = -vreg4 * vreg3 + vreg2;
+	fpu 1 .complex vreg0 = -vreg4 * vreg3 + vreg2;
+	fpu 2 .complex vreg0 = -vreg5 * vreg3 + vreg2;
+	fpu 3 .complex vreg0 = -vreg5 * vreg3 + vreg2;
+
+	fpu 0 rep 32 vreg1 = [ar1++gr1]; // 1 - W128
+	fpu 1 rep 32 vreg1 = [ar1++gr1]; // 2 - W128
+	fpu 2 vreg5 = fpu 0 vreg1;
+	fpu 3 vreg5 = fpu 1 vreg1;
+
+	fpu 0 rep 32 vreg2 = [ar0++];
+	fpu 0 rep 32 vreg3 = [ar6++]; // need mul W128
+	fpu 0 .complex vreg6 = vreg1 * vreg3 + vreg2;
+
+	fpu 1 rep 32 vreg2 = [ar0++];
+	fpu 1 rep 32 vreg3 = [ar6++]; // need mul W128
+	fpu 1 .complex vreg6 = vreg1 * vreg3 + vreg2;
+
+	fpu 2 rep 32 vreg2 = [ar2++];
+	fpu 2 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 2 .complex vreg6 = vreg5 * vreg3 + vreg2;
+
+	fpu 3 rep 32 vreg2 = [ar2++];
+	fpu 3 rep 32 vreg3 = [ar5++]; // need mul W128
+	fpu 3 .complex vreg6 = vreg5 * vreg3 + vreg2;
+
+	fpu 0 rep 32 [ar3++] = vreg6;
+	fpu 2 rep 32 [ar4++] = vreg6;
+	fpu 1 rep 32 [ar3++] = vreg6;
+	fpu 3 rep 32 [ar4++] = vreg6;
+
+	fpu 0 .complex vreg1 = -vreg1 * vreg3 + vreg2;
+	fpu 1 .complex vreg1 = -vreg1 * vreg3 + vreg2;
+	fpu 2 .complex vreg1 = -vreg5 * vreg3 + vreg2;
+	fpu 3 .complex vreg1 = -vreg5 * vreg3 + vreg2;
 
 	fpu 0 rep 32 [ar3++] = vreg7;
-	fpu 1 rep 32 [ar3++] = vreg7;
-	fpu 2 rep 32 [ar3++] = vreg7;
-	fpu 3 rep 32 [ar3++] = vreg7;
-
-	fpu 0 rep 32 vreg2 = [ar0++];
-	fpu 0 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 0 .complex vreg6 = vreg0 * vreg3 + vreg2;
-
-	fpu 1 rep 32 vreg2 = [ar0++];
-	fpu 1 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 1 .complex vreg6 = vreg0 * vreg3 + vreg2;
-
-	fpu 2 rep 32 vreg2 = [ar0++];
-	fpu 2 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 2 .complex vreg6 = vreg0 * vreg3 + vreg2;
-
-	fpu 3 rep 32 vreg2 = [ar0++];
-	fpu 3 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 3 .complex vreg6 = vreg0 * vreg3 + vreg2;
-
-	fpu 0 rep 32 [ar3++] = vreg5;
-	fpu 1 rep 32 [ar3++] = vreg5;
-	
-	fpu 0 rep 32 [ar4++] = vreg6;
-	fpu 1 rep 32 [ar4++] = vreg6;
-
-	fpu 2 rep 32 [ar3++] = vreg5;
-	fpu 3 rep 32 [ar3++] = vreg5;
-
-	fpu 2 rep 32 [ar4++] = vreg6;
-	fpu 3 rep 32 [ar4++] = vreg6;
-
-	fpu 0 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	fpu 1 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	fpu 2 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	fpu 3 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-
-	fpu 0 rep 32 vreg2 = [ar0++];
-	fpu 0 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 0 .complex vreg6 = vreg1 * vreg3 + vreg2;
-
-	fpu 1 rep 32 vreg2 = [ar0++];
-	fpu 1 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 1 .complex vreg6 = vreg1 * vreg3 + vreg2;
-
-	fpu 2 rep 32 vreg2 = [ar0++];
-	fpu 2 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 2 .complex vreg6 = vreg1 * vreg3 + vreg2;
-
-	fpu 3 rep 32 vreg2 = [ar0++];
-	fpu 3 rep 32 vreg3 = [ar6++]; // need mul W128
-	fpu 3 .complex vreg6 = vreg1 * vreg3 + vreg2;
-
-	fpu 0 rep 32 [ar4++] = vreg6;
-	fpu 1 rep 32 [ar4++] = vreg6;
-	fpu 2 rep 32 [ar4++] = vreg6;
-	fpu 3 rep 32 [ar4++] = vreg6;
-
-	fpu 0 rep 32 [ar4++] = vreg7;
-	fpu 1 rep 32 [ar4++] = vreg7;
 	fpu 2 rep 32 [ar4++] = vreg7;
+	fpu 1 rep 32 [ar3++] = vreg7;
 	fpu 3 rep 32 [ar4++] = vreg7;
 
-	fpu 0 .complex vreg5 = -vreg1 * vreg3 + vreg2;
-	fpu 1 .complex vreg5 = -vreg1 * vreg3 + vreg2;
-	fpu 2 .complex vreg5 = -vreg1 * vreg3 + vreg2;
-	fpu 3 .complex vreg5 = -vreg1 * vreg3 + vreg2;
+	fpu 0 rep 32 [ar3++] = vreg5;
+	fpu 2 rep 32 [ar4++] = vreg4;
+	fpu 1 rep 32 [ar3++] = vreg5;
+	fpu 3 rep 32 [ar4++] = vreg4;
 	
-	fpu 0 rep 32 [ar4++] = vreg5;
-	fpu 1 rep 32 [ar4++] = vreg5;
-	fpu 2 rep 32 [ar4++] = vreg5;
-	fpu 3 rep 32 [ar4++] = vreg5;
+	ar0 = ar2;
+	ar6 = ar5;
+
+	fpu 0 rep 32 [ar3++] = vreg0;
+	fpu 2 rep 32 [ar4++] = vreg0;
+	fpu 1 rep 32 [ar3++] = vreg0;
+	fpu 3 rep 32 [ar4++] = vreg0;
+
+	fpu 0 rep 32 [ar3++] = vreg1;
+	fpu 2 rep 32 [ar4++] = vreg1;
+	fpu 1 rep 32 [ar3++] = vreg1;
+	fpu 3 rep 32 [ar4++] = vreg1;
+
+	ar2 += 512;
 	gr0--;
-	if > goto COMP_FFT512_2048;
+	if > delayed goto COMP_FFT512_2048;
+		ar5 += 512;
 // END FFT512
 
 // COMPUTE 2 OF FFT1024

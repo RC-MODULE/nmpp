@@ -111,7 +111,6 @@ begin ".data_imu7"
 	fpu 2 vreg0 = fpu 0 vreg0;
 	fpu 3 vreg0 = fpu 1 vreg0;
 
-
 <COMP_4_16_128>
 	fpu 0 rep 8 vreg1 = [ar0++];
 	fpu 1 rep 8 vreg1 = [ar6++]; // xW

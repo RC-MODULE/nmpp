@@ -299,14 +299,14 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 *  \param [in]  startPos Положение элемента в 64-р. слове
 	 *  \param [out] step Шаг выборки. Кратность параметра step должна соответстовать длинному 64-р. слову.
 	 *  \param [out] pDst Выходной массив 
-	 *  \param [in]  size Размер исходного массива в элементах. Кратность параметра size должна соответстовать длинному 64-р. слову. 
+	 *  \param [in]  nSizeDst Размер результирующего массива в элементах. Кратность параметра size должна соответстовать длинному 64-р. слову. 
 	 *  \return 
 	 *  
 	 *  \details Details 
 	 *  Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти.
 	 */
-	void nmppsDecimate_16s(nm16s* pSrc, int startPos, int step, nm16s* pDst, int nSize);
-	void nmppsDecimate_32s(nm32s* pSrc, int startPos, int step, nm32s* pDst, int nSize);
+	void nmppsDecimate_16s(nm16s* pSrc, int startPos, int step, nm16s* pDst, int nSizeDst);
+	void nmppsDecimate_32s(nm32s* pSrc, int startPos, int step, nm32s* pDst, int nSizeDst);
 
 	
 #ifdef __cplusplus

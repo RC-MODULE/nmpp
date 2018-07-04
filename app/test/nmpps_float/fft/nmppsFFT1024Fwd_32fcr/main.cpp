@@ -17,11 +17,11 @@ int main()
 	int i, st;
 	clock_t t1, t2;
 	//nm32fcr *src, *dst;
-	// best config (ticks = 9137) src - imu1, dst - imu5
+	// best config (ticks = 8655) src - imu6, dst - imu5
 	// src = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
 	// dst = (nm32fcr *)malloc(SIZE * sizeof(nm32fcr));
 	for(i = 0; i < SIZE; i++) {
-		src[i].im = 1;
+		src[i].im = 0;
 		src[i].re = i;
 		dst[i].im = 0;
 		dst[i].re = 0;
@@ -29,13 +29,17 @@ int main()
 
 	NmppsFFTSpec_32fcr *rat, *irat;
 	st = nmppsFFT1024FwdInitAlloc_32fcr(&rat);
+
 	if(st) {
 		return st;
 	}
+
 	st = nmppsFFT1024InvInitAlloc_32fcr(&irat);
+
 	if(st) {
 		return st;
 	}
+
 	t1 = clock();
 	nmppsFFT1024Fwd_32fcr(src, dst, rat);
 	t2 = clock();

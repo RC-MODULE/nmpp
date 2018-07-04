@@ -24,8 +24,7 @@ int main()
 
 	int dim = DIM(BITS);
 	unsigned int crc = 0;
-	//for(int size=dim; size<maxSize; size+=dim*NMPP_MIN_REP)
-	int size=32;
+	for(int size=dim; size<maxSize/2; size+=dim*NMPP_MIN_REP)
 	{
 		nmppsMerge (BITS, L0,L1,G0,  size);
 		nmppsCrcAcc(BITS, G0,2*size + 128, &crc);

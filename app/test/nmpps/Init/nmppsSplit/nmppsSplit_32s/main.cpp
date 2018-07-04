@@ -17,7 +17,7 @@ int main()
 	
 	if ((L0==0)||(G0==0)||(G1==0)) return -1;
 	
-	nmppsRandUniform(BITS, L0, maxSize);
+	nmppsRamp_32s( L0, 0,1, maxSize);
 	nmppsSet(BITS, G0, -1, maxSize + 128);
 	nmppsSet(BITS, G1, -1, maxSize + 128);
 	
@@ -25,8 +25,6 @@ int main()
 	int dim = DIM(BITS);
 	unsigned int crc = 0;
 	for(int size=dim*2; size<maxSize; size+=dim*2*NMPP_MIN_REP)
-	//for(int size=dim*2; size<maxSize; size+=dim*2)
-	int size = 8;
 	{
 		nmppsSplit (BITS, L0, G0, G1, size);
 		nmppsCrcAcc(BITS, G0,size/2 + 128, &crc);

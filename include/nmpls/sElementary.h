@@ -126,7 +126,7 @@ void nmppsExp_64f(const nm64f *pSrcVec, nm64f *pDstVec, int nSize);
  *  \details Функция совместима ТОЛЬКО с NMC-GCC-SDK и входит в состав библиотеки libnmpp-nmc4f.a
  * 
  */
-void nmppsLog_64f (const nm32f *pSrcVec, nm32f *pDstVec, int nSize);
+void nmppsLog_32f (const nm32f *pSrcVec, nm32f *pDstVec, int nSize);
 
     /**
     \defgroup snmppsLog_64f nmppsLog_64f

@@ -60,7 +60,7 @@ global _nmppsSplit_16s: label;
    ar6 = [--ar5]with gr4=gr3+1; // pdst0 ( ЮЈФОЩЕ )
    ar3 = [--ar5]with gr4++; // pdst1 ( ОЕЮЈФОЩЕ )
    gr5 = [--ar5]; // src size (bytes)
-   ar1=gr4 with gr5>>=4;
+   ar1=gr4 with gr5>>=3;
    delayed call vec_Mul2D2W4_AddVr;
    ar4=matr1+2;
 //========================================= odd

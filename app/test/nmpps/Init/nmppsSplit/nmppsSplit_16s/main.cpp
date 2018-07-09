@@ -17,24 +17,25 @@ int main()
 	
 	if ((L0==0)||(G0==0)||(G1==0)) return -1;
 	
-	nmppsRandUniform(BITS, L0, maxSize);
+	//nmppsRandUniform(BITS, L0, maxSize);
+	nmppsRamp_16s(L0, 0, 1 , maxSize);
 	nmppsSet(BITS, G0, -1, maxSize + 128);
 	nmppsSet(BITS, G1, -1, maxSize + 128);
 	
 
 	int dim = DIM(BITS);
 	unsigned int crc = 0;
-	//for(int size=dim*2; size<maxSize; size+=dim*2*NMPP_MIN_REP)
-	int size=32*dim*2; 
+	for(int size=dim*2; size<maxSize; size+=dim*2*NMPP_MIN_REP)
+	//int size=128; //16*dim*2; //128 
 	{
 		nmppsSplit (BITS, L0, G0, G1, size);
 		nmppsCrcAcc(BITS, G0,size/2 + 128, &crc);
 		nmppsCrcAcc(BITS, G1,size/2 + 128, &crc);
 	}
 
-	dump(32, L0, 8,8);	printf("\n");
-	dump(32, G0, 8,8);	printf("\n");
-	dump(32, G1, 8,8);	printf("\n");
+	dump(16, L0, 16,8);	printf("\n");
+	dump(16, G0, 8,8);	printf("\n");
+	dump(16, G1, 8,8);	printf("\n");
 
 	nmppsFree(L0);
 	nmppsFree(G0);

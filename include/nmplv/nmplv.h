@@ -211,10 +211,4 @@ For convenience of application programs development the library has implementati
 #include "vTransform.h"
 
 //*****************************************************************************
-
-	
-
-
-
-
 #endif

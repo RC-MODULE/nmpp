@@ -77,17 +77,27 @@ For convenience of application programs development the library has implementati
 	/**
     *
     * \ru
-    *     \defgroup sFFT_32fc Быстрое преобразование Фурье
+    *     \defgroup sFFT_32fcr Быстрое преобразование Фурье
     * \en
-    *     \defgroup sFFT_32fc Fast Fourier Trasform
+    *     \defgroup sFFT_32fcr Fast Fourier Trasform
     * \~
 	* \ingroup SIG_Group
 	*/
 
-
 #include "fft.h"
 
-#include "sArithemitics.h"
+//*****************************************************************************
+
+    /**
+    *
+    * \ru
+    *     \defgroup sElementary Элементарные математические функции
+    * \en
+    *     \defgroup sElementary Elementary mathematical functions
+    * \~
+    * \ingroup nmppsGroup_
+    */
+#include "sElementary.h"
 
 #endif
 

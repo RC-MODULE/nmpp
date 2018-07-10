@@ -2,8 +2,11 @@
 # This makefile builds simple nmc-application containing single cpp-file  
 # Rule 'run' executes the application on MC12101 board 
 
-include $(NMC_GCC_TOOLPATH)/nmc4-ide/include/nmc4vars_win.mk
-NMCGCC = $(NMC_GCC_TOOLPATH)/nmc4-ide
+#include $(NMC_GCC_TOOLPATH)/nmc4-ide/include/nmc4vars_win.mk
+#NMCGCC = $(NMC_GCC_TOOLPATH)/nmc4-ide
+-include nmc4vars_win.mk
+
+
 .SUFFIXES:
 
 #NMPP?=
@@ -40,3 +43,7 @@ skip:
 
 reset:
 	reset12101
+	
+nmc4vars_win.mk:
+	copy "$(NMC_GCC_TOOLPATH)\nmc4-ide\include\nmc4vars_win.mk" nmc4vars_win.mk
+	

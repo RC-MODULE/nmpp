@@ -249,7 +249,7 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 *  Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
 	 *  Макс  производительность  на 64-р. слово результата = 2.14 такта (при size=10240 байт) и 2.6 такта (при size=4096 байт)
 	 */
-	void nmppsSplit_8s (const nm8s* src,  nm8s*  dst1, nm8s* dst2,  int size);	
+	void nmppsSplit_8s (const nm8s* src,  nm8s*  dst1, nm8s*  dst2, int size);	
 	void nmppsSplit_16s(const nm16s* src, nm16s* dst1, nm16s* dst2, int size);
 	void nmppsSplit_32s(const nm32s* src, nm32s* dst1, nm32s* dst2, int size);
 
@@ -259,17 +259,17 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
     
 	 *  \brief Собирает массив из двух, чередуя элементы из каждого. Функция обратная nmppsSplit
 	 *  
-	 *  \param [in]  src0 Входной массив  размера size 
-	 *  \param [in]  src1 Входной массив  размера size 
-	 *  \param [out] dst  Выходной массив размера 2*size 
-	 *  \param [in]  size Размер выходного массива в элементах. Кратность параметра size должна соответствовать 64-р. слову. 
+	 *  \param [in]  src0 Входной массив  размера sizeSrc 
+	 *  \param [in]  src1 Входной массив  размера sizeSrc 
+	 *  \param [out] dst  Выходной массив размера 2*sizeSrc 
+	 *  \param [in]  sizeSrc Размер выходного массива в элементах. Кратность параметра sizeSrc должна соответствовать 64-р. слову. 
 	 *  \return 
 	 *  
 	 *  \details Details 
 	 */
-	void nmppsMerge_8s (const nm8s*  src0, const nm8s*  src1, nm8s*  dst, int size);	
-	void nmppsMerge_16s(const nm16s* src0, const nm16s* src1, nm16s* dst, int size);
-	void nmppsMerge_32s(const nm32s* src0, const nm32s* src1, nm32s* dst, int size);
+	void nmppsMerge_8s (const nm8s*  src0, const nm8s*  src1, nm8s*  dst, int sizeSrc);	
+	void nmppsMerge_16s(const nm16s* src0, const nm16s* src1, nm16s* dst, int sizeSrc);
+	void nmppsMerge_32s(const nm32s* src0, const nm32s* src1, nm32s* dst, int sizeSrc);
 	
 	/**
 	    \defgroup nmppSplit_32fcr nmppSplit_32fcr
@@ -297,9 +297,9 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 *  
 	 *  \param [in]  pSrc  Входной массив
 	 *  \param [in]  startPos Положение элемента в 64-р. слове
-	 *  \param [out] step Шаг выборки. Кратность параметра step должна соответстовать длинному 64-р. слову.
+	 *  \param [out] step Шаг выборки. Кратность параметра step должна соответствовать длинному 64-р. слову.
 	 *  \param [out] pDst Выходной массив 
-	 *  \param [in]  nSizeDst Размер результирующего массива в элементах. Кратность параметра size должна соответстовать длинному 64-р. слову. 
+	 *  \param [in]  nSizeDst Размер результирующего массива в элементах. Кратность параметра size должна соответствовать длинному 64-р. слову. 
 	 *  \return 
 	 *  
 	 *  \details Details 

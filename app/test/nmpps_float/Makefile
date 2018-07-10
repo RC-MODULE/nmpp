@@ -15,7 +15,7 @@ ROOT=../../..
 #  Recursively generates Makefiles for all tests/axamples for mc5103,emu6405,mc12101 platforms 
 #
 # /> make configure 
-#  Recursively generates Makefiles for all tests/examples for default platform list defined by $(PLATFORMS) in global.mk
+#  Recursively generates Makefiles for all tests/axamples for default platform list defined by $(PLATFORMS) in global.mk
 #
 # /> make 
 #  Recursivly makes(builds) all Makefiles  from current folder 

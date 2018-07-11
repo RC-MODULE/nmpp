@@ -18,15 +18,14 @@ endif
 
 CC       = nmc-g++
 AS       = nmc-gcc
-CC_FLAGS = -std=c++11 -O2 -Wall -mnmc4-float
+CC_FLAGS = -std=c++11 -O2 -Wall -mnmc4
 ROOT     = ..
 PROJECT  = main
 TARGET   =$(PROJECT)
 INC_DIRS = -I"$(NMPP)/include"
 LIB_DIRS = -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4" -L"$(NMPP)/lib"
-LIBS     = -lnmpp-nmc4f 
-#-lhal-mc12101
-CFG      =  "-Wl,-cmc12101brd-nmc0.cfg"
+LIBS     = -lnmpp-nmc4
+CFG      =  "-Wl,-cmc12101brd-nmpu1.cfg"
 SRC_CPP  = $(wildcard $(ROOT)/*.cpp)
 
 $(TARGET): $(SRC_CPP) Makefile
@@ -35,7 +34,7 @@ $(TARGET): $(SRC_CPP) Makefile
 PATH:=$(MC12101)/bin;$(PATH)
 
 run: $(TARGET)
-	mc12101run $(TARGET)
+	mc12101run $(TARGET) -p
 
 clean:
 	-rm -f *.abs *.elf .*  *.o

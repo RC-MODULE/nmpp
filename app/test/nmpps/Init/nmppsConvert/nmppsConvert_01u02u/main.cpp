@@ -35,7 +35,7 @@ int main()
 	nmppsRandUniform_32u((nm32u*)L0,LONG2INT(SizeL0));
 	nmppsSet_32u((nm32u*)G0,(0xCCCCCCCC),(LONG2INT(SizeG0)));
 	
-	for(int nSize=64*32;nSize<=longTestSize;nSize+=64*32)
+	for(int nSize=0;nSize<=longTestSize;nSize+=64)
 	{
 		nmppsConvert_1u2u((nm1*)L0,(nm2u*)G0,nSize);
 		nmppsCrcAcc_32u((nm32u*)G0,(nSize)/32,&crc);

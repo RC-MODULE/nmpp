@@ -43,6 +43,16 @@ end ".data_nmplv_G";
 //-----------------------------------------------------------------------------
 import from macros.mlb;
 //-----------------------------------------------------------------------------
+macro tail(N)
+ 	rep N data,ram = [ar0++],wtw with vsum, data, 0;
+	rep N with vsum, shift ram, afifo;
+	rep 32 wfifo = [ar5++], ftw,wtw;
+	rep N [ar1++gr1] = afifo	with vsum, ram, 0;
+	delayed goto ar4;	
+		rep 32 wfifo = [ar5++], ftw,wtw ;
+		rep N with vsum, shift ram, afifo;
+		rep N [ar2++gr2] = afifo; 
+end tail;
 begin ".text_nmplv"
 
 //! \fn void nmppsConvert_1u2u*(nm1* pSrcVec, nm2u* pDstVec, int nSize)
@@ -69,42 +79,73 @@ global _nmppsConvert_1u2u:label;
 	gr2 = 4;
 
 	
-	nb1 = gr4 with gr7 >>= 11;
+	nb1 = gr4;
+	gr4 = gr7>>6;
+	gr4<<=27;
+	gr4>>=27;
+	with gr7 >>= 11;
 	sb = 0aaaaaaaahl;
 	ar5 = w_nmppsConvert_L_ ;
-	gr5 = ar5 with gr7--;
-	rep 32 wfifo = [ar5++], ftw;
-	WTW_REG(gr4);
-	if =0 delayed goto lab_nmppsConvert_2_ with gr7--;
+	gr5 = ar5 with gr7;
+	rep 32 wfifo = [ar5++], ftw, wtw;
+	if =0 delayed goto lab_nmppsConvert_2_;
 		rep 32 wfifo = [ar5++], ftw;
-		nul;
+		gr7--;
 
 <lab_nmppsConvert_1_>
-	rep 32 data,ram = [ar0++] with vsum, data, 0;
-	WTW_REG(gr4);
-	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;
-	WTW_REG(gr4);
+	rep 32 data,ram = [ar0++],wtw with vsum, data, 0;
+	rep 32 wfifo = [ar5++], ftw,wtw with vsum, shift ram, afifo;
 	rep 32 [ar1++gr1] = afifo;
-	rep 32 wfifo = [ar5++], ftw with vsum, ram, 0;
-	WTW_REG(gr4);
+	rep 32 wfifo = [ar5++], ftw,wtw with vsum, ram, 0;
 	ar5 = gr5;
-	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;
-	WTW_REG(gr4);
+	rep 32 wfifo = [ar5++], ftw,wtw with vsum, shift ram, afifo;
 	if > delayed goto lab_nmppsConvert_1_ with gr7--;	
 		rep 32 [ar2++gr2] = afifo;
 		rep 32 wfifo = [ar5++], ftw;
 
 <lab_nmppsConvert_2_>
-	rep 32 data,ram = [ar0++] with vsum, data, 0;
-	WTW_REG(gr4);
-	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;
-	WTW_REG(gr4);
-	rep 32 [ar1++gr1] = afifo;
-	rep 32 wfifo = [ar5++], ftw with vsum, ram, 0;
-	WTW_REG(gr4);
-	rep 32 with vsum, shift ram, afifo;
-	rep 32 [ar2++gr2] = afifo;
-
+	start_tail: label;
+	end_tail: label;
+	ar4 = start_tail	with gr4 <<=3;
+	delayed goto ar4+gr4;
+		nul;
+		ar4 = end_tail;
+<start_tail>
+	delayed goto end_tail;
+		wtw;nul;
+	nul;nul;nul;nul;
+	tail(1 );
+	tail(2 );
+	tail(3 );
+	tail(4 );
+	tail(5 );
+	tail(6 );
+	tail(7 );
+	tail(8 );
+	tail(9 );
+	tail(10);
+	tail(11);
+	tail(12);
+	tail(13);
+	tail(14);
+	tail(15);
+	tail(16);
+	tail(17);
+	tail(18);
+	tail(19);
+	tail(20);
+	tail(21);
+	tail(22);
+	tail(23);
+	tail(24);
+	tail(25);
+	tail(26);
+	tail(27);
+	tail(28);
+	tail(29);
+	tail(30);
+	tail(31);
+<end_tail>
 	pop ar5, gr5;
 	pop ar4, gr4;
 	pop ar2, gr2;

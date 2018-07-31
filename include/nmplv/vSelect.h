@@ -1562,7 +1562,7 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
     
 	\f[
         pDstVec(i)  =  \{ \begin{array}{*{20}c}
-            nTrueFlag,		&  if &  pSrcVec(i) \neq 0  \\
+            -1,		&  if &  pSrcVec(i) \neq 0  \\
             0,				&  if &  pSrcVec(i) = 0   \\
         \end{array}
     \f]
@@ -1582,10 +1582,6 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
     \param nSize   
 		\ru Размер векторов в элементах. 
         \en Vector size in elements. 
-		\~
-    \param nTrueFlag
-		\ru Значние флага, устанавливаемого при выполнении условия  
-        \en Flag value, being set if condition is true. 
 		\~
     \retval pDstVec 
         \ru Результирующий вектор. 

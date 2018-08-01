@@ -38,20 +38,97 @@
 #ifndef NMBLAS_SGEMM_H_
 #define NMBLAS_SGEMM_H_
 
+//	aux macros
 #define ALL_FPU( instr ) 	"fpu 0 " instr "\n\t" \
 							"fpu 1 " instr "\n\t" \
 							"fpu 2 " instr "\n\t" \
 							"fpu 3 " instr "\n\t"
 
+//	aux functions
 
-//static inline storeToMemory()
-//{
-//
-//}
-//
+//	load old C for specific fpu
+static inline void
+loadCFromMemory( float* pc, int ldc, const int fpu, int& dummy_to_link )
+{
+	asm (
+			"ar0= %1 + %5;\n\t"
+			"gr0= %2;\n\t"
+			"fpu %4 rep vlen vreg7= [ar0++gr0];\n\t"
+			: "+m"(dummy_to_link)
+			: "a"(pc), "g"(ldc), "m"(*pc), "i"(fpu), "i"(fpu*2)
+				: "ar0", "gr0" );
+}
 
-static inline
-void nmblas_sgemm(	const enum nm_trans TransA,
+//	load A for all fpu-s
+static inline void
+loadAFromMemory( const float* pa, int lda, const int vrNum, int& dummy_to_link )
+{
+	asm (
+			"ar0= %1;\n\t"
+			"gr0= %2;\n\t"
+			"fpu 0 rep vlen vreg%3 = [ar0++gr0];\n\t"
+//	All fpu-s got the same vector
+			"fpu 1 vreg%3 = fpu 0 vreg%3;\n\t"
+			"fpu 2 vreg%3 = fpu 1 vreg%3;\n\t"
+			"fpu 3 vreg%3 = fpu 2 vreg%3;\n\t"
+				: "+m" (dummy_to_link), "+a" (pa)
+				: "r"(lda), "i"(vrNum), "m"(*pa)
+				: "ar0", "gr0" );
+}
+
+static inline void
+loadBAndMAdd( const float* pb, const float* pb1, int ldb, const int vrNum, int& dummy_to_link )
+{
+	asm (
+			"fpu 0 rep 1 vreg4 = [%1++];\n\t"
+			"fpu 0 rep 1 vreg5 = [%2++];\n\t"
+			"fpu 1 rep 1 vreg4 = [%1++];\n\t"
+			"fpu 1 rep 1 vreg5 = [%2++];\n\t"
+			"fpu 2 rep 1 vreg4 = [%1++];\n\t"
+			"fpu 2 rep 1 vreg5 = [%2++];\n\t"
+			"fpu 3 rep 1 vreg4 = [%1++];\n\t"
+			"fpu 3 rep 1 vreg5 = [%2++];\n\t"
+	      	ALL_FPU (".matrix vreg7= vreg%3 * .retrieve (vreg4,vreg5) + vreg7;")
+				: "+m" (dummy_to_link), "+a" (pb), "+a" (pb1)
+				: "i"(vrNum), "m"(*pb) );
+}
+
+//	Same as loadBAndMAdd, but without "+C"
+static inline void
+loadBAndMultiply( const float* pb, const float* pb1, int ldb, const int vrNum, int& dummy_to_link )
+{
+	asm (
+			"fpu 0 rep 1 vreg4 = [%1++];\n\t"
+			"fpu 0 rep 1 vreg5 = [%2++];\n\t"
+			"fpu 1 rep 1 vreg4 = [%1++];\n\t"
+			"fpu 1 rep 1 vreg5 = [%2++];\n\t"
+			"fpu 2 rep 1 vreg4 = [%1++];\n\t"
+			"fpu 2 rep 1 vreg5 = [%2++];\n\t"
+			"fpu 3 rep 1 vreg4 = [%1++];\n\t"
+			"fpu 3 rep 1 vreg5 = [%2++];\n\t"
+	      	ALL_FPU (".matrix vreg7= vreg%3 * .retrieve (vreg4,vreg5);")
+				: "+m" (dummy_to_link), "+a" (pb), "+a" (pb1)
+				: "i"(vrNum), "m"(*pb) );
+}
+
+
+
+static inline void
+storeCToMemory( float* pc, int ldc, const int fpu, int& dummy_to_link )
+{
+	asm (
+			"ar0= %1;\n\t"
+			"gr0= %2;\n\t"
+			"fpu %4 rep vlen [ar0++gr0] = vreg7;\n\t"
+			: "=m"(*pc)
+			: "g"(pc), "g"(ldc), "m"(dummy_to_link), "i"(fpu)
+				: "ar0", "gr0" );
+}
+
+
+
+static inline void
+nmblas_sgemm(	const enum nm_trans TransA,
 					const enum nm_trans TransB,
 					const int M,
 					const int N,
@@ -71,7 +148,7 @@ void nmblas_sgemm(	const enum nm_trans TransA,
 	const int I=M;
 	const int J=N;
 	int i, j, k;
-	int dummy_to_link;
+	int dummy_to_link;	//	workaround to reflect dependence by vector registers
 
 	for(i=0; i<I; i+=32){
 		asm (
@@ -80,123 +157,66 @@ void nmblas_sgemm(	const enum nm_trans TransA,
 					: "g"( I-i-1 >= 31 ? 31 : I-i-1  ) );
 
 		for(j=0; j<J; j+=8){
-			//	read C[i][j]
-			float* pc  = C + i   *ldc +j;
-			asm (
-					"ar0= %1;\n\t"
-					"gr0= %2;\n\t"
-					"fpu 0 rep vlen vreg7= [ar0++gr0];\n\t"
-					"ar0= %1+2;\n\t"
-					"fpu 1 rep vlen vreg7= [ar0++gr0];\n\t"
-					"ar0= %1+4;\n\t"
-					"fpu 2 rep vlen vreg7= [ar0++gr0];\n\t"
-					"ar0= %1+6;\n\t"
-					"fpu 3 rep vlen vreg7= [ar0++gr0];\n\t"
-					: "+m"(dummy_to_link), "+a"(pc)
-					: "r"(ldc), "m"(*pc)
-						: "ar0", "gr0" );
 
+			k=0;
 			const float* pa;
 			const float* pb;
 			const float* pb1;
-			for(k=0; k<K; k+=2){
+
+			if ( beta!=0 ){
+				//	read C[i][j]
+				loadCFromMemory( C + i   *ldc +j, ldc, 0, dummy_to_link );
+				loadCFromMemory( C + i   *ldc +j, ldc, 1, dummy_to_link );
+				loadCFromMemory( C + i   *ldc +j, ldc, 2, dummy_to_link );
+				loadCFromMemory( C + i   *ldc +j, ldc, 3, dummy_to_link );
+			}
+			else{
+				pa  = A + i*lda +k;
+				pb  = B + k*ldb +j;
+				pb1 = B +(k+1)*ldb +j;
+
+				loadAFromMemory( pa, lda, 0, dummy_to_link );
+
+				loadBAndMultiply( pb, pb1, ldb, 0, dummy_to_link );
+				k+=2;
+			}
+
+
+
+			for(  ; k<K; k+=2){
 				//C[i][j] += A[i][k]*B[k][j];
 				pa  = A + i*lda +k;
 				pb  = B + k*ldb +j;
 				pb1 = B +(k+1)*ldb +j;
 
-				asm (
-						"ar0= %1;\n\t"
-						"gr0= %2;\n\t"
-						"fpu 0 rep vlen vreg3 = [ar0++gr0];\n\t"
-						"fpu 1 vreg3 = fpu 0 vreg3;\n\t"
-						"fpu 2 vreg3 = fpu 1 vreg3;\n\t"
-						"fpu 3 vreg3 = fpu 2 vreg3;\n\t"
-							: "+m" (dummy_to_link), "+a" (pa)
-							: "r"(lda), "m"(*pa)
-							: "ar0", "gr0" );
+				loadAFromMemory( pa, lda, 3, dummy_to_link );
 
-				asm (
-						"fpu 0 rep 1 vreg4 = [%1++];\n\t"
-						"fpu 0 rep 1 vreg5 = [%2++];\n\t"
-						"fpu 1 rep 1 vreg4 = [%1++];\n\t"
-						"fpu 1 rep 1 vreg5 = [%2++];\n\t"
-						"fpu 2 rep 1 vreg4 = [%1++];\n\t"
-						"fpu 2 rep 1 vreg5 = [%2++];\n\t"
-						"fpu 3 rep 1 vreg4 = [%1++];\n\t"
-						"fpu 3 rep 1 vreg5 = [%2++];\n\t"
-				      	ALL_FPU (".matrix vreg7= vreg3 * .retrieve (vreg4,vreg5) + vreg7;")
-							: "+m" (dummy_to_link), "+a" (pb), "+a" (pb1)
-							: "m"(*pb) );
+				loadBAndMAdd( pb, pb1, ldb, 3, dummy_to_link );
+
 				k+=2;
 				if ( !( k<K ) )
 					break;
 				pa  = A + i*lda +k;
 				pb  = B + k*ldb +j;
 				pb1 = B +(k+1)*ldb +j;
-				asm (
-						"ar0= %1;\n\t"
-						"gr0= %2;\n\t"
-						"fpu 0 rep vlen vreg0 = [ar0++gr0];\n\t"
-						"fpu 1 vreg0 = fpu 0 vreg0;\n\t"
-						"fpu 2 vreg0 = fpu 1 vreg0;\n\t"
-						"fpu 3 vreg0 = fpu 2 vreg0;\n\t"
-							: "+m" (dummy_to_link), "+a" (pa)
-							: "r"(lda), "m"(*pa)
-							: "ar0", "gr0" );
 
-				asm (
-						"fpu 0 rep 1 vreg4 = [%1++];\n\t"
-						"fpu 0 rep 1 vreg5 = [%2++];\n\t"
-						"fpu 1 rep 1 vreg4 = [%1++];\n\t"
-						"fpu 1 rep 1 vreg5 = [%2++];\n\t"
-						"fpu 2 rep 1 vreg4 = [%1++];\n\t"
-						"fpu 2 rep 1 vreg5 = [%2++];\n\t"
-						"fpu 3 rep 1 vreg4 = [%1++];\n\t"
-						"fpu 3 rep 1 vreg5 = [%2++];\n\t"
-				      	ALL_FPU (".matrix vreg7= vreg0 * .retrieve (vreg4,vreg5) + vreg7;")
-							: "+m" (dummy_to_link), "+a" (pb), "+a" (pb1)
-							: "m"(*pb) );
+				loadAFromMemory( pa, lda, 0, dummy_to_link );
+
+				loadBAndMAdd( pb, pb1, ldb, 0, dummy_to_link );
 			}
+
+
 			//	write C[i][j]
-			pc  = C + i   *ldc +j+0;
-			asm (
-					"ar0= %1;\n\t"
-					"gr0= %2;\n\t"
-					"fpu 0 rep vlen [ar0++gr0] = vreg7;\n\t"
-					: "=m"(*pc), "+a"(pc)
-					: "r"(ldc), "m"(dummy_to_link)
-						: "ar0", "gr0" );
+			storeCToMemory( C + i   *ldc +j+0, ldc, 0, dummy_to_link );
 			if ( J-j<=2 )
 				break;
-			pc  = C + i   *ldc +j+2;
-			asm (
-					"ar0= %1;\n\t"
-					"gr0= %2;\n\t"
-					"fpu 1 rep vlen [ar0++gr0] = vreg7;\n\t"
-					: "=m"(*pc), "+a"(pc)
-					: "r"(ldc), "m"(dummy_to_link)
-						: "ar0", "gr0" );
+			storeCToMemory( C + i   *ldc +j+2, ldc, 1, dummy_to_link );
 			if ( J-j<=4 )
 				break;
-			pc  = C + i   *ldc +j+4;
-			asm (
-					"ar0= %1;\n\t"
-					"gr0= %2;\n\t"
-					"fpu 2 rep vlen [ar0++gr0] = vreg7;\n\t"
-					: "=m"(*pc), "+a"(pc)
-					: "r"(ldc), "m"(dummy_to_link)
-						: "ar0", "gr0" );
+			storeCToMemory( C + i   *ldc +j+4, ldc, 2, dummy_to_link );
 			if ( J-j<=6 )
 				break;
-			pc  = C + i   *ldc +j+6;
-			asm (
-					"ar0= %1;\n\t"
-					"gr0= %2;\n\t"
-					"fpu 3 rep vlen [ar0++gr0] = vreg7;\n\t"
-					: "=m"(*pc), "+a"(pc)
-					: "r"(ldc), "m"(dummy_to_link)
-						: "ar0", "gr0" );
+			storeCToMemory( C + i   *ldc +j+6, ldc, 3, dummy_to_link );
 		}
 	}
 }

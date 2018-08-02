@@ -1,5 +1,6 @@
 #include "nmpp.h"
 #include "minrep.h"
+#include "stdio.h"
 
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -17,10 +18,10 @@ int main()
 {
 	
 
-	L0=nmppsMalloc_64s(SizeL0);
-	L1=nmppsMalloc_64s(SizeL1);
-	G0=nmppsMalloc_64s(SizeG0);
-	G1=nmppsMalloc_64s(SizeG1);
+	L0=nmppsMalloc_64s(SizeL0+1);
+	L1=nmppsMalloc_64s(SizeL1+1);
+	G0=nmppsMalloc_64s(SizeG0+1);
+	G1=nmppsMalloc_64s(SizeG1+1);
 	if ((L0==0)||(L1==0)||(G0==0)||(G1==0)) return -1;
 
 
@@ -33,15 +34,15 @@ int main()
 	longTestSize=MIN(longTestSize,SizeG0);
 
 	nmppsRandUniform_32u((nm32u*)L0,LONG2INT(SizeL0));
-	nmppsSet_32u((nm32u*)G0,(0xCCCCCCCC),(LONG2INT(SizeG0)));
+	nmppsSet_32u((nm32u*)G0,(0xCCCCCCCC),(LONG2INT(SizeG0))+2);
 	
 	for(int nSize=0;nSize<=longTestSize;nSize+=64)
 	{
 		nmppsConvert_1u2u((nm1*)L0,(nm2u*)G0,nSize);
-		nmppsCrcAcc_32u((nm32u*)G0,(nSize)/32,&crc);
+		nmppsCrcAcc_32u((nm32u*)G0,(nSize)/16+2,&crc);
 	}
 	//! \fn void nmppsConvert_1*(nm1*pSrc ,nm2u* pDst,int)
-
+	//printf ("0x%x\n",G0[longTestSize/32-1]+2);
 	nmppsFree(L0);
 	nmppsFree(L1);
 	nmppsFree(G0);

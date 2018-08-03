@@ -82,6 +82,7 @@
     */
     //! \{
 void nmppsNot_2u (const nm2u* pSrcVec,  nm2u*  pDstVec, int nSize);
+void nmppsNot_4u (const nm4u* pSrcVec,  nm4u*  pDstVec, int nSize);
 void nmppsNot_8u (const nm8u* pSrcVec,  nm8u*  pDstVec, int nSize);
 void nmppsNot_16u(const nm16u* pSrcVec, nm16u* pDstVec, int nSize);
 void nmppsNot_32u(const nm32u* pSrcVec, nm32u* pDstVec, int nSize);
@@ -700,6 +701,7 @@ void nmppsXorC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize
     \endxmlonly
     */
     //! \{
+void nmppsXor_4u (const nm4u*  pSrcVec1, const nm4u* pSrcVec2,  nm4u*  pDstVec, int nSize);
 void nmppsXor_8u (const nm8u*  pSrcVec1, const nm8u* pSrcVec2,  nm8u*  pDstVec, int nSize);
 void nmppsXor_16u(const nm16u* pSrcVec1, const nm16u* pSrcVec2, nm16u* pDstVec, int nSize);
 void nmppsXor_32u(const nm32u* pSrcVec1, const nm32u* pSrcVec2, nm32u* pDstVec, int nSize);		

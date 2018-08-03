@@ -514,11 +514,13 @@ void nmppsConvertRisc_32u8u(const nm32u* pSrcVec, nm8u* pDstVec, int nSize);
         */
     //! \{
 void nmppsCopy_2s (const nm2s*  pSrcVec, nm2s*  pDstVec, int nSize);
+void nmppsCopy_4s (const nm4s*  pSrcVec, nm4s*  pDstVec, int nSize);
 void nmppsCopy_8s (const nm8s*  pSrcVec, nm8s*  pDstVec, int nSize);
 void nmppsCopy_16s(const nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 void nmppsCopy_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
 void nmppsCopy_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 
+__INLINE__ void nmppsCopy_4u (const nm4u*  pSrcVec, nm4u*  pDstVec, int nSize) { nmppsCopy_4s (( nm4s*)  pSrcVec, (nm4s*)  pDstVec,  nSize);}
 __INLINE__ void nmppsCopy_8u (const nm8u*  pSrcVec, nm8u*  pDstVec, int nSize) { nmppsCopy_8s (( nm8s*)  pSrcVec, (nm8s*)  pDstVec,  nSize);}
 __INLINE__ void nmppsCopy_16u(const nm16u* pSrcVec, nm16u* pDstVec, int nSize) { nmppsCopy_16s(( nm16s*) pSrcVec, (nm16s*) pDstVec,  nSize);}
 __INLINE__ void nmppsCopy_32u(const nm32u* pSrcVec, nm32u* pDstVec, int nSize) { nmppsCopy_32s(( nm32s*) pSrcVec, (nm32s*) pDstVec,  nSize);}

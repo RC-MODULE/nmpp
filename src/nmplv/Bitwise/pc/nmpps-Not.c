@@ -25,7 +25,7 @@ const 	nm4u*			pSrcVec,		// input buffer		:long Local [VecSize/8]
 	long long int *src = (long long int *)pSrcVec;
 	long long int *dst = (long long int *)pDstVec;
 	for(i=0; i<iSize; i++)
-		src[i] = ~(dst[i]);
+		dst[i] = ~(src[i]);
 }
 
 void nmppsNot_8u(

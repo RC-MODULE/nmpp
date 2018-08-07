@@ -42,9 +42,9 @@ const 	nm4s*			pSrcVec,			// input buffer		:long Local [VecSize/8]
 		uiSrc = puiSrc[i];
 		for (j=0;j<16;j++)
 		{
-			puiDst[i]<<4;
+			puiDst[i]<<=4;
 			puiDst[i] |= ((uiSrc >> 60) - nVal) & 0xf;
-			uiSrc<<4;
+			uiSrc<<=4;
 		}
 	}
 }

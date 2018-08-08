@@ -920,6 +920,7 @@ void nmppsRShiftC_64s(const nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSiz
     \endxmlonly
     */
     //! \{
+void  nmppsRShiftC_4u (const nm4u* pSrcVec, int nShift,  nm4u* pDstVec, int nSize);
 void  nmppsRShiftC_8u (const nm8u* pSrcVec, int nShift,  nm8u* pDstVec, int nSize);
 void  nmppsRShiftC_16u(const nm16u* pSrcVec, int nShift, nm16u* pDstVec, int nSize);
 void  nmppsRShiftC_32u(const nm32u* pSrcVec, int nShift, nm32u* pDstVec, int nSize);

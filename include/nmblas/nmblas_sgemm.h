@@ -48,7 +48,7 @@
 
 //	load old C for specific fpu
 static inline void
-loadCFromMemory( float* pc, int ldc, const int fpu, int& dummy_to_link )
+loadCFromMemory( const float* pc, int ldc, const int fpu, int& dummy_to_link )
 {
 	asm (
 			"ar0= %1 + %5;\n\t"
@@ -138,12 +138,27 @@ nmblas_sgemm(	const enum nm_trans TransA,
 					const int lda,
 					const float *B,
 					const int ldb,
-					const float beta,
+					const float _beta,
 					float *C,
 					const int ldc
 					)
 {
-	if( TransA != nm_n || TransB != nm_n || alpha != 1 || beta != 1 ){/*!!!!!!!!!!!!!!!!!!!!!!!!!*/}
+	float beta= _beta;
+	if( TransA != nm_n || TransB != nm_n ){/*!!!!!!!!!!!!!!!!!!!!!!!!!*/}
+
+	//	Нижеследующие сравнения и деления должны быть локализованы строго до векторного кода,
+	//	поскольку реализующие их интринсики испортят значения в векторных регистрах!
+	//	{	all float intrinsic calls must be here!
+	bool beta0  = beta ==0.0f;
+	bool alpha1 = alpha==1.0f;
+	bool beta1;
+	if ( !beta0 ){
+		if ( !alpha1 && alpha !=0.0f )
+			beta /= alpha;
+		beta1  = beta ==1.0f;
+	}
+	//	}	all float intrinsic calls must be here!
+
 
 	const int I=M;
 	const int J=N;
@@ -151,9 +166,9 @@ nmblas_sgemm(	const enum nm_trans TransA,
 	int dummy_to_link;	//	workaround to reflect dependence by vector registers
 
 	for(i=0; i<I; i+=32){
-		asm (
-				"vlen= %1;\n\t"
-					: "=m" (dummy_to_link)
+		asm volatile(
+				"vlen= %0;\n\t"
+					:
 					: "g"( I-i-1 >= 31 ? 31 : I-i-1  ) );
 
 		for(j=0; j<J; j+=8){
@@ -162,20 +177,38 @@ nmblas_sgemm(	const enum nm_trans TransA,
 			const float* pa;
 			const float* pb;
 			const float* pb1;
+			float bufScalar[2] __attribute__ ((aligned (8)));
 
-			if ( beta!=0 ){
+			asm("":"=m"(dummy_to_link));
+
+			if ( !beta0 ){
 				//	read C[i][j]
-				loadCFromMemory( C + i   *ldc +j, ldc, 0, dummy_to_link );
-				loadCFromMemory( C + i   *ldc +j, ldc, 1, dummy_to_link );
-				loadCFromMemory( C + i   *ldc +j, ldc, 2, dummy_to_link );
-				loadCFromMemory( C + i   *ldc +j, ldc, 3, dummy_to_link );
+				loadCFromMemory( C + i *ldc +j, ldc, 0, dummy_to_link );
+				loadCFromMemory( C + i *ldc +j, ldc, 1, dummy_to_link );
+				loadCFromMemory( C + i *ldc +j, ldc, 2, dummy_to_link );
+				loadCFromMemory( C + i *ldc +j, ldc, 3, dummy_to_link );
+				if ( !beta1 ){
+					//	C[i][j] *= beta
+					bufScalar[0]=beta;
+					bufScalar[1]=beta;
+					float* pbeta= bufScalar;
+					asm (
+							"fpu 0 rep 1 vreg4 = [%1++];\n\t"
+							"fpu 1 vreg4 = fpu 0 vreg4;\n\t"
+							"fpu 2 vreg4 = fpu 1 vreg4;\n\t"
+							"fpu 3 vreg4 = fpu 2 vreg4;\n\t"
+					      	ALL_FPU (".float vreg7= vreg7 * .retrieve (vreg4);")
+								: "+m" (dummy_to_link), "+a" (pbeta)
+								: "m"(*bufScalar) );
+				}
 			}
 			else{
 				pa  = A + i*lda +k;
 				pb  = B + k*ldb +j;
 				pb1 = B +(k+1)*ldb +j;
 
-				loadAFromMemory( pa, lda, 0, dummy_to_link );
+				asm("":"=m"(dummy_to_link));
+				loadAFromMemory ( pa,      lda, 0, dummy_to_link );
 
 				loadBAndMultiply( pb, pb1, ldb, 0, dummy_to_link );
 				k+=2;
@@ -189,7 +222,7 @@ nmblas_sgemm(	const enum nm_trans TransA,
 				pb  = B + k*ldb +j;
 				pb1 = B +(k+1)*ldb +j;
 
-				loadAFromMemory( pa, lda, 3, dummy_to_link );
+				loadAFromMemory( pa,   lda, 3, dummy_to_link );
 
 				loadBAndMAdd( pb, pb1, ldb, 3, dummy_to_link );
 
@@ -200,23 +233,37 @@ nmblas_sgemm(	const enum nm_trans TransA,
 				pb  = B + k*ldb +j;
 				pb1 = B +(k+1)*ldb +j;
 
-				loadAFromMemory( pa, lda, 0, dummy_to_link );
+				loadAFromMemory( pa,   lda, 0, dummy_to_link );
 
 				loadBAndMAdd( pb, pb1, ldb, 0, dummy_to_link );
 			}
 
+			if ( !alpha1 ){
+				//	C[i][j] *= alpha
+				bufScalar[0]=alpha;
+				bufScalar[1]=alpha;
+				float* palpha= bufScalar;
+				asm (
+						"fpu 0 rep 1 vreg4 = [%1++];\n\t"
+						"fpu 1 vreg4 = fpu 0 vreg4;\n\t"
+						"fpu 2 vreg4 = fpu 1 vreg4;\n\t"
+						"fpu 3 vreg4 = fpu 2 vreg4;\n\t"
+				      	ALL_FPU (".float vreg7= vreg7 * .retrieve (vreg4);")
+							: "+m" (dummy_to_link), "+a" (palpha)
+							: "m"(*bufScalar) );
+			}
 
 			//	write C[i][j]
-			storeCToMemory( C + i   *ldc +j+0, ldc, 0, dummy_to_link );
+			storeCToMemory( C + i *ldc +j+0, ldc, 0, dummy_to_link );
 			if ( J-j<=2 )
 				break;
-			storeCToMemory( C + i   *ldc +j+2, ldc, 1, dummy_to_link );
+			storeCToMemory( C + i *ldc +j+2, ldc, 1, dummy_to_link );
 			if ( J-j<=4 )
 				break;
-			storeCToMemory( C + i   *ldc +j+4, ldc, 2, dummy_to_link );
+			storeCToMemory( C + i *ldc +j+4, ldc, 2, dummy_to_link );
 			if ( J-j<=6 )
 				break;
-			storeCToMemory( C + i   *ldc +j+6, ldc, 3, dummy_to_link );
+			storeCToMemory( C + i *ldc +j+6, ldc, 3, dummy_to_link );
 		}
 	}
 }

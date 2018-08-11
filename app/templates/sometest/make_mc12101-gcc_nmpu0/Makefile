@@ -22,9 +22,9 @@ CC_FLAGS = -std=c++11 -O2 -Wall -mnmc4-float
 ROOT     = ..
 PROJECT  = main
 TARGET   =$(PROJECT)
-INC_DIRS = -I"$(NMPP)/include"
-LIB_DIRS = -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4" -L"$(NMPP)/lib"
-LIBS     = -lnmpp-nmc4f 
+INC_DIRS = -I"$(NMPP)/include" -I"$(HAL)/include"
+LIB_DIRS = -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4" -L"$(NMPP)/lib" -L"$(HAL)/lib"
+LIBS     = -lnmpp-nmc4f -lhal-mc12101
 #-lhal-mc12101
 CFG      =  "-Wl,-cmc12101brd-nmpu0.cfg"
 SRC_CPP  = $(wildcard $(ROOT)/*.cpp)

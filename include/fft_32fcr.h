@@ -21,12 +21,6 @@ typedef struct
     int order;
 } NmppsFFTSpec_32fcr;
 
-typedef struct
-{
-	NmppsFFTSpec_32fcr *factors;
-	nm32fcr *bufferFFT;
-} NmppiFFTSpec_32fcr;
-
 // sFFT_32fcr
 
 

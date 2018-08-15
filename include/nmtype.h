@@ -1380,6 +1380,26 @@ typedef uint64 fseq64;
 #define CAPACITY_nm4s 16
 #define CAPACITY_nm2s 32
 #define CAPACITY_nm1 64
+
+//#ifdef __NM__
+#define NM16S(vec,size)  nm64s vec##__64s[size/4]; nm16s* vec=(nm16s*)vec##__64s
+//#else 
+//#define NM16S(vec,size)  nm16s vec[size];
+//#endif
+
+//#ifdef __NM__
+#define NM32S(vec,size)  nm64s vec##__64s[size/2]; nm32s* vec=(nm32s*)vec##__64s
+//#else 
+//#define NM32S(vec,size)  nm32s vec[size];
+//#endif
+
+/*
+#ifdef __NM__
+#define MTR16S(mtr,ydim,xdim)  static nm64s mtr##__64s[ydim][xdim/4]; nm16s* mtrvec=(nm16s*)vec##__64s
+#else 
+#define MTR16S(mtr,ydim,xdim)  nm16s vec[size];
+#endif
+*/
 //
 //
 #ifdef __cplusplus
@@ -1392,6 +1412,14 @@ typedef uint64 fseq64;
    #define __INLINE__ static __inline
   #endif
 #endif
+
+#define NM16Sx4(x0,x1,x2,x3) 	((long long)(x3&0xFFFFl)<<48)| \
+								((long long)(x2&0xFFFFl)<<32)| \
+								((long long)(x1&0xFFFFl)<<16)| \
+								((long long)(x0&0xFFFFl)) 
+#define NM32Sx2(x0,x1)			((long long)(unsigned(x1))<<32)| \
+								((long long)(unsigned(x0))) 
+#define NM32Sx4(x0,x1,x2,x3)	NM32Sx2(x0,x1),NM32Sx2(x2,x3)
 
 #endif
 

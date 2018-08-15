@@ -1,7 +1,7 @@
 #include "nmtype.h"
 #include "math.h"
 
-
+extern "C" {
 void nmppsNormDiff_L2_32fcr(const nm32fcr *src1, const nm32fcr *src2, int num, float* pNorm)
 {
     int i;
@@ -17,3 +17,4 @@ void nmppsNormDiff_L2_32fcr(const nm32fcr *src1, const nm32fcr *src2, int num, f
     }
     *pNorm = sqrtf(norm);
 }
+};

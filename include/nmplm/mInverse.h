@@ -139,5 +139,57 @@ void MTR_fpResolve_Gauss(double* pSrcMtrA, double* pSrcVecB, double* pDstVecX, i
     //! \{
 void MTR_fpResolve_PivotGauss(double* pSrcMtrAB, double* pDstVecX, int nSize);
     //! \}
+	
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
+	
+	/**
+	 *  \brief LU-разложение матрицы 
+	 *  
+	 *  \param [in] A  Матрица A
+	 *  \param [out] L Левая диагональная матрица L
+	 *  \param [out] U верхняя диагональная матрица  U
+	 *  \param [in]  N Размерность матрицы
+	 *  
+	 */
+void nmppmLUDecomp_64f (
+	const double  * A,
+	double        * L,
+	double        * U,
+	int			    N
+);
+
+
+ //SLAY
+// L*y = b;  U*x = y
+
+	/**
+	 *  \brief Решение системы линейных уравнений из LU-разложения
+	 *  L*y = b;  U*x = y 
+	 *  \param [in] L Левая диагональная матрица L
+	 *  \param [in] U верхняя диагональная матрица  U
+	 *  \param [in] b вектор b
+	 *  \param [out] x вектор x
+	 *  \param [out] y вектор y
+	 *  \param [in] N размер 
+	 *  
+	 *  \details More details
+	 */
+void nmppmLUResolve_64f (
+	const double        * L,
+	const double        * U,
+	const double        * b,
+	double              * x,
+	double              * y,
+	int				    N
+);
+
+
+#ifdef __cplusplus
+		};
+#endif
+
 
 #endif // _MINVERSE_H_INCLUDED_

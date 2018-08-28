@@ -10,9 +10,17 @@
 #define		NUMBUFF1		21
 #define		NUMBUFF2		4
 
-#define		FFTFwdInitAlloc_32fcr(SPEC, SIZE)				nmppsFFT##SIZE##FwdInitAlloc_32fcr(SPEC)
-#define		FFTFwd_32fcr(SRC, DST, SPEC, SIZE)				nmppsFFT##SIZE##Fwd_32fcr(SRC, DST, SPEC)
-#define		FFTInv_32fcr(SRC, DST, SPEC, SIZE)				nmppsFFT##SIZE##Inv_32fcr(SRC, DST, SPEC)
+#define			xFFTFwdInitAlloc_32fcr(SPEC, SIZE)				nmppsFFT##SIZE##FwdInitAlloc_32fcr(SPEC)
+#define			FFTFwdInitAlloc_32fcr(SPEC, SIZE)				xFFTFwdInitAlloc_32fcr(SPEC, SIZE)
+
+#define			xFFTInvInitAlloc_32fcr(SPEC, SIZE)				nmppsFFT##SIZE##InvInitAlloc_32fcr(SPEC)
+#define			FFTInvInitAlloc_32fcr(SPEC, SIZE)				xFFTInvInitAlloc_32fcr(SPEC, SIZE)
+
+#define			xFFTFwd_32fcr(SRC, DST, SPEC, SIZE)				nmppsFFT##SIZE##Fwd_32fcr(SRC, DST, SPEC)
+#define			FFTFwd_32fcr(SRC, DST, SPEC, SIZE)				xFFTFwd_32fcr(SRC, DST, SPEC, SIZE)
+
+#define			xFFTInv_32fcr(SRC, DST, SPEC, SIZE)				nmppsFFT##SIZE##Inv_32fcr(SRC, DST, SPEC)
+#define			FFTInv_32fcr(SRC, DST, SPEC, SIZE)				xFFTInv_32fcr(SRC, DST, SPEC, SIZE)
 
 typedef struct
 {   
@@ -621,7 +629,7 @@ int nmppsFFT4096InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr);
 	\param [in] spec структра, содержащая необходимые коэффициенты, для вычисления прямого БПФ определенного размера
  * 
  */
-int nmppsFFTFwd_32fcr(const nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fcr *Spc);
+//int nmppsFFTFwd_32fcr(const nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fcr *Spc);
 
 
 /**

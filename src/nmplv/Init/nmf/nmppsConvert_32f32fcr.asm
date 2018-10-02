@@ -43,8 +43,8 @@ begin "text"
 	if > delayed goto Packing_32f32fcr;
 		fpu 0 .packer = vreg0 with .float .in_high <= .float .in_high;
 		fpu rep 32 [ar2++gr2] = .packer;
-	gr4 = gr4 << 26;				// computing a reminder
-	gr4 = gr4 >> 26;				// computing a reminder
+	gr4 = gr4 << 26;				// computing a remainder
+	gr4 = gr4 >> 26;				// computing a remainder
 	if =0 goto exit_Conv32f32fcr;
 
 <Packing_32f32fcr_less64>			// N < 64

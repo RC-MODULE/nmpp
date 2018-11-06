@@ -458,6 +458,18 @@ void nmppsConvert_32f32s(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
 
 /**
  *  \ingroup nmppsConvert nmppsConvert
+ *  \brief Функция конвертации вектора комплексных чисел с целыми действительной и мнимой частью (32 бита) в вектор комплексных чисел, где мнимая и действительная части - 32-битные числа с плавающей точкой
+ *
+	\param pSrcVec указатель на входной вектор целых чисел
+	\param pDstVec указатель на выходной вектор комплексных чисел с плавающей точкой
+	\param nSize число элементов во входном векторе (может быть только четным)
+ *  \details Функция выполняется на сопроцессоре (процессор 1879ВМ6Я) с плавающей точкой с использованием переупаковщика данных
+ */
+
+void nmppsConvert_32s32f(const nm32s* pSrcVec, nm32f* pDstVec, int nSize);
+
+/**
+ *  \ingroup nmppsConvert nmppsConvert
  *  \brief Функция соединяет 2 массива 32-х чисел с плавающей точкой (float) в один. Результирующий массив { pSrcVec1[0], pSrcVec2[0], pSrcVec1[1], pSrcVec2[1], pSrcVec1[2], pSrcVec2[2] .... }
  *
     \param pSrcVec1 указатель на входной массив чисел float

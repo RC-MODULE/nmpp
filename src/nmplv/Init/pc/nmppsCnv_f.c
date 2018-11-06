@@ -39,3 +39,11 @@ void nmppsConvert_32sc32fcr(const nm32sc *pSrcVec, nm32fcr *pDstVec, int nSize)
 		pDstVec[i].im = (nm32f)pSrcVec[i].re;
 	}
 }
+
+void nmppsConvert_32f32s(const nm32f* pSrcVec, nm32s* pDstVec, int nSize)
+{
+	int i;
+	for(i = 0; i < nSize; i++) {
+		pDstVec[i] = (nm32s)pSrcVec[i];
+	}
+}

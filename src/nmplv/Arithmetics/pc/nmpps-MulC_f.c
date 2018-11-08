@@ -7,6 +7,7 @@
 //*   File:             nmpps-MulC_f.c                                      */
 //*   Contents:         f = Const * x    							        */
 //***************************************************************************/
+#include "nmtype.h"
 
 void nmppsMulC_32f(const nm32f* pSrcVec, nm32f* pDstVec, float C, int nSize)
 {

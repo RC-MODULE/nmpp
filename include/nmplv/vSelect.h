@@ -915,7 +915,7 @@ void nmppsCmpLt0_16s(const nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 void nmppsCmpLt0_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
 void nmppsCmpLt0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
-
+void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, nm1* evenFlags, nm1* oddFlags, const v2nm32f C, int step, int nSize);
 //*****************************************************************************
 
     /**

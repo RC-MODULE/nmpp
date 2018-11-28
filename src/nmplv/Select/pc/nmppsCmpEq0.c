@@ -2,7 +2,7 @@
 //
 //  $Workfile:: pcCompare.cp $
 //
-//  Векторно-матричная библиотека
+//  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,18 +11,43 @@
 //! \if file_doc
 //!
 //! \file   pcCompare.cpp
-//! \author Сергей Мушкаев
-//! \brief  Функции сравнения.
+//! \author пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+//! \brief  пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 //!
 //! \endif
 //!
 //------------------------------------------------------------------------
 #include "nmplv.h"
+void nmppsCmpGteC_v2nm32f(const v2nm32f* pSrcVec, nm1* evenFlags, nm1* oddFlags, const v2nm32f C, int step, int nSize)
+{
+  int i;
+  int offset = 0;
+  if (step == 1) {
+    step = 0;
+  }
+//  step <<= 1;
+  for(i = 0; i < nSize; i++) {
+    if(pSrcVec[i + offset].v0 - C.v0 >= 0.0f) {
+      nmppsPut_1(evenFlags, i, 1);
+    }
+    else {
+      nmppsPut_1(evenFlags, i, 0);
+    }
+
+    if(pSrcVec[i + offset].v1 - C.v1 >= 0) {
+      nmppsPut_1(oddFlags, i, 1);
+    }
+    else {
+      nmppsPut_1(oddFlags, i, 0);
+    }
+    offset += step;
+  }
+}
 
 
 //******************************************************************************
-//	Logical conversion from 32-bit buffer to 1-bit(binary) buffer by 
-//	setting of resulting bit to "1" if corresponding 32-bit input element is positive 
+//	Logical conversion from 32-bit buffer to 1-bit(binary) buffer by
+//	setting of resulting bit to "1" if corresponding 32-bit input element is positive
 //  and to "0" for each zero element and vice versa if nTrueFlag =-1
 //	For negative numbers result is not defined.
 void nmppsCmpEq0_32u31b(
@@ -44,7 +69,7 @@ void nmppsCmpEq0_32u31b(
 
 	s = nSize >> 5;
 	rem = nSize & 0x1f;
-	
+
 	for(i=0; i<s; i++)
 	{
 		dst[i] = 0;
@@ -73,8 +98,8 @@ void nmppsCmpEq0_32u31b(
 	#endif
 }
 //******************************************************************************
-//	Logical conversion from 16-bit buffer to 1-bit(binary) buffer by 
-//	setting of resulting bit to "1" if corresponding 32-bit input element is positive 
+//	Logical conversion from 16-bit buffer to 1-bit(binary) buffer by
+//	setting of resulting bit to "1" if corresponding 32-bit input element is positive
 //  and to "0" for each zero element and vice versa if nTrueFlag =-1
 //	For negative numbers result is not defined.
 void nmppsCmpEq0_16u15b(
@@ -124,8 +149,8 @@ void nmppsCmpEq0_16u15b(
 	#endif
 }
 //******************************************************************************
-//	Logical conversion from 8-bit buffer to 1-bit(binary) buffer by 
-//	setting of resulting bit to "1" if corresponding 32-bit input element is positive 
+//	Logical conversion from 8-bit buffer to 1-bit(binary) buffer by
+//	setting of resulting bit to "1" if corresponding 32-bit input element is positive
 //  and to "0" for each zero element and vice versa if nTrueFlag =-1
 //	For negative numbers result is not defined.
 void nmppsCmpEq0_8u7b(
@@ -142,7 +167,7 @@ void nmppsCmpEq0_8u7b(
     nm8s* src = (nm8s*) pSrcVec;
 	nm32u* dst = (nm32u*)pDstVec;
 	int i, j, k, s, rem;
-	
+
 	nTrueFlag&=1;
 	nTrueFlag-=1;
 
@@ -175,4 +200,3 @@ void nmppsCmpEq0_8u7b(
 
 	#endif
 }
-

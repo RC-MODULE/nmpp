@@ -23,59 +23,59 @@
     \defgroup nmppsMax_ nmppsMax_
     \ingroup vSelect
     \brief
-        \ru Поиск значения максимального элемента вектора. 
-        \en Search of the maximum vec element value.  
-    
+        \ru Поиск значения максимального элемента вектора.
+        \en Search of the maximum vec element value.
+
 		\~
-    
+
 	\f[
          nMaxValue  =  \mathop {max}\limits_{i} \left({pSrcVec[i]} \right)
     \f]
-    
-    \param pSrcVec  
-        \ru Входной вектор. 
-        \en Input vec. 
+
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nSize    
-        \ru Размер  вектора в элементах.  
-        \en Vector size in elements. 
+    \param nSize
+        \ru Размер  вектора в элементах.
+        \en Vector size in elements.
 		\~
-    \retval nMaxValue 
-        \ru значение максимального элемент вектора. 
-        \en maximum vec element value. 
+    \retval nMaxValue
+        \ru значение максимального элемент вектора.
+        \en maximum vec element value.
 		\~
-    \return \e void 
+    \return \e void
     \restr
         \ru Ограничения на параметры приводятся в описании каждой из функций.
         \en Restrictions on parameters are defined in the descriptions of functions.
 		\~
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
 			<param> pSrcVec   </param> <values> L G 	  </values>
 			<param> nMaxValue </param> <values> n 		  </values>
 			<param> nSize 	  </param> <values> 10240 </values>
-			<init2>	
+			<init2>
 					nmppsSet_(pSrcVec,0,nSize);
 					nmppsPut_(pSrcVec,nSize-1,1);
 			</init2>
         </testperf>
-        <testperf> 
+        <testperf>
 			<param> pSrcVec   </param> <values> G 		  </values>
 			<param> nMaxValue </param> <values> n 		  </values>
 			<param> nSize 	  </param> <values> 8 128 1024 10240 </values>
-			<init2>	
-					nmppsSet_(pSrcVec,0,nSize);	
+			<init2>
+					nmppsSet_(pSrcVec,0,nSize);
 					nmppsPut_(pSrcVec,nSize-1,1);
 			</init2>
         </testperf>
     \endxmlonly
-    
+
     */
     //! \{
 /**
  \restr
-	\ru Физический размер вектора должен быть кратен блоку из 32-х 64р. слов 
+	\ru Физический размер вектора должен быть кратен блоку из 32-х 64р. слов
 	\en Actual size of vec should be divisible by block of 32 64bit words.
 
 		\~
@@ -83,22 +83,22 @@
          Примеры допустимых диапазонов входных чисел:\n
      \en The difference between the maximum and minimum elements of the array should not be more than 127. \n
          Here are some examples of admissible ranges for input numbers: \n
-     \~  [00h..7Fh]=[   0..+127]	 
-         [FFh..7Eh]=[  -1..+126]	 
-	        [C0h..3Fh]=[-64..+63]	   
-         [80h..00h]=[-128..0	]	
+     \~  [00h..7Fh]=[   0..+127]
+         [FFh..7Eh]=[  -1..+126]
+	        [C0h..3Fh]=[-64..+63]
+         [80h..00h]=[-128..0	]
 */
 void nmppsMax_8s7b(const nm8s7b* pSrcVec, int nSize, int8b* nMaxValue);
 /**
 \restr
 \ru Максимальный и минимальный элементы массива должны отличатся не более чем на 2^15-1. \n
-	Примеры допустимых диапазонов входных чисел:\n 
+	Примеры допустимых диапазонов входных чисел:\n
 \en The difference between the maximum and minimum elements of the array should not be more than 2^15-1. \n
 	Here are some examples of admissible ranges for input numbers: \n
-    [0000h..7FFFh]=[     0..+32767	] 
-    [FFFFh..7FFEh]=[    -1..+32766	] 
-    [C000h..3FFFh]=[-16384..+16383	] 
-    [8000h..0000h]=[-32768..0		]     
+    [0000h..7FFFh]=[     0..+32767	]
+    [FFFFh..7FFEh]=[    -1..+32766	]
+    [C000h..3FFFh]=[-16384..+16383	]
+    [8000h..0000h]=[-32768..0		]
 */
 void nmppsMax_16s15b(const nm16s15b* pSrcVec, int nSize, int16b* nMaxValue);
 /**
@@ -108,10 +108,10 @@ void nmppsMax_16s15b(const nm16s15b* pSrcVec, int nSize, int16b* nMaxValue);
 \en The difference between the maximum and minimum elements of the array should not be more than 2^31-1. \n
 	Here are some examples of admissible ranges for input numbers: \n
 \~
-    [00000000h..7FFFFFFFh]=[	  0..+2^31-1]   
-    [FFFFFFFFh..7FFFFFFEh]=[    -1..+2^31-2	]	
-    [C0000000h..3FFFFFFFh]=[ -2^30..+2^30-1	] 
-    [80000000h..00000000h]=[ -2^31..0		]     
+    [00000000h..7FFFFFFFh]=[	  0..+2^31-1]
+    [FFFFFFFFh..7FFFFFFEh]=[    -1..+2^31-2	]
+    [C0000000h..3FFFFFFFh]=[ -2^30..+2^30-1	]
+    [80000000h..00000000h]=[ -2^31..0		]
 */
 void nmppsMax_32s31b(const nm32s31b* pSrcVec, int nSize, int* nMaxValue);
 void nmppsMax_64s63b(const nm64s63b* pSrcVec, int nSize, int64b *nMaxValue);
@@ -129,54 +129,54 @@ int nmppsMax_32sm(const nm32s* srcVec, int size, int32b* maxValue, nm64s* tmp);
     \defgroup nmppsMin nmppsMin
     \ingroup vSelect
     \brief
-        \ru Поиск значения минимального элемента вектора. 
-        \en Search of the minimum vec element value.  
-    
+        \ru Поиск значения минимального элемента вектора.
+        \en Search of the minimum vec element value.
+
 		\~
-    
+
 	\f[
          nMinValue  =  \mathop {min}\limits_{i} \left({pSrcVec[i]} \right)
     \f]
-    
-    \param pSrcVec  
-        \ru Входной вектор. 
-        \en Input vec. 
+
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nSize    
-        \ru Размер  вектора в элементах. 
-        \en Vector size in elements. 
+    \param nSize
+        \ru Размер  вектора в элементах.
+        \en Vector size in elements.
 		\~
-    \retval nMinValue 
-        \ru значение минимального элемент. 
-        \en minimum element value. 
+    \retval nMinValue
+        \ru значение минимального элемент.
+        \en minimum element value.
 		\~
-    \return \e void 
+    \return \e void
     \restr
         \ru Ограничения на параметры приводятся в описании каждой из функций.
         \en Restrictions on parameters are defined in the descriptions of functions.
 		\~
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
 			<param> pSrcVec		</param> <values> L G	</values>
 			<param> nMinValue	</param> <values> n	</values>
 			<param> nSize		</param> <values> 10240 </values>
-			<init2>	
-					nmppsSet_(pSrcVec,0,nSize);		
-					nmppsPut_(pSrcVec,nSize-1,-1); 
+			<init2>
+					nmppsSet_(pSrcVec,0,nSize);
+					nmppsPut_(pSrcVec,nSize-1,-1);
 			</init2>
         </testperf>
-        <testperf> 
+        <testperf>
 			<param> pSrcVec		</param> <values> G		</values>
 			<param> nMinValue	</param> <values> n	</values>
 			<param> nSize		</param> <values> 8 128 1024 10240 </values>
 			<init2>
-					nmppsSet_(pSrcVec,0,nSize);		
-					nmppsPut_(pSrcVec,nSize-1,-1); 
+					nmppsSet_(pSrcVec,0,nSize);
+					nmppsPut_(pSrcVec,nSize-1,-1);
 			</init2>
         </testperf>
     \endxmlonly
-    
+
     */
     //! \{
 /**
@@ -187,11 +187,11 @@ int nmppsMax_32sm(const nm32s* srcVec, int size, int32b* maxValue, nm64s* tmp);
         Примеры допустимых диапазонов входных чисел:\n
     \en The difference between the maximum and minimum elements of the array should not be more than 127. \n
         Here are some examples of admissible ranges for input numbers: \n
-    \~    
-        [00h..7Fh]=[   0..+127]	
-        [FFh..7Eh]=[  -1..+126]	
-        [C0h..3Fh]=[-64..+63]	  
-        [80h..00h]=[-128..0	]	  
+    \~
+        [00h..7Fh]=[   0..+127]
+        [FFh..7Eh]=[  -1..+126]
+        [C0h..3Fh]=[-64..+63]
+        [80h..00h]=[-128..0	]
 */
 void nmppsMin_8s7b(const nm8s7b* pSrcVec, int nSize, int8b* nMinValue);
 /**
@@ -200,10 +200,10 @@ void nmppsMin_8s7b(const nm8s7b* pSrcVec, int nSize, int8b* nMinValue);
         Примеры допустимых диапазонов входных чисел:\n
     \en The difference between the maximum and minimum elements of the array should not be more than 2^15-1. \n
         Here are some examples of admissible ranges for input numbers: \n
-    \~  [0000h..7FFFh]=[     0..+32767	] 
-        [FFFFh..7FFEh]=[    -1..+32766	] 
-        [C000h..3FFFh]=[-16384..+16383	] 
-        [8000h..0000h]=[-32768..0		]     
+    \~  [0000h..7FFFh]=[     0..+32767	]
+        [FFFFh..7FFEh]=[    -1..+32766	]
+        [C000h..3FFFh]=[-16384..+16383	]
+        [8000h..0000h]=[-32768..0		]
 */
 void nmppsMin_16s15b(const nm16s15b* pSrcVec, int nSize, int16b* nMinValue);
 /**
@@ -212,10 +212,10 @@ void nmppsMin_16s15b(const nm16s15b* pSrcVec, int nSize, int16b* nMinValue);
         Примеры допустимых диапазонов входных чисел:\n
     \en The difference between the maximum and minimum elements of the array should not be more than 2^31-1. \n
         Here are some examples of admissible ranges for input numbers: \n
-    \~  [00000000h..7FFFFFFFh]=[	  0..+2^31-1]   
-        [FFFFFFFFh..7FFFFFFEh]=[    -1..+2^31-2	]	
-        [C0000000h..3FFFFFFFh]=[ -2^30..+2^30-1	] 
-        [80000000h..00000000h]=[ -2^31..0		]     
+    \~  [00000000h..7FFFFFFFh]=[	  0..+2^31-1]
+        [FFFFFFFFh..7FFFFFFEh]=[    -1..+2^31-2	]
+        [C0000000h..3FFFFFFFh]=[ -2^30..+2^30-1	]
+        [80000000h..00000000h]=[ -2^31..0		]
 */
 void nmppsMin_32s31b(const nm32s31b* pSrcVec, int nSize, int* nMinValue);
 void nmppsMin_64s63b(const nm64s63b* pSrcVec, int nSize, int64b* nMinValue);
@@ -234,67 +234,67 @@ int nmppsMin_32sm(const nm32s* srcVec, int size, int32b* minValue, nm64s* tmp);
     \defgroup nmppsMaxIndx_ nmppsMaxIndx_
     \ingroup vSelect
     \brief
-        \ru Поиск значения максимального элемента вектора 
-               и  его положения (положений) в векторе. 
-        \en Search of the maximum vec element value and its position(s) in the vec  
-    
+        \ru Поиск значения максимального элемента вектора
+               и  его положения (положений) в векторе.
+        \en Search of the maximum vec element value and its position(s) in the vec
+
 		\~
-    
+
 	\f[
          nMaxValue  =  \mathop {max} \limits_{i} \left(pSrcVec[i] \right)
     \f]
-    
-    \param pSrcVec      
-        \ru Входной вектор. 
-        \en Input vec.   
+
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nSize        
-        \ru Размер вектора в элементах. Занимаемый этим вектором объем памяти должен быть кратен 64 длинным словам (nm64s[64,128,...]). 
+    \param nSize
+        \ru Размер вектора в элементах. Занимаемый этим вектором объем памяти должен быть кратен 64 длинным словам (nm64s[64,128,...]).
         \en Size of vec in elements. Size of allocated memory in 64-bit words must be divisible by 64 (nm64s[64,128,...])
 		\~
-    \param pLTmpBuf      
+    \param pLTmpBuf
         \ru Временный массив на локальной шине  из nSize элементов.
-        \en Temporary array on Local bus  of nSize elements. 
+        \en Temporary array on Local bus  of nSize elements.
 		\~
-	\param pGTmpBuf      
-        \ru Временный массив на глобальной шине . 
-        \en Temporary array on Global bus. 
+	\param pGTmpBuf
+        \ru Временный массив на глобальной шине .
+        \en Temporary array on Global bus.
 		\~
-    \param nSearchDir   
+    \param nSearchDir
         \ru Направление поиска максимума. \n
             При nSearchDir = 1, поиск ведется от начала массива.\n
             При nSearchDir = -1, поиск ведется от конца массива.\n
         \en The maximum search direction. \n
     	    When nSearchDir = 1, the search starts from the beginning of the array.\n
             When nSearchDir = -1, the search starts from the end of the array.\n
-    \retval nMaxValue   
-        \ru Значение максимального элемента. 
-        \en Value of the maximum element 
+    \retval nMaxValue
+        \ru Значение максимального элемента.
+        \en Value of the maximum element
 		\~
-    \retval nIndex   
-        \ru Индекс первого найденного максимума среди равных. 
-        \en Index of the first found maximum among equals. 
+    \retval nIndex
+        \ru Индекс первого найденного максимума среди равных.
+        \en Index of the first found maximum among equals.
 		\~
-    \return \e void	
+    \return \e void
     \restr
         \ru Ограничения на параметры приводятся в описании каждой из функций.
         \en Restrictions on parameters are defined in the descriptions of functions.
 		\~
-	\restr 
+	\restr
 		\ru Диапазоны входных элементов могут быть "плавающими"  \n
 			Например для данных nm16s15b максимальный и минимальный элементы массива должны отличатся не более чем на 2^15-1.
             Примеры допустимых диапазонов входных чисел для типа nm16s15b :
        \en The range of input data may be floating \n
 			For example: if nm16s15b type is used the difference between the maximum and minimum elements of the array should not be more than 2^15-1.
 		\~
-			Here are some examples of admissible ranges for input numbers: \n 
-       \~  [0000h..7FFFh]=[     0..+32767	] 
-           [FFFFh..7FFEh]=[    -1..+32766	] 
-           [C000h..3FFFh]=[-16384..+16383	] 
-           [8000h..0000h]=[-32768..0		]   
+			Here are some examples of admissible ranges for input numbers: \n
+       \~  [0000h..7FFFh]=[     0..+32767	]
+           [FFFFh..7FFEh]=[    -1..+32766	]
+           [C000h..3FFFh]=[-16384..+16383	]
+           [8000h..0000h]=[-32768..0		]
     \par
 	\xmlonly
-		<testperf> 
+		<testperf>
 			<param> pSrcVec		</param> <values> L G	</values>
 			<param> pLTmpBuf	</param> <values> L		</values>
 			<param> pGTmpBuf	</param> <values> G		</values>
@@ -302,9 +302,9 @@ int nmppsMin_32sm(const nm32s* srcVec, int size, int32b* minValue, nm64s* tmp);
 			<param> nIndex		</param> <values> n	</values>
 			<param> nSearchDir	</param> <values> 1 -1	</values>
 			<param> nSize		</param> <values> 64 1024 10240 </values>
-			<init2>	
-					nmppsSet_(pSrcVec,0,nSize);		
-					nmppsPut_(pSrcVec,nSize-1,1);	
+			<init2>
+					nmppsSet_(pSrcVec,0,nSize);
+					nmppsPut_(pSrcVec,nSize-1,1);
 			</init2>
 		</testperf>
     \endxmlonly
@@ -322,67 +322,67 @@ void nmppsMaxIndx_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMaxVal
     \defgroup nmppsMinIndx_ nmppsMinIndx_
     \ingroup vSelect
     \brief
-        \ru Поиск значения минимального элемента вектора 
-               и  его положения (положений) в векторе. 
-        \en Search of the minimum vec element value and its position(s) in the vec  
-    
+        \ru Поиск значения минимального элемента вектора
+               и  его положения (положений) в векторе.
+        \en Search of the minimum vec element value and its position(s) in the vec
+
 		\~
-    
+
 	\f[
          nMinValue  =  \mathop {min} \limits_{i} \left(pSrcVec[i] \right)
     \f]
-    
-    \param pSrcVec      
-        \ru Входной вектор. 
-        \en Input vec.   
+
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nSize        
-        \ru Размер вектора в элементах. Занимаемый этим вектором объем памяти должен быть кратен 64 длинным словам (nm64s[64,128,...]). 
+    \param nSize
+        \ru Размер вектора в элементах. Занимаемый этим вектором объем памяти должен быть кратен 64 длинным словам (nm64s[64,128,...]).
         \en Size of vec in elements. Size of allocated memory in 64-bit words must be divisible by 64 (nm64s[64,128,...])
 		\~
-    \param pLTmpBuf      
-        \ru Временный массив на локальной шине . 
-        \en Temporary array on Local bus. 
+    \param pLTmpBuf
+        \ru Временный массив на локальной шине .
+        \en Temporary array on Local bus.
 		\~
-	\param pGTmpBuf      
-        \ru Временный массив на глобальной шине  из nSize элементов. 
-        \en Temporary array on Global bus of  nSize elements. 
+	\param pGTmpBuf
+        \ru Временный массив на глобальной шине  из nSize элементов.
+        \en Temporary array on Global bus of  nSize elements.
 		\~
-    \param nSearchDir   
+    \param nSearchDir
         \ru Направление поиска минимума. \n
             При nSearchDir = 1, поиск ведется от начала массива.\n
             При nSearchDir = -1, поиск ведется от конца массива.\n
         \en The minimum search direction. \n
     	    When nSearchDir = 1, the search starts from the beginning of the array.\n
             When nSearchDir = -1, the search starts from the end of the array.\n
-    \retval nMinValue   
-        \ru Значение минимального элемента. 
-        \en Value of the minimum element 
+    \retval nMinValue
+        \ru Значение минимального элемента.
+        \en Value of the minimum element
 		\~
-    \retval nIndex   
-        \ru Индекс первого найденного минимума среди равных. 
-        \en Index of the first found minimum among equals. 
+    \retval nIndex
+        \ru Индекс первого найденного минимума среди равных.
+        \en Index of the first found minimum among equals.
 		\~
-    \return \e void	
+    \return \e void
     \restr
         \ru Ограничения на параметры приводятся в описании каждой из функций.
         \en Restrictions on parameters are defined in the descriptions of functions.
 		\~
-	\restr 
+	\restr
 		\ru Диапазоны входных элементов могут быть "плавающими"  \n
 			Например для данных nm16s15b максимальный и минимальный элементы массива должны отличатся не более чем на 2^15-1.
             Примеры допустимых диапазонов входных чисел для типа nm16s15b :
        \en The range of input data may be floating \n
 			For example: if nm16s15b type is used the difference between the maximum and minimum elements of the array should not be more than 2^15-1.
 		\~
-			Here are some examples of admissible ranges for input numbers: \n 
-       \~  [0000h..7FFFh]=[     0..+32767	] 
-           [FFFFh..7FFEh]=[    -1..+32766	] 
-           [C000h..3FFFh]=[-16384..+16383	] 
-           [8000h..0000h]=[-32768..0		]   
+			Here are some examples of admissible ranges for input numbers: \n
+       \~  [0000h..7FFFh]=[     0..+32767	]
+           [FFFFh..7FFEh]=[    -1..+32766	]
+           [C000h..3FFFh]=[-16384..+16383	]
+           [8000h..0000h]=[-32768..0		]
     \par
 	\xmlonly
-		<testperf> 
+		<testperf>
 			<param> pSrcVec		</param> <values> L G	</values>
 			<param> pLTmpBuf	</param> <values> L		</values>
 			<param> pGTmpBuf	</param> <values> G		</values>
@@ -390,9 +390,9 @@ void nmppsMaxIndx_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMaxVal
 			<param> nIndex		</param> <values> n	</values>
 			<param> nSearchDir	</param> <values> 1 -1	</values>
 			<param> nSize		</param> <values> 64 1024 10240 </values>
-			<init2>	
-					nmppsSet_(pSrcVec,0,nSize);		
-					nmppsPut_(pSrcVec,nSize-1,-1);	
+			<init2>
+					nmppsSet_(pSrcVec,0,nSize);
+					nmppsPut_(pSrcVec,nSize-1,-1);
 			</init2>
 		</testperf>
 	\endxmlonly
@@ -409,31 +409,31 @@ void nmppsMinIndx_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMinVal
     /**
     \defgroup nmppsMinIndxVN_ nmppsMinIndxVN_
     \ingroup vSelect
-	\brief 
-        \ru Поиск значения минимального элемента вектора  длины N и его положения в векторе. 
+	\brief
+        \ru Поиск значения минимального элемента вектора  длины N и его положения в векторе.
         \en Search of the minimum vec element value and its position in the vec  with size of N elements
-		
+
 		\~
-	\param pSrcVec 
-	    \ru Массив из N элементов, где N определяется числом в имени функции. 
+	\param pSrcVec
+	    \ru Массив из N элементов, где N определяется числом в имени функции.
         \en array of N numbers, where N is suffix in function name
 		\~
 	\param nStride
-	    \ru шаг между элементами в 32р. словах 
+	    \ru шаг между элементами в 32р. словах
         \en jump between numbers in nm32s words
 		\~
 	\retval
 		\ru Индекс первого найденного минимума.
-		\en Index of the first found minimum. 
+		\en Index of the first found minimum.
 		\~
-	\return 
-	    \ru Значение минимального элемента. 
-        \en Value of the minimum element 
+	\return
+	    \ru Значение минимального элемента.
+        \en Value of the minimum element
 
 		\~
 	\par
 	\xmlonly
-		<testperf> 
+		<testperf>
 			 <param> pSrcVec </param> <values> L G  </values>
 			 <param> nStride </param> <values> 2    </values>
 			 <param> nPos    </param> <values> n	</values>
@@ -459,22 +459,22 @@ int nmppsMinIndxV1024_32s(int* pSrcVec,int nStride,int* nPos);
     /**
     \defgroup nmppsFirstZeroIndx nmppsFirstZeroIndx
     \ingroup vSelect
-	\brief 
-        \ru Поиск позиции первого нулевого элемента в векторе . 
-        \en Search of first zero element position in the vec 
-		
+	\brief
+        \ru Поиск позиции первого нулевого элемента в векторе .
+        \en Search of first zero element position in the vec
+
 		\~
-	\param pSrcVec 
-	    \ru Входной массив. 
+	\param pSrcVec
+	    \ru Входной массив.
         \en Input array
 		\~
 	\param nIndex
-	    \ru Размер массива. 
+	    \ru Размер массива.
         \en Array size
 		\~
-	\return 
-	    \ru Позиция нулевого элемента или -1 в случае если нулевой элемент не найден 
-        \en Position of zero element or -1 if zero element was not found. 
+	\return
+	    \ru Позиция нулевого элемента или -1 в случае если нулевой элемент не найден
+        \en Position of zero element or -1 if zero element was not found.
 		\~
 	\restr
 		\ru Вычисления проиводятся на скалярном ядре, поэтому указатель на данные pSrcVec может ссылаться на нечетный адрес.
@@ -485,7 +485,7 @@ int nmppsMinIndxV1024_32s(int* pSrcVec,int nStride,int* nPos);
 		\~
 	\par
 	\xmlonly
-		<testperf> 
+		<testperf>
 			 <param> pSrcVec </param> <values> L G  </values>
 			 <param> nSize   </param> <values> 8 64 512 </values>
 			 <init2>  nmppsSet_(pSrcVec,1,nSize); </init2>
@@ -500,22 +500,22 @@ int nmppsFirstZeroIndx_32s(int* pSrcVec, int nSize);
     /**
     \defgroup nmppsFirstNonZeroIndx nmppsFirstNonZeroIndx
     \ingroup vSelect
-	\brief 
-        \ru Поиск позиции первого ненулевого элемента в векторе . 
-        \en Search of first nonzero element position in the vec 
-		
+	\brief
+        \ru Поиск позиции первого ненулевого элемента в векторе .
+        \en Search of first nonzero element position in the vec
+
 		\~
-	\param pSrcVec 
-	    \ru Входной массив. 
+	\param pSrcVec
+	    \ru Входной массив.
         \en Input array
 		\~
 	\param nIndex
-	    \ru Размер массива. 
+	    \ru Размер массива.
         \en Array size
 		\~
-	\return 
-	    \ru Позиция ненулевого элемента или -1 в случае если ненулевой элемент не найден 
-        \en Position of nonzero element or -1 if zero element was not found. 
+	\return
+	    \ru Позиция ненулевого элемента или -1 в случае если ненулевой элемент не найден
+        \en Position of nonzero element or -1 if zero element was not found.
 		\~
 	\restr
 		\ru Вычисления проиводятся на скалярном ядре, поэтому указатель на данные pSrcVec может ссылаться на нечетный адрес.
@@ -526,7 +526,7 @@ int nmppsFirstZeroIndx_32s(int* pSrcVec, int nSize);
 		\~
 	\par
 	\xmlonly
-		<testperf> 
+		<testperf>
 			 <param> pSrcVec </param> <values> L G  </values>
 			 <param> nSize   </param> <values> 8 64 512 </values>
 			 <init2> nmppsSet_(pSrcVec,0,nSize); </init2>
@@ -542,22 +542,22 @@ int nmppsFirstNonZeroIndx_32s(int* pSrcVec, int nSize);
     /**
     \defgroup nmppsLastZeroIndx nmppsLastZeroIndx
     \ingroup vSelect
-	\brief 
-        \ru Поиск позиции последнего нулевого элемента в векторе . 
-        \en Search of last zero element position in the vec 
-		
+	\brief
+        \ru Поиск позиции последнего нулевого элемента в векторе .
+        \en Search of last zero element position in the vec
+
 		\~
-	\param pSrcVec 
-	    \ru Входной массив. 
+	\param pSrcVec
+	    \ru Входной массив.
         \en Input array
 		\~
 	\param nIndex
-	    \ru Размер массива. 
+	    \ru Размер массива.
         \en Array size
 		\~
-	\return 
-	    \ru Позиция нулевого элемента или -1 в случае если нулевой элемент не найден 
-        \en Position of zero element or -1 if zero element was not found. 
+	\return
+	    \ru Позиция нулевого элемента или -1 в случае если нулевой элемент не найден
+        \en Position of zero element or -1 if zero element was not found.
 
 		\~
 	\restr
@@ -568,7 +568,7 @@ int nmppsFirstNonZeroIndx_32s(int* pSrcVec, int nSize);
 		\~
 	\par
 	\xmlonly
-		<testperf> 
+		<testperf>
 			 <param> pSrcVec </param> <values> L G  </values>
 			 <param> nSize   </param> <values> 8 64 512 </values>
 			 <init2> nmppsSet_(pSrcVec,1,nSize); </init2>
@@ -584,22 +584,22 @@ int nmppsLastZeroIndx_32s(int* pSrcVec, int nSize);
     /**
     \defgroup nmppsLastNonZeroIndx nmppsLastNonZeroIndx
     \ingroup vSelect
-	\brief 
-        \ru Поиск позиции последнего ненулевого элемента в векторе . 
-        \en Search of last nonzero element position in the vec 
-		
+	\brief
+        \ru Поиск позиции последнего ненулевого элемента в векторе .
+        \en Search of last nonzero element position in the vec
+
 		\~
-	\param pSrcVec 
-	    \ru Входной массив. 
+	\param pSrcVec
+	    \ru Входной массив.
         \en Input array
 		\~
 	\param nIndex
-	    \ru Размер массива. 
+	    \ru Размер массива.
         \en Array size
 		\~
-	\return 
-	    \ru Позиция нулевого элемента или -1 в случае если нулевой элемент не найден 
-        \en Position of zero element or -1 if zero element was not found. 
+	\return
+	    \ru Позиция нулевого элемента или -1 в случае если нулевой элемент не найден
+        \en Position of zero element or -1 if zero element was not found.
 
 		\~
 	\restr
@@ -610,14 +610,14 @@ int nmppsLastZeroIndx_32s(int* pSrcVec, int nSize);
 		\~
 	\par
 	\xmlonly
-		<testperf> 
+		<testperf>
 			 <param> pSrcVec </param> <values> L G  </values>
 			 <param> nSize   </param> <values> 8 64 512 </values>
 			 <init2> nmppsSet_(pSrcVec,0,nSize); </init2>
 
 		</testperf>
 	\endxmlonly
-	
+
 	*/
 	//! \{
 int nmppsLastNonZeroIndx_32s(int* pSrcVec, int nSize);
@@ -629,54 +629,54 @@ int nmppsLastNonZeroIndx_32s(int* pSrcVec, int nSize);
     \defgroup nmppsMinEvery_ nmppsMinEvery_
     \ingroup vSelect
     \brief
-        \ru Поэлементный минимум из двух векторов. 
-        \en Generation of the vec of two vectors elementwise minima. 
-    
+        \ru Поэлементный минимум из двух векторов.
+        \en Generation of the vec of two vectors elementwise minima.
+
 		\~
-    
+
 	\f[ pDstMinVec[i] = \min (pSrcVec1[i], pSrcVec2[i]) \f]
-    
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
-    \param pSrcVec1 
-        \ru Первый входной вектор. 
-        \en The first input vec. 
+
+    \param pSrcVec1
+        \ru Первый входной вектор.
+        \en The first input vec.
 		\~
-    \param pSrcVec2 
-        \ru Второй Входной вектор. 
-        \en The second input vec. 
+    \param pSrcVec2
+        \ru Второй Входной вектор.
+        \en The second input vec.
 		\~
-    \param nSize    
-        \ru Размер векторов в элементах. 
-        \en Vectors size in elements. 
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vectors size in elements.
 		\~
     \retval pDstMinVec
-        \ru Массив поэлементных минимумов для входных массивов. 
-        \en The array of elementwise minima for source arrays. 
+        \ru Массив поэлементных минимумов для входных массивов.
+        \en The array of elementwise minima for source arrays.
 		\~
-    \return \e void 
-    
-    \restr 
+    \return \e void
+
+    \restr
         \ru Сравниваемые пары чисел двух массивов должны отличатся не более чем на \f$ 2^{15}-1 \f$. \n
                   Примеры допустимых диапазонов сравниваемых пар чисел:\n
-        \en The difference between the comparable pairs of numbers in two arrays 
+        \en The difference between the comparable pairs of numbers in two arrays
 		\~
                should not be more than \f$ 2^{15}-1 \f$. \n
-               Here are some examples of admissible ranges for comparable pairs of numbers: \n  
+               Here are some examples of admissible ranges for comparable pairs of numbers: \n
         \~     [0000h..7FFFh]=[     0..+32767	]     \n
                [FFFFh..7FFEh]=[    -1..+32766	]     \n
                [C000h..3FFFh]=[-16384..+16383	]     \n
                [8000h..0000h]=[-32768..0		]
-    
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec1 </param> <values> L G </values>
              <param> pSrcVec2 </param> <values> L G </values>
              <param> pDstMinVec </param> <values> L G </values>
              <param> nSize </param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec1 </param> <values> L </values>
              <param> pSrcVec2 </param> <values> L </values>
              <param> pDstMinVec </param> <values> G </values>
@@ -704,55 +704,55 @@ void nmppsMinNV_64s(nm64s63b** pSrcVecs, int numVecs, nm64s63b* pDstMinVec, int 
     \defgroup nmppsMaxEvery_ nmppsMaxEvery_
     \ingroup vSelect
     \brief
-        \ru Поэлементный максимум из двух векторов. 
-        \en Generation of the vec of two vectors elementwise minimum. 
-    
+        \ru Поэлементный максимум из двух векторов.
+        \en Generation of the vec of two vectors elementwise minimum.
+
 		\~
-    
+
 	\f[ pDstMaxVec[i] = \max (pSrcVec1[i], pSrcVec2[i]) \f]
-    
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
-    \param pSrcVec1 
-        \ru Первый входной вектор. 
-        \en The first input vec. 
+
+    \param pSrcVec1
+        \ru Первый входной вектор.
+        \en The first input vec.
 		\~
-    \param pSrcVec2 
-        \ru Второй Входной вектор. 
-        \en The second input vec. 
+    \param pSrcVec2
+        \ru Второй Входной вектор.
+        \en The second input vec.
 		\~
-    \param nSize    
-        \ru Размер векторов в элементах. 
-        \en Vectors size in elements. 
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vectors size in elements.
 		\~
-    \retval pDstMaxVec 
-        \ru Массив поэлементных минимумов для входных массивов. 
-        \en The array of elementwise Maxima for source arrays. 
+    \retval pDstMaxVec
+        \ru Массив поэлементных минимумов для входных массивов.
+        \en The array of elementwise Maxima for source arrays.
 		\~
-    \return \e void 
-    
-    \restr 
+    \return \e void
+
+    \restr
         \ru Сравниваемые пары чисел двух массивов должны отличатся не более чем на \f$ 2^{15}-1 \f$. \n
                   Примеры допустимых диапазонов сравниваемых пар чисел:\n
-        \en The difference between the comparable pairs of numbers in two arrays 
+        \en The difference between the comparable pairs of numbers in two arrays
 		\~
                should not be more than \f$ 2^{15}-1 \f$. \n
-               Here are some examples of admissible ranges for comparable pairs of numbers: \n  
+               Here are some examples of admissible ranges for comparable pairs of numbers: \n
         \~     [0000h..7FFFh]=[     0..+32767	]     \n
                [FFFFh..7FFEh]=[    -1..+32766	]     \n
                [C000h..3FFFh]=[-16384..+16383	]     \n
                [8000h..0000h]=[-32768..0		]
-    
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec1		</param> <values> L G </values>
              <param> pSrcVec2		</param> <values> L G </values>
              <param> pDstMaxVec		</param> <values> L G </values>
              <param> pDstSignMask	</param> <values> L G </values>
              <param> nSize			</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec1		</param> <values> L </values>
              <param> pSrcVec2		</param> <values> L </values>
              <param> pDstMaxVec		</param> <values> G </values>
@@ -775,14 +775,14 @@ void nmppsMaxEvery_64s(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMax
     \defgroup nmppsMinCmpLtV_ nmppsMinCmpLtV_
     \ingroup vSelect
     \brief
-        \ru Поэлементный минимум из двух векторов. 
-        \en Generation of the vec of two vectors elementwise minima. 
-    
+        \ru Поэлементный минимум из двух векторов.
+        \en Generation of the vec of two vectors elementwise minima.
+
 		\~
-    
+
 	\f[ pDstMin[i] = \min (pSrcVec1[i], pSrcVec2[i]) \f]
-    
-	\f[ 
+
+	\f[
         pDstSignMask[i] = \left\{
             \begin{array}{ll}
                 11 \ldots 1b,  & pSrcVec1[i] < pSrcVec2[i] \\
@@ -790,54 +790,54 @@ void nmppsMaxEvery_64s(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMax
             \end{array}
         \right.
     \f]
-    
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
-    \param pSrcVec1 
-        \ru Первый входной вектор. 
-        \en The first input vec. 
+
+    \param pSrcVec1
+        \ru Первый входной вектор.
+        \en The first input vec.
 		\~
-    \param pSrcVec2 
-        \ru Второй Входной вектор. 
-        \en The second input vec. 
+    \param pSrcVec2
+        \ru Второй Входной вектор.
+        \en The second input vec.
 		\~
-    \param nSize    
-        \ru Размер векторов в элементах. 
-        \en Vectors size in elements. 
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vectors size in elements.
 		\~
-    \retval pDstMin 
-        \ru Массив поэлементных минимумов для входных массивов. 
-        \en The array of elementwise minima for source arrays. 
+    \retval pDstMin
+        \ru Массив поэлементных минимумов для входных массивов.
+        \en The array of elementwise minima for source arrays.
 		\~
-    \retval pDstSignMask 
-        \ru Массив знаков поэлементных разностей 
-                             первого и второго векторов. 
-        \en The array of signed elementwise differences of the first and the second vectors. 
+    \retval pDstSignMask
+        \ru Массив знаков поэлементных разностей
+                             первого и второго векторов.
+        \en The array of signed elementwise differences of the first and the second vectors.
 		\~
-    \return \e void 
-    
-    \restr 
+    \return \e void
+
+    \restr
         \ru Сравниваемые пары чисел двух массивов должны отличатся не более чем на \f$ 2^{15}-1 \f$. \n
                   Примеры допустимых диапазонов сравниваемых пар чисел:\n
-        \en The difference between the comparable pairs of numbers in two arrays 
+        \en The difference between the comparable pairs of numbers in two arrays
 		\~
                should not be more than \f$ 2^{15}-1 \f$. \n
-               Here are some examples of admissible ranges for comparable pairs of numbers: \n  
+               Here are some examples of admissible ranges for comparable pairs of numbers: \n
         \~     [0000h..7FFFh]=[     0..+32767	]     \n
                [FFFFh..7FFEh]=[    -1..+32766	]     \n
                [C000h..3FFFh]=[-16384..+16383	]     \n
                [8000h..0000h]=[-32768..0		]
-    
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec1		</param> <values> L G </values>
              <param> pSrcVec2		</param> <values> L G </values>
              <param> pDstMin		</param> <values> L G </values>
              <param> pDstSignMask	</param> <values> L G </values>
              <param> nSize			</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec1		</param> <values> L </values>
              <param> pSrcVec2		</param> <values> L </values>
              <param> pDstMin		</param> <values> G </values>
@@ -857,52 +857,52 @@ void nmppsMinCmpLtV_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMi
     \defgroup nmppsCmpLt0 nmppsCmpLt0
     \ingroup vSelect
     \brief
-        \ru Сравнивает элементы массива на меньше нуля. 
-        \en Compares the array elements less zero.  
-    
+        \ru Сравнивает элементы массива на меньше нуля.
+        \en Compares the array elements less zero.
+
 		\~
-    
+
 	\f[
      pDstVec(i)  =  \{ \begin{array}{*{20}c}
         11 \ldots 1b,   &  if &  pSrcVec(i) < 0  \\
         00 \ldots 0b,   &  if &  pSrcVec(i) \ge 0  \\
      \end{array}
     \f]
-    
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
-    \ru Если элемент входного вектора меньше 0, во все биты 
-        соответствующего элемента выходного вектора записывается 1. 
-    \en If an element of the input vec is less than zero then 
-        1 is beeing written to all bits of output vec element. 
+
+    \ru Если элемент входного вектора меньше 0, во все биты
+        соответствующего элемента выходного вектора записывается 1.
+    \en If an element of the input vec is less than zero then
+        1 is beeing written to all bits of output vec element.
 
 		\~
 		\~
-    \param pSrcVec  
-        \ru Входной вектор. 
-        \en Input vec. 
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nSize    
-        \ru Размер векторов в элементах. 
-        \en Vectors size in elements. 
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vectors size in elements.
 
 		\~
-    \retval pDstVec 
-        \ru Результирующий вектор. 
-        \en The result vec. 
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
 
 		\~
-    \return \e void 
-    
+    \return \e void
+
 
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L G </values>
              <param> pDstVec	</param> <values> L G </values>
              <param> nSize		</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L </values>
              <param> pDstVec	</param> <values> G </values>
              <param> nSize		</param> <values> 8 128 1024 10240 </values>
@@ -922,18 +922,18 @@ void nmppsCmpLt0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     \defgroup nmppsCmpEq0 nmppsCmpEq0
     \ingroup vSelect
     \brief
-        \ru Сравнивает элементы массива на признак равенства нулю. 
-        \en Compare vec elements to zero equlity. 
-    
+        \ru Сравнивает элементы массива на признак равенства нулю.
+        \en Compare vec elements to zero equlity.
+
 		\~
-    
+
 	\f[
         pDstVec(i)  =  \{ \begin{array}{*{20}c}
             1,    &  if &  pSrcVec(i) = 0  \\
             0,    &  if &  pSrcVec(i) \neq 0\\
         \end{array}, if~ nTrueFlag=1
     \f]
-	
+
 	\f[
         pDstVec(i)  =  \{ \begin{array}{*{20}c}
             0,    &  if &  pSrcVec(i) = 0  \\
@@ -941,43 +941,43 @@ void nmppsCmpLt0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
         \end{array}, if~ nTrueFlag=0
     \f]
 
-    
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
-  
+
+
 		\~
-    \param pSrcVec  
-        \ru Входной вектор. 
-        \en Input vec. 
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nSize     \ru Размер векторов в элементах. 
-                     \ru Vector size in elements. 
+    \param nSize     \ru Размер векторов в элементах.
+                     \ru Vector size in elements.
     \param nTrueFlag \ru Младший бит nTrueFlag определяет значение выходного бита при выполнении условия.
-                     \en Lowest  bit of nTrueFlag is set in result bit if condition is true. 
+                     \en Lowest  bit of nTrueFlag is set in result bit if condition is true.
 
 		\~
-    \retval pDstVec 
-        \ru Результирующий бинарный вектор. 
-        \en Destination binary vec. 
+    \retval pDstVec
+        \ru Результирующий бинарный вектор.
+        \en Destination binary vec.
 
 		\~
-    \return \e void 
-    
+    \return \e void
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L G </values>
              <param> pDstVec	</param> <values> L G </values>
              <param> nTrueFlag	</param> <values> -1 </values>
              <param> nSize		</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L </values>
              <param> pDstVec	</param> <values> G </values>
              <param> nTrueFlag	</param> <values> 0 -1 </values>
              <param> nSize		</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L </values>
              <param> pDstVec	</param> <values> G </values>
              <param> nTrueFlag	</param> <values> -1 </values>
@@ -1009,48 +1009,48 @@ void nmppsCmpEq0_32u31b(nm32u31b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFla
     /**
     \defgroup nmppsCmpMinMaxV_ nmppsCmpMinMaxV_
     \ingroup vSelect
-	
+
     \brief
-        \ru Поэлементное сравнение двух векторов. 
-        \en Elementwise comparision of two vectors. 
-    
+        \ru Поэлементное сравнение двух векторов.
+        \en Elementwise comparision of two vectors.
+
 		\~
-    
+
 	\f[ pDstMin[i] = \min (pSrcVec1[i], pSrcVec2[i]) \f]
-	
+
 	\f[ pDstMax[i] = \max (pSrcVec1[i], pSrcVec2[i]) \f]
-    
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
-    \param pSrcVec1 
-        \ru Первый входной вектор. 
-        \en The first input vec. 
+
+    \param pSrcVec1
+        \ru Первый входной вектор.
+        \en The first input vec.
 		\~
-    \param pSrcVec2 
-        \ru Второй Входной вектор. 
-        \en The second input vec. 
+    \param pSrcVec2
+        \ru Второй Входной вектор.
+        \en The second input vec.
 		\~
-    \param nSize    
-        \ru Размер векторов в элементах. 
-        \en Vectors size in elements. 
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vectors size in elements.
 		\~
     \retval pDstMin
-        \ru Массив поэлементных минимумов для входных массивов. 
-        \en The array of elementwise minimums for source arrays. 
+        \ru Массив поэлементных минимумов для входных массивов.
+        \en The array of elementwise minimums for source arrays.
 		\~
     \retval pDstMax
-        \ru Массив поэлементных максимумов для входных массивов. 
-        \en The array of elementwise maximums for source arrays. 
+        \ru Массив поэлементных максимумов для входных массивов.
+        \en The array of elementwise maximums for source arrays.
 		\~
-    \return \e void 
-    
-    \restr 
+    \return \e void
+
+    \restr
         \ru Сравниваемые пары чисел двух массивов должны отличатся не более чем на \f$ 2^{15}-1 \f$. \n
                   Примеры допустимых диапазонов сравниваемых пар чисел:\n
-        \en The difference between the comparable pairs of numbers in two arrays 
+        \en The difference between the comparable pairs of numbers in two arrays
 		\~
                should not be more than \f$ 2^{15}-1 \f$. \n
-               Here are some examples of admissible ranges for comparable pairs of numbers: \n  
+               Here are some examples of admissible ranges for comparable pairs of numbers: \n
         \~     [0000h..7FFFh]=[     0..+32767	]     \n
                [FFFFh..7FFEh]=[    -1..+32766	]     \n
                [C000h..3FFFh]=[-16384..+16383	]     \n
@@ -1058,7 +1058,7 @@ void nmppsCmpEq0_32u31b(nm32u31b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFla
 
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec1	</param> <values> L G </values>
              <param> pSrcVec2	</param> <values> L G </values>
              <param> pDstMin	</param> <values> L G </values>
@@ -1082,54 +1082,54 @@ void nmppsCmpMinMaxV_32s(nm32s*  pSrcVec1, nm32s* pSrcVec2,  nm32s*  pDstMin,  n
     \defgroup nmppsClipPowC_ nmppsClipPowC_
     \ingroup vSelect
     \brief
-        \ru Функция насыщения. 
-        \en Saturation function. 
-    
+        \ru Функция насыщения.
+        \en Saturation function.
+
 		\~
-    
+
 	\f[
         pDstVec[i]  =  \left \{ \begin{array}{*{20}l}
-            -2^{nClipFactor},  & if & pSrcVec[i] < -2^{nClipFactor}  \\    
+            -2^{nClipFactor},  & if & pSrcVec[i] < -2^{nClipFactor}  \\
             pSrcVec[i],        & if & -2^{nClipFactor} \le pSrcVec[i] \le 2^{nClipFactor}-1  \\
             2^{nClipFactor}-1, & if & pSrcVec[i] > 2^{nClipFactor}-1 \\
         \end{array} \right.
     \f]
-    
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
-    \param pSrcVec  
-        \ru Входной вектор. 
-        \en Input vec. 
+
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nClipFactor 
-        \ru Показатель степени, определяющий верхний и нижний пороги насыщения. 
-        \en Index of the degree defining the upper and the lower saturation thresholds. 
+    \param nClipFactor
+        \ru Показатель степени, определяющий верхний и нижний пороги насыщения.
+        \en Index of the degree defining the upper and the lower saturation thresholds.
 		\~
-    \param nSize    
-        \ru Размер вектора в элементах. 
-        \en Vector size in elements. 
+    \param nSize
+        \ru Размер вектора в элементах.
+        \en Vector size in elements.
 		\~
-    \retval pDstVec 
-        \ru Результирующий вектор. 
-        \en The result vec. 
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
 		\~
-    \return \e void 
-    
+    \return \e void
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec </param> <values> L G </values>
              <param> pDstVec </param> <values> L G </values>
              <param> nClipFactor </param> <values> 2 </values>
              <param> nSize </param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec </param> <values> L </values>
              <param> pDstVec </param> <values> G </values>
              <param> nClipFactor </param> <values> 2 3 5 </values>
              <param> nSize </param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec </param> <values> L </values>
              <param> pDstVec </param> <values> G </values>
              <param> nClipFactor </param> <values> 2 </values>
@@ -1150,68 +1150,68 @@ void nmppsClipPowC_64s(nm64s* pSrcVec, int nClipFactor, nm64s* pDstVec, int nSiz
     \defgroup nmppsClipCC_ nmppsClipCC_
     \ingroup vSelect
     \brief
-        \ru Функция насыщения с произвольными порогами. 
-        \en Saturation function with arbitrary thresholds. 
-    
+        \ru Функция насыщения с произвольными порогами.
+        \en Saturation function with arbitrary thresholds.
+
 		\~
-    
+
 	\f[
         pDstVec[i]  =  \left \{ \begin{array}{*{20}l}
             nPosThresh,   & if & pSrcVec[i] > nPosThresh \\
             pSrcVec[i],   & if & nNegThresh \le pSrcVec[i] \le nPosThresh  \\
-            nNegThresh,   & if & pSrcVec[i] < nNegThresh  \\    
+            nNegThresh,   & if & pSrcVec[i] < nNegThresh  \\
         \end{array} \right.
     \f]
-    
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
-    \param pSrcVec      
-        \ru Входной вектор. 
-        \en Input vec. 
+
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nNegThresh   
-        \ru Нижний порог насыщения. 
-        \en The lower saturation threshold. 
+    \param nNegThresh
+        \ru Нижний порог насыщения.
+        \en The lower saturation threshold.
 		\~
-    \param nPosThresh   
-        \ru Верхний порог насыщения. 
-        \en The upper saturation threshold. 
+    \param nPosThresh
+        \ru Верхний порог насыщения.
+        \en The upper saturation threshold.
 		\~
-    \param nSize        
-        \ru Размер вектора в элементах. 
-        \en Vector size in elements. 
+    \param nSize
+        \ru Размер вектора в элементах.
+        \en Vector size in elements.
 		\~
-    \retval pDstVec     
-        \ru Результирующий вектор. 
-        \en The result vec. 
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
 		\~
-    \return \e void 
-    
+    \return \e void
+
     \restr
         \ru
-            - Диапазон изменения для \f$ nPosThresh \subset [0 \ldots 2^{30}-1] \f$. 
-            - Диапазон изменения для \f$ nNegThresh \subset [-2^{30} \ldots 0] \f$. \n 
+            - Диапазон изменения для \f$ nPosThresh \subset [0 \ldots 2^{30}-1] \f$.
+            - Диапазон изменения для \f$ nNegThresh \subset [-2^{30} \ldots 0] \f$. \n
         \en
-            - Range of changing for \f$ nPosThresh \subset [0 \ldots 2^{30}-1] \f$. 
-            - Range of changing for \f$ nNegThresh \subset [-2^{30} \ldots 0] \f$. \n 
-    
+            - Range of changing for \f$ nPosThresh \subset [0 \ldots 2^{30}-1] \f$.
+            - Range of changing for \f$ nNegThresh \subset [-2^{30} \ldots 0] \f$. \n
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L G </values>
              <param> pDstVec	</param> <values> L G </values>
              <param> nNegThresh </param> <values> -127 </values>
              <param> nPosThresh </param> <values> 127 </values>
              <param> nSize		</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L </values>
              <param> pDstVec	</param> <values> G </values>
              <param> nNegThresh </param> <values> -255 -127 </values>
              <param> nPosThresh </param> <values> 127 255 </values>
              <param> nSize		</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L </values>
              <param> pDstVec	</param> <values> G </values>
              <param> nNegThresh </param> <values> -127 </values>
@@ -1230,55 +1230,55 @@ void nmppsClipCC_32s(nm32s30b* pSrcVec, int30b nNegThresh, int30b nPosThresh, nm
     \defgroup nmppsClipRShiftConvert_AddC_ nmppsClipRShiftConvert_AddC_
     \ingroup vSelect
     \brief
-        \ru Сокращение разрядности данных c предварительной их обработкой. 
-        \en Data word-length reduction with their preprocessing. 
-	
+        \ru Сокращение разрядности данных c предварительной их обработкой.
+        \en Data word-length reduction with their preprocessing.
+
 		\~
-    
+
 	\f[
 	    pDstVec[i] = Convert(Clip(pSrcVec[i],nClipFactor) >> nShift) + nAddValue
 	\f]
-    
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
-	  \ru Сокращение разрядности данных выполняется после предварительной обработки и осуществляется 
-	    путем отбрасывания старших битов.  
-	  \en Data word-length is reduced after preprocessing and is made by means of the most significant bits truncation. 
+
+	  \ru Сокращение разрядности данных выполняется после предварительной обработки и осуществляется
+	    путем отбрасывания старших битов.
+	  \en Data word-length is reduced after preprocessing and is made by means of the most significant bits truncation.
 
 		\~
 		\~
-    \param pSrcVec    
-        \ru Входной вектор. 
-        \en Input vec. 
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nClipFactor 
-        \ru Показатель степени, определяющий верхний и нижний пороги насыщения. =[1,2,3...15] 
-        \en Index of the degree defining the upper and the lower saturation thresholds. =[1,2,3...15] 
+    \param nClipFactor
+        \ru Показатель степени, определяющий верхний и нижний пороги насыщения. =[1,2,3...15]
+        \en Index of the degree defining the upper and the lower saturation thresholds. =[1,2,3...15]
 		\~
-    \param nShift      
+    \param nShift
         \ru Параметр определяет на сколько позиций =[2,4,6...14] нужно
-                           сдвинуть биты элементов вектора; 
-        \en This parameter defines for how many positions =[2,4,6...14] vec elements should be shifted 
+                           сдвинуть биты элементов вектора;
+        \en This parameter defines for how many positions =[2,4,6...14] vec elements should be shifted
 		\~
-    \param nAddValue   
-        \ru Добавляемая константа. 
-        \en Additive constant. 
+    \param nAddValue
+        \ru Добавляемая константа.
+        \en Additive constant.
 		\~
-    \param nSize      
-        \ru Размер векторов в элементах. 
-        \en Vector size in elements. 
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vector size in elements.
 
 		\~
-    \retval pDstVec   
-        \ru Результирующий вектор. 
-        \en The result vec. 
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
 
 		\~
-    \return \e void 
-    
+    \return \e void
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L G </values>
              <param> pDstVec	</param> <values> L G </values>
              <param> nClipFactor</param> <values> 4 </values>
@@ -1286,7 +1286,7 @@ void nmppsClipCC_32s(nm32s30b* pSrcVec, int30b nNegThresh, int30b nPosThresh, nm
              <param> nAddValue	</param> <values> 127 </values>
              <param> nSize		</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L </values>
              <param> pDstVec	</param> <values> G </values>
              <param> nClipFactor</param> <values> 1 4 15 </values>
@@ -1294,7 +1294,7 @@ void nmppsClipCC_32s(nm32s30b* pSrcVec, int30b nNegThresh, int30b nPosThresh, nm
              <param> nAddValue	</param> <values> 127 </values>
              <param> nSize		</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L </values>
              <param> pDstVec	</param> <values> G </values>
              <param> nClipFactor</param> <values> 4 </values>
@@ -1302,7 +1302,7 @@ void nmppsClipCC_32s(nm32s30b* pSrcVec, int30b nNegThresh, int30b nPosThresh, nm
              <param> nAddValue	</param> <values> 127 </values>
              <param> nSize		</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L </values>
              <param> pDstVec	</param> <values> G </values>
              <param> nClipFactor</param> <values> 4 </values>
@@ -1310,7 +1310,7 @@ void nmppsClipCC_32s(nm32s30b* pSrcVec, int30b nNegThresh, int30b nPosThresh, nm
              <param> nAddValue	</param> <values> 0 64 127 </values>
              <param> nSize		</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L </values>
              <param> pDstVec	</param> <values> G </values>
              <param> nClipFactor</param> <values> 4 </values>
@@ -1327,65 +1327,65 @@ void nmppsClipRShiftConvertAddC_32s8s(nm32s* pSrcVec, int nClipFactor,int nShift
 
 //extern "C" nm64u VEC_TBL_Diagonal_01h_G[8];
 //extern "C" nm64u VEC_TBL_Diagonal_01h_L[8];
-/**	
+/**
 \defgroup nmppsClipConvert_AddC_ nmppsClipConvert_AddC_
     \ingroup vSelect
     \brief
-        \ru Сокращение разрядности данных c предварительной их обработкой. 
-        \en Data word-length reduction with their preprocessing. 
-	
+        \ru Сокращение разрядности данных c предварительной их обработкой.
+        \en Data word-length reduction with their preprocessing.
+
 		\~
-    
+
 	\f[
 	    pDstVec[i] = Convert(Clip(pSrcVec[i],nClipFactor)) + nAddValue
 	\f]
-    
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
-	  \ru Сокращение разрядности данных выполняется после предварительной обработки и осуществляется 
-	    путем отбрасывания старших битов.  
-	  \en Data word-length is reduced after preprocessing and is made by means of the most significant bits truncation. 
+
+	  \ru Сокращение разрядности данных выполняется после предварительной обработки и осуществляется
+	    путем отбрасывания старших битов.
+	  \en Data word-length is reduced after preprocessing and is made by means of the most significant bits truncation.
 
 		\~
 		\~
-    \param pSrcVec    
-        \ru Входной вектор. 
-        \en Input vec. 
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nClipFactor 
-        \ru Показатель степени, определяющий верхний и нижний пороги насыщения. =[1,2,3...15] 
-        \en Index of the degree defining the upper and the lower saturation thresholds. =[1,2,3...15] 
+    \param nClipFactor
+        \ru Показатель степени, определяющий верхний и нижний пороги насыщения. =[1,2,3...15]
+        \en Index of the degree defining the upper and the lower saturation thresholds. =[1,2,3...15]
 		\~
-    \param nAddValue   
-        \ru Добавляемая константа. 
-        \en Additive constant. 
+    \param nAddValue
+        \ru Добавляемая константа.
+        \en Additive constant.
 		\~
-    \param nSize      
-        \ru Размер векторов в элементах. 
-        \en Vector size in elements. 
-	\param weights      
-        \ru указатель на матрицу коэфициентов для векторного умножителя. Для ускорения. 
-        \en Vector size in elements. 
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vector size in elements.
+	\param weights
+        \ru указатель на матрицу коэфициентов для векторного умножителя. Для ускорения.
+        \en Vector size in elements.
 
 		\~
-    \retval pDstVec   
-        \ru Результирующий вектор. 
-        \en The result vec. 
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
 
 		\~
-    \return \e void 
-    
+    \return \e void
+
     \par
     */
     //! \{
 //void nmppsClipConvertAddC_16s8s(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s* pDstVec, int nSize, nm64u* weights); //=VEC_TBL_Diagonal_01h_G
 typedef nm64u NmppsWeightState;
-void nmppsClipConvertAddCInitAlloc_16s8s(NmppsWeightState** ppState); 
+void nmppsClipConvertAddCInitAlloc_16s8s(NmppsWeightState** ppState);
 void nmppsClipConvertAddC_16s8s(nm16s* pSrcVec, int nClipFactor, int8b nAddValue,nm8s* pDstVec, int nSize, NmppsWeightState* pState); //=VEC_TBL_Diagonal_01h_G
-void nmppsClipConvertAddCFree(NmppsWeightState* pState); 
+void nmppsClipConvertAddCFree(NmppsWeightState* pState);
     //! \}
 
-	
+
 //*****************************************************************************
   /**
   \internal
@@ -1393,68 +1393,68 @@ void nmppsClipConvertAddCFree(NmppsWeightState* pState);
   \ingroup vSelect
 
 	\brief
-	  \ru Сокращение разрядности данных c предварительной их обработкой. 
-	  \en Data word-length reduction with their preprocessing. 
+	  \ru Сокращение разрядности данных c предварительной их обработкой.
+	  \en Data word-length reduction with their preprocessing.
 
 		\~
-	
+
 	\f[
 		pDstVec[i][j] = DstType(Clip(pSrcVec[i][j],pClipFactor[j]) >> pShift[j]) + pAddValue[j]
 	\f]
-	
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-	
+
 	\f[ j = \overline{0 \ldots 7} \f]
 
-	\ru Сокращение разрядности данных выполняется после предварительной обработки и осуществляется 
-		путем отбрасывания старших битов. 
-	\en Data word-length is reduced after preprocessing and is made by means of the most significant 
-	bits truncation.    
+	\ru Сокращение разрядности данных выполняется после предварительной обработки и осуществляется
+		путем отбрасывания старших битов.
+	\en Data word-length is reduced after preprocessing and is made by means of the most significant
+	bits truncation.
 
 		\~
 	\~
-	\param pSrcVec    
-		\ru Входной вектор. 
-		\en Input vec.	
+	\param pSrcVec
+		\ru Входной вектор.
+		\en Input vec.
 
 		\~
-	\param pnClipFactor 
+	\param pnClipFactor
 		\ru Массив из 8 показателей степени, определяющие верхний и нижний пороги насыщения
-							как -2^pnClipFactor[j] and 2^pnClipFactor[j]-1. =[1,2,3...15] 
-		\en Array of 8 factors, wich defining the lower and  the upper saturation thresholds 
-							as -2^pnClipFactor[j] and 2^pnClipFactor[j]-1.  =[1,2,3...15] 
+							как -2^pnClipFactor[j] and 2^pnClipFactor[j]-1. =[1,2,3...15]
+		\en Array of 8 factors, wich defining the lower and  the upper saturation thresholds
+							as -2^pnClipFactor[j] and 2^pnClipFactor[j]-1.  =[1,2,3...15]
 
 		\~
-	\param pnShift      
+	\param pnShift
 	  \ru Массив из 8 параметров,  определяющих  на сколько позиций =[2,4,6...14] нужно
-							сдвинуть биты элементов вектора; 
-		\en Array of 8 parameters which defines for how many positions =[2,4,6...14] vec 
+							сдвинуть биты элементов вектора;
+		\en Array of 8 parameters which defines for how many positions =[2,4,6...14] vec
 		elements should be shifted
 
 		\~
-	\param pnAdd		
-	  \ru Массив из 8 костант. 
-		\en Array of 8 constants. 
+	\param pnAdd
+	  \ru Массив из 8 костант.
+		\en Array of 8 constants.
 
 		\~
-	\param nSize		
-	  \ru Размер векторов в элементах. 
-		\en Vector size in elements. 
+	\param nSize
+	  \ru Размер векторов в элементах.
+		\en Vector size in elements.
 
 		\~
-	\retval pDstVec   
-	  \ru Результирующий вектор. 
-		\en The result vec. 
+	\retval pDstVec
+	  \ru Результирующий вектор.
+		\en The result vec.
 
 		\~
-	\return \e void 
+	\return \e void
 
   \par
 	\xmlonly
-		<testperf> 
-			 <init> 
+		<testperf>
+			 <init>
 					int pnV8[8]={2,2,2,2,2,2,2,2};
-					nm64s pnAddV8[1]={0};			
+					nm64s pnAddV8[1]={0};
 			</init>
 			<param> pSrcVec			</param> <values> L G  </values>
 			<param> pnShift			</param> <values> pnV8 </values>
@@ -1463,10 +1463,10 @@ void nmppsClipConvertAddCFree(NmppsWeightState* pState);
 			<param> pDstVec			</param> <values> L G </values>
 			<param> nSize			</param> <values>10240 </values>
 		</testperf>
-		<testperf> 
+		<testperf>
 			<init>
 					int pnV8[8]={2,2,2,2,2,2,2,2};
-					nm64s pnAddV8[1]={0};			
+					nm64s pnAddV8[1]={0};
 			</init>
 			 <param> pSrcVec		</param> <values> L  </values>
 			 <param> pnShift		</param> <values> pnV8 </values>
@@ -1482,7 +1482,7 @@ void nmppsClipConvertAddCFree(NmppsWeightState* pState);
 void nmppsClipRShiftConvert_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v8nm32s* pnShift, v8nm32s* pnAdd,  v8nm8s* pDstVec, int nSize);
 
 	//! \}
-//void nmppsClipRShiftConvert_AddC_Ext_(v16nm16s* pSrcVec, v16nm32s* pnClipFactor, v16nm32s* pnShift,v16nm4s* pnAdd, 
+//void nmppsClipRShiftConvert_AddC_Ext_(v16nm16s* pSrcVec, v16nm32s* pnClipFactor, v16nm32s* pnShift,v16nm4s* pnAdd,
 //							  v16nm4s* pDstVec, int nSize);
 
 
@@ -1492,47 +1492,47 @@ void nmppsClipRShiftConvert_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v
 	\defgroup nmppsCmpEqC nmppsCmpEqC
     \ingroup vSelect
     \brief
-        \ru Сравнивает элементы массива на признак равенства константе. 
-        \en Compare vec elements to const equality. 
-    
+        \ru Сравнивает элементы массива на признак равенства константе.
+        \en Compare vec elements to const equality.
+
 		\~
-    
+
 	\f[
         pDstVec(i)  =  \{ \begin{array}{*{20}c}
             nTrueFlag,		&  if &  pSrcVec(i) = nCmpVal  \\
             0,				&  if &  pSrcVec(i) \neq nCmpVal   \\
         \end{array}
     \f]
-	
-    
+
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
+
 		\~
-    \param pSrcVec  
-        \ru Входной вектор. 
-        \en Input vec. 
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
 	\param nCmpVal
-		\ru	Значение константы для сравнияе 
-		\en Comparision constant value 
+		\ru	Значение константы для сравнияе
+		\en Comparision constant value
 		\~
-    \param nSize   
-		\ru Размер векторов в элементах. 
-        \en Vector size in elements. 
+    \param nSize
+		\ru Размер векторов в элементах.
+        \en Vector size in elements.
 		\~
     \param nTrueFlag
-		\ru Значние флага, устанавливаемого при выполнении условия  
-        \en Flag value, being set if condition is true. 
+		\ru Значние флага, устанавливаемого при выполнении условия
+        \en Flag value, being set if condition is true.
 		\~
-    \retval pDstVec 
-        \ru Результирующий вектор. 
-        \en Destination vec. 
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en Destination vec.
 		\~
-    \return \e void 
-    
+    \return \e void
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L G </values>
              <param> pDstVec	</param> <values> L G </values>
              <param> nCmpVal	</param> <values> 0 </values>
@@ -1555,43 +1555,43 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 	\defgroup nmppsCmpNe0 nmppsCmpNe0
     \ingroup vSelect
     \brief
-        \ru Сравнивает элементы массива на признак неравенства нулю. 
-        \en Compare vec elements to zero nonequality. 
-    
+        \ru Сравнивает элементы массива на признак неравенства нулю.
+        \en Compare vec elements to zero nonequality.
+
 		\~
-    
+
 	\f[
         pDstVec(i)  =  \{ \begin{array}{*{20}c}
             -1,		&  if &  pSrcVec(i) \neq 0  \\
             0,				&  if &  pSrcVec(i) = 0   \\
         \end{array}
     \f]
-	
-    
+
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
+
 		\~
-    \param pSrcVec  
-        \ru Входной вектор. 
-        \en Input vec. 
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
 	\param nCmpVal
-		\ru	Значение константы для сравнияе 
-		\en Comparision constant value 
+		\ru	Значение константы для сравнияе
+		\en Comparision constant value
 		\~
-    \param nSize   
-		\ru Размер векторов в элементах. 
-        \en Vector size in elements. 
+    \param nSize
+		\ru Размер векторов в элементах.
+        \en Vector size in elements.
 		\~
-    \retval pDstVec 
-        \ru Результирующий вектор. 
-        \en Destination vec. 
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en Destination vec.
 		\~
-    \return \e void 
-    
+    \return \e void
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec </param> <values> L G </values>
              <param> pDstVec </param> <values> L G </values>
              <param> nCmpVal </param> <values> 0 </values>
@@ -1601,59 +1601,59 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
       \endxmlonly
     */
 	//! \{
-		
+
 	void nmppsCmpNe0_8s (const nm8s* pSrcVec,   nm8s* pDstVec, int nSize);
 	void nmppsCmpNe0_16s(const nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 	void nmppsCmpNe0_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
 	void nmppsCmpNe0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 
 	//! \}
-	
+
   /**
 	\defgroup nmppsCmpNeC nmppsCmpNeC
     \ingroup vSelect
     \brief
-        \ru Сравнивает элементы массива на признак неравенства константе. 
-        \en Compare vec elements to const nonequality. 
-    
+        \ru Сравнивает элементы массива на признак неравенства константе.
+        \en Compare vec elements to const nonequality.
+
 		\~
-    
+
 	\f[
         pDstVec(i)  =  \{ \begin{array}{*{20}c}
             nTrueFlag,		&  if &  pSrcVec(i) \neq nCmpVal  \\
             0,				&  if &  pSrcVec(i) = nCmpVal   \\
         \end{array}
     \f]
-	
-    
+
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
+
 		\~
-    \param pSrcVec  
-        \ru Входной вектор. 
-        \en Input vec. 
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
 	\param nCmpVal
-		\ru	Значение константы для сравнияе 
-		\en Comparision constant value 
+		\ru	Значение константы для сравнияе
+		\en Comparision constant value
 		\~
-    \param nSize   
-		\ru Размер векторов в элементах. 
-        \en Vector size in elements. 
+    \param nSize
+		\ru Размер векторов в элементах.
+        \en Vector size in elements.
 		\~
     \param nTrueFlag
-		\ru Значние флага, устанавливаемого при выполнении условия  
-        \en Flag value, being set if condition is true. 
+		\ru Значние флага, устанавливаемого при выполнении условия
+        \en Flag value, being set if condition is true.
 		\~
-    \retval pDstVec 
-        \ru Результирующий вектор. 
-        \en Destination vec. 
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en Destination vec.
 		\~
-    \return \e void 
-    
+    \return \e void
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec </param> <values> L G </values>
              <param> pDstVec </param> <values> L G </values>
              <param> nCmpVal </param> <values> 0 </values>
@@ -1667,21 +1667,21 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 	void nmppsCmpNeC_16s    (const nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize);
 	void nmppsCmpNeC_32s    (const nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
 	void nmppsCmpNeC_64s    (const nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
-	                         
+
 	int nmppsCmpNeC_8s8um    (const nm8s* pSrcVec,  int8b  nCmpVal, nm8u* pDstVec, int nSize, struct NmppsTmpSpec *spec);
 	int nmppsCmpNeC_16s8um   (const nm16s* pSrcVec, int16b nCmpVal, nm8u* pDstVec, int nSize, struct NmppsTmpSpec *spec);
 	int nmppsCmpNeC_32s8um   (const nm32s* pSrcVec, int32b nCmpVal, nm8u* pDstVec, int nSize, struct NmppsTmpSpec *spec);
 	int nmppsCmpNeC_64s8um   (const nm64s* pSrcVec, int64b nCmpVal, nm8u* pDstVec, int nSize, struct NmppsTmpSpec *spec);
-	
-	
-	
+
+
+
 	void nmppsCmpNeC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSize, int8b nTrueFlag);
 	void nmppsCmpNeC_16u15b(nm16u15b* pSrcVec,  uint15b nCmpVal,   nm16s* pDstVec, int nSize, int16b nTrueFlag);
 
-	
+
 
 	//spec.mode=ONE_TIME_ALLOC|ROUTE_ALLOC|OPTIMIZE_ROUTE;
-	
+
 	//int nmppsCmpLtC_8s8um      (const nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int nSize, struct NmppsTmpSpec *spec);
 	//int nmppsCmpLtC_16s8um     (const nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize, struct NmppsTmpSpec *spec);
 	//int nmppsCmpLtC_32s8um     (const nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize, struct NmppsTmpSpec *spec);
@@ -1691,70 +1691,70 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 	int nmppsCmpLtC_16s8um  (const nm16s* pSrcVec, int16b nCmpVal, nm8u* pDstVec, int nSize, struct NmppsTmpSpec *spec);
 	int nmppsCmpLtC_32s8um  (const nm32s* pSrcVec, int32b nCmpVal, nm8u* pDstVec, int nSize, struct NmppsTmpSpec *spec);
 	int nmppsCmpLtC_64s8um  (const nm64s* pSrcVec, int64b nCmpVal, nm8u* pDstVec, int nSize, struct NmppsTmpSpec *spec);
-	
-/*	                                                                                   
+
+/*
 	void nmppsCmpGtC_8s      (nm8s* pSrcVec,  int8b  nCmpVal, nm8s* pDstVec,  int nSize, Tmp2BuffSpec *spec);
 	void nmppsCmpGtC_16s     (nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize, Tmp2BuffSpec *spec);
 	void nmppsCmpGtC_32s     (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize, Tmp2BuffSpec *spec);
 	void nmppsCmpGtC_64s     (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize, Tmp2BuffSpec *spec);
-*/	
+*/
 	void nmppsCmpLtC_8s7b    (const nm8s7b  * pSrcVec,  int8b  nCmpVal,nm8s*  pDstVec, int nSize);
 	void nmppsCmpLtC_16s15b  (const nm16s15b* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize);
 	void nmppsCmpLtC_32s31b  (const nm32s31b* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
 	void nmppsCmpLtC_64s63b  (const nm64s63b* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
-	                          
+
 	void nmppsCmpGtC_8s7b    (const nm8s7b  * pSrcVec,  int8b nCmpVal, nm8s * pDstVec, int nSize);
 	void nmppsCmpGtC_16s15b  (const nm16s15b* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize);
 	void nmppsCmpGtC_32s31b  (const nm32s31b* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
 	void nmppsCmpGtC_64s63b  (const nm64s63b* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
-	
-	
+	void nmppsCmpGteC_v2nm32f (const v2nm32f* pSrcVec, nm1* evenFlags, nm1* oddFlags, const v2nm32f C, int step, int nSize);
+
 //******************************************************************************************
-  
+
 	/**
 	\defgroup nmppsCmpEqV_ nmppsCmpEqV_
     \ingroup vSelect
     \brief
-        \ru Поэлементное сравнение элементов двух вектров на признак равенства. 
-        \en Elementwise vec comparision for equality . 
+        \ru Поэлементное сравнение элементов двух вектров на признак равенства.
+        \en Elementwise vec comparision for equality .
 		\~
-    
+
 	\f[
         pDstVec(i)  =  \{ \begin{array}{*{20}c}
             nTrueFlag,		&  if &  pSrcVec(i) = nCmpVal  \\
             0,				&  if &  pSrcVec(i) \neq nCmpVal   \\
         \end{array}
     \f]
-	
-    
+
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
+
 		\~
-    \param pSrcVec1  
-        \ru Первый входной вектор. 
-        \en First input vec. 
+    \param pSrcVec1
+        \ru Первый входной вектор.
+        \en First input vec.
 		\~
-    \param pSrcVec2  
-        \ru Второй входной вектор. 
-        \en Second input vec. 
+    \param pSrcVec2
+        \ru Второй входной вектор.
+        \en Second input vec.
 		\~
-    \param nSize   
-		\ru Размер векторов в элементах. 
-        \en Vector size in elements. 
+    \param nSize
+		\ru Размер векторов в элементах.
+        \en Vector size in elements.
 		\~
     \param nTrueFlag
-		\ru Значние флага, устанавливаемого при выполнении условия  
-        \en Flag value, being set if condition is true. 
+		\ru Значние флага, устанавливаемого при выполнении условия
+        \en Flag value, being set if condition is true.
 		\~
-    \retval pDstVec 
-        \ru Результирующий вектор. 
-        \en Destination vec. 
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en Destination vec.
 		\~
-    \return \e void 
-    
+    \return \e void
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec1 </param> <values> L G </values>
 			 <param> pSrcVec2 </param> <values> L G </values>
              <param> pDstVec </param> <values> L G </values>
@@ -1787,53 +1787,53 @@ int nmppsCmpLt_8s8um (const nm8s*  pSrcVec1, const  nm8s* pSrcVec2, nm8u*  pDstV
 int nmppsCmpLt_16s8um(const nm16s* pSrcVec1, const nm16s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
 int nmppsCmpLt_32s8um(const nm32s* pSrcVec1, const nm32s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
 int nmppsCmpLt_64s8um(const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
-	
+
 //******************************************************************************************
 
 	/**
 	\defgroup nmppsCmpNeV_ nmppsCmpNeV_
     \ingroup vSelect
     \brief
-        \ru Поэлементное сравнение элементов двух вектров на признак неравенства. 
-        \en Elementwise vec comparision for nonequality . 
+        \ru Поэлементное сравнение элементов двух вектров на признак неравенства.
+        \en Elementwise vec comparision for nonequality .
 		\~
-    
+
 	\f[
         pDstVec(i)  =  \{ \begin{array}{*{20}c}
             nTrueFlag,		&  if &  pSrcVec(i) \neq nCmpVal  \\
             0,				&  if &  pSrcVec(i) = nCmpVal   \\
         \end{array}
     \f]
-	
-    
+
+
 	\f[ i = \overline{0 \ldots nSize-1} \f]
-    
+
 		\~
-    \param pSrcVec1  
-        \ru Первый входной вектор. 
-        \en First input vec. 
+    \param pSrcVec1
+        \ru Первый входной вектор.
+        \en First input vec.
 		\~
-    \param pSrcVec2  
-        \ru Второй входной вектор. 
-        \en Second input vec. 
+    \param pSrcVec2
+        \ru Второй входной вектор.
+        \en Second input vec.
 		\~
-    \param nSize   
-		\ru Размер векторов в элементах. 
-        \en Vector size in elements. 
+    \param nSize
+		\ru Размер векторов в элементах.
+        \en Vector size in elements.
 		\~
     \param nTrueFlag
-		\ru Значние флага, устанавливаемого при выполнении условия  
-        \en Flag value, being set if condition is true. 
+		\ru Значние флага, устанавливаемого при выполнении условия
+        \en Flag value, being set if condition is true.
 		\~
-    \retval pDstVec 
-        \ru Результирующий вектор. 
-        \en Destination vec. 
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en Destination vec.
 		\~
-    \return \e void 
-    
+    \return \e void
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec1	</param> <values> L G </values>
 			 <param> pSrcVec2	</param> <values> L G </values>
              <param> pDstVec	</param> <values> L G </values>
@@ -1847,11 +1847,11 @@ void nmppsCmpNeV_16u(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int
 void nmppsCmpNeV_8u(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b nTrueFlag);
 	//! \}
 
-	
+
 void nmppsCmpNeV_8s8u(nm8s* src1, nm8s* src2, nm8u* dst, int nSize, int8b nTrueFlag);
-	
+
 //******************************************************************************************
-	
+
 
 /*
 	\internal
@@ -1860,45 +1860,45 @@ void nmppsCmpNeV_8s8u(nm8s* src1, nm8s* src2, nm8u* dst, int nSize, int8b nTrueF
     \brief
         \ru Изменение разрядности элементов вектора с клиппированием
         \en Change of vec elements word-length with clipping
-    
+
 		\~
-        \ru Преобразование 32р знаковых данных к восьмиразрядным осуществляется 
-	        вырезанием битов 16..31.. ,затем клиппированием и вырезанием восьми 
+        \ru Преобразование 32р знаковых данных к восьмиразрядным осуществляется
+	        вырезанием битов 16..31.. ,затем клиппированием и вырезанием восьми
             младших бит реультата. При клиппировании используется глобальая
             константа типа nm64s с именем _F1CR_16_to_x. По умолчанию, там лежит
             ff00_ff00_ff00_ff00 соответствующая диапазону результата [-255..256].
-            К каждому полученному 64р слову результата прибавляется значение 
+            К каждому полученному 64р слову результата прибавляется значение
             глобальной переменной _VR_16_to_x, которая по умолчанию равна нулю.
-        \en Signed data are converted to lesser word-length is made by means of 
+        \en Signed data are converted to lesser word-length is made by means of
             the low significant bits truncation.
 
 		\~
 		\~
-    \param pSrcVec  
-        \ru Входной вектор. 
-        \en Input vec. 
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nSize    
-        \ru Размер векторов в элементах. 
-        \en Vector size in elements. 
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vector size in elements.
 
 		\~
-    \retval pDstVec 
-        \ru Результирующий вектор. 
-        \en The result vec. 
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
 
 		\~
-    \return \e void 
-    
-        
+    \return \e void
+
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L G </values>
              <param> pDstVec	</param> <values> L G </values>
              <param> nSize		</param> <values> 10240 </values>
         </testperf>
-        <testperf> 
+        <testperf>
              <param> pSrcVec	</param> <values> L </values>
              <param> pDstVec	</param> <values> G </values>
              <param> nSize		</param> <values> 8 128 1024 10240 </values>

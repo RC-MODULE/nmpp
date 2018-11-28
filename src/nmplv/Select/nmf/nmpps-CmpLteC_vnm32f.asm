@@ -4,15 +4,15 @@
 //*                                                                         */
 //*   Software design:  A.Brodyazhenko                                     	*/
 //*   Year: 2018                                                            */
-//*   File:             nmpps-CmpGte_32f.asm                          	 	*/
+//*   File:             nmpps-CmpLte_32f.asm                          	 	*/
 //*   Contents:         The function computes y = Const * x   				*/
 //***************************************************************************/
 
-global _nmppsCmpGteC_v2nm32f: label;
-//void nmppsCmpGteC_v2nm32f(const v2nm32f C, const v2nm32f* pSrcVec, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
+global _nmppsCmpLteC_v2nm32f: label;
+//void nmppsCmpLteC_v2nm32f(const v2nm32f C, const v2nm32f* pSrcVec, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
 
 begin ".text"
-<_nmppsCmpGteC_v2nm32f>
+<_nmppsCmpLteC_v2nm32f>
 	ar5 = ar7 - 2;
 	push ar3, gr3;
 	push ar2, gr2;
@@ -27,31 +27,31 @@ begin ".text"
 	gr1 = [--ar5] with gr2 = gr1 >> 5;	  // nSize
 
 	sir = gr3;
-	if =0 delayed goto less32_CmpGte_32f;
+	if =0 delayed goto less32_CmpLte_32f;
 		fp0_lmask = sir;
 		fp0_hmask = sir;
 
-<CmpGte_32f>
+<CmpLte_32f>
 	fpu 0 rep 32 vreg0 = [ar0++gr0]; 						// читаем 64 элемента массива pSrcVec
-	fpu 0 .float vreg0 - .retrive(vreg1), set mask if >=;	// умножаем на 64 элемента на константу
+	fpu 0 .float vreg0 - .retrive(vreg1), set mask if <=;	// умножаем на 64 элемента на константу
 	gr2--;
-	if > delayed goto CmpGte_32f;
+	if > delayed goto CmpLte_32f;
 		[ar1++] = fp0_lmask;
 		[ar2++] = fp0_hmask;
 
 	gr1 = gr1 << 27;									// вычисляем остаток
 	gr1 = gr1 >> 27;									// вычисляем остаток
-	if =0 delayed goto exit_CmpGte_32f;					// если остаток 0, значит обработаны все элементы
+	if =0 delayed goto exit_CmpLte_32f;					// если остаток 0, значит обработаны все элементы
     	fp0_lmask = sir;
     	fp0_hmask = sir;
-<less32_CmpGte_32f>
+<less32_CmpLte_32f>
 	gr1--;
 	vlen = gr1;
 	fpu 0 rep vlen vreg0 = [ar0++gr0];
 	fpu 0 .float vreg0 - .retrive(vreg1), set mask if >=;
 	[ar1++] = fp0_lmask;
 	[ar2++] = fp0_hmask;
-<exit_CmpGte_32f>
+<exit_CmpLte_32f>
 	pop ar0, gr0;
 	pop ar1, gr1;
 	pop ar2, gr2;

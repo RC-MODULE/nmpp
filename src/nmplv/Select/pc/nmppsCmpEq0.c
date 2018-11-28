@@ -60,7 +60,7 @@ void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, nm1* evenFlags, nm1* oddFlags,
       nmppsPut_1(evenFlags, i, 0);
     }
 
-    if(pSrcVec[i + offset].v1 - C.v1 >= 0.0f) {
+    if(pSrcVec[i + offset].v1 - C.v1 <= 0.0f) {
       nmppsPut_1(oddFlags, i, 1);
     }
     else {

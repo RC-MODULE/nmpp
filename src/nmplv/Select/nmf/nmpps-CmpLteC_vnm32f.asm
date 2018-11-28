@@ -48,7 +48,7 @@ begin ".text"
 	gr1--;
 	vlen = gr1;
 	fpu 0 rep vlen vreg0 = [ar0++gr0];
-	fpu 0 .float vreg0 - .retrive(vreg1), set mask if >=;
+	fpu 0 .float vreg0 - .retrive(vreg1), set mask if <=;
 	[ar1++] = fp0_lmask;
 	[ar2++] = fp0_hmask;
 <exit_CmpLte_32f>

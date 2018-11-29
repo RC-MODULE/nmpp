@@ -27,7 +27,8 @@ begin ".text"
 	gr1 = [--ar5]  with gr0 <<= 1;	      // nSize
 
 	fpu 0 rep 1 vreg1 = [ar3];
-	sir = gr3;
+	ar3 = gr3;
+	sir = ar3, gr3;
 	gr2 = gr1 >> 5;
 	if =0 delayed goto less32_CmpLte_32f;
 		fp0_lmask = sir;
@@ -41,12 +42,12 @@ begin ".text"
 		[ar1++] = fp0_lmask;
 		[ar2++] = fp0_hmask;
 
+<less32_CmpLte_32f>
 	gr1 = gr1 << 27;									// вычисляем остаток
 	gr1 = gr1 >> 27;									// вычисляем остаток
 	if =0 delayed goto exit_CmpLte_32f;					// если остаток 0, значит обработаны все элементы
     	fp0_lmask = sir;
     	fp0_hmask = sir;
-<less32_CmpLte_32f>
 	gr1--;
 	vlen = gr1;
 	fpu 0 rep vlen vreg0 = [ar0++gr0];

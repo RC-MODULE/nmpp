@@ -39,6 +39,15 @@ void nmppsCmpGteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFla
     }
     index++;
   }
+  int residue = nSize << 27;
+  residue >>= 27;
+  if (residue != 0) {
+	int tail = 32 - residue;
+    while(tail-- > 0) {
+      nmppsPut_1(evenFlags, ++index, 0);
+      nmppsPut_1(oddFlags, index, 0);
+    }
+  }
 }
 
 void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlags, nm1* oddFlags, int step, int nSize)
@@ -60,7 +69,16 @@ void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFla
        nmppsPut_1(oddFlags, index, 0);
     }
     index++;
-    }
+  }
+  int residue = nSize << 27;
+  residue >>= 27;
+  if (residue != 0) {
+	int tail = 32 - residue;
+	while (tail-- > 0) {
+	  nmppsPut_1(evenFlags, ++index, 0);
+      nmppsPut_1(oddFlags, index, 0);
+	}
+  }
 }
 
 

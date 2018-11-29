@@ -1708,7 +1708,7 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 	void nmppsCmpGtC_32s31b  (const nm32s31b* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
 	void nmppsCmpGtC_64s63b  (const nm64s63b* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
 	void nmppsCmpGteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f C, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
-
+	//void nmppsCmpGteC_v2nm32f(const v2nm32f* pSrcVec, float C1, float C2, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
 //******************************************************************************************
 
 	/**

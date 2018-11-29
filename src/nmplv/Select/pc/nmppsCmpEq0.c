@@ -30,11 +30,11 @@ void nmppsCmpGteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f C, nm1* evenFlag
       nmppsPut_1(evenFlags, index, 0);
     }
 
-    if(pSrcVec[i].v1 - C.v1 >= 0) {
+    if(pSrcVec[i].v1 - C.v1 >= 0.0f) {
       nmppsPut_1(oddFlags, index, 1);
     }
     else {
-       nmppsPut_1(oddFlags, index, 0);
+      nmppsPut_1(oddFlags, index, 0);
     }
     index++;
   }
@@ -52,7 +52,7 @@ void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f C, nm1* evenFlag
       nmppsPut_1(evenFlags, index, 0);
     }
 
-    if(pSrcVec[i].v1 - C.v1 <= 0) {
+    if(pSrcVec[i].v1 - C.v1 <= 0.0f) {
       nmppsPut_1(oddFlags, index, 1);
     }
     else {

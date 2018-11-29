@@ -29,7 +29,8 @@ begin ".text"
 	gr1 = [--ar5] with gr0 <<= 1;	      // nSize
 
 	fpu 0 rep 1 vreg1 = [ar3];
-	sir = gr3;
+	ar3 = gr3;
+	sir = ar3,gr3;
 	gr2 = gr1 >> 5;
 	if =0 delayed goto less32_CmpGte_32f;
 		fp0_lmask = sir;
@@ -39,7 +40,22 @@ begin ".text"
 	// fp0_lmask = sir;
 	// fp0_hmask = sir;
 	fpu 0 rep 32 vreg0 = [ar0++gr0]; 						// читаем 64 элемента массива pSrcVec
-	fpu 0 .float vreg0 - .retrive(vreg1), set mask if >=;	// умножаем на 64 элемента на константу
+	//fpu 0 .float vreg7 = vreg0 - vreg0;
+	//fpu 0 .float vreg7 = vreg0 - vreg7, set mask if >=;
+
+	fpu 0 .float vreg2 = vreg0 - .retrive(vreg1), set mask if >=;
+	//fpu 0 .float vreg7 = vreg2 - vreg7, set mask if >=;
+
+
+	//sir = fp0_lmask;
+	// sir = fp0_lmask;
+	// ar3 = sir;
+	//
+	// sir = fp0_hmask;
+	// gr3 = sir;
+	//
+
+
 	gr2--;
 	if > delayed goto CmpGte_32f;
 		[ar1++] = fp0_lmask;

@@ -9,7 +9,7 @@
 //***************************************************************************/
 
 global _nmppsCmpLteC_v2nm32f: label;
-//void nmppsCmpLteC_v2nm32f(const v2nm32f C, const v2nm32f* pSrcVec, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
+//void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f C, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
 
 begin ".text"
 <_nmppsCmpLteC_v2nm32f>
@@ -19,14 +19,16 @@ begin ".text"
 	push ar1, gr1;
 	push ar0, gr0;
 
-	fpu 0 rep 1 vreg1 = [--ar5];          // threshold1, threshold2
 	ar0 = [--ar5] with gr3 = false; 	  // pSrcVec
+	fpu 0 rep 1 vreg1 = [--ar5];          // threshold1, threshold2
+	ar5 -= 2;
 	ar1 = [--ar5]; 		                  // pMask1
 	ar2 = [--ar5]; 					      // pMask2
-	gr0 = [--ar5] with gr0 <<= 1; 		  // step
-	gr1 = [--ar5] with gr2 = gr1 >> 5;	  // nSize
+	gr0 = [--ar5]; 		                  // step
+	gr1 = [--ar5]  with gr0 <<= 1;	      // nSize
 
 	sir = gr3;
+	gr2 = gr1 >> 5;
 	if =0 delayed goto less32_CmpLte_32f;
 		fp0_lmask = sir;
 		fp0_hmask = sir;

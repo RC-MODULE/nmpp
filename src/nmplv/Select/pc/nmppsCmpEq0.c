@@ -18,56 +18,48 @@
 //!
 //------------------------------------------------------------------------
 #include "nmplv.h"
-void nmppsCmpGteC_v2nm32f(const v2nm32f* pSrcVec, nm1* evenFlags, nm1* oddFlags, const v2nm32f C, int step, int nSize)
+void nmppsCmpGteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f C, nm1* evenFlags, nm1* oddFlags, int step, int nSize)
 {
   int i;
-  int offset = 0;
-  if (step == 1) {
-    step = 0;
-  }
-//  step <<= 1;
-  for(i = 0; i < nSize; i++) {
-    if(pSrcVec[i + offset].v0 - C.v0 >= 0.0f) {
-      nmppsPut_1(evenFlags, i, 1);
+  int insex = 0;
+  for(i = 0; i < nSize; i += step) {
+    if(pSrcVec[i].v0 - C.v0 >= 0.0f) {
+      nmppsPut_1(evenFlags, index, 1);
     }
     else {
-      nmppsPut_1(evenFlags, i, 0);
+      nmppsPut_1(evenFlags, index, 0);
     }
 
-    if(pSrcVec[i + offset].v1 - C.v1 >= 0) {
-      nmppsPut_1(oddFlags, i, 1);
+    if(pSrcVec[i].v1 - C.v1 >= 0) {
+      nmppsPut_1(oddFlags, index, 1);
     }
     else {
-       nmppsPut_1(oddFlags, i, 0);
+       nmppsPut_1(oddFlags, index, 0);
     }
-    offset += step;
+    index++;
   }
 }
 
-void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, nm1* evenFlags, nm1* oddFlags, const v2nm32f C, int step, int nSize)
+void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f C, nm1* evenFlags, nm1* oddFlags, int step, int nSize)
 {
   int i;
-  int offset = 0;
-  if (step == 1) {
-    step = 0;
-  }
-//  step <<= 1;
-  for(i = 0; i < nSize; i++) {
-    if(pSrcVec[i + offset].v0 - C.v0 <= 0.0f) {
-      nmppsPut_1(evenFlags, i, 1);
+  int insex = 0;
+  for(i = 0; i < nSize; i += step) {
+    if(pSrcVec[i].v0 - C.v0 <= 0.0f) {
+      nmppsPut_1(evenFlags, index, 1);
     }
     else {
-      nmppsPut_1(evenFlags, i, 0);
+      nmppsPut_1(evenFlags, index, 0);
     }
 
-    if(pSrcVec[i + offset].v1 - C.v1 <= 0.0f) {
-      nmppsPut_1(oddFlags, i, 1);
+    if(pSrcVec[i].v1 - C.v1 <= 0) {
+      nmppsPut_1(oddFlags, index, 1);
     }
     else {
-       nmppsPut_1(oddFlags, i, 0);
+       nmppsPut_1(oddFlags, index, 0);
     }
-    offset += step;
-  }
+    index++;
+    }
 }
 
 

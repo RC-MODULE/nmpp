@@ -9,7 +9,7 @@
 //***************************************************************************/
 
 global _nmppsCmpGteC_v2nm32f: label;
-//void nmppsCmpGteC_v2nm32f(const v2nm32f C, const v2nm32f* pSrcVec, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
+//void nmppsCmpGteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f C, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
 
 begin ".text"
 <_nmppsCmpGteC_v2nm32f>
@@ -19,14 +19,15 @@ begin ".text"
 	push ar1, gr1;
 	push ar0, gr0;
 
-	fpu 0 rep 1 vreg1 = [--ar5];          // threshold1, threshold2
 	ar0 = [--ar5] with gr3 = false; 	  // pSrcVec
+	fpu 0 rep 1 vreg1 = [--ar5];          // threshold1, threshold2
+	ar5 -= 2;
 	ar1 = [--ar5]; 		                  // pMask1
 	ar2 = [--ar5]; 					      // pMask2
-	gr0 = [--ar5] with gr0 <<= 1; 		  // step
-	gr1 = [--ar5] with gr2 = gr1 >> 5;	  // nSize
-
+	gr0 = [--ar5]; 		  				  // step
+	gr1 = [--ar5] with gr0 <<= 1;	      // nSize
 	sir = gr3;
+	gr2 = gr1 >> 5;
 	if =0 delayed goto less32_CmpGte_32f;
 		fp0_lmask = sir;
 		fp0_hmask = sir;
@@ -38,7 +39,7 @@ begin ".text"
 	if > delayed goto CmpGte_32f;
 		[ar1++] = fp0_lmask;
 		[ar2++] = fp0_hmask;
-
+	//
 	gr1 = gr1 << 27;									// вычисляем остаток
 	gr1 = gr1 >> 27;									// вычисляем остаток
 	if =0 delayed goto exit_CmpGte_32f;					// если остаток 0, значит обработаны все элементы

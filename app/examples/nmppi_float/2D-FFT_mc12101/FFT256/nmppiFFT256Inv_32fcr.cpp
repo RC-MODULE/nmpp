@@ -23,34 +23,31 @@
 #include "nmpp.h"
 #include "fft_32fcr.h"
 
-void nmppiFFTInv_32fcr(
+void nmppiFFT256Inv_32fcr(
 						const nm32fcr* pSrc,
 						nm32fcr* pDst,
 						nm32fcr* bufferDDR,
-						nm32fcr* bufferSRAMw,
-						nm32fcr* bufferSRAMh,
-						NmppsFFTSpec_32fcr* spec,
-						int width,
-						int height
+						nm32fcr* bufferSRAM,
+						NmppsFFTSpec_32fcr* spec
 						)
 {
-	for(int offset = 0; offset < width * height; offset += width) {
-		halInitStatusSingleDMA((nm32fcr*)(pSrc + offset), (nm32fcr*)((int)bufferSRAMw + 0x40000), 2 * width);
+	for(int offset = 0; offset < 256 * 256; offset += 256) {
+		halInitStatusSingleDMA((nm32fcr*)(pSrc + offset), (nm32fcr*)((int)bufferSRAM + 0x40000), 2 * 256);
 		while(halStatusDMA());
 
-		nmppsFFTInv_32fcr(bufferSRAMw, bufferSRAMw, spec, width);
+		nmppsFFT256Inv_32fcr(bufferSRAM, bufferSRAM, spec);
 
-		halInitStatusSingleDMA((nm32fcr*)((int)bufferSRAMw + 0x40000), (nm32fcr*)(bufferDDR + offset), 2 * width);
+		halInitStatusSingleDMA((nm32fcr*)((int)bufferSRAM + 0x40000), (nm32fcr*)(bufferDDR + offset), 2 * 256);
 		while(halStatusDMA());
 	}
 
-	for(int h = 0, offs = 0; h < height; h++, offs += height) {
-		halInitMatrixDMA((nm32fcr*)(bufferDDR + h), 2, height, 2 * height, (nm32fcr*)((int)bufferSRAMh + 0x40000), 2);
+	for(int h = 0, offs = 0; h < 256; h++, offs += 256) {
+		halInitMatrixDMA((nm32fcr*)(bufferDDR + h), 2, 256, 2 * 256, (nm32fcr*)((int)bufferSRAM + 0x40000), 2);
 		while(halStatusDMA());
 
-		nmppsFFTInv_32fcr(bufferSRAMh, bufferSRAMh, spec, height);
+		nmppsFFT256Inv_32fcr(bufferSRAM, bufferSRAM, spec);
 
-		halInitStatusSingleDMA((nm32fcr*)((int)bufferSRAMh + 0x40000), (nm32fcr*)(pDst + offs), 2 * height);
+		halInitStatusSingleDMA((nm32fcr*)((int)bufferSRAM + 0x40000), (nm32fcr*)(pDst + offs), 2 * 256);
 		while(halStatusDMA());
 	}
 }

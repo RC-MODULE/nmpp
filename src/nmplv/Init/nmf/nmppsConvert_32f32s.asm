@@ -29,14 +29,14 @@ begin "text"
 		fpu rep 32 .packer = [ar0++] with .fixed_32 <= .float;
 		fpu rep 32 [ar1++] = .packer;
 
-	gr1 = gr0 << 26;				// computing a remainder
-	gr1 = gr1 >> 26;				// computing a remainder
+	gr0 = gr0 << 26;				// computing a remainder
+	gr0 = gr0 >> 26;				// computing a remainder
 	if =0 delayed goto exit_Conv32f32s;
 
 <Packing_32f32s_less64>			    // N < 64
-	gr1 = gr1 >> 1;
-	gr1--;
-	vlen = gr1;
+	gr0 = gr0 >> 1;
+	gr0--;
+	vlen = gr0;
 	fpu rep vlen .packer = [ar0++] with .fixed_32 <= .float;
 	fpu rep vlen [ar1++] = .packer;
 

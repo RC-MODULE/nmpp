@@ -2,6 +2,7 @@
 // RC Module, 2018
 // PC-analogs for conversion functions (floating point)
 
+#include "math.h"
 #include "nmpp.h"
 
 void nmppsConvert_32u32fcr(const nm32u* pSrcVec, nm32fcr* pDstVec, int nSize)
@@ -43,8 +44,10 @@ void nmppsConvert_32sc32fcr(const nm32sc *pSrcVec, nm32fcr *pDstVec, int nSize)
 void nmppsConvert_32f32s(const nm32f* pSrcVec, nm32s* pDstVec, int nSize)
 {
 	int i;
+	nm32f newValue;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i] = (nm32s)pSrcVec[i];
+		newValue = pSrcVec[i] + 0.5f;
+		pDstVec[i] = trunc(newValue);
 	}
 }
 

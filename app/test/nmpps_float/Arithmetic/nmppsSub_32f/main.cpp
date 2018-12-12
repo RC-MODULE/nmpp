@@ -15,7 +15,7 @@ int main()
 	}
 
 	for(int size=2; size<1024; size+=2){
-		nmppsAdd_32f(src0,src1,dst,size);
+		nmppsSub_32f(src0,src1,dst,size);
 		nmppsCrcAcc_32f(dst,0,size,&crc);
 	}
 	free(src0);

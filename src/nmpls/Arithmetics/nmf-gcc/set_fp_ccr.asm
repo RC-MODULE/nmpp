@@ -57,4 +57,3 @@ ccr_switch : label;
 		vnul;
 
 end ".text_int";
-

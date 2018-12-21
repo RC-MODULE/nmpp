@@ -41,6 +41,15 @@ void nmppsConvert_32sc32fcr(const nm32sc *pSrcVec, nm32fcr *pDstVec, int nSize)
 	}
 }
 
+void nmppsConvert_32f32s_rndZero(const nm32f* pSrcVec, nm32s* pDstVec, int nSize)
+{
+	int i;
+	for(i = 0; i < nSize; i++) {
+		pDstVec[i] = (int)pSrcVec[i];
+	}
+}
+
+
 void nmppsConvert_32f32s(const nm32f* pSrcVec, nm32s* pDstVec, int nSize)
 {
 	int i;

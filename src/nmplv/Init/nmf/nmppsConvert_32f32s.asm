@@ -19,6 +19,8 @@ begin "text"
 	ar0 = [--ar5]; // input nm32f* x
 	ar1 = [--ar5]; // output nm32s* X
 	gr0 = [--ar5]; // size N
+	// ar2 = [--ar5]; // round mode
+	// gr2 = [--ar5]; // scale factor
 
 	gr1 = gr0 >> 6;
 	if =0 goto Packing_32f32s_less64;

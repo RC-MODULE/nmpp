@@ -17,6 +17,13 @@
 #ifndef _VINIT_H_INCLUDED_
 #define _VINIT_H_INCLUDED_
 
+typedef int NmppRoundMode;
+
+#define              nmppRndUp                  5
+#define              nmppRndDown                3
+#define              nmppRndNear                1
+#define              nmppRndZero                7
+
 #ifdef __cplusplus
 		extern "C" {
 #endif
@@ -456,6 +463,19 @@ void nmppsConvert_32sc32fcr(const nm32sc* pSrcVec, nm32fcr* pDstVec, int nSize);
  */
 
 void nmppsConvert_32f32s(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
+
+/**
+ *  \ingroup nmppsConvert nmppsConvert
+ *  \brief Функция конвертации вектора комплексных чисел с целыми действительной и мнимой частью (32 бита) в вектор комплексных чисел, где мнимая и действительная части - 32-битные числа с плавающей точкой
+ *
+	\param pSrcVec указатель на входной вектор целых чисел
+	\param pDstVec указатель на выходной вектор комплексных чисел с плавающей точкой
+	\param nSize число элементов во входном векторе (может быть только четным)
+ *  \details Функция выполняется на сопроцессоре (процессор 1879ВМ6Я) с плавающей точкой с использованием переупаковщика данных
+ */
+
+//int nmppsConvert_32f32s_Sfs(const nm32f* pSrcVec, nm32s* pDstVec, NmppRoundMode rndMode, int scaleFactor, int nSize);
+void nmppsConvert_32f32s_rndZero(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
 
 /**
  *  \ingroup nmppsConvert nmppsConvert

@@ -1,14 +1,17 @@
 //#include "fft.h"
 #include "stdio.h"
 #include "fft.h"
+extern "C" {
 void FFT_Fwd1024Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
+
 void  FFT_Fwd1024(
-	const 	nm32sc*	GSrcBuffer,	// Source buffer :long[1024]
+	        const nm32sc*	GSrcBuffer,	// Source buffer :long[1024]
 			nm32sc*	LDstBuffer,	// Result FFT    :long[1024]
 			void*		LBuffer,	// Temp buffer   :long[1024*3]
 			void*		GBuffer,	// Temp buffer   :long[1024]
 			int			ShiftR	// Right shift normalization
 			);
+
 			
 
 
@@ -89,5 +92,5 @@ void  FFT_Fwd1024(
 
 
 
-
+}
 

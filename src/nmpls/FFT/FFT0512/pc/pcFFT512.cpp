@@ -40,9 +40,11 @@ void FFT_Fwd512Set6bit()	// Sets 6-bit accuracy of sin-cosine coefficients
 {
 	FFT_Fwd512Set(FFT6BIT);
 }
+extern "C" {
 void FFT_Fwd512Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 {
 	FFT_Fwd512Set(FFT7BIT);
+}
 }
 ///////////////////////////////////////////////////////////////////
 // Computing FFT-512 using fixed-point arithmetic
@@ -218,6 +220,7 @@ void MakeTable512W1W2(
 }
 /////////////////////////////////////////////////////////////////////
 //	 This is the C equivalent of the function FFT_Fwd512
+extern "C" {
 void FFT_Fwd512(
 			nm32sc*	GSrcBuffer,	// Source buffer :long[512]
 			nm32sc*	GDstBuffer,	// Result FFT    :long[512]
@@ -247,6 +250,7 @@ void FFT_Fwd512(
 	FFT_Fwd512(X,Y,W1_512,W2_512,0,ShiftR);
 
 
+}
 }
 
 ///////////////////////////////////////////////////////////////////

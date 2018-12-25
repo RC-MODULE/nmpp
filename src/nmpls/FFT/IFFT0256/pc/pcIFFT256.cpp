@@ -38,9 +38,11 @@ void FFT_Inv256Set6bit()	// Sets 6-bit accuracy of sin-cosine coefficients
 {
 	FFT_Inv256Set(FFT6BIT);
 }
+extern "C" {
 void FFT_Inv256Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 {
 	FFT_Inv256Set(FFT7BIT);
+}
 }
 
 
@@ -158,6 +160,7 @@ void IMakeTable256W1W2(
 }
 ///////////////////////////////////////////////////////////////////
 // This is the C equivalent of the function  FFT_Fwd256 
+extern "C" {
 void FFT_Inv256(
 			nm32sc*	SrcBuffer,	// Source buffer :long[256]
 			nm32sc*	DstBuffer,	// Result FFT    :long[256]
@@ -191,6 +194,7 @@ void FFT_Inv256(
 	FFT_Inv256(X,Y,IW1_256,IW2_256,ShiftR1,ShiftR2);
 
 
+}
 }
 
 ///////////////////////////////////////////////////////////////////

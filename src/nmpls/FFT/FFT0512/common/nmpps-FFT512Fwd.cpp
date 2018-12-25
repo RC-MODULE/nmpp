@@ -1,5 +1,6 @@
 #include "malloc32.h"
-//#include "fft.h"
+#include "fft.h"
+extern "C" {
 void FFT_Fwd512Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
 void  FFT_Fwd512(
 		const	nm32sc*	GSrcBuffer,	// Source buffer :long[512]
@@ -8,8 +9,9 @@ void  FFT_Fwd512(
 			void*		GBuffer,	// Temp buffer	 :long[512*3]
 			int			ShiftR	// Right shift normalization
 			);
+
 			
-#include "fft.h"
+
 
 
 	void nmppsFFT512Fwd(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
@@ -85,7 +87,7 @@ void  FFT_Fwd512(
 		else					return NMPP_ERROR;
 	}
 
-
+}
 
 
 

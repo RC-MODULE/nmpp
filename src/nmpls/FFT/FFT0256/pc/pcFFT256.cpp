@@ -38,11 +38,13 @@ void FFT_Fwd256Set6bit()	// Sets 6-bit accuracy of sin-cosine coefficients
 {
 	FFT_Fwd256Set(FFT6BIT);
 }
+extern "C" {
 void FFT_Fwd256Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 {
 	FFT_Fwd256Set(FFT7BIT);
 }
 
+}
 
 static cmplx<double> Rounder(0.5,0.5);
 ///////////////////////////////////////////////////////////////////
@@ -169,6 +171,7 @@ void MakeTable256W1W2(
 
 /////////////////////////////////////////////////////////////////////
 //	 This is the C equivalent of the function FFT_Fwd256 
+extern "C" {
 void FFT_Fwd256(
 			nm32sc*	GSrcBuffer,	// Source buffer :long[256]
 			nm32sc*	LDstBuffer,	// Result FFT    :long[256]
@@ -198,6 +201,7 @@ void FFT_Fwd256(
 	
 	FFT_Fwd256(X,Y,W1_256,W2_256,0,ShiftR);
 
+}
 }
 
 ///////////////////////////////////////////////////////////////////

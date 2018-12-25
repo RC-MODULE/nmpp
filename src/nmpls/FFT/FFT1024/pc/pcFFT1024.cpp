@@ -29,6 +29,7 @@
 
 int FlagsFFT1024=FFT7BIT;
 static cmplx<double> Rounder(0.5,0.5);
+
 // Setting of the calculation accuracy for FFT_Fwd1024 function
 void FFT_Fwd1024Set( int	Flag)			// See header for more information
 {
@@ -38,9 +39,11 @@ void FFT_Fwd1024Set6bit()	// Sets 6-bit accuracy of sin-cosine coefficients
 {
 	FFT_Fwd1024Set(FFT6BIT);
 }
+extern "C" {
 void FFT_Fwd1024Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 {
 	FFT_Fwd1024Set(FFT7BIT);
+}
 }
 ///////////////////////////////////////////////////////////////////
 // Computing FFT-1024 using fixed-point arithmetic
@@ -236,6 +239,7 @@ void MakeTable1024W1W2(
 
 /////////////////////////////////////////////////////////////////////
 //	 This is the C equivalent of the function FFT_Fwd1024
+extern "C" {
 void FFT_Fwd1024(
 			nm32sc*	GSrcBuffer,	// Source buffer :long[1024]
 			nm32sc*	LDstBuffer,	// Result FFT    :long[1024]
@@ -280,6 +284,7 @@ void FFT_Fwd1024(
 		LDstBuffer[i].im=tmp.im;
 	}
 
+}
 }
 
 ///////////////////////////////////////////////////////////////////

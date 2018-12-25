@@ -2,8 +2,9 @@
 #include "time.h"
 #include "malloc32.h"
 #include "fft.h"
-
+extern "C" {
 void FFT_Inv256Set7bit();	
+
 
 void  FFT_Inv256(
 		const 	nm32sc*	GSrcBuffer,	// Source buffer :long[256]
@@ -15,6 +16,7 @@ void  FFT_Inv256(
 									// by default it means ShiftR2=14 at 7 bit precision
 									//				 and   ShiftR2=12 at 6 bit precision
 			);
+
 			
 
 	void nmppsFFT256Inv(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
@@ -93,5 +95,5 @@ void  FFT_Inv256(
 		else					return NMPP_ERROR;
 	}
 
-
+}
 

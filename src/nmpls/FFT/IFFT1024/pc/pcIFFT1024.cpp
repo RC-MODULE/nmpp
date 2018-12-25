@@ -39,9 +39,11 @@ void FFT_Inv1024Set6bit()	// Sets 6-bit accuracy of sin-cosine coefficients
 {
 	FFT_Inv1024Set(FFT6BIT);
 }
+extern "C" {
 void FFT_Inv1024Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 {
 	FFT_Inv1024Set(FFT7BIT);
+}
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -214,6 +216,7 @@ void IMakeTable1024W1W2(
 
 /////////////////////////////////////////////////////////////////////
 //	 This is the C equivalent of the function FFT_Inv1024
+extern "C" {
 void FFT_Inv1024(
 			nm32sc*	SrcBuffer,	// Source buffer :long[1024]
 			nm32sc*	DstBuffer,	// Result FFT    :long[1024]
@@ -247,6 +250,7 @@ void FFT_Inv1024(
 	
 	FFT_Inv1024(X,Y,IW1_1024,IW2_1024,ShiftR1,ShiftR2);
 
+}
 }
 
 ///////////////////////////////////////////////////////////////////

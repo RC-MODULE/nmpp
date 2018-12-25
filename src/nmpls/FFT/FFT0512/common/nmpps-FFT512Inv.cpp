@@ -1,8 +1,9 @@
 //#include "fft.h"
 #include "malloc32.h"
 #include "fft.h"
-
+extern "C" {
 void FFT_Inv512Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
+
 void  FFT_Inv512(
 	const 	nm32sc*	GSrcBuffer,	// Source buffer :long[512]
 			nm32sc*	LDstBuffer,	// Result FFT    :long[512]
@@ -11,6 +12,7 @@ void  FFT_Inv512(
 			int			ShiftR1,	// First shift normalization
 			int			ShiftR2	// Final shift normalization
 			);
+
 			
 
 	void nmppsFFT512Inv(const nm32sc* src, nm32sc* dst, const NmppsFFTSpec* spec)
@@ -88,4 +90,4 @@ void  FFT_Inv512(
 		else					return NMPP_ERROR;
 	}
 
-
+}

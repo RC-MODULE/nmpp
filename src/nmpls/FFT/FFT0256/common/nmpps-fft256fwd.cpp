@@ -6,6 +6,7 @@
 #include "fft.h"
 #include "stdio.h"
 
+extern "C" {
 void  FFT_Fwd256(
 			const nm32sc*	GSrcBuffer,		// Source buffer :long[256]
 			nm32sc*	LDstBuffer,		// Result FFT    :long[256]
@@ -13,6 +14,7 @@ void  FFT_Fwd256(
 			void*		GBuffer,	// Temp buffer   :long[256*2]
 			int			ShiftR	// Shift normalization	by default it means ShiftR=14 at 7 bit precision and   ShiftR=12 at 6 bit precision
 			);
+
 void FFT_Fwd256Set7bit();			
 //extern "C"{
 
@@ -103,3 +105,4 @@ int nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder)
 
 
 //};
+	}

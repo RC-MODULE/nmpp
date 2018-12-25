@@ -37,9 +37,11 @@ void FFT_Inv512Set6bit()	// Sets 6-bit accuracy of sin-cosine coefficients
 {
 	FFT_Inv512Set(FFT6BIT);
 }
+extern "C" {
 void FFT_Inv512Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 {
 	FFT_Inv512Set(FFT7BIT);
+}
 }
 ///////////////////////////////////////////////////////////////////
 // Computing IFFT-512 using fixed-point arithmetic
@@ -213,6 +215,7 @@ void IMakeTable512W1W2(
 }
 /////////////////////////////////////////////////////////////////////
 //	 This is the C equivalent of the function FFT_Fwd512
+extern "C" {
 void FFT_Inv512(
 			nm32sc* SrcBuffer,	// Source buffer :long[512]
 			nm32sc* DstBuffer,	// Result FFT    :long[512]
@@ -244,6 +247,7 @@ void FFT_Inv512(
 	vec<cmplx<int > > Y((cmplx<int>*)DstBuffer,512);
 	
 	FFT_Inv512(X,Y,IW1_512,IW2_512,ShiftR1,ShiftR2);
+}
 }
 
 ///////////////////////////////////////////////////////////////////

@@ -459,10 +459,10 @@ void nmppsConvert_32sc32fcr(const nm32sc* pSrcVec, nm32fcr* pDstVec, int nSize);
 	\param pDstVec указатель на выходной вектор комплексных чисел с плавающей точкой
 	\param nSize число элементов во входном векторе (может быть только четным)
  *  \details Функция выполняется на сопроцессоре (процессор 1879ВМ6Я) с плавающей точкой с использованием переупаковщика данных
-  *  \details Функуция округляет все дробные числа из pSrcVec до ближайших целых (например, 1.5 будет округлено до 2, 1.7 до 2, а 1.4 до 1)
+ *  \details Функуция округляет все дробные числа из pSrcVec до ближайших целых (например, 1.5 будет округлено до 2, 1.7 до 2, а 1.4 до 1)
  */
 
-void nmppsConvert_32f32s(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsConvert_32f32s_rounding(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
 
 /**
  *  \ingroup nmppsConvert nmppsConvert
@@ -472,10 +472,11 @@ void nmppsConvert_32f32s(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
 	\param pDstVec указатель на выходной вектор комплексных чисел с плавающей точкой
 	\param nSize число элементов во входном векторе (может быть только четным)
  *  \details Функция выполняется на сопроцессоре (процессор 1879ВМ6Я) с плавающей точкой с использованием переупаковщика данных
+ *  \details Функуция округляет все дробные числа из pSrcVec к меньшему по модулю (например, 1.5 будет округлено до 1, 1.7 до 1, а -1.1 до -1)
  */
 
 //int nmppsConvert_32f32s_Sfs(const nm32f* pSrcVec, nm32s* pDstVec, NmppRoundMode rndMode, int scaleFactor, int nSize);
-void nmppsConvert_32f32s_rndZero(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
 
 /**
  *  \ingroup nmppsConvert nmppsConvert

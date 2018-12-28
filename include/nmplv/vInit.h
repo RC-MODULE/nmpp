@@ -476,6 +476,8 @@ void nmppsConvert_32f32s_rounding(const nm32f* pSrcVec, nm32s* pDstVec, int nSiz
  */
 
 //int nmppsConvert_32f32s_Sfs(const nm32f* pSrcVec, nm32s* pDstVec, NmppRoundMode rndMode, int scaleFactor, int nSize);
+void nmppsConvert_32f32s_ceiling(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsConvert_32f32s_floor(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
 void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
 
 /**

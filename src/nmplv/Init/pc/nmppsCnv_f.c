@@ -45,7 +45,7 @@ void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int nSiz
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i] = (int)pSrcVec[i];
+		pDstVec[i] = trunc(pSrcVec[i]);
 	}
 }
 
@@ -53,7 +53,7 @@ void nmppsConvert_32f32s_rounding(const nm32f* pSrcVec, nm32s* pDstVec, int nSiz
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i] = trunc(pSrcVec[i] + 0.5f);
+		pDstVec[i] = round(pSrcVec[i]);
 	}
 }
 
@@ -61,7 +61,15 @@ void nmppsConvert_32f32s_floor(const nm32f* pSrcVec, nm32s* pDstVec, int nSize)
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i] = trunc(pSrcVec[i] + 0.5f);
+		pDstVec[i] = floor(pSrcVec[i]);
+	}
+}
+
+void nmppsConvert_32f32s_ceiling(const nm32f* pSrcVec, nm32s* pDstVec, int nSize)
+{
+	int i;
+	for(i = 0; i < nSize; i++) {
+		pDstVec[i] = ceil(pSrcVec[i]);
 	}
 }
 

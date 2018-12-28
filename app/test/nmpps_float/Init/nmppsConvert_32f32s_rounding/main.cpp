@@ -3,7 +3,7 @@
 #include "nmpp.h"
 #include <stdio.h>
 
-#define 				SIZE					256
+#define 				SIZE					128
 
 int main()
 {

@@ -1102,7 +1102,7 @@ void nmppsCmpMinMaxV_32s(nm32s*  pSrcVec1, nm32s* pSrcVec2,  nm32s*  pDstMin,  n
         \en Input vec. 
 		\~
     \param nClipFactor 
-        \ru Показатель степени, определяющий верхний и нижний пороги насыщения. 
+        \ru Показатель степени, определяющий верхний и нижний пороги насыщения. nClipFactor>0
         \en Index of the degree defining the upper and the lower saturation thresholds. 
 		\~
     \param nSize    

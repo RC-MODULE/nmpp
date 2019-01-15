@@ -1073,7 +1073,7 @@ typedef struct s_v16nm32s {
 		\~
 	\ingroup nmvectype
     \ru Тип векторной структуры, состоящей из 16-ти 32р. чисел со знаком. 
-    \en Type of {VECtor structure consisting of 16 32-bit sigened words.
+    \en Type of {VECtor structure consisting of 16 32-bit signed words.
 
 		\~
 	\ru Диапазон значений элементов структуры: 

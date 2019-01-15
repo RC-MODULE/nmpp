@@ -1626,8 +1626,59 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 	void nmppsCmpNe0_16s(const nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 	void nmppsCmpNe0_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
 	void nmppsCmpNe0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
-
+	
 	//! \}
+
+  /**
+	\defgroup nmppsCmpEq0 nmppsCmpEq0
+    \ingroup vSelect
+    \brief
+        \ru Сравнивает элементы массива на признак равенства нулю.
+        \en Compare vec elements to zero equality.
+
+		\~
+
+	\f[
+        pDstVec(i)  =  \{ \begin{array}{*{20}c}
+            -1,		&  if &  pSrcVec(i) \eq 0  \\
+            0,				&  if &  pSrcVec(i) = 0   \\
+        \end{array}
+    \f]
+
+
+	\f[ i = \overline{0 \ldots nSize-1} \f]
+
+		\~
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
+		\~
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en Destination vec.
+		\~
+    \param nSize
+		\ru Размер векторов в элементах.
+        \en Vector size in elements.
+		\~
+    \return \e void
+
+    \par
+    \xmlonly
+        <testperf>
+             <param> pSrcVec </param> <values> L G </values>
+             <param> pDstVec </param> <values> L G </values>
+             <param> nSize </param> <values> 10240 </values>
+			 <param> nTrueFlag </param> <values> 1 </values>
+        </testperf>
+      \endxmlonly
+    */
+	//! \{
+		
+	void nmppsCmpEq0_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+	
+	//! \}
+
 
   /**
 	\defgroup nmppsCmpNeC nmppsCmpNeC

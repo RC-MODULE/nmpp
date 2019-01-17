@@ -41,35 +41,46 @@ void nmppsConvert_32sc32fcr(const nm32sc *pSrcVec, nm32fcr *pDstVec, int nSize)
 	}
 }
 
-void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int nSize)
+int Round(nm32f value)
+{
+	return floor(value + 0.5);
+}
+
+void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize)
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i] = trunc(pSrcVec[i]);
+		//pDstVec[i] = (int)(pSrcVec[i] * powf(2.0, scale));
+		if(pSrcVec[i] < 0.0) {
+			pDstVec[i] = floor(pSrcVec[i] * powf(2.0, scale));
+		}
+		else {
+			pDstVec[i] = Round(pSrcVec[i] * powf(2.0, scale) + 0.5);
+		}
 	}
 }
 
-void nmppsConvert_32f32s_rounding(const nm32f* pSrcVec, nm32s* pDstVec, int nSize)
+void nmppsConvert_32f32s_rounding(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize)
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i] = round(pSrcVec[i]);
+		pDstVec[i] = Round(pSrcVec[i] * powf(2.0, scale));
 	}
 }
 
-void nmppsConvert_32f32s_floor(const nm32f* pSrcVec, nm32s* pDstVec, int nSize)
+void nmppsConvert_32f32s_floor(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize)
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i] = floor(pSrcVec[i]);
+		pDstVec[i] = floor(pSrcVec[i] * powf(2.0, scale));
 	}
 }
 
-void nmppsConvert_32f32s_ceiling(const nm32f* pSrcVec, nm32s* pDstVec, int nSize)
+void nmppsConvert_32f32s_ceiling(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize)
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i] = ceil(pSrcVec[i]);
+		pDstVec[i] = Round((pSrcVec[i]) * powf(2.0, scale) + 0.5);
 	}
 }
 

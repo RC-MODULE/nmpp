@@ -28,7 +28,7 @@ begin "text"
 
 	ar0 = [--ar5];        // input nm32f* pSrcVec
 	ar1 = [--ar5];        // output nm32s* pDstVec
-	// gr2 = [--ar5];     // scale factor
+	ar2 = [--ar5];        // scale factor
 	gr0 = [--ar5];        // nSize
 
 	call core_nmppsConvert_32f32s_truncate;

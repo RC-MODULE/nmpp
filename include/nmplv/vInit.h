@@ -462,7 +462,7 @@ void nmppsConvert_32sc32fcr(const nm32sc* pSrcVec, nm32fcr* pDstVec, int nSize);
  *  \details Функуция округляет все дробные числа из pSrcVec до ближайших целых (например, 1.5 будет округлено до 2, 1.7 до 2, а 1.4 до 1)
  */
 
-void nmppsConvert_32f32s_rounding(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsConvert_32f32s_rounding(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize);
 
 /**
  *  \ingroup nmppsConvert nmppsConvert
@@ -476,9 +476,9 @@ void nmppsConvert_32f32s_rounding(const nm32f* pSrcVec, nm32s* pDstVec, int nSiz
  */
 
 //int nmppsConvert_32f32s_Sfs(const nm32f* pSrcVec, nm32s* pDstVec, NmppRoundMode rndMode, int scaleFactor, int nSize);
-void nmppsConvert_32f32s_ceiling(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
-void nmppsConvert_32f32s_floor(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
-void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsConvert_32f32s_ceiling(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize);
+void nmppsConvert_32f32s_floor(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize);
+void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize);
 
 /**
  *  \ingroup nmppsConvert nmppsConvert

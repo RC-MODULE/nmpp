@@ -26,10 +26,10 @@ begin "text"
 	push ar1, gr1;
 	push ar0, gr0;
 
-	ar0 = [--ar5];    // input nm32f* pSrcVec
-	ar1 = [--ar5];    // output nm32s* pDstVec
-	// gr2 = [--ar5]; // scale factor
-	gr0 = [--ar5];    // nSize
+	ar0 = [--ar5];    	// input nm32f* pSrcVec
+	ar1 = [--ar5];    	// output nm32s* pDstVec
+	ar2 = [--ar5];		// scale factor
+	gr0 = [--ar5];    	// nSize
 
 	call core_nmppsConvert_32f32s_ceiling;
 

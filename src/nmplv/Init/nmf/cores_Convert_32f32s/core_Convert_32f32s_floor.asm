@@ -17,30 +17,35 @@
 data "data"
 .align;
 	half_one: word[2] = (float(0.5), float(0.5));
-//	zeros: word[2] = (float(0.0), float(0.0));
 end "data";
+
+nobits "data1"
+	scale_factor: word[2];
+end "data1";
 
 global core_nmppsConvert_32f32s_floor: label;
 
 begin "text"
 <core_nmppsConvert_32f32s_floor>
+	ar2 = ar2 + 127;
+	gr2 = ar2;
+	gr2 <<= 23;
+	ar2 = scale_factor;
+	[ar2++] = gr2;
+	[ar2++] = gr2;
+	ar2 = ar2 - 2;
+	fpu 0 rep 1 vreg1 = [ar2];
+
 	ar2 = half_one;
 
 	fpu 0 rep 32 vreg0 = [ar2];
-
-	// ar2 = zeros;
-	//
-	// fpu 0 rep 1 vreg1 = [ar2];
 
 	gr1 = gr0 >> 6;
 	if =0 goto Packing_32f32s_less64_floor;
 
 <Packing_32f32s_floor>
-	//fpu 0 .float vreg0 = /vreg0/;
 	fpu 0 rep 32 vreg2 = [ar0++];
-	//fpu 0 .float vreg2 - .retrive(vreg1), set mask if <;
-	//fpu 0 .float vreg0 = mask ? -vreg0 : vreg0;
-	fpu 0 .float vreg2 = vreg2 - vreg0;
+	fpu 0 .float vreg2 = vreg2 * .retrive(vreg1) - vreg0;
 	gr1--;
 	if > delayed goto Packing_32f32s_floor;
 		fpu 0 .packer = vreg2 with .fixed_32 <= .float;
@@ -54,12 +59,9 @@ begin "text"
 	gr0 = gr0 >> 1;
 	gr0--;
 	vlen = gr0;
-//	fpu 0 .float vreg0 = /vreg0/;
 	fpu 0 rep vlen vreg0 = [ar2];
 	fpu 0 rep vlen vreg2 = [ar0++];
-	// fpu 0 .float vreg2 - .retrive(vreg1), set mask if <;
-	// fpu 0 .float vreg0 = mask ? -vreg0 : vreg0;
-	fpu 0 .float vreg2 = vreg2 - vreg0;
+	fpu 0 .float vreg2 = vreg2 * .retrive(vreg1) - vreg0;
 	fpu 0 .packer = vreg2 with .fixed_32 <= .float;
 	fpu rep vlen [ar1++] = .packer;
 

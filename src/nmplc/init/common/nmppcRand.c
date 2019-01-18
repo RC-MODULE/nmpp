@@ -26,44 +26,48 @@ unsigned nmppcRandomize=1;
 //! \perfinclude _nmppcRand__Fiii.html
 //! 
 
-int nmppcRandMinMax(
+
+
+
+	int nmppcRandMinMax(
 		int Min,
 		int Max)
-{
-	int X;
-	unsigned int R=nmppcRand();
-	R%=(unsigned int)(Max-Min+1);
-	X=(int)R+Min;
-	return X;
-}
+	{
+		int X;
+		unsigned int R = nmppcRand();
+		R %= (unsigned int)(Max - Min + 1);
+		X = (int)R + Min;
+		return X;
+	}
 
-int nmppcRandDiv(
+	int nmppcRandMinMaxDiv(
 		int Min,
 		int Max,
 		int	Divisible)
-{
-	int X;
-	unsigned int R=nmppcRand();
-	R%=(unsigned int)(Max-Min+1);
-	X=(int)R+Min;
-	X/=Divisible;
-	X*=Divisible;
-	return X;
-}
+	{
+		int X;
+		unsigned int R = nmppcRand();
+		R %= (unsigned int)(Max - Min + 1);
+		X = (int)R + Min;
+		X /= Divisible;
+		X *= Divisible;
+		return X;
+	}
 
-////////////////////////////////////////////////////////////////////////////
-//  Random initalization of 32-bit buffer
+	////////////////////////////////////////////////////////////////////////////
+	//  Random initalization of 32-bit buffer
 
-//! 
-//! \perfinclude _nmppcRand__Fv.html
-//! 
+	//! 
+	//! \perfinclude _nmppcRand__Fv.html
+	//! 
 
-int nmppcRand()
-{
-	unsigned int R;
-	nmppcRandomize=1664525L*nmppcRandomize+1013904223L;
-	R=nmppcRandomize>>16;
-	nmppcRandomize=1664525L*nmppcRandomize+1013904223L;
-	R|=(nmppcRandomize&0xFFFF0000);
-	return R;
-}
+	int nmppcRand()
+	{
+		unsigned int R;
+		nmppcRandomize = 1664525L * nmppcRandomize + 1013904223L;
+		R = nmppcRandomize >> 16;
+		nmppcRandomize = 1664525L * nmppcRandomize + 1013904223L;
+		R |= (nmppcRandomize & 0xFFFF0000);
+		return R;
+	}
+

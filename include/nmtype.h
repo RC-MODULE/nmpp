@@ -1,4 +1,5 @@
 
+
 //------------------------------------------------------------------------
 //
 //  $Workfile:: nmtype.h              $
@@ -12,14 +13,14 @@
 //------------------------------------------------------------------------
 
 //!
-//! \file nmtype.h 
+//! \file nmtype.h
 //! \ru Файл, содержащий определения типов упакованных данных.
 //! \en The file contains definition of packed data type.
 //!
 
 #ifndef _NMTYPE_H_INCLUDED2_
 #define _NMTYPE_H_INCLUDED2_
- 
+
 #define MEM_LOCAL  0
 #define MEM_GLOBAL 1
 #define HEAP0 0
@@ -46,7 +47,7 @@
 
 
 //-----------------------------------------------------------------------------
-	/**    
+	/**
 		\~
     \ru NM регистр.
     \en NM registry.
@@ -65,14 +66,14 @@ struct nmreg { int nVal; };
         \defgroup nmtype1 Data types for packed 64-bit word.
     \endif
 	\ingroup types
-    
+
     \ru Большинство функций библиотеки получают и возвращают
         массивы упакованных чисел.
-        Обращение к элементам 
-        данных массивов должно производится с помощью функций 
+        Обращение к элементам
+        данных массивов должно производится с помощью функций
         доступа к элементам Getval() and Setval().
-	\en Most of the library functions receive and return 
-		arrays of packed 64-bit words. To access elements 
+	\en Most of the library functions receive and return
+		arrays of packed 64-bit words. To access elements
 		of the words use library support functions Setval()
 		and Getval().
     */
@@ -82,83 +83,83 @@ struct nmreg { int nVal; };
 	/**
 		\~
 	\ingroup nmvectype
-    \ru Тип характеризует векторные данные как массив одноразрядных чисел. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  64. 
+    \ru Тип характеризует векторные данные как массив одноразрядных чисел. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  64.
   	\en Type characterizes vec data as array of 1-bit signed numbers.   \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 64.
 
 		\~
-  	\ru Диапазон значений: 
-	\en Number range is: 
+  	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-1,0]\f$
 	*/
 	#ifdef __NM__
 typedef void nm1;
-#else 
+#else
 	typedef int nm1;
 #endif
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 2-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  32. 
+	\ru Тип характеризует векторные данные как массив 2-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  32.
   	\en Type characterizes vec data as array of 2-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 32.
 
 		\~
-  	\ru Диапазон значений: 
-	\en Number range is: 
+  	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^1,\ldots,+2^1-1]=[-2,\ldots,+1]\f$
-	
-	
+
+
 	*/
 typedef void nm2s;
-//-----------------------------------------------------------------------------    
+//-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  16. 
+	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  16.
   	\en Type characterizes vec data as array of 4-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 16.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
-	\~	\f$[-2^3,\ldots,+2^3-1]=[-8,\ldots,+7]\f$  
+	\~	\f$[-2^3,\ldots,+2^3-1]=[-8,\ldots,+7]\f$
 */
 typedef void nm4s;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
- 	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8. 
+ 	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8.
   	\en Type characterizes vec data as array of 8-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 8.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^7,\ldots,+2^7-1]=[-128,\ldots,+127]\f$
 	*/
 	/*
 struct int8x8{
-#ifdef __NM__	
+#ifdef __NM__
 	unsigned long items;
-#else 
+#else
 	signed char item[8];
-#endif	
+#endif
 };*/
 
 #ifdef __NM__
 	typedef void nm8s;
-#else 
+#else
 	typedef signed char nm8s;
 #endif
 
 //typedef signed char nm8s;
 //typedef void nm8s;
 //typedef struct s_nm8s{
-//#ifdef __NM__	
+//#ifdef __NM__
 //	unsigned long vec;
-//#else 
+//#else
 //	char num[8];
-//#endif	
+//#endif
 //} nm8s;
 //
 
@@ -166,42 +167,42 @@ struct int8x8{
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8. 
+	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8.
   	\en Type characterizes vec data as array of 8-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 8.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^6,\ldots,+2^6-1]=[-64,\ldots,+63]\f$
 	*/
 typedef signed char nm8s7b;
 /*struct int7in8x8{
-#ifdef __NM__	
+#ifdef __NM__
 	unsigned long items;
-#else 
+#else
 	char item[8];
-#endif	
+#endif
 };*/
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
- 	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  4. 
+ 	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  4.
   	\en Type characterizes vec data as array of 16-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 4.
 
 		\~
-  	\ru Диапазон значений: 
-	\en Number range is: 
+  	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{15},\ldots,^+2^{15}-1]\f$.
 	*/
 /*
 struct int16x4{
-#ifdef __NM__	
+#ifdef __NM__
 	unsigned long items;
-#else 
+#else
 	signed short item[4];
-#endif	
+#endif
 };
 */
 
@@ -216,13 +217,13 @@ typedef signed short nm16s;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-  	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел со знаком с ограниченным диапазоном принимаемых значений. \n 
-		Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  4. 
+  	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел со знаком с ограниченным диапазоном принимаемых значений. \n
+		Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  4.
   	\en Type characterizes vec data as array of 16-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 4.
 
 		\~
-  	\ru Диапазон значений: 
-	\en Number range is: 
+  	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~ \f$[-2^{14},\ldots,+2^{14}-1]\f$
 	*/
@@ -232,11 +233,11 @@ typedef nm16s nm16s15b;
 
 
 struct int15in16x4{
-#ifdef __NM__	
+#ifdef __NM__
 	unsigned long items;
-#else 
+#else
 	signed short item[4];
-#endif	
+#endif
 };
 
 
@@ -245,12 +246,12 @@ struct int15in16x4{
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2. 
+	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2.
   	\en Type characterizes vec data as array of 32-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 2.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{31},\ldots,+2^{31}-1]\f$.
 	*/
@@ -287,52 +288,52 @@ typedef struct s_int32x2{
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-   \ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2. 
+   \ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2.
   	\en Type characterizes vec data as array of 32-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 2.
 
 		\~
-  	\ru Диапазон значений: 
-	\en Number range is: 
+  	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{30},\ldots,2^{30}-1]\f$.
 	*/
 typedef int nm32s31b;
 struct int31in32x2{
-#ifdef __NM__	
+#ifdef __NM__
 	unsigned long items;
-#else 
+#else
 	int item[2];
-#endif	
+#endif
 };
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-   \ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2. 
+   \ru Тип характеризует векторные данные как массив 32-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2.
   	\en Type characterizes vec data as array of 32-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 2.
 
 		\~
-  	\ru Диапазон значений: 
-	\en Number range is: 
+  	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{29},\ldots,2^{29}-1]\f$.
 	*/
 typedef int nm32s30b;
 struct int30in32x2{
-#ifdef __NM__	
+#ifdef __NM__
 	unsigned long items;
-#else 
+#else
 	int item[2];
-#endif	
+#endif
 };
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-   \ru Тип характеризует векторные данные как массив 64-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию размер массива произвольный . 
+   \ru Тип характеризует векторные данные как массив 64-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию размер массива произвольный .
   	\en Type characterizes vec data as array of 64-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers may by arbitrary.
-	
+
 		\~
-  	\ru Диапазон значений: 
-	\en Number range is: 
+  	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{63},\ldots,^+2^{63}-1]\f$
 	*/
@@ -343,12 +344,12 @@ typedef long long nm64s;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-   	  \ru Тип характеризует векторные данные как массив 64-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию размер массива произвольный . 
+   	  \ru Тип характеризует векторные данные как массив 64-х разрядных чисел со знаком. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию размер массива произвольный .
   	\en Type characterizes vec data as array of 64-bit signed numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers may by arbitrary.
-	
+
 		\~
-  	\ru Диапазон значений: 
-	\en Number range is: 
+  	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{62},\ldots,+2^{62}-1]\f$
 	*/
@@ -356,13 +357,13 @@ typedef nm64s nm64s63b;
 //=============================================================================
 	/**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 2-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  32. 
+	\ru Тип характеризует векторные данные как массив 2-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  32.
   	\en Type characterizes vec data as array of 2-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 32.
 
 
 		\~
-  	\ru Диапазон значений: 
-	\en Number range is: 
+  	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,+2^2-1]=[0,\ldots,3]\f$
 	*/
@@ -370,24 +371,24 @@ typedef void nm2u;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  16. 
+	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  16.
   	\en Type characterizes vec data as array of 4-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 16.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,+2^4-1]=[0,\ldots,15]\f$
 	*/
 typedef void nm4u;
 /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  16. 
+	\ru Тип характеризует векторные данные как массив 4-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  16.
   	\en Type characterizes vec data as array of 4-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 16.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,+2^3-1]=[0,\ldots,7]\f$
 	*/
@@ -395,33 +396,33 @@ typedef void nm4u;
 typedef nm4u nm4u3b;
 
 //-----------------------------------------------------------------------------
-    
+
 	/**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8. 
+	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8.
   	\en Type characterizes vec data as array of 8-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 8.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,+2^8-1]=[0,\ldots,255]\f$
 	*/
 #ifdef __NM__
 	typedef void nm8u;
-#else 
+#else
 	typedef unsigned char nm8u;
 #endif
 //-----------------------------------------------------------------------------
 
 	/**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8. 
+	\ru Тип характеризует векторные данные как массив 8-ми разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  8.
   	\en Type characterizes vec data as array of 8-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 8.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,+2^7-1]=[0,\ldots,127]\f$
 	*/
@@ -429,31 +430,31 @@ typedef unsigned char nm8u7b;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n 
-	    Предполагается , что размер массива данного типа как минимум кратен 4. 
+	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n
+	    Предполагается , что размер массива данного типа как минимум кратен 4.
   	\en Type characterizes vec data as array of 16-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 4.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^{16}-1]\f$.
 	*/
 
-#ifdef __NM__	
+#ifdef __NM__
 	typedef void nm16u;
-#else 
+#else
 	typedef unsigned short nm16u;
-#endif	
+#endif
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  4. 
+	\ru Тип характеризует векторные данные как массив 16-ти разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  4.
   	\en Type characterizes vec data as array of 16-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 4.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{14},\ldots,^+2^{14}-1]\f$.
 	*/
@@ -462,7 +463,7 @@ typedef nm16u nm16u15b;
     /**
 	\ingroup nmvectype
 
-	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2. 
+	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2.
   	\en Type characterizes vec data as array of 32-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 2.
 
 		\~
@@ -476,7 +477,7 @@ typedef unsigned int nm32u;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2. 
+	\ru Тип характеризует векторные данные как массив 32-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n Предполагается , что размер массива данного типа как минимум кратен  2.
   	\en Type characterizes vec data as array of 32-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers have to be multiple to 2.
 
 		\~
@@ -489,7 +490,7 @@ typedef unsigned int nm32u31b;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-   \ru Тип характеризует векторные данные как массив 64-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию размер массива произвольный . 
+   \ru Тип характеризует векторные данные как массив 64-х разрядных чисел без знака. \n Начальный адрес массива должен быть выровнен по границе 64р слова.  \n По умолчанию размер массива произвольный .
   	\en Type characterizes vec data as array of 64-bit unsigned numbers. \n Pointer to this struct is always aligned to 64-bit address. \n By default amount of numbers may by arbitrary.
 
 		\~
@@ -510,8 +511,8 @@ typedef unsigned long long nm64u;
     \en Type for 32-bit scalar variables with limited value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-1,0]\f$
 	*/
@@ -523,8 +524,8 @@ typedef int int1b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^1,\ldots,+2^1-1]=[-2,\ldots,+1]\f$
 	*/
@@ -536,8 +537,8 @@ typedef int int2b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^2,\ldots,+2^2-1]=[-4,\ldots,+3]\f$
 	*/
@@ -549,8 +550,8 @@ typedef int int3b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^3,\ldots,+2^3-1]=[-8,\ldots,+7]\f$
 	*/
@@ -562,8 +563,8 @@ typedef int int4b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^6,\ldots,+2^6-1]=[-64,\ldots,+63]\f$
 	*/
@@ -575,8 +576,8 @@ typedef int int7b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^7,\ldots,+2^7-1]=[-128,\ldots,+127]\f$
 	*/
@@ -588,8 +589,8 @@ typedef int int8b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{14},\ldots,+2^{14}-1]\f$
 	*/
@@ -601,8 +602,8 @@ typedef int int15b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{15},\ldots,+2^{15}-1]\f$
 	*/
@@ -614,8 +615,8 @@ typedef int int16b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{29},\ldots,+2^{29}-1]\f$
 	*/
@@ -627,8 +628,8 @@ typedef int int30b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{30},\ldots,+2^{30}-1]\f$
 	*/
@@ -640,8 +641,8 @@ typedef int int31b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{31},\ldots,+2^{31}-1]\f$
 	*/
@@ -653,8 +654,8 @@ typedef int int32b;
     \en Type for 64-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{62},\ldots,+2^{62}-1]\f$
 	*/
@@ -666,8 +667,8 @@ typedef INT64 int63b;
     \en Type for 64-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[-2^{63},\ldots,+2^{63}-1]\f$
 	*/
@@ -679,8 +680,8 @@ typedef INT64 int64b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,1]=[0,1]\f$
 	*/
@@ -692,8 +693,8 @@ typedef unsigned int uint1b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^2-1]=[0,\ldots,3]\f$
 	*/
@@ -705,8 +706,8 @@ typedef unsigned int uint2b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^3-1]=[0,\ldots,7]\f$
 	*/
@@ -718,8 +719,8 @@ typedef unsigned int uint3b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^4-1]=[0,\ldots,15]\f$
 	*/
@@ -731,8 +732,8 @@ typedef unsigned int uint4b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^7-1]=[0,\ldots,127]\f$
 	*/
@@ -744,8 +745,8 @@ typedef unsigned int uint7b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^8-1]=[0,\ldots,255]\f$
 	*/
@@ -757,8 +758,8 @@ typedef unsigned int uint8b;
     \en Type for 32-bit sclars with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^{15}-1]\f$
 	*/
@@ -770,8 +771,8 @@ typedef unsigned int uint15b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^{16}-1]\f$
 	*/
@@ -783,8 +784,8 @@ typedef unsigned int uint16b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^{31}-1]\f$
 	*/
@@ -796,8 +797,8 @@ typedef unsigned int uint31b;
     \en Type for 32-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^{32}-1]\f$
 	*/
@@ -809,8 +810,8 @@ typedef unsigned int uint32b;
     \en Type for 64-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^{63}-1]\f$
 	*/
@@ -822,8 +823,8 @@ typedef UINT64 uint63b;
     \en Type for 64-bit scalar variables with limited admissible value range.
 
 		\~
-	\ru Диапазон значений: 
-	\en Number range is: 
+	\ru Диапазон значений:
+	\en Number range is:
 		\~
 	\~	\f$[0,\ldots,2^{64}-1]\f$
 	*/
@@ -832,7 +833,7 @@ typedef nm64u uint64b;
 
 //=============================================================================
 
-//================= nmget ===========================================    
+//================= nmget ===========================================
 /*
 int2b	nmget_2s(struct nm2s*  pVec, int nIndex)
 {
@@ -866,7 +867,7 @@ __INLINE__ int16b	nmget_16s(nm16s* pVec, int nIndex)
 	return (hsort)pVec[nIndex];
 }
 
----------------- uint ------------------------------------ 
+---------------- uint ------------------------------------
 __INLINE__ uint1b nmget_1u(nm1*   pVec, int nIndex)
 {
 	nm32u nBase=((nm32u)nIndex)/32;
@@ -909,7 +910,7 @@ __INLINE__ uint16b	nmget_16u(nm16u* pVec, int nIndex)
 */
 
 //=============================================================================
-#define VEC_NM1(X)  unsigned data[(X)/32];  
+#define VEC_NM1(X)  unsigned data[(X)/32];
 #define VEC_NM2U(X) unsigned data[(X)/16];
 #define VEC_NM2S(X) int data[(X)/16];
 #define VEC_NM4U(X) \
@@ -918,8 +919,8 @@ __INLINE__ uint16b	nmget_16u(nm16u* pVec, int nIndex)
 	uint4b operator[] (int index){ return nmget((nm4u*)data,index);}
 
 
-#define VEC_NM4S(X) int data[(X)/8]; 
-#define VEC_NM8U(X) unsigned int data[(X)/4]; 
+#define VEC_NM4S(X) int data[(X)/8];
+#define VEC_NM8U(X) unsigned int data[(X)/4];
 #define VEC_NM8S(X) \
 	int data[(X)/4]; \
 	void set(int i, int val){ ((char*)data)[i]=val;}		\
@@ -935,7 +936,7 @@ __INLINE__ uint16b	nmget_16u(nm16u* pVec, int nIndex)
 	void set(int i, int val){ ((unsigned short*)data)[i]=val;}		\
 	short operator[] (int index){ return ((unsigned short*)data)[index];}
 
-#define VEC_NM32U(X) nm32u data[(X)];  
+#define VEC_NM32U(X) nm32u data[(X)];
 #define VEC_NM32S(X) \
 	int data[(X)];  \
 	void set(int i, int val){ ((int*)data)[i]=val;}		\
@@ -947,7 +948,7 @@ __INLINE__ uint16b	nmget_16u(nm16u* pVec, int nIndex)
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 16-ти 4-р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 16-ти 4-р. чисел со знаком.
     \en Type of vec structure consisting of 16 4-bit sigened words.
 	*/
 //struct v16nm4s {VEC_NM4S(16)};
@@ -959,7 +960,7 @@ struct v16nm4s {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 4-х 8р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 4-х 8р. чисел со знаком.
     \en Type of vec structure consisting of 4 8-bit sigened words.
 	*/
 //struct v4{VEC_NM8S(4)};
@@ -970,7 +971,7 @@ struct v4nm8s {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 8-ми 8р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 8-ми 8р. чисел со знаком.
     \en Type of vec structure consisting of 8 8-bit sigened words.
 	*/
 //struct v8nm8s {VEC_NM8S(8)};
@@ -981,7 +982,7 @@ typedef struct s_v8nm8s {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 16-ти 8р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 16-ти 8р. чисел со знаком.
     \en Type of vec structure consisting of 16 8-bit sigened words.
 	*/
 //struct v16nm8s {VEC_NM8S(16)};
@@ -992,7 +993,7 @@ typedef struct s_v16nm8s {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 4-х 16р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 4-х 16р. чисел со знаком.
     \en Type of vec structure consisting of 4 16-bit sigened words.
 	*/
 //struct  v4nm16s {VEC_NM16S(4)};
@@ -1005,7 +1006,7 @@ typedef struct  s_v4nm16s {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 8-ми 16р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 8-ми 16р. чисел со знаком.
     \en Type of vec structure consisting of 8 16-bit sigened words.
 	*/
 //struct v8nm16s {VEC_NM16S(8)};
@@ -1016,7 +1017,7 @@ typedef struct s_v8nm16s {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 16-ти 16р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 16-ти 16р. чисел со знаком.
     \en Type of vec structure consisting of 16 16-bit sigened words.
 	*/
 //struct v16nm16s {VEC_NM16S(16)};
@@ -1028,7 +1029,7 @@ typedef struct s_v16nm16s {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 2-х 32р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 2-х 32р. чисел со знаком.
     \en Type of vec structure consisting of 2 32-bit sigened words.
 	*/
 //struct v2nm32s {VEC_NM32S(2)};
@@ -1039,7 +1040,7 @@ typedef struct s_v2nm32s {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 4-х 32р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 4-х 32р. чисел со знаком.
     \en Type of vec structure consisting of 4 32-bit sigened words.
 	*/
 //struct v4nm32s {VEC_NM32S(4)};
@@ -1050,7 +1051,7 @@ typedef struct s_v4nm32s {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 8-ми 32р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 8-ми 32р. чисел со знаком.
     \en Type of vec structure consisting of 8 32-bit sigened words.
 	*/
 //struct v8nm32s {VEC_NM32S(8)	};
@@ -1061,7 +1062,7 @@ typedef struct s_v8nm32s {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 16-ти 32р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 16-ти 32р. чисел со знаком.
     \en Type of {VECtor structure consisting of 16 32-bit sigened words.
 	*/
 //struct v16nm32s {VEC_NM32S(16)	};
@@ -1074,10 +1075,9 @@ typedef struct s_v16nm32s {
 	\ingroup nmvectype
     \ru Тип векторной структуры, состоящей из 16-ти 32р. чисел со знаком. 
     \en Type of {VECtor structure consisting of 16 32-bit signed words.
-
 		\~
-	\ru Диапазон значений элементов структуры: 
-	\en Number range of structure elements is: 
+	\ru Диапазон значений элементов структуры:
+	\en Number range of structure elements is:
 		\~
 	\~	\f$[-64,\ldots,+63]\f$
 	*/
@@ -1088,7 +1088,7 @@ typedef v16nm8s v16nm8s7b;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 16-ти 4-р. чисел без знака. 
+    \ru Тип векторной структуры, состоящей из 16-ти 4-р. чисел без знака.
     \en Type of {VECtor structure consisting of 16 4-bit unsigened words.
 	*/
 //struct v16nm4u {VEC_NM4U(16)	};
@@ -1099,7 +1099,7 @@ typedef struct s_v16nm4u {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 4-х 8р. чисел без знака. 
+    \ru Тип векторной структуры, состоящей из 4-х 8р. чисел без знака.
     \en Type of {VECtor structure consisting of 4 8-bit unsigened words.
 	*/
 //struct v4nm8u {VEC_NM8U(4)		};
@@ -1110,7 +1110,7 @@ typedef struct s_v4nm8u {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 8-ми 8р. чисел без знака. 
+    \ru Тип векторной структуры, состоящей из 8-ми 8р. чисел без знака.
     \en Type of {VECtor structure consisting of 8 8-bit unsigened words.
 	*/
 //struct v8nm8u {VEC_NM8U(8)		};
@@ -1121,7 +1121,7 @@ typedef struct s_v8nm8u {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 16-ти 8р. чисел без знака. 
+    \ru Тип векторной структуры, состоящей из 16-ти 8р. чисел без знака.
     \en Type of {VECtor structure consisting of 16 8-bit unsigened words.
 	*/
 //struct v16nm8u {VEC_NM8U(16)	};
@@ -1132,7 +1132,7 @@ typedef struct s_v16nm8u {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 4-х 16р. чисел без знака. 
+    \ru Тип векторной структуры, состоящей из 4-х 16р. чисел без знака.
     \en Type of {VECtor structure consisting of 4 16-bit unsigened words.
 	*/
 //struct v4nm16u {VEC_NM16U(4)	};
@@ -1143,7 +1143,7 @@ typedef struct s_v4nm16u {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 8-ми 16р. чисел без знака. 
+    \ru Тип векторной структуры, состоящей из 8-ми 16р. чисел без знака.
     \en Type of {VECtor structure consisting of 8 16-bit unsigened words.
 	*/
 //struct v8nm16u {VEC_NM16U(8)	};
@@ -1154,7 +1154,7 @@ typedef struct s_v8nm16u {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 16-ти 16р. чисел без знака. 
+    \ru Тип векторной структуры, состоящей из 16-ти 16р. чисел без знака.
     \en Type of {VECtor structure consisting of 16 16-bit unsigened words.
 	*/
 //struct v16nm16u {VEC_NM16U(16)	};
@@ -1165,7 +1165,7 @@ typedef struct s_v16nm16u {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 2-х 32р. чисел без знака. 
+    \ru Тип векторной структуры, состоящей из 2-х 32р. чисел без знака.
     \en Type of {VECtor structure consisting of 2 32-bit unsigened words.
 	*/
 //struct v2nm32u {VEC_NM32U(2)	};
@@ -1176,7 +1176,7 @@ typedef struct s_v2nm32u {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 4-х 32р. чисел без знака. 
+    \ru Тип векторной структуры, состоящей из 4-х 32р. чисел без знака.
     \en Type of {VECtor structure consisting of 4 32-bit unsigened words.
 	*/
 //struct v4nm32u {VEC_NM32U(4)	};
@@ -1187,7 +1187,7 @@ typedef struct s_v4nm32u {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 8-ми 32р. чисел без знака. 
+    \ru Тип векторной структуры, состоящей из 8-ми 32р. чисел без знака.
     \en Type of {VECtor structure consisting of 8 32-bit unsigened words.
 	*/
 //struct v8nm32u {VEC_NM32U(8)	};
@@ -1198,7 +1198,7 @@ typedef struct s_v8nm32u {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 16-ти 32р. чисел без знака. 
+    \ru Тип векторной структуры, состоящей из 16-ти 32р. чисел без знака.
     \en Type of {VECtor structure consisting of 16 32-bit unsigened words.
 	*/
 //struct v16nm32u {VEC_NM32U(16)	};
@@ -1210,12 +1210,12 @@ typedef struct s_v16nm32u {
     /**
 		\~
 	\ingroup nmvectype
-    \ru Тип векторной структуры, состоящей из 16-ти 32р. чисел со знаком. 
+    \ru Тип векторной структуры, состоящей из 16-ти 32р. чисел со знаком.
     \en Type of vec structure consisting of 16 32-bit sigened words.
 
 		\~
-	\ru Диапазон значений элементов структуры: 
-	\en Number range of structure elements is: 
+	\ru Диапазон значений элементов структуры:
+	\en Number range of structure elements is:
 		\~
 	\~	\f$[0,\ldots,7]\f$
 	*/
@@ -1227,22 +1227,22 @@ typedef v16nm4u v16nm4b3u;
 	\ingroup nmvectype
     \ru Тип для пары 64-х битных векторных данных, соответствующих вещественной и мнимой
 		части одного комплексного каждое из которых состоит
-		из четырех упакованных 16-х битовые комплексные знаковые числа 
-        с диапазоном значений \f$[-2^{15},\ldots,^+2^{15}-1]\f$. 
+		из четырех упакованных 16-х битовые комплексные знаковые числа
+        с диапазоном значений \f$[-2^{15},\ldots,^+2^{15}-1]\f$.
     \en Packed 16-bit complex signed numbers with
 		\~
        \f$[-2^{15},\ldots,^+2^{15}-1]\f$ value range.
 
-	\ru Диапазон значений [-128,\ldots,127]. 
+	\ru Диапазон значений [-128,\ldots,127].
 	\en Number range is [-128,\ldots,127].
 	*/
-	
+
 struct nm16sc
 {
 
 	signed short r;
 	signed short c;
-	
+
 	//nm16sc() : r(0), c(0) {}
 	//nm16sc(nm16s b) : r(b), c(0) {}
 };
@@ -1250,7 +1250,7 @@ struct nm16sc
 	/**
 	\internal
 	\ingroup nmvectype
-    \ru Тип для пары 64-х разрядных векторных данных, содержащих упакованные вещественные и 
+    \ru Тип для пары 64-х разрядных векторных данных, содержащих упакованные вещественные и
 		мнимые части 2-х комплексных чисел.
     \en Type for pair of 64-bit words with packed real and imaginary parts of
 		two complex numbers.
@@ -1266,11 +1266,16 @@ typedef struct s_nm32sc
 
 	nm32s re;
 	nm32s im;
-	
+
 	//nm32sc() : re(0), im(0) {}
 	//nm32sc(nm32s b) : re(b), im(0) {}
 }nm32sc;
 
+typedef struct s_v2nm32f
+{
+	float v0;
+	float v1;
+} v2nm32f;
 
 typedef struct s_nm32fc
 {
@@ -1297,14 +1302,14 @@ typedef double nm64f;
 	/**
 	\internal
 	\ingroup nmvectype
-    \ru Тип для пары 64-х разрядных векторных данных, содержащих вещественную и мнтмую часть 
+    \ru Тип для пары 64-х разрядных векторных данных, содержащих вещественную и мнтмую часть
 		комплексного числа.
     \en Type for pair of 64-bit words with real and imaginary parts of complex number.
 		\~
        \f$[-2^{63},\ldots,^+2^{63}-1]\f$ value range.
 
 	\ru Диапазон значений для вещественной и мнимой части
-	\en Number range is for real and imaginary parts is 
+	\en Number range is for real and imaginary parts is
 		\~
 	\~ \f$[-2^{63},\ldots,+2^{63}-1]\f$.
 	*/
@@ -1322,7 +1327,7 @@ typedef struct s_nm64sc
 		//! \en Imaginary part of complex number.
 		//! \~
 	long long im;
-//	
+//
 //	nm64sc() : re(0), im(0) {}
 //	nm64sc(nm64s b) : re(b), im(0) {}
 //
@@ -1331,13 +1336,13 @@ typedef struct s_nm64sc
 } nm64sc;
 
 //! \}
-#ifndef uint64 
+#ifndef uint64
 typedef unsigned long long uint64;
-#endif 
+#endif
 
 #ifndef uint32
 typedef unsigned int uint32;
-#endif 
+#endif
 
 
 typedef uint64 fifo64;
@@ -1354,7 +1359,7 @@ typedef uint64 fseq64;
 		int mode;
 		int status;
 	} Tmp2BuffSpec;
-	
+
 //
 ///*
 //__INLINE__ int NM_CAPACITY(nm1*)  {return 64;}
@@ -1383,20 +1388,20 @@ typedef uint64 fseq64;
 
 //#ifdef __NM__
 #define NM16S(vec,size)  nm64s vec##__64s[size/4]; nm16s* vec=(nm16s*)vec##__64s
-//#else 
+//#else
 //#define NM16S(vec,size)  nm16s vec[size];
 //#endif
 
 //#ifdef __NM__
 #define NM32S(vec,size)  nm64s vec##__64s[size/2]; nm32s* vec=(nm32s*)vec##__64s
-//#else 
+//#else
 //#define NM32S(vec,size)  nm32s vec[size];
 //#endif
 
 /*
 #ifdef __NM__
 #define MTR16S(mtr,ydim,xdim)  static nm64s mtr##__64s[ydim][xdim/4]; nm16s* mtrvec=(nm16s*)vec##__64s
-#else 
+#else
 #define MTR16S(mtr,ydim,xdim)  nm16s vec[size];
 #endif
 */
@@ -1404,11 +1409,11 @@ typedef uint64 fseq64;
 //
 #ifdef __cplusplus
 #define __INLINE__ static inline //  because  1>d:\git\nmpp\include\nmchar.h(17) : error C2574 : 'nmchar::nmchar(void)' : cannot be declared static
-//#define __INLINE__  inline 
+//#define __INLINE__  inline
 #else
  #ifdef __NM__
    #define __INLINE__ static inline
- #else 
+ #else
    #define __INLINE__ static __inline
   #endif
 #endif
@@ -1416,15 +1421,11 @@ typedef uint64 fseq64;
 #define NM16Sx4(x0,x1,x2,x3) 	((long long)(x3&0xFFFFl)<<48)| \
 								((long long)(x2&0xFFFFl)<<32)| \
 								((long long)(x1&0xFFFFl)<<16)| \
-								((long long)(x0&0xFFFFl)) 
+								((long long)(x0&0xFFFFl))
 #define NM32Sx2(x0,x1)			((long long)(unsigned(x1))<<32)| \
-								((long long)(unsigned(x0))) 
+								((long long)(unsigned(x0)))
 #define NM32Sx4(x0,x1,x2,x3)	NM32Sx2(x0,x1),NM32Sx2(x2,x3)
 
 #endif
 
  // _NMTYPE_H_INCLUDED_
-
-
-
- 

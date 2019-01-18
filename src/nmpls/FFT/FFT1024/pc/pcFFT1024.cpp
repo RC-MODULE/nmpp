@@ -30,6 +30,8 @@
 int FlagsFFT1024=FFT7BIT;
 static cmplx<double> Rounder(0.5,0.5);
 // Setting of the calculation accuracy for FFT_Fwd1024 function
+
+extern "C"{
 void FFT_Fwd1024Set( int	Flag)			// See header for more information
 {
 	FlagsFFT1024=Flag;
@@ -42,6 +44,7 @@ void FFT_Fwd1024Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 {
 	FFT_Fwd1024Set(FFT7BIT);
 }
+};
 ///////////////////////////////////////////////////////////////////
 // Computing FFT-1024 using fixed-point arithmetic
 // This is the C equivalent of the FFT_Fwd1024 Assembly Code

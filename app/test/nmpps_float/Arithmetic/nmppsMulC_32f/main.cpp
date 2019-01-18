@@ -1,5 +1,6 @@
 #include "nmtype.h"
 #include "time.h"
+#include "nmpp.h"
 #include <stdio.h>
 
 #define		N				1024

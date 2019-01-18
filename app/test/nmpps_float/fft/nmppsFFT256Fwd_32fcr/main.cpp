@@ -5,6 +5,25 @@
 #include <malloc.h>
 #include <stdio.h>
 
+class Duration {
+public:
+  Duration(char* new_message) {
+    message = new_message;
+	t1 = clock();
+  }
+  ~Duration() {
+    t2 = clock();
+	printf("%s%d\n", message, t2 - t1 - 60);
+  }
+private:
+  char* message;
+  clock_t t1;
+  clock_t t2;
+};
+
+#define DURATION(message)         \
+  Duration duration(message);
+
 #define		SIZE 		256
 
 #pragma data_section ".data_imu1"
@@ -35,9 +54,12 @@ int main()
 	if(st) {
 		return st;
 	}
-	t1 = clock();
+	{
+	DURATION("FFT256Fwd: ")
+	//t1 = clock();
 	nmppsFFT256Fwd_32fcr(src, dst, rat);
-	t2 = clock();
+	//t2 = clock();
+	}
 	nmppsFFT256Inv_32fcr(dst, dst, irat);
 	st = nmppsFFTFree_32fcr(rat);
 	if(st) {

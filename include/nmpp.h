@@ -18,7 +18,7 @@
     *     \defgroup SIG_Group Функции обработки сигналов 
     */
 #include "./nmpls/sElementary.h"
-//#include "./nmpls/nmpls.h"	
+#include "./nmpls/nmpls.h"	
 	/**
     *
     *     \defgroup IMG_Group Функции обработки изображений

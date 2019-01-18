@@ -36,11 +36,11 @@ begin ".text"
 	push ar0, gr0;
 	ar3 = [--ar5]; // input x
 	gr5 = [--ar5]; // output X
-	ar5 = [--ar5]; // adress of the struct with W 
+	ar5 = [--ar5]; // adress of the struct with W
 	gr1 = 128;
 	vlen = 31;
 
-// SORT 64 VECTORS FOR FFT16	
+// SORT 64 VECTORS FOR FFT16
 	ar4 = AddrForFFT16;
 	ar2 = [ar5++]; 					// 1.0 or 1/1024
 	ar0 = [ar5++]; 					// buff_fft1024
@@ -66,13 +66,13 @@ begin ".text"
 // END SORT
 
 // COMPUTE 64 PART OF FFT16
-	
+
 	delayed call _FFTFwd16x32Core;
 		ar3 = gr4 with gr1 >>= 2; // step for FFT16 = 32 for input // addr for input buff_fft1024
 		gr6 = gr5; 				  // addr for output buff_fft1024
-	
+
 	ar5 = ar5 - 7;
-	
+
 	delayed call _FFTFwd16x32Core;
 		gr6 = [ar5]; 			 // buff_fft1024xW
 		ar3 = gr7;
@@ -86,7 +86,7 @@ begin ".text"
 	gr0 = ar1;							// saving of W1024 addr
 	ar3 = gr4;      					// buff_fft1024
 	ar4 = gr7;      					// buff_fft1024_mulW
-	
+
 	fpu 0 rep 16 vreg0 = [ar1++gr1];
 	fpu 1 vreg0 = fpu 0 vreg0;
 	fpu 2 vreg0 = fpu 1 vreg0;
@@ -203,7 +203,7 @@ begin ".text"
 	fpu 3 rep 32 vreg2 = [ar0++];
 	fpu 3 rep 32 vreg3 = [ar6++]; // need mul W128
 	fpu 3 .complex vreg6 = vreg0 * vreg3 + vreg2;
-	
+
 	fpu 0 rep 32 [ar3++] = vreg6;
 	fpu 2 rep 32 [ar4++] = vreg6;
 
@@ -214,7 +214,7 @@ begin ".text"
 	fpu 1 .complex vreg7 = -vreg0 * vreg3 + vreg2;
 	fpu 2 .complex vreg7 = -vreg0 * vreg3 + vreg2;
 	fpu 3 .complex vreg7 = -vreg0 * vreg3 + vreg2;
-	
+
 	fpu 0 rep 32 [ar3++] = vreg7;
 	fpu 2 rep 32 [ar4++] = vreg7;
 
@@ -243,7 +243,7 @@ begin ".text"
 	fpu 1 rep 32 vreg1 = [ar1++gr1]; // 4 - W128
 	fpu 2 vreg0 = fpu 0 vreg1;
 	fpu 3 vreg0 = fpu 1 vreg1;
-	
+
 <COMP_FFT256_1024>
 	fpu 0 rep 32 vreg2 = [ar0++];
 	fpu 0 rep 32 vreg3 = [ar6++]; // need mul W128
@@ -260,7 +260,7 @@ begin ".text"
 	fpu 3 rep 32 vreg2 = [ar2++];
 	fpu 3 rep 32 vreg3 = [ar5++]; // need mul W128
 	fpu 3 .complex vreg6 = vreg1 * vreg3 + vreg2;
-	
+
 	fpu 0 rep 32 [ar3++] = vreg6;
 	fpu 2 rep 32 [ar4++] = vreg6;
 	fpu 1 rep 32 [ar3++] = vreg6;
@@ -270,7 +270,7 @@ begin ".text"
 	fpu 1 .complex vreg7 = -vreg0 * vreg3 + vreg2;
 	fpu 2 .complex vreg7 = -vreg1 * vreg3 + vreg2;
 	fpu 3 .complex vreg7 = -vreg1 * vreg3 + vreg2;
-	
+
 	fpu 0 rep 32 vreg2 = [ar0++];
 	fpu 0 rep 32 vreg3 = [ar6++]; // need mul W128
 	fpu 0 .complex vreg6 = vreg1 * vreg3 + vreg2;
@@ -286,7 +286,7 @@ begin ".text"
 	fpu 3 rep 32 vreg2 = [ar2++];
 	fpu 3 rep 32 vreg3 = [ar5++]; // need mul W128
 	fpu 3 .complex vreg6 = vreg0 * vreg3 + vreg2;
-	
+
 	fpu 0 rep 32 [ar3++] = vreg6;
 	fpu 2 rep 32 [ar4++] = vreg6;
 	fpu 1 rep 32 [ar3++] = vreg6;
@@ -299,7 +299,7 @@ begin ".text"
 	fpu 1 .complex vreg5 = -vreg1 * vreg3 + vreg2;
 	fpu 2 .complex vreg5 = -vreg0 * vreg3 + vreg2;
 	fpu 3 .complex vreg5 = -vreg0 * vreg3 + vreg2;
-	
+
 	fpu 0 rep 32 [ar3++] = vreg7;
 	fpu 2 rep 32 [ar4++] = vreg7;
 	fpu 1 rep 32 [ar3++] = vreg7;
@@ -510,7 +510,7 @@ begin ".text"
 	fpu 3 rep 32 [ar3++] = vreg3;
 	gr1--;
 	if > goto LAST_LAYER_1024;
-	
+
 // END FFT1024
 
 <exit_fft1024>

@@ -98,11 +98,7 @@ public:
 	inline unsigned char* x86addr(){
 		return ((unsigned char*)addr)+indx;
 	}
-	inline uint8ptr (void* p){
-		addr=(unsigned int*)p;
-		indx=0;
-	}
-	inline uint8ptr (unsigned char* p){
+	inline uint8ptr (const void* p){
 		addr=(unsigned int*)p;
 		indx=0;
 	}
@@ -110,7 +106,11 @@ public:
 		addr=(unsigned int*)p;
 		indx=0;
 	}
-	inline uint8ptr (char* p){
+	//inline uint8ptr (unsigned char* p){
+	//	addr=(unsigned int*)p;
+	//	indx=0;
+	//}
+	inline uint8ptr (const char* p){
 		addr=(unsigned int*)p;
 		indx=0;
 	}

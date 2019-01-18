@@ -4,13 +4,15 @@
 //*                                                                                                             */
 //*   Software design:  A.Brodyazhenko 																            */
 //*   Year: 2018                                                                                                */
-//*   This file is the example for to work with 2D-FFT256Fwd/Inv												*/ 
+//*   This file is the example for to work with 2D-FFT256Fwd/Inv												*/
 //***************************************************************************************************************/
 
 #include "dma.h"
 #include "nmpp.h"
+#include "time.h"
 #include <stdio.h>
 #include "fft_32fcr.h"
+#include "fft_macro.h"
 
 #define		WIDTH			256
 #define		HEIGHT			256
@@ -50,7 +52,7 @@ int main()
 
 	status = nmppsFFT256FwdInitAlloc_32fcr(&specFwd);				   // init struct of coeffs for FFTFwd
 	if(status) return status;
-	
+
 	status = nmppsFFT256InvInitAlloc_32fcr(&specInv);				   // init struct of coeffs for FFTInv
 	if(status) return status;
 
@@ -61,8 +63,13 @@ int main()
 
 	halOpenDMA();													  // init DMA
 
-	nmppiFFT256Fwd_32fcr(srcFwd, srcInv, buffDDR, buffSRAM, specFwd); // computing 2D-FFT256Fwd
-	nmppiFFT256Inv_32fcr(srcInv, dstInv, buffDDR, buffSRAM, specInv); // computing 2D-FFT256Inv
+	// nmppiFFT256Inv_32fcr(srcInv, dstInv, buffDDR, buffSRAM, specInv); // computing 2D-FFT256Inv
+	clock_t t1, t2;
+	t1 = clock();
+	FFT_FWD_2D(srcFwd, srcInv, buffDDR, buffSRAM, specFwd, 256);
+	//nmppiFFT256Fwd_32fcr(srcFwd, srcInv, buffDDR, buffSRAM, specFwd); // computing 2D-FFT256Fwd
+	t2 = clock();
+	FFT_INV_2D(srcInv, dstInv, buffDDR, buffSRAM, specInv, 256);
 
 	status = nmppsFFTFree_32fcr(specFwd);
 	if(status) return status;
@@ -72,11 +79,14 @@ int main()
 
 	float norm;
 	nmppsNormDiff_L2_32fcr(srcFwd, dstInv, FFT_SIZE, &norm);
-	//printf("%.7f\n", norm);
+	printf("%.7f\n", norm);
 
 	// for(int i = 0; i < FFT_SIZE; i++) {
 	// 	printf("%.7f   %.7f\n", dstInv[i].re, dstInv[i].im);
 	// }
 
-	return 0;
+	return t2 - t1;
 }
+
+// perfomance (DMA copies consistently by 1 line):
+// 2D-FFT256 : ~2.08 * 10^6 ticks

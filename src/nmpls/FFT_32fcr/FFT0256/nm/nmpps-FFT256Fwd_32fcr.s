@@ -46,7 +46,7 @@ begin ".text"
 	ar1 = [ar5++] with gr2 = gr1 >> 3;  // addr for 1.0 or 1/256
 	ar0 = [ar5++]; 						// buff_fft256
 	ar6 = [ar5++]; 						// buff_fft256xW
-	
+
 	fpu 0 rep 1 vreg1 = [ar1]; 			// 1/256 or 1.0
 	fpu 1 vreg1 = fpu 0 vreg1;
 	fpu 2 vreg1 = fpu 1 vreg1;
@@ -86,7 +86,7 @@ begin ".text"
 		gr6 = ar3; // addr for output buff_fft256
 
 	ar5 = ar5 - 7;
-	
+
 	delayed call _FFTFwd16x32Core;
 		ar3 = gr7; // buff_fft256xW
 		gr6 = ar3;
@@ -158,7 +158,7 @@ begin ".text"
 	fpu 1 rep 32 vreg1 = [ar0++];
 	fpu 1 rep 32 vreg2 = [ar6++];
 	fpu 1 .complex vreg5 = vreg0 * vreg2 + vreg1; // 1 - FFT64
-	
+
 	ar1 = [ar5++]; // W64_0
 	ar2 = [ar5++]; // W64_1
 
@@ -188,9 +188,9 @@ begin ".text"
 	fpu 2 vreg4 = fpu 3 vreg5;
 	fpu 1 vreg4 = fpu 0 vreg6;
 	fpu 3 vreg4 = fpu 2 vreg6;
-	
+
 	ar1 = gr3;
-	
+
 	fpu 0 .complex vreg1 = vreg4 * vreg3 + vreg5;
 	fpu 1 .complex vreg1 = vreg6 * vreg3 + vreg4;
 	fpu 2 .complex vreg1 = vreg4 * vreg3 + vreg5;
@@ -200,7 +200,7 @@ begin ".text"
 	fpu 1 rep 32 vreg7 = [ar1++];
 	fpu 2 rep 32 vreg7 = [ar1++];
 	fpu 3 rep 32 vreg7 = [ar1++];
-	
+
 	fpu 0 .complex vreg2 = -vreg4 * vreg3 + vreg5;
 	fpu 1 .complex vreg2 = -vreg6 * vreg3 + vreg4;
 	fpu 2 .complex vreg2 = -vreg4 * vreg3 + vreg5;
@@ -208,7 +208,7 @@ begin ".text"
 
 
 // end 2 FFT128
-	
+
 /**********************Computing of 1 part of FFT256**********************/
 
 	fpu 0 vreg3 = fpu 2 vreg1;

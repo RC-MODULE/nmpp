@@ -11,7 +11,8 @@ void nmppsClipConvertAddCInitAlloc_16s8s(NmppsWeightState** ppState)
 {
 	*ppState=nmppsMalloc_64u(8);
 	#ifdef __NM__
-	memcpy(*ppState,VEC_TBL_Diagonal_01h_G,16);
+	if (*ppState)
+		memcpy(*ppState,VEC_TBL_Diagonal_01h_G,16);
 	#endif
 }
 void nmppsClipConvertAddCFree(NmppsWeightState* pState)

@@ -70,8 +70,8 @@ kill:
 	
 define configure_makefile
 $(1)/Makefile:
-	-$(OS_FIND) $(1)/*.cpp && echo ROOT=../$(ROOT)| $(OS_CAT) - "$(ROOT)/app/templates/sometest/Makefile" > $(1)/Makefile
-	-$(OS_FIND) $(1)/*.cpp || echo ROOT=../$(ROOT)| $(OS_CAT) - "$(ROOT)/app/templates/Makefile" > $(1)/Makefile
+	-$(OS_FIND) $(1)/*.cpp && echo ROOT=../$(ROOT)| $(OS_CAT) - "$(TEMPLATE_DIR)/sometest/Makefile" > $(1)/Makefile
+	-$(OS_FIND) $(1)/*.cpp || echo ROOT=../$(ROOT)| $(OS_CAT) - "$(TEMPLATE_DIR)/Makefile" > $(1)/Makefile
 endef
 	
 $(foreach dir,$(WORK_DIRS), $(eval $(call configure_makefile,$(dir))) )	

@@ -124,7 +124,7 @@
 		int shift[FFT_SPEC_NUM_SHIFTS];
 		int amp[FFT_SPEC_NUM_AMPLITUDES];
 		//int round[8];
-		
+		//void* coreOut;
 		
 		Free32Func* free;
 		//NmppsAllocation allocOrder;
@@ -142,11 +142,11 @@
 	
 	
 
-#ifdef __NM__
-#define sizeof32(t) sizeof(t)
-#else
-#define sizeof32(t) (sizeof(t)*4)
-#endif
+//#ifdef __NM__
+//#define sizeof32(t) sizeof(t)
+//#else
+//#define sizeof32(t) (sizeof(t)*4)
+//#endif
 	
 	#define NMPP_OPTIMIZE_DISABLE  1 
 	#define NMPP_NORMALIZE_DISABLE 2

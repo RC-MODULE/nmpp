@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-
+#include "nmtype.h"
 #ifndef _S_RESAMPLE_H_INCLUDED_
 #define _S_RESAMPLE_H_INCLUDED_
 
@@ -137,9 +137,9 @@ void SIG_ResampleUp3Down2(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize, nm64s*
     */
 
     //! \{
-void SIG_CreateResampleUp3Down2_8s16s(nm64s** pKernel, int nHint=MEM_LOCAL);
-void SIG_CreateResampleDown2_8u8u(nm64s** pKernel, int nHint=MEM_LOCAL);
-void SIG_CreateResampleDown2_16u16u(nm64s** pKernel, int nHint=MEM_LOCAL);
+void SIG_CreateResampleUp3Down2_8s16s(nm64s** pKernel, int nHint);
+void SIG_CreateResampleDown2_8u8u(nm64s** pKernel, int nHint);
+void SIG_CreateResampleDown2_16u16u(nm64s** pKernel, int nHint);
     //! \}
 
 //*****************************************************************************

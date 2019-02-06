@@ -100,13 +100,13 @@ void nmppsAbs_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     \defgroup nmppsAbs1 nmppsAbs1
     \ingroup vArithmetics
     \brief
-        \ru Функция логического вычесления модулей элементов вектора.
+        \ru Функция логического вычисления модулей элементов вектора.
         \en Logical-based calculation of absolute values for vec elements.
 
 		\~
 
 	\f[
-        pDstVec[i]  =  \{ \begin{array}{*{20}c}
+        pDstVec[i]  =  \{ \begin{array}{lcl}
             pSrcVec[i],    &  if &  pSrcVec[i] \ge 0  \\
             -pSrcVec[i]-1,     &  if &  pSrcVec[i] < 0  \\
         \end{array}
@@ -694,7 +694,7 @@ void nmppsAbsDiff_64s(const nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, in
 		\~
 
 	\f[
-        pDstVec[i]  =  \{ \begin{array}{*{20}c}
+        pDstVec[i]  =  \{ \begin{array}{lcl}
         pSrcVec1[i] - pSrcVec2[i] ,    &  if &  pSrcVec1[i] - pSrcVec2[i] \ge 0  \\
         pSrcVec1[i] - pSrcVec2[i]-1,     &  if &  pSrcVec1[i] - pSrcVec2[i] < 0  \\
         \end{array}

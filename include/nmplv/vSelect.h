@@ -863,7 +863,7 @@ void nmppsMinCmpLtV_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMi
 		\~
 
 	\f[
-     pDstVec(i)  =  \{ \begin{array}{*{20}c}
+     pDstVec(i)  =  \{ \begin{array}{lcl}
         11 \ldots 1b,   &  if &  pSrcVec(i) < 0  \\
         00 \ldots 0b,   &  if &  pSrcVec(i) \ge 0  \\
      \end{array}
@@ -948,14 +948,14 @@ void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFla
 		\~
 
 	\f[
-        pDstVec(i)  =  \{ \begin{array}{*{20}c}
+        pDstVec(i)  =  \{ \begin{array}{lcl}
             1,    &  if &  pSrcVec(i) = 0  \\
             0,    &  if &  pSrcVec(i) \neq 0\\
         \end{array}, if~ nTrueFlag=1
     \f]
 
 	\f[
-        pDstVec(i)  =  \{ \begin{array}{*{20}c}
+        pDstVec(i)  =  \{ \begin{array}{lcl}
             0,    &  if &  pSrcVec(i) = 0  \\
             1,    &  if &  pSrcVec(i) \neq 0\\
         \end{array}, if~ nTrueFlag=0
@@ -1108,7 +1108,7 @@ void nmppsCmpMinMaxV_32s(nm32s*  pSrcVec1, nm32s* pSrcVec2,  nm32s*  pDstMin,  n
 		\~
 
 	\f[
-        pDstVec[i]  =  \left \{ \begin{array}{*{20}l}
+        pDstVec[i]  =  \left \{ \begin{array}{lcl}
             -2^{nClipFactor},  & if & pSrcVec[i] < -2^{nClipFactor}  \\
             pSrcVec[i],        & if & -2^{nClipFactor} \le pSrcVec[i] \le 2^{nClipFactor}-1  \\
             2^{nClipFactor}-1, & if & pSrcVec[i] > 2^{nClipFactor}-1 \\
@@ -1176,7 +1176,7 @@ void nmppsClipPowC_64s(nm64s* pSrcVec, int nClipFactor, nm64s* pDstVec, int nSiz
 		\~
 
 	\f[
-        pDstVec[i]  =  \left \{ \begin{array}{*{20}l}
+        pDstVec[i]  =  \left \{ \begin{array}{lcl}
             nPosThresh,   & if & pSrcVec[i] > nPosThresh \\
             pSrcVec[i],   & if & nNegThresh \le pSrcVec[i] \le nPosThresh  \\
             nNegThresh,   & if & pSrcVec[i] < nNegThresh  \\
@@ -1518,7 +1518,7 @@ void nmppsClipRShiftConvert_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v
 		\~
 
 	\f[
-        pDstVec(i)  =  \{ \begin{array}{*{20}c}
+        pDstVec(i)  =  \{ \begin{array}{lcl}
             nTrueFlag,		&  if &  pSrcVec(i) = nCmpVal  \\
             0,				&  if &  pSrcVec(i) \neq nCmpVal   \\
         \end{array}
@@ -1581,7 +1581,7 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 		\~
 
 	\f[
-        pDstVec(i)  =  \{ \begin{array}{*{20}c}
+        pDstVec(i)  =  \{ \begin{array}{lcl}
             -1,		&  if &  pSrcVec(i) \neq 0  \\
             0,				&  if &  pSrcVec(i) = 0   \\
         \end{array}
@@ -1639,7 +1639,7 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 		\~
 
 	\f[
-        pDstVec(i)  =  \{ \begin{array}{*{20}c}
+        pDstVec(i)  =  \{ \begin{array}{lcl}
             -1,		&  if &  pSrcVec(i) \eq 0  \\
             0,				&  if &  pSrcVec(i) = 0   \\
         \end{array}
@@ -1690,7 +1690,7 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 		\~
 
 	\f[
-        pDstVec(i)  =  \{ \begin{array}{*{20}c}
+        pDstVec(i)  =  \{ \begin{array}{lcl}
             nTrueFlag,		&  if &  pSrcVec(i) \neq nCmpVal  \\
             0,				&  if &  pSrcVec(i) = nCmpVal   \\
         \end{array}
@@ -1810,7 +1810,7 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 		\~
 
 	\f[
-        pDstVec(i)  =  \{ \begin{array}{*{20}c}
+        pDstVec(i)  =  \{ \begin{array}{lcl}
             nTrueFlag,		&  if &  pSrcVec(i) = nCmpVal  \\
             0,				&  if &  pSrcVec(i) \neq nCmpVal   \\
         \end{array}
@@ -1889,7 +1889,7 @@ int nmppsCmpLt_64s8um(const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm8u*  pDstV
 		\~
 
 	\f[
-        pDstVec(i)  =  \{ \begin{array}{*{20}c}
+        pDstVec(i)  =  \{ \begin{array}{lcl}
             nTrueFlag,		&  if &  pSrcVec(i) \neq nCmpVal  \\
             0,				&  if &  pSrcVec(i) = nCmpVal   \\
         \end{array}

@@ -22,7 +22,7 @@
 #endif 
 
 int nmppsMallocBorder32=0;
-
+/*
 void* nmppsMalloc32(unsigned sizeInt32){
 	int* buffer=0;
 	//static unsigned randomize=123;
@@ -136,6 +136,125 @@ void* nmppsMalloc32(unsigned sizeInt32){
 		nmppsMallocSpec.status++;
 	}
 	nmppsMallocTimerResume();
+	return buffer;
+}
+*/
+void* nmppsMalloc32(unsigned sizeInt32) {
+	int* buffer = 0;
+	//static unsigned randomize=123;
+	unsigned heapIndx, i;
+
+
+	switch (nmppsMallocSpec.mode) {
+	case(MALLOC32_HISTORY_MODE):
+	{
+		buffer = (int*)nmppsMallocSpec.allocHistory[nmppsMallocSpec.routePos&NMPPS_MALLOC_MAX_POS];
+		if (buffer) {
+			nmppsMallocSpec.routePos++;
+			return buffer;
+		}
+		if (buffer == 0) {
+			nmppsMallocSpec.routePos = 1;
+			buffer = (int*)nmppsMallocSpec.allocHistory[0];
+			return buffer;
+		}
+	}
+	//case(MALLOC32_ROUTE_MODE):
+	//	heapIndx=0xF&(nmppsMallocSpec.routeInternal>>(nmppsMallocSpec.routePos<<2));
+	//	nmppsMallocSpec.routePos++;
+	//	if (nmppsMallocSpec.routePos == nmppsMallocSpec.routeSize)
+	//		nmppsMallocSpec.routePos=0;
+	//	buffer=((int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32+2*nmppsMallocBorder32))+nmppsMallocBorder32;
+	//	break;
+	case(MALLOC32_RING_MODE):
+		heapIndx = nmppsGet_4u((nm4u*)nmppsMallocSpec.route, (nmppsMallocSpec.routePos - 1)&NMPPS_MALLOC_MAX_POS);
+		for (i = 0; i<4; i++) {
+			heapIndx++;
+			heapIndx &= 3;
+			buffer = (int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32);
+			if (buffer) {
+				nmppsPut_4u((nm4u*)nmppsMallocSpec.route, nmppsMallocSpec.routePos&NMPPS_MALLOC_MAX_POS, heapIndx);
+				break;
+			}
+		}
+		break;
+
+
+
+		//case(MALLOC32_HISTORY_MODE):
+		//	//if (nmppsMallocSpec.routePos==nmppsMallocSpec.routeSize)
+		//	//	return 0;
+		//	buffer=(int*)nmppsMallocSpec.allocHistory[nmppsMallocSpec.routePos&NMPPS_MALLOC_MAX_POS];
+		//	nmppsMallocSpec.routePos++;
+		//	return buffer;
+
+
+	case(MALLOC32_ROUTE_MODE):
+		//nmppsMallocTimerStop();
+		//sizeInt32 += nmppsMallocBorder32 << 1;
+		//printf("-----\n");
+		heapIndx = nmppsGet_4u((nm4u*)nmppsMallocSpec.route, nmppsMallocSpec.routePos & NMPPS_MALLOC_MAX_POS);
+		if (heapIndx == 0xf) {
+			nmppsMallocSpec.routePos = 0;
+			heapIndx = nmppsMallocSpec.route[0] & 0xf;
+			//nmppsMallocSpec.firstPass = 0;
+		}
+
+		buffer = (int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32);
+		//if (buffer) {
+		//	nmppsMallocSpec.routePos++;
+		//	return buffer;
+		//}
+			//break;
+		//for (; heapIndx<4; heapIndx++) {
+		//	buffer = (int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32);
+		//	if (buffer) {
+		//		break;
+		//	}
+		//}
+		//nmppsPut_4u((nm4u*)nmppsMallocSpec.route, nmppsMallocSpec.routePos&NMPPS_MALLOC_MAX_POS, heapIndx & 3);
+		break;
+
+	case(MALLOC32_PRIORITY_MODE):
+	{
+		unsigned priority = nmppsMallocSpec.priority;
+		nmppsMallocTimerStop();
+		sizeInt32 += nmppsMallocBorder32 << 1;
+		while ((heapIndx = (priority & 0xF)) != 0xF) {
+			buffer = ((int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32 + 2 * nmppsMallocBorder32)) + nmppsMallocBorder32;
+			if (buffer)
+				break;
+			priority >>= 4;
+		}
+	}
+	break;
+
+	//case(MALLOC32_RANDOM_MODE):
+	//	{
+	//		unsigned mask=nmppsMallocSpec.random;
+	//		while (mask){
+	//			randomize=1664525*randomize+1013904223;
+	//			heapIndx=randomize>>30;
+	//			if (mask&(1<<heapIndx)){
+	//				mask^=(1<<heapIndx);
+	//				buffer=((int*)nmppsMallocSpec.allocator[heapIndx](sizeInt32+2*nmppsMallocBorder32))+nmppsMallocBorder32;
+	//				if (buffer)
+	//					break;
+	//			}
+	//		}
+	//	}
+	//	break;	
+	}
+	if (buffer) {
+		nmppsMallocSpec.routePos++;
+		//buffer += nmppsMallocBorder32;
+		//nmppsMallocSpec.allocHistory[nmppsMallocSpec.allocHistoryPos&NMPPS_MALLOC_MAX_POS] = buffer;
+		//nmppsMallocSpec.allocHistoryPos++;
+	}
+	else {
+		nmppsMallocSpec.status++;
+	}
+	//nmppsMallocTimerResume();
 	return buffer;
 }
 

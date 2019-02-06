@@ -1583,7 +1583,7 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 	\f[
         pDstVec(i)  =  \{ \begin{array}{lcl}
             -1,		&  if &  pSrcVec(i) \neq 0  \\
-            0,				&  if &  pSrcVec(i) = 0   \\
+            0,		&  if &  pSrcVec(i) = 0   \\
         \end{array}
     \f]
 
@@ -1640,8 +1640,8 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 
 	\f[
         pDstVec(i)  =  \{ \begin{array}{lcl}
-            -1,		&  if &  pSrcVec(i) \eq 0  \\
-            0,				&  if &  pSrcVec(i) = 0   \\
+			-1,	&	if	&	pSrcVec(i) = 0	\\
+			0,		&	if	&	pSrcVec(i) \neq 0 		\\
         \end{array}
     \f]
 

@@ -401,14 +401,16 @@ int nmppsMallocIncrementRoute0()
 
 int nmppsMallocIncrementRoute(int routeLength,int heapMask)
 {
-	nmppsMallocSpec.status = 0;
-	nmppsMallocSpec.routePos = 0;
+	int routePos;
 	int routeIndx;
 	int heapIndx;
 	int carry = 0;
 	int minHeapIndx=0;
 	int maxHeapIndx=31;
 	int mask=heapMask;
+	
+	nmppsMallocSpec.status = 0;
+	nmppsMallocSpec.routePos = 0;
 	// search low "1" bit 
 	while (mask&1==0){
 		mask>>=1;
@@ -421,7 +423,7 @@ int nmppsMallocIncrementRoute(int routeLength,int heapMask)
 		maxHeapIndx--;
 	}
 	
-	for (int routePos = 0; routePos < routeLength; routePos++) {
+	for (routePos = 0; routePos < routeLength; routePos++) {
 		heapIndx = nmppsGet_4u((nm4u*)nmppsMallocSpec.route, routePos);
 				
 		if (heapIndx >= maxHeapIndx) {

@@ -207,7 +207,8 @@ void nmppsMallocTimerStop();
 
 //void nmppsMallocNextRoute(seq64* currRoute, int mode);
 void nmppsMallocRandomRoute();
-int  nmppsMallocIncrementRoute();
+int  nmppsMallocIncrementRoute0();
+int nmppsMallocIncrementRoute(int routeLength, int heapMask );
 int  nmppsMallocWipe();
 int  nmppsMallocBetterRoute();
 void nmppsMallocSetBestRoute(int historyEnable);

@@ -378,7 +378,7 @@ void nmppsMallocGetRoute16(fseq64* route){
 	route=nmppsMallocSpec.route;
 	nmppsPut_4u((nm4u*)route,nmppsMallocSpec.routePos,0xF);
 }	
-int nmppsMallocIncrementRoute()
+int nmppsMallocIncrementRoute0()
 {
 	int routeIndx;
 	int heapIndx;
@@ -398,6 +398,50 @@ int nmppsMallocIncrementRoute()
 	}
 	return 0;
 }
+
+int nmppsMallocIncrementRoute(int routeLength,int heapMask)
+{
+	nmppsMallocSpec.status = 0;
+	nmppsMallocSpec.routePos = 0;
+	int routeIndx;
+	int heapIndx;
+	int carry = 0;
+	int minHeapIndx=0;
+	int maxHeapIndx=31;
+	int mask=heapMask;
+	// search low "1" bit 
+	while (mask&1==0){
+		mask>>=1;
+		minHeapIndx++;
+	}
+	// search high "1" bit 
+	mask=heapMask;
+	while (mask&0x80000000==0){
+		mask<<=1;
+		maxHeapIndx--;
+	}
+	
+	for (int routePos = 0; routePos < routeLength; routePos++) {
+		heapIndx = nmppsGet_4u((nm4u*)nmppsMallocSpec.route, routePos);
+				
+		if (heapIndx >= maxHeapIndx) {
+			nmppsPut_4u((nm4u*)nmppsMallocSpec.route, routePos, minHeapIndx);
+			carry = 1;
+		}
+		else {
+			do{
+				heapIndx++;
+			} while ((heapMask>>heapIndx)&1==0);
+			nmppsPut_4u((nm4u*)nmppsMallocSpec.route, routePos, heapIndx);
+			carry = 0;
+			return 1;
+		}
+		if (carry == 0)
+			break;		
+	}
+	return 0; // exit with flag of route reset.
+}
+	
 /*
 void nmppsMallocSetRandomMode(unsigned  heapSet,int heapCount)
 {

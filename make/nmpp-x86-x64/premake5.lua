@@ -25,6 +25,8 @@ solution "nmpp"
 	  --objdir ("o")
       kind "StaticLib"
       files { ROOT.."../include/*.h",
+		ROOT.."/src/nmblas/level1/pc/*.c",
+		ROOT.."/src/nmblas/level2/pc/*.c",
 	  	ROOT.."/src/nmplc/arithmetic/common/*.cpp",
 		ROOT.."/src/nmplc/fixpoint32/pc/*.cpp",
 		ROOT.."/src/nmplc/fixpoint32/pc/*.c",

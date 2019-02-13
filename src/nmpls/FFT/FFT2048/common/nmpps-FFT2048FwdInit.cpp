@@ -135,7 +135,7 @@ int  nmppsFFT2048FwdInitAlloc4888( NmppsFFTSpec** specFFT, const void* src, cons
 				nmppsFFTFree(spec);
 			} 
 		}			
-		while (nmppsMallocIncrementRoute()==0);
+		while (nmppsMallocIncrementRoute0()==0);
 		nmppsMallocSetBestRoute(1);
 	}
 

@@ -5,6 +5,7 @@
 void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlags, nm1* oddFlags, int step, int nSize)
 {
   int i;
+  unsigned residue;
   int index = 0;
   for(i = 0; i < nSize*step; i += step) {
     if(pSrcVec[i].v0 - C->v0 <= 0.0f) {
@@ -22,7 +23,7 @@ void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFla
     }
     index++;
   }
-  unsigned residue = nSize << 27;
+  residue = nSize << 27;
   residue >>= 27;
   if (residue != 0) {
     int tail = 32 - residue;

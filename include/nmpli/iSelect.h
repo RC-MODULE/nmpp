@@ -16,7 +16,7 @@
     
 	\f[
         pDst(4 \cdot n+i, y) = \left\{
-        \begin{array}{*{20}c}
+        \begin{array}{rcc}
             FFh, & if & pSrcImg(4 \cdot n+i, y) > pThreshold(i) \\
             00h, & if & pSrcImg(4 \cdot n+i, y) \le pThreshold(i) \\
         \end{array} \right.

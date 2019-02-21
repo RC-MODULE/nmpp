@@ -492,6 +492,31 @@ void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int scal
 
 void nmppsConvert_32s32f(const nm32s* pSrcVec, nm32f* pDstVec, int nSize);
 
+
+/**
+ *  \ingroup nmppsConvert nmppsConvert
+ *  \brief Функция конвертации вектора чисел с плавающей точкой одинарной точности (float) в числа с плавающей точкой с двойной точностью (double)
+ *
+	\param pSrcVec указатель на входной вектор чисел с плавающей точкой одинарной точности
+	\param pDstVec указатель на выходной вектор чисел с плавающей точкой двойной точности
+	\param nSize число элементов во входном векторе
+ *  \details Функция выполняется на сопроцессоре (процессор 1879ВМ6Я) с плавающей точкой с использованием переупаковщика данных
+ */
+
+void nmppsConvert_32f64f(const nm32f* pSrcVec, nm64f* pDstVec, int nSize);
+
+/**
+ *  \ingroup nmppsConvert nmppsConvert
+ *  \brief Функция конвертации вектора чисел с плавающей точкой двойной точности (double) в числа с плавающей точкой одинарной точности (float)
+ *
+	\param pSrcVec указатель на входной вектор чисел с плавающей точкой двойной точности
+	\param pDstVec указатель на выходной вектор чисел с плавающей точкой одинарной точности
+	\param nSize число элементов во входном векторе
+ *  \details Функция выполняется на сопроцессоре (процессор 1879ВМ6Я) с плавающей точкой с использованием переупаковщика данных
+ */
+
+void nmppsConvert_64f32f(const nm64f* pSrcVec, nm32f* pDstVec, int nSize);
+
 /**
  *  \ingroup nmppsConvert nmppsConvert
  *  \brief Функция соединяет 2 массива 32-х чисел с плавающей точкой (float) в один. Результирующий массив { pSrcVec1[0], pSrcVec2[0], pSrcVec1[1], pSrcVec2[1], pSrcVec1[2], pSrcVec2[2] .... }

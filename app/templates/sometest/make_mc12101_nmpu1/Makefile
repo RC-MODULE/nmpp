@@ -1,6 +1,7 @@
+
 include $(ROOT)/global.mk
 # BUILD AND RUN MAKEFILE
-# This makefile builds simple nmc-application containing single cpp-file  
+# This makefile builds simple nmc-application containing single cpp-file
 # Rule 'run' executes the application on MC5103 board and stores return code in ".exitcode"  file
 
 .SUFFIXES:
@@ -9,11 +10,11 @@ include $(ROOT)/global.mk
 
 ifndef MC12101
 $(warning *** WARNING: 'MC12101' environment variable is not defined! Board SDK might not have installed correctly. )
-endif 
+endif
 
 ifndef NMPP
 $(error *** ERROR: 'NMPP' environment variable is not defined!  )
-endif 
+endif
 
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MC12101)/include" -I"$(NEURO)/include" -I"$(HAL)/include"
@@ -32,20 +33,20 @@ $(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc4.lib
 
 PATH:=$(MC12101)/bin;$(PATH)
 
-	
+
 run: $(TARGET)
 	mc12101run $(TARGET) -p
 
 test: .exitcode
-	
-ifeq ($(OS),Windows_NT)	
+
+ifeq ($(OS),Windows_NT)
 .exitcode: $(TARGET) .exitrun.bat
-	.exitrun.bat 
-	
-.exitrun.bat: 
+	.exitrun.bat
+
+.exitrun.bat:
 	@echo "$(MC12101)/bin/mc12101run" $(TARGET) >.exitrun.bat
 	@echo @echo %%errorlevel%% ^>.exitcode >>.exitrun.bat
-else 
+else
 .exitcode: $(TARGET)
 	mc12101run ./$(TARGET) ; echo $$? > .exitcode
 endif
@@ -55,7 +56,6 @@ clean:
 
 skip:
 	@echo SDK missing. Compilation is skipped!
-	
-reset:
-	reset12101	
 
+reset:
+reset12101

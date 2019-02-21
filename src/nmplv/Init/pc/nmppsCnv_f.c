@@ -91,3 +91,19 @@ void nmppsConvert_32s32f(const nm32s* pSrcVec, nm32f* pDstVec, int nSize)
 		pDstVec[i] = (nm32f)pSrcVec[i];
 	}
 }
+
+void nmppsConvert_32f64f(const nm32f* pSrcVec, nm64f* pDstVec, int nSize)
+{
+	int i;
+	for(i = 0; i < nSize; i++) {
+		pDstVec[i] = (nm64f)pSrcVec[i];
+	}
+}
+
+void nmppsConvert_64f32f(const nm64f* pSrcVec, nm32f* pDstVec, int nSize)
+{
+	int i;
+	for(i = 0; i < nSize; i++) {
+		pDstVec[i] = (nm32f)pSrcVec[i];
+	}
+}

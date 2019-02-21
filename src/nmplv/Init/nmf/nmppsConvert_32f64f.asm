@@ -13,7 +13,6 @@ global _nmppsConvert_32f64f: label;
 begin "text"
 <_nmppsConvert_32f64f>
 	ar5 = ar7 - 2;
-	push ar2, gr2;
 	push ar1, gr1;
 	push ar0, gr0;
 
@@ -21,34 +20,30 @@ begin "text"
 	ar1 = [--ar5]; // output nm64f* X
 	gr0 = [--ar5]; // size N
 
-	ar2 = ar1 + 2;
-
 	gr1 = gr0 >> 5;
-	if =0 goto Packing_32f64f_less64;
+	if =0 goto Packing_32f64f_less32;
 
 <Packing_32f64f>
 	gr1--;
 	if > delayed goto Packing_32f64f;
-		fpu rep 32 .packer = [ar0++] with .double <= .float;
-		fpu rep 32 (vreg0, vreg1) = .packer;
-		fpu rep 32 [ar1++] = vreg0;
-		fpu rep 32 [ar2++] = vreg1;
+		fpu rep 16 .packer = [ar0++] with .double <= .float;
+		fpu rep 32 [ar1++] = .packer;
 
 	gr0 = gr0 << 27;				// computing a remainder
 	gr0 = gr0 >> 27;				// computing a remainder
 	if =0 delayed goto exit_Conv32f64f;
 
-<Packing_32f64f_less64>			    // N < 64
+<Packing_32f64f_less32>
+	gr1 = gr0 >> 1;
+	gr1--;
+	vlen = gr1;
+	fpu rep vlen .packer = [ar0++] with .double <= .float;
 	gr0--;
 	vlen = gr0;
-	fpu rep vlen .packer = [ar0++] with .double <= .float;
-	fpu rep 32 (vreg0, vreg1) = .packer;
-	fpu rep vlen [ar1++] = vreg0;
-	fpu rep vlen [ar2++] = vreg1;
+	fpu rep vlen [ar1++] = .packer;
 
 <exit_Conv32f64f>
 	pop ar0, gr0;
 	pop ar1, gr1;
-	pop ar2, gr2;
 	return;
 end "text";

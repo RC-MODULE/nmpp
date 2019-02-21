@@ -1282,6 +1282,11 @@ typedef struct s_v4nm32f
 	float vec[4];
 } v4nm32f;
 
+typedef struct s_v4nm64f
+{
+	double vec[4];
+} v4nm64f;
+
 
 typedef struct s_nm32fc
 {

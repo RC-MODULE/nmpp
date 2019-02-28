@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 #include "nmpli.h"
 int pCoeff_RGB2Gray[4]={ 0x1d2f,0x9646,0x4c8b,0 };
-void IMG_RGB32ToGray(RGB32_nm10s * pRGB, nm32u* pDstGray, int nSize)
+void nmppiRGB32ToGray(RGB32_nm10s * pRGB, nm32u* pDstGray, int nSize)
 {  
 	unsigned nY;
 	for (int i=0; i<nSize; i++)
@@ -30,7 +30,7 @@ void IMG_RGB32ToGray(RGB32_nm10s * pRGB, nm32u* pDstGray, int nSize)
 		pDstGray[i]=nY;
 	}
 }
-void IMG_RGB32ToGray(RGB32_nm10s * pRGB, nm32s* pDstGray, int nSize)
+void nmppiRGB32ToGray(RGB32_nm10s * pRGB, nm32s* pDstGray, int nSize)
 {
 	int nY;
 	for (int i=0; i<nSize; i++)
@@ -42,7 +42,7 @@ void IMG_RGB32ToGray(RGB32_nm10s * pRGB, nm32s* pDstGray, int nSize)
 	}
 }
 
-void IMG_RGB24ToGray(RGB24_nm8u* pRGB, nm8u* pDstGray, int nSize)
+void nmppiRGB24ToGray(RGB24_nm8u* pRGB, nm8u* pDstGray, int nSize)
 {
 	unsigned nY;
 	for (int i=0; i<nSize; i++)

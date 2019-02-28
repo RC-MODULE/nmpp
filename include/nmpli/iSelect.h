@@ -6,7 +6,7 @@
 
     /**
 	\internal
-    \defgroup IMG_CompareGtC IMG_CompareGtC
+    \defgroup nmppiCompareGtC nmppiCompareGtC
     \ingroup iSelect
     \brief
         \ru Поэлементное сравнение на превышение порога. 
@@ -103,7 +103,7 @@
 
     */
     //! \{
-int IMG_CompareGtC(nm16s *pSrcImg, int nSrcStride, nm16s *pDstImg, int nDstStride, nm16s *pThreshold, int nWidth, int nHeight);
+int nmppiCompareGtC(nm16s *pSrcImg, int nSrcStride, nm16s *pDstImg, int nDstStride, nm16s *pThreshold, int nWidth, int nHeight);
     //! \}
 
 #endif

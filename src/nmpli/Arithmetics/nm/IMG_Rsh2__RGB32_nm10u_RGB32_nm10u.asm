@@ -58,15 +58,15 @@ begin ".text_nmpli"
         00010000000000000hl,
         00000000000000000hl);
 
-//! \fn  void IMG_Rsh2(RGB32_nm10u* pSrcImg, RGB32_nm10u* pDstImg, int nSize); 
+//! \fn  void nmppiRsh2(RGB32_nm10u* pSrcImg, RGB32_nm10u* pDstImg, int nSize); 
 //!
 //! \n
-//! \perfinclude _IMG_Rsh2__F11RGB32_nm10uP11RGB32_nm10uPi.html
+//! \perfinclude _nmppiRsh2__F11RGB32_nm10uP11RGB32_nm10uPi.html
 
-global _IMG_Rsh2__F13RGB32_nm10uP13RGB32_nm10uPi: label;
-global _void._.8.8IMG_Rsh2.1class._RGB32_nm10u._.0.9._class._RGB32_nm10u._.0.9._int.2 :label;
-<_IMG_Rsh2__F13RGB32_nm10uP13RGB32_nm10uPi>
-<_void._.8.8IMG_Rsh2.1class._RGB32_nm10u._.0.9._class._RGB32_nm10u._.0.9._int.2>
+global _nmppiRsh2__F13RGB32_nm10uP13RGB32_nm10uPi: label;
+global _void._.8.8nmppiRsh2.1class._RGB32_nm10u._.0.9._class._RGB32_nm10u._.0.9._int.2 :label;
+<_nmppiRsh2__F13RGB32_nm10uP13RGB32_nm10uPi>
+<_void._.8.8nmppiRsh2.1class._RGB32_nm10u._.0.9._class._RGB32_nm10u._.0.9._int.2>
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;
     push ar5, gr5 with gr0++;

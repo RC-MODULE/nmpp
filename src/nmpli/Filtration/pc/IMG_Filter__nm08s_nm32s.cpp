@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: IMG_Filter_8s8s.cpp             $
+//  $Workfile:: nmppiFilter_8s8s.cpp             $
 //
 //  <Название библиотеки>
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   IMG_Filter_8s8s.cpp
+//! \file   nmppiFilter_8s8s.cpp
 //! \author S. Mushkaev
 //! \brief  <Краткое описание>
 //!
@@ -22,9 +22,9 @@
 #include "nmtl.h"
 
 
-void IMG_Filter( nm8s * pSrcImg, nm32s* pDstImg, int nWidth, int nHeight, nm64s* pKernel)
+void nmppiFilter( nm8s * pSrcImg, nm32s* pDstImg, int nWidth, int nHeight, nm64s* pKernel)
 {
-	S_IMG_FilterKernel* psKernel=(S_IMG_FilterKernel*) pKernel;
+	S_nmppiFilterKernel* psKernel=(S_nmppiFilterKernel*) pKernel;
 	int nKerWidth =psKernel->nKerWidth;
 	int nKerHeight=psKernel->nKerHeight;
 	

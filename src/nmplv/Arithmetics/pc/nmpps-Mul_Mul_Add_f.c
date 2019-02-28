@@ -24,15 +24,6 @@ void nmppsMul_Mul_Add_64f(const nm64f *pSrcVec1, const nm64f *pSrcVec2, const nm
     pDstVec[i] = pSrcVec1[i] * pSrcVec2[i] + pSrcVec3[i] * pSrcVec4[i];
   }
 }
-
-void nmppsMul_Mul_Sub_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, const nm32f* pSrcVec3, const nm32f* pSrcVec4, nm32f* pDstVec, int nSize)
-{
-  int i;
-  for(i = 0; i < nSize; i++) {
-    pDstVec[i] = pSrcVec1[i] * pSrcVec2[i] + pSrcVec3[i] * pSrcVec4[i];
-  }
-}
-
 void nmppsMul_Mul_Add_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, const nm32fcr *pSrcVec3, const nm32fcr *pSrcVec4, nm32fcr *pDstVec, int nSize)
 {
 	int i;

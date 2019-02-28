@@ -1,3 +1,4 @@
+/*
 #ifdef __cplusplus
 		extern "C" {
 #endif
@@ -21,3 +22,4 @@ void nmppiFilterFree(NmppiFilterState* pState);
 #ifdef __cplusplus
 		};
 #endif
+*/

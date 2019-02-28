@@ -13,7 +13,7 @@
 //#define rowsize 180
 //int g8xf( char *str, int x, int y ,int FGcolor, int BGcolor)
 
-int IMG_Print8x15( char *str, void* img, int imgWidth, int x, int y ,int FGcolor, int BGcolor)
+int nmppiPrint8x15( char *str, void* img, int imgWidth, int x, int y ,int FGcolor, int BGcolor)
 { 
 	int rowsize=imgWidth>>2;
 	int *crt=(int*)img;

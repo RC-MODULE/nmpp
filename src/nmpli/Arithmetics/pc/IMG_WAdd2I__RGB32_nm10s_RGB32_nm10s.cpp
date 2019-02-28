@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: IMG_WAdd.cpp             $
+//  $Workfile:: nmppiWAdd.cpp             $
 //
 //  <Название библиотеки>
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   IMG_WAdd.cpp
+//! \file   nmppiWAdd.cpp
 //! \author S. Mushkaev
 //! \brief  Взвешенное суммирование двух кадров
 //!
@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 #include "nmpli.h"
 
-void IMG_WAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int nMulVal2, int nAddVal, RGB32_nm10s* pDstImg, int nSize)
+void nmppiWAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int nMulVal2, int nAddVal, RGB32_nm10s* pDstImg, int nSize)
 {
 	for(int i=0; i<nSize;i++)
 	{

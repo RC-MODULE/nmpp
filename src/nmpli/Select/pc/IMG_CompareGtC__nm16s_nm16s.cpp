@@ -1,6 +1,6 @@
 #include "nmpli.h"
 
-int  IMG_CompareGtC (nm16s *pSrcImg, int nSrcStride, nm16s *pDst, 
+int  nmppiCompareGtC (nm16s *pSrcImg, int nSrcStride, nm16s *pDst, 
 										 int nDstStride, nm16s *pThreshold, int nWidth, int nHeight)
 {
 	int x, y, i, sstep, dstep;

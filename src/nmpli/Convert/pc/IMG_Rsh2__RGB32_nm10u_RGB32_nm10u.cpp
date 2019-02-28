@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 #include "nmpli.h"
 
-void IMG_Rsh2(RGB32_nm10u* pSrcImg, RGB32_nm10u* pDstImg, int nSize)
+void nmppiRsh2(RGB32_nm10u* pSrcImg, RGB32_nm10u* pDstImg, int nSize)
 {
 	for (int i=0; i<nSize; i++)
 	{ 

@@ -1,6 +1,6 @@
 #include "nmpli.h"
 
-void IMG_AddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight)
+void nmppiAddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight)
 {
 	int sstep=nSrcStride<<1;
 	int dstep=nSrcDstStride<<1;
@@ -11,7 +11,7 @@ void IMG_AddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStr
 
 }
 
-void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStride,  int nWidth, int nHeight)
+void nmppiSubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStride,  int nWidth, int nHeight)
 {
 	int sstep=nSrcStride<<1;
 	int dstep=nSrcDstStride<<1;
@@ -25,7 +25,7 @@ void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStri
 		}
 }
 
-void IMG_AddCnvArshI(nm16s* pSrcDstImg,  int nSrcDstStride,  nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight)
+void nmppiAddCnvArshI(nm16s* pSrcDstImg,  int nSrcDstStride,  nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight)
 {
 	int sstep=nSrcStride;
 	int dstep=nSrcDstStride<<1;
@@ -35,7 +35,7 @@ void IMG_AddCnvArshI(nm16s* pSrcDstImg,  int nSrcDstStride,  nm32s* pSrcImg, int
 			((short*)pSrcDstImg)[dstep*j+i]+=((short)(pSrcImg[sstep*j+i]>>nShift));
 }
 
-void IMG_SubCnvArshI(nm16s * pSrcDstImg,  int nSrcDstStride, nm32s * pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight)
+void nmppiSubCnvArshI(nm16s * pSrcDstImg,  int nSrcDstStride, nm32s * pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight)
 {
 	int sstep=nSrcStride;
 	int dstep=nSrcDstStride<<1;
@@ -45,7 +45,7 @@ void IMG_SubCnvArshI(nm16s * pSrcDstImg,  int nSrcDstStride, nm32s * pSrcImg, in
 			((short*)pSrcDstImg)[dstep*j+i]-=((short)(pSrcImg[sstep*j+i]>>nShift));
 }
 
-void IMG_Halfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2, 
+void nmppiHalfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2, 
         int nSrcStride2, nm16s* pDstMtr, int nDstStride, int nWidth, int nHeight)
 {
     int i, j;
@@ -68,7 +68,7 @@ void IMG_Halfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2,
     }
 }
 /*
-void IMG_HalfsumM32x8(nm16u15b* pSrcMtr1, int nSrcStride1, nm16u15b* pSrcMtr2, 
+void nmppiHalfsumM32x8(nm16u15b* pSrcMtr1, int nSrcStride1, nm16u15b* pSrcMtr2, 
         int nSrcStride2, nm16u15b* pDstMtr, int nDstStride)
 {
     int i, j;

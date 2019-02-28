@@ -41,7 +41,7 @@ int main()
 	nmppsRShiftC_(imSrc.pWarp,1,imSrc.pWarp,imSrc.nWarpSize);
 
 	
-	IMG_Median3x3(
+	nmppiMedian3x3(
 	  (nm8s7b*)	imSrc.pImg,
 	  (nm8s7b*)	imDst.pImg,
 				imSrc.nWidth,

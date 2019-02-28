@@ -24,12 +24,12 @@ begin ".text_nmpli"
 
 ////////////////////////////////////////////////////////////////////////////
     //--------------------------------------------------------------------
-    //! \fn void IMG_SplitIntoBlocks8x8(	nm8s*	Src, nm8s* Dst, int Width, int Height);
-    //! 
-	//! \perfinclude _IMG_SplitIntoBlocks8x8__FPcPcii.html
+    //! \fn void nmppiSplitIntoBlocks8x8(	nm8s*	Src, nm8s* Dst, int Width, int Height);
+    //!
+	//! \perfinclude _nmppiSplitIntoBlocks8x8__FPcPcii.html
     //--------------------------------------------------------------------
 
-//  int IMG_SplitIntoBlocks8x8(
+//  int nmppiSplitIntoBlocks8x8(
 //		nm8s*	Src,	// Source Image						:long Local[Width*Height/8]
 //			nm8s*	Dst,	// Result one-dimensional Array:	:long Global[Width*Heihgt/8]
 //			int		Width,	// Source Image Width;				:Width =[8,16,24...]
@@ -49,42 +49,42 @@ begin ".text_nmpli"
 //  [I00|I01|I02|I03|I04|I05|I06|I07|J00|J01|..................]
 //  [I10|I11|I12|I13|I14|I15|I16|I17|J00|I09|...................
 //  ........................................................Z77]
-// 
+//
 //  Result one-dimensional Array:
 //  [A00|A01|A02|...|A06|A07|A20|A21|...|A77|B00|B01|B02|...|B07|B10|...|H77|
 //  [I00|I01|I02|...|I06|I07]I10|I11|...|I77|J00|J01|J02|...............|Z77|
-//  
+//
 //
 //  RETURN: 0
-//  
+//
 //  PERFORMANCE:
-//		The performance of the ArrangeInLine routines depends on memory allocation for  
+//		The performance of the ArrangeInLine routines depends on memory allocation for
 //		input and output buffers.
-//		For the maximum speed performance it is recommended  
+//		For the maximum speed performance it is recommended
 //		to use the following configurations:
 //		Configuration I.
 //			Src:		Global SRAM
 //			Dst:		Local  SRAM
-//		Configuration II.	
+//		Configuration II.
 //			Src:		local  SRAM
 //			Dst:		Global SRAM
-//		
-//		For these configuration the following results were achieved: 
+//
+//		For these configuration the following results were achieved:
 //		Configuration I:
 //			26678 ticks per 384*288 Image with C++ call (0.241 clocks per pixel)
 //		Configuration II:
-//			21507 ticks per 384*288 Image with C++ call (0.194 clocks per pixel) 
+//			21507 ticks per 384*288 Image with C++ call (0.194 clocks per pixel)
 //
 // W=384,H=288
-// IMG_SplitIntoBlocks8x8((nm8s*)GSrc,(nm8s*)GSrc,W,H);// 29661
-// IMG_SplitIntoBlocks8x8((nm8s*)GSrc,(nm8s*)LSrc,W,H);// 26767
-// IMG_SplitIntoBlocks8x8((nm8s*)LSrc,(nm8s*)GSrc,W,H);// 21504*
-// IMG_SplitIntoBlocks8x8((nm8s*)LSrc,(nm8s*)LSrc,W,H);// 38809
+// nmppiSplitIntoBlocks8x8((nm8s*)GSrc,(nm8s*)GSrc,W,H);// 29661
+// nmppiSplitIntoBlocks8x8((nm8s*)GSrc,(nm8s*)LSrc,W,H);// 26767
+// nmppiSplitIntoBlocks8x8((nm8s*)LSrc,(nm8s*)GSrc,W,H);// 21504*
+// nmppiSplitIntoBlocks8x8((nm8s*)LSrc,(nm8s*)LSrc,W,H);// 38809
 
-global _IMG_SplitIntoBlocks8x8__FPcPcii:label;
-global _void._.8.8IMG_SplitIntoBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2 :label;
-<_IMG_SplitIntoBlocks8x8__FPcPcii>
-<_void._.8.8IMG_SplitIntoBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2>
+global _nmppiSplitIntoBlocks8x8:label;
+//global _void._.8.8nmppiSplitIntoBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2 :label;
+<_nmppiSplitIntoBlocks8x8>
+//<_void._.8.8nmppiSplitIntoBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2>
 
 .branch;
 	ar5=ar7-2;
@@ -94,10 +94,10 @@ global _void._.8.8IMG_SplitIntoBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2 :
 	gr0=[--ar5];		//Width
 	gr1=[--ar5];		//Height
 
-	
+
 	gr2=gr0>>2;			// Width in 32bit words
 	gr6=gr1>>3;			// Height in Regions by 8Rows
-	
+
 	gr5=gr2<<3;			// Size of Region in 32bit words
 	gr3=gr4;
 	ar2=gr3;
@@ -109,16 +109,16 @@ global _void._.8.8IMG_SplitIntoBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2 :
 			rep 8 data=[ar2++gr2] with data;
 			gr3+=gr1 noflags;
 		if <>0 delayed goto ToLine_NextCol_by8 with gr7--;
-			ar2=gr3;	
+			ar2=gr3;
 			rep 8 [ar6++]=afifo;
 		gr4+=gr5 ;		// To the next Region
 		with gr6--;
 	if <>0 delayed goto ToLine_Next8Rows;
 		gr3=gr4;
 		ar2=gr4;
-	
+
 	POP_REGS();
-return with gr7=false; 
+return with gr7=false;
 .wait;
 
 

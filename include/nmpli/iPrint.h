@@ -11,7 +11,7 @@
 //!
 //! \file   iPRINT.h
 //! \author S. Mushkaev
-//! \brief  Fraphic text print functions
+//! \brief  Graphic text print functions
 //!
 //! \endif
 //!
@@ -22,7 +22,7 @@
 
 	
  /**
- *  \ingroup IMG_Print
+ *  \ingroup nmppiPrint
  *  \brief  Prints text over 8-bit grayscale image buffer with 8x15 font size. 
  *  
  *  \param [in] str String to be printed
@@ -37,11 +37,11 @@
  *  \note Russian text is supported in win-1251 codepage
  */
  //! \{
- int IMG_Print8x15( char *str, void* img, int imgWidth, int x, int y ,int FGcolor, int BGcolor);
+ int nmppiPrint8x15( char *str, void* img, int imgWidth, int x, int y ,int FGcolor, int BGcolor);
 //! \}
 
 /**
- *  \ingroup IMG_Print
+ *  \ingroup nmppiPrint
  *  \brief  Converts integer to 8-byte string in hexadecimal base
  *  \param [in] value Value to be converted to a string 
  *  \param [in] str Array in memory where to store the resulting null-terminated string
@@ -54,7 +54,7 @@
 //! \}
 
 /**
- *  \ingroup IMG_Print
+ *  \ingroup nmppiPrint
  *  \brief Converts integer to 8-byte string in hexadecimal base
  *  \param [in] value Value to be converted to a string 
   * \return A pointer to the global resulting null-terminated string
@@ -62,7 +62,7 @@
  *  \note Function uses internal string buffer for result. Previous result of call this function will be overwritten.
  */
   //! \{
-char* hex2ascii(int value);
+//char* hex2ascii(int value);
 //! \}
 
 #endif // _IPRINT_H_INCLUDED_

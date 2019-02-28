@@ -22,7 +22,7 @@
 #include "nmpli.h"
 
 
-void IMG_Filter( nm8s * pSrcImg, nm32s* pDstImg, int nWidth, int nHeight, nm64s* pKernel)
+void nmppiFilter( nm8s * pSrcImg, nm32s* pDstImg, int nWidth, int nHeight, nm64s* pKernel)
 {
 	//SIG_Filter(pSrcImg, pDstImg, nWidth*nHeight, pKernel);
 	nmppsFIR_8s32s(pSrcImg, pDstImg, nWidth*nHeight, pKernel);

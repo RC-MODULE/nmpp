@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: IMG_WAdd.cpp             $
+//  $Workfile:: nmppiWAdd.cpp             $
 //
 //  <Название библиотеки>
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   IMG_WAdd.cpp
+//! \file   nmppiWAdd.cpp
 //! \author S. Mushkaev
 //! \brief  Взвешенное суммирование двух кадров
 //!
@@ -32,14 +32,14 @@ end  ".data_nmpli_G";
 
 begin ".text_nmpli"
 
-//! \fn void IMG_WAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int nMulVal2, int nAddVal, RGB32_nm10s* pDstImg, int nSize)
+//! \fn void nmppiWAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int nMulVal2, int nAddVal, RGB32_nm10s* pDstImg, int nSize)
 //!
 //! \n
-//! \perfinclude _IMG_WAdd2I__F11RGB32_nm10sPi11RGB32_nm10sPii11RGB32_nm10sPi.html
-global _IMG_WAdd2I__F13RGB32_nm10sPi13RGB32_nm10sPii13RGB32_nm10sPi :label;
-global _void._.8.8IMG_WAdd2I.1class._RGB32_nm10s._.0.9._int.9._class._RGB32_nm10s._.0.9._int.9._int.9._class._RGB32_nm10s._.0.9._int.2 :label;
-<_IMG_WAdd2I__F13RGB32_nm10sPi13RGB32_nm10sPii13RGB32_nm10sPi>
-<_void._.8.8IMG_WAdd2I.1class._RGB32_nm10s._.0.9._int.9._class._RGB32_nm10s._.0.9._int.9._int.9._class._RGB32_nm10s._.0.9._int.2>
+//! \perfinclude _nmppiWAdd2I__F11RGB32_nm10sPi11RGB32_nm10sPii11RGB32_nm10sPi.html
+global _nmppiWAdd2I__F13RGB32_nm10sPi13RGB32_nm10sPii13RGB32_nm10sPi :label;
+global _void._.8.8nmppiWAdd2I.1class._RGB32_nm10s._.0.9._int.9._class._RGB32_nm10s._.0.9._int.9._int.9._class._RGB32_nm10s._.0.9._int.2 :label;
+<_nmppiWAdd2I__F13RGB32_nm10sPi13RGB32_nm10sPii13RGB32_nm10sPi>
+<_void._.8.8nmppiWAdd2I.1class._RGB32_nm10s._.0.9._int.9._class._RGB32_nm10s._.0.9._int.9._int.9._class._RGB32_nm10s._.0.9._int.2>
 .branch;
 
 	ar5 = ar7-2		with gr7 = true;

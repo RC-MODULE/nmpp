@@ -21,11 +21,12 @@
  #include "nmpp.h"
 #include "nmpls.h"
 #include "nmpli.h"
+#include "nmpli/iResample.h"
 //!
-//! \perfinclude _IMG_ResampleDown2X__FPUcPUciiPl.html
+//! \perfinclude _nmppiResampleDown2X__FPUcPUciiPl.html
 //!
 
-void IMG_ResampleDown2X(
+void nmppiResampleDown2X(
 		nm8u7b*		pSrcImg,	// input buffer		:long Local	[h*w/8]
 		nm8u7b*		pDstImg,	// output buffer	:long Global[h*w/16]
 		int			nSrcWidth,	//Image width		width = [0,8,16...]
@@ -37,11 +38,11 @@ void IMG_ResampleDown2X(
 }
 
 //!
-//! \perfinclude _IMG_ResampleDown2X__FPUsPUsiiPl.html
+//! \perfinclude _nmppiResampleDown2X__FPUsPUsiiPl.html
 //!
 
 
-void IMG_ResampleDown2X(
+void nmppiResampleDown2X(
                       nm16u15b*		pSrcImg,	// input buffer		:long Local	[h*w/8]
                       nm16u15b*		pDstImg,	// output buffer	:long Global[h*w/16]
                       int				nSrcWidth,	//Image width		width = [0,8,16...]
@@ -54,10 +55,10 @@ void IMG_ResampleDown2X(
 
 
 //!
-//! \perfinclude _IMG_ResampleDown2X__FPUcPUsiiPlPv.html
+//! \perfinclude _nmppiResampleDown2X__FPUcPUsiiPlPv.html
 //!
 
-void IMG_ResampleDown2X(
+void nmppiResampleDown2X(
                       nm8u*			pSrcImg,	// input buffer		:long Local	[h*w/8]
                       nm16u*		pDstImg,	// output buffer	:long Global[h*w/16]
                       int				nSrcWidth,	//Image width		width = [0,8,16...]
@@ -76,11 +77,11 @@ void IMG_ResampleDown2X(
 //!		\ru Высота должна делиться на 4.
 //!     \en height should be devisable by 4.
 //!
-//! \perfinclude _IMG_ResampleDown2Y__FPUcPUsiiPv.html
+//! \perfinclude _nmppiResampleDown2Y__FPUcPUsiiPv.html
 //!
 
 
-void IMG_ResampleDown2Y(
+void nmppiResampleDown2Y_8u_tmp(
 		nm8u*			pSrcImg,	// input buffer		:long Local	[h*w/8]
 		nm16u*			pDstImg,	// output buffer	:long Global[h*w/16]
 		int				nSrcWidth,	//Image width		width = [0,8,16...]
@@ -90,7 +91,7 @@ void IMG_ResampleDown2Y(
 {
 
     nmppsConvert_8s16s((nm8s*)pSrcImg,(nm16s*)pTmpBuf,nSrcHeight*nSrcWidth);
-    IMG_ResampleDown2Y((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,nSrcWidth);
+    nmppiResampleDown2Y_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,nSrcWidth);
 }
 
 //!
@@ -98,10 +99,10 @@ void IMG_ResampleDown2Y(
 //!		\ru Высота должна делиться на 4. 
 //!     \en height should be devisable by 4.
 //!
-//! \perfinclude _IMG_ResampleDown2XY__FPUcPUsiiPlPv.html
+//! \perfinclude _nmppiResampleDown2XY__FPUcPUsiiPlPv.html
 //!
 
-void IMG_ResampleDown2XY(
+void nmppiResampleDown2XY_tmp(
                        nm8u*			pSrcImg,	// input buffer		:long Local	[h*w/8]
                        nm16u*			pDstImg,	// output buffer	:long Global[h*w/16]
                        int				nSrcWidth,	//Image width		width = [0,8,16...]
@@ -112,7 +113,7 @@ void IMG_ResampleDown2XY(
 {
     nmppsConvert_8s16s((nm8s*)pSrcImg,(nm16s*)pTmpBuf,nSrcHeight*nSrcWidth);
     SIG_ResampleDown2_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
-    IMG_ResampleDown2Y((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,(nSrcWidth/2));
+    nmppiResampleDown2Y_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,(nSrcWidth/2));
 }
 
 //!
@@ -120,10 +121,10 @@ void IMG_ResampleDown2XY(
 //!		\ru Высота должна делиться на 8.
 //!     \en height should be devisable by 8.
 //!
-//! \perfinclude _IMG_ResampleDown2XY__FPUcPUciiPlPv.html
+//! \perfinclude _nmppiResampleDown2XY__FPUcPUciiPlPv.html
 //!
 
-void IMG_ResampleDown2XY(
+void nmppiResampleDown2XY_tmp(
                        nm8u7b*		pSrcImg,	// input buffer		:long Local	[h*w/8]
                        nm8u7b* 		pDstImg,	// output buffer	:long Global[h*w/16]
                        int				nSrcWidth,	//Image width		width = [0,8,16...]
@@ -133,7 +134,7 @@ void IMG_ResampleDown2XY(
                        )
 {
     SIG_ResampleDown2_8u((nm8u7b*)pSrcImg,(nm8u7b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
-    IMG_ResampleDown2Y((nm8u7b*)pTmpBuf,(nm8u7b*)pDstImg,nSrcHeight,(nSrcWidth/2));
+    nmppiResampleDown2Y_8u((nm8u7b*)pTmpBuf,(nm8u7b*)pDstImg,nSrcHeight,(nSrcWidth/2));
 }
 
 //!
@@ -141,11 +142,11 @@ void IMG_ResampleDown2XY(
 //!		\ru Высота должна делиться на 4. 
 //!     \en height should be devisable by 4.
 //!
-//! \perfinclude _IMG_ResampleDown2XY__FPUsPUsiiPlPv.html
+//! \perfinclude _nmppiResampleDown2XY__FPUsPUsiiPlPv.html
 //!
 
 
-void IMG_ResampleDown2XY_16u(
+void nmppiResampleDown2XY_16u(
 						nm16u15b*	pSrcImg,	// input buffer		:long Local	[h*w/8]
 						nm16u15b*	pDstImg,	// output buffer	:long Global[h*w/16]
 						int			nSrcWidth,	//Image width		width = [0,8,16...]
@@ -155,6 +156,6 @@ void IMG_ResampleDown2XY_16u(
 		)
 {
     SIG_ResampleDown2_16u((nm16u15b*)pSrcImg,(nm16u15b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
-    IMG_ResampleDown2Y((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,(nSrcWidth/2));
+    nmppiResampleDown2Y_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,(nSrcWidth/2));
 }
 

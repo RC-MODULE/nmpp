@@ -122,14 +122,14 @@ __INLINE__ int GetDisp(int nSize)
 // pWeightMatrix:	0000|000a|00ab|0abc|abcd|bcde|cde0|de00|e000|0000|0000|0000|
 //===================================
 
-int IMG_SetFilter_16s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWidth, nm64s* pKernel)
+int nmppiSetFilter_16s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWidth, nm64s* pKernel)
 {
 	
 #ifndef __NM__
 	//((int*)pKernel)[0]=nKerWidth;
 	//((int*)pKernel)[1]=nKerHeight;
 	//memcpy(pKernel+1,(nm32s*)pWeights,nKerWidth*nKerHeight<<2);
-	S_IMG_FilterKernel* psKernel=(S_IMG_FilterKernel*) pKernel;
+	S_nmppiFilterKernel* psKernel=(S_nmppiFilterKernel*) pKernel;
 	psKernel->nKerHeight=nKerHeight;
 	psKernel->nKerWidth =nKerWidth;
 	psKernel->pDispArray=0;
@@ -177,16 +177,16 @@ int IMG_SetFilter_16s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgW
 
 }
 /*
-void IMG_CreateFilter_16s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWidth, nm64s** pKernel, int nHint)
+void nmppiCreateFilter_16s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWidth, nm64s** pKernel, int nHint)
 {
 	int nNumberOfArrays=GetMatrixCount(nKerWidth);
 	int AllocSize=2+nKerHeight*nNumberOfArrays+1+nKerHeight*nNumberOfArrays*8;
 	nmppsMalloc_32s((nm32s**)pKernel,AllocSize,nHint);
 	if (*pKernel==0) return;
-	IMG_SetFilter_16s16s(pWeights, nKerWidth, nKerHeight, nImgWidth, *pKernel);
+	nmppiSetFilter_16s16s(pWeights, nKerWidth, nKerHeight, nImgWidth, *pKernel);
 }*/
 
-int IMG_GetFilterKernelSize32_16s16s(int nKerWidth, int nKerHeight)
+int nmppiGetFilterKernelSize32_16s16s(int nKerWidth, int nKerHeight)
 {
 	int nNumberOfArrays=GetMatrixCount(nKerWidth);
 	int AllocSize=2+nKerHeight*nNumberOfArrays+1+nKerHeight*nNumberOfArrays*8;
@@ -194,28 +194,28 @@ int IMG_GetFilterKernelSize32_16s16s(int nKerWidth, int nKerHeight)
 }
 
 
-
-
+/*
 //--------------------------------------------------------------------------------------------------------------
-template<> CIMG_FIR<nm16s,nm16s>::CIMG_FIR(int n_KerWidth, int n_KerHeight, void* (*malloc32_func)(unsigned), void (*free32_func)(void*)){
+template<> CnmppiFIR<nm16s,nm16s>::CnmppiFIR(int n_KerWidth, int n_KerHeight, void* (*malloc32_func)(unsigned), void (*free32_func)(void*)){
 	pfFree32=free32_func;
 	nKerWidth=n_KerWidth;
 	nKerHeight=n_KerHeight;
-	int KernelSize=IMG_GetFilterKernelSize32_16s16s( nKerWidth,  nKerHeight);
+	int KernelSize=nmppiGetFilterKernelSize32_16s16s( nKerWidth,  nKerHeight);
 	pKernel=(nm64s*)malloc32_func(KernelSize);
 }
 
-template<> void* CIMG_FIR<nm16s,nm16s>::SetWeights(int* pWeights, int nImgWidth){
+template<> void* CnmppiFIR<nm16s,nm16s>::SetWeights(int* pWeights, int nImgWidth){
 	if (pKernel)
-		IMG_SetFilter_16s16s(pWeights, nKerWidth, nKerHeight, nImgWidth, pKernel);
+		nmppiSetFilter_16s16s(pWeights, nKerWidth, nKerHeight, nImgWidth, pKernel);
 	return pWeights;
 }
 
-template<> void CIMG_FIR<nm16s,nm16s>::Filter(nm16s* pSrcImg, nm16s* pDstImg, int nImgWidth,int nImgHeight){
-	IMG_Filter(pSrcImg, pDstImg, nImgWidth, nImgHeight, pKernel);
+template<> void CnmppiFIR<nm16s,nm16s>::Filter(nm16s* pSrcImg, nm16s* pDstImg, int nImgWidth,int nImgHeight){
+	nmppiFilter(pSrcImg, pDstImg, nImgWidth, nImgHeight, pKernel);
 }
 
-template<> CIMG_FIR<nm16s,nm16s>::~CIMG_FIR(){
+template<> CnmppiFIR<nm16s,nm16s>::~CnmppiFIR(){
 	if (pKernel) 
 		pfFree32(pKernel);
 }
+*/

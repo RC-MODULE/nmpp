@@ -21,7 +21,7 @@
 //#include "nmpls.h"
 //#include "nmpli.h"
 #include "nmtype.h"
-#include "nmpli/filter.h"
+#include "nmpli/ifilter.h"
 #include "nmpls/sfir.h"
 void nmppiFilter_8s16s( nm8s * pSrcImg, nm16s* pDstImg, int nWidth, int nHeight, NmppiFilterState* pKernel)
 {

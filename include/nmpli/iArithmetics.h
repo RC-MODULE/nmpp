@@ -8,7 +8,7 @@
 
     /**
 	\internal
-    \defgroup IMG_AddConvertRShiftI IMG_AddConvertRShiftI
+    \defgroup nmppiAddConvertRShiftI nmppiAddConvertRShiftI
     \ingroup iArithmetics
     \brief
         \ru Поэлементное прибавление преобразованного изображения. 
@@ -97,14 +97,14 @@
     \endxmlonly
     */
     //! \{
-void IMG_AddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight); 
+void nmppiAddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight); 
     //! \}
 
 //*****************************************************************************
 
     /**
 	\internal
-    \defgroup IMG_SubConvertRShiftI IMG_SubConvertRShiftI
+    \defgroup nmppiSubConvertRShiftI nmppiSubConvertRShiftI
     \ingroup iArithmetics
     \brief
         \ru Поэлементное вычитание преобразованного изображения. 
@@ -194,14 +194,14 @@ void IMG_AddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg
     */
     //! \{
 
-void IMG_SubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight);
+void nmppiSubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight);
     //! \}
 
 //*****************************************************************************
 
     /**
 	\internal
-    \defgroup IMG_AddI IMG_AddI
+    \defgroup nmppiAddI nmppiAddI
     \ingroup iArithmetics
     \brief
         \ru Поэлементное сложение двух изображений. 
@@ -280,14 +280,14 @@ void IMG_SubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSrc
     */
     //! \{
 
-void IMG_AddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight);
+void nmppiAddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight);
     //! \}
 
 //*****************************************************************************
 
     /**
 	\internal
-    \defgroup IMG_SubI IMG_SubI
+    \defgroup nmppiSubI nmppiSubI
     \ingroup iArithmetics
     \brief
         \ru Поэлементное вычитание двух изображений. 
@@ -369,7 +369,7 @@ void IMG_AddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStr
     */
     //! \{
 
-void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStride,  int nWidth, int nHeight);
+void nmppiSubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStride,  int nWidth, int nHeight);
 
     //! \}
 
@@ -377,7 +377,7 @@ void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStri
 
     /**
 	\internal
-    \defgroup IMG_Halfsum IMG_Halfsum
+    \defgroup nmppiHalfsum nmppiHalfsum
     \ingroup iArithmetics
     \brief
         \ru Поэлементное усреднение двух блоков изображений. 
@@ -469,14 +469,14 @@ void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStri
     */
     //! \{
 
-void IMG_Halfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2, 
+void nmppiHalfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2, 
         int nSrcStride2, nm16s* pDstMtr, int nDstStride,  int nWidth,int nHeight);
 
     //! \}
 
 
 	/**
-	\defgroup IMG_WAdd2I IMG_WAdd2I
+	\defgroup nmppiWAdd2I nmppiWAdd2I
 	\ingroup iArithmetics
 	\brief
 		\ru Взвешенное суммирование двух кадров с прибавлением константы
@@ -531,12 +531,12 @@ void IMG_Halfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2,
 
 	*/
 	//! \{
-void IMG_WAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int nMulVal2, int nAddVal, RGB32_nm10s* pDstImg, int nSize);
+void nmppiWAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int nMulVal2, int nAddVal, RGB32_nm10s* pDstImg, int nSize);
 	//! \}
 
 
 	/**
-	\defgroup IMG_Rsh2 IMG_Rsh2
+	\defgroup nmppiRsh2 nmppiRsh2
 	\ingroup iArithmetics
 	\brief
 		\ru Беззнаковый сдвиг значений пикслелей изображения на 2 бита вправо
@@ -570,7 +570,7 @@ void IMG_WAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int 
     \endxmlonly
 	*/
 	//! \{ 
-void IMG_Rsh2(RGB32_nm10u* pSrcImg, RGB32_nm10u* pDstImg, int nSize);
+void nmppiRsh2(RGB32_nm10u* pSrcImg, RGB32_nm10u* pDstImg, int nSize);
 	//! \}
 #endif
 #endif

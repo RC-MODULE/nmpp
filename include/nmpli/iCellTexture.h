@@ -82,9 +82,9 @@ class RPoint {
 
 	*/
 //! \{
-void IMG_CreateCellTexture(unsigned char *texture_img, int width, int height);
-void IMG_CreateRandomCellTexture(unsigned char *texture_img, int width, int height);
-void IMG_CreateComplexTexture(unsigned char *texture_img, int width, int height);
+void nmppiCreateCellTexture(unsigned char *texture_img, int width, int height);
+void nmppiCreateRandomCellTexture(unsigned char *texture_img, int width, int height);
+void nmppiCreateComplexTexture(unsigned char *texture_img, int width, int height);
 //! \}
 
 
@@ -107,7 +107,7 @@ void IMG_CreateComplexTexture(unsigned char *texture_img, int width, int height)
 	\return 1 - внутри, 0 - снаружи
 	*/
 //! \{
-int PointInRectangle(RPoint& p, RPoint *borders);
+//int PointInRectangle(RPoint& p, RPoint *borders);
 //! \}
 
 #endif

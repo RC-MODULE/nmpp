@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 extern unsigned int CRC32_Table[];
 //#include "vcrc.h"
-#include "nmpp.h"
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 unsigned nmppsCrcAcc_32u(
     const unsigned int* pSrcVec, 	// Input Vector			:long Any[Size/2]
@@ -28,7 +28,7 @@ unsigned nmppsCrcAcc_32u(
     )
        
 {
-	nm32u* pTable=CRC32_Table; 
+	unsigned * pTable=CRC32_Table; 
     unsigned a,b;
 	int i;
 

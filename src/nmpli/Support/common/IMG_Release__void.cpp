@@ -22,14 +22,14 @@
 
 
 
-void IMG_Free(void* ptr) {
+void nmppiFree(void* ptr) {
    
    	 nmppsFree(ptr);
 }
 
 
 
-void IMG_Release(void* ptr) {
+void nmppiRelease(void* ptr) {
    
    	 nmppsFree(ptr);
 }

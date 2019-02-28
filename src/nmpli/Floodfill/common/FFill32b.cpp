@@ -36,8 +36,8 @@ Return:
 
 */
 
-
-int IMG_FloodFill( unsigned int * Frame, /* input frame */
+#include "nmpli/iFloodFill.h"
+int nmppiFloodFill( unsigned int * Frame, /* input frame */
                SegmentInfo * aTetr,      /* array of struct with ( xmin, ymin ) and ( xmax, ymax ) */
                unsigned int * Image,    /* output picture */
                int w,                   /* input frame width ( in 32 bit words ) */

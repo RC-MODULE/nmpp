@@ -26,7 +26,7 @@
 
     /**
 	\internal
-    \defgroup IMG_Median3x3 IMG_Median3x3
+    \defgroup nmppiMedian3x3 nmppiMedian3x3
     \ingroup iFiltration
  	\brief
 		\ru Медианная фильтрация окном 3х3
@@ -73,7 +73,7 @@
 	\endxmlonly
 	*/
     //! \{
-void IMG_Median3x3(  nm8s7b * pSrc, nm8s7b *pDst, int nWidth, int nHeight, void* pLTmp , void* pGTmp );
+void nmppiMedian3x3(  nm8s7b * pSrc, nm8s7b *pDst, int nWidth, int nHeight, void* pLTmp , void* pGTmp );
     //! \}
 
 

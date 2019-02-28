@@ -22,7 +22,7 @@
 
 
 
-void IMG_ResampleDown2Y(
+void nmppiResampleDown2Y(
                       nm16u15b*		pSrcImg,	// input buffer		:long Local	[len/4]
                       nm16u15b*		pDst,	// output buffer	:long Global[len/4/2]
                       int				w,		// size of input buffer in 16 bit elements. nSize=[0,4,...]
@@ -35,7 +35,7 @@ void IMG_ResampleDown2Y(
 }
 
 
-void IMG_ResampleDown2Y(
+void nmppiResampleDown2Y(
                       nm8u7b*			pSrcImg,	// input buffer		:long Local	[len/4]
                       nm8u7b*			pDst,	// output buffer	:long Global[len/4/2]
                       int				w,		// size of input buffer in 16 bit elements. nSize=[0,4,...]

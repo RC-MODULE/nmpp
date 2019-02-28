@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: mtrMul_M32M32.as $
+//  $Workfile:: mtrMul_M32M64.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   mtrMul_M32M32.asm
+//! \file   mtrMul_M32M64.asm
 //! \author Сергей Мушкаев
 //! \brief  Умножение матрицы на матрицу.
 //!
@@ -24,20 +24,20 @@ begin ".text_nmplm"
 	
 
 //--------------------------------------------------------------------
-//! \fn void nmppmMul_mm_32s32s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
+//! \fn void nmppmMul_mm_32s64s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
 //!
-//! \perfinclude nmppmMul_mm_32s32s.html
+//! \perfinclude nmppmMul_mm_32s64s.html
 //--------------------------------------------------------------------
-extern rep_n_Mul_M32V64:label;
+extern rep_n_Mul_M64V64:label;
 extern _nmppsTmpBuffer64_G_: long[64];
 const LongColumns=_nmppsTmpBuffer64_G_;
 
 
-global _nmppmMul_mm_32s32s:label;
-<_nmppmMul_mm_32s32s>
+global _nmppmMul_mm_64s64s:label;
+<_nmppmMul_mm_64s64s>
 .branch;
 
- 
+
 	ar5 = sp-2;
 	push ar0,gr0;
 	push ar1,gr1;
@@ -50,27 +50,27 @@ global _nmppmMul_mm_32s32s:label;
 	//-----------------------------------------
 	ar0 = [--ar5];			// SrcMatrixA
 	gr5 = [--ar5];			// nHeight A
-	gr0 = [--ar5];			// nWidth  A in 32-bit words
+	gr0 = [--ar5];			// nWidth  A in 64-bit words
 	ar2 = [--ar5];			// SrcMatrixB
 	ar6 = [--ar5];			// DstMatrix
-	gr4 = [--ar5];			// nWidth  B in 32-bit words
-	gr7 = gr4>>1;
-	[LongColumns] = gr7;
-	nb1 = 80000000h with gr6 = gr4;	
-	
+	gr4 = [--ar5];			// nWidth  B in 64-bit words
+	[LongColumns] = gr4;
+	gr4 <<=1;
+	gr6 = gr4 with gr3=false;	
+	nb1 = gr3 with gr0<<=1;	// gr0 widthA in 32-bit words
 	<Next_MulMV>
 		push ar0,gr0;
 		push ar6,gr6;
 		
-		delayed call rep_n_Mul_M32V64;
-			ar4 = ar2;//nul;
+		delayed call rep_n_Mul_M64V64;
+			ar4 = ar2 ;
 			nul;
 
 		pop ar6,gr6;
 		pop ar0,gr0;
 		gr7 = [LongColumns];
 		ar2+=2;
-		ar6+=2 with gr7--;
+		ar6+=2	with gr7--;
 	if <>0 delayed goto Next_MulMV;
 		[LongColumns] = gr7;
 
@@ -112,4 +112,5 @@ return with gr7=false;
 //                   ,   ,gr1,gr2,   ,   ,   ,   ,gr7   will be changed after return !
 
 
-end ".text_nmplm"; 
+end ".text_nmplm";
+ 

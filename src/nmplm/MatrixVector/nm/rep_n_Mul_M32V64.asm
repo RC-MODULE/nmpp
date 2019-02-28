@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-import from macros.mlb;
+//import from macros.mlb;
 
 extern _nmppsTmpBuffer64_G_: long;
 extern _nmppsTmpBuffer64_L_: long;
@@ -44,7 +44,6 @@ macro MUL_MxxV64_REP(Ndata,Nwfifo)
 		rep Ndata  data  = [ar0++gr0],ftw with vsum ,data,0;
 	
 	<Next_Mul_MxxV64_repN>
-	//WTW_REG(gr3);
 	if <>0 delayed skip gr5 with gr7--;	
 		rep Nwfifo wfifo = [ar4++gr4],wtw;
 		ar0 = ar1+gr1 with gr1+=gr2 noflags;
@@ -52,9 +51,9 @@ macro MUL_MxxV64_REP(Ndata,Nwfifo)
 
 	<End_Mul_MxxV64_repN>
 	delayed return;
-		rep Ndata [ar6++gr6] = afifo;
+		rep Ndata [ar6++gr6] = afifo,wtw;
 		gr5 = ar5;	// pop ar5,gr5
-		wtw;
+		nul;
 	nul;
 	nul;
 	nul;
@@ -70,8 +69,7 @@ macro REP_N_NUL_MxxV64(Nwfifo)
 	own End_Mul_MxxV64_rep32	:label;
 	own Next_Mul_MxxV64			:label;
 
-	[LTmpLong1]=ar4	with gr1 = gr5>>5;	// gr5-SrcMatrix height
-	nb1 = gr3;
+	ar3=ar4	with gr1 = gr5>>5;	// gr5-SrcMatrix height
 	rep Nwfifo wfifo = [ar4++gr4],ftw;	// preload first Nwfifo rows
 	if =0 delayed goto Mul_MxxV64_repN;	// jump to onetime mul with custom rep  
 		gr2=2;
@@ -81,7 +79,7 @@ macro REP_N_NUL_MxxV64(Nwfifo)
 	//  matrix height always is equal to 32
 	//  (nHeight always assumed to be equal to 32)
 	//
-	//  INPUT REGISTERS: (ar0,gr0, ar4,gr4, ar6,gr6, gr2,gr3 )
+	//  INPUT REGISTERS: (ar0,gr0, ar4,gr4, ar6,gr6, gr2 )
 	//	ar0-SrcMatrix
 	//	gr0-SrcMatrix width in 32-bit words =[2,4,6.....]
 	//  gr5-SrcMatrix height				=[0,1,2,....]
@@ -92,33 +90,28 @@ macro REP_N_NUL_MxxV64(Nwfifo)
 	//	gr6-pDstVec writing step							in 32-bit words (mush be even)
 	//	
 	//	gr2=2;
-	//  gr3=nb1
 	//	sb
 	//
 
-	ar3 = Next_Mul_MxxV64_rep32;
 	push ar5,gr5	with gr5 >>=5;
 					with gr7 = gr0>>1;
 	<Next_Mul_MxxV64>
 				  with gr1 = gr2 ;
 		ar1 = ar0 with gr7--;
-		//WTW_REG(gr3);
 		rep Nwfifo wfifo = [ar4++gr4],wtw;
 		if =0 delayed goto End_Mul_MxxV64_rep32 with gr7--;
 			rep 32 data = [ar0++gr0],ftw with vsum ,data,0;
-			push ar0,gr0;
-		//	[StartBlock]=ar0;
+			gr3 = ar0;
 		<Next_Mul_MxxV64_rep32>
 			rep Nwfifo wfifo = [ar4++gr4];
 			ar0 = ar1+gr1 with gr1+=gr2 noflags;
-		if <>0 delayed goto ar3 with gr7--;
-			wtw;//WTW_REG(gr3);
+		if <>0 delayed goto Next_Mul_MxxV64_rep32 with gr7--;
+			wtw;
 			rep 32 data = [ar0++gr0],ftw with vsum ,data,afifo;
-			nul;
 
 		<End_Mul_MxxV64_rep32>
-		pop ar0,gr0;
-		ar4=[LTmpLong1] with gr5--;
+		ar0 = gr3;
+		ar4 = ar3 with gr5--;
 	if <>0 delayed goto Next_Mul_MxxV64 with gr7=gr0>>1;
 		rep Nwfifo wfifo =[ar4++gr4],ftw;
 		rep 32 [ar6++gr6] = afifo;
@@ -128,7 +121,7 @@ macro REP_N_NUL_MxxV64(Nwfifo)
 	/////////////////////////////////////////////////////////////////////////////////////
 	//  Multiplication 8,16,32,64-bit matrix with nVal<32 rows by 64-bit vector using rep32 instruction
 	//
-	//  INPUT REGISTERS: (ar0,gr0, ar4,gr4, ar6,gr6, gr2,gr3 )
+	//  INPUT REGISTERS: (ar0,gr0, ar4,gr4, ar6,gr6, gr2 )
 	//	ar0-SrcMatrix
 	//	gr0-SrcMatrix width in 32-bit words =[2,4,6.....]
 	//  gr5-SrcMatrix height				=[0,1,2,....]
@@ -138,7 +131,6 @@ macro REP_N_NUL_MxxV64(Nwfifo)
 	//	gr6-pDstVec writing step							in 32-bit words (mush be even)
 	//	
 	//	gr2=2;
-	//  gr3=nb1
 	//	sb
 	//
 	<Mul_MxxV64_repN>
@@ -196,7 +188,7 @@ begin ".text_nmplm"
 // Low level function of multiplying 8-bit matrix(SrcMatrix) by matrix(pSrcVec)
 // with user-defined bit capacity and summary bit width of row = 64 bits.
 // User-defined matrix(pSrcVec) and result product(pDstVec) are represented 
-// as vectors of 64-bit packed words(long), partition of which is defined by gr3(nb1) register.
+// as vectors of 64-bit packed words(long), partition of which is defined by nb1 register.
 //
 // INPUT REGISTERS:
 // ar0->SrcMatrix											:long Global[nHeight*Width/2]
@@ -209,7 +201,6 @@ begin ".text_nmplm"
 // ar6->pDstVec											:long Global[nHeight*gr6/2]
 // gr6= pDstVec long to long writing step in 32-bit words	:=[0,2,4,6....]
 //
-// gr3= nb1
 // COMMENTS: gr4 and gr6 registers are need for vector extraction and placing directly from/into matrixes
 // 
 // NOTE:  Registers : ar0,ar1,   ,ar3,ar4,ar5,ar6,   ,
@@ -222,10 +213,10 @@ global  rep_n_Mul_M8V64:label;
 .wait;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Low level function of multyplying 16-bit matrix(SrcMatrix) by matrix(pSrcVec)
+// Low level function of multiplying 16-bit matrix(SrcMatrix) by matrix(pSrcVec)
 // with user-defined bit capacity and summary bit width of row = 64 bits.
 // User-defined matrix(pSrcVec) and result product(pDstVec) are represented 
-// as vectors of 64-bit packed words(long), partition of wich is defined by gr3(nb1) register.
+// as vectors of 64-bit packed words(long), partition of which is defined by nb1 register.
 //
 // INPUT REGISTERS:
 // ar0->SrcMatrix											:long Global[nHeight*Width/2]
@@ -238,7 +229,7 @@ global  rep_n_Mul_M8V64:label;
 // ar6->pDstVec											:long Global[nHeight*gr6/2]
 // gr6= pDstVec long to long writing step in 32-bit words	:=[0,2,4,6....]
 //
-// gr3= nb1
+// nb1
 // COMMENTS: gr4 and gr6 registers are need for vector extraction and placing directly from/into matrixes
 // 
 // NOTE:  Registers : ar0,ar1,   ,ar3,ar4,ar5,ar6,   ,
@@ -252,7 +243,7 @@ global  rep_n_Mul_M16V64:label;
 .wait;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Low level function of multyplying 32-bit matrix(SrcMatrix) by matrix(pSrcVec)
+// Low level function of multiplying 32-bit matrix(SrcMatrix) by matrix(pSrcVec)
 // with user-defined bit capacity and summary bit width of row = 64 bits.
 // User-defined matrix(pSrcVec) and result product(pDstVec) are represented 
 // as vectors of 64-bit packed words(long), partition of which is defined by gr3(nb1) register.
@@ -268,7 +259,6 @@ global  rep_n_Mul_M16V64:label;
 // ar6->pDstVec											:long Global[nHeight*gr6/2]
 // gr6= pDstVec long to long writing step in 32-bit words	:=[0,2,4,6....]
 //
-// gr3= nb1
 // COMMENTS: gr4 and gr6 registers are need for vector extraction and placing directly from/into matrixes
 // 
 // NOTE:  Registers : ar0,ar1,   ,ar3,ar4,ar5,ar6,   ,
@@ -280,5 +270,11 @@ global  rep_n_Mul_M32V64:label;
 	REP_N_NUL_MxxV64(2);
 .wait;
 
+
+global  rep_n_Mul_M64V64:label;
+<rep_n_Mul_M64V64>
+	sb=1;
+	REP_N_NUL_MxxV64(1);
+.wait;
 
 end ".text_nmplm"; 

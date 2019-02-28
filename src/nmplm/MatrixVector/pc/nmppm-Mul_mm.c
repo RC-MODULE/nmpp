@@ -203,6 +203,25 @@ void nmppmMul_mm_32s64s( nm32s* srcMtrA, int heightA, int widthA,  nm64s* srcMtr
 	}
 }
 
+void nmppmMul_mm_64s64s( nm64s* srcMtrA, int heightA, int widthA,  nm64s* srcMtrB, nm64s* dstMtr, int widthB)
+{
+	int i,j,k;
+	long long sum;
+	nm64s* colB;
+	nm64s* rowA  =srcMtrA;
+	nm64s* rowDst=dstMtr;
+
+	for(i=0; i<heightA; i++, rowA+=widthA, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			sum=0;
+			for(k=0; k<widthA; k++){
+				sum+=rowA[k]*colB[k*widthB];
+			}
+			rowDst[j]=sum;
+		}
+	}
+}
 
 
 /*

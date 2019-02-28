@@ -17,14 +17,6 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-//import from macros.mlb;
-
-extern _nmppsTmpBuffer64_G_: long;
-extern _nmppsTmpBuffer64_L_: long;
-const GTmpLong1=_nmppsTmpBuffer64_G_;
-const LTmpLong1=_nmppsTmpBuffer64_L_;
- 	
-
 
 // Warining: nSize of this macros must be equal to 16!
 // xx=64 bit => Nwfifo=1
@@ -183,98 +175,4 @@ macro REP_N_NUL_MxxV64(Nwfifo)
 	MUL_MxxV64_REP(31,Nwfifo);
 end REP_N_NUL_MxxV64;
 
-begin ".text_nmplm"
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Low level function of multiplying 8-bit matrix(SrcMatrix) by matrix(pSrcVec)
-// with user-defined bit capacity and summary bit width of row = 64 bits.
-// User-defined matrix(pSrcVec) and result product(pDstVec) are represented 
-// as vectors of 64-bit packed words(long), partition of which is defined by nb1 register.
-//
-// INPUT REGISTERS:
-// ar0->SrcMatrix											:long Global[nHeight*Width/2]
-// gr0= SrcMatrix width in 32-bit words						:=[2,4,6...]
-// gr5= SrcMatrix height									:=[0,1,2,3..]
-//
-// ar4->pSrcVec											:long Local [nWidth*gr4/2]
-// gr4= pSrcVec long to long reading step in 32-bit words :=[0,2,4,6....]
-//
-// ar6->pDstVec											:long Global[nHeight*gr6/2]
-// gr6= pDstVec long to long writing step in 32-bit words	:=[0,2,4,6....]
-//
-// COMMENTS: gr4 and gr6 registers are need for vector extraction and placing directly from/into matrixes
-// 
-// NOTE:  Registers : ar0,ar1,   ,ar3,ar4,ar5,ar6,   ,
-//                   ,   ,gr1,gr2,   ,   ,   ,   ,gr7   will be changed after return !
-// wtw must be on return
-global  rep_n_Mul_M8V64:label;
-<rep_n_Mul_M8V64>
-	sb=02020202h;
-	REP_N_NUL_MxxV64(8);
-.wait;
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Low level function of multiplying 16-bit matrix(SrcMatrix) by matrix(pSrcVec)
-// with user-defined bit capacity and summary bit width of row = 64 bits.
-// User-defined matrix(pSrcVec) and result product(pDstVec) are represented 
-// as vectors of 64-bit packed words(long), partition of which is defined by nb1 register.
-//
-// INPUT REGISTERS:
-// ar0->SrcMatrix											:long Global[nHeight*Width/2]
-// gr0= SrcMatrix nWidth in 32-bit words						:=[2,4,6...]
-// gr5= SrcMatrix nHeight									:=[0,1,2,3..]
-//
-// ar4->pSrcVec											:long Local [nWidth*gr4/2]
-// gr4= pSrcVec long to long reading step in 32-bit words :=[0,2,4,6....]
-//
-// ar6->pDstVec											:long Global[nHeight*gr6/2]
-// gr6= pDstVec long to long writing step in 32-bit words	:=[0,2,4,6....]
-//
-// nb1
-// COMMENTS: gr4 and gr6 registers are need for vector extraction and placing directly from/into matrixes
-// 
-// NOTE:  Registers : ar0,ar1,   ,ar3,ar4,ar5,ar6,   ,
-//                   ,   ,gr1,gr2,   ,   ,   ,   ,gr7   will be changed after return !
-// wtw must be on return
-global  rep_n_Mul_M16V64:label;
-<rep_n_Mul_M16V64>
-	sb=00020002h;
-	REP_N_NUL_MxxV64(4);
-	
-.wait;
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Low level function of multiplying 32-bit matrix(SrcMatrix) by matrix(pSrcVec)
-// with user-defined bit capacity and summary bit width of row = 64 bits.
-// User-defined matrix(pSrcVec) and result product(pDstVec) are represented 
-// as vectors of 64-bit packed words(long), partition of which is defined by gr3(nb1) register.
-//
-// INPUT REGISTERS:
-// ar0->SrcMatrix											:long Global[nHeight*Width/2]
-// gr0= SrcMatrix nWidth in 32-bit words						:=[2,4,6....]
-// gr5= SrcMatrix nHeight									:=[0,1,2,3..]
-//
-// ar4->pSrcVec											:long Local [nWidth*gr4/2]
-// gr4= pSrcVec long to long reading step in 32-bit words :=[0,2,4,6....]
-//
-// ar6->pDstVec											:long Global[nHeight*gr6/2]
-// gr6= pDstVec long to long writing step in 32-bit words	:=[0,2,4,6....]
-//
-// COMMENTS: gr4 and gr6 registers are need for vector extraction and placing directly from/into matrixes
-// 
-// NOTE:  Registers : ar0,ar1,   ,ar3,ar4,ar5,ar6,   ,
-//                   ,   ,gr1,gr2,   ,   ,   ,   ,gr7   will be changed after return !
-// wtw must be on return
-global  rep_n_Mul_M32V64:label;
-<rep_n_Mul_M32V64>
-	sb=2;
-	REP_N_NUL_MxxV64(2);
-.wait;
-
-
-global  rep_n_Mul_M64V64:label;
-<rep_n_Mul_M64V64>
-	sb=1;
-	REP_N_NUL_MxxV64(1);
-.wait;
-
-end ".text_nmplm"; 

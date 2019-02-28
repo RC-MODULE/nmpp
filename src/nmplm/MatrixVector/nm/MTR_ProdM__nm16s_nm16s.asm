@@ -27,7 +27,7 @@ begin ".text_nmplm"
 //! \perfinclude nmppmMul_mm_16s16s.html
 //--------------------------------------------------------------------
 	
-extern rep_n_Mul_M16V64:label;
+extern mtrMul_mm_16sXs:label;
 extern _nmppsTmpBuffer64_G_: long[64];
 const LongColumns=_nmppsTmpBuffer64_G_;
 
@@ -62,7 +62,7 @@ global _nmppmMul_mm_16s16s:label;
 		push ar0,gr0;
 		push ar6,gr6;
 		
-		delayed call rep_n_Mul_M16V64;
+		delayed call mtrMul_mm_16sXs;
 			ar4 = ar2;
 			nul;
 

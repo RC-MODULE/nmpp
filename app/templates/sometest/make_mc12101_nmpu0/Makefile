@@ -18,7 +18,7 @@ endif
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MC12101)/include" -I"$(NEURO)/include" -I"$(HAL)/include"
 LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12101)/lib" -L$(HAL)/lib -L"$(NEURO)/lib"
-LIBS     = mc12101lib_nm.lib libc4f.lib libc4.lib nmpp-nmc4f.lib hal-mc12101.lib
+LIBS     = mc12101lib_nm.lib libc4f.lib nmpp-nmc4f.lib hal-mc12101.lib
 TARGET   = main.abs
 CFG      = mc12101brd-nmpu0.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))

@@ -63,17 +63,17 @@ macro MUL_MxxV64_REP(Ndata,Nwfifo)
 end MUL_MxxV64_REP;
 
 
-
+// Nwfifo - number of rows 
 macro REP_N_NUL_MxxV64(Nwfifo)
 	own Mul_MxxV64_repN			:label;
 	own Next_Mul_MxxV64_rep32	:label;
 	own End_Mul_MxxV64_rep32	:label;
 	own Next_Mul_MxxV64			:label;
 
-	[LTmpLong1]=ar4	with gr1 = gr5>>5;
+	[LTmpLong1]=ar4	with gr1 = gr5>>5;	// gr5-SrcMatrix height
 	nb1 = gr3;
-	rep Nwfifo wfifo = [ar4++gr4],ftw;
-	if =0 delayed goto Mul_MxxV64_repN;
+	rep Nwfifo wfifo = [ar4++gr4],ftw;	// preload first Nwfifo rows
+	if =0 delayed goto Mul_MxxV64_repN;	// jump to onetime mul with custom rep  
 		gr2=2;
 	
 	/////////////////////////////////////////////////////////////////////////////////////
@@ -142,21 +142,21 @@ macro REP_N_NUL_MxxV64(Nwfifo)
 	//	sb
 	//
 	<Mul_MxxV64_repN>
-	ar1 = ar0	with gr7 = gr5<<27;
-	ar5 = gr5	with gr7 >>=27; 	//push ar5,gr5 (pop in macro)
+	ar1 = ar0	with gr7 = gr5<<27;	// gr5-SrcMatrix height
+	ar5 = gr5	with gr7 >>=27; 	// push ar5,gr5 (pop in macro)
 	
 	
 	gr1 = 2-16;
 	if =0 delayed return with gr7<<=4;
 		gr1+=gr7;
-		wtw;//WTW_REG(gr3);		
+		wtw;	
 		nul;
 		
 	 
 	
 	delayed skip gr1 with gr7=gr0>>1;	
 		gr1 = gr2  with gr7--;
-		gr5 = -4;
+		gr5 = -2; // jump to itself in next skip instruction
 	
 	MUL_MxxV64_REP(1,Nwfifo);
 	MUL_MxxV64_REP(2,Nwfifo);
@@ -193,15 +193,15 @@ end REP_N_NUL_MxxV64;
 
 begin ".text_nmplm"
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Low level function of multyplying 8-bit matrix(SrcMatrix) by matrix(pSrcVec)
+// Low level function of multiplying 8-bit matrix(SrcMatrix) by matrix(pSrcVec)
 // with user-defined bit capacity and summary bit width of row = 64 bits.
 // User-defined matrix(pSrcVec) and result product(pDstVec) are represented 
-// as vectors of 64-bit packed words(long), partition of wich is defined by gr3(nb1) register.
+// as vectors of 64-bit packed words(long), partition of which is defined by gr3(nb1) register.
 //
 // INPUT REGISTERS:
 // ar0->SrcMatrix											:long Global[nHeight*Width/2]
-// gr0= SrcMatrix nWidth in 32-bit words						:=[2,4,6...]
-// gr5= SrcMatrix nHeight									:=[0,1,2,3..]
+// gr0= SrcMatrix width in 32-bit words						:=[2,4,6...]
+// gr5= SrcMatrix height									:=[0,1,2,3..]
 //
 // ar4->pSrcVec											:long Local [nWidth*gr4/2]
 // gr4= pSrcVec long to long reading step in 32-bit words :=[0,2,4,6....]
@@ -255,7 +255,7 @@ global  rep_n_Mul_M16V64:label;
 // Low level function of multyplying 32-bit matrix(SrcMatrix) by matrix(pSrcVec)
 // with user-defined bit capacity and summary bit width of row = 64 bits.
 // User-defined matrix(pSrcVec) and result product(pDstVec) are represented 
-// as vectors of 64-bit packed words(long), partition of wich is defined by gr3(nb1) register.
+// as vectors of 64-bit packed words(long), partition of which is defined by gr3(nb1) register.
 //
 // INPUT REGISTERS:
 // ar0->SrcMatrix											:long Global[nHeight*Width/2]

@@ -20,187 +20,185 @@
 
 #include "nmtype.h"
 
-void nmppmMul_mm_8s8s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm8s* pSrcMtr2, nm8s* pDstMtr, int nWidth2)
+void nmppmMul_mm_8s8s( nm8s* srcMtrA, int heightA, int widthA,  nm8s* srcMtrB, nm8s* dstMtr, int widthB)
 {
 	
 	int i;
 	int j;
 	int k;
-	int p;
-	nm8s* col2;
-	nm8s* row1  =pSrcMtr1;
-	nm8s* rowDst=pDstMtr;
+	int sum;
+	nm8s* colB;
+	nm8s* rowA  =srcMtrA;
+	nm8s* rowDst=dstMtr;
 	
-	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
-		for(j=0; j<nWidth2; j++){
-			col2=pSrcMtr2+j;
-			p=0;
-			for(k=0; k<nWidth2; k++){
-				p+=row1[k]*col2[k*nWidth2];
+	for(i=0; i<heightA; i++, rowA+=widthA, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			for(k=0, sum=0; k< widthA; k++){
+				sum+=rowA[k]*colB[k*widthB];
 			}
-			rowDst[j]=p;
+			rowDst[j]=sum;
 		}
 	}
 }
-void nmppmMul_mm_8s16s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm16s* pSrcMtr2, nm16s* pDstMtr, int nWidth2)
+void nmppmMul_mm_8s16s( nm8s* srcMtrA, int heightA, int widthA,  nm16s* srcMtrB, nm16s* dstMtr, int widthB)
 {
 	int i;
 	int j;
 	int k;
-	int p;
-	nm16s* col2;
-	nm8s* row1  =pSrcMtr1;
-	nm16s* rowDst=pDstMtr;
+	int sum;
+	nm16s* colB;
+	nm8s* rowA  =srcMtrA;
+	nm16s* rowDst=dstMtr;
 
-	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
-		for(j=0; j<nWidth2; j++){
-			col2=pSrcMtr2+j;
-			p=0;
-			for(k=0; k<nWidth2; k++){
-				p+=row1[k]*col2[k*nWidth2];
+	for(i=0; i<heightA; i++, rowA+=widthA, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			sum=0;
+			for(k=0; k<widthA; k++){
+				sum+=rowA[k]*colB[k*widthB];
 			}
-			rowDst[j]=p;
+			rowDst[j]=sum;
 		}
 	}
 }
-void nmppmMul_mm_8s32s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2)
+void nmppmMul_mm_8s32s( nm8s* srcMtrA, int heightA, int widthA,  nm32s* srcMtrB, nm32s* dstMtr, int widthB)
 {
 	int i;
 	int j;
 	int k;
-	int p;
-	nm32s* col2;
-	nm8s* row1  =pSrcMtr1;
-	nm32s* rowDst=pDstMtr;
+	int sum;
+	nm32s* colB;
+	nm8s* rowA  =srcMtrA;
+	nm32s* rowDst=dstMtr;
 
-	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
-		for(j=0; j<nWidth2; j++){
-			col2=pSrcMtr2+j;
-			p=0;
-			for(k=0; k<nWidth2; k++){
-				p+=row1[k]*col2[k*nWidth2];
+	for(i=0; i<heightA; i++, rowA+=widthA, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			sum=0;
+			for(k=0; k<widthA; k++){
+				sum+=rowA[k]*colB[k*widthB];
 			}
-			rowDst[j]=p;
+			rowDst[j]=sum;
 		}
 	}
 }
 
-void nmppmMul_mm_8s64s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2)
+void nmppmMul_mm_8s64s( nm8s* srcMtrA, int heightA, int widthA,  nm64s* srcMtrB, nm64s* dstMtr, int widthB)
 {
 	int i;
 	int j;
 	int k;
-	long long p;
-	nm64s* col2;
-	nm8s* row1  =pSrcMtr1;
-	nm64s* rowDst=pDstMtr;
+	long long sum;
+	nm64s* colB;
+	nm8s* rowA  =srcMtrA;
+	nm64s* rowDst=dstMtr;
 
-	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
-		for(j=0; j<nWidth2; j++){
-			col2=pSrcMtr2+j;
-			p=0;
-			for(k=0; k<nWidth2; k++){
-				p+=row1[k]*col2[k*nWidth2];
+	for(i=0; i<heightA; i++, rowA+=widthA, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			sum=0;
+			for(k=0; k<widthA; k++){
+				sum+=rowA[k]*colB[k*widthB];
 			}
-			rowDst[j]=p;
+			rowDst[j]=sum;
 		}
 	}
 }
 
-void nmppmMul_mm_16s16s( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm16s* pSrcMtr2, nm16s* pDstMtr, int nWidth2)
+void nmppmMul_mm_16s16s( nm16s* srcMtrA, int heightA, int widthA,  nm16s* srcMtrB, nm16s* dstMtr, int widthB)
 {
-	int i,j,k,p;
-	nm16s* col2;
-	nm16s* row1  =pSrcMtr1;
-	nm16s* rowDst=pDstMtr;
+	int i,j,k,sum;
+	nm16s* colB;
+	nm16s* rowA  =srcMtrA;
+	nm16s* rowDst=dstMtr;
 
-	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
-		for(j=0; j<nWidth2; j++){
-			col2=pSrcMtr2+j;
-			p=0;
-			for(k=0; k<nWidth2; k++){
-				p+=row1[k]*col2[k*nWidth2];
+	for(i=0; i<heightA; i++, rowA+=widthA, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			sum=0;
+			for(k=0; k<widthA; k++){
+				sum+=rowA[k]*colB[k*widthB];
 			}
-			rowDst[j]=p;
+			rowDst[j]=sum;
 		}
 	}
 }
 
-void nmppmMul_mm_16s32s( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2)
+void nmppmMul_mm_16s32s( nm16s* srcMtrA, int heightA, int widthA,  nm32s* srcMtrB, nm32s* dstMtr, int widthB)
 {
-	int i,j,k,p;
-	nm32s* col2;
-	nm16s* row1  =pSrcMtr1;
-	nm32s* rowDst=pDstMtr;
+	int i,j,k,sum;
+	nm32s* colB;
+	nm16s* rowA  =srcMtrA;
+	nm32s* rowDst=dstMtr;
 
-	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
-		for(j=0; j<nWidth2; j++){
-			col2=pSrcMtr2+j;
-			p=0;
-			for(k=0; k<nWidth2; k++){
-				p+=row1[k]*col2[k*nWidth2];
+	for(i=0; i<heightA; i++, rowA+=widthA, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			sum=0;
+			for(k=0; k<widthA; k++){
+				sum+=rowA[k]*colB[k*widthB];
 			}
-			rowDst[j]=p;
+			rowDst[j]=sum;
 		}
 	}
 
 }
 
-void nmppmMul_mm_16s64s( nm16s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2)
+void nmppmMul_mm_16s64s( nm16s* srcMtrA, int heightA, int widthA,  nm64s* srcMtrB, nm64s* dstMtr, int widthB)
 {
 	int i,j,k;
-	long long p;
-	nm64s* col2;
-	nm16s* row1  =pSrcMtr1;
-	nm64s* rowDst=pDstMtr;
+	long long sum;
+	nm64s* colB;
+	nm16s* rowA  =srcMtrA;
+	nm64s* rowDst=dstMtr;
 
-	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
-		for(j=0; j<nWidth2; j++){
-			col2=pSrcMtr2+j;
-			p=0;
-			for(k=0; k<nWidth2; k++){
-				p+=row1[k]*col2[k*nWidth2];
+	for(i=0; i<heightA; i++, rowA+=widthA, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			sum=0;
+			for(k=0; k<widthA; k++){
+				sum+=rowA[k]*colB[k*widthB];
 			}
-			rowDst[j]=p;
+			rowDst[j]=sum;
 		}
 	}
 }
 
-void nmppmMul_mm_32s32s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2)
+void nmppmMul_mm_32s32s( nm32s* srcMtrA, int heightA, int widthA,  nm32s* srcMtrB, nm32s* dstMtr, int widthB)
 {
-	int i,j,k,p;
-	nm32s* col2;
-	nm32s* row1  =pSrcMtr1;
-	nm32s* rowDst=pDstMtr;
+	int i,j,k,sum;
+	nm32s* colB;
+	nm32s* rowA  =srcMtrA;
+	nm32s* rowDst=dstMtr;
 
-	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
-		for(j=0; j<nWidth2; j++){
-			col2=pSrcMtr2+j;
-			p=0;
-			for(k=0; k<nWidth2; k++){
-				p+=row1[k]*col2[k*nWidth2];
+	for(i=0; i<heightA; i++, rowA+=widthA, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			for(k=0, sum=0; k<widthA; k++){
+				sum+=rowA[k]*colB[k*widthB];
 			}
-			rowDst[j]=p;
+			rowDst[j]=sum;
 		}
 	}
 }
 
-void nmppmMul_mm_32s64s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2)
+void nmppmMul_mm_32s64s( nm32s* srcMtrA, int heightA, int widthA,  nm64s* srcMtrB, nm64s* dstMtr, int widthB)
 {
 	int i,j,k;
-	long long p;
-	nm64s* col2;
-	nm32s* row1  =pSrcMtr1;
-	nm64s* rowDst=pDstMtr;
+	long long sum;
+	nm64s* colB;
+	nm32s* rowA  =srcMtrA;
+	nm64s* rowDst=dstMtr;
 
-	for(i=0; i<nHeight1; i++, row1+=nWidth1, rowDst+=nWidth2){
-		for(j=0; j<nWidth2; j++){
-			col2=pSrcMtr2+j;
-			p=0;
-			for(k=0; k<nWidth2; k++){
-				p+=row1[k]*col2[k*nWidth2];
+	for(i=0; i<heightA; i++, rowA+=widthA, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			sum=0;
+			for(k=0; k<widthA; k++){
+				sum+=rowA[k]*colB[k*widthB];
 			}
-			rowDst[j]=p;
+			rowDst[j]=sum;
 		}
 	}
 }

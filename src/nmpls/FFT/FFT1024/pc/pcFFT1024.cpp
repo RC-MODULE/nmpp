@@ -237,6 +237,7 @@ void MakeTable1024W1W2(
 	}
 }
 
+extern "C" {
 /////////////////////////////////////////////////////////////////////
 //	 This is the C equivalent of the function FFT_Fwd1024
 void FFT_Fwd1024(
@@ -284,7 +285,7 @@ void FFT_Fwd1024(
 	}
 
 }
-
+};
 ///////////////////////////////////////////////////////////////////
 // Computing FFT-1024 using floating-point arithmetic
 int FFT1024(

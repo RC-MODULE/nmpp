@@ -168,28 +168,33 @@ solution "nmpp"
 		  
 		targetdir (ROOT.."/lib")
 		
+		
 		configuration {"Debug","Win32"}
 			targetsuffix ("-x86d")
 			architecture "x32"
 			defines { "DEBUG"}
 			symbols  "On" 
+			objdir "1"
 		
 		configuration {"Release","Win32"}
 			targetsuffix ("-x86")
 			architecture "x32"
 			defines { "NDEBUG"}
 			symbols  "Off" 
+			objdir "2"
 		
 		configuration {"Debug","x64"}
 			targetsuffix ("-x64d")
 			architecture "x64"
 			defines { "DEBUG"}
 			symbols  "On" 
+			objdir "3"
 		
 		configuration {"Release","x64"}
 			targetsuffix ("-x64")
 			architecture "x64"
 			defines { "NDEBUG"}
 			symbols  "Off" 
+			objdir "4"
 	 
  

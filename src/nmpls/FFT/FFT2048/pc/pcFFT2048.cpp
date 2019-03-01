@@ -28,6 +28,7 @@
 static cmplx<double> Rounder(0.5,0.5);
 int FlagsFFT2048=FFT7BIT;
 // Setting of the calculation accuracy for FFT_Fwd1024 function
+extern "C" {
 void FFT_Fwd2048Set( int	Flag)			// See header for more information
 {
 	FlagsFFT2048=Flag;
@@ -40,6 +41,7 @@ void FFT_Fwd2048Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 {
 	FFT_Fwd2048Set(FFT7BIT);
 }
+};
 ///////////////////////////////////////////////////////////////////
 // Computing FFT-2048 using fixed-point arithmetic
 // This is the C equivalent of the FFT_Fwd2048 Assembly Code
@@ -201,7 +203,7 @@ void MakeTable2048W1W2(
 		W2_2048[i].im=floor(fW2_2048[i].im+0.5);
 	}
 }
-
+extern "C" {
 /////////////////////////////////////////////////////////////////////
 //	 This is the C equivalent of the FFT_Fwd2048 Assembly Code 
 void FFT_Fwd2048(
@@ -234,7 +236,7 @@ void FFT_Fwd2048(
 	
 
 }
-
+};
 ///////////////////////////////////////////////////////////////////
 // Computing FFT-2048 using floating-point arithmetic
 int FFT2048(

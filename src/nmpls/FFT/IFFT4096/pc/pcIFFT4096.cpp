@@ -219,6 +219,7 @@ void IMakeTable4096W1W2W3_fixed(void) //Вычисление коэффициентов (фиксированных)
 		}
 }
 
+extern "C" {
 void FFT_Inv4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GBuffer) //Аналог ассемблерной функции
 {
 	class Cplx_fixed
@@ -326,3 +327,4 @@ void FFT_Inv4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GB
 			GDstBuffer[i].im >>= 19;
 		}
 }
+};

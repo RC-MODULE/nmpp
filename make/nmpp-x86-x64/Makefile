@@ -1,3 +1,4 @@
+# Latest premake  https://premake.github.io/
 ROOT             = ../..
 include          $(ROOT)/global.mk
 VS8       = Visual_Studio_8_2005
@@ -39,7 +40,7 @@ endif
 #	$(CP)		$(call OSX,$(VS8)/Debug/*.lib) 	$(call OSX,../../lib/)
 #	$(CP)  		$(call OSX,$(VS8)/Release/*.lib) $(call OSX,../../lib/)
 
-
+PROJECT = nmpp
 all: vs2015
 
 #vs8 vs12 vs12x64 vs12x64 unix mingw
@@ -119,22 +120,21 @@ gmake:
 	$(CP) .Makefile.origin Makefile
 	$(MAKE) -f .Makefile.premake nmpp-x86
 	
-	
-
-vs2005:    	nmpp-x86.vcproj
-	"$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp-x86.vcproj
-
-vs2015:    	nmpp-x86.vcxproj
-	"$(VS140COMNTOOLS)vsvars32" && msbuild nmpp-x86.vcxproj /p:Configuration=Debug
-	
-
-
-nmpp-x86.vcxproj :	premake5.lua 
-	premake5 vs2015
-
-	
-nmpp-x86.vcproj :	premake5.lua 
+vs2005:    	
 	premake5 vs2005
+	"$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp.sln  "Release|Win32"
+	"$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp.sln  "Debug|Win32"
+	"$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp.sln  "Release|x64"
+	"$(VS80COMNTOOLS)vsvars32" && vcbuild nmpp.sln  "Debug|x64"
+
+vs2015:
+	premake5 vs2015
+	"$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Release /property:Platform=win32
+	"$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Debug   /property:Platform=win32
+	"$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Release /property:Platform=x64
+	"$(VS140COMNTOOLS)vsvars32" && msbuild nmpp.vcxproj /p:Configuration=Debug   /property:Platform=x64
+	
+
 
 include $(ROOT)/clean.mk
 	

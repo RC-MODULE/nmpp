@@ -20,7 +20,7 @@
 
 #include "nmpli.h"
 #include "nmtl.h"
-#include "nmpli/filter.h"
+//#include "nmpli/filter.h"
 #include "nmpli/iFilter.h"
 void nmppiFilter_8s16s( nm8s * pSrcImg, nm16s* pDstImg, int nWidth, int nHeight, NmppiFilterState* pKernel)
 {

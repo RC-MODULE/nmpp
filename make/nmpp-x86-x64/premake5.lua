@@ -1,30 +1,15 @@
 #!lua
+-- https://premake.github.io/
 ROOT = "../.."
 -- A solution contains projects, and defines the available configurations
 solution "nmpp"
-    -- configurations { "Debug", "Release" }
-	configurations { "Debug"}
-
-	--project "nmpp-nmc4"
-    --  kind "Makefile"
-    --  files { "../src/*.*",ROOT.."../include/*.h", "Makefile" }
-	-- 
-	--  configuration "Debug"
-	--	   buildcommands {"make DEBUG=y -f Makefile"}
-	--	   rebuildcommands {"make -B DEBUG=y -f Makefile"}
-	--	   cleancommands {"make clean"}
-	--	   
-	--  configuration "Release"
-	--	   buildcommands {"make -f Makefile"}
-	--	   rebuildcommands {"make -B -f Makefile"}
-	--	   cleancommands {"make clean"}		   
+    configurations { "Debug", "Release" }
+	platforms { "Win32","x64"}
 		
-		
-		
-	project "nmpp-x86"
+	project "nmpp"
 	  --objdir ("o")
-      kind "StaticLib"
-      files { ROOT.."../include/*.h",
+	  kind "StaticLib"
+	  files { ROOT.."../include/*.h",
 		ROOT.."/src/nmblas/level1/pc/*.c",
 		ROOT.."/src/nmblas/level2/pc/*.c",
 	  	ROOT.."/src/nmplc/arithmetic/common/*.cpp",
@@ -177,21 +162,34 @@ solution "nmpp"
 		ROOT.."/src/nmpls/FFT0512/pc/*.c",
 		ROOT.."/src/nmpls/FFT1024/pc/*.c",
 		ROOT.."/src/nmpls/FFT2048/pc/*.c"
-	}
+		}
 		
-	includedirs { ROOT.."/include",ROOT.."/include/nmpls"}
-	  
-	  
-	configuration "Debug"
-         defines { "DEBUG" }
-         symbols  "On" 
-		 targetdir (ROOT.."/lib")
-		 
-
-    configuration "Release"
-         defines { "NDEBUG" }
-         symbols  "Off" 
-		 targetdir (ROOT.."/lib")
+		includedirs { ROOT.."/include",ROOT.."/include/nmpls"}
+		  
+		targetdir (ROOT.."/lib")
 		
+		configuration {"Debug","Win32"}
+			targetsuffix ("-x86d")
+			architecture "x32"
+			defines { "DEBUG"}
+			symbols  "On" 
+		
+		configuration {"Release","Win32"}
+			targetsuffix ("-x86")
+			architecture "x32"
+			defines { "NDEBUG"}
+			symbols  "Off" 
+		
+		configuration {"Debug","x64"}
+			targetsuffix ("-x64d")
+			architecture "x64"
+			defines { "DEBUG"}
+			symbols  "On" 
+		
+		configuration {"Release","x64"}
+			targetsuffix ("-x64")
+			architecture "x64"
+			defines { "NDEBUG"}
+			symbols  "Off" 
 	 
  

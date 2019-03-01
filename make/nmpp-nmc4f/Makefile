@@ -45,7 +45,10 @@
 #
 #============== PROJECT & BUILD CONFIGURATION ==========
 ROOT             = ../..
+ifeq ($(OS),Windows_NT)
 SHELL 			 = cmd
+endif
+
 #include          $(ROOT)/global.mk
 
 ifndef NEURO

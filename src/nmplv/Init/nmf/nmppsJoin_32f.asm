@@ -12,7 +12,7 @@
 //***************************************************************************/
 
 
-global _nmppsJoin_32f : label;
+global _nmppsMerge_32f : label;
 
 begin ".data"
 .align;
@@ -21,8 +21,8 @@ begin ".data"
 end ".data";
 
 begin ".text"
-<_nmppsJoin_32f>
-//void nmppsJoin_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);	
+<_nmppsMerge_32f>
+//void nmppsMerge_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);	
 	ar5 = ar7 - 2;
 	push ar0,gr0;
 	ar0 = one_zero;

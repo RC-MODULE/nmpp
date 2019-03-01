@@ -526,7 +526,7 @@ void nmppsConvert_64f32f(const nm64f* pSrcVec, nm32f* pDstVec, int nSize);
     \param pDstVec указатель на выходной массив чисел float
     \param nSize количество элементов в массиве pSrcVec (в массиве pDstVec элементов будет в 2 раза больше)
  */
-void nmppsJoin_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);
+void nmppsMerge_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);
 
 /**
  *  \ingroup nmppsConvert nmppsConvert

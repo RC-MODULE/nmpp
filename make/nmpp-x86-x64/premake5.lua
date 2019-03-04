@@ -9,6 +9,8 @@ solution "nmpp"
 	project "nmpp"
 	  --objdir ("o")
 	  kind "StaticLib"
+	  systemversion "latest"
+	  
 	  files { ROOT.."../include/*.h",
 		ROOT.."/src/nmblas/level1/pc/*.c",
 		ROOT.."/src/nmblas/level2/pc/*.c",

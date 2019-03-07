@@ -6,9 +6,9 @@
 //*                                                	                        */
 //*   File:             nmppsJoin_32f.asm 				      	                  */
 //*   Contents:         Joins 2 float arrays in one array in order 					*/
-//*												{src0[0],src1[0],src0[1],src1[1],...}    					*/
-//*																																					*/
-//*																		            													*/
+//*												{src0[0],src1[0],src0[1],src1[1],...}   */
+//*																				*/
+//*										     								*/
 //***************************************************************************/
 
 
@@ -22,12 +22,12 @@ end ".data";
 
 begin ".text"
 <_nmppsJoin_32f>
-//void nmppsJoin_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);	
+//void nmppsJoin_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);
 	ar5 = ar7 - 2;
 	push ar0,gr0;
 	ar0 = one_zero;
 	fpu 0 rep 32 vreg2 = [ar0];
-	ar0 = zero_one;	
+	ar0 = zero_one;
 	fpu 0 rep 32 vreg5 = [ar0];
 	push ar1,gr1;
 	push ar2,gr2;
@@ -43,7 +43,7 @@ begin ".text"
 	if =0 delayed goto REMAINDER;
 		ar3 = ar2 + 2 with gr3 = gr2;
 
-<LOOP>	
+<LOOP>
 	fpu 0 rep 32 vreg0 = [ar0++];
 	fpu 0 rep 32 vreg1 = [ar1++];
 	fpu 0 .matrix vreg3 = (vreg0,vreg1)*vreg2;
@@ -61,9 +61,9 @@ begin ".text"
 
 	ar5 = one_zero;
 	fpu 0 rep vlen vreg2 = [ar5];
-	ar5 = zero_one;	
+	ar5 = zero_one;
 	fpu 0 rep vlen vreg5 = [ar5];
-	
+
 	fpu 0 rep vlen vreg0 = [ar0++];
 	fpu 0 rep vlen vreg1 = [ar1++];
 	fpu 0 .matrix vreg3 = (vreg0,vreg1)*vreg2;

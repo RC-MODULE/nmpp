@@ -52,22 +52,22 @@
     \par
     \xmlonly
         <testperf>
-			<param> pSrcVec   </param> <values> L G 	  </values>
-			<param> nMaxValue </param> <values> n 		  </values>
-			<param> nSize 	  </param> <values> 10240 </values>
-			<init2>
-					nmppsSet_(pSrcVec,0,nSize);
-					nmppsPut_(pSrcVec,nSize-1,1);
-			</init2>
+			<param> pSrcVec </param> <values> L G </values>
+			<param> nMaxValue </param> <values> im2 </values>
+			<param> nSize </param> <values> 10240 </values>
+			<init>
+					nmppsSet_(pSrcVec, 0, nSize);
+					nmppsPut_(pSrcVec, nSize-1, 1);
+			</init>
         </testperf>
         <testperf>
-			<param> pSrcVec   </param> <values> G 		  </values>
-			<param> nMaxValue </param> <values> n 		  </values>
-			<param> nSize 	  </param> <values> 8 128 1024 10240 </values>
-			<init2>
-					nmppsSet_(pSrcVec,0,nSize);
-					nmppsPut_(pSrcVec,nSize-1,1);
-			</init2>
+			<param> pSrcVec </param> <values> G </values>
+			<param> nMaxValue </param> <values> im2 </values>
+			<param> nSize </param> <values> 8 128 1024 10240 </values>
+			<init>
+					nmppsSet_(pSrcVec, 0, nSize);
+					nmppsPut_(pSrcVec, nSize-1, 1);
+			</init>
         </testperf>
     \endxmlonly
 
@@ -158,22 +158,22 @@ int nmppsMax_32sm(const nm32s* srcVec, int size, int32b* maxValue, nm64s* tmp);
     \par
     \xmlonly
         <testperf>
-			<param> pSrcVec		</param> <values> L G	</values>
-			<param> nMinValue	</param> <values> n	</values>
-			<param> nSize		</param> <values> 10240 </values>
-			<init2>
-					nmppsSet_(pSrcVec,0,nSize);
-					nmppsPut_(pSrcVec,nSize-1,-1);
-			</init2>
+			<param> pSrcVec </param> <values> L G </values>
+			<param> nMinValue </param> <values> im2	</values>
+			<param> nSize </param> <values> 10240 </values>
+			<init>
+					nmppsSet_(pSrcVec, 0, nSize);
+					nmppsPut_(pSrcVec, nSize-1, -1);
+			</init>
         </testperf>
         <testperf>
-			<param> pSrcVec		</param> <values> G		</values>
-			<param> nMinValue	</param> <values> n	</values>
-			<param> nSize		</param> <values> 8 128 1024 10240 </values>
-			<init2>
-					nmppsSet_(pSrcVec,0,nSize);
-					nmppsPut_(pSrcVec,nSize-1,-1);
-			</init2>
+			<param> pSrcVec </param> <values> G </values>
+			<param> nMinValue </param> <values> im2	</values>
+			<param> nSize </param> <values> 8 128 1024 10240 </values>
+			<init>
+					nmppsSet_(pSrcVec, 0, nSize);
+					nmppsPut_(pSrcVec, nSize-1, -1);
+			</init>
         </testperf>
     \endxmlonly
 
@@ -295,17 +295,16 @@ int nmppsMin_32sm(const nm32s* srcVec, int size, int32b* minValue, nm64s* tmp);
     \par
 	\xmlonly
 		<testperf>
-			<param> pSrcVec		</param> <values> L G	</values>
-			<param> pLTmpBuf	</param> <values> L		</values>
-			<param> pGTmpBuf	</param> <values> G		</values>
-			<param> nMaxValue	</param> <values> n	</values>
-			<param> nIndex		</param> <values> n	</values>
-			<param> nSearchDir	</param> <values> 1 -1	</values>
-			<param> nSize		</param> <values> 64 1024 10240 </values>
-			<init2>
-					nmppsSet_(pSrcVec,0,nSize);
-					nmppsPut_(pSrcVec,nSize-1,1);
-			</init2>
+			<param> pSrcVec	</param> <values> L G </values>
+			<param> pLTmpBuf </param> <values> L </values>
+			<param> pGTmpBuf </param> <values> G </values>
+			<param> nMaxValue </param> <values> im2 </values>
+			<param> nIndex </param> <values> im3 </values>
+			<param> nSearchDir </param> <values> 1 -1 </values>
+			<param> nSize </param> <values> 64 1024 10240 </values>
+			<init>
+					nmppsSet_(pSrcVec, 0, nSize);\nnmppsPut_(pSrcVec, nSize-1, 1);
+			</init>
 		</testperf>
     \endxmlonly
 	*/
@@ -383,17 +382,16 @@ void nmppsMaxIndx_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMaxVal
     \par
 	\xmlonly
 		<testperf>
-			<param> pSrcVec		</param> <values> L G	</values>
-			<param> pLTmpBuf	</param> <values> L		</values>
-			<param> pGTmpBuf	</param> <values> G		</values>
-			<param> nMinValue	</param> <values> n	</values>
-			<param> nIndex		</param> <values> n	</values>
-			<param> nSearchDir	</param> <values> 1 -1	</values>
-			<param> nSize		</param> <values> 64 1024 10240 </values>
-			<init2>
-					nmppsSet_(pSrcVec,0,nSize);
-					nmppsPut_(pSrcVec,nSize-1,-1);
-			</init2>
+			<param> pSrcVec	</param> <values> L G </values>
+			<param> pLTmpBuf </param> <values> L </values>
+			<param> pGTmpBuf </param> <values> G </values>
+			<param> nMinValue </param> <values> n </values>
+			<param> nIndex </param> <values> n </values>
+			<param> nSearchDir </param> <values> 1 -1 </values>
+			<param> nSize </param> <values> 64 1024 10240 </values>
+			<init>
+					nmppsSet_(pSrcVec,0,nSize);\nnmppsPut_(pSrcVec,nSize-1,-1);
+			</init>
 		</testperf>
 	\endxmlonly
 	*/
@@ -434,10 +432,10 @@ void nmppsMinIndx_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMinVal
 	\par
 	\xmlonly
 		<testperf>
-			 <param> pSrcVec </param> <values> L G  </values>
-			 <param> nStride </param> <values> 2    </values>
-			 <param> nPos    </param> <values> n	</values>
-			 <size>  1 </size>
+			 <param> pSrcVec </param> <values> L G </values>
+			 <param> nStride </param> <values> 2 </values>
+			 <param> nPos </param> <values> im2 </values>
+			 <size> 1 </size>
 		</testperf>
 	\endxmlonly
 	\restr
@@ -486,9 +484,9 @@ int nmppsMinIndxV1024_32s(int* pSrcVec,int nStride,int* nPos);
 	\par
 	\xmlonly
 		<testperf>
-			 <param> pSrcVec </param> <values> L G  </values>
-			 <param> nSize   </param> <values> 8 64 512 </values>
-			 <init2>  nmppsSet_(pSrcVec,1,nSize); </init2>
+			 <param> pSrcVec </param> <values> L G </values>
+			 <param> nSize </param> <values> 8 64 512 </values>
+			 <init>  nmppsSet_(pSrcVec, 1, nSize); </init>
 		</testperf>
 	\endxmlonly
 	*/
@@ -527,9 +525,9 @@ int nmppsFirstZeroIndx_32s(int* pSrcVec, int nSize);
 	\par
 	\xmlonly
 		<testperf>
-			 <param> pSrcVec </param> <values> L G  </values>
-			 <param> nSize   </param> <values> 8 64 512 </values>
-			 <init2> nmppsSet_(pSrcVec,0,nSize); </init2>
+			 <param> pSrcVec </param> <values> L G </values>
+			 <param> nSize </param> <values> 8 64 512 </values>
+			 <init> nmppsSet_(pSrcVec, 0, nSize); </init>
 		</testperf>
 	\endxmlonly
 	*/
@@ -569,9 +567,9 @@ int nmppsFirstNonZeroIndx_32s(int* pSrcVec, int nSize);
 	\par
 	\xmlonly
 		<testperf>
-			 <param> pSrcVec </param> <values> L G  </values>
-			 <param> nSize   </param> <values> 8 64 512 </values>
-			 <init2> nmppsSet_(pSrcVec,1,nSize); </init2>
+			 <param> pSrcVec </param> <values> L G </values>
+			 <param> nSize </param> <values> 8 64 512 </values>
+			 <init2> nmppsSet_(pSrcVec, 1, nSize); </init2>
 		</testperf>
 	\endxmlonly
 	*/
@@ -612,8 +610,8 @@ int nmppsLastZeroIndx_32s(int* pSrcVec, int nSize);
 	\xmlonly
 		<testperf>
 			 <param> pSrcVec </param> <values> L G  </values>
-			 <param> nSize   </param> <values> 8 64 512 </values>
-			 <init2> nmppsSet_(pSrcVec,0,nSize); </init2>
+			 <param> nSize </param> <values> 8 64 512 </values>
+			 <init2> nmppsSet_(pSrcVec, 0, nSize); </init2>
 
 		</testperf>
 	\endxmlonly
@@ -746,18 +744,18 @@ void nmppsMinNV_64s(nm64s63b** pSrcVecs, int numVecs, nm64s63b* pDstMinVec, int 
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1		</param> <values> L G </values>
-             <param> pSrcVec2		</param> <values> L G </values>
-             <param> pDstMaxVec		</param> <values> L G </values>
-             <param> pDstSignMask	</param> <values> L G </values>
-             <param> nSize			</param> <values> 10240 </values>
+             <param> pSrcVec1 </param> <values> L G </values>
+             <param> pSrcVec2 </param> <values> L G </values>
+             <param> pDstMaxVec	</param> <values> L G </values>
+             <param> pDstSignMask </param> <values> L G </values>
+             <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1		</param> <values> L </values>
-             <param> pSrcVec2		</param> <values> L </values>
-             <param> pDstMaxVec		</param> <values> G </values>
-             <param> pDstSignMask	</param> <values> G </values>
-             <param> nSize			</param> <values> 8 128 1024 10240 </values>
+             <param> pSrcVec1 </param> <values> L </values>
+             <param> pSrcVec2 </param> <values> L </values>
+             <param> pDstMaxVec	</param> <values> G </values>
+             <param> pDstSignMask </param> <values> G </values>
+             <param> nSize </param> <values> 8 128 1024 10240 </values>
         </testperf>
     \endxmlonly
     */
@@ -831,18 +829,18 @@ void nmppsMaxEvery_64s(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMax
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1		</param> <values> L G </values>
-             <param> pSrcVec2		</param> <values> L G </values>
-             <param> pDstMin		</param> <values> L G </values>
-             <param> pDstSignMask	</param> <values> L G </values>
-             <param> nSize			</param> <values> 10240 </values>
+             <param> pSrcVec1 </param> <values> L G </values>
+             <param> pSrcVec2 </param> <values> L G </values>
+             <param> pDstMin </param> <values> L G </values>
+             <param> pDstSignMask </param> <values> L G </values>
+             <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1		</param> <values> L </values>
-             <param> pSrcVec2		</param> <values> L </values>
-             <param> pDstMin		</param> <values> G </values>
-             <param> pDstSignMask	</param> <values> G </values>
-             <param> nSize			</param> <values> 8 128 1024 10240 </values>
+             <param> pSrcVec1 </param> <values> L </values>
+             <param> pSrcVec2 </param> <values> L </values>
+             <param> pDstMin </param> <values> G </values>
+             <param> pDstSignMask </param> <values> G </values>
+             <param> nSize </param> <values> 8 128 1024 10240 </values>
         </testperf>
     \endxmlonly
     */
@@ -898,14 +896,14 @@ void nmppsMinCmpLtV_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMi
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec	</param> <values> L G </values>
-             <param> pDstVec	</param> <values> L G </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> pSrcVec </param> <values> L G </values>
+             <param> pDstVec </param> <values> L G </values>
+             <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec	</param> <values> L </values>
-             <param> pDstVec	</param> <values> G </values>
-             <param> nSize		</param> <values> 8 128 1024 10240 </values>
+             <param> pSrcVec </param> <values> L </values>
+             <param> pDstVec </param> <values> G </values>
+             <param> nSize </param> <values> 8 128 1024 10240 </values>
         </testperf>
     \endxmlonly
     */
@@ -918,12 +916,7 @@ void nmppsCmpLt0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 
 	/**
 	\defgroup snmppsCmpLteC nmppsCmpGteC
-	\ingroup snmppsCmpLteC_v2nm32f
-	*/
-
-
-	/**
- *  \ingroup snmppsCmpLteC
+	\ingroup vSelect_f
 	\brief Функция сравнения элементов массива с константой (меньше или равно)
 
 	\param [in] pSrcVec входной массив (элемент массива представляет собой структура v2nm32f, состоящая из двух чисел float)
@@ -935,7 +928,9 @@ void nmppsCmpLt0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 	\details В структуре v2nm32f два поля. Первое - v0. Второе - v1.
  *
  */
+//! \{
 void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
+//! \}
 //*****************************************************************************
 
     /**
@@ -986,22 +981,22 @@ void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFla
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec	</param> <values> L G </values>
-             <param> pDstVec	</param> <values> L G </values>
-             <param> nTrueFlag	</param> <values> -1 </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> pSrcVec </param> <values> L G </values>
+             <param> pDstVec </param> <values> L G </values>
+             <param> nTrueFlag </param> <values> -1 </values>
+             <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec	</param> <values> L </values>
-             <param> pDstVec	</param> <values> G </values>
-             <param> nTrueFlag	</param> <values> 0 -1 </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> pSrcVec </param> <values> L </values>
+             <param> pDstVec </param> <values> G </values>
+             <param> nTrueFlag </param> <values> 0 -1 </values>
+             <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec	</param> <values> L </values>
-             <param> pDstVec	</param> <values> G </values>
-             <param> nTrueFlag	</param> <values> -1 </values>
-             <param> nSize		</param> <values> 8 128 1024 10240 </values>
+             <param> pSrcVec </param> <values> L </values>
+             <param> pDstVec </param> <values> G </values>
+             <param> nTrueFlag </param> <values> -1 </values>
+             <param> nSize </param> <values> 8 128 1024 10240 </values>
         </testperf>
     \endxmlonly
     */
@@ -1079,11 +1074,11 @@ void nmppsCmpEq0_32u31b(nm32u31b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFla
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1	</param> <values> L G </values>
-             <param> pSrcVec2	</param> <values> L G </values>
-             <param> pDstMin	</param> <values> L G </values>
-             <param> pDstMax	</param> <values> L G </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> pSrcVec1 </param> <values> L G </values>
+             <param> pSrcVec2 </param> <values> L G </values>
+             <param> pDstMin </param> <values> L G </values>
+             <param> pDstMax </param> <values> L G </values>
+             <param> nSize </param> <values> 10240 </values>
         </testperf>
     \endxmlonly
 
@@ -1121,9 +1116,9 @@ void nmppsCmpMinMaxV_32s(nm32s*  pSrcVec1, nm32s* pSrcVec2,  nm32s*  pDstMin,  n
         \ru Входной вектор.
         \en Input vec.
 		\~
-    \param nClipFactor 
+    \param nClipFactor
         \ru Показатель степени, определяющий верхний и нижний пороги насыщения. nClipFactor>0
-        \en Index of the degree defining the upper and the lower saturation thresholds. 
+        \en Index of the degree defining the upper and the lower saturation thresholds.
 		\~
     \param nSize
         \ru Размер вектора в элементах.
@@ -1218,25 +1213,25 @@ void nmppsClipPowC_64s(nm64s* pSrcVec, int nClipFactor, nm64s* pDstVec, int nSiz
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec	</param> <values> L G </values>
-             <param> pDstVec	</param> <values> L G </values>
+             <param> pSrcVec </param> <values> L G </values>
+             <param> pDstVec </param> <values> L G </values>
              <param> nNegThresh </param> <values> -127 </values>
              <param> nPosThresh </param> <values> 127 </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec	</param> <values> L </values>
-             <param> pDstVec	</param> <values> G </values>
+             <param> pSrcVec </param> <values> L </values>
+             <param> pDstVec </param> <values> G </values>
              <param> nNegThresh </param> <values> -255 -127 </values>
              <param> nPosThresh </param> <values> 127 255 </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec	</param> <values> L </values>
-             <param> pDstVec	</param> <values> G </values>
+             <param> pSrcVec </param> <values> L </values>
+             <param> pDstVec </param> <values> G </values>
              <param> nNegThresh </param> <values> -127 </values>
              <param> nPosThresh </param> <values> 127 </values>
-             <param> nSize		</param> <values> 8 128 1024 10240 </values>
+             <param> nSize </param> <values> 8 128 1024 10240 </values>
         </testperf>
     \endxmlonly
     */
@@ -1473,25 +1468,25 @@ void nmppsClipConvertAddCFree(NmppsWeightState* pState);
 	\xmlonly
 		<testperf>
 			 <init>
-					int pnV8[8]={2,2,2,2,2,2,2,2};
-					nm64s pnAddV8[1]={0};
+					im2[]={2,2,2,2,2,2,2,2};
+					im3[]={0};
 			</init>
 			<param> pSrcVec			</param> <values> L G  </values>
-			<param> pnShift			</param> <values> pnV8 </values>
-			<param> pnClipFactor	</param> <values> pnV8 </values>
-			<param> pnAdd			</param> <values> pnAddV8 </values>
+			<param> pnShift			</param> <values> im2 </values>
+			<param> pnClipFactor	</param> <values> im2 </values>
+			<param> pnAdd			</param> <values> im3 </values>
 			<param> pDstVec			</param> <values> L G </values>
-			<param> nSize			</param> <values>10240 </values>
+			<param> nSize			</param> <values> 10240 </values>
 		</testperf>
 		<testperf>
 			<init>
-					int pnV8[8]={2,2,2,2,2,2,2,2};
-					nm64s pnAddV8[1]={0};
+					im2[]={2,2,2,2,2,2,2,2};
+					im3[]={0};
 			</init>
 			 <param> pSrcVec		</param> <values> L  </values>
-			 <param> pnShift		</param> <values> pnV8 </values>
-			 <param> pnClipFactor	</param> <values> pnV8 </values>
-			 <param> pnAdd			</param> <values> pnAddV8 </values>
+			 <param> pnShift		</param> <values> im2 </values>
+			 <param> pnClipFactor	</param> <values> im2 </values>
+			 <param> pnAdd			</param> <values> im3 </values>
 			 <param> pDstVec		</param> <values> G </values>
 			 <param> nSize			</param> <values> 128 1024 10240 </values>
 		</testperf>
@@ -1533,7 +1528,7 @@ void nmppsClipRShiftConvert_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v
         \en Input vec.
 		\~
 	\param nCmpVal
-		\ru	Значение константы для сравнияе
+		\ru	Значение константы для сравнения
 		\en Comparision constant value
 		\~
     \param nSize
@@ -1595,10 +1590,6 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
         \ru Входной вектор.
         \en Input vec.
 		\~
-	\param nCmpVal
-		\ru	Значение константы для сравнияе
-		\en Comparision constant value
-		\~
     \param nSize
 		\ru Размер векторов в элементах.
         \en Vector size in elements.
@@ -1614,9 +1605,7 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
         <testperf>
              <param> pSrcVec </param> <values> L G </values>
              <param> pDstVec </param> <values> L G </values>
-             <param> nCmpVal </param> <values> 0 </values>
              <param> nSize </param> <values> 10240 </values>
-			 <param> nTrueFlag </param> <values> 1 </values>
         </testperf>
       \endxmlonly
     */
@@ -1626,7 +1615,7 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 	void nmppsCmpNe0_16s(const nm16s* pSrcVec, nm16s* pDstVec, int nSize);
 	void nmppsCmpNe0_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
 	void nmppsCmpNe0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
-	
+
 	//! \}
 
   /**
@@ -1669,14 +1658,13 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
              <param> pSrcVec </param> <values> L G </values>
              <param> pDstVec </param> <values> L G </values>
              <param> nSize </param> <values> 10240 </values>
-			 <param> nTrueFlag </param> <values> 1 </values>
         </testperf>
       \endxmlonly
     */
 	//! \{
-		
+
 	void nmppsCmpEq0_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
-	
+
 	//! \}
 
 
@@ -1689,12 +1677,6 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 
 		\~
 
-	\f[
-        pDstVec(i)  =  \{ \begin{array}{lcl}
-            nTrueFlag,		&  if &  pSrcVec(i) \neq nCmpVal  \\
-            0,				&  if &  pSrcVec(i) = nCmpVal   \\
-        \end{array}
-    \f]
 
 
 	\f[ i = \overline{0 \ldots nSize-1} \f]
@@ -1705,7 +1687,7 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
         \en Input vec.
 		\~
 	\param nCmpVal
-		\ru	Значение константы для сравнияе
+		\ru	Значение константы для сравнения
 		\en Comparision constant value
 		\~
     \param nSize
@@ -1729,7 +1711,6 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
              <param> pDstVec </param> <values> L G </values>
              <param> nCmpVal </param> <values> 0 </values>
              <param> nSize </param> <values> 10240 </values>
-			 <param> nTrueFlag </param> <values> 1 </values>
         </testperf>
       \endxmlonly
     */
@@ -1738,6 +1719,71 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 	void nmppsCmpNeC_16s    (const nm16s* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize);
 	void nmppsCmpNeC_32s    (const nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
 	void nmppsCmpNeC_64s    (const nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
+	//! \}
+
+	/**
+  	\defgroup nmppsCmpNeC_flag nmppsCmpNeC_flag
+      \ingroup vSelect
+      \brief
+          \ru Сравнивает элементы массива на признак неравенства константе.
+          \en Compare vec elements to const nonequality.
+
+  		\~
+		\f[
+		pDstVec(i)  =  \{ \begin{array}{lcl}
+		nTrueFlag,		&  if &  pSrcVec(i) \neq nCmpVal  \\
+		0,				&  if &  pSrcVec(i) = nCmpVal   \\
+		\end{array}
+		\f]
+
+  	\f[
+          pDstVec(i)  =  \{ \begin{array}{lcl}
+              nTrueFlag,		&  if &  pSrcVec(i) \neq nCmpVal  \\
+              0,				&  if &  pSrcVec(i) = nCmpVal   \\
+          \end{array}
+      \f]
+
+
+  	\f[ i = \overline{0 \ldots nSize-1} \f]
+
+  		\~
+      \param pSrcVec
+          \ru Входной вектор.
+          \en Input vec.
+  		\~
+  	\param nCmpVal
+  		\ru	Значение константы для сравнения
+  		\en Comparision constant value
+  		\~
+      \param nSize
+  		\ru Размер векторов в элементах.
+          \en Vector size in elements.
+  		\~
+      \param nTrueFlag
+  		\ru Значние флага, устанавливаемого при выполнении условия
+          \en Flag value, being set if condition is true.
+  		\~
+      \retval pDstVec
+          \ru Результирующий вектор.
+          \en Destination vec.
+  		\~
+      \return \e void
+
+      \par
+      \xmlonly
+          <testperf>
+               <param> pSrcVec </param> <values> L G </values>
+               <param> pDstVec </param> <values> L G </values>
+               <param> nCmpVal </param> <values> 0 </values>
+               <param> nSize </param> <values> 10240 </values>
+  			 <param> nTrueFlag </param> <values> 1 </values>
+          </testperf>
+        \endxmlonly
+      */
+  	//! \{
+	void nmppsCmpNeC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSize, int8b nTrueFlag);
+	void nmppsCmpNeC_16u15b(nm16u15b* pSrcVec,  uint15b nCmpVal,   nm16s* pDstVec, int nSize, int16b nTrueFlag);
+	//! \}
 
 	int nmppsCmpNeC_8s8um    (const nm8s* pSrcVec,  int8b  nCmpVal, nm8u* pDstVec, int nSize, struct NmppsTmpSpec *spec);
 	int nmppsCmpNeC_16s8um   (const nm16s* pSrcVec, int16b nCmpVal, nm8u* pDstVec, int nSize, struct NmppsTmpSpec *spec);
@@ -1746,8 +1792,6 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 
 
 
-	void nmppsCmpNeC_8u7b  (nm8u7b* pSrcVec,	uint7b nCmpVal,		nm8s* pDstVec, int nSize, int8b nTrueFlag);
-	void nmppsCmpNeC_16u15b(nm16u15b* pSrcVec,  uint15b nCmpVal,   nm16s* pDstVec, int nSize, int16b nTrueFlag);
 
 
 
@@ -1769,36 +1813,108 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 	void nmppsCmpGtC_32s     (nm32s* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize, Tmp2BuffSpec *spec);
 	void nmppsCmpGtC_64s     (nm64s* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize, Tmp2BuffSpec *spec);
 */
+/**
+  \defgroup nmppsCmpLtC nmppsCmpLtC
+  \ingroup vSelect
+  \brief
+	  \ru Функция сравнения элементов массива с константой (меньше)
+	  \en Compare vec elements to const (less).
+
+	  \~
+  \param pSrcVec
+	  \ru Входной вектор.
+	  \en Input vec.
+	  \~
+  \param nCmpVal
+	  \ru	Значение константы для сравнения
+	  \en Comparision constant value
+	  \~
+  \retval pDstVec
+	  \ru Результирующий вектор.
+	  \en Destination vec.
+	  \~
+  \param nSize
+  \ru Размер векторов в элементах.
+  \en Vector size in elements.
+  \~
+  \return \e void
+
+  \par
+  \xmlonly
+	  <testperf>
+		   <param> pSrcVec </param> <values> L G </values>
+		   <param> pDstVec </param> <values> L G </values>
+		   <param> nCmpVal </param> <values> 0 </values>
+		   <param> nSize </param> <values> 10240 </values>
+	  </testperf>
+	\endxmlonly
+  */
+  //! \{
 	void nmppsCmpLtC_8s7b    (const nm8s7b  * pSrcVec,  int8b  nCmpVal,nm8s*  pDstVec, int nSize);
 	void nmppsCmpLtC_16s15b  (const nm16s15b* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize);
 	void nmppsCmpLtC_32s31b  (const nm32s31b* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
 	void nmppsCmpLtC_64s63b  (const nm64s63b* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
+  //! \}
 
+  /**
+    \defgroup nmppsCmpGtC nmppsCmpGtC
+    \ingroup vSelect
+    \brief
+  	  \ru Функция сравнения элементов массива с константой (больше)
+  	  \en Compare vec elements to const (greater).
+
+  	  \~
+    \param pSrcVec
+  	  \ru Входной вектор.
+  	  \en Input vec.
+  	  \~
+    \param nCmpVal
+  	  \ru	Значение константы для сравнения
+  	  \en Comparision constant value
+  	  \~
+    \retval pDstVec
+  	  \ru Результирующий вектор.
+  	  \en Destination vec.
+  	  \~
+    \param nSize
+    \ru Размер векторов в элементах.
+    \en Vector size in elements.
+    \~
+    \return \e void
+
+    \par
+    \xmlonly
+  	  <testperf>
+  		   <param> pSrcVec </param> <values> L G </values>
+  		   <param> pDstVec </param> <values> L G </values>
+  		   <param> nCmpVal </param> <values> 0 </values>
+  		   <param> nSize </param> <values> 10240 </values>
+  	  </testperf>
+  	\endxmlonly
+    */
+    //! \{
 	void nmppsCmpGtC_8s7b    (const nm8s7b  * pSrcVec,  int8b nCmpVal, nm8s * pDstVec, int nSize);
 	void nmppsCmpGtC_16s15b  (const nm16s15b* pSrcVec, int16b nCmpVal, nm16s* pDstVec, int nSize);
 	void nmppsCmpGtC_32s31b  (const nm32s31b* pSrcVec, int32b nCmpVal, nm32s* pDstVec, int nSize);
 	void nmppsCmpGtC_64s63b  (const nm64s63b* pSrcVec, int64b nCmpVal, nm64s* pDstVec, int nSize);
+    //! \}
 
 	/**
-	\defgroup snmppsCmpGteC nmppsCmpGteC
-	\ingroup snmppsCmpGteC_v2nm32f
-	*/
-
-
-	/**
- *  \ingroup snmppsCmpGteC
+	\defgroup nmppsCmpGteC nmppsCmpGteC
+	\ingroup vSelect_f
 	\brief Функция сравнения элементов массива с константой (больше или равно)
 
 	\param [in] pSrcVec входной массив (элемент массива представляет собой структура v2nm32f, состоящая из двух чисел float)
 	\param [in] C константа (два числа float)
 	\retval [out] evenFlags маска полученная после сравнения первого поля из структуры v2nm32f
 	\retval [out] oddFlags маска полученная после сравнения второго поля из структуры v2nm32f
-	\param [in] step шаг,  с которым будут браться элементы из pSrcVec
+	\param [in] step шаг, с которым будут браться элементы из pSrcVec
 	\param [in] nSize размер массива (в v2nm32f)
 	\details В структуре v2nm32f два поля. Первое - v0. Второе - v1.
- *
  */
-	void nmppsCmpGteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
+//! \{
+void nmppsCmpGteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
+//! \}
 //******************************************************************************************
 
 	/**
@@ -1858,21 +1974,102 @@ void nmppsCmpEqV_16u15b(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, 
 void nmppsCmpEqV_8u7b(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b nTrueFlag);
 	//! \}
 
+	/**
+  	\defgroup nmppsCmpNe nmppsCmpNe
+      \ingroup vSelect
+      \brief
+          \ru Сравнивает элементы массива на признак неравенства константе.
+          \en Compare vec elements to const nonequality.
+
+  		\~
+
+
+
+  	\f[ i = \overline{0 \ldots nSize-1} \f]
+
+  		\~
+      \param pSrcVec1
+          \ru Входной вектор1
+          \en Input vec1
+  		\~
+  	\param pSrcVec2
+  		\ru	Входной вектор2
+        \en Input vec2
+  		\~
+      \param nSize
+  		\ru Размер векторов в элементах
+          \en Vector size in elements
+  		\~
+      \retval pDstVec
+          \ru Результирующий вектор
+          \en Destination vec
+  		\~
+      \return \e void
+
+      \par
+      \xmlonly
+          <testperf>
+               <param> pSrcVec1 </param> <values> L G </values>
+			   <param> pSrcVec2 </param> <values> G L </values>
+               <param> pDstVec </param> <values> L G </values>
+               <param> nSize </param> <values> 10240 </values>
+          </testperf>
+        \endxmlonly
+      */
+//! \{
 void nmppsCmpNe_8s   (const nm8s*  pSrcVec1, const  nm8s* pSrcVec2, nm8s*  pDstVec, int nSize);
 void nmppsCmpNe_16s  (const nm16s* pSrcVec1, const nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
 void nmppsCmpNe_32s  (const nm32s* pSrcVec1, const nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
 void nmppsCmpNe_64s  (const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
+//! \}
 
 int nmppsCmpNe_8s8um (const nm8s*  pSrcVec1, const  nm8s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
 int nmppsCmpNe_16s8um(const nm16s* pSrcVec1, const nm16s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
 int nmppsCmpNe_32s8um(const nm32s* pSrcVec1, const nm32s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
 int nmppsCmpNe_64s8um(const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
 
+
+/**
+  \defgroup nmppsCmpLt nmppsCmpLt
+  \ingroup vSelect
+  \brief
+	  \ru Функция сравнения элементов массива с константой (меньше)
+	  \en Compare vec elements to const (less).
+
+	  \~
+  \param pSrcVec1
+	  \ru Входной вектор1
+	  \en Input vec1
+	  \~
+  \param pSrcVec2
+	  \ru Входной вектор2
+	  \en Input vec2
+	  \~
+  \retval pDstVec
+	  \ru Результирующий вектор
+	  \en Destination vec
+	  \~
+  \param nSize
+  \ru Размер векторов в элементах
+  \en Vector size in elements
+  \~
+  \return \e void
+
+  \par
+  \xmlonly
+	  <testperf>
+		   <param> pSrcVec </param> <values> L G </values>
+		   <param> pDstVec </param> <values> L G </values>
+		   <param> nSize </param> <values> 10240 </values>
+	  </testperf>
+	\endxmlonly
+  */
+//! \{
 void nmppsCmpLt_8s7b  (const nm8s*  pSrcVec1,const  nm8s* pSrcVec2, nm8s*  pDstVec, int nSize);
 void nmppsCmpLt_16s15b(const nm16s* pSrcVec1,const nm16s* pSrcVec2, nm16s* pDstVec, int nSize);
 void nmppsCmpLt_32s31b(const nm32s* pSrcVec1,const nm32s* pSrcVec2, nm32s* pDstVec, int nSize);
 void nmppsCmpLt_64s63b(const nm64s* pSrcVec1,const nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
-
+//! \}
 int nmppsCmpLt_8s8um (const nm8s*  pSrcVec1, const  nm8s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
 int nmppsCmpLt_16s8um(const nm16s* pSrcVec1, const nm16s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
 int nmppsCmpLt_32s8um(const nm32s* pSrcVec1, const nm32s* pSrcVec2, nm8u*  pDstVec, int nSize, struct NmppsTmpSpec* spec);
@@ -1943,9 +2140,8 @@ void nmppsCmpNeV_8s8u(nm8s* src1, nm8s* src2, nm8u* dst, int nSize, int8b nTrueF
 //******************************************************************************************
 
 
-/*
-	\internal
-    \defgroup nmppsConvert_ nmppsConvert_
+/**
+    \defgroup Vec_ClipRShiftConvert_AddC Vec_ClipRShiftConvert_AddC
     \ingroup vInit
     \brief
         \ru Изменение разрядности элементов вектора с клиппированием
@@ -1986,12 +2182,12 @@ void nmppsCmpNeV_8s8u(nm8s* src1, nm8s* src2, nm8u* dst, int nSize, int8b nTrueF
         <testperf>
              <param> pSrcVec	</param> <values> L G </values>
              <param> pDstVec	</param> <values> L G </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> nSize		</param> <values> 2048 </values>
         </testperf>
         <testperf>
              <param> pSrcVec	</param> <values> L </values>
              <param> pDstVec	</param> <values> G </values>
-             <param> nSize		</param> <values> 8 128 1024 10240 </values>
+             <param> nSize		</param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     \{

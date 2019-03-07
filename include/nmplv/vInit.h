@@ -481,7 +481,7 @@ void nmppsConvert_32f32s_floor(const nm32f* pSrcVec, nm32s* pDstVec, int scale, 
 void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize);
 //! \}
 
-/** \defgroup nmppsJoin_f nmppsJoin
+/** \defgroup nmppsMerge_f nmppsMerge
  *  \ingroup vInit_f
  *  \brief Функция соединяет 2 массива 32-х чисел с плавающей точкой (float) в один. Результирующий массив { pSrcVec1[0], pSrcVec2[0], pSrcVec1[1], pSrcVec2[1], pSrcVec1[2], pSrcVec2[2] и т.д. }
  *
@@ -506,7 +506,7 @@ void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int scal
 	\endxmlonly
  */
 //! \{
-void nmppsJoin_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);
+void nmppsMerge_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);
 //! \}
 
 /** \defgroup nmppsConvertRisc nmppsConvertRisc

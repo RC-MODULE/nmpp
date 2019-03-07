@@ -1,4 +1,4 @@
-#include "nmpp.h"
+#include "nmtype.h"
 
 void nmppsMulC_Add_32fcr(const nm32fcr* pSrcVec1, const nm32fcr* pSrcVec2, nm32fcr* pDstVec, float C, int nSize){
 	int i =0;

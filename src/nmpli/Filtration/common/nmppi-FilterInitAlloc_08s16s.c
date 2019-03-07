@@ -6,7 +6,7 @@
 
 
 //#include "nmpli.h"
-#include "nmpli/ifilter.h"
+#include "nmpli/iFilter.h"
 #include "nmplv/vSupport.h"
 #include "nmplv/vInit.h"
 #include "malloc32.h"

@@ -28,7 +28,7 @@
 
 int	FlagsFFT256=FFT7BIT;	// if 0 (FFT7BIT)- 127.99999 multiplier is used
 							// if 1 (FFT6BIT)- 64.000000 multiplier is used 
-
+extern "C" {  
 // Setting of the calculation accuracy for FFT_Fwd256 function
 void FFT_Fwd256Set( int	Flag)			// See header for more information
 {
@@ -43,6 +43,7 @@ void FFT_Fwd256Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 	FFT_Fwd256Set(FFT7BIT);
 }
 
+};
 
 static cmplx<double> Rounder(0.5,0.5);
 ///////////////////////////////////////////////////////////////////
@@ -165,7 +166,7 @@ void MakeTable256W1W2(
 
 }
 
-
+extern "C"{
 
 /////////////////////////////////////////////////////////////////////
 //	 This is the C equivalent of the function FFT_Fwd256 
@@ -200,6 +201,7 @@ void FFT_Fwd256(
 
 }
 
+};
 ///////////////////////////////////////////////////////////////////
 // Computing FFT-256 using floating-point arithmetic by radix-16-16 method
 int FFT256(

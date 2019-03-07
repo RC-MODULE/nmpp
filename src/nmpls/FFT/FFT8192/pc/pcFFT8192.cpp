@@ -244,7 +244,7 @@ void MakeTable8192W1W2W3_fixed(void) //Вычисление коэффициентов (фиксированных) 
 			W3_8192_fixed[idx].Im = (char) floor(127 * W3_8192_float[idx].Im + 0.5);
 		}
 }
-
+extern "C" {
 void FFT_Fwd8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buffer2) //Аналог ассемблерной функции
 {
 	class Cplx_fixed
@@ -366,3 +366,4 @@ void FFT_Fwd8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buff
 			DstBuffer[i].im >>= 7;
 		}
 }
+};

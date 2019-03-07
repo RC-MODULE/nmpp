@@ -2,7 +2,7 @@
 #include <aura/aura.h>
 #include <ion/ion.h>
 #include "nmpp.h"
-#include "fft2.h"
+#include "fft.h"
 
 struct aura_node *n;
 int main() {

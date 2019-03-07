@@ -203,7 +203,7 @@ void MakeTable4096W1W2W3_fixed(void) //Вычисление коэффициентов (фиксированных) 
 			W3_4096_fixed[idx].Im = (char) floor(127 * W3_4096_float[idx].Im + 0.5);
 		}
 }
-
+extern "C" {
 void FFT_Fwd4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GBuffer) //Аналог ассемблерной функции
 {
 	class Cplx_fixed
@@ -310,3 +310,4 @@ void FFT_Fwd4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GB
 			GDstBuffer[i].im >>= 7;
 		}
 }
+};

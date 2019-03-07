@@ -1088,6 +1088,7 @@ void nmppsMul_Mul_Add_64f(const nm64f *pSrcVec1, const nm64f *pSrcVec2, const nm
 //! \{
 void nmppsMul_Add_64f(const nm64f* pSrcVec1, const nm64f* pSrcVec2, const nm64f* pSrcVecAdd, nm64f* pDstVec, int nSize);
 void nmppsMul_Add_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, const nm32f* pSrcVecAdd, nm32f* pDstVec, int nSize);
+void nmppsMul_AddC_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, float nValueAddC, nm32f* pDstVec, int nSize);
 void nmppsMul_Add_32fcr(const nm32fcr* pSrcVec1, const nm32fcr* pSrcVec2, const nm32fcr* pSrcVecAdd, nm32fcr* pDstVec, int nSize);
 //! \}
 

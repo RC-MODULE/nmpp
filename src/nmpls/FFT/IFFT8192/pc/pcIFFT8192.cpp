@@ -261,6 +261,7 @@ void IMakeTable8192W1W2W3_fixed(void) //Вычисление коэффициентов (фиксированных)
 		}
 }
 
+extern "C" {
 void FFT_Inv8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buffer2) //Аналог ассемблерной функции
 {
 	class Cplx_fixed
@@ -383,3 +384,4 @@ void FFT_Inv8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buff
 			DstBuffer[i].im >>= 20;
 		}
 }
+};

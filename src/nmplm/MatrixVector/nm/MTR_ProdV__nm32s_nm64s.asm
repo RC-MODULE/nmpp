@@ -25,7 +25,7 @@ begin ".text_nmplm"
 //!
 //! \perfinclude nmppmMul_mv_32s64s.html
 
-extern rep_n_Mul_M32V64:label;
+extern mtrMul_mm_32sXs:label;
 extern _nmppsTmpBuffer64_G_: long;
 extern _nmppsTmpBuffer64_L_: long;
 
@@ -46,12 +46,13 @@ global _nmppmMul_mv_32s64s:label;
 	//-----------------------------------------
 	ar0 = [--ar5]			// SrcMatrix
 		with gr3=false;			// gr3(nb1)
+	nb1 = gr3;
 	ar4 = [--ar5]			// pSrcVec
 		with gr4=gr3+1;				
 	ar6 = [--ar5]			// pDstVec
 		with gr4++;				// gr4 = 2 (Reading step)	
 
-	delayed call rep_n_Mul_M32V64	with gr6=gr4;			// gr6 = 2 (Writing step)	
+	delayed call mtrMul_mm_32sXs	with gr6=gr4;			// gr6 = 2 (Writing step)	
 		gr5 = [--ar5];		// nHeight
 		gr0 = [--ar5];		// nWidth in 32-bit words
 

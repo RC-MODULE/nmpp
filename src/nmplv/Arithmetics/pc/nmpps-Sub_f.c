@@ -1,4 +1,4 @@
- #include "nmpp.h"
+#include "nmtype.h"
 
 void nmppsSub_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize) {
   int i;

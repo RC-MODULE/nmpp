@@ -28,8 +28,10 @@
 #define PI 3.14159265359
 #endif
 static cmplx<double> Rounder(0.5,0.5);
+
 int FlagsIFFT256;
 // Setting of the calculation accuracy for  FFT_Inv256 functions
+extern "C" {
 void FFT_Inv256Set( int	Flag)			// See header for more information
 {
 	FlagsIFFT256=Flag;
@@ -43,7 +45,7 @@ void FFT_Inv256Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 	FFT_Inv256Set(FFT7BIT);
 }
 
-
+};
 /////////////////////////////////////////////////////////////////////
 // Computing FFT-256 using fixed-point arithmetic by radix 16-16 method
 // This is the C equivalent of the FFT_Fwd256 Assembly Code
@@ -156,6 +158,7 @@ void IMakeTable256W1W2(
 	}
 
 }
+extern "C" {
 ///////////////////////////////////////////////////////////////////
 // This is the C equivalent of the function  FFT_Fwd256 
 void FFT_Inv256(
@@ -192,7 +195,7 @@ void FFT_Inv256(
 
 
 }
-
+};
 ///////////////////////////////////////////////////////////////////
 // Computing IFFT-256 using floating-point arithmetic
 int IFFT256(

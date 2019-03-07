@@ -47,3 +47,12 @@ void nmppsMerge_32s(const nm32s* src0, const nm32s* src1, nm32s* dst, int sizeSr
 	}
 }
 
+void nmppsMerge_32f(const nm32f* src0, const nm32f* src1, nm32f* dst, int sizeSrc)
+{
+	int i;
+	for (i=0;i<sizeSrc;i++){
+		dst[2*i]  =src0[i];
+		dst[2*i+1]=src1[i];
+	}
+}
+

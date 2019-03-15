@@ -745,17 +745,15 @@ void nmppsMinNV_64s(nm64s63b** pSrcVecs, int numVecs, nm64s63b* pDstMinVec, int 
     \xmlonly
         <testperf>
              <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
+             <param> pSrcVec2 </param> <values> G L </values>
              <param> pDstMaxVec	</param> <values> L G </values>
-             <param> pDstSignMask </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
              <param> pSrcVec1 </param> <values> L </values>
              <param> pSrcVec2 </param> <values> L </values>
              <param> pDstMaxVec	</param> <values> G </values>
-             <param> pDstSignMask </param> <values> G </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -1657,7 +1655,7 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
         <testperf>
              <param> pSrcVec </param> <values> L G </values>
              <param> pDstVec </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 4096 </values>
         </testperf>
       \endxmlonly
     */

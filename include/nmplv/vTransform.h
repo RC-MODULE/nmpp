@@ -231,8 +231,9 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 *  Максимальная производительность достигается при размещении входных, выходных и временных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
 	 *  Макс  производительность  на 64-р. слово результата = 2.1 такта (при size=10240 байт) и 2.5 такта (при size=4096 байт)
 	 */
+	 //! \{
 	void nmppsSplitTmp_8s(const nm8s* src, nm8s* dst1, nm8s* dst2, int size, nm8s* tmpSizeOfDst);
-
+	 //! \}
    /**
 	    \defgroup nmppSplit nmppSplit
         \ingroup vTransform
@@ -249,10 +250,11 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 *  Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
 	 *  Макс  производительность  на 64-р. слово результата = 2.14 такта (при size=10240 байт) и 2.6 такта (при size=4096 байт)
 	 */
+	 //! \{
 	void nmppsSplit_8s (const nm8s* src,  nm8s*  dst1, nm8s*  dst2, int size);
 	void nmppsSplit_16s(const nm16s* src, nm16s* dst1, nm16s* dst2, int size);
 	void nmppsSplit_32s(const nm32s* src, nm32s* dst1, nm32s* dst2, int size);
-
+	 //! \}
    /**
 	    \defgroup nmppMerge nmppMerge
         \ingroup vTransform
@@ -267,10 +269,11 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 *
 	 *  \details Details
 	 */
+	 //! \{
 	void nmppsMerge_8s (const nm8s*  src0, const nm8s*  src1, nm8s*  dst, int sizeSrc);
 	void nmppsMerge_16s(const nm16s* src0, const nm16s* src1, nm16s* dst, int sizeSrc);
 	void nmppsMerge_32s(const nm32s* src0, const nm32s* src1, nm32s* dst, int sizeSrc);
-
+	 //! \}
 	/**
 	    \defgroup nmppSplit_32fcr nmppSplit_32fcr
         \ingroup vTransform
@@ -287,8 +290,9 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 *  Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти. Массивы dst1 и dst2 могут находится в одном банке.
 	 *  Макс  производительность  на 64-р. слово результата = 1 такт
 	 */
+	 //! \{
 	void nmppsSplit_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec1, nm32fcr* pDstVec, int sizeSrc);
-
+	 //! \}
 	/**
 	    \defgroup nmppsDecimate nmppsDecimate
         \ingroup vTransform
@@ -305,9 +309,10 @@ void nmppsSplit_(v4nm16s* pSrcVec, nm16s** pDst4Vec, int nSize);
 	 *  \details Details
 	 *  Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти.
 	 */
+	 //! \{
 	void nmppsDecimate_16s(nm16s* pSrc, int startPos, int step, nm16s* pDst, int nSizeDst);
 	void nmppsDecimate_32s(nm32s* pSrc, int startPos, int step, nm32s* pDst, int nSizeDst);
-
+	 //! \}
 
 #ifdef __cplusplus
 		};

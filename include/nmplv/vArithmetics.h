@@ -234,6 +234,63 @@ void nmppsNeg_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
         \ru Добавляемая константа.
         \en Added constant.
 		\~
+    \param  nSize
+        \ru Размер векторов в элементах.
+        \en Vector size in elements.
+		\~
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
+		\~
+    \return \e void
+
+
+    \par
+    \xmlonly
+        <testperf>
+             <param> pSrcVec </param> <values> L G </values>
+             <param> nVal </param> <values> 3 </values>
+             <param> pDstVec </param> <values> G L </values>
+             <param> nSize </param> <values> 2048 </values>
+        </testperf>
+        <testperf>
+             <param> pSrcVec </param> <values> L </values>
+             <param> nVal </param> <values> 3 </values>
+             <param> pDstVec </param> <values> G </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
+        </testperf>
+    \endxmlonly
+    */
+    //! \{
+void nmppsAddC_8s  (const nm8s* pSrcVec,  int8b nVal,    nm8s* pDstVec,  int nSize);
+void nmppsAddC_16s (const nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSize);
+void nmppsAddC_32s (const nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
+void nmppsAddC_64s (const nm64s* pSrcVec, int64b nVal,  nm64s* pDstVec, int nSize);
+    //! \}
+
+//*****************************************************************************
+
+	/**
+    \defgroup nmppsAddC_p nmppsAddC_p
+    \ingroup vArithmetics
+    \brief
+        \ru Добавление к вектору константы.
+        \en Addition of a constant to a vec.
+
+		\~
+
+	\f[
+        pDstVec[i]  =  pSrcVec[i]  +  nVal,
+    \f]
+
+	\f[
+        i = \overline{0 \ldots nSize-1}
+    \f]
+
+    \param  pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
+		\~
     \param  pnVal
         \ru Указатель на добавляемую константу.
         \en Pointer to the added constant.
@@ -253,28 +310,79 @@ void nmppsNeg_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     \xmlonly
         <testperf>
              <param> pSrcVec </param> <values> L G </values>
-             <param> nVal </param> <values> n </values>
-             <param> pnVal </param> <values> &amp;n </values>
-             <param> pDstVec </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> pnVal </param> <values> im2 </values>
+             <param> pDstVec </param> <values> G L </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
              <param> pSrcVec </param> <values> L </values>
-             <param> nVal </param> <values> n </values>
-             <param> pnVal </param> <values> &amp;n </values>
+             <param> pnVal </param> <values> im2 </values>
              <param> pDstVec </param> <values> G </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
     //! \{
-void nmppsAddC_8s  (const nm8s* pSrcVec,  int8b nVal,    nm8s* pDstVec,  int nSize);
-void nmppsAddC_16s (const nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSize);
-void nmppsAddC_32s (const nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
-void nmppsAddC_64s (const nm64s* pSrcVec, int64b pnVal,  nm64s* pDstVec, int nSize);
 void nmppsAddC_p64s(const nm64s* pSrcVec, int64b* pnVal, nm64s* pDstVec, int nSize);
-void nmppsAddC_32fcr(const nm32fcr *pSrcVec, nm32fcr *pDstVec, float C, int nSize);
     //! \}
+
+	//*****************************************************************************
+
+		/**
+	    \defgroup nmppsAddC_f nmppsAddC
+	    \ingroup vArithmetics_f
+	    \brief
+	        \ru Добавление к вектору константы.
+	        \en Addition of a constant to a vec.
+
+			\~
+
+		\f[
+	        pDstVec[i]  =  pSrcVec[i]  +  nVal,
+	    \f]
+
+		\f[
+	        i = \overline{0 \ldots nSize-1}
+	    \f]
+
+	    \param  pSrcVec
+	        \ru Входной вектор.
+	        \en Input vec.
+			\~
+	    \param  nVal
+	        \ru Добавляемая константа.
+	        \en Added constant.
+			\~
+	    \param  nSize
+	        \ru Размер векторов в элементах.
+	        \en Vector size in elements.
+			\~
+	    \retval pDstVec
+	        \ru Результирующий вектор.
+	        \en The result vec.
+			\~
+	    \return \e void
+
+
+	    \par
+	    \xmlonly
+	        <testperf>
+	             <param> pSrcVec </param> <values> L G </values>
+	             <param> nVal </param> <values> 3 </values>
+	             <param> pDstVec </param> <values> G L </values>
+	             <param> nSize </param> <values> 2048 </values>
+	        </testperf>
+	        <testperf>
+	             <param> pSrcVec </param> <values> L </values>
+	             <param> nVal </param> <values> 3 </values>
+	             <param> pDstVec </param> <values> G </values>
+	             <param> nSize </param> <values> 8 128 1024 2048 </values>
+	        </testperf>
+	    \endxmlonly
+	    */
+	    //! \{
+	void nmppsAddC_32fcr(const nm32fcr *pSrcVec, nm32fcr *pDstVec, float nVal, int nSize);
+	    //! \}
 
 //*****************************************************************************
 
@@ -493,10 +601,6 @@ void nmppsAdd_AddC_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVe
         \ru Вычитаемая константа.
         \en The deducted constant.
 		\~
-    \param  pnVal
-        \ru Указатель на вычитаемую константу.
-        \en Pointer to the deducted constant.
-		\~
     \param nSize
         \ru Размер векторов в элементах.
         \en Vector size in elements.
@@ -512,15 +616,13 @@ void nmppsAdd_AddC_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVe
     \xmlonly
         <testperf>
              <param> pSrcVec </param> <values> L G </values>
-             <param> nVal </param> <values> n </values>
-             <param> pnVal </param> <values> &amp;n </values>
+             <param> nVal </param> <values> 3 </values>
              <param> pDstVec </param> <values> L G </values>
              <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf>
              <param> pSrcVec </param> <values> L </values>
-             <param> nVal </param> <values> n </values>
-             <param> pnVal </param> <values> &amp;n </values>
+             <param> nVal </param> <values> 3 </values>
              <param> pDstVec </param> <values> G </values>
              <param> nSize </param> <values> 8 128 1024 10240 </values>
         </testperf>
@@ -561,10 +663,6 @@ void nmppsSubC_64s(const nm64s* pSrcVec, int64b nVal,   nm64s* pDstVec, int nSiz
         \ru Константа.
         \en Constant.
 		\~
-    \param  pnVal
-        \ru Указатель на константу.
-        \en Pointer to the constant.
-		\~
     \param nSize
         \ru Размер векторов в элементах.
         \en Vector size in elements.
@@ -580,17 +678,15 @@ void nmppsSubC_64s(const nm64s* pSrcVec, int64b nVal,   nm64s* pDstVec, int nSiz
     \xmlonly
         <testperf>
              <param> pSrcVec </param> <values> L G </values>
-             <param> nVal </param> <values> n </values>
-             <param> pnVal </param> <values> &amp;n </values>
-             <param> pDstVec </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nVal </param> <values> 5 </values>
+             <param> pDstVec </param> <values> G L </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
              <param> pSrcVec </param> <values> L </values>
-             <param> nVal </param> <values> n </values>
-             <param> pnVal </param> <values> &amp;n </values>
+             <param> nVal </param> <values> 3 </values>
              <param> pDstVec </param> <values> G </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -886,7 +982,7 @@ void nmppsAbsDiff1_8s(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
         \ru Входной вектор.
         \en Input vec.
 		\~
-    \param C
+    \param nVal
         \ru Константа-множитель.
         \en Multiplier constant.
 		\~
@@ -904,17 +1000,15 @@ void nmppsAbsDiff1_8s(nm8s* pSrcVec1, nm8s* pSrcVec2, nm8s* pDstVec, int nSize);
     \xmlonly
         <testperf>
              <param> pSrcVec </param> <values> L G </values>
-             <param> nVal </param> <values> n </values>
-             <param> pnVal </param> <values> &amp;n </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> nVal </param> <values> 3 </values>
+             <param> pDstVec </param> <values> G L </values>
              <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf>
              <param> pSrcVec </param> <values> L </values>
-             <param> nVal </param> <values> n </values>
-             <param> pnVal </param> <values> &amp;n </values>
+             <param> nVal </param> <values> 3 </values>
              <param> pDstVec </param> <values> G </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -961,15 +1055,15 @@ void nmppsMulC_2s16s   (const nm2s* pSrcVec, int16b nVal, nm16s* pDstVec, int nS
     \xmlonly
         <testperf>
              <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pDstVec </param> <values> G L </values>
 			 <param> C </param> <values> 555 </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
              <param> pSrcVec </param> <values> L </values>
 			 <param> pDstVec </param> <values> G </values>
              <param> C </param> <values> 555 </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -1070,30 +1164,27 @@ void nmppsMul_Mul_Add_64f(const nm64f *pSrcVec1, const nm64f *pSrcVec2, const nm
 	<testperf>
 		 <param> pSrcVec1 </param> <values> im2 </values>
 		 <param> pSrcVec2 </param> <values> im3 </values>
-		 <param> pSrcVec3 </param> <values> im4 </values>
-		 <param> pSrcVec4 </param> <values> L </values>
+		 <param> pSrcVecAdd </param> <values> im4 </values>
 		 <param> pDstVec </param> <values> G </values>
 		 <param> nSize </param> <values> 2048 </values>
 	</testperf>
 	<testperf>
 		<param> pSrcVec1 </param> <values> im2 </values>
 		<param> pSrcVec2 </param> <values> im3 </values>
-		<param> pSrcVec3 </param> <values> im4 </values>
-		<param> pSrcVec4 </param> <values> L </values>
+		<param> pSrcVecAdd </param> <values> im4 </values>
 		<param> pDstVec </param> <values> G </values>
 		<param> nSize </param> <values> 8 128 1024 2048 </values>
 	</testperf>
 \endxmlonly
 */
 //! \{
-void nmppsMul_Add_64f(const nm64f* pSrcVec1, const nm64f* pSrcVec2, const nm64f* pSrcVecAdd, nm64f* pDstVec, int nSize);
 void nmppsMul_Add_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, const nm32f* pSrcVecAdd, nm32f* pDstVec, int nSize);
-void nmppsMul_AddC_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, float nValueAddC, nm32f* pDstVec, int nSize);
+void nmppsMul_Add_64f(const nm64f* pSrcVec1, const nm64f* pSrcVec2, const nm64f* pSrcVecAdd, nm64f* pDstVec, int nSize);
 void nmppsMul_Add_32fcr(const nm32fcr* pSrcVec1, const nm32fcr* pSrcVec2, const nm32fcr* pSrcVecAdd, nm32fcr* pDstVec, int nSize);
 //! \}
 
 /**
-\defgroup nmppsMul_ConjMul_Add nmppsMul_ConjMul_Add
+\defgroup nmppsMul_ConjMul_Add_f nmppsMul_ConjMul_Add
 \ingroup vArithmetics_f
 \brief
 	\ru Умножение пары векторов (вектор pSrcVec4 комплексно-сопряженный) с последующим суммированием результата (pDstVec[i] = pSrcVec1[i] * pSrcVec2[i] + pSrcVec3[i] * Conj(pSrcVec4[i]))
@@ -1130,15 +1221,17 @@ void nmppsMul_Add_32fcr(const nm32fcr* pSrcVec1, const nm32fcr* pSrcVec2, const 
 	<testperf>
 		 <param> pSrcVec1 </param> <values> L G </values>
 		 <param> pSrcVec2 </param> <values> G L </values>
-		 <param> pSrcVecAdd </param> <values> im2 im3 </values>
-		 <param> pDstVec </param> <values> im3 im2 </values>
+		 <param> pSrcVec3 </param> <values> im2 im3 </values>
+		 <param> pSrcVec4 </param> <values> im3 im2 </values>
+		 <param> pDstVec </param> <values> im4 </values>
 		 <param> nSize </param> <values> 2048 </values>
 	</testperf>
 	<testperf>
 		<param> pSrcVec1 </param> <values> L G </values>
 		<param> pSrcVec2 </param> <values> G L </values>
-		<param> pSrcVecAdd </param> <values> im2 </values>
-		<param> pDstVec </param> <values> im3 </values>
+		<param> pSrcVec3 </param> <values> im2 im3 </values>
+		<param> pSrcVec4 </param> <values> im3 im2 </values>
+		<param> pDstVec </param> <values> im4 </values>
 		<param> nSize </param> <values> 8 128 256 512 1024 2048 </values>
 	</testperf>
 \endxmlonly
@@ -1199,7 +1292,7 @@ void nmppsMulC_AddC_32f(const nm32f* pSrcVec, float nMulC, float nAddC, nm32f* p
 //! \}
 
 /**
-\defgroup nmppsMul nmppsMul
+\defgroup nmppsMul_f nmppsMul
 \ingroup vArithmetics_f
 \brief
 	\ru Умножение векторов (pDstVec[i] = pSrcVec1[i] * pSrcVec1[i])
@@ -1244,7 +1337,7 @@ void nmppsMul_32fcr(const nm32fcr* pSrcVec1, const nm32fcr* pSrcVec2, nm32fcr* p
 //! \}
 
 /**
-\defgroup nmppsConjMul nmppsConjMul
+\defgroup nmppsConjMul_f nmppsConjMul
 \ingroup vArithmetics_f
 \brief
 	\ru Умножение вектора на комлексно-сопряженный вектор(pDstVec[i] = pSrcVec1[i] * Conj(pSrcVec1[i]))
@@ -1289,7 +1382,7 @@ void nmppsConjMul_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, nm32fc
 //! \}
 
 /**
-\defgroup nmppsMul_Mul_Sub nmppsMul_Mul_Sub
+\defgroup nmppsMul_Mul_Sub_f nmppsMul_Mul_Sub
 \ingroup vArithmetics_f
 \brief
 	\ru Умножение пары векторов с последующим вычитанием результатов (pDstVec[i] = pSrcVec1[i] * pSrcVec2[i] - pSrcVec3[i] * pSrcVec4[i])
@@ -1346,7 +1439,7 @@ void nmppsMul_Mul_Sub_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, const nm
 //! \}
 
 /**
-\defgroup nmppsMulC_Add nmppsMulC_Add
+\defgroup nmppsMulC_Add_f nmppsMulC_Add
 \ingroup vArithmetics_f
 \brief
 	\ru Умножение вектора на константу с накоплением (pDstVec[i] = pSrcVec1[i] * С + pSrcVec2[i])
@@ -1423,7 +1516,7 @@ void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* 
         \ru Входной вектор.
         \en Input vec.
 		\~
-    \param nVal
+    \param pnVal
         \ru указаель на константу-инкремент.
         \en pointer to increment-constant.
 		\~
@@ -1442,14 +1535,13 @@ void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* 
         <testperf>
              <param> pSrcVec1 </param> <values> L G </values>
 			 <param> pSrcVec2 </param> <values> L G </values>
-             <param> nVal </param> <values> 5 </values>
              <param> pnVal </param> <values> im2 </values>
              <param> pDstVec </param> <values> L G </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> nVal </param> <values> 5 </values>
+             <param> pSrcVec1 </param> <values> L </values>
+			 <param> pSrcVec2 </param> <values> L G </values>
              <param> pnVal </param> <values> im2 </values>
              <param> pDstVec </param> <values> G </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
@@ -1458,6 +1550,69 @@ void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* 
     */
     //! \{
 void nmppsMul_AddC_64s(const nm64s* pSrcVec1,const nm64s* pSrcVec2, const nm64s* pnVal, nm64s* pDstVec, int nSize);
+    //! \}
+
+//*****************************************************************************
+
+	/**
+    \defgroup nmppsMul_AddC_f nmppsMul_AddC
+    \ingroup vArithmetics_f
+    \brief
+        \ru Поэлементное умножение векторов с прибавлением константы.
+        \en Elementwise multiplication of two vectors with constat addition
+
+		\~
+
+	\f[
+        pDstVec[i] = pSrcVec1[i] \cdot pSrcVec2[i] + nVal,
+    \f]
+
+	\f[
+        i = \overline{0 \ldots nSize-1}
+    \f]
+
+    \param pSrcVec1
+        \ru Входной вектор.
+        \en Input vec.
+		\~
+	\param pSrcVec2
+        \ru Входной вектор.
+        \en Input vec.
+		\~
+    \param nValueAddC
+        \ru указаель на константу-инкремент.
+        \en pointer to increment-constant.
+		\~
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vector size in elements.
+		\~
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
+		\~
+    \return \e void
+
+    \par
+    \xmlonly
+        <testperf>
+             <param> pSrcVec1 </param> <values> L G </values>
+			 <param> pSrcVec2 </param> <values> G L </values>
+             <param> nValueAddC </param> <values> 5 </values>
+             <param> pDstVec </param> <values> L G im2 </values>
+             <param> nSize </param> <values> 2048 </values>
+        </testperf>
+        <testperf>
+             <param> pSrcVec1 </param> <values> L </values>
+			 <param> pSrcVec2 </param> <values> L G </values>
+			 <param> nValueAddC </param> <values> 5 </values>
+             <param> pDstVec </param> <values> G </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
+        </testperf>
+    \endxmlonly
+    */
+    //! \{
+void nmppsMul_AddC_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, float nValueAddC, nm32f* pDstVec, int nSize);
     //! \}
 //*****************************************************************************
 
@@ -1967,14 +2122,14 @@ void nmppsSum_1s (const nm1* pSrcVec, int nSize, int32b* pnRes, void* pTmpBuf);
              <param> pSrcVec1 </param> <values> L G </values>
              <param> pSrcVec2 </param> <values> L G </values>
              <param> tmp </param> <values> L G </values>
-             <param> pnRes  </param> <values> &amp;n </values>
+             <param> pnRes  </param> <values> im2 </values>
              <param> nSize </param> <values> 8192 </values>
         </testperf>
         <testperf>
              <param> pSrcVec1 </param> <values> G </values>
              <param> pSrcVec2 </param> <values> L </values>
              <param> tmp </param> <values> G </values>
-             <param> pnRes  </param> <values> &amp;n </values>
+             <param> pnRes  </param> <values> im2 </values>
              <param> nSize </param> <values> 8 128 1024 8192 </values>
         </testperf>
     \endxmlonly

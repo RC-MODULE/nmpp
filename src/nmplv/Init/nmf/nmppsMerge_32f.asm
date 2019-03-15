@@ -4,7 +4,7 @@
 //*                                                                         */
 //*   Software design:  A.Bolotnikov                	                      */
 //*                                                	                        */
-//*   File:             nmppsJoin_32f.asm 				      	                  */
+//*   File:             nmppsMerge_32f.asm 				      	                  */
 //*   Contents:         Joins 2 float arrays in one array in order 					*/
 //*												{src0[0],src1[0],src0[1],src1[1],...}   */
 //*																				*/

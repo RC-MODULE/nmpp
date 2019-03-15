@@ -8,7 +8,7 @@
 							"fpu 3 " instr "\n\t"
 
 extern "C" __attribute__ ((section(".text_int")))
-void nmppsLog_64f(const nm64f *pSrcVec, nm64f *pDstVec, int nSize)
+void nmppsLn_64f(const nm64f *pSrcVec, nm64f *pDstVec, int nSize)
 {
 	if (nSize<4){
 		static double b4[4]={1,1,1,1};
@@ -16,7 +16,7 @@ void nmppsLog_64f(const nm64f *pSrcVec, nm64f *pDstVec, int nSize)
 		int i;
 		for (i=0;i<nSize;i++)
 			b4[i]=pSrcVec[i];
-		nmppsLog_64f( o4, b4, 4 );//	рекурсия!
+		nmppsLn_64f( o4, b4, 4 );//	рекурсия!
 		for (i=0;i<nSize;i++)
 			pDstVec[i]=o4[i];
 		return;

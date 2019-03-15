@@ -114,10 +114,6 @@ void nmppsNot_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize);
         \ru Константа.
         \en Constant.
 		\~
-    \param pnVal
-        \ru Указатель на константу.
-        \en Pointer to the constant.
-		\~
     \param nSize
         \ru Размер векторов в элементах.
         \en Vectors size in elements.
@@ -133,13 +129,13 @@ void nmppsNot_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize);
     \xmlonly
         <testperf>
              <param> pSrcVec </param> <values> L G </values>
-             <param> pnVal  </param> <values> im2 </values>
+             <param> pVal  </param> <values> 5 </values>
              <param> pDstVec </param> <values> L G </values>
              <param> nSize   </param> <values> 2048 </values>
         </testperf>
         <testperf>
              <param> pSrcVec </param> <values> L </values>
-             <param> pnVal  </param> <values> im2 </values>
+             <param> pVal  </param> <values> 5 </values>
              <param> pDstVec </param> <values> G </values>
              <param> nSize   </param> <values> 8 128 1024 2048 </values>
         </testperf>
@@ -361,10 +357,6 @@ void nmppsAndNotV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSiz
         \ru Константа.
         \en Constant.
 		\~
-    \param pnVal
-        \ru Указатель на константу.
-        \en Pointer to constant.
-		\~
     \param nSize
         \ru Размер векторов в элементах.
         \en Vectors size in elements.
@@ -380,13 +372,13 @@ void nmppsAndNotV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSiz
     \xmlonly
         <testperf>
              <param> pSrcVec </param> <values> L G </values>
-             <param> pnVal </param> <values> im2 </values>
+             <param> pVal </param> <values> 5 </values>
              <param> pDstVec </param> <values> L G </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
              <param> pSrcVec </param> <values> L </values>
-             <param> pnVal </param> <values> im2 </values>
+             <param> pVal </param> <values> 3 </values>
              <param> pDstVec </param> <values> G </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>

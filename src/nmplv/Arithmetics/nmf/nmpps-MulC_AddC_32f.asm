@@ -26,7 +26,6 @@ begin ".text"
 <_nmppsMulC_AddC_32f>
 	ar5 = ar7 - 2;
 	push ar0, gr0;
-	push ar1, gr1;
 	push ar5, gr5;
 	push ar6, gr6;
 	
@@ -68,7 +67,6 @@ begin ".text"
 <end_program>
 	pop ar6, gr6;
 	pop ar5, gr5;
-	pop ar1, gr1;
 	pop ar0, gr0;
 	return;
 end ".text";

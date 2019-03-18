@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-
+#include "nmtype.h"
 void nmppsAddC_32fcr(
 const	nm32fcr *pSrcVec,
 		nm32fcr *pDstVec,

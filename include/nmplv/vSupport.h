@@ -210,7 +210,7 @@ __INLINE__ void nmppsPut_64u(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex
     \xmlonly
         <testperf>
              <param> pVec		</param> <values> L G	</values>
-             <param> nVal		</param> <values> n		</values>
+             <param> nVal		</param> <values> im2	</values>
              <param> nIndex		</param> <values> 0		</values>
              <size> 1 </size>
         </testperf>

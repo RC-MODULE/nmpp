@@ -5,7 +5,7 @@
 
 
 extern "C" __attribute__ ((section(".text_int")))
-void nmppsLog_32f (const nm32f *pSrcVec, nm32f *pDstVec, int nSize)
+void nmppsLn_32f (const nm32f *pSrcVec, nm32f *pDstVec, int nSize)
 {
 	if (nSize<8){
 		static float b4[8]={1,1,1,1,1,1,1,1};
@@ -13,21 +13,21 @@ void nmppsLog_32f (const nm32f *pSrcVec, nm32f *pDstVec, int nSize)
 		int i;
 		for (i=0;i<nSize;i++)
 			b4[i]=pSrcVec[i];
-		nmppsLog_32f( b4, o4, 8 );//	рекурсия!
+		nmppsLn_32f( b4, o4, 8 );//	пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!
 		for (i=0;i<nSize;i++)
 			pDstVec[i]=o4[i];
 		return;
 	}
 
 	static const float coeffs[112]= { DUP(float( 0.7)), DUP(pow(2.0, 126)),  DUP(float( -126.0)),
-           //  константы для
+           //  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
            //
            //    for (i=11;i>=0;i--){
            //        int pw=1<<i;
            //        float tr_h= pow( 2.0, pw );
-           //        if ( x>tr_h ){            константа 1 - tr_h
-           //            x /= tr_h;            константа 2 - 1/tr_h
-           //            res += pw;            константа 3 - pw
+           //        if ( x>tr_h ){            пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 1 - tr_h
+           //            x /= tr_h;            пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 2 - 1/tr_h
+           //            res += pw;            пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 3 - pw
            //        }
            //    }
 			DUP(pow(2.0, 64 )), DUP(pow(2.0, -64 )), DUP(float( 64.0 )), //     2^6 = 64
@@ -110,8 +110,8 @@ void nmppsLog_32f (const nm32f *pSrcVec, nm32f *pDstVec, int nSize)
 
 		nSize -= len*4;
 
-		//	Чтобы понять код ниже, см. log_vdc.cpp, для которого есть
-		//	реализация того же алгоритма без ассемблерной магии
+		//	пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅ. log_vdc.cpp, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+		//	пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
 		//	READ
 		asm ( 	"vlen = %2;  							\n\t"
@@ -132,44 +132,44 @@ void nmppsLog_32f (const nm32f *pSrcVec, nm32f *pDstVec, int nSize)
 		asm ( 	ALL_FPU (".float vreg1 + vreg1, set mask if >;")
 				ALL_FPU_ANTI_MASK
 				ALL_FPU (".float vreg7= not mask ?  vreg1 * .retrive(vreg6) : vreg7;")
-					: "+a" (cfs) );	//	провязываем инструкции зависимостями
+					: "+a" (cfs) );	//	пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
-		//	Если аргумент мал (0.7 > х), домножаем на 2^126
+		//	пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ (0.7 > пїЅ), пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 2^126
 		asm ( 	ALL_FPU (".float vreg1 - .retrive(vreg5), set mask if <;")
 				ALL_FPU_ANTI_MASK
 				ALL_FPU (".float vreg1= mask ?   vreg1 * .retrive(vreg5) : vreg1;")
 				ALL_FPU (".float vreg7= mask ?   vreg7 + .retrive(vreg5) : vreg7;")
-					: "+a" (cfs) );	//	провязываем инструкции зависимостями
+					: "+a" (cfs) );	//	пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		int i;
-		//	Двигаем аргумент к единице (сверху)
-		//	Было бы достаточно (i=0; i<13; i++), но в vreg5 не хватает места
+		//	пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅ)
+		//	пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (i=0; i<13; i++), пїЅпїЅ пїЅ vreg5 пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 		for (i=0; i<9; i++){
 			asm ( 	ALL_FPU (".float vreg1 - .retrive(vreg5), set mask if >;")
 					ALL_FPU_ANTI_MASK
 					ALL_FPU (".float vreg1= mask ?   vreg1 * .retrive(vreg5) : vreg1;")
 					ALL_FPU (".float vreg7= mask ?   vreg7 + .retrive(vreg5) : vreg7;")
-						: "+a" (cfs) );	//	провязываем инструкции зависимостями
+						: "+a" (cfs) );	//	пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		}
 		asm ( 	ALL_FPU (".float vreg1 - .retrive(vreg5), set mask if >;")
 				ALL_FPU_ANTI_MASK
 				ALL_FPU (".float vreg1= mask ?   vreg1 * .retrive(vreg5) : vreg1;")
 				ALL_FPU (".float vreg7= mask ?   vreg7 + .retrive(vreg6) : vreg7;")
-					: "+a" (cfs) );	//	провязываем инструкции зависимостями
+					: "+a" (cfs) );	//	пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
-		//	Двигаем аргумент к единице, теперь снизу (для 0.7 < х < 1)
+		//	пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅ 0.7 < пїЅ < 1)
 		for (i=0; i<1; i++){
 			asm ( 	ALL_FPU (".float vreg1 - .retrive(vreg6), set mask if <;")
 					ALL_FPU_ANTI_MASK
 					ALL_FPU (".float vreg1= mask ?   vreg1 * .retrive(vreg6) : vreg1;")
 					ALL_FPU (".float vreg7= mask ?   vreg7 + .retrive(vreg6) : vreg7;")
-						: "+a" (cfs) );	//	провязываем инструкции зависимостями
+						: "+a" (cfs) );	//	пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		}
 
 		asm ( 	ALL_FPU (".float vreg7= vreg7 * .retrive(vreg6);")//  res * log(2)
 				ALL_FPU (".float vreg1= vreg1 - .retrive(vreg6);")//  x = x-1;
 			    //  Taylor
-			    //  x^2 x^3 и т.д. не прибавляем сразу, а придерживаем,
-			    //  чтобы складывать от меньших к большим,- для лучшей точности
+			    //  x^2 x^3 пїЅ пїЅ.пїЅ. пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ,
+			    //  пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ,- пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 				ALL_FPU (".float vreg2= vreg1 * vreg1;")    // 2
 			    ALL_FPU (".float vreg3= vreg2 * vreg1;")    // 3
 			    ALL_FPU (".float vreg4= vreg2 * vreg2;")    // 4
@@ -183,7 +183,7 @@ void nmppsLog_32f (const nm32f *pSrcVec, nm32f *pDstVec, int nSize)
 			    ALL_FPU (".float vreg7= vreg3 * .retrive(vreg6) + vreg7;")
 			    ALL_FPU (".float vreg7= vreg2 * .retrive(vreg6) + vreg7;")
 			    ALL_FPU (".float vreg7= vreg1 + vreg7;")
-					: "+a" (cfs) );	//	провязываем инструкции зависимостями
+					: "+a" (cfs) );	//	пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		//	WRITE
 		asm ( 	"vlen = %2;  \n\t"
 				"fpu 0 rep vlen [%0++] = vreg7; 	\n\t"
@@ -198,4 +198,3 @@ void nmppsLog_32f (const nm32f *pSrcVec, nm32f *pDstVec, int nSize)
 	}
 	return;
 }
-

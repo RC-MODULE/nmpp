@@ -428,13 +428,13 @@ void nmppsConvert_64s16s(const nm64s* pSrcVec, nm16s* pDstVec, int nSize);
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im1 im2 </values>
+             <param> pDstVec </param> <values> im1 im2 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im3 </values>
+             <param> pDstVec </param> <values> im4 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -461,14 +461,14 @@ void nmppsConvert_64f32f(const nm64f* pSrcVec, nm32f* pDstVec, int nSize);
  *  \details nmppsConvert_32f32s_ceiling округляет все дробные числа из pSrcVec к меньшему по модулю (например, 1.5 будет округлено до 1, 1.7 до 1, а -1.1 до -1)
 \xmlonly
 	<testperf>
-		 <param> pSrcVec </param> <values> L G </values>
-		 <param> pDstVec </param> <values> G L </values>
+		 <param> pSrcVec </param> <values> im1 im2 </values>
+		 <param> pDstVec </param> <values> im1 im2 </values>
 		 <param> scale </param> <values> 1 </values>
 		 <param> nSize </param> <values> 2048 </values>
 	</testperf>
 	<testperf>
-		 <param> pSrcVec </param> <values> L </values>
-		 <param> pDstVec </param> <values> G </values>
+		 <param> pSrcVec </param> <values> im1 </values>
+		 <param> pDstVec </param> <values> im2 </values>
 		 <param> scale </param> <values> 1 </values>
 		 <param> nSize </param> <values> 8 128 1024 2048 </values>
 	</testperf>
@@ -492,15 +492,15 @@ void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int scal
 
 	\xmlonly
 		<testperf>
-			 <param> pSrcVec1 </param> <values> L G </values>
-			 <param> pSrcVec2 </param> <values> G L </values>
-			 <param> pDstVec </param> <values> im2 </values>
+			 <param> pSrcVec1 </param> <values> im1 im2 </values>
+			 <param> pSrcVec2 </param> <values> im1 im2 </values>
+			 <param> pDstVec </param> <values> im3 </values>
 			 <param> nSize </param> <values> 2048 </values>
 		</testperf>
 		<testperf>
-			<param> pSrcVec1 </param> <values> L G </values>
-			<param> pSrcVec2 </param> <values> G L </values>
-			<param> pDstVec </param> <values> im2 </values>
+			<param> pSrcVec1 </param> <values> im1 im2 </values>
+			<param> pSrcVec2 </param> <values> im1 im2 </values>
+			<param> pDstVec </param> <values> im3 </values>
 			<param> nSize </param> <values> 8 128 1024 2048 </values>
 		</testperf>
 	\endxmlonly

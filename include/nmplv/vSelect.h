@@ -913,7 +913,7 @@ void nmppsCmpLt0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
 
 	/**
-	\defgroup snmppsCmpLteC nmppsCmpGteC
+	\defgroup snmppsCmpLteC nmppsCmpLteC
 	\ingroup vSelect_f
 	\brief Функция сравнения элементов массива с константой (меньше или равно)
 
@@ -929,6 +929,25 @@ void nmppsCmpLt0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 //! \{
 void nmppsCmpLteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
 //! \}
+
+	/**
+	\defgroup snmppsCmpLtC nmppsCmpLtC
+	\ingroup vSelect_f
+	\brief Функция сравнения элементов массива с константой (меньше или равно)
+
+	\param [in] pSrcVec входной массив (элемент массива представляет собой структура v2nm32f, состоящая из двух чисел float)
+	\param [in] C константа (два числа float)
+	\retval [out] evenFlags маска полученная после сравнения первого поля из структуры v2nm32f
+	\retval [out] oddFlags маска полученная после сравнения второго поля из структуры v2nm32f
+	\param [in] step шаг,  с которым будут браться элементы из pSrcVec
+	\param [in] nSize размер массива (в v2nm32f)
+	\details В структуре v2nm32f два поля. Первое - v0. Второе - v1.
+ *
+ */
+//! \{
+void nmppsCmpLtC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
+//! \}
+
 //*****************************************************************************
 
     /**
@@ -1913,6 +1932,24 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
 //! \{
 void nmppsCmpGteC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
 //! \}
+
+	/**
+	\defgroup nmppsCmpGtC nmppsCmpGtC
+	\ingroup vSelect_f
+	\brief Функция сравнения элементов массива с константой (больше или равно)
+
+	\param [in] pSrcVec входной массив (элемент массива представляет собой структура v2nm32f, состоящая из двух чисел float)
+	\param [in] C константа (два числа float)
+	\retval [out] evenFlags маска полученная после сравнения первого поля из структуры v2nm32f
+	\retval [out] oddFlags маска полученная после сравнения второго поля из структуры v2nm32f
+	\param [in] step шаг, с которым будут браться элементы из pSrcVec
+	\param [in] nSize размер массива (в v2nm32f)
+	\details В структуре v2nm32f два поля. Первое - v0. Второе - v1.
+ */
+//! \{
+void nmppsCmpGtC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
+//! \}
+
 //******************************************************************************************
 
 	/**

@@ -230,10 +230,18 @@ void nmblas_dgemv(
    const int                  INCY
 );
 
-void MullMatrix_f(
-	void* 	A,
-	int 	pI,
-	int 	ldA,
+
+//! \defgroup LEVEL3 BLASS-LEVEL3
+//! \{
+
+//! \}
+
+#include<nmblas/nmblas_sgemm.h>
+
+void MullMatrix_f( 
+	void* 	A, 
+	int 	pI, 
+	int 	ldA, 
 	void* 	B,
     int 	pK,
     int 	ldB,
@@ -247,5 +255,4 @@ void MullMatrix_f(
 #ifdef __cplusplus
 		};
 #endif
-
 #endif // _INIT_H_INCLUDED_

@@ -19,8 +19,8 @@
 //!
 //------------------------------------------------------------------------
 extern vec_vsum_data_0: label;
-global _IMG_Convert__F13RGB32_nm10uP12RGB32_nm8uPi: label;
-global _void._.8.8IMG_Convert.1class._RGB32_nm10u._.0.9._class._RGB32_nm8u._.0.9._int.2 :label;
+global _nmppiConvert__F13RGB32_nm10uP12RGB32_nm8uPi: label;
+global _void._.8.8nmppiConvert.1class._RGB32_nm10u._.0.9._class._RGB32_nm8u._.0.9._int.2 :label;
 
     //--------------------------------------------------------------------
 begin ".text_nmpli"
@@ -35,12 +35,12 @@ Weights:	long[8] = (
 		00000000000000000hl);
 
     //--------------------------------------------------------------------
-    //! \fn  void IMG_Convert(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize); 
+    //! \fn  void nmppiConvert(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize); 
     //!
-	//! \perfinclude _IMG_Convert__F11RGB32_nm10uP10RGB32_nm8uPi.html
+	//! \perfinclude _nmppiConvert__F11RGB32_nm10uP10RGB32_nm8uPi.html
     //--------------------------------------------------------------------
-<_IMG_Convert__F13RGB32_nm10uP12RGB32_nm8uPi>
-<_void._.8.8IMG_Convert.1class._RGB32_nm10u._.0.9._class._RGB32_nm8u._.0.9._int.2>
+<_nmppiConvert__F13RGB32_nm10uP12RGB32_nm8uPi>
+<_void._.8.8nmppiConvert.1class._RGB32_nm10u._.0.9._class._RGB32_nm8u._.0.9._int.2>
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;
     push ar5, gr5 with gr0++;

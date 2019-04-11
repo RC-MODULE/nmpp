@@ -25,7 +25,7 @@ begin ".text_nmplm"
 //!
 //! \perfinclude nmppmMul_mm_8s16s.html
 //--------------------------------------------------------------------
-extern rep_n_Mul_M8V64:label;
+extern mtrMul_mm_8sXs:label;
 extern _nmppsTmpBuffer64_G_: long[64];
 const LongColumns=_nmppsTmpBuffer64_G_;
 
@@ -48,35 +48,29 @@ global _nmppmMul_mm_8s16s:label;
 	ar0 = [--ar5];			// SrcMatrixA
 	gr5 = [--ar5];			// nHeight A
 	gr0 = [--ar5];			// nWidth  A in  8-bit words
-	ar4 = [--ar5];			// SrcMatrixB
+	ar2 = [--ar5];			// SrcMatrixB
 	ar6 = [--ar5];			// DstMatrix
 	gr4 = [--ar5];			// nWidth  B in 16-bit words
 	gr4 >>=2;
 	[LongColumns] = gr4 with gr0>>=2;	// nWidth A in 32-bit words
-	gr4 <<=1;
+	with gr4 <<=1;
 	gr6 = gr4;
-	gr3 = 80008000h;		// gr3(nb1)
+	nb1 = 80008000h;		
 	<Next_MulMV>
 		push ar0,gr0;
-		push ar4,gr4;
 		push ar6,gr6;
 		
-		delayed call rep_n_Mul_M8V64;
-			nul;
+		delayed call mtrMul_mm_8sXs;
+			ar4 = ar2;
 			nul;
 
 		pop ar6,gr6;
-		pop ar4,gr4;
 		pop ar0,gr0;
-		ar4+=2;
-		ar6+=2;
-
 		gr7 = [LongColumns];
-		with gr7--;
-		[LongColumns] = gr7;
+		ar2+=2;
+		ar6+=2 with gr7--;
 	if <>0 delayed goto Next_MulMV;
-		nul;
-		nul;
+		[LongColumns] = gr7;
 
 	pop ar6,gr6;
 	pop ar5,gr5;

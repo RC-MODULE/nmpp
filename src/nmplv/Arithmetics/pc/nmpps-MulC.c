@@ -12,14 +12,14 @@
 //!
 //! \file   Mul_VxxNxx.cpp
 //! \author Сергей Мушкаев
-//! \brief  Функции умножения для векторов. 
+//! \brief  Функции умножения для векторов.
 //!
 //! \endif
 //!
 //------------------------------------------------------------------------
 
 
-#include "nmpp.h"
+#include "nmtype.h"
 /////////////////////////////////////////////////////////////////////////////////////////
 // Multiplying 64-bit buffer elements by 64-bit scalar value
 void nmppsMulC_64s(
@@ -135,7 +135,7 @@ const 		nm8s*		pSrcVec,		// input  buffer					:long Local  [VecSize/8]
 // pDstVec[i]=pSrcVec[i]*MulN+AddN
 void nmppsMulC_AddC_32s(
 const 		nm32s*		pSrcVec,			// input vec			:long Local  [VecSize/2]
-			int			MulN,			// multiplier 
+			int			MulN,			// multiplier
 			int			AddN,			// additional constant
 			nm32s*		pDstVec,			// output vec		:long Global [VecSize/2]
 			int			nSize			// size of input buffer in 32-bit elements. nSize=[0,2,4,6...]
@@ -179,7 +179,7 @@ void nmppsRShiftC_MulC_AddC_2x32s(int32x2* dataSparseSrc,  int32x2* preshiftArg,
 // pDstVec[i]=pSrcVec1[i]*MulN+pSrcVec2[i]+AddN
 void nmppsMulC_AddV_AddC_32s(
 			nm32s*		pSrcVec1,		// input vec			:long Local  [VecSize/2]
-			int			MulN,			// multiplier 
+			int			MulN,			// multiplier
 			nm32s*		pSrcVec2,		// input add vec		:long Any	 [VecSize/2]
 			int			AddN,			// additional constant
 			nm32s*		pDstVec,			// output vec		:long Global [VecSize/2]
@@ -190,4 +190,3 @@ void nmppsMulC_AddV_AddC_32s(
 	for (i=0;i<nSize;i++)
 		pDstVec[i]=pSrcVec1[i]*MulN+pSrcVec2[i]+AddN;
 }
-

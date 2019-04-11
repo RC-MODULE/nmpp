@@ -709,11 +709,11 @@ public:
 	//}
 };
 
-#define BOX_IMG_FILL_NONE	0xF111DEAD
-#define BOX_IMG_FILL_RAND	0xF1110123
-#define BOX_IMG_FILL_00		0
-#define BOX_IMG_FILL_01		1
-#define BOX_IMG_FILL_FF		-1
+#define BOX_nmppiFILL_NONE	0xF111DEAD
+#define BOX_nmppiFILL_RAND	0xF1110123
+#define BOX_nmppiFILL_00		0
+#define BOX_nmppiFILL_01		1
+#define BOX_nmppiFILL_FF		-1
 template<class T> class C_BoxImg
 {
 
@@ -739,7 +739,7 @@ public:
 	}
 
 
-	C_BoxImg(C_MultiHeap& MultiHeap, int Width, int Height, int BorderHeight=0, int FillMode=BOX_IMG_FILL_FF){
+	C_BoxImg(C_MultiHeap& MultiHeap, int Width, int Height, int BorderHeight=0, int FillMode=BOX_nmppiFILL_FF){
 		nWidth=Width;
 		nHeight=Height;
 		nBorder=BorderHeight;
@@ -758,9 +758,9 @@ public:
 		Info->isLocked=false;
 	}
 	void Fill(int FillMode){
-		if (FillMode==BOX_IMG_FILL_NONE)
+		if (FillMode==BOX_nmppiFILL_NONE)
 			return;
-		if (FillMode==BOX_IMG_FILL_RAND){
+		if (FillMode==BOX_nmppiFILL_RAND){
 			nmppsRandUniform_(pBox,sizeBox);
 			return;
 		}

@@ -43,7 +43,9 @@
 #
 #============== PROJECT & BUILD CONFIGURATION ==========
 ROOT             = ../..
+ifeq ($(OS),Windows_NT)
 SHELL 			 = cmd
+endif
 -include 		 nmc4vars_win.mk
 #include          $(ROOT)/global.mk
 

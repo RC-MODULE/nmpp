@@ -1,4 +1,4 @@
-#include "nmpp.h"
+#include "nmtype.h"
 /*
 //int btnum( void *src, int n);
 int btnum( void *src, int n)

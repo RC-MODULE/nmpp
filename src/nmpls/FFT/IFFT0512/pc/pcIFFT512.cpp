@@ -28,6 +28,7 @@
 #endif
 static cmplx<double> Rounder(0.5,0.5);
 int FlagsIFFT512;
+extern "C" {
 // Setting of the calculation accuracy for FFT_Inv512 functions
 void FFT_Inv512Set( int	Flag)			// See header for more information
 {
@@ -41,6 +42,7 @@ void FFT_Inv512Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 {
 	FFT_Inv512Set(FFT7BIT);
 }
+};
 ///////////////////////////////////////////////////////////////////
 // Computing IFFT-512 using fixed-point arithmetic
 // This is the C equivalent of the FFT_Inv512 Assembly Code
@@ -211,6 +213,7 @@ void IMakeTable512W1W2(
 		IW2_512[i].im=floor(fIW2_512[i].im+0.5);
 	}
 }
+extern "C" {
 /////////////////////////////////////////////////////////////////////
 //	 This is the C equivalent of the function FFT_Fwd512
 void FFT_Inv512(
@@ -245,6 +248,7 @@ void FFT_Inv512(
 	
 	FFT_Inv512(X,Y,IW1_512,IW2_512,ShiftR1,ShiftR2);
 }
+};
 
 ///////////////////////////////////////////////////////////////////
 // Computing FFT-512 using floating-point arithmetic

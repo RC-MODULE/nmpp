@@ -1,7 +1,7 @@
 #include "nmpli.h"
 int wgh1[]={ 0x1d2f,0x9646,0x4c8b,0 };
 int wgh2[]={ 0x1d2f,0x9646,0x4c8b,0 };
-void IMG_RGB32ToGray(RGB32_nm8u * pRGB, nm32u* pDstGray, int nSize)
+void nmppiRGB32ToGray(RGB32_nm8u * pRGB, nm32u* pDstGray, int nSize)
 {  int i,j, k;
    unsigned int * p;
    unsigned char * rgb; 
@@ -25,7 +25,7 @@ void IMG_RGB32ToGray(RGB32_nm8u * pRGB, nm32u* pDstGray, int nSize)
   }
    
 }
-void IMG_RGB32ToGray(RGB32_nm8u * pRGB, nm32s* pDstGray, int nSize)
+void nmppiRGB32ToGray(RGB32_nm8u * pRGB, nm32s* pDstGray, int nSize)
 {  int i,j, k;
    int * p; 
    unsigned char * rgb; 

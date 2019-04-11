@@ -6,13 +6,13 @@
 
 
 //#include "nmpli.h"
-#include "nmpli/filter.h"
+#include "nmpli/iFilter.h"
 #include "nmplv/vSupport.h"
 #include "nmplv/vInit.h"
 #include "malloc32.h"
 #include <string.h>
 
-typedef struct SS_IMG_FilterKernel {
+typedef struct SS_nmppiFilterKernel {
 #ifdef __NM__
 	nm32s* pDispArray;
 	nm32s* pWeightMatrix;	
@@ -22,7 +22,7 @@ typedef struct SS_IMG_FilterKernel {
 	int 	nKerWidth;
 	int 	nKerHeight;
 #endif
-} S_IMG_FilterKernel;
+} S_nmppiFilterKernel;
 
 //	nSize=3  nDisp=1,5 
 //  nSize=5  nDisp=2,6 
@@ -204,7 +204,7 @@ int nmppiFilterInit_8s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImg
 	//((int*)pKernel)[0]=nKerWidth;
 	//((int*)pKernel)[1]=nKerHeight;
 	
-	S_IMG_FilterKernel* psKernel=(S_IMG_FilterKernel*) pKernel;
+	S_nmppiFilterKernel* psKernel=(S_nmppiFilterKernel*) pKernel;
 	psKernel->nKerHeight=nKerHeight;
 	psKernel->nKerWidth =nKerWidth;
 	psKernel->pDispArray=0;

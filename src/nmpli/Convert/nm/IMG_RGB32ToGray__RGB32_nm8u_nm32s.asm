@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: IMG_rgb_y.asm             $
+//  $Workfile:: nmppirgb_y.asm             $
 //
 //  <nmpli>
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   IMG_rgb_y.asm
+//! \file   nmppirgb_y.asm
 //! \author S. Svechnikov
 //! \brief  Преобразование из RGB в Gray
 //!
@@ -26,30 +26,30 @@ RamL: long=(8080808080808080hl);
 
 
     //--------------------------------------------------------------------
-    //! \fn void IMG_RGB32ToGray(RGB32_nm8u * pRGB, nm32s* pDstGray, int nSize);
+    //! \fn void nmppiRGB32ToGray(RGB32_nm8u * pRGB, nm32s* pDstGray, int nSize);
 	//!
-	//! \perfinclude _IMG_RGB32ToGray__F10RGB32_nm8uPPii.html
+	//! \perfinclude _nmppiRGB32ToGray__F10RGB32_nm8uPPii.html
     //--------------------------------------------------------------------
 
-global _IMG_RGB32ToGray__F12RGB32_nm8uPPii:label;
-global _void._.8.8IMG_RGB32ToGray.1class._RGB32_nm8u._.0.9._int._.0.9._int.2 :label;
-<_IMG_RGB32ToGray__F12RGB32_nm8uPPii>
-<_void._.8.8IMG_RGB32ToGray.1class._RGB32_nm8u._.0.9._int._.0.9._int.2>
+global _nmppiRGB32ToGray__F12RGB32_nm8uPPii:label;
+global _void._.8.8nmppiRGB32ToGray.1class._RGB32_nm8u._.0.9._int._.0.9._int.2 :label;
+<_nmppiRGB32ToGray__F12RGB32_nm8uPPii>
+<_void._.8.8nmppiRGB32ToGray.1class._RGB32_nm8u._.0.9._int._.0.9._int.2>
 vr=0l; skip job;
 
 
 
     //--------------------------------------------------------------------
-    //! \fn void IMG_RGB32ToGray(RGB32_nm8u * pRGB, nm32u* pDstGray, int nSize);
+    //! \fn void nmppiRGB32ToGray(RGB32_nm8u * pRGB, nm32u* pDstGray, int nSize);
 	//!
-	//! \perfinclude _IMG_RGB32ToGray__F10RGB32_nm8uPPUii.html
+	//! \perfinclude _nmppiRGB32ToGray__F10RGB32_nm8uPPUii.html
     //--------------------------------------------------------------------
 
 
-global _IMG_RGB32ToGray__F12RGB32_nm8uPPUii:label;
-global _void._.8.8IMG_RGB32ToGray.1class._RGB32_nm8u._.0.9._unsigned._int._.0.9._int.2 :label;
-<_IMG_RGB32ToGray__F12RGB32_nm8uPPUii>
-<_void._.8.8IMG_RGB32ToGray.1class._RGB32_nm8u._.0.9._unsigned._int._.0.9._int.2>
+global _nmppiRGB32ToGray__F12RGB32_nm8uPPUii:label;
+global _void._.8.8nmppiRGB32ToGray.1class._RGB32_nm8u._.0.9._unsigned._int._.0.9._int.2 :label;
+<_nmppiRGB32ToGray__F12RGB32_nm8uPPUii>
+<_void._.8.8nmppiRGB32ToGray.1class._RGB32_nm8u._.0.9._unsigned._int._.0.9._int.2>
 vr=80000000800000hl;
 <job>  ar5=ar7-2;
   push ar0,gr0 with gr7=true;push ar1,gr1 with gr7<<=31;

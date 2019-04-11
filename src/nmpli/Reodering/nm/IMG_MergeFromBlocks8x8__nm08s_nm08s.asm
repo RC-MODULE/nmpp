@@ -26,11 +26,11 @@ begin ".text_nmpli"
 
 ////////////////////////////////////////////////////////////////////////////
     //--------------------------------------------------------------------
-    //! \fn void IMG_MergeFromBlocks8x8( nm8s* Src, nm8s* Dst, int Width, int Height);
-    //! 
-	//! \perfinclude _IMG_MergeFromBlocks8x8__FPcPcii.html
+    //! \fn void nmppiMergeFromBlocks8x8( nm8s* Src, nm8s* Dst, int Width, int Height);
+    //!
+	//! \perfinclude _nmppiMergeFromBlocks8x8__FPcPcii.html
     //--------------------------------------------------------------------
-//	int IMG_MergeFromBlocks8x8(
+//	int nmppiMergeFromBlocks8x8(
 //			nm8s*	Src,	// Source one-dimensional Array	:long Local[Width*Height/8]
 //			nm8s*	Dst,	// Result Image					:long Global[Width*Height/8]
 //			int		Width,	// Source Image Width;			:Width=[8,16,24...]
@@ -55,37 +55,39 @@ begin ".text_nmpli"
 //  [I00|I01|I02|I03|I04|I05|I06|I07|J00|J01|..................]
 //  [I10|I11|I12|I13|I14|I15|I16|I17|J00|I09|...................
 //  ........................................................Z77]
-// 
-//  
+//
+//
 //  RETURN: 0
-//  
+//
 //  PERFORMANCE:
-//		The performance of the ArrangeInLine routines depends on memory allocation for  
+//		The performance of the ArrangeInLine routines depends on memory allocation for
 //		input and output buffers.
-//		For the maximum speed performance it is recommended  
+//		For the maximum speed performance it is recommended
 //		to use the following configurations:
 //		Configuration I.
 //			Src:		Global SRAM
 //			Dst:		Local  SRAM
-//		Configuration II.	
+//		Configuration II.
 //			Src:		local  SRAM
 //			Dst:		Global SRAM
-//		
-//		For these configuration the following results were achieved: 
+//
+//		For these configuration the following results were achieved:
 //		Configuration I:
 //			28508 ticks per 384*288 Image with C++ call (0.257 clocks per pixel)
 //		Configuration II:
 //			19723 ticks per 384*288 Image with C++ call	(0.178 clocks per pixel)
 //
 // W=384,H=288
-//IMG_MergeFromBlocks8x8((nm8s*)GSrc,(nm8s*)GSrc,W,H);// 31401
-//IMG_MergeFromBlocks8x8((nm8s*)GSrc,(nm8s*)LSrc,W,H);// 28489
-//IMG_MergeFromBlocks8x8((nm8s*)LSrc,(nm8s*)GSrc,W,H);// 19727*
-//IMG_MergeFromBlocks8x8((nm8s*)LSrc,(nm8s*)LSrc,W,H);// 37007
+//nmppiMergeFromBlocks8x8((nm8s*)GSrc,(nm8s*)GSrc,W,H);// 31401
+//nmppiMergeFromBlocks8x8((nm8s*)GSrc,(nm8s*)LSrc,W,H);// 28489
+//nmppiMergeFromBlocks8x8((nm8s*)LSrc,(nm8s*)GSrc,W,H);// 19727*
+//nmppiMergeFromBlocks8x8((nm8s*)LSrc,(nm8s*)LSrc,W,H);// 37007
 
 
-global _void._.8.8IMG_MergeFromBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2 :label;
-<_void._.8.8IMG_MergeFromBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2>
+global _nmppiMergeFromBlocks8x8.1void: label;
+//global _void._.8.8nmppiMergeFromBlocks8x8.1void._.0.9._void._.0.9._int.9._int.2 :label;
+//<_void._.8.8nmppiMergeFromBlocks8x8.1void._.0.9._void._.0.9._int.9._int.2>
+<_nmppiMergeFromBlocks8x8>
 .branch;
 	ar5=ar7-2;
 	PUSH_REGS();
@@ -94,11 +96,11 @@ global _void._.8.8IMG_MergeFromBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2 :
 	gr0=[--ar5];		//Width
 	gr1=[--ar5];		//Height
 
-	
+
 	gr2=gr0>>2;			// Width in 32bit words
-	
+
 	gr6=gr1>>3;			// Height in Regions by 8Rows
-	
+
 	gr5=gr2<<3;			// Size of Region in 32bit words
 	gr3=gr4;
 	ar2=gr3;
@@ -108,7 +110,7 @@ global _void._.8.8IMG_MergeFromBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2 :
 		gr7--;
 		<To8x8_NextCol_by8>
 			rep 8 data=[ar6++] with data;
-			nul;	
+			nul;
 		if <>0 delayed goto To8x8_NextCol_by8 with gr7--;
 			ar2=gr3 with gr3+=gr1 noflags;
 			rep 8 [ar2++gr2]=afifo;
@@ -117,9 +119,9 @@ global _void._.8.8IMG_MergeFromBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2 :
 	if <>0 delayed goto To8x8_Next8Rows;
 		gr3=gr4;
 		ar2=gr4;
-	
+
 	POP_REGS();
-return with gr7=false; 
+return with gr7=false;
 .wait;
 
 end ".text_nmpli";

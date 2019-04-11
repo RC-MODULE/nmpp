@@ -17,12 +17,12 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-#include "nmpp.h"
+#include "nmtype.h"
 /////////////////////////////////////////////////////////////////////////////////
 void nmppsDivC_32s(
 			nm32s*	pSrcVec,			// Input array 					:long Global[VecSize/2]
 			int		Divisor,		// Divisor						:[1,2,..128]
-			nm32s*	pDstVec,			// Output qunatized array		:long Local [VecSize/2]
+			nm32s*	pDstVec,			// Output quantized array		:long Local [VecSize/2]
 			int		nSize,		// Vector size in 32-bit elements:[0,2,4,6...]
 			void*	TmpBufL,		// Temporary buffer on Local	:long Local [23] 
 			void*	TmpBufG			// Temporary buffer	on Global	:long Local [23] 

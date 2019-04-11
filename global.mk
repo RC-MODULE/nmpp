@@ -42,7 +42,6 @@ $(PATH);
 #  OS_MV    = rename
    OS_RM    = del /Q
    RM       = rm -f -r
-   CP    = copy                
    OS_RD    = rd /Q /S 
 #  OS_CP    = $(call BACKSLASH,$(GNUWIN32)/cp)
    OS_CP    = copy
@@ -83,7 +82,7 @@ else
 endif
 
 #PLATFORMS = vs8 mc5103 emu6405  mb7707 mc12101 gcc
-PLATFORMS = x86 mc12101_nmc0 mc12101_nmc1 mc5103 mc7601 gcc emu6405 mc12101-gcc_nmpu0 mc12101-gcc_nmpu1
+PLATFORMS = x86 mc12101_nmpu0 mc12101_nmpu1 mc5103 mc7601 gcc emu6405 mc12101-gcc_nmpu0 mc12101-gcc_nmpu1
 TARGET1=mc5103
 TARGET2=x86
 #mc12101_nmc1

@@ -31,6 +31,8 @@
 int FlagsFFT512=FFT7BIT;
 
 static cmplx<double> Rounder(0.5,0.5);
+
+extern "C"{
 // Setting of the calculation accuracy for FFT_Fwd512 function
 void FFT_Fwd512Set( int	Flag)			// See header for more information
 {
@@ -44,6 +46,7 @@ void FFT_Fwd512Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 {
 	FFT_Fwd512Set(FFT7BIT);
 }
+};
 ///////////////////////////////////////////////////////////////////
 // Computing FFT-512 using fixed-point arithmetic
 // This is the C equivalent of the FFT_Fwd512 Assembly Code
@@ -216,6 +219,7 @@ void MakeTable512W1W2(
 		W2_512[i].im=floor(fW2_512[i].im+0.5);
 	}
 }
+extern "C"{
 /////////////////////////////////////////////////////////////////////
 //	 This is the C equivalent of the function FFT_Fwd512
 void FFT_Fwd512(
@@ -248,7 +252,7 @@ void FFT_Fwd512(
 
 
 }
-
+};
 ///////////////////////////////////////////////////////////////////
 // Computing FFT-512 using floating-point arithmetic
 int FFT512(

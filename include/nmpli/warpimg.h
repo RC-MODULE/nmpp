@@ -1,6 +1,6 @@
-
+/*
 #include "nmpp.h"
-#define IMG_AT_BUFFER 1
+#define nmppiAT_BUFFER 1
 #define WARP_AT_BUFFER 2
 template<class T> class C_WarpImg
 {
@@ -31,7 +31,7 @@ public:
 		}
 	}
 	
-	C_WarpImg(unsigned width, unsigned height, unsigned border, void* buffer, int mode=IMG_AT_BUFFER){
+	C_WarpImg(unsigned width, unsigned height, unsigned border, void* buffer, int mode=nmppiAT_BUFFER){
 		nWidth=width;
 		nHeight=height;
 		nImgSize =width*height;
@@ -43,7 +43,7 @@ public:
 			pWarp=(T*)buffer;
 			pImg=nmppsAddr_(pWarp,border*width);
 		}
-		if (mode==IMG_AT_BUFFER){
+		if (mode==nmppiAT_BUFFER){
 			pImg =(T*)buffer;
 			pWarp=(T*)nmppsAddr_(pImg,-border*width);
 		}
@@ -65,3 +65,4 @@ public:
 
 };
 
+*/

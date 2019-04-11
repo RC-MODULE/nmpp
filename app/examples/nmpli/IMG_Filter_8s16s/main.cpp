@@ -30,7 +30,7 @@ int main()
 		return -1;
 
 	nmppsRandUniform_(SrcImg.pWarp, SrcImg.nWarpSize);
-	CIMG_FIR<nm8s,nm16s> FIR(wker,hker,malloc32,free32);
+	CnmppiFIR<nm8s,nm16s> FIR(wker,hker,malloc32,free32);
 	if (FIR.SetWeights(pFiterWindow,SrcImg.nWidth)==0)	return -1;
 	FIR.Filter(SrcImg.pImg,DstImg.pImg,SrcImg.nWidth,SrcImg.nHeight);
 	

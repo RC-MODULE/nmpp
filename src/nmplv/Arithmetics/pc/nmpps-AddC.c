@@ -12,12 +12,12 @@
 //!
 //! \file   Remap.cpp
 //! \author Сергей Мушкаев
-//! \brief  Арифметические функции 
+//! \brief  Арифметические функции
 //!
 //! \endif
 //!
 //------------------------------------------------------------------------
-#include "nmpp.h"
+#include "nmtype.h"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -75,27 +75,14 @@ const 	nm32s*			pSrcVec,			// input buffer		:long Local [VecSize/2]
 }
 
 void nmppsAddC_64s(
-const 	nm64s*			src,				// input buffer		:long Local [VecSize/8]
-		int64b			val,				// increment		:Increment=[-128...+127]
-		nm64s*			dst,				// output buffer	:long Global[VecSize/8]
-		int				size				// size of input buffer in 8 bit elements. nSize=[8,16,32...]
+const 	nm64s*			pSrcVec,				// input buffer		:long Local [VecSize/8]
+		int64b			nVal,				// increment		:Increment=[-128...+127]
+		nm64s*			pDstVec,				// output buffer	:long Global[VecSize/8]
+		int				nSize				// size of input buffer in 8 bit elements. nSize=[8,16,32...]
 		)
 {
 	int i;
-	for (i=0; i<size; i++)
-		dst[i] = src[i] + val;
+	for (i = 0; i < nSize; i++)
+		pDstVec[i] = pSrcVec[i] + nVal;
 
 }
-
-void nmppsAddC_32fcr(
-const	nm32fcr *pSrcVec,
-		nm32fcr *pDstVec,
-		float C,
-		int nSize)
-{
-	int i;
-	for(i = 0; i < nSize; i++) {
-		pDstVec[i].re = pSrcVec[i].re + C;
-	}
-}
-

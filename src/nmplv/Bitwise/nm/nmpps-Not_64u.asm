@@ -32,7 +32,7 @@ global _nmppsNot_64u:label;
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0,gr0	with gr7++;
 	push ar5,gr5	with gr0=gr7+1;
-	push ar6,gr6	with gr1=gr0;
+	push ar6,gr6;
 
 	ar0 = [--ar5];		//	nm64*		pSrcVec,		// Input Buffer					:long Local[nSize]
 	delayed call vec_not_data with gr6=gr0;

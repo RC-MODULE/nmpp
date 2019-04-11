@@ -36,7 +36,7 @@ void SIG_ResampleDown2(
 {
     nmppsConvert_8s16s((nm8s*)pSrcVec,(nm16s*)pTmpBuf,nSize);
 	nm64s* pKernel;
-	SIG_CreateResampleDown2_16u16u(&pKernel);
+	SIG_CreateResampleDown2_16u16u(&pKernel,MEM_LOCAL);
     SIG_ResampleDown2_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstVec,nSize,pKernel);
 }
 /////////////////////////////////////////////////////////////////////////////////////////

@@ -79,6 +79,21 @@ const 	nm8s*			src,	// input buffer		:long Local [Size/2]
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
+// Right shift under 4-bit unsigned elements of input array
+void nmppsRShiftC_4u(
+const 	nm4u*	src,	//Input buffer		:long Local [Size/8].
+		int		Shift,		//Specifies on how many positions the input values should be right-shifted :[0, 1, 2, 3, 4].
+		nm4u*	dst,	//Output buffer		:long Global[Size/8].
+		int		size		//Size of input buffer in 8 bit elements. Size=[256, 512, .., n*256].
+	)
+{
+	int i, temp;
+	for (i=0; i<size; i++){
+		temp = nmppsGet_4u(src, i) >> Shift;
+		nmppsPut_4u(dst,  i, temp);
+	}
+}
+/////////////////////////////////////////////////////////////////////////////////////////
 // Right shift under 8-bit unsigned elements of input array
 void nmppsRShiftC_8u(
 const 	nm8u*	src,	//Input buffer		:long Local [Size/8].

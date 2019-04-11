@@ -20,12 +20,12 @@ begin ".text_nmpli"
 
 ////////////////////////////////////////////////////////////////////////////
     //--------------------------------------------------------------------
-    //! \fn void IMG_SplitInto2x2Blocks8x8(	nm8s*	Src, nm8s* Dst, int Width, int Height);
-    //! 
-	//! \perfinclude _IMG_SplitIntoBlocks8x8__FPcPcii.html
+    //! \fn void nmppiSplitInto2x2Blocks8x8(	nm8s*	Src, nm8s* Dst, int Width, int Height);
+    //!
+	//! \perfinclude _nmppiSplitIntoBlocks8x8__FPcPcii.html
     //--------------------------------------------------------------------
 
-//  int IMG_SplitInto2x2Blocks8x8(
+//  int nmppiSplitInto2x2Blocks8x8(
 //		    nm8s*	Src,	// Source Image						:long Local[Width*Height/8]
 //			nm8s*	Dst,	// Result one-dimensional Array:	:long Global[Width*Heihgt/8]
 //			int		Width,	// Source Image Width;				:Width =[8,16,24...]
@@ -45,22 +45,22 @@ begin ".text_nmpli"
 //  [I00|I01|I02|I03|I04|I05|I06|I07|J00|J01|..................]
 //  [I10|I11|I12|I13|I14|I15|I16|I17|J00|I09|...................
 //  ........................................................Z77]
-// 
+//
 //  Result one-dimensional Array:
 //  [A00|A01|A02|...|A06|A07|A20|A21|...|A77|B00|B01|B02|...|B07|B10|...|H77|
 //  [I00|I01|I02|...|I06|I07]I10|I11|...|I77|J00|J01|J02|...............|Z77|
-//  
+//
 //
 //  RETURN: 0
-//  
+//
 
 
-global _void._.8.8IMG_SplitInto2x2Blocks8x8.1unsigned._char._.0.9._unsigned._char._.0.9._int.9._int.2 :label;
-      <_void._.8.8IMG_SplitInto2x2Blocks8x8.1unsigned._char._.0.9._unsigned._char._.0.9._int.9._int.2>
- 
+global _nmppiSplitInto2x2Blocks8x8:label;
+      <_nmppiSplitInto2x2Blocks8x8>
+
 .branch;
 	ar5=ar7-2;
-	
+
 	push ar0,gr0;
 	push ar1,gr1;
 	push ar2,gr2;
@@ -68,16 +68,16 @@ global _void._.8.8IMG_SplitInto2x2Blocks8x8.1unsigned._char._.0.9._unsigned._cha
 	push ar4,gr4;
 	push ar5,gr5;
 	push ar6,gr6;
-	
+
 	ar0=[--ar5];		//SrcBuffer
 	ar6=[--ar5];		//DstBuffer
 	gr4=[--ar5];		//Width
 	gr6=[--ar5];		//Height
 
-	gr6>>=4;		// Height in macroblocks 
+	gr6>>=4;		// Height in macroblocks
 	gr0 = gr4>>2;	// Width in 32 bit words
 	gr1 = gr0 ;		// Width in 32 bit words
-	ar1 = ar0 ;		// 
+	ar1 = ar0 ;		//
 	ar1+= 2;		// Odd  column
 	gr5 = 4;		// Even column to even column step
 	gr4>>=4;		// Width in macroblocks
@@ -85,20 +85,20 @@ global _void._.8.8IMG_SplitInto2x2Blocks8x8.1unsigned._char._.0.9._unsigned._cha
 	<NextMacroblockRow>
 		gr2 = ar0 with gr7=gr4;
 		gr3 = ar1 with gr7--;
-		
+
 		rep 8 data=[ar0++gr0] with data ;
 		rep 8 [ar6++]=afifo ;
 		rep 8 data=[ar1++gr1] with data ;
-		rep 8 [ar6++]=afifo ; 
-		
+		rep 8 [ar6++]=afifo ;
+
 		rep 8 data=[ar0++gr0] with data ;
 		rep 8 [ar6++]=afifo ;
 		rep 8 data=[ar1++gr1] with data ;
-		rep 8 [ar6++]=afifo ; 
+		rep 8 [ar6++]=afifo ;
 
 		push ar0,gr0 with gr2 += gr5 noflags ;
 		push ar1,gr1 with gr3 += gr5 noflags ;
-		
+
 		ar0 = gr2  with gr2 += gr5 noflags ;
 		ar1 = gr3  with gr3 += gr5 noflags ;
 
@@ -106,18 +106,18 @@ global _void._.8.8IMG_SplitInto2x2Blocks8x8.1unsigned._char._.0.9._unsigned._cha
 			rep 8 data=[ar0++gr0] with data ;
 			rep 8 [ar6++]=afifo ;
 			rep 8 data=[ar1++gr1] with data ;
-			rep 8 [ar6++]=afifo ; 
-			
+			rep 8 [ar6++]=afifo ;
+
 			rep 8 data=[ar0++gr0] with data ;
 			rep 8 [ar6++]=afifo ;
 			rep 8 data=[ar1++gr1] with data ;
-			rep 8 [ar6++]=afifo ; 
+			rep 8 [ar6++]=afifo ;
 		if <>0 delayed goto NextMacroblock with gr7--;
 			ar0 = gr2 with gr2 += gr5 noflags ;
 			ar1 = gr3 with gr3 += gr5 noflags ;
-		
+
 		with gr6--;
-		
+
 	if <>0 delayed goto NextMacroblockRow;
 		pop ar1,gr1;
 		pop ar0,gr0;
@@ -129,16 +129,16 @@ global _void._.8.8IMG_SplitInto2x2Blocks8x8.1unsigned._char._.0.9._unsigned._cha
 	pop ar2,gr2;
 	pop ar1,gr1;
 	pop ar0,gr0;
-	
-	
-	
-	
-	
-	
 
-	
+
+
+
+
+
+
+
 return ;
- 
+
 .wait;
 
 

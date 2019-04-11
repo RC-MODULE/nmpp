@@ -27,22 +27,24 @@ all: configure
 configure: $(addsuffix /Makefile,$(addprefix make_,$(PLATFORMS))) 
 	
 clean:
-	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) clean 			$(newline))
+	$(foreach make_platform,$(wildcard make_*), -$(MAKE) -C./$(make_platform) clean 	$(newline))
 
+#	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) clean 			$(newline))
 
 run:	all
 	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) run 				$(newline))
 
 kill: 
-	-$(OS_RD) $(foreach platform,$(PLATFORMS), make_$(platform))
+	-$(OS_RD) $(wildcard make_*)
 	
 
 test: make_$(TARGET1)/Makefile make_$(TARGET2)/Makefile
 	$(MAKE) -C./make_$(TARGET1) test 
 	$(MAKE) -C./make_$(TARGET2) test
-	echo $(CURDIR)>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
+	@echo $(CURDIR)>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
 	$(OS_DIFF) make_$(TARGET1)/.exitcode make_$(TARGET2)/.exitcode
-	echo OK>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
+	@echo TEST-OK!
+	@echo OK>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
 
 	
 ########### Produces automake rule for all platforms like ############################
@@ -59,9 +61,9 @@ define automake_platform
 $(1):make_$(1)/Makefile
 
 make_$(1)/Makefile: make_$(1)
+	-$(CP) $(ROOT)/app/templates/sometest/make_$(1)/* make_$(1)
+	-rm make_$(1)/Makefile
 	echo ROOT=../$(ROOT)| $(OS_CAT) - $(ROOT)/app/templates/sometest/make_$(1)/Makefile > make_$(1)/Makefile
-	-$(OS_CP) $(ROOT)/app/templates/sometest/make_$(1)/*.cfg make_$(1)
-	-$(OS_CP) $(ROOT)/app/templates/sometest/make_$(1)/*.asm make_$(1)
 	
 
 make_$(1): 

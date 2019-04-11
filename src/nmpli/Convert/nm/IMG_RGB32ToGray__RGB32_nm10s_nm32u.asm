@@ -34,26 +34,26 @@ tbl_w_RGB2Gray: long[8]=(
 extern vec_vsum_data_vr:label;
 
  
-//! \fn void IMG_RGB32ToGray(RGB32_nm10s* pRGB, nm32u* pDstGray, int nSize);
+//! \fn void nmppiRGB32ToGray(RGB32_nm10s* pRGB, nm32u* pDstGray, int nSize);
 //!
-//! \perfinclude _IMG_RGB32ToGray__F11RGB32_nm10sPPUii.html
+//! \perfinclude _nmppiRGB32ToGray__F11RGB32_nm10sPPUii.html
  
-global _IMG_RGB32ToGray__F13RGB32_nm10sPPUii:label;
-global _void._.8.8IMG_RGB32ToGray.1class._RGB32_nm10s._.0.9._unsigned._int._.0.9._int.2 :label;
-<_IMG_RGB32ToGray__F13RGB32_nm10sPPUii>
-<_void._.8.8IMG_RGB32ToGray.1class._RGB32_nm10s._.0.9._unsigned._int._.0.9._int.2>
+global _nmppiRGB32ToGray__F13RGB32_nm10sPPUii:label;
+global _void._.8.8nmppiRGB32ToGray.1class._RGB32_nm10s._.0.9._unsigned._int._.0.9._int.2 :label;
+<_nmppiRGB32ToGray__F13RGB32_nm10sPPUii>
+<_void._.8.8nmppiRGB32ToGray.1class._RGB32_nm10s._.0.9._unsigned._int._.0.9._int.2>
 .branch;
 	vr = 0; 
-	goto  _IMG_RGB32ToGray__F13RGB32_nm10sPPii+2;
+	goto  _nmppiRGB32ToGray__F13RGB32_nm10sPPii+2;
 		
 
-//! \fn void IMG_RGB32ToGray(RGB32_nm10s* pRGB, nm32s* pDstGray, int nSize);
+//! \fn void nmppiRGB32ToGray(RGB32_nm10s* pRGB, nm32s* pDstGray, int nSize);
 //!
-//! \perfinclude _IMG_RGB32ToGray__F11RGB32_nm10sPPii.html
-global _IMG_RGB32ToGray__F13RGB32_nm10sPPii:label;
-global _void._.8.8IMG_RGB32ToGray.1class._RGB32_nm10s._.0.9._int._.0.9._int.2 :label;
-<_IMG_RGB32ToGray__F13RGB32_nm10sPPii>
-<_void._.8.8IMG_RGB32ToGray.1class._RGB32_nm10s._.0.9._int._.0.9._int.2>
+//! \perfinclude _nmppiRGB32ToGray__F11RGB32_nm10sPPii.html
+global _nmppiRGB32ToGray__F13RGB32_nm10sPPii:label;
+global _void._.8.8nmppiRGB32ToGray.1class._RGB32_nm10s._.0.9._int._.0.9._int.2 :label;
+<_nmppiRGB32ToGray__F13RGB32_nm10sPPii>
+<_void._.8.8nmppiRGB32ToGray.1class._RGB32_nm10s._.0.9._int._.0.9._int.2>
 	vr  = 0FF800000h;
 	ar5 = tbl_w_RGB2Gray	with gr7=true;
 	sb  = 80200802h			with gr7<<=31;  // sb=(10+10+10+2)x2

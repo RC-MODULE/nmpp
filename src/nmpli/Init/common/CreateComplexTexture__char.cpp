@@ -71,10 +71,10 @@ int PointInRectangle(RPoint& p, RPoint *borders)
 
 
 //!
-//! \perfinclude _IMG_CreateCellTexture__FPUcii.html
+//! \perfinclude _nmppiCreateCellTexture__FPUcii.html
 //!
 
-void IMG_CreateCellTexture(unsigned char *texture_img, int width, int height)
+void nmppiCreateCellTexture(unsigned char *texture_img, int width, int height)
 {
 	nmppsSet_8u(texture_img, 0, width*height);
 
@@ -91,10 +91,10 @@ void IMG_CreateCellTexture(unsigned char *texture_img, int width, int height)
 
 
 //!
-//! \perfinclude _IMG_CreatenmppsRandomCellTexture__FPUcii.html
+//! \perfinclude _nmppiCreatenmppsRandomCellTexture__FPUcii.html
 //!
 
-void IMG_CreateRandomCellTexture(unsigned char *texture_img, int width, int height)
+void nmppiCreateRandomCellTexture(unsigned char *texture_img, int width, int height)
 {
 	nmppsSet_8u(texture_img, 0, width*height);
 	//snmppcRand((unsigned)time( NULL ) );
@@ -125,10 +125,10 @@ void IMG_CreateRandomCellTexture(unsigned char *texture_img, int width, int heig
 
 
 //!
-//! \perfinclude _IMG_CreateComplexTexture__FPUcii.html
+//! \perfinclude _nmppiCreateComplexTexture__FPUcii.html
 //!
 
-void IMG_CreateComplexTexture(unsigned char *texture_img, int width, int height)
+void nmppiCreateComplexTexture(unsigned char *texture_img, int width, int height)
 {
 	nmppsSet_8u(texture_img, 0, width*height);
 //	snmppcRand((unsigned)time( NULL ) );

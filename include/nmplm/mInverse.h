@@ -6,7 +6,6 @@
 //
 //  Copyright (c) RC Module Inc.
 //
-//  $Revision: 1.1 $      $Date: 2005/01/12 14:03:24 $
 //
 //! \if file_doc
 //!
@@ -23,66 +22,52 @@
 
 //*****************************************************************************
 
-	/*
-    *
-    * \if Russian
-    *     \defgroup mInverse Обращение матрицы
-    * \endif
-    * \if English
-    *     \defgroup mInverse Matrix inverse
-    * \endif
-    * \ingroup mtr
-	*/
-
-//*****************************************************************************
-
     /**
-	\internal
     \defgroup MTR_fpResolve_Gauss MTR_fpResolve_Gauss
     \ingroup mInverse
     \brief
-        \ru Решение системы линейных уравнений методом Гаусса. 
-        \en Solve linear system by Gauss method . 
-    
+        \ru Решение системы линейных уравнений методом Гаусса.
+        \en Solve linear system by Gauss method .
+
 		\~
-	
+
 	\f[
 		A \cdot x = b
 	\f]
-    
-    \param	pSrcMtrA		
-        \ru Квадтратная матрица уравнения A. 
-        \en Square system mtr A. 
+
+    \param	pSrcMtrA
+        \ru Квадтратная матрица уравнения A.
+        \en Square system mtr A.
 		\~
-    \param	pSrcVecB		
-        \ru Свободный вектор. 
-        \en Free vec b. 
+    \param	pSrcVecB
+        \ru Свободный вектор.
+        \en Free vec b.
 		\~
-    \param	nSize			
-        \ru Размер матрицы. 
-        \en Matrix size. 
+    \param	nSize
+        \ru Размер матрицы.
+        \en Matrix size.
 		\~
-    \retval	pDstVecX		
-        \ru Вектор решения x. 
-        \en Solution vec. 
+    \retval	pDstVecX
+        \ru Вектор решения x.
+        \en Solution vec.
 		\~
     \return \e void
-    
-    \restr 
-        \ru Выбор ведущего элемента не производится - 
-              возможно деление на нуль. 
+
+    \restr
+        \ru Выбор ведущего элемента не производится -
+              возможно деление на нуль.
         \en The function implements Gauss method without
-              leading element selection. 
+              leading element selection.
 		\~
-    \note \ru Функция в данный момент не оптимизирована. 
-          \en The function is not optimized yet. 
+    \note \ru Функция в данный момент не оптимизирована.
+          \en The function is not optimized yet.
 		\~
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcMtrA </param> <values> L G </values>
-             <param> pSrcVecB </param> <values> L G </values>
-             <param> pDstVecX </param> <values> L G </values>
+             <param> pSrcVecB </param> <values> G L </values>
+             <param> pDstVecX </param> <values> im3 </values>
              <param> nSize </param> <values> 3 6 </values>
              <size> nSize*nSize </size>
         </testperf>
@@ -96,39 +81,38 @@ void MTR_fpResolve_Gauss(double* pSrcMtrA, double* pSrcVecB, double* pDstVecX, i
 //*****************************************************************************
 
     /**
-	\internal
     \defgroup MTR_fpResolve_PivotGauss MTR_fpResolve_PivotGauss
     \ingroup mInverse
     \brief
-        \ru Решение системы линейных уравнений методом Гаусса с выбором 
-        ведущего элемента. 
+        \ru Решение системы линейных уравнений методом Гаусса с выбором
+        ведущего элемента.
         \en Solve system of linear equations by Gauss method with leading
-        element selection. 
-    
+        element selection.
+
 		\~
-    
+
 	\f[
     	A \cdot X = B
     \f]
-    \param	pSrcMtrAB   
-        \ru Матрица уравнения A, дополненная 
-                            справа вектором B. 
-        \en Equation mtr A augmented with 
-                            vec B from the right. 
+    \param	pSrcMtrAB
+        \ru Матрица уравнения A, дополненная
+                            справа вектором B.
+        \en Equation mtr A augmented with
+                            vec B from the right.
 		\~
-    \param	nSize     
-        \ru Высота матрицы. 
-        \en Matrix height. 
+    \param	nSize
+        \ru Высота матрицы.
+        \en Matrix height.
 		\~
-    \retval	pDstVecX    
-        \ru Вектор решения X. 
-        \en Solution vec X. 
+    \retval	pDstVecX
+        \ru Вектор решения X.
+        \en Solution vec X.
 		\~
     \return \e void
-    
+
     \par
     \xmlonly
-        <testperf> 
+        <testperf>
              <param> pSrcMtrAB </param> <values> L G </values>
              <param> pDstVecX </param> <values> L G </values>
              <param> nSize </param> <values> 3 6 </values>
@@ -139,5 +123,61 @@ void MTR_fpResolve_Gauss(double* pSrcMtrA, double* pSrcVecB, double* pDstVecX, i
     //! \{
 void MTR_fpResolve_PivotGauss(double* pSrcMtrAB, double* pDstVecX, int nSize);
     //! \}
+
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
+
+	/** \defgroup nmppmLUDecomp nmppmLUDecomp
+	    \ingroup mInverse
+	 *  \brief LU-разложение матрицы
+	 *
+	 *  \param [in] A  Матрица A
+	 *  \param [out] L Левая диагональная матрица L
+	 *  \param [out] U верхняя диагональная матрица  U
+	 *  \param [in]  N Размерность матрицы
+	 *
+	 */
+//! \{
+void nmppmLUDecomp_64f (
+	const double  * A,
+	double        * L,
+	double        * U,
+	int			    N
+);
+//! \}
+
+ //SLAY
+// L*y = b;  U*x = y
+
+	/** \defgroup nmppmLUResolve nmppmLUResolve
+	    \ingroup mInverse
+	 *  \brief Решение системы линейных уравнений из LU-разложения
+	 *  L*y = b;  U*x = y
+	 *  \param [in] L Левая диагональная матрица L
+	 *  \param [in] U верхняя диагональная матрица  U
+	 *  \param [in] b вектор b
+	 *  \param [out] x вектор x
+	 *  \param [out] y вектор y
+	 *  \param [in] N размер
+	 *
+	 *  \details More details
+	 */
+//! \{
+void nmppmLUResolve_64f (
+	const double        * L,
+	const double        * U,
+	const double        * b,
+	double              * x,
+	double              * y,
+	int				    N
+);
+//! \}
+
+#ifdef __cplusplus
+		};
+#endif
+
 
 #endif // _MINVERSE_H_INCLUDED_

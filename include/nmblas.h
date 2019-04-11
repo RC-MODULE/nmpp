@@ -1,40 +1,33 @@
- /**
+ /** \ingroup NMBLAS
  *  \brief     nmblas (NeuroMatrix Basic Linear Algebra Subroutines)
- *  \details   This class is used to demonstrate a number of section commands.
- *  \author    Alexandr Bolotnikov 
- *  \version   1.0
- *  \date      2017-05-23T15:13:13
- *  \bug       
- *  \warning   
+ *  \author    Alexandr Bolotnikov
  *  \copyright (c) RC Module Inc.
- *  \file nmblas.h
  */
- 
- 
- //! \defgroup LEVEL1 BLASS-LEVEL1
- //! \{
- 
- //! \}
-
 
 #ifndef _NMBLAS_H_INCLUDED_
 #define _NMBLAS_H_INCLUDED_
 
 #ifdef __cplusplus
 		extern "C" {
-#endif	
+#endif
 
+/** \defgroup Level_1 Level-1
+    \ingroup NMBLAS
+*/
 
+/** \defgroup CORE_nmblas Базовые регистровые функции
+    \ingroup Level_1
+*/
 
 /**
- *  \ingroup LEVEL1
+ *  \ingroup Level_1
  *  \brief Brief description
- *  
+ *
  *  \param [in] n Description for n
  *  \param [in,out] x Description for x
  *  \param [in] inc_x Description for inc_x
  *  \return Return description
- *  
+ *
  *  \details More details
 */
 double nmblas_dasum(
@@ -42,21 +35,6 @@ double nmblas_dasum(
 	const double *x,
 	const int inc_x
 );
-
- /**
- *  \ingroup LEVEL1
- *  \brief Brief description
- *  
- *  \param [in] n Description for n
- *  \param [in] alpha Description for alpha
- *  \param [in] arr_x Description for arr_x
- *  \param [in] inc_x Description for inc_x
- *  \param [in] arr_y Description for arr_y
- *  \param [in] inc_y Description for inc_y
- *  \return Return description
- *  
- *  \details More details
- */
 
 enum nm_trans{nm_n=0,nm_t=1};
 
@@ -68,7 +46,7 @@ void nmblas_daxpy(
 	const int inc_x,
 	double *arr_y,
 	const int inc_y
-); 
+);
 void nmblas_dcopy(
 	const int N,
 	const double* X,
@@ -96,11 +74,11 @@ void nmblas_drot(
 	const int INCY,
 	const double C,
 	const double S
-); 
+);
 void nmblas_drotg(
-	double *a, 
-	double *b, 
-	double *c, 
+	double *a,
+	double *b,
+	double *c,
 	double *s
 );
 void nmblas_drotm(
@@ -110,13 +88,13 @@ void nmblas_drotm(
 	double *Y,
 	const int INCY,
 	double *param
-);   
+);
 void nmblas_dscal(
 	const int N,
 	const double ALPHA,
 	double*X,
 	const int INCX
-); 
+);
 double nmblas_dsdot(
 	const int N,
 	const float* X,
@@ -135,7 +113,7 @@ double nmblas_dznrm2(
 	const int n,
 	const double *x,
 	const int inc_x
-);  
+);
 int nmblas_idamax(
 	const int N,
 	const double* X,
@@ -158,12 +136,12 @@ void nmblas_saxpy(int n,
 	const int inc_x,
 	float *arr_y,
 	const int inc_y
-);   
+);
 float nmblas_scnrm2(
 	const int N,
 	const float* X,
 	const int INCX
-); 
+);
 void nmblas_scopy(
 	const int N,
 	const float* X,
@@ -207,13 +185,13 @@ void nmblas_srotm(
 	float *Y,
 	const int INCY,
 	float *param
-);   
+);
 void nmblas_sscal(
 	const int n,
 	const float alpha,
 	const float *x,
 	const int inc_x
-); 
+);
 void nmblas_sswap(
 	const int N,
 	const float *X,
@@ -222,7 +200,7 @@ void nmblas_sswap(
 	const int INCY
 );
 
-/////////////////LEVEL 2 
+/////////////////LEVEL 2
 
 void nmblas_sgemv(
    const enum nm_trans        TRANS,
@@ -252,6 +230,7 @@ void nmblas_dgemv(
    const int                  INCY
 );
 
+
 //! \defgroup LEVEL3 BLASS-LEVEL3
 //! \{
 
@@ -264,17 +243,16 @@ void MullMatrix_f(
 	int 	pI, 
 	int 	ldA, 
 	void* 	B,
-    int 	pK, 
+    int 	pK,
     int 	ldB,
     void* 	C,
-    int 	pJ, 
+    int 	pJ,
     int 	ldC,
-    bool 	plusC 
+    bool 	plusC
 );
 
 
 #ifdef __cplusplus
 		};
 #endif
-	
 #endif // _INIT_H_INCLUDED_

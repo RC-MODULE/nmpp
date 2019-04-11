@@ -14,6 +14,19 @@ const 	nm2u*			pSrcVec,		// input buffer		:long Local [VecSize/8]
 		src[i] = ~(dst[i]);
 }
 
+void nmppsNot_4u(
+const 	nm4u*			pSrcVec,		// input buffer		:long Local [VecSize/8]
+		nm4u*			pDstVec,		// output buffer	:long Global[VecSize/8]
+		int				nSize		// size of input buffer in 8 bit elements. nSize=[8,16,32...]
+		)
+{
+	int i=0;
+	int iSize = nSize>>4;
+	long long int *src = (long long int *)pSrcVec;
+	long long int *dst = (long long int *)pDstVec;
+	for(i=0; i<iSize; i++)
+		dst[i] = ~(src[i]);
+}
 
 void nmppsNot_8u(
 const 	nm8u*			pSrcVec,		// input buffer		:long Local [VecSize/8]

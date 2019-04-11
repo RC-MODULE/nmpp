@@ -45,12 +45,10 @@ begin ".text"
 <Next32>
 	fpu 0 rep 32 vreg0 = [ar0++]; 
 	fpu 0 rep 32 vreg1 = [ar1++]; 
-	fpu 0 .float vreg6 = vreg0*vreg1; 
-	fpu 1 rep 32 vreg2 = [ar2++]; 	
 	if > delayed goto ar5 with gr5--;
-		fpu 1 vreg6 = fpu 0 vreg6; 
-		fpu 1 .float vreg7 = vreg6+vreg2; 
-		fpu 1 rep 32 [ar6++] = vreg7;
+		fpu 0 rep 32 vreg2 = [ar2++]; 	
+		fpu 0 .float vreg6 = vreg0 * vreg1 + vreg2; 
+		fpu 0 rep 32 [ar6++] = vreg7;
 <Tail>	
 	gr7;		//flag tail
 	if < delayed goto End;	
@@ -60,7 +58,7 @@ begin ".text"
 	fpu 0 rep vlen vreg0 = [ar0++]; 
 	fpu 0 rep vlen vreg1 = [ar1++]; 
 	fpu 0 rep vlen vreg2 = [ar2++]; 
-	fpu 0 .float vreg7 = vreg0*vreg1+vreg2; 
+	fpu 0 .float vreg7 = vreg0 * vreg1+vreg2; 
 	fpu 0 rep vlen [ar6++] = vreg7;
 
 <End>	

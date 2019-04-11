@@ -11,15 +11,15 @@
 //
 //! \if file_doc
 //!
-//! \file   IMG_AddConvertI.asm
+//! \file   nmppiAddConvertI.asm
 //! \author Сергей Свечников
 //! \brief  Преобразование со сложением и с форточкой.
 //!
 //! \endif
 //!
 //------------------------------------------------------------------------
-global _IMG_AddConvertRShiftI__FPSsiPiiiii: label;
-global _void._.8.8IMG_AddConvertRShiftI.1short._.0.9._int.9._int._.0.9._int.9._int.9._int.9._int.2 :label;
+global _nmppiAddConvertRShiftI__FPSsiPiiiii: label;
+global _void._.8.8nmppiAddConvertRShiftI.1short._.0.9._int.9._int._.0.9._int.9._int.9._int.9._int.2 :label;
  import from macros.mlb;
 fin_add: label;
 
@@ -40,13 +40,13 @@ matrptr:word[2];
 
 
     //--------------------------------------------------------------------
-    //! \fn void IMG_AddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight)
+    //! \fn void nmppiAddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight)
     //! 
-	//! \perfinclude _IMG_AddConvertRShiftI__FPSsiPiiiii.html
+	//! \perfinclude _nmppiAddConvertRShiftI__FPSsiPiiiii.html
     //--------------------------------------------------------------------
 
-<_IMG_AddConvertRShiftI__FPSsiPiiiii>
-<_void._.8.8IMG_AddConvertRShiftI.1short._.0.9._int.9._int._.0.9._int.9._int.9._int.9._int.2>
+<_nmppiAddConvertRShiftI__FPSsiPiiiii>
+<_void._.8.8nmppiAddConvertRShiftI.1short._.0.9._int.9._int._.0.9._int.9._int.9._int.9._int.2>
    ar5 = ar7 - 2;
    PUSH_REGS();
    ar4=[--ar5];	 // dst16 

@@ -84,20 +84,20 @@
     \par
     \xmlonly
         <testperf>
-          <param> pSrcImg </param> <values> L G </values>
+          <param> pSrcImg </param> <values> im0 im1 </values>
           <param> nSrcStride </param>  <values> 128 </values>
           <param> nShift </param>  <values> 2 </values>
-          <param> pDstImg  </param>  <values> L G </values>
+          <param> pDstImg  </param>  <values> im0 im1 </values>
           <param> nDstStride </param>  <values> 64 </values>
           <param> nHeight </param>  <values> 128 </values>
           <param> nWidth </param>  <values> 128 </values>
           <size> nWidth*nHeight </size>
         </testperf>
         <testperf>
-          <param> pSrcImg </param> <values> L </values>
+          <param> pSrcImg </param> <values> im0 </values>
           <param> nSrcStride </param>  <values> 128 </values>
           <param> nShift </param>  <values> 2 </values>
-          <param> pDstImg  </param>  <values> G </values>
+          <param> pDstImg  </param>  <values> im1 </values>
           <param> nDstStride </param>  <values> 64 </values>
           <param> nHeight </param>  <values> 128 </values>
           <param> nWidth </param>  <values> 8 32 128 </values>
@@ -164,14 +164,14 @@ void nmppiRShiftConvert(nm32s* pSrcImg, int nSrcStride, nm16s* pDstImg,  int nDs
     \par
     \xmlonly
         <testperf>
-          <param> pSrcImg </param> <values> L G </values>
-          <param> pDstImg  </param>  <values> L G </values>
+          <param> pSrcImg </param> <values> im0 im1 </values>
+          <param> pDstImg  </param>  <values> im0 im1 </values>
           <param> nSize </param>  <values> 128 </values>
           <size> nSize </size>
         </testperf>
         <testperf>
-          <param> pSrcImg </param> <values> L </values>
-          <param> pDstImg  </param>  <values> G </values>
+          <param> pSrcImg </param> <values> im0 </values>
+          <param> pDstImg  </param>  <values> im1 </values>
           <param> nSize </param>  <values> 8 32 128 </values>
           <size> nSize </size>
         </testperf>
@@ -231,16 +231,16 @@ void nmppiConvertRGB32_10u8u(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSiz
     \par
     \xmlonly
         <testperf>
-          <param> pRGB </param> <values> L G </values>
-          <param> pDstGray  </param>  <values> L G </values>
-          <param> pTmpBuf </param> <values> L G </values>
+          <param> pRGB </param> <values> im0 im1 </values>
+          <param> pDstGray  </param>  <values> im0 im1 </values>
+          <param> pTmpBuf </param> <values> im0 im1 </values>
           <param> nSize </param>  <values> 128 </values>
           <size> nSize </size>
         </testperf>
         <testperf>
-          <param> pRGB </param> <values> L </values>
-          <param> pDstGray  </param>  <values> G </values>
-          <param> pTmpBuf </param> <values> G </values>
+          <param> pRGB </param> <values> im0 </values>
+          <param> pDstGray  </param>  <values> im1 </values>
+          <param> pTmpBuf </param> <values> im2 </values>
           <param> nSize </param>  <values> 8 32 128 </values>
           <size> nSize </size>
         </testperf>

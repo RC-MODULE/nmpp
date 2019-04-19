@@ -168,7 +168,7 @@ __INLINE__ void MTR_Free(void* ptr) {nmppsFree(ptr);}
     \par
     \xmlonly
         <testperf>
-             <param> pMTR   </param> <values> L G </values>
+             <param> pMTR   </param> <values> im0 </values>
              <param> nWidth </param> <values> 4 </values>
              <param> nY     </param> <values> 2 </values>
              <param> nX     </param> <values> 2 </values>
@@ -232,7 +232,7 @@ __INLINE__ nm64u* MTR_Addr_64u(nm64u* pMTR, int nWidth, int nY, int nX) {	return
     \par
     \xmlonly
         <testperf>
-             <param> pMtr	</param> <values> L G </values>
+             <param> pMtr	</param> <values> im0 </values>
 			 <param> nWidth	</param> <values> 18 </values>
 			 <param> nY		</param> <values> 2  </values>
 			 <param> nX		</param> <values> 2  </values>
@@ -297,7 +297,7 @@ __INLINE__ void MTR_SetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
     \par
     \xmlonly
         <testperf>
-             <param> pMtr	</param> <values> L G </values>
+             <param> pMtr	</param> <values> im0 </values>
 			 <param> nWidth	</param> <values> 18 </values>
 			 <param> nY		</param> <values> 2  </values>
 			 <param> nX		</param> <values> 2  </values>
@@ -360,16 +360,16 @@ __INLINE__ void MTR_GetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr </param> <values> L G </values>
-             <param> pDstVec </param> <values> G L </values>
+             <param> pSrcMtr </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1   </values>
              <param> nCol </param> <values> 4 </values>
              <param> nHeight </param> <values> 64 </values>
              <param> nWidth </param> <values> 128 </values>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf>
-             <param> pSrcMtr </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcMtr </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nCol </param> <values> 4 </values>
              <param> nHeight </param> <values> 64 </values>
              <param> nWidth </param> <values> 8 32 128 </values>

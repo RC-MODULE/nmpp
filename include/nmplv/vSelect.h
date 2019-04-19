@@ -52,8 +52,8 @@
     \par
     \xmlonly
         <testperf>
-			<param> pSrcVec </param> <values> L G </values>
-			<param> nMaxValue </param> <values> im2 </values>
+			<param> pSrcVec </param> <values> im0 im1 </values>
+			<param> nMaxValue </param> <values> im1 </values>
 			<param> nSize </param> <values> 10240 </values>
 			<init>
 					nmppsSet_(pSrcVec, 0, nSize);
@@ -61,8 +61,8 @@
 			</init>
         </testperf>
         <testperf>
-			<param> pSrcVec </param> <values> G </values>
-			<param> nMaxValue </param> <values> im2 </values>
+			<param> pSrcVec </param> <values> im0 </values>
+			<param> nMaxValue </param> <values> im1 </values>
 			<param> nSize </param> <values> 8 128 1024 10240 </values>
 			<init>
 					nmppsSet_(pSrcVec, 0, nSize);
@@ -158,9 +158,9 @@ int nmppsMax_32sm(const nm32s* srcVec, int size, int32b* maxValue, nm64s* tmp);
     \par
     \xmlonly
         <testperf>
-			<param> pSrcVec </param> <values> L G </values>
-			<param> nMinValue </param> <values> im2	</values>
-			<param> nSize </param> <values> 10240 </values>
+			<param> pSrcVec </param> <values> im0 im1 </values>
+			<param> nMinValue </param> <values> im1	</values>
+			<param> nSize </param> <values> 2048 </values>
 			<init>
 					nmppsSet_(pSrcVec, 0, nSize);
 					nmppsPut_(pSrcVec, nSize-1, -1);
@@ -169,7 +169,7 @@ int nmppsMax_32sm(const nm32s* srcVec, int size, int32b* maxValue, nm64s* tmp);
         <testperf>
 			<param> pSrcVec </param> <values> G </values>
 			<param> nMinValue </param> <values> im2	</values>
-			<param> nSize </param> <values> 8 128 1024 10240 </values>
+			<param> nSize </param> <values> 8 128 1024 2048 </values>
 			<init>
 					nmppsSet_(pSrcVec, 0, nSize);
 					nmppsPut_(pSrcVec, nSize-1, -1);
@@ -295,13 +295,13 @@ int nmppsMin_32sm(const nm32s* srcVec, int size, int32b* minValue, nm64s* tmp);
     \par
 	\xmlonly
 		<testperf>
-			<param> pSrcVec	</param> <values> L G </values>
-			<param> pLTmpBuf </param> <values> L </values>
-			<param> pGTmpBuf </param> <values> G </values>
-			<param> nMaxValue </param> <values> im2 </values>
+			<param> pSrcVec	</param> <values> im0 im1 </values>
+			<param> pLTmpBuf </param> <values> im2 </values>
+			<param> pGTmpBuf </param> <values> im3 </values>
+			<param> nMaxValue </param> <values> im0 </values>
 			<param> nIndex </param> <values> im3 </values>
 			<param> nSearchDir </param> <values> 1 -1 </values>
-			<param> nSize </param> <values> 64 1024 10240 </values>
+			<param> nSize </param> <values> 64 1024 2048 </values>
 			<init>
 					nmppsSet_(pSrcVec, 0, nSize);\nnmppsPut_(pSrcVec, nSize-1, 1);
 			</init>
@@ -382,13 +382,13 @@ void nmppsMaxIndx_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMaxVal
     \par
 	\xmlonly
 		<testperf>
-			<param> pSrcVec	</param> <values> L G </values>
-			<param> pLTmpBuf </param> <values> L </values>
-			<param> pGTmpBuf </param> <values> G </values>
-			<param> nMinValue </param> <values> n </values>
-			<param> nIndex </param> <values> n </values>
+			<param> pSrcVec	</param> <values> im0 im1 </values>
+			<param> pLTmpBuf </param> <values> im1 </values>
+			<param> pGTmpBuf </param> <values> im2 </values>
+			<param> nMinValue </param> <values> 5 </values>
+			<param> nIndex </param> <values> 5 </values>
 			<param> nSearchDir </param> <values> 1 -1 </values>
-			<param> nSize </param> <values> 64 1024 10240 </values>
+			<param> nSize </param> <values> 64 1024 2048 </values>
 			<init>
 					nmppsSet_(pSrcVec,0,nSize);\nnmppsPut_(pSrcVec,nSize-1,-1);
 			</init>
@@ -432,7 +432,7 @@ void nmppsMinIndx_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMinVal
 	\par
 	\xmlonly
 		<testperf>
-			 <param> pSrcVec </param> <values> L G </values>
+			 <param> pSrcVec </param> <values> im0 im1 </values>
 			 <param> nStride </param> <values> 2 </values>
 			 <param> nPos </param> <values> im2 </values>
 			 <size> 1 </size>
@@ -484,7 +484,7 @@ int nmppsMinIndxV1024_32s(int* pSrcVec,int nStride,int* nPos);
 	\par
 	\xmlonly
 		<testperf>
-			 <param> pSrcVec </param> <values> L G </values>
+			 <param> pSrcVec </param> <values> im0 im1 </values>
 			 <param> nSize </param> <values> 8 64 512 </values>
 			 <init>  nmppsSet_(pSrcVec, 1, nSize); </init>
 		</testperf>
@@ -525,7 +525,7 @@ int nmppsFirstZeroIndx_32s(int* pSrcVec, int nSize);
 	\par
 	\xmlonly
 		<testperf>
-			 <param> pSrcVec </param> <values> L G </values>
+			 <param> pSrcVec </param> <values> im0 im1 </values>
 			 <param> nSize </param> <values> 8 64 512 </values>
 			 <init> nmppsSet_(pSrcVec, 0, nSize); </init>
 		</testperf>
@@ -567,7 +567,7 @@ int nmppsFirstNonZeroIndx_32s(int* pSrcVec, int nSize);
 	\par
 	\xmlonly
 		<testperf>
-			 <param> pSrcVec </param> <values> L G </values>
+			 <param> pSrcVec </param> <values> im0 im1 </values>
 			 <param> nSize </param> <values> 8 64 512 </values>
 			 <init2> nmppsSet_(pSrcVec, 1, nSize); </init2>
 		</testperf>
@@ -609,7 +609,7 @@ int nmppsLastZeroIndx_32s(int* pSrcVec, int nSize);
 	\par
 	\xmlonly
 		<testperf>
-			 <param> pSrcVec </param> <values> L G  </values>
+			 <param> pSrcVec </param> <values> im0 im1  </values>
 			 <param> nSize </param> <values> 8 64 512 </values>
 			 <init2> nmppsSet_(pSrcVec, 0, nSize); </init2>
 
@@ -669,16 +669,16 @@ int nmppsLastNonZeroIndx_32s(int* pSrcVec, int nSize);
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
-             <param> pDstMinVec </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstMinVec </param> <values> im2 im3 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> L </values>
-             <param> pDstMinVec </param> <values> G </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pDstMinVec </param> <values> im2 </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -744,15 +744,15 @@ void nmppsMinNV_64s(nm64s63b** pSrcVecs, int numVecs, nm64s63b* pDstMinVec, int 
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> G L </values>
-             <param> pDstMaxVec	</param> <values> L G </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstMaxVec	</param> <values> im2 im3 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> L </values>
-             <param> pDstMaxVec	</param> <values> G </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pDstMaxVec	</param> <values> im2 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -827,18 +827,18 @@ void nmppsMaxEvery_64s(nm64s63b* pSrcVec1, nm64s63b* pSrcVec2, nm64s63b* pDstMax
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
-             <param> pDstMin </param> <values> L G </values>
-             <param> pDstSignMask </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstMin </param> <values> im2 im3 </values>
+             <param> pDstSignMask </param> <values> im0 im1 </values>
+             <param> nSize </param> <values> 4096 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> L </values>
-             <param> pDstMin </param> <values> G </values>
-             <param> pDstSignMask </param> <values> G </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pDstMin </param> <values> im2 </values>
+             <param> pDstSignMask </param> <values> im3 </values>
+             <param> nSize </param> <values> 8 128 1024 4096 </values>
         </testperf>
     \endxmlonly
     */
@@ -894,14 +894,14 @@ void nmppsMinCmpLtV_16s(nm16s15b* pSrcVec1, nm16s15b* pSrcVec2, nm16s15b* pDstMi
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -998,22 +998,22 @@ void nmppsCmpLtC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlag
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
              <param> nTrueFlag </param> <values> -1 </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 4096 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nTrueFlag </param> <values> 0 -1 </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 4096 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nTrueFlag </param> <values> -1 </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> nSize </param> <values> 8 128 1024 4096 </values>
         </testperf>
     \endxmlonly
     */
@@ -1091,11 +1091,11 @@ void nmppsCmpEq0_32u31b(nm32u31b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFla
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
-             <param> pDstMin </param> <values> L G </values>
-             <param> pDstMax </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstMin </param> <values> im2 im3 </values>
+             <param> pDstMax </param> <values> im2 im3 </values>
+             <param> nSize </param> <values> 4096 </values>
         </testperf>
     \endxmlonly
 
@@ -1150,22 +1150,22 @@ void nmppsCmpMinMaxV_32s(nm32s*  pSrcVec1, nm32s* pSrcVec2,  nm32s*  pDstMin,  n
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
              <param> nClipFactor </param> <values> 2 </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nClipFactor </param> <values> 2 3 5 </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nClipFactor </param> <values> 2 </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -1230,25 +1230,25 @@ void nmppsClipPowC_64s(nm64s* pSrcVec, int nClipFactor, nm64s* pDstVec, int nSiz
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
              <param> nNegThresh </param> <values> -127 </values>
              <param> nPosThresh </param> <values> 127 </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nNegThresh </param> <values> -255 -127 </values>
              <param> nPosThresh </param> <values> 127 255 </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nNegThresh </param> <values> -127 </values>
              <param> nPosThresh </param> <values> 127 </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -1311,44 +1311,44 @@ void nmppsClipCC_32s(nm32s30b* pSrcVec, int30b nNegThresh, int30b nPosThresh, nm
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec	</param> <values> L G </values>
-             <param> pDstVec	</param> <values> L G </values>
+             <param> pSrcVec	</param> <values> im0 im1 </values>
+             <param> pDstVec	</param> <values> im0 im1 </values>
              <param> nClipFactor</param> <values> 4 </values>
              <param> nShift		</param> <values> 2 </values>
              <param> nAddValue	</param> <values> 127 </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> nSize		</param> <values> 4096 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec	</param> <values> L </values>
-             <param> pDstVec	</param> <values> G </values>
+             <param> pSrcVec	</param> <values> im0 </values>
+             <param> pDstVec	</param> <values> im1 </values>
              <param> nClipFactor</param> <values> 1 4 15 </values>
              <param> nShift		</param> <values> 2 </values>
              <param> nAddValue	</param> <values> 127 </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> nSize		</param> <values> 4096 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec	</param> <values> L </values>
-             <param> pDstVec	</param> <values> G </values>
+             <param> pSrcVec	</param> <values> im0 </values>
+             <param> pDstVec	</param> <values> im1 </values>
              <param> nClipFactor</param> <values> 4 </values>
              <param> nShift		</param> <values> 2 4 6 </values>
              <param> nAddValue	</param> <values> 127 </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> nSize		</param> <values> 4096 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec	</param> <values> L </values>
-             <param> pDstVec	</param> <values> G </values>
+             <param> pSrcVec	</param> <values> im0 </values>
+             <param> pDstVec	</param> <values> im1 </values>
              <param> nClipFactor</param> <values> 4 </values>
              <param> nShift		</param> <values> 2 </values>
              <param> nAddValue	</param> <values> 0 64 127 </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> nSize		</param> <values> 4096 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec	</param> <values> L </values>
-             <param> pDstVec	</param> <values> G </values>
+             <param> pSrcVec	</param> <values> im0 </values>
+             <param> pDstVec	</param> <values> im1 </values>
              <param> nClipFactor</param> <values> 4 </values>
              <param> nShift		</param> <values> 2 </values>
              <param> nAddValue	</param> <values> 127 </values>
-             <param> nSize		</param> <values> 8 128 1024 10240 </values>
+             <param> nSize		</param> <values> 8 128 1024 4096 </values>
         </testperf>
     \endxmlonly
     */
@@ -1488,24 +1488,24 @@ void nmppsClipConvertAddCFree(NmppsWeightState* pState);
 					im2[]={2,2,2,2,2,2,2,2};
 					im3[]={0};
 			</init>
-			<param> pSrcVec			</param> <values> L G  </values>
-			<param> pnShift			</param> <values> im2 </values>
+			<param> pSrcVec			</param> <values> im0 im1  </values>
+			<param> pnShift			</param> <values> im1 </values>
 			<param> pnClipFactor	</param> <values> im2 </values>
 			<param> pnAdd			</param> <values> im3 </values>
 			<param> pDstVec			</param> <values> L G </values>
-			<param> nSize			</param> <values> 10240 </values>
+			<param> nSize			</param> <values> 4096 </values>
 		</testperf>
 		<testperf>
 			<init>
 					im2[]={2,2,2,2,2,2,2,2};
 					im3[]={0};
 			</init>
-			 <param> pSrcVec		</param> <values> L  </values>
-			 <param> pnShift		</param> <values> im2 </values>
+			 <param> pSrcVec		</param> <values> im0  </values>
+			 <param> pnShift		</param> <values> im1 </values>
 			 <param> pnClipFactor	</param> <values> im2 </values>
 			 <param> pnAdd			</param> <values> im3 </values>
 			 <param> pDstVec		</param> <values> G </values>
-			 <param> nSize			</param> <values> 128 1024 10240 </values>
+			 <param> nSize			</param> <values> 128 1024 4096 </values>
 		</testperf>
 	\endxmlonly
 	*/
@@ -1565,11 +1565,11 @@ void nmppsClipRShiftConvert_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec	</param> <values> L G </values>
-             <param> pDstVec	</param> <values> L G </values>
+             <param> pSrcVec	</param> <values> im0 im1 </values>
+             <param> pDstVec	</param> <values> im0 im1 </values>
              <param> nCmpVal	</param> <values> 0 </values>
 			 <param> nTrueFlag	</param> <values> 1 </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> nSize		</param> <values> 4096 </values>
         </testperf>
       \endxmlonly
     */
@@ -1620,9 +1620,9 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
+             <param> nSize </param> <values> 8 128 512 1024 2048 </values>
         </testperf>
       \endxmlonly
     */
@@ -1672,9 +1672,9 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
-             <param> nSize </param> <values> 4096 </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
+             <param> nSize </param> <values> 8 128 512 1024 4096 </values>
         </testperf>
       \endxmlonly
     */
@@ -1724,10 +1724,10 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
              <param> nCmpVal </param> <values> 0 </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 8 128 512 1024 2048 </values>
         </testperf>
       \endxmlonly
     */
@@ -1789,10 +1789,10 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
       \par
       \xmlonly
           <testperf>
-               <param> pSrcVec </param> <values> L G </values>
-               <param> pDstVec </param> <values> L G </values>
+               <param> pSrcVec </param> <values> im0 im1 </values>
+               <param> pDstVec </param> <values> im0 im1 </values>
                <param> nCmpVal </param> <values> 0 </values>
-               <param> nSize </param> <values> 10240 </values>
+               <param> nSize </param> <values> 8 128 512 1024 2048 </values>
   			 <param> nTrueFlag </param> <values> 1 </values>
           </testperf>
         \endxmlonly
@@ -1859,10 +1859,10 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
   \par
   \xmlonly
 	  <testperf>
-		   <param> pSrcVec </param> <values> L G </values>
-		   <param> pDstVec </param> <values> L G </values>
+		   <param> pSrcVec </param> <values> im0 im1 </values>
+		   <param> pDstVec </param> <values> im0 im1 </values>
 		   <param> nCmpVal </param> <values> 0 </values>
-		   <param> nSize </param> <values> 10240 </values>
+		   <param> nSize </param> <values> 2048 </values>
 	  </testperf>
 	\endxmlonly
   */
@@ -1902,10 +1902,10 @@ void nmppsCmpEqC_4u3b  (nm4u3b* pSrcVec,	uint3b nCmpVal,		nm4s* pDstVec, int nSi
     \par
     \xmlonly
   	  <testperf>
-  		   <param> pSrcVec </param> <values> L G </values>
-  		   <param> pDstVec </param> <values> L G </values>
+  		   <param> pSrcVec </param> <values> im0 im1 </values>
+  		   <param> pDstVec </param> <values> im0 im1 </values>
   		   <param> nCmpVal </param> <values> 0 </values>
-  		   <param> nSize </param> <values> 10240 </values>
+  		   <param> nSize </param> <values> 2048 </values>
   	  </testperf>
   	\endxmlonly
     */
@@ -1996,10 +1996,10 @@ void nmppsCmpGtC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlag
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-			 <param> pSrcVec2 </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+			 <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im2 im3 </values>
+             <param> nSize </param> <values> 8 128 512 1024 2048 </values>
 			 <param> nTrueFlag </param> <values> 1 </values>
         </testperf>
       \endxmlonly
@@ -2044,10 +2044,10 @@ void nmppsCmpEqV_8u7b(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSi
       \par
       \xmlonly
           <testperf>
-               <param> pSrcVec1 </param> <values> L G </values>
-			   <param> pSrcVec2 </param> <values> G L </values>
-               <param> pDstVec </param> <values> L G </values>
-               <param> nSize </param> <values> 10240 </values>
+               <param> pSrcVec1 </param> <values> im0 </values>
+			   <param> pSrcVec2 </param> <values> im1 </values>
+               <param> pDstVec </param> <values> im2 </values>
+               <param> nSize </param> <values> 2048 </values>
           </testperf>
         \endxmlonly
       */
@@ -2093,9 +2093,9 @@ int nmppsCmpNe_64s8um(const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm8u*  pDstV
   \par
   \xmlonly
 	  <testperf>
-		   <param> pSrcVec </param> <values> L G </values>
-		   <param> pDstVec </param> <values> L G </values>
-		   <param> nSize </param> <values> 10240 </values>
+		   <param> pSrcVec </param> <values> im0 im1 </values>
+		   <param> pDstVec </param> <values> im0 im1 </values>
+		   <param> nSize </param> <values> 2048 </values>
 	  </testperf>
 	\endxmlonly
   */
@@ -2156,10 +2156,10 @@ int nmppsCmpLt_64s8um(const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm8u*  pDstV
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1	</param> <values> L G </values>
-			 <param> pSrcVec2	</param> <values> L G </values>
-             <param> pDstVec	</param> <values> L G </values>
-             <param> nSize		</param> <values> 10240 </values>
+             <param> pSrcVec1	</param> <values> im0 im1 </values>
+			 <param> pSrcVec2	</param> <values> im0 im1 </values>
+             <param> pDstVec	</param> <values> im2 im3 </values>
+             <param> nSize		</param> <values> 2048 </values>
 			 <param> nTrueFlag	</param> <values> 1 </values>
         </testperf>
       \endxmlonly
@@ -2215,13 +2215,13 @@ void nmppsCmpNeV_8s8u(nm8s* src1, nm8s* src2, nm8u* dst, int nSize, int8b nTrueF
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec	</param> <values> L G </values>
-             <param> pDstVec	</param> <values> L G </values>
+             <param> pSrcVec	</param> <values> im0 im1 </values>
+             <param> pDstVec	</param> <values> im0 im1 </values>
              <param> nSize		</param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec	</param> <values> L </values>
-             <param> pDstVec	</param> <values> G </values>
+             <param> pSrcVec	</param> <values> im0 </values>
+             <param> pDstVec	</param> <values> im1 </values>
              <param> nSize		</param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly

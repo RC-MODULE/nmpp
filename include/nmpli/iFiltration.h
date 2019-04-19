@@ -62,10 +62,10 @@
 	\par
     \xmlonly
 			<testperf> 
-					 <param> pSrc </param> <values> L G </values>
-					 <param> pDst </param> <values> L G </values>
-					 <param> pLTmp </param> <values> L G </values>
-					 <param> pGTmp </param> <values> L G </values>
+					 <param> pSrc </param> <values> im0 im1 </values>
+					 <param> pDst </param> <values> im0 im1 </values>
+					 <param> pLTmp </param> <values> im2 im3 </values>
+					 <param> pGTmp </param> <values> im0 im1 </values>
 					 <param> nWidth </param> <values>  128 512 </values>
 					 <param> nHeight </param> <values> 128 512 </values>
 					 <size> nWidth*nHeight </size>

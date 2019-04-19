@@ -53,14 +53,14 @@
     \par
     \xmlonly
 				<testperf>
-          <param> pSrcVec </param> <values> L G 		</values>
-          <param> nCrc  </param> <values> nn 		</values>
-          <param> nSize     </param> <values> 10240 	</values>
+          <param> pSrcVec </param> <values> im0 im1 		</values>
+          <param> crcAccumulator  </param> <values> im2 		</values>
+          <param> nSize     </param> <values> 2048 	</values>
 				</testperf>
 				<testperf>
-          <param> pSrcVec </param> <values> G 		</values>
-          <param> nCrc  </param> <values> nn 		</values>
-          <param> nSize     </param> <values> 8 128 1024 10240 	</values>
+          <param> pSrcVec </param> <values> im0 		</values>
+          <param> crcAccumulator  </param> <values> im2 		</values>
+          <param> nSize     </param> <values> 8 128 1024 2048 	</values>
 				</testperf>
 
     \endxmlonly
@@ -129,8 +129,8 @@ unsigned nmppsCrcAcc_64f(const nm64f* pSrcVec, int numBitsToClear, int nSize,  u
   \par
 	\xmlonly
 	 <testperf> 
-			<param> pSrc1 </param> <values> L G </values>
-			<param> pSrc2 </param> <values> L G </values>
+			<param> pSrc1 </param> <values> im0 im1 </values>
+			<param> pSrc2 </param> <values> im0 im1 </values>
 			<size> 1 </size>
 	 </testperf>
 	\endxmlonly

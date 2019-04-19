@@ -56,20 +56,20 @@
     \xmlonly
         <testperf>
 			<init>
-				nmppsRandUniform_32u((nm32u*)L,1024);
-				nmppsRShiftC_32s((nm32s*)L, 1, (nm32s*)L, 1024);
-				nmppsRandUniform_32u((nm32u*)G,1024);
-				nmppsRShiftC_32s((nm32s*)G, 1, (nm32s*)G, 1024);
+				nmppsRandUniform_32u((nm32u*)im0,1024);
+				nmppsRShiftC_32s((nm32s*)im0, 1, (nm32s*)im0, 1024);
+				nmppsRandUniform_32u((nm32u*)im1,1024);
+				nmppsRShiftC_32s((nm32s*)im1, 1, (nm32s*)im1, 1024);
              </init>
-             <param> pSrcDstVec </param> <values> L G 	  	</values>
+             <param> pSrcDstVec </param> <values> im0 im1 	  	</values>
              <param> nSize </param> <values> 256 	</values>
         </testperf>
         <testperf>
 			<init>
-				nmppsRandUniform_32u((nm32u*)G,1024);
-				nmppsRShiftC_32s((nm32s*)G, 1, (nm32s*)G, 1024);
+				nmppsRandUniform_32u((nm32u*)im1,1024);
+				nmppsRShiftC_32s((nm32s*)im1, 1, (nm32s*)im1, 1024);
              </init>
-             <param> pSrcDstVec </param> <values> G </values>
+             <param> pSrcDstVec </param> <values> im1 </values>
              <param> nSize </param> <values> 8 128 256 </values>
         </testperf>
     \endxmlonly
@@ -151,16 +151,16 @@ void nmppsQSort_32s(nm32s* pSrcDstVec, int nSize);
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
-             <param> pRemapTable </param> <values> L G </values>
-             <param> nDstVecSize </param> <values> 10240 </values>
+             <param> pSrcVec </param> <values> im0 im1  </values>
+             <param> pDstVec </param> <values> im0 im1  </values>
+             <param> pRemapTable </param> <values> im2 im3  </values>
+             <param> nDstVecSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
-             <param> pRemapTable </param> <values> G </values>
-             <param> nDstVecSize </param> <values> 8 128 1024 10240 </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
+             <param> pRemapTable </param> <values> im2 </values>
+             <param> nDstVecSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -200,9 +200,9 @@ void nmppsRemap_8u(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVec
     \par
     \xmlonly
 		<testperf>
-			<param> pSrcVec </param> <values> L G	</values>
-			<param> pDstVec </param> <values> L G	</values>
-			<param> nSize	</param> <values> 1024 10240 </values>
+			<param> pSrcVec </param> <values> im0 im1 	</values>
+			<param> pDstVec </param> <values> im0 im1 	</values>
+			<param> nSize	</param> <values> 1024 4096 </values>
 		</testperf>
 	\endxmlonly
 

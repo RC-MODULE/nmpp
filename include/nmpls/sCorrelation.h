@@ -73,10 +73,10 @@
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pTmpBuf </param> <values> L G </values>
-             <param> pKernel </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pTmpBuf </param> <values> im0 im1 </values>
+             <param> pKernel </param> <values> im2 im3 </values>
+             <param> pDstVec </param> <values> im2 im3 </values>
              <param> nKernelSize </param> <values> 1 2 3 </values>
              <param> nSrcVecSize </param> <values> 4 8 16 </values>
         </testperf>

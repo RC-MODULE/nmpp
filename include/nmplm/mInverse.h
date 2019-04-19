@@ -21,6 +21,9 @@
 #define _MINVERSE_H_INCLUDED_
 
 //*****************************************************************************
+#ifdef __cplusplus
+		extern "C" {
+#endif
 
     /**
     \defgroup MTR_fpResolve_Gauss MTR_fpResolve_Gauss
@@ -65,8 +68,8 @@
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtrA </param> <values> L G </values>
-             <param> pSrcVecB </param> <values> G L </values>
+             <param> pSrcMtrA </param> <values> im1 im2 </values>
+             <param> pSrcVecB </param> <values> im1 im2 </values>
              <param> pDstVecX </param> <values> im3 </values>
              <param> nSize </param> <values> 3 6 </values>
              <size> nSize*nSize </size>
@@ -113,8 +116,8 @@ void MTR_fpResolve_Gauss(double* pSrcMtrA, double* pSrcVecB, double* pDstVecX, i
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtrAB </param> <values> L G </values>
-             <param> pDstVecX </param> <values> L G </values>
+             <param> pSrcMtrAB </param> <values> im1 im2 </values>
+             <param> pDstVecX </param> <values> im1 im2 </values>
              <param> nSize </param> <values> 3 6 </values>
              <size> nSize*nSize </size>
         </testperf>
@@ -124,9 +127,6 @@ void MTR_fpResolve_Gauss(double* pSrcMtrA, double* pSrcVecB, double* pDstVecX, i
 void MTR_fpResolve_PivotGauss(double* pSrcMtrAB, double* pDstVecX, int nSize);
     //! \}
 
-#ifdef __cplusplus
-		extern "C" {
-#endif
 
 
 	/** \defgroup nmppmLUDecomp nmppmLUDecomp

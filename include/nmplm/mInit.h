@@ -259,12 +259,12 @@ void nmppmCopyau_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstSt
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr </param> <values> im0 im1 </values>
-             <param> pDstMtr </param> <values> im0 im1 </values>
-             <param> nDstStride </param> <values> 256 </values>
-             <param> nHeight </param> <values> 128 </values>
+             <param> pSrcMtr </param> <values> im0 </values>
+             <param> pDstMtr </param> <values>  im1 </values>
+             <param> nDstStride </param> <values> 128 </values>
+             <param> nHeight </param> <values> 256 </values>
              <param> nWidth </param> <values> 256 </values>
-             <param> nSrcStride </param> <values> 256 </values>
+             <param> nSrcStride </param> <values> 128 </values>
              <size> nHeight*nWidth </size>
         </testperf>
         <testperf>
@@ -273,7 +273,7 @@ void nmppmCopyau_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstSt
              <param> nDstStride </param> <values> 8 128 256 </values>
              <param> nHeight </param> <values> 128 </values>
              <param> nWidth </param> <values> 8 128 256 </values>
-             <param> nSrcStride </param> <values> 8 128 256 </values>
+             <param> nSrcStride </param> <values> nDstStride </values>
              <size> nHeight*nWidth </size>
         </testperf>
     \endxmlonly

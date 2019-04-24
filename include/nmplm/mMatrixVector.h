@@ -149,7 +149,6 @@ void nmppmMul_mm_colmajor_32s64s(const nm32s* pSrcMtr1, int nHeight1, int nWidth
     \par
     \xmlonly
         <testperf>
-          <init> int nWidth=8; </init>
           <param> pSrcMtr </param> <values> im0 im1 </values>
           <param> pSrcVec </param> <values> im0 im1 </values>
           <param> pDstVec </param> <values> im2 im3 </values>
@@ -158,7 +157,6 @@ void nmppmMul_mm_colmajor_32s64s(const nm32s* pSrcMtr1, int nHeight1, int nWidth
           <size> nHeight*nWidth </size>
         </testperf>
         <testperf>
-          <init> int nWidth=8; </init>
           <param> pSrcMtr </param> <values> im0 </values>
           <param> pSrcVec </param> <values> im1 </values>
           <param> pDstVec </param> <values> im2 </values>
@@ -221,9 +219,9 @@ void nmppmMul_mv_colmajor_32s64s(const nm32s* pSrcMtr,const  nm64s* pSrcVec, nm6
         </testperf>
         <testperf>
           <init> int nWidth=8; </init>
-          <param> pSrcMtr </param> <values> G </values>
-          <param> pSrcVec </param> <values> L </values>
-          <param> pDstVec </param> <values> G </values>
+          <param> pSrcMtr </param> <values> im0 </values>
+          <param> pSrcVec </param> <values> im1 </values>
+          <param> pDstVec </param> <values> im2 </values>
           <param> nHeight </param> <values> 128 </values>
           <size> nHeight*nWidth </size>
         </testperf>
@@ -288,9 +286,9 @@ void nmppmMul_mv_16s16s_8xH( v8nm16s* pSrcMtr,  v8nm16s* pSrcVec, nm16s* pDstVec
         </testperf>
         <testperf>
           <init> int nWidth=8; </init>
-          <param> pSrcMtr </param> <values> G </values>
-          <param> pnSrcVec </param> <values> L </values>
-          <param> pDstVec </param> <values> G </values>
+          <param> pSrcMtr </param> <values>  im0 </values>
+          <param> pnSrcVec </param> <values> im1 </values>
+          <param> pDstVec </param> <values>  im2 </values>
           <param> nAddVal </param> <values> -1 </values>
           <param> nHeight </param> <values> 32 128 1024 </values>
           <size> nHeight </size>

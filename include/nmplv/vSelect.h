@@ -54,7 +54,7 @@
         <testperf>
 			<param> pSrcVec </param> <values> im0 im1 </values>
 			<param> nMaxValue </param> <values> im1 </values>
-			<param> nSize </param> <values> 10240 </values>
+			<param> nSize </param> <values> 2048 </values>
 			<init>
 					nmppsSet_(pSrcVec, 0, nSize);
 					nmppsPut_(pSrcVec, nSize-1, 1);
@@ -63,7 +63,7 @@
         <testperf>
 			<param> pSrcVec </param> <values> im0 </values>
 			<param> nMaxValue </param> <values> im1 </values>
-			<param> nSize </param> <values> 8 128 1024 10240 </values>
+			<param> nSize </param> <values> 8 128 1024 2048 </values>
 			<init>
 					nmppsSet_(pSrcVec, 0, nSize);
 					nmppsPut_(pSrcVec, nSize-1, 1);
@@ -167,7 +167,7 @@ int nmppsMax_32sm(const nm32s* srcVec, int size, int32b* maxValue, nm64s* tmp);
 			</init>
         </testperf>
         <testperf>
-			<param> pSrcVec </param> <values> G </values>
+			<param> pSrcVec </param> <values> im0 </values>
 			<param> nMinValue </param> <values> im2	</values>
 			<param> nSize </param> <values> 8 128 1024 2048 </values>
 			<init>
@@ -569,7 +569,7 @@ int nmppsFirstNonZeroIndx_32s(int* pSrcVec, int nSize);
 		<testperf>
 			 <param> pSrcVec </param> <values> im0 im1 </values>
 			 <param> nSize </param> <values> 8 64 512 </values>
-			 <init2> nmppsSet_(pSrcVec, 1, nSize); </init2>
+			 <init2> nmppsSet_32s(pSrcVec, 1, nSize); </init2>
 		</testperf>
 	\endxmlonly
 	*/
@@ -611,7 +611,7 @@ int nmppsLastZeroIndx_32s(int* pSrcVec, int nSize);
 		<testperf>
 			 <param> pSrcVec </param> <values> im0 im1  </values>
 			 <param> nSize </param> <values> 8 64 512 </values>
-			 <init2> nmppsSet_(pSrcVec, 0, nSize); </init2>
+			 <init2> nmppsSet_32s(pSrcVec, 0, nSize); </init2>
 
 		</testperf>
 	\endxmlonly

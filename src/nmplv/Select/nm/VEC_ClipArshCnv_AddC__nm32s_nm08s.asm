@@ -44,7 +44,6 @@ extern vec_ClipMul4D4W4_AddVr:label;     // core:from file Math_Mul4D4W4.asm
 //! 
 //! \perfinclude _nmppsClipRShiftConvert_AddC_32s.html
 
-
 global _nmppsClipRShiftConvertAddC_32s8s:label;
 <_nmppsClipRShiftConvertAddC_32s8s>
 	ar5=ar7-2 with gr7=false;

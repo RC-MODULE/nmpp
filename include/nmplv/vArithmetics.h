@@ -744,9 +744,9 @@ void nmppsSubCRev_64s(const nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSi
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> G </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pDstVec </param> <values> im2 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -2079,7 +2079,7 @@ void nmppsSum_1s (const nm1* pSrcVec, int nSize, int32b* pnRes, void* pTmpBuf);
 //! \}
 
     /**
-    \defgroup nmppsDotProd nmppsDotProd
+    \defgroup nmppsDotProd_sm nmppsDotProd_sm
     \ingroup vArithmetics
     \brief
         \ru Скалярное умножение двух векторов.

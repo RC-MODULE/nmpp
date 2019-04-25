@@ -84,7 +84,7 @@ begin ".text_nmpli"
 //nmppiMergeFromBlocks8x8((nm8s*)LSrc,(nm8s*)LSrc,W,H);// 37007
 
 
-global _nmppiMergeFromBlocks8x8.1void: label;
+global _nmppiMergeFromBlocks8x8: label;
 //global _void._.8.8nmppiMergeFromBlocks8x8.1void._.0.9._void._.0.9._int.9._int.2 :label;
 //<_void._.8.8nmppiMergeFromBlocks8x8.1void._.0.9._void._.0.9._int.9._int.2>
 <_nmppiMergeFromBlocks8x8>

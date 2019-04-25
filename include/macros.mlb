@@ -713,19 +713,19 @@ macro FIXSHIFTAL64(RegHi,RegLo,RegResHi,RegResLo,SHIFT)
 	.endif;
 end FIXSHIFTAL64;
 
-macro WTW_REG( Arg )
-.wait;
-    nb1 = Arg;
-    wtw;
-.branch;
-end WTW_REG;
+//macro WTW_REG( Arg )
+//.wait;
+//    nb1 = Arg;
+//    wtw;
+//.branch;
+//end WTW_REG;
 
-macro WTW_MEM( Arg )
-.wait;
-    nb1 = [Arg];
-    wtw;
-.branch;
-end WTW_MEM;
+//macro WTW_MEM( Arg )
+//.wait;
+//    nb1 = [Arg];
+//    wtw;
+//.branch;
+//end WTW_MEM;
 
 macro PUSH_REGS()
     push ar0, gr0;

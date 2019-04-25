@@ -141,7 +141,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsCmpEq0__FUcP3nm1Pii_.html
 //--------------------------------------------------------------------
 
-    global _nmppsCmpEq0_8u7b:	label;
+    // global _nmppsCmpEq0_8u7b:	label;
 global _nmppsCmpEq0_8u7b:label;
 <_nmppsCmpEq0_8u7b>
 .branch;

@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8,00"
 	Name="nmpp-nmc3"
-	ProjectGUID="{4CEC77FB-E193-4341-A3BF-C83449DFE67B}"
+	ProjectGUID="{BE94C54D-2AFF-79C4-733D-2B6ADFE65719}"
 	RootNamespace="nmpp-nmc3"
 	Keyword="MakeFileProj"
 	>

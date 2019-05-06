@@ -30,6 +30,8 @@ SRC_DIRS         = 	 \
 					$(ROOT)/src/nmpls/Correlation/nm \
 					$(ROOT)/src/nmpls/Metric \
 					$(ROOT)/src/nmpls/FFT/common \
+					$(ROOT)/src/nmpls/FFT/FFT0016/nm \
+					$(ROOT)/src/nmpls/FFT/FFT0016/common \
 					$(ROOT)/src/nmpls/FFT/FFT0032/nm \
 					$(ROOT)/src/nmpls/FFT/FFT0032/common \
 					$(ROOT)/src/nmpls/FFT/FFT0064/nm \

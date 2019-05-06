@@ -19,7 +19,7 @@ endif
 
 CC       = nmc-g++
 AS       = nmc-gcc
-CC_FLAGS = -std=c++11 -O2 -Wall -mnmc4
+CC_FLAGS = -std=c++11 -O2 -Wall -mnmc4  -save-temps
 ROOT     = ..
 PROJECT  = main
 TARGET   =$(PROJECT)
@@ -31,7 +31,8 @@ SRC_CPP  = $(wildcard $(ROOT)/*.cpp)
 
 $(TARGET): $(SRC_CPP) Makefile
 	$(CC) $(CC_FLAGS) $(SRC_CPP) $(INC_DIRS) $(LIB_DIRS) $(LIBS) -lc $(CFG) -Wl,--whole-archive -lmc12101 -Wl,--no-whole-archive -o $(TARGET)
-	nmc-g++ -S ../main.cpp $(INC_DIRS)
+	
+#	nmc-g++ -S -O2 ../main.cpp $(INC_DIRS)
 
 PATH:=$(MC12101)/bin;$(PATH)
 

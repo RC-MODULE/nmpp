@@ -44,26 +44,45 @@ void free32(void* p){
 	int srcB[4]={2,3,4,5};
 	int dst[4]={-1,-1,1,1};
 	
-	
+extern "C"	{
+ inline void vec_add(int* pA, int* pB, int* pC, int rep){
+	asm(
+		"\n\t"	
+		"sir=080000000h; \n\t"
+		"nb1=sir; \n\t"
+		
+		"rep %7 data=[ar0++gr0] with data; \n\t"
+		"rep %7 data=[%1++] with afifo+data; \n\t"
+		"rep %7 [%2++]=afifo ; \n\t"
+		
+		: "+RA0"(pA),"+a"(pB),"+a"(pC),"=m"(*pC) 
+		: "m"(*pA), "m"(*pB), "RG0"(2), "i"(rep)
+	);
+}
+};
 int main()
 {
 	
+	for(int i=0; i<10; i++){
 	int *pA=srcA;
 	int *pB=srcB;
 	int *pC=dst;
 
-		asm(
-		"\n\t"	
-		"sir=080000000h; \n\t"
-		"nb1=sir; \n\t"
-		"rep 1 data=[%0++] with data; \n\t"
-		"rep 1 data=[%1++] with afifo+data; \n\t"
-		"rep 1 [%2++]=afifo ; \n\t"
-		
-		: "+a"(pA),"+a"(pB),"+a"(pC),"=m"(*pC) 
-		: "m"(*pA), "m"(*pB)
-	);
-
+	//	asm(
+	//	"\n\t"	
+	//	"sir=080000000h; \n\t"
+	//	"nb1=sir; \n\t"
+	//	
+	//	"rep %7 data=[ar0++gr0] with data; \n\t"
+	//	"rep %7 data=[%1++] with afifo+data; \n\t"
+	//	"rep %7 [%2++]=afifo ; \n\t"
+	//	
+	//	: "+RA0"(pA),"+a"(pB),"+a"(pC),"=m"(*pC) 
+	//	: "m"(*pA), "m"(*pB), "RG0"(2), "i"(2)
+	//);
+	
+		vec_add(pA,pB,pC,10);
+	}
 	
 	
 	return dst[0];

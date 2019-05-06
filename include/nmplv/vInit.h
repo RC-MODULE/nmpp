@@ -63,14 +63,14 @@ typedef int NmppRoundMode;
     \par
     \xmlonly
         <testperf>
-	        <param> pVec </param> <values> L G </values>
+	        <param> pVec </param> <values> im0 im1 </values>
 	        <param> nVal </param> <values> 555 </values>
-	        <param> nSize  </param> <values> 10240 </values>
+	        <param> nSize  </param> <values> 2048 </values>
         </testperf>
         <testperf>
-	        <param> pVec </param> <values> G </values>
+	        <param> pVec </param> <values> im0 </values>
 	        <param> nVal </param> <values> 555 </values>
-	        <param> nSize  </param> <values> 8 128 1024 10240 </values>
+	        <param> nSize  </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -120,11 +120,11 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64
     \par
     \xmlonly
         <testperf>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pDstVec </param> <values> G </values>
+             <param> pDstVec </param> <values> im0 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -266,25 +266,25 @@ int nmppsRandUniform();
     \par
     \xmlonly
         <testperf>
-             <param> pVec </param> <values> L G </values>
+             <param> pVec </param> <values> im0 im1 </values>
              <param> nOffset </param> <values> 10 </values>
              <param> nSlope </param> <values> 2 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pVec </param> <values> G </values>
+             <param> pVec </param> <values> im0 </values>
              <param> nOffset </param> <values> -10 10 </values>
              <param> nSlope </param> <values> 2 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pVec </param> <values> G </values>
+             <param> pVec </param> <values> im0 </values>
              <param> nOffset </param> <values> 10 </values>
              <param> nSlope </param> <values> -2 2 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pVec </param> <values> G </values>
+             <param> pVec </param> <values> im0 </values>
              <param> nOffset </param> <values> 10 </values>
              <param> nSlope </param> <values> 2 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
@@ -339,13 +339,13 @@ void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -519,13 +519,13 @@ void nmppsMerge_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec
  *  \details Функция выполняется на RISC-процессоре
  	\xmlonly
 	 	<testperf>
-		  	<param> pSrcVec </param> <values> L G </values>
+		  	<param> pSrcVec </param> <values> im0 im1 </values>
 		  	<param> pDstVec </param> <values> im2 </values>
 		  	<param> nSize </param> <values> 2048 </values>
 	 	</testperf>
 	 	<testperf>
-		  	<param> pSrcVec </param> <values> L </values>
-		  	<param> pDstVec </param> <values> G </values>
+		  	<param> pSrcVec </param> <values> im0 </values>
+		  	<param> pDstVec </param> <values> im1 </values>
 		  	<param> nSize </param> <values> 8 128 1024 2048  </values>
 	 	</testperf>
 	\endxmlonly
@@ -570,13 +570,13 @@ void nmppsConvertRisc_32u8u(const nm32u* pSrcVec, nm8u* pDstVec, int nSize);
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im1 im1 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -645,20 +645,20 @@ __INLINE__ void nmppsCopy_64sc(const nm64sc *pSrcVec, nm64sc *pDstVec, int nSize
     \par
     \xmlonly
         <testperf>
-            <param> pSrcVec    </param> <values> L G </values>
-            <param> pDstVec    </param> <values> L G </values>
+            <param> pSrcVec    </param> <values> im0 im1 </values>
+            <param> pDstVec    </param> <values> im0 im1 </values>
             <param> nSrcOffset </param> <values> 3 </values>
             <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf>
-            <param> pSrcVec    </param> <values> L </values>
-            <param> pDstVec    </param> <values> G </values>
+            <param> pSrcVec    </param> <values> im0 </values>
+            <param> pDstVec    </param> <values> im1 </values>
             <param> nSrcOffset </param> <values> 0 3 7 </values>
             <param> nSize </param> <values> 10240 </values>
         </testperf>
         <testperf>
-            <param> pSrcVec    </param> <values> L </values>
-            <param> pDstVec    </param> <values> G </values>
+            <param> pSrcVec    </param> <values> im0 </values>
+            <param> pDstVec    </param> <values> im1 </values>
             <param> nSrcOffset </param> <values> 3 </values>
             <param> nSize </param> <values> 8 128 1024 10240 </values>
         </testperf>
@@ -698,13 +698,13 @@ void nmppsCopyua_8s(const nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSi
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> G </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly

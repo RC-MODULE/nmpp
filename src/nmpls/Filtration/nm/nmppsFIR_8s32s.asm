@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-import from macros.mlb;
+//import from macros.mlb;
 
 data ".data_nmpls_L"
 mul01,mul02,mul0N:label;
@@ -141,7 +141,7 @@ global _nmppsFIR_8s32s:label;
 	ar0+= gr0;
 	gr0 = 2;
 	delayed call vec_vsum_data_vr;
-		wtw;//WTW_REG(gr4);
+		wtw;//WTW_REG_DEPRICARTED(gr4);
 		nul;
 	delayed goto finish1;
 		pop ar6,gr6;
@@ -190,7 +190,7 @@ global _nmppsFIR_8s32s:label;
 	ar0+= gr0;
 	gr0 = 2;
 	delayed call vec_vsum_data_vr;
-		wtw;//WTW_REG(gr4);
+		wtw;//WTW_REG_DEPRICARTED(gr4);
 		nul;
 	delayed goto finish2;
 		pop ar6,gr6;
@@ -238,7 +238,7 @@ global _nmppsFIR_8s32s:label;
 	ar0+= gr0;
 	gr0 = 2;
 	delayed call vec_vsum_data_vr;
-		wtw;//WTW_REG(gr4);
+		wtw;//WTW_REG_DEPRICARTED(gr4);
 		nul;
 	delayed goto finish3;
 		pop ar6,gr6;

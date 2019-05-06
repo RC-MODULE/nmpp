@@ -26,9 +26,11 @@ begin ".text_nmplv"
 //! \perfinclude _VEC_QSort__FPii.html
 
 global _VEC_QSort__FPii : label;
+global _nmppsQSort_32s : label;
 global _void._.8.8VEC_QSort.1int._.0.9._int.2 :label;
 <_VEC_QSort__FPii>
 <_void._.8.8VEC_QSort.1int._.0.9._int.2>
+<_nmppsQSort_32s>
 .branch;  
 
 	ar5 = sp - 2;

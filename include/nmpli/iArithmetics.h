@@ -75,8 +75,8 @@
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pSrcDstImg </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pSrcDstImg </param> <values> im0 im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 64 </values>
              <param> nShift </param> <values> 2 </values>
@@ -85,8 +85,8 @@
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> G </values>
-             <param> pSrcDstImg </param> <values> G </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pSrcDstImg </param> <values> im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 64 </values>
              <param> nShift </param> <values> 2 </values>
@@ -171,8 +171,8 @@ void nmppiAddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcIm
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pSrcDstImg </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pSrcDstImg </param> <values> im0 im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 64 </values>
              <param> nShift </param> <values> 2 </values>
@@ -181,8 +181,8 @@ void nmppiAddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcIm
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> G </values>
-             <param> pSrcDstImg </param> <values> L </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pSrcDstImg </param> <values> im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 64 </values>
              <param> nShift </param> <values> 2 </values>
@@ -259,8 +259,8 @@ void nmppiSubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSr
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pSrcDstImg </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pSrcDstImg </param> <values> im0 im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 128 </values>
              <param> nHeight </param> <values> 128 </values>
@@ -268,8 +268,8 @@ void nmppiSubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSr
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> G </values>
-             <param> pSrcDstImg </param> <values> L </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pSrcDstImg </param> <values> im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 128 </values>
              <param> nHeight </param> <values> 128 </values>
@@ -348,8 +348,8 @@ void nmppiAddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcSt
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pSrcDstImg </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pSrcDstImg </param> <values> im0 im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 128 </values>
              <param> nHeight </param> <values> 128 </values>
@@ -357,8 +357,8 @@ void nmppiAddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcSt
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> G </values>
-             <param> pSrcDstImg </param> <values> L </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pSrcDstImg </param> <values> im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 128 </values>
              <param> nHeight </param> <values> 128 </values>
@@ -444,9 +444,9 @@ void nmppiSubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStr
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcMtr1 </param> <values> L G </values>
-             <param> pSrcMtr2 </param> <values> L G </values>
-             <param> pDstMtr </param> <values> L G </values>
+             <param> pSrcMtr1 </param> <values> im0 im1 </values>
+             <param> pSrcMtr2 </param> <values> im0 im1 </values>
+             <param> pDstMtr </param> <values> im2 im3 </values>
              <param> nSrcStride1 </param> <values> 128 </values>
              <param> nSrcStride2 </param> <values> 128 </values>
              <param> nDstStride </param> <values> 128 </values>
@@ -455,9 +455,9 @@ void nmppiSubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStr
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcMtr1 </param> <values> G </values>
-             <param> pSrcMtr2 </param> <values> G </values>
-             <param> pDstMtr </param> <values> L </values>
+             <param> pSrcMtr1 </param> <values> im0 </values>
+             <param> pSrcMtr2 </param> <values> im1 </values>
+             <param> pDstMtr </param> <values> im2 </values>
              <param> nSrcStride1 </param> <values> 128 </values>
              <param> nSrcStride2 </param> <values> 128 </values>
              <param> nDstStride </param> <values> 128 </values>
@@ -508,23 +508,23 @@ void nmppiHalfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2,
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg1 </param> <values> L G </values>
-             <param> pSrcImg2 </param> <values> L G </values>
-             <param> pDstImg </param> <values> L G </values>
-             <param> nMulVal1 </param> <values> n </values>
-             <param> nMulVal2 </param> <values> m </values>
-             <param> nAddVal </param> <values> nn </values>
+             <param> pSrcImg1 </param> <values> im0 im1 </values>
+             <param> pSrcImg2 </param> <values> im0 im1 </values>
+             <param> pDstImg </param> <values> im2 im3 </values>
+             <param> nMulVal1 </param> <values> 5 </values>
+             <param> nMulVal2 </param> <values> 5 </values>
+             <param> nAddVal </param> <values> 5 </values>
              <param> nSize </param> <values> 128 </values>
              <size> nSize </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg1 </param> <values> G </values>
-             <param> pSrcImg2 </param> <values> G </values>
-             <param> pDstImg </param> <values> L </values>
-             <param> nMulVal1 </param> <values> n </values>
-             <param> nMulVal2 </param> <values> m </values>
-             <param> nAddVal </param> <values> nn </values>
-             <param> nSize </param> <values> 128 1024 10240 </values>
+             <param> pSrcImg1 </param> <values> im0 </values>
+             <param> pSrcImg2 </param> <values> im1 </values>
+             <param> pDstImg </param> <values> im2 </values>
+             <param> nMulVal1 </param> <values> 5 </values>
+             <param> nMulVal2 </param> <values> 5 </values>
+             <param> nAddVal </param> <values> 5 </values>
+             <param> nSize </param> <values> 128 1024 2048 </values>
              <size> nSize </size>
         </testperf>
     \endxmlonly
@@ -556,14 +556,14 @@ void nmppiWAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int
     \par
     \xmlonly
         <testperf> 
-          <param> pSrcImg </param> <values> L G </values>
-          <param> pDstImg  </param>  <values> L G </values>
+          <param> pSrcImg </param> <values> im0 im1 </values>
+          <param> pDstImg  </param>  <values> im0 im1 </values>
           <param> nSize </param>  <values> 128 </values>
           <size> nSize </size>
         </testperf>
         <testperf> 
-          <param> pSrcImg </param> <values> L </values>
-          <param> pDstImg  </param>  <values> G </values>
+          <param> pSrcImg </param> <values> im0 </values>
+          <param> pDstImg  </param>  <values> im1 </values>
           <param> nSize </param>  <values> 8 32 128 </values>
           <size> nSize </size>
         </testperf>

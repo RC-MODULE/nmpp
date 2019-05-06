@@ -86,17 +86,17 @@
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pDstImg </param> <values> L G </values>
-             <param> pTmpBuf </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pDstImg </param> <values> im0 im1 </values>
+             <param> pTmpBuf </param> <values> im2 im3 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 128 </values>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> L </values>
-             <param> pDstImg </param> <values> G </values>
-             <param> pTmpBuf </param> <values> G </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pDstImg </param> <values> im1 </values>
+             <param> pTmpBuf </param> <values> im2 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 8 32 128 </values>
              <size> nSrcHeight*nSrcWidth </size>
@@ -170,17 +170,17 @@ void nmppiResampleDown2X_8u16u(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pDstImg </param> <values> L G </values>
-             <param> pTmpBuf </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pDstImg </param> <values> im0 im1 </values>
+             <param> pTmpBuf </param> <values> im2 im3 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 8 32 128 </values>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> L </values>
-             <param> pDstImg </param> <values> G </values>
-             <param> pTmpBuf </param> <values> G </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pDstImg </param> <values> im1 </values>
+             <param> pTmpBuf </param> <values> im2 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 128 </values>
              <size> nSrcHeight*nSrcWidth </size>
@@ -253,17 +253,17 @@ void nmppiResampleDown2Y_8u_tmp(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, in
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pDstImg </param> <values> L G </values>
-             <param> pTmpBuf </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pDstImg </param> <values> im0 im1 </values>
+             <param> pTmpBuf </param> <values> im2 im3 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 128 </values>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> G </values>
-             <param> pDstImg </param> <values> L </values>
-             <param> pTmpBuf </param> <values> L </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pDstImg </param> <values> im1 </values>
+             <param> pTmpBuf </param> <values> im2 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 8 32 128 </values>
              <size> nSrcHeight*nSrcWidth </size>

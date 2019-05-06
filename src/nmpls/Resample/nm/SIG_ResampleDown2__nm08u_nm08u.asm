@@ -30,10 +30,10 @@ end ".data_nmpls_G";
 macro MTR_AVG_REP(nVal)
 		rep nVal ram = [ar3];
 		rep nVal data=[ar0++gr0],ftw with vsum ,data,0;
-		WTW_REG(gr4);
+		WTW_REG_DEPRICARTED(gr4);
  		rep nVal data=[ar1++gr1]	  with vsum ,data,afifo;
 		rep nVal with mask ram,shift afifo,0;
-		WTW_REG(gr4);
+		WTW_REG_DEPRICARTED(gr4);
 		rep nVal [ar6++gr6]=afifo;	
 			nul;
 			nul;

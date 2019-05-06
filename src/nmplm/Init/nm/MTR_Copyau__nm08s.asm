@@ -39,10 +39,10 @@ begin ".text_nmplm"
 //! \perfinclude _nmppmCopyau_8s.html
 //--------------------------------------------------------------------
 
-global nmppmCopyau_8s:label;
-global nmppmCopyau_8u:label;
-<nmppmCopyau_8s>
-<nmppmCopyau_8u>
+global _nmppmCopyau_8s:label;
+global _nmppmCopyau_8u:label;
+<_nmppmCopyau_8s>
+<_nmppmCopyau_8u>
 .branch;
 
 	ar5 = sp-2;	

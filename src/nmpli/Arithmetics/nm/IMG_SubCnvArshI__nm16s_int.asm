@@ -100,10 +100,11 @@ matrptr:word[2];
 
 <AA> sb=0;// this instruction is modified; don't edit it!;
      ar6=[matrptr];
-     rep 8 wfifo=[ar6++], ftw;
-     WTW_REG( ar5);                                    //
+     rep 8 wfifo=[ar6++], ftw,wtw;
+     //WTW_REG_DEPRICATED( ar5);                                    //
      rep 32 data=[ar0++gr0],ftw with vsum ,data,0;
-     WTW_REG( ar5);                                    //
+	 wtw;
+    // WTW_REG_DEPRICATED( ar5);                                    //
      rep 32 data=[ar1++gr1] with vsum ,data,afifo;
      sb=30003h with gr7--;
      if <>0 delayed goto AA;                           //
@@ -114,10 +115,12 @@ matrptr:word[2];
 
 <BB>sb=0;// this instruction is modified; don't edit it;
      ar6=[matrptr];
-     rep 8 wfifo=[ar6++], ftw;
-     WTW_REG( ar5);                                    //
+     rep 8 wfifo=[ar6++], ftw,wtw;
+     //WTW_REG_DEPRICATED( ar5);                                    //
      rep 1 data=[ar0++gr0],ftw with vsum ,data,0;
-<DD> WTW_REG( ar5);                                    //
+<DD> 
+	wtw;
+	//WTW_REG_DEPRICATED( ar5);                                    //
      rep 1 data=[ar1++gr1] with vsum ,data,afifo;
      sb=30003h;
      rep 1 data=[ar2++] with data-afifo;

@@ -69,14 +69,14 @@
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -128,27 +128,28 @@ void nmppsNot_64u(const nm64u* pSrcVec, nm64u* pDstVec, int nSize);
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
              <param> pVal  </param> <values> 5 </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
              <param> nSize   </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
+             <param> pSrcVec </param> <values> im0 </values>
              <param> pVal  </param> <values> 5 </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nSize   </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
     //! \{
-void nmppsAndC_p64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
 void nmppsAndC_4u (const nm4u* pSrcVec,  uint4b nVal,  nm4u*  pDstVec, int nSize);
 void nmppsAndC_8u (const nm8u* pSrcVec,  uint8b nVal,  nm8u*  pDstVec, int nSize);
 void nmppsAndC_16u(const nm16u* pSrcVec, uint16b nVal, nm16u* pDstVec, int nSize);
 void nmppsAndC_32u(const nm32u* pSrcVec, uint32b nVal, nm32u* pDstVec, int nSize);
 void nmppsAndC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize);
     //! \}
+
+void nmppsAndC_p64u(nm64u* pSrcVec, nm64u* pnVal, nm64u* pDstVec, int nSize);
 
 //*****************************************************************************
 
@@ -189,15 +190,15 @@ void nmppsAndC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im2 im3 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> G </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pDstVec </param> <values> im2 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -257,15 +258,15 @@ void nmppsAnd_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, 
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im2 im3 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> G </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pDstVec </param> <values> im2 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -315,16 +316,16 @@ void nmppsAndNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im2 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> G </values>
-             <param> pDstVec </param> <values> G </values>
-             <param> nSize </param> <values> 8 128 1024 10240 </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pDstVec </param> <values> im2 </values>
+             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
     */
@@ -371,15 +372,15 @@ void nmppsAndNotV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pDstVec, int nSiz
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
              <param> pVal </param> <values> 5 </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
+             <param> pSrcVec </param> <values> im0 </values>
              <param> pVal </param> <values> 3 </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -430,15 +431,15 @@ void nmppsOrC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize)
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im2 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> G </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pDstVec </param> <values> im2 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -494,15 +495,15 @@ void nmppsOr_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, i
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im1 im2 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> G </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pDstVec </param> <values> im2 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -556,15 +557,15 @@ void nmppsOr3V_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pSrcVec3, nm64u* pDs
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im2 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> G </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pDstVec </param> <values> im2 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -619,15 +620,15 @@ void nmppsOrNV_64u(nm64u** pSrcVecs, int numVecs, nm64u* pDstVec, int nSize);
     \par
     \xmlonly
         <testperf>
-            <param> pSrcVec </param> <values> L G </values>
+            <param> pSrcVec </param> <values> im0 im1 </values>
             <param> nVal </param> <values> 5 </values>
-            <param> pDstVec </param> <values> L G </values>
+            <param> pDstVec </param> <values> im0 im1 </values>
             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-            <param> pSrcVec </param> <values> L </values>
+            <param> pSrcVec </param> <values> im0 </values>
             <param> nVal </param> <values> 5</values>
-            <param> pDstVec </param> <values> G </values>
+            <param> pDstVec </param> <values> im1 </values>
             <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -679,15 +680,15 @@ void nmppsXorC_64u(const nm64u* pSrcVec, uint64b nVal, nm64u* pDstVec, int nSize
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec1 </param> <values> im0 im1 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im2 im0 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> G </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pDstVec </param> <values> im2 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -744,17 +745,17 @@ void nmppsXor_64u(const nm64u* pSrcVec1, const nm64u* pSrcVec2, nm64u* pDstVec, 
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> L G </values>
-             <param> pSrcVec2 </param> <values> L G </values>
-             <param> pMaskVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec1 </param> <values> im1 im0 </values>
+             <param> pSrcVec2 </param> <values> im0 im1 </values>
+             <param> pMaskVec </param> <values> im0 im2 </values>
+             <param> pDstVec </param> <values> im0 im3 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> L </values>
-             <param> pSrcVec2 </param> <values> G </values>
-             <param> pMaskVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec1 </param> <values> im0 </values>
+             <param> pSrcVec2 </param> <values> im1 </values>
+             <param> pMaskVec </param> <values> im2 </values>
+             <param> pDstVec </param> <values> im3 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
     \endxmlonly
@@ -816,20 +817,20 @@ void nmppsMaskV_64u(nm64u* pSrcVec1, nm64u* pSrcVec2, nm64u* pMaskVec, nm64u* pD
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im2 </values>
              <param> nShift </param> <values> 1 </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nShift </param> <values> 1 2 3 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nShift </param> <values> 1 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
@@ -892,20 +893,20 @@ void nmppsRShiftC_64s(const nm64s* pSrcVec, int nShift, nm64s* pDstVec, int nSiz
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
              <param> nShift </param> <values> 1 </values>
-             <param> nSize </param> <values> 10240 </values>
+             <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
 			 <param> nShift </param> <values> 1 </values>
              <param> nSize </param> <values> 2048 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
 			 <param> nShift </param> <values> 1 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>
         </testperf>
@@ -973,22 +974,22 @@ void  nmppsRShiftC_64u(const nm64u* pSrcVec, int nShift, nm64u* pDstVec, int nSi
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
 			 <param> nAddVal </param> <values> 0 </values>
 			 <param> nShift </param> <values> 1 </values>
              <param> nSize </param> <values> 4096 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
 			 <param> nAddVal </param> <values> 0 </values>
 			 <param> nShift </param> <values> 1 </values>
              <param> nSize </param> <values> 4096 </values>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+             <param> pSrcVec </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
 			 <param> nAddVal </param> <values> 0 </values>
 			 <param> nShift </param> <values> 1 </values>
              <param> nSize </param> <values> 8 128 1024 4096 </values>
@@ -1073,8 +1074,8 @@ void nmppsRShiftC_AddC_32u(const nm32u *pSrcVec,  int nShift, uint32b nAddVal,  
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+             <param> pSrcVec </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1 </values>
              <param> pnBits </param> <values> im2 </values>
              <param> nBits </param> <values> 2 8 18 </values>
              <param> nSize </param> <values> 8 128 1024 2048 </values>

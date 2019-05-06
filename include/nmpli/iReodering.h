@@ -83,15 +83,15 @@
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pDstBlockSeq </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pDstBlockSeq </param> <values> im0 im1 </values>
              <param> nHeight </param> <values> 128 </values>
              <param> nWidth </param> <values> 128 </values>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> L </values>
-             <param> pDstBlockSeq </param> <values> G </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pDstBlockSeq </param> <values> im1 </values>
              <param> nHeight </param> <values> 128 </values>
              <param> nWidth </param> <values> 8 32 128 </values>
              <size> nWidth*nHeight </size>
@@ -175,15 +175,15 @@ void nmppiSplitInto2x2Blocks8x8xor(
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcBlockSeq </param> <values> L G </values>
-             <param> pDstImg </param> <values> L G </values>
+             <param> pSrcBlockSeq </param> <values> im0 im1 </values>
+             <param> pDstImg </param> <values> im0 im1 </values>
              <param> nHeight </param> <values> 128 </values>
              <param> nWidth </param> <values> 128 </values>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcBlockSeq </param> <values> L </values>
-             <param> pDstImg </param> <values> G </values>
+             <param> pSrcBlockSeq </param> <values> im0 </values>
+             <param> pDstImg </param> <values> im1 </values>
              <param> nHeight </param> <values> 128 </values>
              <param> nWidth </param> <values> 8 32 128 </values>
              <size> nWidth*nHeight </size>

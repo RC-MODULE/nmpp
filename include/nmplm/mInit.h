@@ -96,8 +96,8 @@
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr </param> <values> L G </values>
-             <param> pDstMtr </param> <values> G L </values>
+             <param> pSrcMtr </param> <values> im0 im1 </values>
+             <param> pDstMtr </param> <values> im0 im1 </values>
              <param> nDstStride </param> <values> 128 </values>
              <param> nSrcOffset </param> <values> 8 </values>
              <param> nHeight </param> <values> 8 </values>
@@ -106,8 +106,8 @@
              <size>  nHeight * nWidth </size>
         </testperf>
         <testperf>
-             <param> pSrcMtr </param> <values> L </values>
-             <param> pDstMtr </param> <values> G </values>
+             <param> pSrcMtr </param> <values> im0 </values>
+             <param> pDstMtr </param> <values> im1 </values>
              <param> nDstStride </param> <values> 16 64 128 </values>
              <param> nSrcOffset </param> <values> 8 </values>
              <param> nHeight </param> <values> 8 </values>
@@ -185,8 +185,8 @@ void nmppmCopy_32fc(
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr </param> <values> L G </values>
-             <param> pDstMtr </param> <values> G L </values>
+             <param> pSrcMtr </param> <values> im0 im1 </values>
+             <param> pDstMtr </param> <values> im0 im1 </values>
              <param> nDstStride </param> <values> 256 </values>
              <param> nDstOffset </param> <values> 64 </values>
              <param> nHeight </param> <values> 8 </values>
@@ -195,8 +195,8 @@ void nmppmCopy_32fc(
              <size>  nHeight* nWidth </size>
         </testperf>
         <testperf>
-             <param> pSrcMtr </param> <values> L </values>
-             <param> pDstMtr </param> <values> G </values>
+             <param> pSrcMtr </param> <values> im0 </values>
+             <param> pDstMtr </param> <values> im1 </values>
              <param> nDstStride </param> <values> 64 128 256 </values>
              <param> nDstOffset </param> <values> 16 32 64 </values>
              <param> nHeight </param> <values> 8 </values>
@@ -259,21 +259,21 @@ void nmppmCopyau_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstSt
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr </param> <values> L G </values>
-             <param> pDstMtr </param> <values> G L </values>
-             <param> nDstStride </param> <values> 256 </values>
-             <param> nHeight </param> <values> 128 </values>
+             <param> pSrcMtr </param> <values> im0 </values>
+             <param> pDstMtr </param> <values>  im1 </values>
+             <param> nDstStride </param> <values> 128 </values>
+             <param> nHeight </param> <values> 256 </values>
              <param> nWidth </param> <values> 256 </values>
-             <param> nSrcStride </param> <values> 256 </values>
+             <param> nSrcStride </param> <values> 128 </values>
              <size> nHeight*nWidth </size>
         </testperf>
         <testperf>
-             <param> pSrcMtr </param> <values> L </values>
-             <param> pDstMtr </param> <values> G </values>
+             <param> pSrcMtr </param> <values> im0 </values>
+             <param> pDstMtr </param> <values> im1 </values>
              <param> nDstStride </param> <values> 8 128 256 </values>
              <param> nHeight </param> <values> 128 </values>
              <param> nWidth </param> <values> 8 128 256 </values>
-             <param> nSrcStride </param> <values> 8 128 256 </values>
+             <param> nSrcStride </param> <values> nDstStride </values>
              <size> nHeight*nWidth </size>
         </testperf>
     \endxmlonly
@@ -328,7 +328,7 @@ void nmppmCopy_64s( nm64s* pSrcMtr, int nSrcStride, nm64s* pDstMtr, int nDstStri
     \par
     \xmlonly
         <testperf>
-             <param> pMtr </param> <values> L G </values>
+             <param> pMtr </param> <values> im0 im1 </values>
              <param> nVal </param> <values> 5 </values>
              <param> nMtrStride </param> <values> 4 16 64 </values>
              <param> nMtrHeight </param> <values> 8 </values>

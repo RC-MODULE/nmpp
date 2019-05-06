@@ -43,7 +43,7 @@ data ".data_nmplm_G"
 
 end ".data_nmplm_G";
 
-import from macros.mlb;
+//import from macros.mlb;
 
 begin ".text_nmplm"
 
@@ -90,13 +90,17 @@ global _void._.8.8MTR_ProdUnitV.1class._v4nm16s._.0.9._short._.0.9._int.2 :label
 	gr7--;
 	<Next_Add4to1_rep32>
 		rep 16 wfifo=[ar4++],ftw;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
 		rep 32 data=[ar0++gr0],ftw with vsum ,data,0;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
  		rep 32 data=[ar1++gr1],ftw with vsum ,data,afifo;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
 		rep 32 data=[ar2++gr2],ftw with vsum ,data,afifo;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
 		rep 32 data=[ar3++gr3] with vsum ,data,afifo;
 	if <>0 delayed  goto Next_Add4to1_rep32 with gr7--; 
 		rep 32 [ar6++]=afifo;	

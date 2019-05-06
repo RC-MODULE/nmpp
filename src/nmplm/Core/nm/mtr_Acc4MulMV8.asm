@@ -67,11 +67,11 @@ begin ".text_nmplm"
 //
 macro MTR_ACC4MUL_MV8_REP(nVal)
 		rep nVal data=[ar0++gr0],ftw with vsum ,data,0;
-		WTW_REG(gr4);
+		WTW_REG_DEPRICATED(gr4);
  		rep nVal data=[ar1++gr1],ftw with vsum ,data,afifo;
-		WTW_REG(gr4);
+		WTW_REG_DEPRICATED(gr4);
 		rep nVal data=[ar2++gr2],ftw with vsum ,data,afifo;
-		WTW_REG(gr4);
+		WTW_REG_DEPRICATED(gr4);
 		delayed return; 
 			rep nVal data=[ar3++gr3] with vsum ,data,afifo;
 			rep nVal [ar6++gr6]=afifo;	
@@ -87,24 +87,28 @@ global mtr_Acc4MulMV8:label;
 .branch;
 	Acc4MulMV8_rep0:label;
 	nb1 = gr4	with gr7=gr5>>5;
-	rep 32 wfifo=[ar4++],ftw;
+	rep 32 wfifo=[ar4++],ftw,wtw;
 	push ar5,gr5 with gr5<<=27;	
 	ar4-=64			with gr7;
 
-	WTW_REG(gr4);
+	//WTW_REG_DEPRICATED(gr4);
 	if =0 delayed goto Acc4MulMV8_repN with gr5>>=23;
 		 ar5 = Acc4MulMV8_rep0 with gr7--;
 	<Next_Acc4MulMV8_rep32>
 		rep 32 data =[ar0++gr0],ftw with vsum ,data,0;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
  		rep 32 data =[ar1++gr1],ftw with vsum ,data,afifo;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
 		rep 32 data =[ar2++gr2],ftw with vsum ,data,afifo;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
 		rep 32 data =[ar3++gr3]		with vsum ,data,afifo;
 		rep 32 wfifo=[ar4++],ftw;
 		ar4-=64;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
 	if <>0 delayed  goto Next_Acc4MulMV8_rep32 with gr7--; 
 		nul;
 		rep 32 [ar6++gr6]=afifo;

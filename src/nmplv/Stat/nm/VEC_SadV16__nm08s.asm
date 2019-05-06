@@ -15,7 +15,7 @@
 //! \endif 
 //!
 //----------------------------------------------------------------------------
-import from macros.mlb;
+//import from macros.mlb;
 
 extern	_nmppsTmpBuffer64_G_:long;
 extern _VEC_TBL_One_G:long;
@@ -57,7 +57,8 @@ global _nmppsSadV16_8s:label;
 	nb1 = gr7;
 	rep 2 [ar5],ram=afifo, ftw	with activate afifo;
 	rep 2 data=[ar6++]		with mask afifo,data,ram;
-	WTW_REG(gr7);
+	//WTW_REG_DEPRICATED(gr7);
+	wtw;
 	rep 2					with vsum ,afifo,0;
 	rep 2 [ar6++]=afifo;
 	

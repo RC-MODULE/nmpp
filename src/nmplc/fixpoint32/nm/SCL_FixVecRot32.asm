@@ -123,7 +123,7 @@ begin ".text_nmplñ"
 	[ar2++]=gr4 with gr7 = gr4 A>>31;
 	[ar2++]=gr7 with gr3-=gr3;
 	nb1= gr3; 
-	wtw; //WTW_REG(gr3);
+	wtw; 
 	rep 2 ram,data=[--ar2] with vsum ,data,0;
 	rep 2 [ar2++]=afifo;
 	ar0,gr0=[--ar2];

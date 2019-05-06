@@ -51,14 +51,14 @@ begin ".text_nmplv"
 
 macro nmppsConvert_1s2s_tail(N)
 	rep N data,ram = [ar0++] with vsum, data, 0;
-	wtw;//WTW_REG(gr4);
+	wtw;//WTW_REG_DEPRICARTED(gr4);
 	rep 32 wfifo = [ar5++], ftw;
 	rep N with vsum, shift ram, afifo;
-	wtw;//WTW_REG(gr4);
+	wtw;//WTW_REG_DEPRICARTED(gr4);
 	rep N [ar1++gr1] = afifo;
 	rep 32 wfifo = [ar5++], ftw;
 	rep N with vsum, ram, 0;
-	wtw;//WTW_REG(gr4);
+	wtw;//WTW_REG_DEPRICARTED(gr4);
 	nul;
 	delayed goto lab_nmppsConvert_tailend;
 		rep N with vsum, shift ram, afifo;
@@ -98,27 +98,27 @@ global _nmppsConvert_1s2s:label;
 
 <lab_nmppsConvert_1_>
 	rep 32 data,ram = [ar0++] with vsum, data, 0;
-	wtw;//WTW_REG(gr4);
+	wtw;//WTW_REG_DEPRICARTED(gr4);
 	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;
-	wtw;//WTW_REG(gr4);
+	wtw;//WTW_REG_DEPRICARTED(gr4);
 	rep 32 [ar1++gr1] = afifo;
 	rep 32 wfifo = [ar5++], ftw with vsum, ram, 0;
-	wtw;//WTW_REG(gr4);
+	wtw;//WTW_REG_DEPRICARTED(gr4);
 	ar5 = gr5;
 	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;
-	wtw;//WTW_REG(gr4);
+	wtw;//WTW_REG_DEPRICARTED(gr4);
 	if > delayed goto lab_nmppsConvert_1_ with gr7--;	
 		rep 32 [ar2++gr2] = afifo;
 		rep 32 wfifo = [ar5++], ftw;
 
 /*<lab_nmppsConvert_2_>
 	rep 32 ram = [ar0++] with vsum, data, 0;
-	WTW_REG(gr4);
+	WTW_REG_DEPRICARTED(gr4);
 	rep 32 wfifo = [ar5++], ftw with vsum, shift ram, afifo;
-	WTW_REG(gr4);
+	WTW_REG_DEPRICARTED(gr4);
 	rep 32 [ar1++gr1] = afifo;
 	rep 32 wfifo = [ar5++], ftw with vsum, ram, 0;
-	WTW_REG(gr4);
+	WTW_REG_DEPRICARTED(gr4);
 	rep 32 with vsum, shift ram, afifo;
 	rep 32 [ar2++gr2] = afifo;
 */

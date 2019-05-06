@@ -70,20 +70,24 @@ global _nmppsCmpEq0_32u31b:label;
 		
 <lab_BoolConvert32to1_2>
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, vr;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=2046;	//return to next vector.
 .repeat 14;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=2046;	//return to next vector.
 .endrepeat;
 	rep 32 wfifo = [ar4++], ftw;
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=2046;	
 .repeat 15;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=2046;	//return to next vector.
 .endrepeat;
 	ar4 = ar5;
@@ -95,20 +99,24 @@ global _nmppsCmpEq0_32u31b:label;
 		
 <lab_BoolConvert32to1_3>
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, vr;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=2046;
 .repeat 14;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=2046;
 .endrepeat;
 	rep 32 wfifo = [ar4++], ftw;
 	rep 32 data = [ar0++gr0 ] with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=2046;
 .repeat 15;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=2046;	//return to next vector.
 .endrepeat;
 	ar4 = ar1 with gr1;

@@ -26,7 +26,7 @@ extern _buf_BoolConvert_L:		long;
 extern _buf_BoolConvert_G:		long;
 extern _mask_table:			word;
 //////////////////////////////////////////////////////////////////////
-import from macros.mlb;
+//import from macros.mlb;
 //////////////////////////////////////////////////////////////////////
 begin ".text_nmplv"
 
@@ -68,23 +68,27 @@ global _nmppsCmpEq0_16u15b:label;
 	f1cr = 0fffefffeh;
 	gr4--;
 	if =0 goto lab_BoolConvert16to1_3 with gr4--;
-		//WTW_REG(gr5);
+		////WTW_REG_DEPRICATED(gr5);
 <lab_BoolConvert16to1_2>
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, vr;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=1022;	//return to next vector.
 .repeat 6;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=1022;	//return to next vector.
 .endrepeat;
 	rep 32 wfifo = [ar4++], ftw;
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=1022;	
 .repeat 7;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=1022;	//return to next vector.
 .endrepeat;
 	ar4 = ar5;
@@ -93,23 +97,26 @@ global _nmppsCmpEq0_16u15b:label;
 	rep 32 wfifo = [ar4++], ftw,wtw;
 	rep 32 [ar6++] = afifo;
 	if > goto lab_BoolConvert16to1_2 with gr4--;
-		//WTW_REG(gr5);
+		////WTW_REG_DEPRICATED(gr5);
 <lab_BoolConvert16to1_3>
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, vr;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=1022;
 .repeat 6;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
 	ar0-=1022;
 .endrepeat;
 	rep 32 wfifo = [ar4++], ftw;
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=1022;	
 .repeat 7;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
-	WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=1022;	//return to next vector.
 .endrepeat;
 	ar4 = ar1 with gr1;

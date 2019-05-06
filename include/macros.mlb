@@ -162,8 +162,8 @@ macro	SHIFTR32_ODD_RRCC(
 		gr4=[ar4++gr4];
 		nb1=gr4;
 		
-		rep 6 wfifo=[ar4++],ftw;
-		WTW_REG(gr4);
+		rep 6 wfifo=[ar4++],ftw,wtw;
+		//WTW_REG_DEPRICATED(gr4);
 		pop ar4,gr4;
 		.repeat constLen64>>5;
 			rep 32 data=[arSrcArray++] with vsum ,shift data,0;
@@ -201,11 +201,11 @@ macro	SHIFTR32_ODD_RRRC_BY32(
 		gr4=[ar4++gr4];
 		nb1=gr4;
 		
-		rep 6 wfifo=[ar4++],ftw;
+		rep 6 wfifo=[ar4++],ftw,wtw;
 		with gr7>>=5;
 		with gr7--;
 		
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
 		pop ar4,gr4;
 		
 		<NextShiftR32_odd_RRRC_by32>
@@ -242,8 +242,8 @@ macro	SHIFTR32_ODD_RRCR(
 		nb1=gr0 with gr4=gr0;
 		pop ar0,gr0;
 
-		rep 6 wfifo=[ar4++],ftw;
-		WTW_REG(gr4);
+		rep 6 wfifo=[ar4++],ftw,wtw;
+		//WTW_REG_DEPRICATED(gr4);
 		pop ar4,gr4;
 		.repeat constLen64>>5;
 			rep 32 data=[arSrcArray++] with vsum ,shift data,0;
@@ -285,8 +285,8 @@ macro	SHIFTR32_ODD_RRRR_BY32(
 		nb1 = gr0 with gr4=gr0;
 		pop   ar0,gr0;
 
-		rep 6 wfifo=[ar4++],ftw;
-		WTW_REG(gr4);
+		rep 6 wfifo=[ar4++],ftw,wtw;
+		//WTW_REG_DEPRICATED(gr4);
 		pop ar4,gr4 	with gr7--;
 		<NextShiftR32_odd_RRRR_by32>
 		if <>0 delayed  goto NextShiftR32_odd_RRRR_by32 with gr7--;
@@ -316,8 +316,8 @@ macro	SHIFTR32_EVEN_RRCC(
 		gr4=[ar4++gr4];
 		nb1=gr4;
 		
-		rep 4 wfifo=[ar4++],ftw;
-		WTW_REG(gr4);
+		rep 4 wfifo=[ar4++],ftw,wtw;
+		//WTW_REG_DEPRICATED(gr4);
 		pop ar4,gr4;
 		.repeat constLen64>>5;
 			rep 32 data=[arSrcArray++] with vsum ,data,0;
@@ -357,10 +357,10 @@ macro	SHIFTR32_EVEN_RRRC_BY32(
 		gr4=[ar4++gr4];
 		nb1=gr4;
 		
-		rep 4 wfifo=[ar4++],ftw;
+		rep 4 wfifo=[ar4++],ftw,wtw;
 		with gr7>>=5;
 		with gr7--;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
 		pop ar4,gr4;
 		<NextShiftR32_even_RRRC_by32>
 		if <>0 delayed goto NextShiftR32_even_RRRC_by32 with gr7--;
@@ -393,8 +393,8 @@ macro	SHIFTR32_EVEN_RRCR(
 		gr4=[ar4];
 		nb1=[ar4++];
 			
-		rep 4 wfifo=[ar4++],ftw;
-		WTW_REG(gr4);
+		rep 4 wfifo=[ar4++],ftw,wtw;
+		//WTW_REG_DEPRICATED(gr4);
 		pop ar4,gr4;
 		.repeat constLen64>>5;
 			rep 32 data=[arSrcArray++] with vsum ,data,0;
@@ -432,8 +432,8 @@ macro	SHIFTR32_EVEN_RRRR_BY32(
 		gr4=[ar4];
 		nb1=[ar4++];
 			
-		rep 4 wfifo=[ar4++],ftw;
-		WTW_REG(gr4);
+		rep 4 wfifo=[ar4++],ftw,wtw;
+		//WTW_REG_DEPRICATED(gr4);
 		pop ar4,gr4;
 		gr7=grLen64>>5;
 		with gr7--;
@@ -713,12 +713,12 @@ macro FIXSHIFTAL64(RegHi,RegLo,RegResHi,RegResLo,SHIFT)
 	.endif;
 end FIXSHIFTAL64;
 
-//macro WTW_REG( Arg )
-//.wait;
-//    nb1 = Arg;
-//    wtw;
-//.branch;
-//end WTW_REG;
+macro WTW_REG_DEPRICATED( Arg )
+.wait;
+    nb1 = Arg;
+    wtw;
+.branch;
+end WTW_REG_DEPRICATED;
 
 //macro WTW_MEM( Arg )
 //.wait;

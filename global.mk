@@ -96,3 +96,5 @@ endef
 define BACKSLASH
 	$(subst /,\,$(1))
 endef
+
+TEMPLATE_DIR = $(ROOT)/app/templates

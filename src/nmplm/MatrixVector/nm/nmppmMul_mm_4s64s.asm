@@ -23,18 +23,18 @@ begin ".text_nmplm"
 /////////////////////////////////////////////////////////////////////////////////////////
 
 //--------------------------------------------------------------------
-//! \fn void nmppmMul_mm_8s64s( nm8s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2)
+//! \fn void nmppmMul_mm_4s64s( nm4s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2)
 //!
-//! \perfinclude nmppmMul_mm_8s64s.html
+//! \perfinclude nmppmMul_mm_4s64s.html
 //--------------------------------------------------------------------
 
-extern mtrMul_mm_8sXs:label;
+extern mtrMul_mm_4sXs:label;
 extern _nmppsTmpBuffer64_G_: long[64];
 const LongColumns=_nmppsTmpBuffer64_G_;
 
 
-global _nmppmMul_mm_8s64s:label;
-<_nmppmMul_mm_8s64s>
+global _nmppmMul_mm_4s64s:label;
+<_nmppmMul_mm_4s64s>
 .branch;
 
 
@@ -50,11 +50,11 @@ global _nmppmMul_mm_8s64s:label;
 	//-----------------------------------------
 	ar0 = [--ar5];			// SrcMatrixA
 	gr5 = [--ar5];			// nHeight A
-	gr0 = [--ar5];			// nWidth  A in 16-bit words
+	gr0 = [--ar5];			// nWidth  A in 4-bit words
 	ar2 = [--ar5];			// SrcMatrixB
 	ar6 = [--ar5];			// DstMatrix
 	gr4 = [--ar5];			// nWidth  B in 64-bit words
-	[LongColumns] = gr4 with gr0>>=2;	// nWidth A in 32-bit words
+	[LongColumns] = gr4 with gr0>>=3;	// nWidth A in 32-bit words
 	gr4 <<=1;
 	gr6 = gr4 with gr3=false;			
 	nb1 = gr3;
@@ -62,7 +62,7 @@ global _nmppmMul_mm_8s64s:label;
 		push ar0,gr0;
 		push ar6,gr6;
 		
-		delayed call mtrMul_mm_8sXs;
+		delayed call mtrMul_mm_4sXs;
 			ar4 = ar2;
 			nul;
 

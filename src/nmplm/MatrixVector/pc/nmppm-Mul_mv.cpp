@@ -20,7 +20,7 @@
 #include "nmtype.h"
 
 
-
+extern "C" {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -106,6 +106,7 @@ void MTR_ProdSelfV( nm64sc *pSrcVec, nm64sc *pDstMtr, int nSize, void* pTmp)
 }
 
 
+};
 /*
 void nmppmMul_mv_AddC_32s(v2nm32s* pSrcMtr, v2nm32s* pSrcVec, int nAddVal, nm32s* pDstVec, int nHeight)
 {

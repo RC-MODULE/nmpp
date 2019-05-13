@@ -168,7 +168,7 @@ solution "nmpp"
 		ROOT.."/src/nmpls/FFT2048/pc/*.c"
 		}
 		
-		includedirs { ROOT.."/include",ROOT.."/include/nmpls"}
+		includedirs { ROOT.."/include",ROOT.."/include/nmpls","$(HAL)/include"}
 		  
 		targetdir (ROOT.."/lib")
 		

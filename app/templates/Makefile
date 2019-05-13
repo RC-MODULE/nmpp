@@ -40,14 +40,18 @@
 #  Recursive clean with Makefile removal of all /make_* folders
 
 
-
-
 include $(ROOT)/global.mk
+-include local.mk
+
+ifndef TEMPLATE_DIR
+$(error *** ERROR: 'TEMPLATE_DIR' environment variable is not defined!  )
+endif 
+
+
 # get list of all sub-folders
 WORK_DIRS=$(subst /,,$(wildcard */))
 
 # override all sub-folders by custom list in local.mk
--include local.mk
 WORK_DIRS := $(filter-out $(SKIP_DIRS),$(WORK_DIRS))
 
 # for each sub-folder try to start Makefile with (build/test/run/clean targets) 

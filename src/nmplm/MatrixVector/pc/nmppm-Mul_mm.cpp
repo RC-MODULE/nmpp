@@ -19,6 +19,56 @@
 //------------------------------------------------------------------------
 
 #include "nmtype.h"
+#include "nmplv/vSupport.h"
+extern "C"{
+	
+
+void nmppmMul_mm_2s64s( nm2s* srcMtrA, int heightA, int widthA,  nm64s* srcMtrB, nm64s* dstMtr, int widthB)
+{
+	int i;
+	int j;
+	int k;
+	long long sum;
+	nm64s* colB;
+	nm2s* rowA  =srcMtrA;
+	nm64s* rowDst=dstMtr;
+
+	for(i=0; i<heightA; i++, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			sum=0;
+			for(k=0; k<widthA; k++){
+				sum+=nmppsGet_2s(rowA,k)*colB[k*widthB];
+			}
+			rowDst[j]=sum;
+		}
+
+		rowA=nmppsAddr_2s(rowA,widthA);
+	}
+}
+
+void nmppmMul_mm_4s64s( nm8s* srcMtrA, int heightA, int widthA,  nm64s* srcMtrB, nm64s* dstMtr, int widthB)
+{
+	int i;
+	int j;
+	int k;
+	long long sum;
+	nm64s* colB;
+	nm4s* rowA  =srcMtrA;
+	nm64s* rowDst=dstMtr;
+
+	for(i=0; i<heightA; i++, rowDst+=widthB){
+		for(j=0; j<widthB; j++){
+			colB=srcMtrB+j;
+			sum=0;
+			for(k=0; k<widthA; k++){
+				sum+=nmppsGet_4s(rowA,k)*colB[k*widthB];
+			}
+			rowDst[j]=sum;
+		}
+		rowA=nmppsAddr_4s(rowA,widthA);
+	}
+}
 
 void nmppmMul_mm_8s8s( nm8s* srcMtrA, int heightA, int widthA,  nm8s* srcMtrB, nm8s* dstMtr, int widthB)
 {
@@ -223,6 +273,8 @@ void nmppmMul_mm_64s64s( nm64s* srcMtrA, int heightA, int widthA,  nm64s* srcMtr
 	}
 }
 
+
+};
 
 /*
 /////////////////////////////////////////////////////////////////////////////////////////

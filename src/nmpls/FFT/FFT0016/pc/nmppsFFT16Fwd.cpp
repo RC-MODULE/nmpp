@@ -36,7 +36,7 @@
 #include "nmpp.h"
 extern "C" {
 
-	void nmppsFFT16Fwd242Raw(const nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec, void* , void* ,void*, void* )
+	void nmppsFFT16Fwd242Raw(const nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec )
 	{
 
 		const nm32sc* X = src;
@@ -198,7 +198,7 @@ extern "C" {
 		nm32sc* raw = spec->buffer[1];
 		spec->buffer[1] = dst;
 		dst = raw;
-		nmppsFFT16Fwd242Raw(src, raw, spec,0,0,0,0);
+		nmppsFFT16Fwd242Raw(src, raw, spec);
 		for (int i = 0; i < 16; i++) {
 			dst[i].re = raw[i].re >> shift;
 			dst[i].im = raw[i].re >> shift;

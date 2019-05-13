@@ -93,7 +93,7 @@ extern "C" {
 
 
 
-	int  nmppsFFT16FwdInitAlloc(NmppsFFTSpec* spec, const void* src, const void* dst, int settings)
+	int  nmppsFFT16HiFwdInitAlloc(NmppsFFTSpec* spec, const void* src, const void* dst, int settings)
 	{
 		spec->shift[0] = 8;
 		spec->amp[0] = 1<< spec->shift[0];

@@ -122,13 +122,13 @@
 
 	void nmppsFFTFree(NmppsFFTSpec* spec );
 
-	#define nmppsFFT16Fwd		nmppsFFT16Fwd242
-	#define nmppsFFT16FwdRaw	nmppsFFT16Fwd242Raw
+	#define nmppsFFT16HiFwd		nmppsFFT16Fwd242
+	#define nmppsFFT16HiFwdRaw	nmppsFFT16Fwd242Raw
 
 	int  nmppsFFT16HiFwdInit(NmppsFFTSpec* spec, void* buffer0, void* buffer1, void* fftTable0, void* fftTable1);
-	void nmppsFFT16Fwd(const nm32sc* src, nm32sc* dst,  NmppsFFTSpec* spec);
-	void nmppsFFT16FwdRaw(const nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec, void* buffer0, void* buffer1, void* fftTable0, void* fftTable1);
-	int  nmppsFFT16FwdInitAlloc(NmppsFFTSpec* spec, const void* src, const void* dst, int settings);
+	int  nmppsFFT16HiFwdInitAlloc(NmppsFFTSpec* spec, const void* src, const void* dst, int settings);
+	void nmppsFFT16HiFwd(const nm32sc* src, nm32sc* dst,  NmppsFFTSpec* spec);
+	void nmppsFFT16HiFwdRaw(const nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);
 	     
 
 	void nmppsFFT32FwdRaw(const nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);

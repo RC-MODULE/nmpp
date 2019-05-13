@@ -96,20 +96,20 @@ begin ".text_fft"
 	
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6], ftw;						// [G] GSrcBuffer (8 + 8 т.)
-	WTW_REG(gr3);												// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);												// 1-е 8 т.
 .repeat 255;
 	ar1 = W1_4096;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W1_4096
-	WTW_REG(gr3);												// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);												// 2-е 8 т.
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6];							// [G] GSrcBuffer (8 + 8 т.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;	// [L] W1_4096
-	WTW_REG(gr3);										// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);										// 1-е 8 т.
 	rep 32 [ar5++] = afifo;								// [G] «апись A, B, C, D в GBuffer2
 .endrepeat;
 	ar1 = W1_4096;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W1_4096
-	WTW_REG(gr3);										// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);										// 2-е 8 т.
 	
 	sb = gr2;
 	ar6 = GAddCmplxMask;
@@ -123,7 +123,7 @@ begin ".text_fft"
 	//------------------------------------------------------------------------
 	// gr1=1
 
-	WTW_REG(gr3);
+	WTW_REG_DEPRICATED(gr3);
 	ar6 = [Param.GBuffer2] with gr4 = gr1 << 2;			// gr4=4
 	ar0 = [Param.LBuffer1] with gr6 = gr1 << 1;
 	ar4 = ar6 + gr6 with gr6 = gr4;						// gr6=4
@@ -160,18 +160,18 @@ begin ".text_fft"
 
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6], ftw;						// [G] GBuffer2 (8 + 8 т.)
-	WTW_REG(gr3);										// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);										// 1-е 8 т.
 .repeat 255;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W2_4096
-	WTW_REG(gr3);										// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);										// 2-е 8 т.
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6];							// [G] GBuffer2 (8 + 8 т.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;	// [L] W2_4096
-	WTW_REG(gr3);										// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);										// 1-е 8 т.
 	rep 32 [ar5++] = afifo;								// [G] «апись A, B, C, D в GBuffer2 (2-€ половина)
 .endrepeat;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W2_4096
-	WTW_REG(gr3);										// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);										// 2-е 8 т.
 
 	sb = gr2;
 	ar6 = GAddCmplxMask;
@@ -185,7 +185,7 @@ begin ".text_fft"
 	//------------------------------------------------------------------------
 	// gr1=1
 	
-	WTW_REG(gr3);
+	WTW_REG_DEPRICATED(gr3);
 	ar6 = [Param.GBuffer2] with gr4 = gr1 << 2;			// gr4=4
 	ar6 += 4096 * 2;
 	ar0 = [Param.LBuffer1] with gr6 = gr1 << 1;
@@ -223,18 +223,18 @@ begin ".text_fft"
 
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6], ftw;						// [G] GBuffer2 (8 + 8 т.)
-	WTW_REG(gr3);												// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);												// 1-е 8 т.
 .repeat 255;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W3_4096
-	WTW_REG(gr3);										// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);										// 2-е 8 т.
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6];							// [G] GBuffer2 (8 + 8 т.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;	// [L] W3_4096
-	WTW_REG(gr3);												// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);												// 1-е 8 т.
 	rep 32 [ar5++] = afifo;								// [G] «апись A, B, C, D в GBuffer2 (2-€ половина)
 .endrepeat;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W3_4096
-	WTW_REG(gr3);												// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);												// 2-е 8 т.
 
 	sb = gr2;
 	ar6 = GAddCmplxMask;
@@ -248,7 +248,7 @@ begin ".text_fft"
 	//------------------------------------------------------------------------
 	// gr1=1
 
-	WTW_REG(gr3);
+	WTW_REG_DEPRICATED(gr3);
 	ar6 = [Param.GBuffer2] with gr4 = gr1 << 2;			// gr4=4
 	ar6 += 4096 * 2;
 	gr5 = [Param.LBuffer1] with gr6 = gr1 << 1;

@@ -13,7 +13,7 @@
 	\en 
 	\page intro Introduction
 	\~
-    \ingroup IMG_Group
+    \ingroup nmppiGroup
 	
 	\ru 
 Назначением данной библиотеки является предоставление базовых операций обработки изображений для процессора NM6403, NM6404, NM6405. В состав библиотеки входят функции двумерной фильтрации, арифметические действия и цветовые преобразования. Библиотека предназначена для быстрой разработки эффективных пользовательских программ на языке высокого уровня с использованием преимуществ архитектуры данного процессора. 
@@ -39,8 +39,9 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup iArithmetics Arithmetics
     * \~
-    * \ingroup IMG_Group
+    * \ingroup nmppiGroup
     */
+
 #include "iArithmetics.h"
 
 //*****************************************************************************
@@ -51,8 +52,9 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup iFiltration Mask filtration
      * \~
-    * \ingroup IMG_Group
+    * \ingroup nmppiGroup
     */
+
 #include "iFiltration.h"
 //*****************************************************************************
 
@@ -62,10 +64,11 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup iInit Initialization and copy
     * \~
-    * \ingroup IMG_Group
+    * \ingroup nmppiGroup
     */
 
-#include "iInit.h"
+
+//#include "iInit.h"
 //*****************************************************************************
 
     /*
@@ -75,7 +78,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup iResample Resampling
     * \~
-    * \ingroup IMG_Group
+    * \ingroup nmppiGroup
     */
 
 #include "iResample.h"
@@ -88,7 +91,7 @@ For convenience of application programs development the library has implementati
     * \en
     *     \defgroup iSelect Select operations
     * \~
-    * \ingroup IMG_Group
+    * \ingroup nmppiGroup
     */
 
 #include "iSelect.h"
@@ -101,15 +104,20 @@ For convenience of application programs development the library has implementati
 	* \en
 	*     \defgroup iSupport Support functions 
     * \~
-    * \ingroup IMG_Group
+    * \ingroup nmppiGroup
 	*/
-#include "iSupport.h"
+
+//#include "iSupport.h"
+
 
 #include "iFloodFill.h"
 
-#include "iCellTexture.h"
+
+//#include "iCellTexture.h"
+
 
 #include "iDeinterlace.h"
+
 
 #include "iReodering.h"
 
@@ -117,14 +125,16 @@ For convenience of application programs development the library has implementati
 
 	/**
 	* \ru 
-	* 	\defgroup IMG_Print Функции графического вывода текста 
+	* 	\defgroup nmppiPrint Функции графического вывода текста 
 	* \en
-	*	\defgroup IMG_Print Graphic print functions
+	*	\defgroup nmppiPrint Graphic print functions
     * \~
-    * \ingroup IMG_Group
+    * \ingroup nmppiGroup
 	*/
 #include "iPrint.h"
 
 #include "filter.h"
+
+//#endif
 
 #endif

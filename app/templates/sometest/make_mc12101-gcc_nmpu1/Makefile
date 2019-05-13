@@ -1,4 +1,4 @@
-ROOT=../../../../../..
+
 # BUILD AND RUN MAKEFILE
 # This makefile builds simple nmc-application containing single cpp-file  
 # Rule 'run' executes the application on MC12101 board 
@@ -23,8 +23,8 @@ ROOT     = ..
 PROJECT  = main
 TARGET   =$(PROJECT)
 INC_DIRS = -I"$(NMPP)/include"
-LIB_DIRS = -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4" -L"$(NMPP)/lib"
-LIBS     = -lnmpp-nmc4
+LIB_DIRS = -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4" -L"$(NMPP)/lib"  -L"$(HAL)/lib"
+LIBS     = -lnmpp-nmc4 -lhal-mc12101
 CFG      =  "-Wl,-cmc12101brd-nmpu1.cfg"
 SRC_CPP  = $(wildcard $(ROOT)/*.cpp)
 

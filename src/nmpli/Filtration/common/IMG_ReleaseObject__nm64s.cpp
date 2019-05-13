@@ -5,10 +5,10 @@
 
 
 //!
-//! \perfinclude _IMG_ReleaseObject__FPl.html
+//! \perfinclude _nmppiReleaseObject__FPl.html
 //!
 
-void IMG_ReleaseObject(nm64s* kernel)
+void nmppiReleaseObject(nm64s* kernel)
 {
 	nmppsFree(kernel);
 }

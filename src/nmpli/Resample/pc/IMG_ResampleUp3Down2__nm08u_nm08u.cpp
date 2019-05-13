@@ -115,7 +115,7 @@ void MakeResample3div2TblFiles()
 }
 
 
-void IMG_VResample3div2_RShift0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* pDstImg)
+void nmppiVResample3div2_RShift0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* pDstImg)
 {
 	int nSize=nHeight*nWidth;
 	nmvec16s vKernel(25);						// Filter kernel
@@ -176,7 +176,7 @@ void IMG_VResample3div2_RShift0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* 
 	}
 }
 
-void IMG_ResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDstImg, nm64s* pKernel, void* pTmp)
+void nmppiResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDstImg, nm64s* pKernel, void* pTmp)
 {
 	int nSrcSize=nSrcWidth*nSrcHeight;
 	nm8s*  pSrc8s;
@@ -189,7 +189,7 @@ void IMG_ResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDs
 	nmppsSubC_8s((nm8s*)pSrcImg,char(128),(nm8s*)pSrc8s,nSrcSize);
 	SIG_ResampleUp3Down2((nm8s*)pSrc8s,pHResample16s+nSrcWidth*50,nSrcSize,pKernel);
 	nmppsRShiftC_16s(pHResample16s+nSrcWidth*50,6,pHResample16s+nSrcWidth*50,nSrcSize*3/2);
-	IMG_VResample3div2_RShift0(pHResample16s+nSrcWidth*50,nSrcWidth*3/2,nSrcHeight,pVResample16s+nSrcWidth*50);
+	nmppiVResample3div2_RShift0(pHResample16s+nSrcWidth*50,nSrcWidth*3/2,nSrcHeight,pVResample16s+nSrcWidth*50);
 	nmppsClipRShiftConvertAddC_16s8s(pVResample16s+nSrcWidth*50, 6+7,6,128,(nm8s*)pDstImg, nSrcSize*3*3/2/2);
 	
 	nmppsFree(pKernel);
@@ -199,7 +199,7 @@ void IMG_ResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDs
 	
 }
 
-//void IMG_VResample5div4_RShift0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* pDstImg)
+//void nmppiVResample5div4_RShift0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* pDstImg)
 //{
 //	int nSize=nHeight*nWidth;
 //	nmvec16s vKernel(41);						// Filter kernel
@@ -242,7 +242,7 @@ void IMG_ResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDs
 
 //
 //
-//IMG_Resample5div4(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDstImg, void* pTmp)
+//nmppiResample5div4(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDstImg, void* pTmp)
 //{
 //	int nSrcSize=nSrcWidth*nSrcHeight;
 //	nm8s*  pSrc8s;
@@ -255,7 +255,7 @@ void IMG_ResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDs
 //	nmppsSubC_8s((nm8s*)pSrcImg,char(128),(nm8s*)pSrc8s,nSrcSize);
 //	SIG_Resample5div4_RShift0((nm8s*)pSrc8s,nSrcSize,pHResample16s+nSrcWidth*50);
 //	nmppsRShiftC_(pHResample16s+nSrcWidth*50,6,pHResample16s+nSrcWidth*50,nSrcSize*5/4);
-//	IMG_VResample5div4_RShift0(pHResample16s+nSrcWidth*50,nSrcWidth*5/4,nSrcHeight,pVResample16s+nSrcWidth*50);
+//	nmppiVResample5div4_RShift0(pHResample16s+nSrcWidth*50,nSrcWidth*5/4,nSrcHeight,pVResample16s+nSrcWidth*50);
 //	nmppsClipPowCRShiftConvert_AddC_(pVResample16s+nSrcWidth*50, 6+7,6,128,(nm8s*)pDstImg, nSrcSize*5*5/4/4);
 //	
 //	nmppsFree(pVResample16s);

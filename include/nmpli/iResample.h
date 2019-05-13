@@ -28,7 +28,7 @@
 
     /**
 	\internal
-    \defgroup IMG_ResampleDown2X IMG_ResampleDown2X
+    \defgroup nmppiResampleDown2X nmppiResampleDown2X
     \ingroup iResample
     \brief
         \ru Уменьшение ширины изображения вдвое. 
@@ -86,17 +86,17 @@
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pDstImg </param> <values> L G </values>
-             <param> pTmpBuf </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pDstImg </param> <values> im0 im1 </values>
+             <param> pTmpBuf </param> <values> im2 im3 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 128 </values>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> L </values>
-             <param> pDstImg </param> <values> G </values>
-             <param> pTmpBuf </param> <values> G </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pDstImg </param> <values> im1 </values>
+             <param> pTmpBuf </param> <values> im2 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 8 32 128 </values>
              <size> nSrcHeight*nSrcWidth </size>
@@ -104,16 +104,16 @@
     \endxmlonly
     */
     //! \{
-void IMG_ResampleDown2X_8u(nm8u7b* pSrcImg, nm8u7b* pDstImg, int nSrcWidth, int nSrcHeight) ;
-void IMG_ResampleDown2X_16u(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, int nSrcHeight);
-void IMG_ResampleDown2X_8u16u(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
+void nmppiResampleDown2X_8u(nm8u7b* pSrcImg, nm8u7b* pDstImg, int nSrcWidth, int nSrcHeight) ;
+void nmppiResampleDown2X_16u(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, int nSrcHeight);
+void nmppiResampleDown2X_8u16u(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
     //! \}
 
 //*****************************************************************************
 
     /**
 	\internal
-    \defgroup IMG_ResampleDown2Y IMG_ResampleDown2Y
+    \defgroup nmppiResampleDown2Y nmppiResampleDown2Y
     \ingroup iResample
     \brief
         \ru Уменьшение высоты изображения вдвое. 
@@ -170,17 +170,17 @@ void IMG_ResampleDown2X_8u16u(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int 
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pDstImg </param> <values> L G </values>
-             <param> pTmpBuf </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pDstImg </param> <values> im0 im1 </values>
+             <param> pTmpBuf </param> <values> im2 im3 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 8 32 128 </values>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> L </values>
-             <param> pDstImg </param> <values> G </values>
-             <param> pTmpBuf </param> <values> G </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pDstImg </param> <values> im1 </values>
+             <param> pTmpBuf </param> <values> im2 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 128 </values>
              <size> nSrcHeight*nSrcWidth </size>
@@ -188,16 +188,16 @@ void IMG_ResampleDown2X_8u16u(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int 
     \endxmlonly
     */
     //! \{
-void IMG_ResampleDown2Y(nm8u7b* pSrcImg, nm8u7b* pDstImg, int nSrcWidth, int nSrcHeight);
-void IMG_ResampleDown2Y(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, int nSrcHeight);
-void IMG_ResampleDown2Y(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
+void nmppiResampleDown2Y_8u (nm8u7b* pSrcImg, nm8u7b* pDstImg, int nSrcWidth, int nSrcHeight);
+void nmppiResampleDown2Y_16u(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, int nSrcHeight);
+void nmppiResampleDown2Y_8u_tmp(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
     //! \}
 
 //*****************************************************************************
 
     /**
 	\internal
-    \defgroup IMG_ResampleDown2XY IMG_ResampleDown2XY
+    \defgroup nmppiResampleDown2XY nmppiResampleDown2XY
     \ingroup iResample
     \brief
         \ru Уменьшение размеров изображения вдвое. 
@@ -253,17 +253,17 @@ void IMG_ResampleDown2Y(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHe
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pDstImg </param> <values> L G </values>
-             <param> pTmpBuf </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pDstImg </param> <values> im0 im1 </values>
+             <param> pTmpBuf </param> <values> im2 im3 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 128 </values>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> G </values>
-             <param> pDstImg </param> <values> L </values>
-             <param> pTmpBuf </param> <values> L </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pDstImg </param> <values> im1 </values>
+             <param> pTmpBuf </param> <values> im2 </values>
              <param> nSrcHeight </param> <values> 128 </values>
              <param> nSrcWidth </param> <values> 8 32 128 </values>
              <size> nSrcHeight*nSrcWidth </size>
@@ -271,21 +271,21 @@ void IMG_ResampleDown2Y(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHe
     \endxmlonly
     */
     //! \{
-void IMG_ResampleDown2XY(nm8u7b* pSrcImg, nm8u7b* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
-void IMG_ResampleDown2XY(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
-void IMG_ResampleDown2XY(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
+void nmppiResampleDown2XY_8u8u(nm8u7b* pSrcImg, nm8u7b* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
+void nmppiResampleDown2XY_16u16u(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
+void nmppiResampleDown2XY_8u16u(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int nSrcHeight, void* pTmpBuf);
     //! \}
 
-//void IMG_VResample3div2_RShift0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* pDstImg);
+//void nmppiVResample3div2_RShift0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s* pDstImg);
 
 
-//__INLINE__ void IMG_CreateResampleDown2X_8u8u(nm64s**	pKernel, int nHint)	{	SIG_CreateResampleDown2_8u8u(pKernel,nHint);}
-//__INLINE__ void IMG_CreateResampleDown2X_8u16u(nm64s** pKernel, int nHint)	{	SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
-//__INLINE__ void IMG_CreateResampleDown2X_16u16u(nm64s** pKernel, int nHint)	{	SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
-//__INLINE__ void IMG_CreateResampleDown2Y_8u16u(nm64s** pKernel, int nHint)	{   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
-//__INLINE__ void IMG_CreateResampleDown2XY_8u16u(nm64s**	 pKernel, int nHint){   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
-//__INLINE__ void IMG_CreateResampleDown2XY_8u8u(nm64s** pKernel, int nHint)	{   SIG_CreateResampleDown2_8u8u(pKernel,nHint);}
-//__INLINE__ void IMG_CreateResampleDown2XY_16u16u(nm64s** pKernel,int nHint)	{   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
+//__INLINE__ void nmppiCreateResampleDown2X_8u8u(nm64s**	pKernel, int nHint)	{	SIG_CreateResampleDown2_8u8u(pKernel,nHint);}
+//__INLINE__ void nmppiCreateResampleDown2X_8u16u(nm64s** pKernel, int nHint)	{	SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
+//__INLINE__ void nmppiCreateResampleDown2X_16u16u(nm64s** pKernel, int nHint)	{	SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
+//__INLINE__ void nmppiCreateResampleDown2Y_8u16u(nm64s** pKernel, int nHint)	{   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
+//__INLINE__ void nmppiCreateResampleDown2XY_8u16u(nm64s**	 pKernel, int nHint){   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
+//__INLINE__ void nmppiCreateResampleDown2XY_8u8u(nm64s** pKernel, int nHint)	{   SIG_CreateResampleDown2_8u8u(pKernel,nHint);}
+//__INLINE__ void nmppiCreateResampleDown2XY_16u16u(nm64s** pKernel,int nHint)	{   SIG_CreateResampleDown2_16u16u(pKernel,nHint);}
 
 
 #endif // _I_Resample_H_INCLUDED_

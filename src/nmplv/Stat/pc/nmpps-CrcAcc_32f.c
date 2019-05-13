@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------
 extern unsigned int CRC32_Table[];
 //#include "vcrc.h"
-#include "nmpp.h"
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 unsigned nmppsCrcAcc_32f(
@@ -30,7 +30,7 @@ unsigned nmppsCrcAcc_32f(
     )
        
 {
-	nm32u* pTable=CRC32_Table; 
+	unsigned* pTable=CRC32_Table; 
     unsigned a,b;
 	int i;
 

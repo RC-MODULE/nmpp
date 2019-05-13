@@ -19,25 +19,40 @@
 //------------------------------------------------------------------------
 #ifndef __IMALLOC_H
 #define __IMALLOC_H
-
-
-__INLINE__ int nmppsSizeOf_8s(nm8s*, int nCount){
+#include "nmtype.h"
+/*
+__INLINE__ int nmppsSizeOf_8s(nm8s* a, int nCount) {
 	return nCount>>2;
 }
-__INLINE__ int nmppsSizeOf_8u(nm8u*, int nCount){
+__INLINE__ int nmppsSizeOf_8u(nm8u*, int nCount) {
 	return nCount>>2;
 }
-__INLINE__ int nmppsSizeOf_32s(nm32s*, int nCount){
+__INLINE__ int nmppsSizeOf_32s(nm32s*, int nCount) {
 	return nCount;
 }
-__INLINE__ int nmppsSizeOf_32u(nm32u*, int nCount){
+__INLINE__ int nmppsSizeOf_32u(nm32u*, int nCount) {
 	return nCount;
 }
+
+*/
+
+// __INLINE__ int nmppsSizeOf_8s(nm8s*, int nCount){
+// 	return nCount>>2;
+// }
+// __INLINE__ int nmppsSizeOf_8u(nm8u*, int nCount){
+// 	return nCount>>2;
+// }
+// __INLINE__ int nmppsSizeOf_32s(nm32s*, int nCount){
+// 	return nCount;
+// }
+// __INLINE__ int nmppsSizeOf_32u(nm32u*, int nCount){
+// 	return nCount;
+// }
 
 template <class T> class C_Img
 {
 protected:
-	
+
 public:
 	int m_nBorder;
 	T*  m_pContainer;
@@ -66,7 +81,7 @@ public:
 		m_nSize=m_nStride*m_nHeight;
 		m_pContainer=0;;
 		m_pData=pData;
-		
+
 	}
 	~C_Img()
 	{
@@ -83,87 +98,87 @@ public:
 
     /**
 	\internal
-    \defgroup IMG_Malloc IMG_Malloc
+    \defgroup nmppiMalloc nmppiMalloc
     \ingroup iSupport
     \brief
-        \ru Распределение памяти для изображений библиотеки. 
+        \ru Распределение памяти для изображений библиотеки.
         \en Memory allocation for library images.
-    
+
 		\~
-        \ru Начало и конец распределяемой памяти выравнивается на начало 
-        64-х разрядного слова. 
-        \en Begin and end of the allocated memory are being 
+        \ru Начало и конец распределяемой памяти выравнивается на начало
+        64-х разрядного слова.
+        \en Begin and end of the allocated memory are being
         aligned to 64-bit word.
 		\~
-    \param nWidth   
-        \ru Ширина изображения в пикселях. 
-        \en Image width in pixels. 
+    \param nWidth
+        \ru Ширина изображения в пикселях.
+        \en Image width in pixels.
 		\~
-    \param nHeight  
-        \ru Высота изображения в пикселях. 
-        \en Image height in pixels. 
+    \param nHeight
+        \ru Высота изображения в пикселях.
+        \en Image height in pixels.
 		\~
-    \param hint     
-        \ru Номер банка памяти. Может принимать значения 
-                        MEM_LOCAL, MEM_GLOBAL. 
+    \param hint
+        \ru Номер банка памяти. Может принимать значения
+                        MEM_LOCAL, MEM_GLOBAL.
         \en Number of memory bank. Admissible values for memory bank
-                        are MEM_LOCAL, MEM_GLOBAL. 
+                        are MEM_LOCAL, MEM_GLOBAL.
 		\~
-    \note \ru Память, распределенная с помощью функций IMG_Malloc должна
-              освобождаться только с помощью функции IMG_Free. 
-          \en Memory allocated by function IMG_Malloc should be 
-              deallocated by IMG_Free function only. 
+    \note \ru Память, распределенная с помощью функций nmppiMalloc должна
+              освобождаться только с помощью функции nmppiFree.
+          \en Memory allocated by function nmppiMalloc should be
+              deallocated by nmppiFree function only.
 			  \~
     */
     //! \{
 /*
-void IMG_Malloc(nm1** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm2s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm2u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm4s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm4u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm8u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm8s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm16u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm16s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm32u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm32s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm64u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
-void IMG_Malloc(nm64s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm1** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm2s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm2u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm4s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm4u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm8u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm8s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm16u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm16s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm32u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm32s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm64u** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
+void nmppiMalloc(nm64s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
 */
     //! \}
 
 //*****************************************************************************
     /**
-    \defgroup IMG_Free IMG_Free
+    \defgroup nmppiFree nmppiFree
     \ingroup iSupport
     \brief
-        \ru Освобождение памяти для изображений. 
-        \en Memory deallocation for images. 
+        \ru Освобождение памяти для изображений.
+        \en Memory deallocation for images.
 		\~
     \note \ru Данная функция должна вызываться только для
-              векторов, распределенных с помощью функций 
-              IMG_Malloc.
+              векторов, распределенных с помощью функций
+              nmppiMalloc.
           \en This function should be called only for matrixis
-              allocated by IMG_Malloc functions. 
+              allocated by nmppiMalloc functions.
 			  \~
    */
     //! \{
 
-void IMG_Free(void* ptr);
+void nmppiFree(void* ptr);
     //! \}
 
 
 /**
-	\defgroup IMG_Release IMG_Release
+	\defgroup nmppiRelease nmppiRelease
 	\ingroup iSupport
    \brief
-        \ru Освобождение блоков памяти, выделенных функиями  IMG_Create***. 
-        \en Deallocation of memory blocks allocated by IMG_Create*** functions. 
+        \ru Освобождение блоков памяти, выделенных функиями  nmppiCreate***.
+        \en Deallocation of memory blocks allocated by nmppiCreate*** functions.
 		\~
 */
 	//! \{
-__INLINE__ void IMG_ReleaseObject(nm64s* pKernel);
+__INLINE__ void nmppiReleaseObject(nm64s* pKernel);
 	//! \}
 
 

@@ -1,4 +1,4 @@
-#include "nmpp.h"
+#include "nmtype.h"
 
 void nmppsMul_Add_64f(const nm64f* pSrcVec1, const nm64f* pSrcVec2, const nm64f* pSrcVecAdd, nm64f* pDstVec, int nSize){
 	int i =0;

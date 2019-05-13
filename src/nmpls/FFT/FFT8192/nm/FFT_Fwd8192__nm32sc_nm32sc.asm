@@ -90,7 +90,7 @@ begin ".text_fft"
 	// ar3=[Param.GBuffer2]
 
 	nb1 = gr3;														// 2 столбца
-	WTW_REG(gr3);
+	WTW_REG_DEPRICATED(gr3);
 
 	ar1 = ar0;
 	ar1 += 4096 * 2;												// X[4096]
@@ -125,19 +125,19 @@ begin ".text_fft"
 	gr5 = gr4 with gr4 += gr1;
 	ar6 = gr5 with gr5 += gr2;
 	rep 16 wfifo = [ar6++gr6], ftw;									// [G] S (8 + 8 т.)
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 .repeat 255;
 	ar1 = ar2;														// Возврат к началу нужного фрагмента таблицы коэффициентов (т. к. они повторяются)
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] W1_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 	ar6 = gr5 with gr5 += gr2;
 	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 т.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;				// [L] W1_8192
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
 .endrepeat;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] W1_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 т.)
@@ -145,19 +145,19 @@ begin ".text_fft"
 	rep 32 data = [ar2++], ftw with vsum, data, afifo;				// [L] W1_8192
 	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
 
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 .repeat 255;
 	ar1 = ar2;														// Возврат к началу нужного фрагмента таблицы коэффициентов (т. к. они повторяются)
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] W1_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 т.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;				// [L] W1_8192
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
 .endrepeat;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] W1_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 
 	sb = gr2;														// 2 строки
 	ar6 = GAddCmplxMask;
@@ -172,7 +172,7 @@ begin ".text_fft"
 	// SABCD->T (не нормализованное) (GBuffer2 (2-я половина)->LBuffer1)
 	// gr7=1
 
-	WTW_REG(gr3);
+	WTW_REG_DEPRICATED(gr3);
 	ar6 = [Param.GBuffer2] with gr4 = gr7 << 2;						// gr4=4
 	ar6 += 8192 * 2;												// GBuffer2 (2-я половина)
 	ar0 = [Param.LBuffer1] with gr6 = gr7 << 1;
@@ -213,30 +213,30 @@ begin ".text_fft"
 	gr5 = gr4 with gr4 += gr1;
 	ar6 = gr5 with gr5 += gr2;
 	rep 16 wfifo = [ar6++gr6], ftw;									// [G] T (8 + 8 т.)
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 .repeat 15;
 	ar1 = ar2;														// Возврат к началу нужного фрагмента таблицы коэффициентов (т. к. они повторяются)
 		.repeat 16;
 			rep 32 data = [ar1++], ftw with vsum, data, 0;			// [L] W2_8192
-			WTW_REG(gr3);													// 2-е 8 т.
+			WTW_REG_DEPRICATED(gr3);													// 2-е 8 т.
 			ar6 = gr5 with gr5 += gr2;
 			rep 16 wfifo = [ar6++gr6];								// [G] S (8 + 8 т.)
 			rep 32 data = [ar1++], ftw with vsum, data, afifo;		// [L] W2_8192
-			WTW_REG(gr3);													// 1-е 8 т.
+			WTW_REG_DEPRICATED(gr3);													// 1-е 8 т.
 			rep 32 [ar5++] = afifo;									// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
 		.endrepeat;
 .endrepeat;
 .repeat 15;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] W2_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 	ar6 = gr5 with gr5 += gr2;
 	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 т.)
 	rep 32 data = [ar2++], ftw with vsum, data, afifo;				// [L] W2_8192
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
 .endrepeat;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] W2_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6];										// [G] T (8 + 8 т.)
@@ -244,30 +244,30 @@ begin ".text_fft"
 	rep 32 data = [ar2++], ftw with vsum, data, afifo;				// [L] W2_8192
 	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
 
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 .repeat 15;
 	ar1 = ar2;														// Возврат к началу нужного фрагмента таблицы коэффициентов (т. к. они повторяются)
 		.repeat 16;
 			rep 32 data = [ar1++], ftw with vsum, data, 0;			// [L] W2_8192
-			WTW_REG(gr3);													// 2-е 8 т.
+			WTW_REG_DEPRICATED(gr3);													// 2-е 8 т.
 			ar6 = gr4 with gr4 += gr2;
 			rep 16 wfifo = [ar6++gr6];								// [G] T (8 + 8 т.)
 			rep 32 data = [ar1++], ftw with vsum, data, afifo;		// [L] W2_8192
-			WTW_REG(gr3);													// 1-е 8 т.
+			WTW_REG_DEPRICATED(gr3);													// 1-е 8 т.
 			rep 32 [ar5++] = afifo;									// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
 		.endrepeat;
 .endrepeat;
 .repeat 15;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] W2_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6];										// [G] T (8 + 8 т.)
 	rep 32 data = [ar2++], ftw with vsum, data, afifo;				// [L] W2_8192
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
 .endrepeat;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] W2_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 
 	sb = gr2;														// 2 строки
 	ar6 = GAddCmplxMask;
@@ -282,7 +282,7 @@ begin ".text_fft"
 	// TABCD->P (не нормализованное) (GBuffer2 (2-я половина)->LBuffer1)
 	// gr7=1
 
-	WTW_REG(gr3);
+	WTW_REG_DEPRICATED(gr3);
 	ar6 = [Param.GBuffer2] with gr4 = gr7 << 2;						// gr4=4
 	ar6 += 8192 * 2;												// GBuffer2 (2-я половина)
 	ar0 = [Param.LBuffer1] with gr6 = gr7 << 1;
@@ -323,18 +323,18 @@ begin ".text_fft"
 	gr5 = gr4 with gr4 += gr1;
 	ar6 = gr5 with gr5 += gr2;
 	rep 16 wfifo = [ar6++gr6], ftw;									// [G] P (8 + 8 т.)
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 .repeat 255;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] W3_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 	ar6 = gr5 with gr5 += gr2;
 	rep 16 wfifo = [ar6++gr6];										// [G] P (8 + 8 т.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;				// [L] W3_8192
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
 .endrepeat;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] W3_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6];										// [G] P (8 + 8 т.)
@@ -342,18 +342,18 @@ begin ".text_fft"
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;				// [L] W3_8192
 	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
 
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 .repeat 255;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] W3_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 	ar6 = gr4 with gr4 += gr2;
 	rep 16 wfifo = [ar6++gr6];										// [G] P (8 + 8 т.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;				// [L] W3_8192
-	WTW_REG(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
 	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
 .endrepeat;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] W3_8192
-	WTW_REG(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
 
 	sb = gr2;														// 2 строки
 	ar6 = GAddCmplxMask;
@@ -369,7 +369,7 @@ begin ".text_fft"
 	// (с расстановкой Y в правильном порядке)
 	// gr7=1
 
-	WTW_REG(gr3);
+	WTW_REG_DEPRICATED(gr3);
 	ar6 = [Param.GBuffer2] with gr4 = gr7 << 2;						// gr4=4
 	ar6 += 8192 * 2;												// GBuffer2 (2-я половина)
 	gr0 = [Param.LBuffer1] with gr6 = gr7 << 1;

@@ -59,7 +59,7 @@ data ".data_nmplm_G"
 
 end ".data_nmplm_G";
 
-import from macros.mlb;
+//import from macros.mlb;
 
 begin ".text_nmplm"
 
@@ -105,23 +105,27 @@ global _void._.8.8MTR_ProdUnitV.1class._v16nm8s._.0.9._short._.0.9._int.2 :label
 	
 	<Next_Add16to1_rep32>
 		rep 32 wfifo=[ar4++],ftw;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
 		ar0=ar1     with gr1+=gr2;
 		rep 32 data=[ar0++gr0],ftw with vsum ,data,0;
 		ar0=ar1+gr1 with gr1+=gr2;
 		rep 32 data=[ar0++gr0] with vsum ,data,afifo;
 		ar0=ar1+gr1 with gr1+=gr2;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
  		rep 32 data=[ar0++gr0],ftw with vsum ,data,afifo;
 		ar0=ar1+gr1 with gr1+=gr2;
 		rep 32 data=[ar0++gr0] with vsum ,data,afifo;
 		ar0=ar1+gr1 with gr1+=gr2;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
 		rep 32 data=[ar0++gr0],ftw with vsum ,data,afifo;
 		ar0=ar1+gr1 with gr1+=gr2;
 		rep 32 data=[ar0++gr0] with vsum ,data,afifo;
 		ar0=ar1+gr1 with gr1+=gr2;
-		WTW_REG(gr4);
+		//WTW_REG_DEPRICATED(gr4);
+		wtw;
 		rep 32 data=[ar0++gr0]  with vsum ,data,afifo;
 		ar0=ar1+gr1 with gr1+=gr2;
 		rep 32 data=[ar0++gr0] with vsum ,data,afifo;

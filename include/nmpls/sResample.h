@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-
+#include "nmtype.h"
 #ifndef _S_RESAMPLE_H_INCLUDED_
 #define _S_RESAMPLE_H_INCLUDED_
 
@@ -137,9 +137,9 @@ void SIG_ResampleUp3Down2(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize, nm64s*
     */
 
     //! \{
-void SIG_CreateResampleUp3Down2_8s16s(nm64s** pKernel, int nHint=MEM_LOCAL);
-void SIG_CreateResampleDown2_8u8u(nm64s** pKernel, int nHint=MEM_LOCAL);
-void SIG_CreateResampleDown2_16u16u(nm64s** pKernel, int nHint=MEM_LOCAL);
+void SIG_CreateResampleUp3Down2_8s16s(nm64s** pKernel, int nHint);
+void SIG_CreateResampleDown2_8u8u(nm64s** pKernel, int nHint);
+void SIG_CreateResampleDown2_16u16u(nm64s** pKernel, int nHint);
     //! \}
 
 //*****************************************************************************
@@ -248,16 +248,16 @@ void SIG_Decimate16_64s(nm64s* pSrcVec,nm64s* pDstVec,int nDstSize);
     \par
     \xmlonly
        <testperf> 
-			<param> pSrcVec </param> <values> L G </values>
-			<param> pDstVec </param> <values> L G </values>
-			<param> pKernel </param> <values> L1 G1 </values>
+			<param> pSrcVec </param> <values> im0 im1 </values>
+			<param> pDstVec </param> <values> im2 im1 </values>
+			<param> pKernel </param> <values> im2 im3 </values>
 			<param> nSrcVecSize    </param> <values> 1024 </values>
         </testperf>
 		<testperf> 
-			<param> pSrcVec </param> <values> L  </values>
-			<param> pDstVec </param> <values> G </values>
-			<param> pKernel </param> <values> G1 </values>
-			<param> nSrcVecSize    </param> <values> 128 1024 10240 </values>
+			<param> pSrcVec </param> <values> im0  </values>
+			<param> pDstVec </param> <values> im1 </values>
+			<param> pKernel </param> <values> im2 </values>
+			<param> nSrcVecSize    </param> <values> 128 1024 4096 </values>
         </testperf>
     \endxmlonly
     */

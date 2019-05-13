@@ -127,7 +127,7 @@ global	_w_BoolConvert_G:	long[64] = (
 global	_buf_BoolConvert_G:	long[64];
 end ".data_nmplv_G";
 //////////////////////////////////////////////////////////////////////
-import from macros.mlb;
+//import from macros.mlb;
 //////////////////////////////////////////////////////////////////////
 
 begin ".text_nmplv"
@@ -141,7 +141,7 @@ begin ".text_nmplv"
 //! \perfinclude _nmppsCmpEq0__FUcP3nm1Pii_.html
 //--------------------------------------------------------------------
 
-    global _nmppsCmpEq0_8u7b:	label;
+    // global _nmppsCmpEq0_8u7b:	label;
 global _nmppsCmpEq0_8u7b:label;
 <_nmppsCmpEq0_8u7b>
 .branch;
@@ -176,24 +176,24 @@ global _nmppsCmpEq0_8u7b:label;
 	f1cr = 0fefefefeh;
 	gr4--;
 	if =0 goto lab_BoolConvert8to1_3 with gr4--;
-		//WTW_REG(gr5);
+		//WTW_REG_DEPRICATED(gr5);
 		
 <lab_BoolConvert8to1_2>
 	rep 32 data = [ar0++gr0], ftw,wtw with vsum, activate data, vr;
-	//WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
 	ar0-=510;	//return to next vector.
 .repeat 2;
 	rep 32 data = [ar0++gr0], ftw,wtw with vsum, activate data, afifo;
-	//WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
 	ar0-=510;	//return to next vector.
 .endrepeat;
 	rep 32 wfifo = [ar4++], ftw,wtw;
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
-	//WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
 	ar0-=510;	
 .repeat 3;
 	rep 32 data = [ar0++gr0], ftw,wtw with vsum, activate data, afifo;
-	//WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
 	ar0-=510;	//return to next vector.
 .endrepeat;
 	ar4 = ar5;
@@ -203,27 +203,27 @@ global _nmppsCmpEq0_8u7b:label;
 		rep 32 wfifo = [ar4++], ftw,wtw;
 		rep 32 [ar6++] = afifo;
 
-	//WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
 <lab_BoolConvert8to1_3>
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, vr;
 	wtw;
-	//WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
 	ar0-=510;
 .repeat 2;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
 	wtw;
-	//WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
 	ar0-=510;
 .endrepeat;
 	rep 32 wfifo = [ar4++], ftw;
 	rep 32 data = [ar0++gr0] with vsum, activate data, afifo;
 	wtw;
-	//WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
 	ar0-=510;	
 .repeat 3;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
 	wtw;
-	//WTW_REG(gr5);
+	//WTW_REG_DEPRICATED(gr5);
 	ar0-=510;	//return to next vector.
 .endrepeat;
 	ar4 = ar1 with gr1;

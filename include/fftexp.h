@@ -102,6 +102,18 @@ template<int power> cmplx<int> expFFT(int arg, int amplitude)
 	return z;
 }
 
+template<int power> cmplx<long long> lexpFFT(int arg, int amplitude)
+{
+	float re;
+	float im;
+	expFFT<power>(arg, &re, &im);
+	cmplx<long long> z;
+	z.re = floor(amplitude*re + 0.5);
+	z.im = floor(amplitude*im + 0.5);
+	return z;
+}
+
+
 template<int power> cmplx<int> expIFFT(int arg, int amplitude)
 {
 	float re;

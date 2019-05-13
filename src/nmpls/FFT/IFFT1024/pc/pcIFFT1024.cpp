@@ -30,6 +30,7 @@
 static cmplx<double> Rounder(0.5,0.5);
 int FlagsIFFT1024=FFT7BIT;
 
+extern "C" {
 // Setting of the calculation accuracy for FFT_Inv1024 function
 void FFT_Inv1024Set( int	Flag)			// See header for more information
 {
@@ -43,6 +44,7 @@ void FFT_Inv1024Set7bit()	// Sets 7-bit accuracy of sin-cosine coefficients
 {
 	FFT_Inv1024Set(FFT7BIT);
 }
+};
 
 ///////////////////////////////////////////////////////////////////
 // Computing FFT-1024 using fixed-point arithmetic
@@ -212,6 +214,7 @@ void IMakeTable1024W1W2(
 	}
 }
 
+extern "C" {
 /////////////////////////////////////////////////////////////////////
 //	 This is the C equivalent of the function FFT_Inv1024
 void FFT_Inv1024(
@@ -248,6 +251,7 @@ void FFT_Inv1024(
 	FFT_Inv1024(X,Y,IW1_1024,IW2_1024,ShiftR1,ShiftR2);
 
 }
+};
 
 ///////////////////////////////////////////////////////////////////
 // Computing IFFT-1024 using floating-point arithmetic

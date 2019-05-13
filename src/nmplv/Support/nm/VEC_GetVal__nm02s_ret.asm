@@ -34,7 +34,7 @@ macro EXTRACT(n)
 end EXTRACT;
 
 global _nmppsGet_2s:	label;
-<nmppsGet_2s>
+<_nmppsGet_2s>
 
 .branch;
 	ar5 = ar7 - 2;

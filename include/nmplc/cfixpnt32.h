@@ -68,8 +68,8 @@ int nmppcFixExp32( int nVal);
     \xmlonly
         <testperf> 
              <param> nArg </param> <values> 0x8000  </values>
-			 <param> pnSin </param> <values>  &amp;n </values>
-			 <param> pnCos </param> <values>  &amp;m </values>
+			 <param> pnSin </param> <values>  im0 </values>
+			 <param> pnCos </param> <values>  im1 </values>
 			   <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -472,8 +472,8 @@ double nmppcFix32ToDouble(int arg);
         <testperf> 
             <param> nDividend </param> <values> 0x5000  </values>
 			<param> nDivisor  </param> <values> 0x6000  </values>
-			<param> pnQuotient  </param> <values> &amp;n  </values>
-			<param>	pnReminder  </param> <values> &amp;m  </values>
+			<param> pnQuotient  </param> <values> im0  </values>
+			<param>	pnReminder  </param> <values> im1  </values>
 			<size> 1 </size>
         </testperf>
     \endxmlonly

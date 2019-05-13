@@ -1,8 +1,8 @@
 #########################################################################
 #                                                                       #
-# This Makefile recursivly allows to :                                  #
-# configurate,build,run or test given tests or examples                 #
-# from currect folder                                                   #
+# This Makefile recursively allows to :                                 #
+# configure,build,run or test given tests or examples                   #
+# from current folder                                                   #
 #                                                                       #
 # S.Mushkaev  (RC)Module 2015                                           #
 #                                                                       #
@@ -11,22 +11,22 @@
 # USAGE:
 #
 # /> make configure PLATFORMS="mc5103 emu6405 mc12101"
-#  Recursively generates Makefiles for all tests/axamples for mc5103,emu6405,mc12101 platforms 
+#  Recursively generates Makefiles for all tests/examples for mc5103,emu6405,mc12101 platforms 
 #
 # /> make configure 
-#  Recursively generates Makefiles for all tests/axamples for default platform list defined by $(PLATFORMS) in global.mk
+#  Recursively generates Makefiles for all tests/examples for default platform list defined by $(PLATFORMS) in global.mk
 #
 # /> make 
-#  Recursivly makes(builds) all Makefiles  from current folder 
+#  Recursively makes(builds) all Makefiles  from current folder 
 #
 # /> make run PLATFORMS="mc5103 emu6405"
-#  Recursivly runs all tests/examples from current folder on mc5103 board and emulator
+#  Recursively runs all tests/examples from current folder on mc5103 board and emulator
 #
 # /> make run 
-#  Recursivly runs all tests/examples from current folder on all platforms from $(PLATFORMS) list defined in global.mk 
+#  Recursively runs all tests/examples from current folder on all platforms from $(PLATFORMS) list defined in global.mk 
 #
 # /> make test TARGET1=mc5103 TARGET2=vs8
-#  Recursivly builds and runs all tests from current folder  
+#  Recursively builds and runs all tests from current folder  
 #  Then two exitcodes fo $(TARGET1) and $(TARGET2) platforms are compared
 #  if exitcodes are identical - test is passed
 #
@@ -40,14 +40,18 @@
 #  Recursive clean with Makefile removal of all /make_* folders
 
 
-
-
 include $(ROOT)/global.mk
-# get list of all sub-foldfers
+-include local.mk
+
+ifndef TEMPLATE_DIR
+$(error *** ERROR: 'TEMPLATE_DIR' environment variable is not defined!  )
+endif 
+
+
+# get list of all sub-folders
 WORK_DIRS=$(subst /,,$(wildcard */))
 
-# override all sub-foldfers by custom list in local.mk
--include local.mk
+# override all sub-folders by custom list in local.mk
 WORK_DIRS := $(filter-out $(SKIP_DIRS),$(WORK_DIRS))
 
 # for each sub-folder try to start Makefile with (build/test/run/clean targets) 
@@ -71,8 +75,8 @@ kill:
 	
 define configure_makefile
 $(1)/Makefile:
-	-$(OS_FIND) $(1)/*.cpp && echo ROOT=../$(ROOT)| $(OS_CAT) - "$(ROOT)/app/templates/sometest/Makefile" > $(1)/Makefile
-	-$(OS_FIND) $(1)/*.cpp || echo ROOT=../$(ROOT)| $(OS_CAT) - "$(ROOT)/app/templates/Makefile" > $(1)/Makefile
+	-$(OS_FIND) $(1)/*.cpp && echo ROOT=../$(ROOT)| $(OS_CAT) - "$(TEMPLATE_DIR)/sometest/Makefile" > $(1)/Makefile
+	-$(OS_FIND) $(1)/*.cpp || echo ROOT=../$(ROOT)| $(OS_CAT) - "$(TEMPLATE_DIR)/Makefile" > $(1)/Makefile
 endef
 	
 $(foreach dir,$(WORK_DIRS), $(eval $(call configure_makefile,$(dir))) )	

@@ -4,7 +4,7 @@
 // 16р константа VC прибавляется ко всем произведениям.Тоже short.
 // Функция с указанным выше интерфейсом может вызываться из cpp.
 // 100 тактов времени-вот во что обошлась папаше Дорсету кратность 32.
-data "data1"
+data ".data_nmplv_G"
 
 
 matr1: long [7]=(0l,
@@ -23,8 +23,8 @@ sb_5: long=2aa0000000000hl; // 40,2,2,2,2,16
 sb_6: long=2aa000000000000hl; // 48,2,2,2,2,8
 sb_7: long=0aa00000000000000hl; // 56,2,2,2,2
 VC: long;
-end "data1";
-begin "text"
+end ".data_nmplv_G";
+begin ".text_nmplv"
 //  i=MulC_2s16s ( (short*)&psrc, C, (short*)&pdst, N2s, VC);
 extern vec_vsum_data_vr: label;
 global _nmppsMulC_AddC_2s16s: label;
@@ -137,4 +137,5 @@ global _nmppsMulC_AddC_2s16s: label;
    pop ar0,gr0;
    pop ar6,gr6;
    return;
-end "text";
+end ".text_nmplv";
+

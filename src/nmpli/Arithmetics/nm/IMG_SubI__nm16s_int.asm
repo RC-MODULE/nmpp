@@ -17,8 +17,8 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-global _IMG_SubI__FPSsiPSsiii: label;
-global _void._.8.8IMG_SubI.1short._.0.9._int.9._short._.0.9._int.9._int.9._int.2 :label;
+global _nmppiSubI__FPSsiPSsiii: label;
+global _void._.8.8nmppiSubI.1short._.0.9._int.9._short._.0.9._int.9._int.9._int.2 :label;
  import from macros.mlb;
 fin_add: label;
 
@@ -30,13 +30,13 @@ CC: label;
 no_remainder: label;
 
     //--------------------------------------------------------------------
-    //! \fn void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight)
+    //! \fn void nmppiSubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight)
 	//!
-//! \perfinclude _IMG_SubI__FPSsiPSsiii.html
+//! \perfinclude _nmppiSubI__FPSsiPSsiii.html
     //--------------------------------------------------------------------
 
-<_IMG_SubI__FPSsiPSsiii>
-<_void._.8.8IMG_SubI.1short._.0.9._int.9._short._.0.9._int.9._int.9._int.2>
+<_nmppiSubI__FPSsiPSsiii>
+<_void._.8.8nmppiSubI.1short._.0.9._int.9._short._.0.9._int.9._int.9._int.2>
    ar5 = ar7 - 2;
    PUSH_REGS();
    ar4=[--ar5];	 // dst16

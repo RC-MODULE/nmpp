@@ -1,4 +1,5 @@
-#include "nmpp.h"
+unsigned nmppsCrcMaskAcc_32u(const unsigned int* pSrcVec, unsigned int mask, int nSize, unsigned int* crcAccumulator);
+
 unsigned nmppsCrcMask_32u(
     const unsigned int* pSrcVec, 	// Input Vector			:long Any[Size/2]
 	unsigned mask,

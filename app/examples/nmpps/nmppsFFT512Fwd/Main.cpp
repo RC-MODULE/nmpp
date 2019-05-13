@@ -15,7 +15,8 @@ int speedTest(){
 	//ar4 ar2 ar1 ar6 ar0
 	nmppsMallocSetRouteMode();
 	
-	while (1)
+	int routing=true;
+	while (routing)
 	{
 		nmppsMallocResetPos();
 		nm32sc* src   =(nm32sc*)nmppsMalloc_64s(FFT_SIZE);
@@ -23,7 +24,17 @@ int speedTest(){
 		NmppsFFTSpec* spec;
 		nmppsFFT512FwdInitAlloc(&spec,src,dst,-1);
 		
-		if (nmppsMallocFail()) return -2;
+		printf("%8x %d\n",(int)nmppsMallocSpec.route[0], t1-t0);
+		if (nmppsMallocIncrementRoute())
+			routing=false;
+		
+		if (nmppsMallocFail()) {
+			if (src) nmppsFree(src);
+			if (dst) nmppsFree(dst);
+			nmppsFFTFree(spec);
+			continue;
+		};
+
 		
 		nmppsSet_64s((nm64s*)src,0,FFT_SIZE);
 		nmppsRandUniform_64s((nm64s*)dst,FFT_SIZE);
@@ -39,12 +50,9 @@ int speedTest(){
 		nmppsFFTFree(spec);
 		nmppsFree(src);
 		nmppsFree(dst);
-		printf("%8x %d\n",(int)nmppsMallocSpec.route[0], t1-t0);
-		if (nmppsMallocIncrementRoute())
-			return (bestTime);
 	}
 	
-	return t1-t0;
+	return bestTime;
 }
 
 

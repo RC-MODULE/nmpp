@@ -40,4 +40,3 @@ int main()
 	nmppsFree(G1);
 	return crc>>2;
 }
-

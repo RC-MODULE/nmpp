@@ -1,4 +1,4 @@
-#include "nmpp.h"
+#include "nmtype.h"
 
 void nmppsWeightedSum_8s16s(nm8s* pSrcVec1,int W1,nm8s* pSrcVec2,int W2, nm16s* pDstVec, int nSize)
 {

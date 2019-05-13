@@ -28,15 +28,15 @@ end ".data_nmpli_G";
 begin ".text_nmpli"
 
     //--------------------------------------------------------------------
-    //! \fn void IMG_ResampleDown2Y(nm8u7b* pSrcImg, nm8u7b* pDstImg, int nSrcWidth, int nSrcHeight)
+    //! \fn void nmppiResampleDown2Y(nm8u7b* pSrcImg, nm8u7b* pDstImg, int nSrcWidth, int nSrcHeight)
     //!
-//! \perfinclude _IMG_ResampleDown2Y__FPUcPUcii.html
+//! \perfinclude _nmppiResampleDown2Y__FPUcPUcii.html
     //--------------------------------------------------------------------
 extern vec_Add_VV_shift:label;
-global _IMG_ResampleDown2Y__FUcPUcPii:label;
-global _void._.8.8IMG_ResampleDown2Y.1unsigned._char.9._unsigned._char._.0.9._int._.0.9._int.2 :label;
-<_IMG_ResampleDown2Y__FUcPUcPii>
-<_void._.8.8IMG_ResampleDown2Y.1unsigned._char.9._unsigned._char._.0.9._int._.0.9._int.2>
+global _nmppiResampleDown2Y__FUcPUcPii:label;
+global _void._.8.8nmppiResampleDown2Y.1unsigned._char.9._unsigned._char._.0.9._int._.0.9._int.2 :label;
+<_nmppiResampleDown2Y__FUcPUcPii>
+<_void._.8.8nmppiResampleDown2Y.1unsigned._char.9._unsigned._char._.0.9._int._.0.9._int.2>
 .branch;
 				
 	ar5 = sp - 2	with gr7=false;

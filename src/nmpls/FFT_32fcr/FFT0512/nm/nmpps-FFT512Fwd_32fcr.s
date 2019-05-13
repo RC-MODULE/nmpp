@@ -80,7 +80,7 @@ begin ".text"
 	delayed call _FFTFwd16x32Core;
 		ar3 = gr4; // addr for input buff_fft1024
 		gr6 = ar3; // addr for output buff_fft1024
-	
+
 	ar5 = ar5 - 7;
 
 	delayed call _FFTFwd16x32Core;
@@ -208,12 +208,12 @@ begin ".text"
 	fpu 1 .complex vreg2 = vreg4 * vreg1 + vreg6;
 	fpu 2 .complex vreg2 = vreg4 * vreg1 + vreg6;
 	fpu 3 .complex vreg2 = vreg4 * vreg1 + vreg6;
-	
+
 	fpu 0 .complex vreg0 = -vreg7 * vreg0 + vreg5;
 	fpu 1 .complex vreg0 = -vreg7 * vreg0 + vreg5;
 	fpu 2 .complex vreg0 = -vreg7 * vreg0 + vreg5;
 	fpu 3 .complex vreg0 = -vreg7 * vreg0 + vreg5;
-	
+
 	fpu 0 .complex vreg1 = -vreg4 * vreg1 + vreg6;
 	fpu 1 .complex vreg1 = -vreg4 * vreg1 + vreg6;
 	fpu 2 .complex vreg1 = -vreg4 * vreg1 + vreg6;
@@ -232,17 +232,17 @@ begin ".text"
 	fpu 1 vreg6 = fpu 0 vreg0;
 	fpu 2 vreg6 = fpu 3 vreg3;
 	fpu 3 vreg6 = fpu 2 vreg0;
-	
+
 	fpu 2 vreg4 = fpu 0 vreg4; // copy 1 - W128
 	fpu 3 vreg4 = fpu 1 vreg4; // copy 3 - W128
 	fpu 2 vreg5 = fpu 0 vreg5; // copy 2 - W128
 	fpu 3 vreg5 = fpu 1 vreg5; // copy 4 - W128
-	
+
 	fpu 0 .complex vreg0 = vreg6 * vreg4 + vreg3;
 	fpu 1 .complex vreg3 = vreg0 * vreg4 + vreg6;
 	fpu 2 .complex vreg0 = vreg6 * vreg4 + vreg3;
 	fpu 3 .complex vreg3 = vreg0 * vreg4 + vreg6;
-	
+
 	fpu 0 vreg7 = fpu 1 vreg2;
 	fpu 1 vreg7 = fpu 0 vreg1;
 	fpu 2 vreg7 = fpu 3 vreg2;
@@ -252,7 +252,7 @@ begin ".text"
 	fpu 1 .complex vreg2 = vreg1 * vreg5 + vreg7;
 	fpu 2 .complex vreg1 = vreg7 * vreg5 + vreg2;
 	fpu 3 .complex vreg2 = vreg1 * vreg5 + vreg7;
-	
+
 	fpu 0 .complex vreg6 = -vreg6 * vreg4 + vreg3;
 	fpu 1 .complex vreg6 = -vreg0 * vreg4 + vreg6;
 	fpu 2 .complex vreg6 = -vreg6 * vreg4 + vreg3;
@@ -267,7 +267,7 @@ begin ".text"
 // COMPUTE FFT512
 	ar1 = gr0;
 	ar2 = gr5;
-	
+
 	fpu 0 rep 32 vreg4 = [ar1++];
 	fpu 0 rep 32 vreg5 = [ar1++];
 
@@ -280,10 +280,10 @@ begin ".text"
 	fpu 2 vreg3 = fpu 0 vreg7;
 	fpu 1 vreg1 = fpu 3 vreg2;
 	fpu 3 vreg1 = fpu 1 vreg7;
-	
+
 	fpu 1 rep 32 vreg4 = [ar1++];
 	fpu 1 rep 32 vreg5 = [ar1++];
-	
+
 	fpu 2 rep 32 vreg4 = [ar1++];
 	fpu 2 rep 32 vreg5 = [ar1++];
 
@@ -294,9 +294,9 @@ begin ".text"
 	fpu 1 .complex vreg6 = vreg0 * vreg4 + vreg3;
 	fpu 2 .complex vreg0 = vreg6 * vreg4 + vreg2;
 	fpu 3 .complex vreg2 = vreg6 * vreg4 + vreg0;
-	
+
 	fpu 0 rep 32 [ar2++] = vreg6;
-	
+
 	fpu 0 .complex vreg7 = vreg3 * vreg5 + vreg1;
 	fpu 1 .complex vreg7 = vreg1 * vreg5 + vreg2;
 	fpu 2 .complex vreg1 = vreg7 * vreg5 + vreg3;

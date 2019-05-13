@@ -20,7 +20,7 @@
 		extern "C" {
 #endif
 
-   
+
 
 //*****************************************************************************
 
@@ -28,49 +28,49 @@
     \defgroup nmppsAddr_ nmppsAddr_
     \ingroup vSupport
     \brief
-        \ru Возвращает адрес ячейки памяти, содержащей указанный элемент. 
+        \ru Возвращает адрес ячейки памяти, содержащей указанный элемент.
         \en Returns address of memory cell that contains
-        the vec element. 
-    
+        the vec element.
+
 		\~
-        \ru Реализация для процессора NeuroMatrix возвращает адрес, выровненный 
-            в памяти на 32 бита. 
-        \en Implementation for NeuroMatrix processor returns an addres aligned 
+        \ru Реализация для процессора NeuroMatrix возвращает адрес, выровненный
+            в памяти на 32 бита.
+        \en Implementation for NeuroMatrix processor returns an addres aligned
             with 32 bits in the memory.
 		\~
-    \param pVec     
-        \ru Входной вектор. 
-        \en Input vec. 
+    \param pVec
+        \ru Входной вектор.
+        \en Input vec.
 		\~
-    \param nIndex    
-        \ru Индекс элемента. 
-        \en Element index. 
+    \param nIndex
+        \ru Индекс элемента.
+        \en Element index.
 
 		\~
-    \return         
-        \ru Адрес ячейки памяти. 
-        \en Address of memory cell. 
+    \return
+        \ru Адрес ячейки памяти.
+        \en Address of memory cell.
 
 		\~
-    \note 
+    \note
         \ru Для ускорения работы на PC возможно использование макроса
-            ADDR(ptr, index), который раскрывается на PC как 
-            (ptr+index), а на NM как вызов функции nmppsAddr_. 
+            ADDR(ptr, index), который раскрывается на PC как
+            (ptr+index), а на NM как вызов функции nmppsAddr_.
         \en To increase perfomance on PC it's possible to use macros
-            ADDR(ptr, index) that equivalent to (ptr+index) expression. 
+            ADDR(ptr, index) that equivalent to (ptr+index) expression.
 
 		\~
     \par
     \xmlonly
-        <testperf> 
-             <param> pVec   </param> <values> L G </values>
+        <testperf>
+             <param> pVec   </param> <values> im1 im2 </values>
              <param> nIndex </param> <values> 0 </values>
              <size> 1 </size>
         </testperf>
     \endxmlonly
     */
     //! \{
-/*		
+/*
 __INLINE__ nm1* nmppsAddr_1*(nm1*  pVec, int nIndex){	return (nm1*)((int*)pVec+(nIndex>>5));}
 __INLINE__ nm2s* nmppsAddr_2s(nm2s*  pVec, int nIndex){	return (nm2s*)((int*)pVec+(nIndex>>4));}
 __INLINE__ nm4s* nmppsAddr_4s(nm4s*  pVec, int nIndex){	return (nm4s*)((int*)pVec+(nIndex>>3));}
@@ -83,7 +83,7 @@ __INLINE__ nm64s* nmppsAddr_64s(nm64s* pVec, int nIndex) {return pVec+nIndex;}
 #ifdef __NM__
 __INLINE__ nm8u*  nmppsAddr_(const nm8u*  pVec, int nIndex) {return (nm8u*)nmppsAddr_8s((nm8s*)  pVec, nIndex);}
 __INLINE__ nm16u* nmppsAddr_16u(nm16u* pVec, int nIndex) {return (nm16u*)nmppsAddr_16s((nm16s*)  pVec, nIndex);}
-#else 
+#else
 __INLINE__ nm8u*  nmppsAddr_(const nm8u*  pVec, int nIndex) {return (nm8u*)pVec+nIndex;}
 __INLINE__ nm16u* nmppsAddr_16u(nm16u* pVec, int nIndex) {return pVec+nIndex;}
 #endif
@@ -106,15 +106,18 @@ __INLINE__ nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nI
 */
 
  __INLINE__ nm1  * nmppsAddr_1  (const nm1*   pVec, int nIndex) {return (nm1*  )((nm64u*)pVec+(nIndex>>6));}
- __INLINE__ nm2s * nmppsAddr_2s (const nm2s*  pVec, int nIndex) {return (nm2s* )((nm64u*)pVec+(nIndex>>5));}
- __INLINE__ nm4s * nmppsAddr_4s (const nm4s*  pVec, int nIndex) {return (nm4s* )((nm64u*)pVec+(nIndex>>4));}
+ inline nm2s * nmppsAddr_2s (const nm2s*  pVec, int nIndex) {return (nm2s* )((nm64u*)pVec+(nIndex>>5));}
+ inline nm4s * nmppsAddr_4s (const nm4s*  pVec, int nIndex) {return (nm4s* )((nm64u*)pVec+(nIndex>>4));}
  __INLINE__ nm8s * nmppsAddr_8s (const nm8s*  pVec, int nIndex) {return (nm8s* )((nm64u*)pVec+(nIndex>>3));}
  __INLINE__ nm16s* nmppsAddr_16s(const nm16s* pVec, int nIndex) {return (nm16s*)((nm64u*)pVec+(nIndex>>2));}
  __INLINE__ nm32s* nmppsAddr_32s(const nm32s* pVec, int nIndex) {return (nm32s*)((nm64u*)pVec+(nIndex>>1));}
+ __INLINE__ nm32f* nmppsAddr_32f(const nm32f* pVec, int nIndex) {return (nm32f*)((nm64u*)pVec+(nIndex>>1));}
  __INLINE__ nm64s* nmppsAddr_64s(const nm64s* pVec, int nIndex) {return (nm64s*)((nm64u*)pVec+nIndex)     ;}
-                                                       
- __INLINE__ nm2u * nmppsAddr_2u (const nm2u*  pVec, int nIndex) {return (nm2u* )((nm64u*)pVec+(nIndex>>5));}
- __INLINE__ nm4u * nmppsAddr_4u (const nm4u*  pVec, int nIndex) {return (nm4u* )((nm64u*)pVec+(nIndex>>4));}
+ __INLINE__ nm64f* nmppsAddr_64f(const nm64f* pVec, int nIndex) {return (nm64f*)((nm64u*)pVec+nIndex)     ;}
+
+ 
+ inline nm2u * nmppsAddr_2u (const nm2u*  pVec, int nIndex) {return (nm2u* )((nm64u*)pVec+(nIndex>>5));}
+ inline nm4u * nmppsAddr_4u (const nm4u*  pVec, int nIndex) {return (nm4u* )((nm64u*)pVec+(nIndex>>4));}
  __INLINE__ nm8u * nmppsAddr_8u (const nm8u*  pVec, int nIndex) {return (nm8u* )((nm64u*)pVec+(nIndex>>3));}
  __INLINE__ nm16u* nmppsAddr_16u(const nm16u* pVec, int nIndex) {return (nm16u*)((nm64u*)pVec+(nIndex>>2));}
  __INLINE__ nm32u* nmppsAddr_32u(const nm32u* pVec, int nIndex) {return (nm32u*)((nm64u*)pVec+(nIndex>>1));}
@@ -129,32 +132,32 @@ __INLINE__ nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nI
     \defgroup nmppsSetVal_ nmppsSetVal_
     \ingroup vSupport
     \brief
-        \ru Модификация элемента вектора. 
-        \en Vector element modification. 
-    
+        \ru Модификация элемента вектора.
+        \en Vector element modification.
+
 		\~
-    
+
 	\f[
         pVec(nIndex)  =  Val
     \f]
-    \param pVec   
-        \ru Вектор. 
-        \en Vector. 
+    \param pVec
+        \ru Вектор.
+        \en Vector.
 		\~
-    \param nIndex    
-        \ru Позиция элемента 
-        \en Position of the element. 
+    \param nIndex
+        \ru Позиция элемента
+        \en Position of the element.
 		\~
-    \param nVal  
-        \ru Значение элемента 
-        \en Value of the element. 
+    \param nVal
+        \ru Значение элемента
+        \en Value of the element.
 		\~
     \return \e void
-    
+
     \par
     \xmlonly
-        <testperf> 
-             <param> pVec </param> <values> L G </values>
+        <testperf>
+             <param> pVec </param> <values> im0 im1  </values>
              <param> nVal    </param> <values> 3 </values>
              <param> nIndex  </param> <values> 0 </values>
              <size> 1 </size>
@@ -178,7 +181,7 @@ __INLINE__ void	nmppsPut_16u(nm16u* pVec, int nIndex, uint16b nVal)   	{nmppsPut
 __INLINE__ void nmppsPut_32u(nm32u* pVec, int nIndex, uint32b nVal)	{pVec[nIndex]=nVal;}
 __INLINE__ void nmppsPut_64u(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex]=nVal;}
 
-    
+
     //! \}
 
 //*****************************************************************************
@@ -187,35 +190,35 @@ __INLINE__ void nmppsPut_64u(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex
     \defgroup nmppsGetVal_ nmppsGetVal_
     \ingroup vSupport
     \brief
-        \ru Извлекает значение элемента вектора. 
-        \en Extracts the vec element value. 
+        \ru Извлекает значение элемента вектора.
+        \en Extracts the vec element value.
 		\~
-    \param pVec     
-        \ru Вектор. 
-        \en Vector. 
+    \param pVec
+        \ru Вектор.
+        \en Vector.
 		\~
-    \param nIndex   
-        \ru Позиция элемента. 
-        \en Position of the element. 
+    \param nIndex
+        \ru Позиция элемента.
+        \en Position of the element.
 		\~
-    \retval nVal   
-        \ru Значение элемента. 
-        \en Value of the element. 
+    \retval nVal
+        \ru Значение элемента.
+        \en Value of the element.
 		\~
     \return \e void
     \par
     \xmlonly
-        <testperf> 
-             <param> pVec		</param> <values> L G	</values>
-             <param> nVal		</param> <values> n		</values>
+        <testperf>
+             <param> pVec		</param> <values> im0 im1	</values>
+             <param> nVal		</param> <values> im2	</values>
              <param> nIndex		</param> <values> 0		</values>
              <size> 1 </size>
         </testperf>
     \endxmlonly
-    
+
     */
     //! \{
-		
+
 void			nmppsGetVal_1  (const nm1*   pVec, int nIndex, int1b *nVal);
 void			nmppsGetVal_2s (const nm2s*  pVec, int nIndex, int2b *nVal);
 void			nmppsGetVal_4s (const nm4s*  pVec, int nIndex, int4b *nVal);
@@ -239,30 +242,30 @@ __INLINE__ void	nmppsGetVal_64u(const nm64u* pVec, int nIndex, uint64b*  nVal) {
     \defgroup nmppsGetVal_ret_ nmppsGetVal_(return)
     \ingroup vSupport
     \brief
-        \ru Извлекает значение элемента вектора. 
-        \en Extracts the vec element value. 
+        \ru Извлекает значение элемента вектора.
+        \en Extracts the vec element value.
 		\~
-    \param pVec     
-        \ru Вектор. 
-        \en Vector. 
+    \param pVec
+        \ru Вектор.
+        \en Vector.
 		\~
-    \param nIndex   
-        \ru Позиция элемента. 
-        \en Position of the element. 
+    \param nIndex
+        \ru Позиция элемента.
+        \en Position of the element.
 		\~
-    \return \e 
-        \ru Значение элемента. 
-        \en Value of the element. 
+    \return \e
+        \ru Значение элемента.
+        \en Value of the element.
 		\~
     \par
     \xmlonly
-        <testperf> 
-             <param> pVec </param> <values> L G </values>
+        <testperf>
+             <param> pVec </param> <values> im0 im1  </values>
              <param> nIndex  </param> <values> 0 </values>
              <size> 1 </size>
         </testperf>
     \endxmlonly
-    
+
     */
     //! \{
 int2b			nmppsGet_2s (const nm2s*  pVec, int nIndex);
@@ -296,7 +299,3 @@ __INLINE__ uint32b	nmppsGet_32u(const nm32u* pVec, int nIndex) {return pVec[nInd
 #endif
 
 #endif
-
-
-
-

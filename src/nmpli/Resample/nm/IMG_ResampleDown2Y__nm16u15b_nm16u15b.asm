@@ -28,16 +28,16 @@ end ".data_nmpli_G";
 /////////////////////////////////////////////////////////////////////////////////////////
 begin ".text_nmpli"
     //--------------------------------------------------------------------
-    //! \fn void IMG_ResampleDown2Y(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, int nSrcHeight)
+    //! \fn void nmppiResampleDown2Y(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, int nSrcHeight)
     //!
-//! \perfinclude _IMG_ResampleDown2Y__FPUsPUsii.html
+//! \perfinclude _nmppiResampleDown2Y__FPUsPUsii.html
     //--------------------------------------------------------------------
 
 extern vec_Add_VV_shift:label;
-global _IMG_ResampleDown2Y__FUsPUsPii:label;
-global _void._.8.8IMG_ResampleDown2Y.1unsigned._short.9._unsigned._short._.0.9._int._.0.9._int.2 :label;
-<_IMG_ResampleDown2Y__FUsPUsPii>
-<_void._.8.8IMG_ResampleDown2Y.1unsigned._short.9._unsigned._short._.0.9._int._.0.9._int.2>
+global _nmppiResampleDown2Y__FUsPUsPii:label;
+global _void._.8.8nmppiResampleDown2Y.1unsigned._short.9._unsigned._short._.0.9._int._.0.9._int.2 :label;
+<_nmppiResampleDown2Y__FUsPUsPii>
+<_void._.8.8nmppiResampleDown2Y.1unsigned._short.9._unsigned._short._.0.9._int._.0.9._int.2>
 .branch;
 				
 	ar5 = sp - 2	with gr7=false;

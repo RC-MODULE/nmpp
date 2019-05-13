@@ -2,13 +2,13 @@
 //#include "nmpp.h"
 //#include "nmpls.h"
 //#include "nmpli.h"
-#include "nmpli/filter.h"
+#include "nmpli/iFilter.h"
 #include "nmplv/vSupport.h"
 #include "nmplv/vInit.h"
 #include "malloc32.h"
 #include <string.h>
 
-typedef struct SS_IMG_FilterKernel {
+typedef struct SS_nmppiFilterKernel {
 #ifdef __NM__
 	nm32s* pDispArray;
 	nm32s* pWeightMatrix;	
@@ -18,7 +18,7 @@ typedef struct SS_IMG_FilterKernel {
 	int 	nKerWidth;
 	int 	nKerHeight;
 #endif
-} S_IMG_FilterKernel;
+} S_nmppiFilterKernel;
 // nSize=3  nDisp=1,3 nMatrix=2
 // nSize=5  nDisp=2,4 nMatrix=2
 // nSize=7  nDisp=3,1 nMatrix=3
@@ -176,7 +176,7 @@ static int GetDisp1(int nSize)
 int nmppiFilterInit_16s32s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWidth, NmppiFilterState* pKernel)
 {
 #ifndef __NM__
-	S_IMG_FilterKernel* psKernel=(S_IMG_FilterKernel*) pKernel;
+	S_nmppiFilterKernel* psKernel=(S_nmppiFilterKernel*) pKernel;
 	psKernel->nKerWidth=nKerWidth;
 	psKernel->nKerHeight=nKerHeight;
 	psKernel->pDispArray=0;
@@ -273,7 +273,7 @@ int nmppiFilterInit_16s32s(int* pWeights, int nKerWidth, int nKerHeight, int nIm
 #endif	
 }
 /*
-void IMG_CreateFilter_16s32s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWidth, nm64s** pKernel, int nHint)
+void nmppiCreateFilter_16s32s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWidth, nm64s** pKernel, int nHint)
 {
 	int nWeightsSize=(4+nKerWidth+1+3)*2; //Size in int32 words
 
@@ -294,7 +294,7 @@ void IMG_CreateFilter_16s32s(int* pWeights, int nKerWidth, int nKerHeight, int n
 	nmppsMalloc_32s((nm32s**)pKernel, AllocSize,nHint);
 	if (*pKernel==0) return;
 	//nmppsSet_32s((nm32s*)*pKernel,5,AllocSize);
-	IMG_SetFilter_16s32s(pWeights, nKerWidth, nKerHeight, nImgWidth, *pKernel);
+	nmppiSetFilter_16s32s(pWeights, nKerWidth, nKerHeight, nImgWidth, *pKernel);
 }*/
 
 int nmppiFilterGetStateSize_16s32s(int nKerWidth, int nKerHeight)

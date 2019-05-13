@@ -1,6 +1,11 @@
 #ifndef __IREODERING_H
 #define __IREODERING_H
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
+
 //*****************************************************************************
 
 	/**
@@ -9,7 +14,7 @@
     * \en
     *     \defgroup iReodering Image pixels reodering
     * \~
-    * \ingroup IMG_Group
+    * \ingroup nmppiGroup
     */
 
 
@@ -31,7 +36,7 @@
 //*****************************************************************************
 
 	/**
-	\defgroup IMG_SplitIntoBlocks IMG_SplitIntoBlocks
+	\defgroup nmppiSplitIntoBlocks nmppiSplitIntoBlocks
 	\ingroup iBlockReodering
 	\brief
 		\ru Преобразует изображение в последовательность квадратных блоков.
@@ -78,15 +83,15 @@
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pDstBlockSeq </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pDstBlockSeq </param> <values> im0 im1 </values>
              <param> nHeight </param> <values> 128 </values>
              <param> nWidth </param> <values> 128 </values>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> L </values>
-             <param> pDstBlockSeq </param> <values> G </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pDstBlockSeq </param> <values> im1 </values>
              <param> nHeight </param> <values> 128 </values>
              <param> nWidth </param> <values> 8 32 128 </values>
              <size> nWidth*nHeight </size>
@@ -96,7 +101,7 @@
 	*/
 	//! \{
 
-void IMG_SplitIntoBlocks8x8(
+void nmppiSplitIntoBlocks8x8(
 		nm8s*	pSrcImg,	
 			nm8s*	pDstBlockSeq,
 			int		nWidth,	
@@ -104,14 +109,14 @@ void IMG_SplitIntoBlocks8x8(
 			);
 	//! \}
 	
-void IMG_SplitInto2x2Blocks8x8(
+void nmppiSplitInto2x2Blocks8x8(
 							nm8u*	pSrcImg,	
 							nm8u*	pDstBlockSeq,
 							int		nWidth,	
 							int		nHeight	
 							);
 
-void IMG_SplitInto2x2Blocks8x8xor(
+void nmppiSplitInto2x2Blocks8x8xor(
 							   nm8u*	pSrcImg,	
 							   nm8u*	pDstBlockSeq,
 							   nm8u*	pXor,
@@ -123,7 +128,7 @@ void IMG_SplitInto2x2Blocks8x8xor(
 //*****************************************************************************
 
 	/**
-	\defgroup IMG_MergeFromBlocks IMG_MergeFromBlocks
+	\defgroup nmppiMergeFromBlocks nmppiMergeFromBlocks
 	\ingroup iBlockReodering
 	\brief
 		\ru Объединяет последовательность квадратных блоков в изображение.
@@ -170,15 +175,15 @@ void IMG_SplitInto2x2Blocks8x8xor(
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcBlockSeq </param> <values> L G </values>
-             <param> pDstImg </param> <values> L G </values>
+             <param> pSrcBlockSeq </param> <values> im0 im1 </values>
+             <param> pDstImg </param> <values> im0 im1 </values>
              <param> nHeight </param> <values> 128 </values>
              <param> nWidth </param> <values> 128 </values>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcBlockSeq </param> <values> L </values>
-             <param> pDstImg </param> <values> G </values>
+             <param> pSrcBlockSeq </param> <values> im0 </values>
+             <param> pDstImg </param> <values> im1 </values>
              <param> nHeight </param> <values> 128 </values>
              <param> nWidth </param> <values> 8 32 128 </values>
              <size> nWidth*nHeight </size>
@@ -188,7 +193,7 @@ void IMG_SplitInto2x2Blocks8x8xor(
 
 	*/
 	//! \{
-void IMG_MergeFromBlocks8x8(
+void nmppiMergeFromBlocks8x8(
 		nm8s*	pSrcBlockSeq,	
 			nm8s*	pDstImg,	
 			int		nWidth,	
@@ -196,5 +201,8 @@ void IMG_MergeFromBlocks8x8(
 			);
 	//! \}
 
-
+#ifdef __cplusplus
+	};
+#endif
+	
 #endif

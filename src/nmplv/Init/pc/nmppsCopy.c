@@ -8,13 +8,13 @@
 //
 //  $Revision: 1.1 $      $Date: 2004/11/22 13:50:15 $
 //
-//! \if file_doc
+//! if file_doc
 //!
-//! \file   Copy.cpp
-//! \author Сергей Мушкаев
-//! \brief  Функции инициализации и копирования для векторов.
+//! file   Copy.cpp
+//! author Сергей Мушкаев
+//! brief  Функции инициализации и копирования для векторов.
 //!
-//! \endif
+//! endif
 //!
 //------------------------------------------------------------------------
 //#include "Vector.h"
@@ -51,7 +51,7 @@ void nmppsCopy_16s(const nm16s*	pSrcVec,		// Source array							:long Global[siz
 	//	pDstVec[idx]=pSrcVec[idx];
 	memcpy(pDstVec,pSrcVec,sizeInt16*2);
 }
-		
+
 void nmppsCopy_8s(const nm8s*	pSrcVec,		// Source array							:long Global[sizeInt8/8]
 			nm8s*	pDstVec,		// Destination array					:long Local [sizeInt8/8]
 			int		sizeInt8	// nSize of Source array in 8-bit chars; :sizeInt8=  [0,8,16.....]
@@ -62,8 +62,18 @@ void nmppsCopy_8s(const nm8s*	pSrcVec,		// Source array							:long Global[sizeI
 	memcpy(pDstVec,pSrcVec,sizeInt8);
 }
 
-void nmppsCopy_2s(const nm2s*	pSrcVec,		// Source array							:long Global[sizeInt8/8]
-			nm2s*	pDstVec,		// Destination array					:long Local [sizeInt8/8]
+void nmppsCopy_4s(const nm4s*	pSrcVec,		// Source array							:long Global[sizeInt4/16]
+			nm4s*	pDstVec,		// Destination array					:long Local [sizeInt4/16]
+			int		sizeInt4	// nSize of Source array in 4-bit chars; :sizeInt4=  [0,16,32.....]
+		)
+{
+	//for(int idx=0;idx<sizeInt8;idx++)
+	//	pDstVec[idx]=pSrcVec[idx];
+	memcpy(pDstVec,pSrcVec,(sizeInt4>>4)<<3);
+}
+
+void nmppsCopy_2s(const nm2s*	pSrcVec,		// Source array							:long Global[sizeInt2/32]
+			nm2s*	pDstVec,		// Destination array					:long Local [sizeInt2/32]
 			int		sizeInt2	// nSize of Source array in 2-bit chars; :sizeInt2=  [0,32,64.....]
 		)
 {
@@ -73,12 +83,12 @@ void nmppsCopy_2s(const nm2s*	pSrcVec,		// Source array							:long Global[sizeI
 	//for(i=0;i<iSize;i++)
 	//	dst[i]=src[i];
 	memcpy(pDstVec,pSrcVec,(sizeInt2>>5)<<3);
-	
+
 }
 
 void nmppsCopyua_8s(const nm8s*			pSrcVec,		// input buffer		:long Long[...]
 		int				nOffset,	// start copy from index SrcVecIndx	:[0,1,2,3,4...]
-		nm8s*			pDstVec,		// output buffer	:long Long[DstVecSize>>3]	
+		nm8s*			pDstVec,		// output buffer	:long Long[DstVecSize>>3]
 		int				nSize		// buffer size in 8-bit elemetns	:[0,8,16,24...]
 		)
 {

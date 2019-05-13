@@ -1,7 +1,7 @@
 #include "nmpli.h"
 
  /*
-void IMG_RShiftConvert( nm32s* pSrcImg, int nSrcStride, nm16s* pDstImg,  int nSrcDstStride, int nShift,
+void nmppiRShiftConvert( nm32s* pSrcImg, int nSrcStride, nm16s* pDstImg,  int nSrcDstStride, int nShift,
 								 int nWidth, int nHeight)
 {
 	int sstep=nSrcStride;
@@ -13,7 +13,7 @@ void IMG_RShiftConvert( nm32s* pSrcImg, int nSrcStride, nm16s* pDstImg,  int nSr
 }
 */
 
-void IMG_Convert(RGB32_nm8u* pSrcImg, RGB32_nm10u* pDstImg, int nSize)
+void nmppiConvert(RGB32_nm8u* pSrcImg, RGB32_nm10u* pDstImg, int nSize)
 {
     int *pnSrc = (int*)pSrcImg;
     int *pnDst = (int*)pDstImg;
@@ -25,7 +25,7 @@ void IMG_Convert(RGB32_nm8u* pSrcImg, RGB32_nm10u* pDstImg, int nSize)
     }
 }
 
-void IMG_Convert(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize)
+void nmppiConvert(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize)
 {
     int *pnSrc = (int*)pSrcImg;
     int *pnDst = (int*)pDstImg;
@@ -37,7 +37,7 @@ void IMG_Convert(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize)
     }
 }
 
-void IMG_GrayToRGB242424242424242424(nm8u* pSrcImg, RGB24_nm8u* pDstImg, int nSize)
+void nmppiGrayToRGB242424242424242424(nm8u* pSrcImg, RGB24_nm8u* pDstImg, int nSize)
 {
 	for(int i=0;i<nSize;i++,pDstImg++,pSrcImg++)
 	{

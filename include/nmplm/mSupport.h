@@ -26,11 +26,11 @@
 
 	/*
     *
-    * \if Russian 
-    *     \defgroup mSupport Функции поддержки 
+    * \if Russian
+    *     \defgroup mSupport Функции поддержки
     * \endif
     * \if English
-    *     \defgroup mSupport Support functions 
+    *     \defgroup mSupport Support functions
     * \endif
     * \ingroup mtr
 	*/
@@ -41,36 +41,36 @@
     \defgroup MTR_Malloc MTR_Malloc
     \ingroup mSupport
     \brief
-        \ru Распределение памяти для матриц библиотеки. 
+        \ru Распределение памяти для матриц библиотеки.
         \en Memory allocation for library matrixis.
-    
+
 		\~
-        \ru Начало и конец распределяемой памяти выравнивается на начало 
-        64-х разрядного слова. 
-        \en Begin and end of the allocated memory are being 
+        \ru Начало и конец распределяемой памяти выравнивается на начало
+        64-х разрядного слова.
+        \en Begin and end of the allocated memory are being
         aligned to 64-bit word.
 
 		\~
     \~
-    \param nHeight    
-        \ru Число строк в матрице. 
-        \en Number of rows in mtr. 
+    \param nHeight
+        \ru Число строк в матрице.
+        \en Number of rows in mtr.
 		\~
-    \param nWidth 
-        \ru Число столбцов в матрице. 
-        \en Number of columns in mtr. 
+    \param nWidth
+        \ru Число столбцов в матрице.
+        \en Number of columns in mtr.
 		\~
-    \param hint     
-        \ru Номер банка памяти. Может принимать значения 
-                        MEM_LOCAL, MEM_GLOBAL. 
+    \param hint
+        \ru Номер банка памяти. Может принимать значения
+                        MEM_LOCAL, MEM_GLOBAL.
         \en Number of memory bank. Admissible values for memory bank
-                        are MEM_LOCAL, MEM_GLOBAL. 
+                        are MEM_LOCAL, MEM_GLOBAL.
 
 		\~
     \note \ru Память, распределенная с помощью функций MTR_Malloc должна
-              освобождаться с помощью функции MTR_Free. 
-          \en Memory allocated by function MTR_Malloc should be 
-              deallocated by function MTR_Free. 
+              освобождаться с помощью функции MTR_Free.
+          \en Memory allocated by function MTR_Malloc should be
+              deallocated by function MTR_Free.
 			  \~
     */
     //! \{
@@ -98,16 +98,16 @@ __INLINE__ void MTR_Malloc(nm64u** pptr, int nHeight, int nWidth, int hint = MEM
     \defgroup MTR_Free MTR_Free
     \ingroup mSupport
     \brief
-        \ru Освобождение памяти для матриц. 
-        \en Memory deallocation for matrixis. 
+        \ru Освобождение памяти для матриц.
+        \en Memory deallocation for matrixis.
 
 		\~
 		\~
     \note \ru Данная функция должна вызываться только для
-              векторов, распределенных с помощью функций 
+              векторов, распределенных с помощью функций
               MTR_Malloc.
           \en This function should be called only for matrixis
-              allocated by MTR_Malloc functions. 
+              allocated by MTR_Malloc functions.
 			  \~
     */
     //! \{
@@ -121,54 +121,54 @@ __INLINE__ void MTR_Free(void* ptr) {nmppsFree(ptr);}
     \defgroup MTR_Addr MTR_Addr
     \ingroup mSupport
     \brief
-        \ru Возвращает адрес ячейки памяти, содержащей указанный элемент. 
+        \ru Возвращает адрес ячейки памяти, содержащей указанный элемент.
         \en Returns address of memory cell that contains
-        the mtr element. 
-    
+        the mtr element.
+
 		\~
-        \ru Реализация для процессора NeuroMatrix возвращает адрес, выровненный 
-            в памяти на 32 бита. 
-        \en Implementation for NeuroMatrix processor returns an addres aligned 
+        \ru Реализация для процессора NeuroMatrix возвращает адрес, выровненный
+            в памяти на 32 бита.
+        \en Implementation for NeuroMatrix processor returns an addres aligned
             with 32 bits in the memory.
 
 		\~
 		\~
-    \param pMtr     
-        \ru Входная матрица. 
-        \en Input mtr. 
+    \param pMtr
+        \ru Входная матрица.
+        \en Input mtr.
 		\~
     \param nWidth
-        \ru Ширина таблицы в элементах. 
-        \en Matrix width in elements. 
-   
-		\~
-    \param nY    
-        \ru Номер строки. 
-        \en Row index. 
-	
-		\~
-	\param nX    
-        \ru Номер колонки. 
-        \en Column index. 
+        \ru Ширина таблицы в элементах.
+        \en Matrix width in elements.
 
 		\~
-    \return         
-        \ru Адрес ячейки памяти. 
-        \en Address of memory cell. 
+    \param nY
+        \ru Номер строки.
+        \en Row index.
 
 		\~
-    \note 
+	\param nX
+        \ru Номер колонки.
+        \en Column index.
+
+		\~
+    \return
+        \ru Адрес ячейки памяти.
+        \en Address of memory cell.
+
+		\~
+    \note
         \ru Для ускорения работы на PC возможно использование макроса
-            ADDR(ptr, index), который раскрывается на PC как 
-            (ptr+index), а на NM как вызов функции MTR_Addr. 
+            ADDR(ptr, index), который раскрывается на PC как
+            (ptr+index), а на NM как вызов функции MTR_Addr.
         \en To increase perfomance on PC it's possible to use macros
-            ADDR(ptr, index) that equivalent to (ptr+index) expression. 
+            ADDR(ptr, index) that equivalent to (ptr+index) expression.
 
 		\~
     \par
     \xmlonly
-        <testperf> 
-             <param> pMTR   </param> <values> L G </values>
+        <testperf>
+             <param> pMTR   </param> <values> im0 </values>
              <param> nWidth </param> <values> 4 </values>
              <param> nY     </param> <values> 2 </values>
              <param> nX     </param> <values> 2 </values>
@@ -199,21 +199,21 @@ __INLINE__ nm64u* MTR_Addr_64u(nm64u* pMTR, int nWidth, int nY, int nX) {	return
     \defgroup MTR_SetVal MTR_SetVal
     \ingroup mSupport
     \brief
-        \ru Зыписывате число в элемент марицы. 
-        \en Set mtr element. 
-    
+        \ru Зыписывате число в элемент марицы.
+        \en Set mtr element.
+
 		\~
-    
+
 	\f[
         pMtr[nY][nX] =  nVal
     \f]
-    \param pMtr   
-        \ru Матрица. 
-        \en Matrix. 
+    \param pMtr
+        \ru Матрица.
+        \en Matrix.
 		\~
-    \param nWidth    
+    \param nWidth
         \ru Ширина матрицы в элементах
-        \en Matrix width in elements 
+        \en Matrix width in elements
 		\~
 	\param nY
 		\ru Номер строки
@@ -223,16 +223,16 @@ __INLINE__ nm64u* MTR_Addr_64u(nm64u* pMTR, int nWidth, int nY, int nX) {	return
 		\ru Номер столбца
 		\en Column index
 		\~
-    \param nVal  
-        \ru Значение элемента 
-        \en Value of the element. 
+    \param nVal
+        \ru Значение элемента
+        \en Value of the element.
 		\~
     \return \e void
-    
+
     \par
     \xmlonly
-        <testperf> 
-             <param> pMtr	</param> <values> L G </values>
+        <testperf>
+             <param> pMtr	</param> <values> im0 </values>
 			 <param> nWidth	</param> <values> 18 </values>
 			 <param> nY		</param> <values> 2  </values>
 			 <param> nX		</param> <values> 2  </values>
@@ -249,7 +249,7 @@ __INLINE__ void MTR_SetVal_8s (nm8s* pMtr,   int nWidth,  int nY, int nX, int8b 
 __INLINE__ void MTR_SetVal_16s(nm16s* pMtr,  int nWidth,  int nY, int nX, int16b nVal)	{ nmppsPut_16s(pMtr, nY*nWidth+nX,nVal);}
 __INLINE__ void MTR_SetVal_32s(nm32s* pMtr,  int nWidth,  int nY, int nX, int32b nVal)	{ nmppsPut_32s(pMtr, nY*nWidth+nX,nVal);}
 __INLINE__ void MTR_SetVal_64s(nm64s* pMtr,  int nWidth,  int nY, int nX, int64b nVal)	{ nmppsPut_64s(pMtr, nY*nWidth+nX,nVal);}
-																						  
+
 __INLINE__ void MTR_SetVal_2u (nm2u* pMtr,	 int nWidth,  int nY, int nX, uint2b nVal)	{ nmppsPut_2u (pMtr, nY*nWidth+nX,nVal);}
 __INLINE__ void MTR_SetVal_4u (nm4u* pMtr,   int nWidth,  int nY, int nX, uint4b nVal)	{ nmppsPut_4u (pMtr, nY*nWidth+nX,nVal);}
 __INLINE__ void MTR_SetVal_8u (nm8u* pMtr,   int nWidth,  int nY, int nX, uint8b nVal)	{ nmppsPut_8u (pMtr, nY*nWidth+nX,nVal);}
@@ -259,26 +259,26 @@ __INLINE__ void MTR_SetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
     //! \}
 
 //*****************************************************************************
-	
+
 	/**
     \defgroup MTR_GetVal MTR_GetVal
     \ingroup mSupport
     \brief
-        \ru Считывает значение элемента марицы. 
-        \en Get mtr element. 
-    
+        \ru Считывает значение элемента марицы.
+        \en Get mtr element.
+
 		\~
-    
+
 	\f[
         nVal=pMtr[nY][nX]
     \f]
-    \param pMtr   
-        \ru Матрица. 
-        \en Matrix. 
+    \param pMtr
+        \ru Матрица.
+        \en Matrix.
 		\~
-    \param nWidth    
+    \param nWidth
         \ru Ширина матрицы в элементах
-        \en Matrix width in elements 
+        \en Matrix width in elements
 		\~
 	\param nY
 		\ru Номер строки
@@ -288,20 +288,20 @@ __INLINE__ void MTR_SetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
 		\ru Номер столбца
 		\en Column index
 		\~
-    \retval nVal  
-        \ru Значение элемента 
-        \en Value of the element. 
+    \retval nVal
+        \ru Значение элемента
+        \en Value of the element.
 		\~
     \return \e void
-    
+
     \par
     \xmlonly
-        <testperf> 
-             <param> pMtr	</param> <values> L G </values>
+        <testperf>
+             <param> pMtr	</param> <values> im0 </values>
 			 <param> nWidth	</param> <values> 18 </values>
 			 <param> nY		</param> <values> 2  </values>
 			 <param> nX		</param> <values> 2  </values>
-             <param> nVal   </param> <values> n </values>
+             <param> nVal   </param> <values> 5 </values>
              <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -314,7 +314,7 @@ __INLINE__ void MTR_GetVal_8s (nm8s* pMtr,   int nWidth,  int nY, int nX, int8b*
 __INLINE__ void MTR_GetVal_16s(nm16s* pMtr,  int nWidth,  int nY, int nX, int16b* nVal) { nmppsGetVal_16s(pMtr, nY*nWidth+nX,nVal);}
 __INLINE__ void MTR_GetVal_32s(nm32s* pMtr,  int nWidth,  int nY, int nX, int32b* nVal) { nmppsGetVal_32s(pMtr, nY*nWidth+nX,nVal);}
 __INLINE__ void MTR_GetVal_64s(nm64s* pMtr,  int nWidth,  int nY, int nX, int64b* nVal) { nmppsGetVal_64s(pMtr, nY*nWidth+nX,nVal);}
-																								  
+
 __INLINE__ void MTR_GetVal_2u (nm2u* pMtr,	 int nWidth,  int nY, int nX, uint2b* nVal) { nmppsGetVal_2u (pMtr, nY*nWidth+nX,nVal);}
 __INLINE__ void MTR_GetVal_4u (nm4u* pMtr,   int nWidth,  int nY, int nX, uint4b* nVal) { nmppsGetVal_4u (pMtr, nY*nWidth+nX,nVal);}
 __INLINE__ void MTR_GetVal_8u (nm8u* pMtr,   int nWidth,  int nY, int nX, uint8b* nVal) { nmppsGetVal_8u (pMtr, nY*nWidth+nX,nVal);}
@@ -324,7 +324,7 @@ __INLINE__ void MTR_GetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
 
 
     //! \}
-    
+
 //*****************************************************************************
 
     /**
@@ -332,44 +332,44 @@ __INLINE__ void MTR_GetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
     \defgroup MTR_GetCol MTR_GetCol
     \ingroup mSupport
     \brief
-        \ru Вынимает из матрицы один столбец. 
-        \en ********************************. 
+        \ru Вынимает из матрицы один столбец.
+        \en ********************************.
 		\~
-    \param	pSrcMtr		
-        \ru Исходная матрица. 
-        \en Source mtr. 
+    \param	pSrcMtr
+        \ru Исходная матрица.
+        \en Source mtr.
 		\~
 		\param nCol
 		    \ru Номер вынимаемого столбца.
 		    \en *************************.
 		\~
-    \param	nHeight		
-        \ru Число строк исходной матрицы. 
-        \en Row count in source mtr. 
+    \param	nHeight
+        \ru Число строк исходной матрицы.
+        \en Row count in source mtr.
 		\~
-    \param	nWidth		
-        \ru Число столбцов исходной матрицы. 
-        \en Column count in source mtr. 
+    \param	nWidth
+        \ru Число столбцов исходной матрицы.
+        \en Column count in source mtr.
 		\~
-    \retval	pDstVec		
-        \ru Результирующий вектор. 
-        \en The result vec. 
+    \retval	pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
 		\~
     \return \e void
-    
+
     \par
     \xmlonly
-        <testperf> 
-             <param> pSrcMtr </param> <values> L G </values>
-             <param> pDstVec </param> <values> L G </values>
+        <testperf>
+             <param> pSrcMtr </param> <values> im0 im1 </values>
+             <param> pDstVec </param> <values> im0 im1   </values>
              <param> nCol </param> <values> 4 </values>
              <param> nHeight </param> <values> 64 </values>
              <param> nWidth </param> <values> 128 </values>
              <size> nWidth*nHeight </size>
         </testperf>
-        <testperf> 
-             <param> pSrcMtr </param> <values> L </values>
-             <param> pDstVec </param> <values> G </values>
+        <testperf>
+             <param> pSrcMtr </param> <values> im0 </values>
+             <param> pDstVec </param> <values> im1 </values>
              <param> nCol </param> <values> 4 </values>
              <param> nHeight </param> <values> 64 </values>
              <param> nWidth </param> <values> 8 32 128 </values>
@@ -381,5 +381,5 @@ __INLINE__ void MTR_GetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
 void MTR_GetCol( nm64sc *pSrcMtr, nm64sc *pDstVec, int nCol, int nHeight, int nWidth);
 //void MTR_GetCol( nm16sc *pSrcMtr, nm16sc *pDstVec, int nCol, int nHeight, int nWidth); //pc version is not available!
     //! \}
-    
+
 #endif

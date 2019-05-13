@@ -17,8 +17,8 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-global _IMG_SubConvertRShiftI__FPSsiPiiiii: label;
-global _void._.8.8IMG_SubConvertRShiftI.1short._.0.9._int.9._int._.0.9._int.9._int.9._int.9._int.2 :label;
+global _nmppiSubConvertRShiftI__FPSsiPiiiii: label;
+global _void._.8.8nmppiSubConvertRShiftI.1short._.0.9._int.9._int._.0.9._int.9._int.9._int.9._int.2 :label;
  import from macros.mlb;
 fin_add: label;
 
@@ -37,13 +37,13 @@ matrptr:word[2];
 
 
     //--------------------------------------------------------------------
-    //! \fn void IMG_SubConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride,  nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight)
+    //! \fn void nmppiSubConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride,  nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight)
 	//!
-//! \perfinclude _IMG_SubConvertRShiftI__FPSsiPiiiii.html
+//! \perfinclude _nmppiSubConvertRShiftI__FPSsiPiiiii.html
     //--------------------------------------------------------------------
 
-<_IMG_SubConvertRShiftI__FPSsiPiiiii>
-<_void._.8.8IMG_SubConvertRShiftI.1short._.0.9._int.9._int._.0.9._int.9._int.9._int.9._int.2>
+<_nmppiSubConvertRShiftI__FPSsiPiiiii>
+<_void._.8.8nmppiSubConvertRShiftI.1short._.0.9._int.9._int._.0.9._int.9._int.9._int.9._int.2>
    ar5 = ar7 - 2;
    PUSH_REGS();
    ar4=[--ar5];	 // dst16
@@ -100,10 +100,11 @@ matrptr:word[2];
 
 <AA> sb=0;// this instruction is modified; don't edit it!;
      ar6=[matrptr];
-     rep 8 wfifo=[ar6++], ftw;
-     WTW_REG( ar5);                                    //
+     rep 8 wfifo=[ar6++], ftw,wtw;
+     //WTW_REG_DEPRICATED( ar5);                                    //
      rep 32 data=[ar0++gr0],ftw with vsum ,data,0;
-     WTW_REG( ar5);                                    //
+	 wtw;
+    // WTW_REG_DEPRICATED( ar5);                                    //
      rep 32 data=[ar1++gr1] with vsum ,data,afifo;
      sb=30003h with gr7--;
      if <>0 delayed goto AA;                           //
@@ -114,10 +115,12 @@ matrptr:word[2];
 
 <BB>sb=0;// this instruction is modified; don't edit it;
      ar6=[matrptr];
-     rep 8 wfifo=[ar6++], ftw;
-     WTW_REG( ar5);                                    //
+     rep 8 wfifo=[ar6++], ftw,wtw;
+     //WTW_REG_DEPRICATED( ar5);                                    //
      rep 1 data=[ar0++gr0],ftw with vsum ,data,0;
-<DD> WTW_REG( ar5);                                    //
+<DD> 
+	wtw;
+	//WTW_REG_DEPRICATED( ar5);                                    //
      rep 1 data=[ar1++gr1] with vsum ,data,afifo;
      sb=30003h;
      rep 1 data=[ar2++] with data-afifo;

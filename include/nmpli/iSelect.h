@@ -6,7 +6,7 @@
 
     /**
 	\internal
-    \defgroup IMG_CompareGtC IMG_CompareGtC
+    \defgroup nmppiCompareGtC nmppiCompareGtC
     \ingroup iSelect
     \brief
         \ru Поэлементное сравнение на превышение порога. 
@@ -16,7 +16,7 @@
     
 	\f[
         pDst(4 \cdot n+i, y) = \left\{
-        \begin{array}{*{20}c}
+        \begin{array}{rcc}
             FFh, & if & pSrcImg(4 \cdot n+i, y) > pThreshold(i) \\
             00h, & if & pSrcImg(4 \cdot n+i, y) \le pThreshold(i) \\
         \end{array} \right.
@@ -79,20 +79,20 @@
     \par
     \xmlonly
         <testperf> 
-          <param> pSrcImg </param> <values> L G </values>
+          <param> pSrcImg </param> <values> im0 im1 </values>
           <param> nSrcStride </param>  <values> 64 </values>
-          <param> pThreshold </param>  <values> L G </values>
-          <param> pDstImg  </param>  <values> L G </values>
+          <param> pThreshold </param>  <values> im0 im1 </values>
+          <param> pDstImg  </param>  <values> im0 im1 </values>
           <param> nDstStride </param>  <values> 64 </values>
           <param> nHeight </param>  <values> 128 </values>
           <param> nWidth </param>  <values> 128 </values>
           <size> nWidth*nHeight </size>
          </testperf>
         <testperf> 
-          <param> pSrcImg </param> <values> L </values>
+          <param> pSrcImg </param> <values> im0 </values>
           <param> nSrcStride </param>  <values> 64 </values>
-          <param> pThreshold </param>  <values> G </values>
-          <param> pDstImg  </param>  <values> G </values>
+          <param> pThreshold </param>  <values> im1 </values>
+          <param> pDstImg  </param>  <values> im2 </values>
           <param> nDstStride </param>  <values> 64 </values>
           <param> nHeight </param>  <values> 128 </values>
           <param> nWidth </param>  <values> 8 32 128 </values>
@@ -103,7 +103,7 @@
 
     */
     //! \{
-int IMG_CompareGtC(nm16s *pSrcImg, int nSrcStride, nm16s *pDstImg, int nDstStride, nm16s *pThreshold, int nWidth, int nHeight);
+int nmppiCompareGtC(nm16s *pSrcImg, int nSrcStride, nm16s *pDstImg, int nDstStride, nm16s *pThreshold, int nWidth, int nHeight);
     //! \}
 
 #endif

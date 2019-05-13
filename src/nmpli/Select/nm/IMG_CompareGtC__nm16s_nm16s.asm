@@ -17,20 +17,20 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-global _IMG_CompareGtC__FPSsiPSsiPSsii: label;
-global _void._.8.8IMG_CompareGtC.1short._.0.9._int.9._short._.0.9._int.9._short._.0.9._int.9._int.2 :label;
+global _nmppiCompareGtC__FPSsiPSsiPSsii: label;
+global _void._.8.8nmppiCompareGtC.1short._.0.9._int.9._short._.0.9._int.9._short._.0.9._int.9._int.2 :label;
 import from macros.mlb;
 
 begin ".text_nmpli"
      
     //--------------------------------------------------------------------
-    //! \fn int IMG_CompareGtC(nm16s *pSrcImg, int nSrcStride, nm16s *pDstImg, int nDstStride, nm16s *pThreshold, int nWidth, int nHeight)
+    //! \fn int nmppiCompareGtC(nm16s *pSrcImg, int nSrcStride, nm16s *pDstImg, int nDstStride, nm16s *pThreshold, int nWidth, int nHeight)
 	//!
-//! \perfinclude _IMG_CompareGtC__FPSsiPSsiPSsii.html
+//! \perfinclude _nmppiCompareGtC__FPSsiPSsiPSsii.html
     //--------------------------------------------------------------------
 
-<_IMG_CompareGtC__FPSsiPSsiPSsii>
-<_void._.8.8IMG_CompareGtC.1short._.0.9._int.9._short._.0.9._int.9._short._.0.9._int.9._int.2>
+<_nmppiCompareGtC__FPSsiPSsiPSsii>
+<_void._.8.8nmppiCompareGtC.1short._.0.9._int.9._short._.0.9._int.9._short._.0.9._int.9._int.2>
    ar5 = ar7 - 2;
    PUSH_REGS();
 

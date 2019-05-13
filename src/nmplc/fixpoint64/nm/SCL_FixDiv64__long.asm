@@ -9,7 +9,7 @@
 //* Date:08.01.2000     (c) RC Module Inc., Moscow, Russia                  */
 //***************************************************************************/
 
-import from macros;
+//import from macros;
 //import from vtdef;
 //VECTYPEDEF();
 
@@ -157,7 +157,7 @@ EndMakeQuotient:label;
 	ar0=[--ar5];						// ar0=&Dividend
 	ar1=[--ar5] with gr0=true;			// ar1=&Divisor
 	f1cr=gr0;							// gr0=-1;
-	WTW_REG(gr7);
+	wtw; // WTW_REG_DEPRICATED(gr7);
 	//--- вычисление модуля делителя ------------
 	rep 1 ram=[ar1] with mask ,activate data,0;
 	rep 1 [ar7++]=afifo with 0-ram;
@@ -193,7 +193,7 @@ gr1++;
 	ar0+=gr0 with gr1<<=1;				// ar1+gr1: адрес маски для обнуления лишних едениц в частном
 	ar2+=gr2 with gr7=false;
 	push ar6,gr6;						// push ar6=Buffer64
-	WTW_REG(gr7);						// загрузка в WOPER -2*Divisor
+	 wtw; //WTW_REG_DEPRICATED(gr7);						// загрузка в WOPER -2*Divisor
 	delayed goto ar0;
 		rep 1 wfifo=[ar1++],ftw ;		// загрузка 2h в WBUF
 		nul;

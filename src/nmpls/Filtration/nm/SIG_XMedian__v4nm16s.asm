@@ -115,8 +115,9 @@ global _void._.8.8SIG_XMedian.1class._v4nm16s._.0.9._class._v4nm16s._.0.9._int.9
 	sb=00020002h;
 	ar4=FFFFx4;
 	nb1=gr4;
-	rep 4 wfifo=[ar4++],ftw;	
-	WTW_REG(gr4);
+	rep 4 wfifo=[ar4++],ftw,wtw;	
+	//WTW_REG_DEPRICARTED(gr4);
+	
 
 	gr5=[Length64];
 	gr6=gr5 with gr5<<=1;

@@ -199,7 +199,7 @@ begin ".text_fft"
 
 	ar1=ar0; ar1+=1024*2;		// &S[1024]
 	ar3=ar2; ar3+=1024*2;		// &conjg(S[1024])
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 
 	.repeat 32;
 		rep 32 ram=[ar5++];							// X[1024]  >>>
@@ -247,55 +247,55 @@ begin ".text_fft"
 	
 	rep 32 wfifo=[ar0++gr0],ftw;			// S[0] >>>
 	vr =[Rounder1] with gr6+=gr7;
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 
 .repeat 31;
 	// Multiply 1 ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,vr;		// iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // SinCos Table 1
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar1++gr1];						// conjg(S[0]) >>>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	// Multiply 1 - conjg ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar0++gr0];						// S[512]>>>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	ar2=gr5 with gr5+=gr7;
 	rep 32 [ar2++gr2]=afifo;						// T[0]>>>
 	// Multiply 2 ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,vr;		// iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar1++gr1];						// conj(S[512]) >>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	// Multiply 2 conjg ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	
 	ar0=gr6 with gr6+=gr7;
 	
 	rep 32 wfifo=[ar0++gr0];						// S[1] >>>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
 	//rep 32 data=[ar5++] with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	ar5=ar3 with gr3+=gr7;							// gr6=2
 	ar1=gr3 ;
 	rep 32 [ar2++gr2]=afifo;						// T[1024]>>>
@@ -303,43 +303,43 @@ begin ".text_fft"
 
 	// Multiply 1 ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,vr;		// iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // SinCos Table 1
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar1++gr1];						// conjg(S[0]) >>>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	// Multiply 1 - conjg ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar0++gr0];						// S[512]>>>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	ar2=gr5 with gr5+=gr7;
 	rep 32 [ar2++gr2]=afifo;						// T[0]>>>
 	// Multiply 2 ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,vr;		// iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar1++gr1];						// conj(S[512]) >>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	// Multiply 2 conjg ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++] with vsum ,data,afifo;  // iGW1_2048[..]
 	rep 32 [ar2++gr2]=afifo;						// T[1024]>>>
 	gr7>>=1;//gr7=1
@@ -369,7 +369,7 @@ begin ".text_fft"
 
 	ar0=LAddCmplxMask;			// Coef. for complx conjugation calculation
 	rep 2 wfifo=[ar0++],ftw;
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	
 	ar0=[Param.GBuffer1];
 	ar4=ar0; ar4+=2048*2;
@@ -409,94 +409,94 @@ begin ".text_fft"
 	gr1=ar3 with gr6=gr7<<2;				//gr6=4;
 	rep 32 wfifo=[ar0++],ftw;				// S[0] >>>
 	vr =[Rounder2];
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 .repeat 31;
 	// Multiply 1 ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,vr;		// iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // SinCos Table 1
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar1++];							// conjg(S[0]) >>>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	// Multiply 1 - conjg ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar4++];							// S[512]>>>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	ar2=gr0 with gr0+=gr6;
 	rep 32 [ar2++gr2]=afifo;						// T[0]>>>
 	// Multiply 2 ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,vr;		// iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar6++];							// conj(S[512]) >>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	// Multiply 2 conjg ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar0++];							// S[1] >>>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
 	//rep 32 data=[ar5++] with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	ar3=gr1 with gr1+=gr6;
 	rep 32 [ar3++gr3]=afifo;						// T[1024]>>>
 .endrepeat;
 
 	// Multiply 1 ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,vr;		// iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // SinCos Table 1
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar1++];							// conjg(S[0]) >>>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	// Multiply 1 - conjg ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar4++];							// S[512]>>>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	ar2=gr0 with gr0+=gr6;
 	rep 32 [ar2++gr2]=afifo;						// T[0]>>>
 	// Multiply 2 ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,vr;		// iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 wfifo=[ar6++];							// conj(S[512]) >>
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	// Multiply 2 conjg ////////////////////////////////////////////////////////////////
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	rep 32 data=[ar5++],ftw with vsum ,data,afifo;  // iGW1_2048[..]
-	WTW_REG(gr4);
+	WTW_REG_DEPRICATED(gr4);
 	ar3=gr1;
 	rep 32 data=[ar5++] with vsum ,data,afifo;  // iGW1_2048[..]
 	rep 32 [ar3++gr3]=afifo;						// T[1024]>>>

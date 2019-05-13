@@ -93,7 +93,7 @@ int nmppsFFT256FwdOptimize(void* src, void* dst, fseq64* allocOrder)
 		nmppsMallocSpec.status=0;
 		nmppsFFTFree(spec);
 	}
-	while (!nmppsMallocIncrementRoute());
+	while (!nmppsMallocIncrementRoute0());
 
 	
 

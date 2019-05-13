@@ -8,7 +8,7 @@
 
     /**
 	\internal
-    \defgroup IMG_AddConvertRShiftI IMG_AddConvertRShiftI
+    \defgroup nmppiAddConvertRShiftI nmppiAddConvertRShiftI
     \ingroup iArithmetics
     \brief
         \ru Поэлементное прибавление преобразованного изображения. 
@@ -75,8 +75,8 @@
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pSrcDstImg </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pSrcDstImg </param> <values> im0 im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 64 </values>
              <param> nShift </param> <values> 2 </values>
@@ -85,8 +85,8 @@
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> G </values>
-             <param> pSrcDstImg </param> <values> G </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pSrcDstImg </param> <values> im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 64 </values>
              <param> nShift </param> <values> 2 </values>
@@ -97,14 +97,14 @@
     \endxmlonly
     */
     //! \{
-void IMG_AddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight); 
+void nmppiAddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight); 
     //! \}
 
 //*****************************************************************************
 
     /**
 	\internal
-    \defgroup IMG_SubConvertRShiftI IMG_SubConvertRShiftI
+    \defgroup nmppiSubConvertRShiftI nmppiSubConvertRShiftI
     \ingroup iArithmetics
     \brief
         \ru Поэлементное вычитание преобразованного изображения. 
@@ -171,8 +171,8 @@ void IMG_AddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pSrcDstImg </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pSrcDstImg </param> <values> im0 im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 64 </values>
              <param> nShift </param> <values> 2 </values>
@@ -181,8 +181,8 @@ void IMG_AddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> G </values>
-             <param> pSrcDstImg </param> <values> L </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pSrcDstImg </param> <values> im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 64 </values>
              <param> nShift </param> <values> 2 </values>
@@ -194,14 +194,14 @@ void IMG_AddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcImg
     */
     //! \{
 
-void IMG_SubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight);
+void nmppiSubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSrcImg, int nSrcStride, int nShift, int nWidth, int nHeight);
     //! \}
 
 //*****************************************************************************
 
     /**
 	\internal
-    \defgroup IMG_AddI IMG_AddI
+    \defgroup nmppiAddI nmppiAddI
     \ingroup iArithmetics
     \brief
         \ru Поэлементное сложение двух изображений. 
@@ -259,8 +259,8 @@ void IMG_SubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSrc
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pSrcDstImg </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pSrcDstImg </param> <values> im0 im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 128 </values>
              <param> nHeight </param> <values> 128 </values>
@@ -268,8 +268,8 @@ void IMG_SubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSrc
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> G </values>
-             <param> pSrcDstImg </param> <values> L </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pSrcDstImg </param> <values> im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 128 </values>
              <param> nHeight </param> <values> 128 </values>
@@ -280,14 +280,14 @@ void IMG_SubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSrc
     */
     //! \{
 
-void IMG_AddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight);
+void nmppiAddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight);
     //! \}
 
 //*****************************************************************************
 
     /**
 	\internal
-    \defgroup IMG_SubI IMG_SubI
+    \defgroup nmppiSubI nmppiSubI
     \ingroup iArithmetics
     \brief
         \ru Поэлементное вычитание двух изображений. 
@@ -348,8 +348,8 @@ void IMG_AddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStr
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> L G </values>
-             <param> pSrcDstImg </param> <values> L G </values>
+             <param> pSrcImg </param> <values> im0 im1 </values>
+             <param> pSrcDstImg </param> <values> im0 im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 128 </values>
              <param> nHeight </param> <values> 128 </values>
@@ -357,8 +357,8 @@ void IMG_AddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStr
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> G </values>
-             <param> pSrcDstImg </param> <values> L </values>
+             <param> pSrcImg </param> <values> im0 </values>
+             <param> pSrcDstImg </param> <values> im1 </values>
              <param> nSrcStride </param> <values> 128 </values>
              <param> nSrcDstStride </param> <values> 128 </values>
              <param> nHeight </param> <values> 128 </values>
@@ -369,7 +369,7 @@ void IMG_AddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStr
     */
     //! \{
 
-void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStride,  int nWidth, int nHeight);
+void nmppiSubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStride,  int nWidth, int nHeight);
 
     //! \}
 
@@ -377,7 +377,7 @@ void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStri
 
     /**
 	\internal
-    \defgroup IMG_Halfsum IMG_Halfsum
+    \defgroup nmppiHalfsum nmppiHalfsum
     \ingroup iArithmetics
     \brief
         \ru Поэлементное усреднение двух блоков изображений. 
@@ -444,9 +444,9 @@ void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStri
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcMtr1 </param> <values> L G </values>
-             <param> pSrcMtr2 </param> <values> L G </values>
-             <param> pDstMtr </param> <values> L G </values>
+             <param> pSrcMtr1 </param> <values> im0 im1 </values>
+             <param> pSrcMtr2 </param> <values> im0 im1 </values>
+             <param> pDstMtr </param> <values> im2 im3 </values>
              <param> nSrcStride1 </param> <values> 128 </values>
              <param> nSrcStride2 </param> <values> 128 </values>
              <param> nDstStride </param> <values> 128 </values>
@@ -455,9 +455,9 @@ void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStri
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcMtr1 </param> <values> G </values>
-             <param> pSrcMtr2 </param> <values> G </values>
-             <param> pDstMtr </param> <values> L </values>
+             <param> pSrcMtr1 </param> <values> im0 </values>
+             <param> pSrcMtr2 </param> <values> im1 </values>
+             <param> pDstMtr </param> <values> im2 </values>
              <param> nSrcStride1 </param> <values> 128 </values>
              <param> nSrcStride2 </param> <values> 128 </values>
              <param> nDstStride </param> <values> 128 </values>
@@ -469,14 +469,14 @@ void IMG_SubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStri
     */
     //! \{
 
-void IMG_Halfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2, 
+void nmppiHalfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2, 
         int nSrcStride2, nm16s* pDstMtr, int nDstStride,  int nWidth,int nHeight);
 
     //! \}
 
 
 	/**
-	\defgroup IMG_WAdd2I IMG_WAdd2I
+	\defgroup nmppiWAdd2I nmppiWAdd2I
 	\ingroup iArithmetics
 	\brief
 		\ru Взвешенное суммирование двух кадров с прибавлением константы
@@ -508,35 +508,35 @@ void IMG_Halfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2,
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg1 </param> <values> L G </values>
-             <param> pSrcImg2 </param> <values> L G </values>
-             <param> pDstImg </param> <values> L G </values>
-             <param> nMulVal1 </param> <values> n </values>
-             <param> nMulVal2 </param> <values> m </values>
-             <param> nAddVal </param> <values> nn </values>
+             <param> pSrcImg1 </param> <values> im0 im1 </values>
+             <param> pSrcImg2 </param> <values> im0 im1 </values>
+             <param> pDstImg </param> <values> im2 im3 </values>
+             <param> nMulVal1 </param> <values> 5 </values>
+             <param> nMulVal2 </param> <values> 5 </values>
+             <param> nAddVal </param> <values> 5 </values>
              <param> nSize </param> <values> 128 </values>
              <size> nSize </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg1 </param> <values> G </values>
-             <param> pSrcImg2 </param> <values> G </values>
-             <param> pDstImg </param> <values> L </values>
-             <param> nMulVal1 </param> <values> n </values>
-             <param> nMulVal2 </param> <values> m </values>
-             <param> nAddVal </param> <values> nn </values>
-             <param> nSize </param> <values> 128 1024 10240 </values>
+             <param> pSrcImg1 </param> <values> im0 </values>
+             <param> pSrcImg2 </param> <values> im1 </values>
+             <param> pDstImg </param> <values> im2 </values>
+             <param> nMulVal1 </param> <values> 5 </values>
+             <param> nMulVal2 </param> <values> 5 </values>
+             <param> nAddVal </param> <values> 5 </values>
+             <param> nSize </param> <values> 128 1024 2048 </values>
              <size> nSize </size>
         </testperf>
     \endxmlonly
 
 	*/
 	//! \{
-void IMG_WAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int nMulVal2, int nAddVal, RGB32_nm10s* pDstImg, int nSize);
+void nmppiWAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int nMulVal2, int nAddVal, RGB32_nm10s* pDstImg, int nSize);
 	//! \}
 
 
 	/**
-	\defgroup IMG_Rsh2 IMG_Rsh2
+	\defgroup nmppiRsh2 nmppiRsh2
 	\ingroup iArithmetics
 	\brief
 		\ru Беззнаковый сдвиг значений пикслелей изображения на 2 бита вправо
@@ -556,21 +556,21 @@ void IMG_WAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int 
     \par
     \xmlonly
         <testperf> 
-          <param> pSrcImg </param> <values> L G </values>
-          <param> pDstImg  </param>  <values> L G </values>
+          <param> pSrcImg </param> <values> im0 im1 </values>
+          <param> pDstImg  </param>  <values> im0 im1 </values>
           <param> nSize </param>  <values> 128 </values>
           <size> nSize </size>
         </testperf>
         <testperf> 
-          <param> pSrcImg </param> <values> L </values>
-          <param> pDstImg  </param>  <values> G </values>
+          <param> pSrcImg </param> <values> im0 </values>
+          <param> pDstImg  </param>  <values> im1 </values>
           <param> nSize </param>  <values> 8 32 128 </values>
           <size> nSize </size>
         </testperf>
     \endxmlonly
 	*/
 	//! \{ 
-void IMG_Rsh2(RGB32_nm10u* pSrcImg, RGB32_nm10u* pDstImg, int nSize);
+void nmppiRsh2(RGB32_nm10u* pSrcImg, RGB32_nm10u* pDstImg, int nSize);
 	//! \}
 #endif
 #endif

@@ -148,10 +148,10 @@ double nmppcFix64ToDouble(long arg , int fixpoint );
 	\par
     \xmlonly
         <testperf> 
-             <param> nDividend </param> <values> 1 10 1000 </values>
-			 <param> nDivisor  </param> <values> 10000 </values>
+             <param> nDividend </param> <values> im0 im1 </values>
+			 <param> nDivisor  </param> <values> im0 im1 </values>
              <param> nFixpoint </param> <values> 16 32 48 </values>
-			 <param> nQuotient </param> <values> &amp; n </values>
+			 <param> nQuotient </param> <values> im2 </values>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -188,8 +188,8 @@ void nmppcFixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotie
     \xmlonly
         <testperf> 
              <param> nArg </param> <values> 0x80000000  </values>
-			 <param> pnSin </param> <values>  &amp;n </values>
-			 <param> pnCos </param> <values>  &amp;m </values>
+			 <param> pnSin </param> <values>  im0 </values>
+			 <param> pnCos </param> <values>  im1 </values>
 			   <size> 1 </size>
         </testperf>
     \endxmlonly

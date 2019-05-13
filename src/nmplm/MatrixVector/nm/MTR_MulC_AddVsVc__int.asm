@@ -21,7 +21,7 @@
 extern 	LWSum2CharBuffers: long[8*16];
 extern 	GWSum2CharBuffers: long[8*16];
 
-import from macros.mlb;
+//import from macros.mlb;
 
 data ".data_nmplm_G"
 	GWScalar:long[2]=(0l,0l);
@@ -63,7 +63,7 @@ global _void._.8.8MTR_MulC_AddVsVc.1int.9._int._.0.9._int._.0.9._int._.0.9._int.
 	gr7 = 80000000h;
 	sb  = 2;
 	nb1 = gr7;
-	rep 2 wfifo=[ar0++],ftw;
+	rep 2 wfifo=[ar0++],ftw,wtw;
 	//-----------------------------------------
 	ar0 = [--ar5];	//			nm32s*		SrcMtr,
 	ar3 = [--ar5];	//			nm32s*		SrcVecStr,
@@ -76,7 +76,7 @@ global _void._.8.8MTR_MulC_AddVsVc.1int.9._int._.0.9._int._.0.9._int._.0.9._int.
 	gr6 = 2;	
 	gr1 = 2;
 	ar1 = ar3;
-	WTW_REG(gr7);
+	//WTW_REG_DEPRICARTED(gr7);
 	
 	<Next_MulString>
 	gr7 = [ar2++];

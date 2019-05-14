@@ -13,7 +13,7 @@
 //*                                                                         */
 //*                                                                         */
 //***************************************************************************/
-import from printx.mlb;
+//import from printx.mlb;
     //==================================
     //! \fn int nmppsFFT32FwdRaw(nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
 	//!

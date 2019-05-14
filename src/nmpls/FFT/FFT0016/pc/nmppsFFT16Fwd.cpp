@@ -16,7 +16,7 @@
 //*                                                                         */
 //*                                                                         */
 //***************************************************************************/
-
+#define DISABLE_PRINTX
 //#include "internal.h"
 //#include "fft.h"
 #include "fft.h"
@@ -50,9 +50,9 @@ extern "C" {
 		//A.reset();
 		//B.reset();
 
-		int shift = spec->shift[0];
-		int amplitude = spec->amp[0];
-		int round = spec->round[0];
+		int shift = spec->norm[0].shift;
+		//int amplitude = spec->amp[0];
+		int round = spec->norm[0].round;
 		//round.im = amplitude >> 1;
 
 
@@ -193,15 +193,18 @@ extern "C" {
 	// [8x2]	8-bit  scheme: 2*16+16+16+16 = 80 ?
 
 	void nmppsFFT16Fwd242(const nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec) {
-		int shift = spec->shift[0];
+		int shift = spec->norm[0].shift;
 
 		nm32sc* raw = spec->buffer[1];
 		spec->buffer[1] = dst;
-		dst = raw;
+		//dst = raw;
 		nmppsFFT16Fwd242Raw(src, raw, spec);
+
+		PRINT_MATRIX_32X("raw", raw, 16, 2);
+
 		for (int i = 0; i < 16; i++) {
 			dst[i].re = raw[i].re >> shift;
-			dst[i].im = raw[i].re >> shift;
+			dst[i].im = raw[i].im >> shift;
 		}
 		spec->buffer[1] = raw;
 	}

@@ -78,17 +78,24 @@
 
 
 	#define FFT_SPEC_NUM_BUFFERS 2
-	#define FFT_SPEC_NUM_TABLES  4
+	#define FFT_SPEC_NUM_TABLES  2
 	#define FFT_SPEC_NUM_SHIFTS  8
 	#define FFT_SPEC_NUM_AMPLITUDES  8
+			typedef struct {
+				int round;
+				int shift;
+				
+			} RoundShift;
 	typedef struct {
 
 
 		nm32sc* buffer[FFT_SPEC_NUM_BUFFERS];
 		void* fftTable[FFT_SPEC_NUM_TABLES];
+		RoundShift norm[4];
 		int shift[FFT_SPEC_NUM_SHIFTS];
 		int amp[FFT_SPEC_NUM_AMPLITUDES];
 		int round[8];
+		//int amp;
 		//void* coreOut;
 
 		Free32Func* free;

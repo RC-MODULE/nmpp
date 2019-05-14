@@ -79,9 +79,11 @@ extern "C" {
 		spec->buffer[1] = (nm32sc*)buffer1;
 		spec->fftTable[0] = (nm16s*)fftTable0;
 		spec->fftTable[1] = (nm16s*)fftTable1;
-		spec->shift[0] = 8;
-		spec->amp[0] = 1 << spec->shift[0];
-		spec->round[0] = spec->amp[0] / 2;
+		spec->norm[0].shift= 8;
+		spec->amp[0] = 1 << spec->norm[0].shift;
+		spec->norm[0].round = spec->amp[0] / 2;
+		
+		
 			
 		//nmppsSet_64s((nm64s*)spec->buffer[0], 0,16);
 		//nmppsSet_64s((nm64s*)spec->buffer[1], 0,16);
@@ -95,10 +97,11 @@ extern "C" {
 
 	int  nmppsFFT16HiFwdInitAlloc(NmppsFFTSpec* spec, const void* src, const void* dst, int settings)
 	{
-		spec->shift[0] = 8;
-		spec->amp[0] = 1<< spec->shift[0];
-		spec->round[0] = spec->amp[0] / 2;
+		spec->norm[0].shift = 8;
+		spec->amp[0] = 1 << spec->norm[0].shift;
+		spec->norm[0].round = spec->amp[0] / 2;
 		
+
 		spec->buffer[0]   = nmppsMalloc_32sc(16);
 		spec->buffer[1]   = nmppsMalloc_32sc(16);
 		spec->fftTable[0] = (void*)nmppsMalloc_16s(4*4*4);

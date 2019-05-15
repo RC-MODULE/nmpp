@@ -62,9 +62,9 @@
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr1 </param> <values>im0 im1  </values>
-             <param> pSrcMtr2 </param> <values>im0 im1  </values>
-             <param> pDstMtr </param> <values> im2 im3 </values>
+             <param> pSrcMtr1 </param> <values>im1 im2 im3</values>
+             <param> pSrcMtr2 </param> <values>im1 im2 im3</values>
+             <param> pDstMtr </param> <values> im1 im2 im3</values>
              <param> nHeight1 </param> <values> 64 </values>
              <param> nWidth2 </param> <values> 64 </values>
              <param> nWidth1 </param> <values> 128 </values>

@@ -56,15 +56,15 @@ void nmppmMul_mv_( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int nHeig
     \par
     \xmlonly
         <testperf>
-          <param> pSrcVec </param> <values> im0 im1 </values>
-          <param> pDstMtr </param> <values> im0 im1 </values>
-          <param> nSize </param> <values> 256 </values>
+          <param name="pSrcVec"> im0 im1 </param>
+          <param name="pDstMtr"> im0 im1 </param>
+          <param name="nSize"> 256 </param>
 		  <size> nSize*nSize </size>
         </testperf>
         <testperf>
-          <param> pSrcVec </param> <values> im0 </values>
-          <param> pDstMtr </param> <values> im1 </values>
-          <param> nSize </param> <values> 8 128 256 </values>
+          <param name="pSrcVec"> im0 </param>
+          <param name="pDstMtr"> im1 </param>
+          <param name="nSize"> 8 128 256 </param>
 		  <size> nSize*nSize </size>
         </testperf>
     \endxmlonly
@@ -118,25 +118,25 @@ void MTR_ProdSelfV( nm64sc *pSrcVec, nm64sc *pDstMtr, int nSize, void* pTmp);
     \par
     \xmlonly
         <testperf>
-          <param> pSrcVec </param> <values> im0 im1 </values>
-          <param> pSrcMtr </param> <values> im0 im1 </values>
-          <param> pDstVec </param> <values> im2 im3 </values>
-          <param> tmp </param> <values> im3 im1 </values>
-          <param> nStart </param> <values> 1 </values>
-          <param> nQuantity </param> <values> 12 </values>
-          <param> nHeight </param> <values> 128 </values>
-          <param> nWidth </param> <values> 256 </values>
+          <param name="pSrcVec"> im0 im1 </param>
+          <param name="pSrcMtr"> im0 im1 </param>
+          <param name="pDstVec"> im2 im3 </param>
+          <param name="tmp"> im3 im1 </param>
+          <param name="nStart"> 1 </param>
+          <param name="nQuantity"> 12 </param>
+          <param name="nHeight"> 128 </param>
+          <param name="nWidth"> 256 </param>
 					<size> nHeight*nWidth </size>
         </testperf>
         <testperf>
-          <param> pSrcVec </param> <values> im0 </values>
-          <param> pSrcMtr </param> <values> im1 </values>
-          <param> pDstVec </param> <values> im2 </values>
-          <param> tmp </param> <values> im3 </values>
-          <param> nStart </param> <values> 1 </values>
-          <param> nQuantity </param> <values> 12 </values>
-          <param> nHeight </param> <values> 128 </values>
-          <param> nWidth </param> <values> 16 128 256 </values>
+          <param name="pSrcVec"> im0 </param>
+          <param name="pSrcMtr"> im1 </param>
+          <param name="pDstVec"> im2 </param>
+          <param name="tmp"> im3 </param>
+          <param name="nStart"> 1 </param>
+          <param name="nQuantity"> 12 </param>
+          <param name="nHeight"> 128 </param>
+          <param name="nWidth"> 16 128 256 </param>
 					<size> nHeight*nWidth </size>
         </testperf>
 

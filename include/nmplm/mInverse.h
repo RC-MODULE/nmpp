@@ -68,10 +68,10 @@
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtrA </param> <values> im1 im2 </values>
-             <param> pSrcVecB </param> <values> im1 im2 </values>
-             <param> pDstVecX </param> <values> im3 </values>
-             <param> nSize </param> <values> 3 6 </values>
+             <param name="pSrcMtrA"> im1 im2 </param>
+             <param name="pSrcVecB"> im1 im2 </param>
+             <param name="pDstVecX"> im3 </param>
+             <param name="nSize"> 3 6 </param>
              <size> nSize*nSize </size>
         </testperf>
     \endxmlonly
@@ -116,9 +116,9 @@ void MTR_fpResolve_Gauss(double* pSrcMtrA, double* pSrcVecB, double* pDstVecX, i
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtrAB </param> <values> im1 im2 </values>
-             <param> pDstVecX </param> <values> im1 im2 </values>
-             <param> nSize </param> <values> 3 6 </values>
+             <param name="pSrcMtrAB"> im1 im2 </param>
+             <param name="pDstVecX"> im1 im2 </param>
+             <param name="nSize"> 3 6 </param>
              <size> nSize*nSize </size>
         </testperf>
     \endxmlonly

@@ -35,7 +35,7 @@ extern "C" {
 	\par
     \xmlonly
         <testperf> 
-             <param> x </param> <values> 1 1000 10000000 </values>
+             <param name="x"> 1 1000 10000000 </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly

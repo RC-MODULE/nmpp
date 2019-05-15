@@ -83,17 +83,17 @@
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> im0 im1 </values>
-             <param> pDstBlockSeq </param> <values> im0 im1 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 128 </values>
+             <param name="pSrcImg"> im0 im1 </param>
+             <param name="pDstBlockSeq"> im0 im1 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> im0 </values>
-             <param> pDstBlockSeq </param> <values> im1 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 8 32 128 </values>
+             <param name="pSrcImg"> im0 </param>
+             <param name="pDstBlockSeq"> im1 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 8 32 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
     \endxmlonly
@@ -175,17 +175,17 @@ void nmppiSplitInto2x2Blocks8x8xor(
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcBlockSeq </param> <values> im0 im1 </values>
-             <param> pDstImg </param> <values> im0 im1 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 128 </values>
+             <param name="pSrcBlockSeq"> im0 im1 </param>
+             <param name="pDstImg"> im0 im1 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcBlockSeq </param> <values> im0 </values>
-             <param> pDstImg </param> <values> im1 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 8 32 128 </values>
+             <param name="pSrcBlockSeq"> im0 </param>
+             <param name="pDstImg"> im1 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 8 32 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
     \endxmlonly

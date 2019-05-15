@@ -75,23 +75,23 @@
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> im0 im1 </values>
-             <param> pSrcDstImg </param> <values> im0 im1 </values>
-             <param> nSrcStride </param> <values> 128 </values>
-             <param> nSrcDstStride </param> <values> 64 </values>
-             <param> nShift </param> <values> 2 </values>
-             <param> nHeight </param> <values> 64 </values>
-             <param> nWidth </param> <values> 64 </values>
+             <param name="pSrcImg"> im0 im1 </param>
+             <param name="pSrcDstImg"> im0 im1 </param>
+             <param name="nSrcStride"> 128 </param>
+             <param name="nSrcDstStride"> 64 </param>
+             <param name="nShift"> 2 </param>
+             <param name="nHeight"> 64 </param>
+             <param name="nWidth"> 64 </param>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> im0 </values>
-             <param> pSrcDstImg </param> <values> im1 </values>
-             <param> nSrcStride </param> <values> 128 </values>
-             <param> nSrcDstStride </param> <values> 64 </values>
-             <param> nShift </param> <values> 2 </values>
-             <param> nHeight </param> <values> 64 </values>
-             <param> nWidth </param> <values> 8 32 64 </values>
+             <param name="pSrcImg"> im0 </param>
+             <param name="pSrcDstImg"> im1 </param>
+             <param name="nSrcStride"> 128 </param>
+             <param name="nSrcDstStride"> 64 </param>
+             <param name="nShift"> 2 </param>
+             <param name="nHeight"> 64 </param>
+             <param name="nWidth"> 8 32 64 </param>
              <size> nWidth*nHeight </size>
         </testperf>
     \endxmlonly
@@ -171,23 +171,23 @@ void nmppiAddConvertRShiftI(nm16s* pSrcDstImg,  int nSrcDstStride, nm32s* pSrcIm
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> im0 im1 </values>
-             <param> pSrcDstImg </param> <values> im0 im1 </values>
-             <param> nSrcStride </param> <values> 128 </values>
-             <param> nSrcDstStride </param> <values> 64 </values>
-             <param> nShift </param> <values> 2 </values>
-             <param> nHeight </param> <values> 64 </values>
-             <param> nWidth </param> <values> 64 </values>
+             <param name="pSrcImg"> im0 im1 </param>
+             <param name="pSrcDstImg"> im0 im1 </param>
+             <param name="nSrcStride"> 128 </param>
+             <param name="nSrcDstStride"> 64 </param>
+             <param name="nShift"> 2 </param>
+             <param name="nHeight"> 64 </param>
+             <param name="nWidth"> 64 </param>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> im0 </values>
-             <param> pSrcDstImg </param> <values> im1 </values>
-             <param> nSrcStride </param> <values> 128 </values>
-             <param> nSrcDstStride </param> <values> 64 </values>
-             <param> nShift </param> <values> 2 </values>
-             <param> nHeight </param> <values> 64 </values>
-             <param> nWidth </param> <values> 8 32 64 </values>
+             <param name="pSrcImg"> im0 </param>
+             <param name="pSrcDstImg"> im1 </param>
+             <param name="nSrcStride"> 128 </param>
+             <param name="nSrcDstStride"> 64 </param>
+             <param name="nShift"> 2 </param>
+             <param name="nHeight"> 64 </param>
+             <param name="nWidth"> 8 32 64 </param>
              <size> nWidth*nHeight </size>
         </testperf>
     \endxmlonly
@@ -259,21 +259,21 @@ void nmppiSubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSr
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> im0 im1 </values>
-             <param> pSrcDstImg </param> <values> im0 im1 </values>
-             <param> nSrcStride </param> <values> 128 </values>
-             <param> nSrcDstStride </param> <values> 128 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 128 </values>
+             <param name="pSrcImg"> im0 im1 </param>
+             <param name="pSrcDstImg"> im0 im1 </param>
+             <param name="nSrcStride"> 128 </param>
+             <param name="nSrcDstStride"> 128 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> im0 </values>
-             <param> pSrcDstImg </param> <values> im1 </values>
-             <param> nSrcStride </param> <values> 128 </values>
-             <param> nSrcDstStride </param> <values> 128 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 8 64 128 </values>
+             <param name="pSrcImg"> im0 </param>
+             <param name="pSrcDstImg"> im1 </param>
+             <param name="nSrcStride"> 128 </param>
+             <param name="nSrcDstStride"> 128 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 8 64 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
     \endxmlonly
@@ -348,21 +348,21 @@ void nmppiAddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcSt
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> im0 im1 </values>
-             <param> pSrcDstImg </param> <values> im0 im1 </values>
-             <param> nSrcStride </param> <values> 128 </values>
-             <param> nSrcDstStride </param> <values> 128 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 128 </values>
+             <param name="pSrcImg"> im0 im1 </param>
+             <param name="pSrcDstImg"> im0 im1 </param>
+             <param name="nSrcStride"> 128 </param>
+             <param name="nSrcDstStride"> 128 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> im0 </values>
-             <param> pSrcDstImg </param> <values> im1 </values>
-             <param> nSrcStride </param> <values> 128 </values>
-             <param> nSrcDstStride </param> <values> 128 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 8 64 128 </values>
+             <param name="pSrcImg"> im0 </param>
+             <param name="pSrcDstImg"> im1 </param>
+             <param name="nSrcStride"> 128 </param>
+             <param name="nSrcDstStride"> 128 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 8 64 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
     \endxmlonly
@@ -444,25 +444,25 @@ void nmppiSubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStr
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcMtr1 </param> <values> im0 im1 </values>
-             <param> pSrcMtr2 </param> <values> im0 im1 </values>
-             <param> pDstMtr </param> <values> im2 im3 </values>
-             <param> nSrcStride1 </param> <values> 128 </values>
-             <param> nSrcStride2 </param> <values> 128 </values>
-             <param> nDstStride </param> <values> 128 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 128 </values>
+             <param name="pSrcMtr1"> im0 im1 </param>
+             <param name="pSrcMtr2"> im0 im1 </param>
+             <param name="pDstMtr"> im2 im3 </param>
+             <param name="nSrcStride1"> 128 </param>
+             <param name="nSrcStride2"> 128 </param>
+             <param name="nDstStride"> 128 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf> 
-             <param> pSrcMtr1 </param> <values> im0 </values>
-             <param> pSrcMtr2 </param> <values> im1 </values>
-             <param> pDstMtr </param> <values> im2 </values>
-             <param> nSrcStride1 </param> <values> 128 </values>
-             <param> nSrcStride2 </param> <values> 128 </values>
-             <param> nDstStride </param> <values> 128 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 8 64 128 </values>
+             <param name="pSrcMtr1"> im0 </param>
+             <param name="pSrcMtr2"> im1 </param>
+             <param name="pDstMtr"> im2 </param>
+             <param name="nSrcStride1"> 128 </param>
+             <param name="nSrcStride2"> 128 </param>
+             <param name="nDstStride"> 128 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 8 64 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
     \endxmlonly
@@ -508,23 +508,23 @@ void nmppiHalfsum(nm16s* pSrcMtr1, int nSrcStride1, nm16s* pSrcMtr2,
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg1 </param> <values> im0 im1 </values>
-             <param> pSrcImg2 </param> <values> im0 im1 </values>
-             <param> pDstImg </param> <values> im2 im3 </values>
-             <param> nMulVal1 </param> <values> 5 </values>
-             <param> nMulVal2 </param> <values> 5 </values>
-             <param> nAddVal </param> <values> 5 </values>
-             <param> nSize </param> <values> 128 </values>
+             <param name="pSrcImg1"> im0 im1 </param>
+             <param name="pSrcImg2"> im0 im1 </param>
+             <param name="pDstImg"> im2 im3 </param>
+             <param name="nMulVal1"> 5 </param>
+             <param name="nMulVal2"> 5 </param>
+             <param name="nAddVal"> 5 </param>
+             <param name="nSize"> 128 </param>
              <size> nSize </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg1 </param> <values> im0 </values>
-             <param> pSrcImg2 </param> <values> im1 </values>
-             <param> pDstImg </param> <values> im2 </values>
-             <param> nMulVal1 </param> <values> 5 </values>
-             <param> nMulVal2 </param> <values> 5 </values>
-             <param> nAddVal </param> <values> 5 </values>
-             <param> nSize </param> <values> 128 1024 2048 </values>
+             <param name="pSrcImg1"> im0 </param>
+             <param name="pSrcImg2"> im1 </param>
+             <param name="pDstImg"> im2 </param>
+             <param name="nMulVal1"> 5 </param>
+             <param name="nMulVal2"> 5 </param>
+             <param name="nAddVal"> 5 </param>
+             <param name="nSize"> 128 1024 2048 </param>
              <size> nSize </size>
         </testperf>
     \endxmlonly
@@ -556,15 +556,15 @@ void nmppiWAdd2I(RGB32_nm10s* pSrcImg1, int nMulVal1, RGB32_nm10s* pSrcImg2, int
     \par
     \xmlonly
         <testperf> 
-          <param> pSrcImg </param> <values> im0 im1 </values>
-          <param> pDstImg  </param>  <values> im0 im1 </values>
-          <param> nSize </param>  <values> 128 </values>
+          <param name="pSrcImg"> im0 im1 </param>
+          <param name="pDstImg"> im0 im1 </param>
+          <param name="nSize"> 128 </param>
           <size> nSize </size>
         </testperf>
         <testperf> 
-          <param> pSrcImg </param> <values> im0 </values>
-          <param> pDstImg  </param>  <values> im1 </values>
-          <param> nSize </param>  <values> 8 32 128 </values>
+          <param name="pSrcImg"> im0 </param>
+          <param name="pDstImg"> im1 </param>
+          <param name="nSize"> 8 32 128 </param>
           <size> nSize </size>
         </testperf>
     \endxmlonly

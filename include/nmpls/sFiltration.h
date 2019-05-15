@@ -67,9 +67,9 @@ int64b SIG_Median_V9(nm64s* pVec);
     \par
     \xmlonly
         <testperf> 
-             <param> a </param> <values> 1 10 100 </values>
-             <param> b </param> <values> 8 128 1024 </values>
-             <param> c </param> <values> 16 512 10240 </values>
+             <param name="a"> 1 10 100 </param>
+             <param name="b"> 8 128 1024 </param>
+             <param name="c"> 16 512 10240 </param>
              <size> 1 </size>
         </testperf>
     \endxmlonly

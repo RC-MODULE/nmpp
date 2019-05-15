@@ -237,11 +237,11 @@ void FFT_Fwd256Set7bit();	// Sets 7-bit accuracy of sin-cosine coefficients
     \xmlonly
         <testperf>
 						 <init> FFT_Fwd256Set6bit(); </init>
-             <param> GSrcBuffer </param> <values> L G </values>
-             <param> LDstBuffer </param> <values> L G </values>
-             <param> LBuffer </param> <values> L G </values>
-             <param> GBuffer </param> <values> L G </values>
-             <param> ShiftR </param> <values> -1 0</values>
+             <param name="GSrcBuffer"> L G </param>
+             <param name="LDstBuffer"> L G </param>
+             <param name="LBuffer"> L G </param>
+             <param name="GBuffer"> L G </param>
+             <param name="ShiftR"> -1 0</param>
 						 <size> 256 </size>
         </testperf>
     \endxmlonly
@@ -432,12 +432,12 @@ void FFT_Inv256Set7bit();	// Sets 7-bit accuracy of sin-cosine coefficients
     \xmlonly
         <testperf>
 			 <init> FFT_Inv256Set6bit(); </init>
-             <param> GSrcBuffer </param> <values> L G </values>
-             <param> GDstBuffer </param> <values> L G </values>
-             <param> LBuffer </param> <values> L G </values>
-             <param> GBuffer </param> <values> L G </values>
-             <param> ShiftR1 </param> <values> 8 0 </values>
-             <param> ShiftR2 </param> <values> -1 0</values>
+             <param name="GSrcBuffer"> L G </param>
+             <param name="GDstBuffer"> L G </param>
+             <param name="LBuffer"> L G </param>
+             <param name="GBuffer"> L G </param>
+             <param name="ShiftR1"> 8 0 </param>
+             <param name="ShiftR2"> -1 0</param>
 						 <size> 256 </size>
         </testperf>
     \endxmlonly
@@ -564,11 +564,11 @@ void FFT_Fwd512Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
     \xmlonly
         <testperf>
 						 <init> FFT_Fwd512Set6bit(); </init>
-             <param> GSrcBuffer </param> <values> L G </values>
-             <param> GDstBuffer </param> <values> L G </values>
-             <param> LBuffer </param> <values> L G </values>
-             <param> GBuffer </param> <values> L G </values>
-             <param> ShiftR </param> <values> -1 0</values>
+             <param name="GSrcBuffer"> L G </param>
+             <param name="GDstBuffer"> L G </param>
+             <param name="LBuffer"> L G </param>
+             <param name="GBuffer"> L G </param>
+             <param name="ShiftR"> -1 0</param>
 						 <size> 512 </size>
         </testperf>
     \endxmlonly
@@ -732,12 +732,12 @@ void FFT_Inv512Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
     \xmlonly
         <testperf>
 						 <init> FFT_Inv512Set6bit(); </init>
-             <param> GSrcBuffer </param> <values> L G </values>
-             <param> LDstBuffer </param> <values> L G </values>
-             <param> LBuffer </param> <values> L G </values>
-             <param> GBuffer </param> <values> L G </values>
-             <param> ShiftR1 </param> <values> 9 0</values>
-             <param> ShiftR2 </param> <values> -1 0</values>
+             <param name="GSrcBuffer"> L G </param>
+             <param name="LDstBuffer"> L G </param>
+             <param name="LBuffer"> L G </param>
+             <param name="GBuffer"> L G </param>
+             <param name="ShiftR1"> 9 0</param>
+             <param name="ShiftR2"> -1 0</param>
 						 <size> 512 </size>
         </testperf>
     \endxmlonly
@@ -873,11 +873,11 @@ void  FFT_Inv512(
     \xmlonly
         <testperf>
 						 <init> FFT_Fwd1024Set6bit(); </init>
-             <param> GSrcBuffer </param> <values> L G </values>
-             <param> LDstBuffer </param> <values> L G </values>
-             <param> LBuffer </param> <values> L G </values>
-             <param> GBuffer </param> <values> L G </values>
-             <param> ShiftR </param> <values> -1 0</values>
+             <param name="GSrcBuffer"> L G </param>
+             <param name="LDstBuffer"> L G </param>
+             <param name="LBuffer"> L G </param>
+             <param name="GBuffer"> L G </param>
+             <param name="ShiftR"> -1 0</param>
 						 <size> 1024 </size>
         </testperf>
     \endxmlonly
@@ -1042,12 +1042,12 @@ void FFT_Inv1024Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
     \xmlonly
         <testperf>
 			 <init> FFT_Inv1024Set6bit(); </init>
-             <param> GSrcBuffer </param> <values> L G </values>
-             <param> GDstBuffer </param> <values> L G </values>
-             <param> LBuffer </param> <values> L G </values>
-             <param> GBuffer </param> <values> L G </values>
-             <param> ShiftR1 </param> <values> 10 0</values>
-             <param> ShiftR2 </param> <values> -1 0</values>
+             <param name="GSrcBuffer"> L G </param>
+             <param name="GDstBuffer"> L G </param>
+             <param name="LBuffer"> L G </param>
+             <param name="GBuffer"> L G </param>
+             <param name="ShiftR1"> 10 0</param>
+             <param name="ShiftR2"> -1 0</param>
 						 <size> 1024 </size>
         </testperf>
     \endxmlonly
@@ -1165,10 +1165,10 @@ void FFT_Fwd2048Set7bit();// Sets 7-bit accuracy of sin-cosine coefficients
     \xmlonly
         <testperf>
 						 <init> FFT_Fwd2048Set6bit(); </init>
-             <param> GSrcBuffer </param> <values> L G </values>
-             <param> GDstBuffer </param> <values> L G </values>
-             <param> LBuffer </param> <values> L G </values>
-             <param> ShiftR </param> <values> -1 0</values>
+             <param name="GSrcBuffer"> L G </param>
+             <param name="GDstBuffer"> L G </param>
+             <param name="LBuffer"> L G </param>
+             <param name="ShiftR"> -1 0</param>
 						 <size> 2048 </size>
         </testperf>
     \endxmlonly
@@ -1330,12 +1330,12 @@ void  FFT_Fwd2048(
     \xmlonly
         <testperf>
 			 <init> FFT_Inv2048Set6bit(); </init>
-             <param> GSrcBuffer </param> <values> L G </values>
-             <param> LDstBuffer </param> <values> L G </values>
-             <param> LBuffer </param> <values> L G </values>
-             <param> GBuffer </param> <values> L G </values>
-             <param> ShiftR1 </param> <values> 11 0</values>
-             <param> ShiftR2 </param> <values> -1 0</values>
+             <param name="GSrcBuffer"> L G </param>
+             <param name="LDstBuffer"> L G </param>
+             <param name="LBuffer"> L G </param>
+             <param name="GBuffer"> L G </param>
+             <param name="ShiftR1"> 11 0</param>
+             <param name="ShiftR2"> -1 0</param>
 						 <size> 2048 </size>
         </testperf>
     \endxmlonly

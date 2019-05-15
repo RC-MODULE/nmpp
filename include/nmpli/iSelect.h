@@ -79,23 +79,23 @@
     \par
     \xmlonly
         <testperf> 
-          <param> pSrcImg </param> <values> im0 im1 </values>
-          <param> nSrcStride </param>  <values> 64 </values>
-          <param> pThreshold </param>  <values> im0 im1 </values>
-          <param> pDstImg  </param>  <values> im0 im1 </values>
-          <param> nDstStride </param>  <values> 64 </values>
-          <param> nHeight </param>  <values> 128 </values>
-          <param> nWidth </param>  <values> 128 </values>
+          <param name="pSrcImg"> im0 im1 </param>
+          <param name="nSrcStride"> 64 </param>
+          <param name="pThreshold"> im0 im1 </param>
+          <param name="pDstImg"> im0 im1 </param>
+          <param name="nDstStride"> 64 </param>
+          <param name="nHeight"> 128 </param>
+          <param name="nWidth"> 128 </param>
           <size> nWidth*nHeight </size>
          </testperf>
         <testperf> 
-          <param> pSrcImg </param> <values> im0 </values>
-          <param> nSrcStride </param>  <values> 64 </values>
-          <param> pThreshold </param>  <values> im1 </values>
-          <param> pDstImg  </param>  <values> im2 </values>
-          <param> nDstStride </param>  <values> 64 </values>
-          <param> nHeight </param>  <values> 128 </values>
-          <param> nWidth </param>  <values> 8 32 128 </values>
+          <param name="pSrcImg"> im0 </param>
+          <param name="nSrcStride"> 64 </param>
+          <param name="pThreshold"> im1 </param>
+          <param name="pDstImg"> im2 </param>
+          <param name="nDstStride"> 64 </param>
+          <param name="nHeight"> 128 </param>
+          <param name="nWidth"> 8 32 128 </param>
           <size> nWidth*nHeight </size>
          </testperf>
     \endxmlonly

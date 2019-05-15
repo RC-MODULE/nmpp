@@ -59,21 +59,21 @@
     \par
     \xmlonly
         <testperf>
-          <param> nMin </param> <values> 0 128 		</values>
-          <param> nMax  </param> <values> 10240 </values>
-          <param> nDivisible </param> <values> 1 </values>
+          <param name="nMin"> 0 128 		</param>
+          <param name="nMax"> 10240 </param>
+          <param name="nDivisible"> 1 </param>
           <size> 1 </size>
         </testperf>
         <testperf>
-          <param> nMin </param> <values> 128 		</values>
-          <param> nMax  </param> <values> 1024 10240 </values>
-          <param> nDivisible </param> <values> 1 </values>
+          <param name="nMin"> 128 		</param>
+          <param name="nMax"> 1024 10240 </param>
+          <param name="nDivisible"> 1 </param>
           <size> 1 </size>
         </testperf>
         <testperf>
-          <param> nMin </param> <values> 128 		</values>
-          <param> nMax  </param> <values> 10240 </values>
-          <param> nDivisible </param> <values> 1 2 </values>
+          <param name="nMin"> 128 		</param>
+          <param name="nMax"> 10240 </param>
+          <param name="nDivisible"> 1 2 </param>
           <size> 1 </size>
         </testperf>
 

@@ -34,7 +34,7 @@ extern "C" 	{
 	\par
     \xmlonly
         <testperf> 
-             <param> nVal </param> <values> 0x8000 0x10000 0x4000   </values>
+             <param name="nVal"> 0x8000 0x10000 0x4000   </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -67,9 +67,9 @@ int nmppcFixExp32( int nVal);
 	\par
     \xmlonly
         <testperf> 
-             <param> nArg </param> <values> 0x8000  </values>
-			 <param> pnSin </param> <values>  im0 </values>
-			 <param> pnCos </param> <values>  im1 </values>
+             <param name="nArg"> 0x8000  </param>
+			 <param name="pnSin">  im0 </param>
+			 <param name="pnCos">  im1 </param>
 			   <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -99,7 +99,7 @@ void nmppcFixSinCos32(int nArg, int* pnSin, int* pnCos);
 	\par
     \xmlonly
         <testperf> 
-			<param> nArg </param> <values> 0x8000 </values>
+			<param name="nArg"> 0x8000 </param>
 			<size> 1 </size>
         </testperf>
     \endxmlonly
@@ -135,7 +135,7 @@ void nmppcFixSinCos32(int nArg, int* pnSin, int* pnCos);
 	\par
     \xmlonly
         <testperf> 
-             <param> arg </param> <values> 0.5 10 1000 </values>
+             <param name="arg"> 0.5 10 1000 </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -168,7 +168,7 @@ int nmppcDoubleToFix32(double arg);
 	\par
     \xmlonly
         <testperf> 
-             <param> arg </param> <values> 1 10 1000 </values>
+             <param name="arg"> 1 10 1000 </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -197,7 +197,7 @@ double nmppcFix32ToDouble(int arg);
 	\par
     \xmlonly
         <testperf> 
-             <param> nVal </param> <values> 1 1000 1000000 </values>
+             <param name="nVal"> 1 1000 1000000 </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -232,8 +232,8 @@ double nmppcFix32ToDouble(int arg);
 	\par
     \xmlonly
         <testperf> 
-             <param> nX </param> <values> 1 </values>
-			 <param> nY </param> <values> 1 </values>
+             <param name="nX"> 1 </param>
+			 <param name="nY"> 1 </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -267,8 +267,8 @@ double nmppcFix32ToDouble(int arg);
 	\par
     \xmlonly
         <testperf> 
-             <param> nX </param> <values> 0x102340 0x10234 0x0080</values>
-			 <param> nY </param> <values> 0x102340 0x10234 0x0080</values>
+             <param name="nX"> 0x102340 0x10234 0x0080</param>
+			 <param name="nY"> 0x102340 0x10234 0x0080</param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -306,8 +306,8 @@ double nmppcFix32ToDouble(int arg);
 	\par
     \xmlonly
         <testperf> 
-             <param> nVal </param> <values> 0x102 0x1034 0x490000 </values>
-			 <param> nFixpoint </param> <values> 8 16 24 </values>
+             <param name="nVal"> 0x102 0x1034 0x490000 </param>
+			 <param name="nFixpoint"> 8 16 24 </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -338,7 +338,7 @@ double nmppcFix32ToDouble(int arg);
 	\par
     \xmlonly
         <testperf> 
-            <param> nArg </param> <values> 0x8000  </values>
+            <param name="nArg"> 0x8000  </param>
 			<size> 1 </size>
         </testperf>
     \endxmlonly
@@ -368,7 +368,7 @@ double nmppcFix32ToDouble(int arg);
 	\par
     \xmlonly
         <testperf> 
-            <param> nArg </param> <values> 0x8000  </values>
+            <param name="nArg"> 0x8000  </param>
 			<size> 1 </size>
         </testperf>
     \endxmlonly
@@ -400,7 +400,7 @@ double nmppcFix32ToDouble(int arg);
 	\par
     \xmlonly
         <testperf> 
-            <param> nArg </param> <values> 0x8000  </values>
+            <param name="nArg"> 0x8000  </param>
 			<size> 1 </size>
         </testperf>
     \endxmlonly
@@ -431,7 +431,7 @@ double nmppcFix32ToDouble(int arg);
 	\par
     \xmlonly
         <testperf> 
-            <param> nArg </param> <values> 0x8000  </values>
+            <param name="nArg"> 0x8000  </param>
 			<size> 1 </size>
         </testperf>
     \endxmlonly
@@ -470,10 +470,10 @@ double nmppcFix32ToDouble(int arg);
 	\par
     \xmlonly
         <testperf> 
-            <param> nDividend </param> <values> 0x5000  </values>
-			<param> nDivisor  </param> <values> 0x6000  </values>
-			<param> pnQuotient  </param> <values> im0  </values>
-			<param>	pnReminder  </param> <values> im1  </values>
+            <param name="nDividend"> 0x5000  </param>
+			<param name="nDivisor"> 0x6000  </param>
+			<param name="pnQuotient"> im0  </param>
+			<param name="pnReminder"> im1  </param>
 			<size> 1 </size>
         </testperf>
     \endxmlonly

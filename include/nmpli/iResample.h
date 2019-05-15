@@ -86,19 +86,19 @@
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> im0 im1 </values>
-             <param> pDstImg </param> <values> im0 im1 </values>
-             <param> pTmpBuf </param> <values> im2 im3 </values>
-             <param> nSrcHeight </param> <values> 128 </values>
-             <param> nSrcWidth </param> <values> 128 </values>
+             <param name="pSrcImg"> im0 im1 </param>
+             <param name="pDstImg"> im0 im1 </param>
+             <param name="pTmpBuf"> im2 im3 </param>
+             <param name="nSrcHeight"> 128 </param>
+             <param name="nSrcWidth"> 128 </param>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> im0 </values>
-             <param> pDstImg </param> <values> im1 </values>
-             <param> pTmpBuf </param> <values> im2 </values>
-             <param> nSrcHeight </param> <values> 128 </values>
-             <param> nSrcWidth </param> <values> 8 32 128 </values>
+             <param name="pSrcImg"> im0 </param>
+             <param name="pDstImg"> im1 </param>
+             <param name="pTmpBuf"> im2 </param>
+             <param name="nSrcHeight"> 128 </param>
+             <param name="nSrcWidth"> 8 32 128 </param>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
     \endxmlonly
@@ -170,19 +170,19 @@ void nmppiResampleDown2X_8u16u(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, int
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> im0 im1 </values>
-             <param> pDstImg </param> <values> im0 im1 </values>
-             <param> pTmpBuf </param> <values> im2 im3 </values>
-             <param> nSrcHeight </param> <values> 128 </values>
-             <param> nSrcWidth </param> <values> 8 32 128 </values>
+             <param name="pSrcImg"> im0 im1 </param>
+             <param name="pDstImg"> im0 im1 </param>
+             <param name="pTmpBuf"> im2 im3 </param>
+             <param name="nSrcHeight"> 128 </param>
+             <param name="nSrcWidth"> 8 32 128 </param>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> im0 </values>
-             <param> pDstImg </param> <values> im1 </values>
-             <param> pTmpBuf </param> <values> im2 </values>
-             <param> nSrcHeight </param> <values> 128 </values>
-             <param> nSrcWidth </param> <values> 128 </values>
+             <param name="pSrcImg"> im0 </param>
+             <param name="pDstImg"> im1 </param>
+             <param name="pTmpBuf"> im2 </param>
+             <param name="nSrcHeight"> 128 </param>
+             <param name="nSrcWidth"> 128 </param>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
     \endxmlonly
@@ -253,19 +253,19 @@ void nmppiResampleDown2Y_8u_tmp(nm8u* pSrcImg, nm16u* pDstImg, int nSrcWidth, in
     \par
     \xmlonly
         <testperf> 
-             <param> pSrcImg </param> <values> im0 im1 </values>
-             <param> pDstImg </param> <values> im0 im1 </values>
-             <param> pTmpBuf </param> <values> im2 im3 </values>
-             <param> nSrcHeight </param> <values> 128 </values>
-             <param> nSrcWidth </param> <values> 128 </values>
+             <param name="pSrcImg"> im0 im1 </param>
+             <param name="pDstImg"> im0 im1 </param>
+             <param name="pTmpBuf"> im2 im3 </param>
+             <param name="nSrcHeight"> 128 </param>
+             <param name="nSrcWidth"> 128 </param>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
         <testperf> 
-             <param> pSrcImg </param> <values> im0 </values>
-             <param> pDstImg </param> <values> im1 </values>
-             <param> pTmpBuf </param> <values> im2 </values>
-             <param> nSrcHeight </param> <values> 128 </values>
-             <param> nSrcWidth </param> <values> 8 32 128 </values>
+             <param name="pSrcImg"> im0 </param>
+             <param name="pDstImg"> im1 </param>
+             <param name="pTmpBuf"> im2 </param>
+             <param name="nSrcHeight"> 128 </param>
+             <param name="nSrcWidth"> 8 32 128 </param>
              <size> nSrcHeight*nSrcWidth </size>
         </testperf>
     \endxmlonly

@@ -96,23 +96,23 @@
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr </param> <values> im0 im1 </values>
-             <param> pDstMtr </param> <values> im0 im1 </values>
-             <param> nDstStride </param> <values> 128 </values>
-             <param> nSrcOffset </param> <values> 8 </values>
-             <param> nHeight </param> <values> 8 </values>
-             <param> nWidth </param> <values> 64 </values>
-             <param> nSrcStride </param> <values>  256 </values>
+             <param name="pSrcMtr"> im0 im1 </param>
+             <param name="pDstMtr"> im0 im1 </param>
+             <param name="nDstStride"> 128 </param>
+             <param name="nSrcOffset"> 8 </param>
+             <param name="nHeight"> 8 </param>
+             <param name="nWidth"> 64 </param>
+             <param name="nSrcStride">  256 </param>
              <size>  nHeight * nWidth </size>
         </testperf>
         <testperf>
-             <param> pSrcMtr </param> <values> im0 </values>
-             <param> pDstMtr </param> <values> im1 </values>
-             <param> nDstStride </param> <values> 16 64 128 </values>
-             <param> nSrcOffset </param> <values> 8 </values>
-             <param> nHeight </param> <values> 8 </values>
-             <param> nWidth </param> <values> 8 32 64 </values>
-             <param> nSrcStride </param> <values> 32 128 256 </values>
+             <param name="pSrcMtr"> im0 </param>
+             <param name="pDstMtr"> im1 </param>
+             <param name="nDstStride"> 16 64 128 </param>
+             <param name="nSrcOffset"> 8 </param>
+             <param name="nHeight"> 8 </param>
+             <param name="nWidth"> 8 32 64 </param>
+             <param name="nSrcStride"> 32 128 256 </param>
              <size>  nHeight* nWidth </size>
         </testperf>
     \endxmlonly
@@ -185,23 +185,23 @@ void nmppmCopy_32fc(
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr </param> <values> im0 im1 </values>
-             <param> pDstMtr </param> <values> im0 im1 </values>
-             <param> nDstStride </param> <values> 256 </values>
-             <param> nDstOffset </param> <values> 64 </values>
-             <param> nHeight </param> <values> 8 </values>
-             <param> nWidth </param> <values> 32 </values>
-             <param> nSrcStride </param> <values> 128 </values>
+             <param name="pSrcMtr"> im0 im1 </param>
+             <param name="pDstMtr"> im0 im1 </param>
+             <param name="nDstStride"> 256 </param>
+             <param name="nDstOffset"> 64 </param>
+             <param name="nHeight"> 8 </param>
+             <param name="nWidth"> 32 </param>
+             <param name="nSrcStride"> 128 </param>
              <size>  nHeight* nWidth </size>
         </testperf>
         <testperf>
-             <param> pSrcMtr </param> <values> im0 </values>
-             <param> pDstMtr </param> <values> im1 </values>
-             <param> nDstStride </param> <values> 64 128 256 </values>
-             <param> nDstOffset </param> <values> 16 32 64 </values>
-             <param> nHeight </param> <values> 8 </values>
-             <param> nWidth </param> <values> 8 16 32 </values>
-             <param> nSrcStride </param> <values> 32 64 128 </values>
+             <param name="pSrcMtr"> im0 </param>
+             <param name="pDstMtr"> im1 </param>
+             <param name="nDstStride"> 64 128 256 </param>
+             <param name="nDstOffset"> 16 32 64 </param>
+             <param name="nHeight"> 8 </param>
+             <param name="nWidth"> 8 16 32 </param>
+             <param name="nSrcStride"> 32 64 128 </param>
              <size>  nHeight* nWidth </size>
         </testperf>
     \endxmlonly
@@ -259,21 +259,21 @@ void nmppmCopyau_32s( nm32s* pSrcMtr, int nSrcStride, nm32s* pDstMtr, int nDstSt
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr </param> <values> im0 </values>
-             <param> pDstMtr </param> <values>  im1 </values>
-             <param> nDstStride </param> <values> 128 </values>
-             <param> nHeight </param> <values> 256 </values>
-             <param> nWidth </param> <values> 256 </values>
-             <param> nSrcStride </param> <values> 128 </values>
+             <param name="pSrcMtr"> im0 </param>
+             <param name="pDstMtr">  im1 </param>
+             <param name="nDstStride"> 128 </param>
+             <param name="nHeight"> 256 </param>
+             <param name="nWidth"> 256 </param>
+             <param name="nSrcStride"> 128 </param>
              <size> nHeight*nWidth </size>
         </testperf>
         <testperf>
-             <param> pSrcMtr </param> <values> im0 </values>
-             <param> pDstMtr </param> <values> im1 </values>
-             <param> nDstStride </param> <values> 8 128 256 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 8 128 256 </values>
-             <param> nSrcStride </param> <values> nDstStride </values>
+             <param name="pSrcMtr"> im0 </param>
+             <param name="pDstMtr"> im1 </param>
+             <param name="nDstStride"> 8 128 256 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 8 128 256 </param>
+             <param name="nSrcStride"> nDstStride </param>
              <size> nHeight*nWidth </size>
         </testperf>
     \endxmlonly
@@ -328,11 +328,11 @@ void nmppmCopy_64s( nm64s* pSrcMtr, int nSrcStride, nm64s* pDstMtr, int nDstStri
     \par
     \xmlonly
         <testperf>
-             <param> pMtr </param> <values> im0 im1 </values>
-             <param> nVal </param> <values> 5 </values>
-             <param> nMtrStride </param> <values> 4 16 64 </values>
-             <param> nMtrHeight </param> <values> 8 </values>
-             <param> nMtrWidth </param> <values> 8 32 128 </values>
+             <param name="pMtr"> im0 im1 </param>
+             <param name="nVal"> 5 </param>
+             <param name="nMtrStride"> 4 16 64 </param>
+             <param name="nMtrHeight"> 8 </param>
+             <param name="nMtrWidth"> 8 32 128 </param>
              <size>  nMtrHeight*nMtrWidth </size>
         </testperf>
     \endxmlonly

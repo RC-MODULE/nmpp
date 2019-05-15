@@ -62,21 +62,21 @@
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr1 </param> <values>im1 im2 im3</values>
-             <param> pSrcMtr2 </param> <values>im1 im2 im3</values>
-             <param> pDstMtr </param> <values> im1 im2 im3</values>
-             <param> nHeight1 </param> <values> 64 </values>
-             <param> nWidth2 </param> <values> 64 </values>
-             <param> nWidth1 </param> <values> 128 </values>
+             <param name="pSrcMtr1">im1 im2 im3</param>
+             <param name="pSrcMtr2">im1 im2 im3</param>
+             <param name="pDstMtr"> im1 im2 im3</param>
+             <param name="nHeight1"> 64 </param>
+             <param name="nWidth2"> 64 </param>
+             <param name="nWidth1"> 128 </param>
              <size> nWidth1*nHeight1*nWidth2 </size>
         </testperf>
         <testperf>
-             <param> pSrcMtr1 </param> <values> im0  </values>
-             <param> pSrcMtr2 </param> <values> im1  </values>
-             <param> pDstMtr </param> <values>  im2 </values>
-             <param> nHeight1 </param> <values> 64 </values>
-             <param> nWidth2 </param> <values> 64 </values>
-             <param> nWidth1 </param> <values> 8 32 128 </values>
+             <param name="pSrcMtr1"> im0  </param>
+             <param name="pSrcMtr2"> im1  </param>
+             <param name="pDstMtr">  im2 </param>
+             <param name="nHeight1"> 64 </param>
+             <param name="nWidth2"> 64 </param>
+             <param name="nWidth1"> 8 32 128 </param>
              <size> nWidth1*nHeight1*nWidth2 </size>
         </testperf>
     \endxmlonly
@@ -152,19 +152,19 @@ void nmppmMul_mm_colmajor_32s64s(const nm32s* pSrcMtr1, int nHeight1, int nWidth
     \par
     \xmlonly
         <testperf>
-          <param> pSrcMtr </param> <values> im0 im1 </values>
-          <param> pSrcVec </param> <values> im0 im1 </values>
-          <param> pDstVec </param> <values> im2 im3 </values>
-          <param> nHeight </param> <values> 128 </values>
-          <param> nWidth </param> <values> 256 </values>
+          <param name="pSrcMtr"> im0 im1 </param>
+          <param name="pSrcVec"> im0 im1 </param>
+          <param name="pDstVec"> im2 im3 </param>
+          <param name="nHeight"> 128 </param>
+          <param name="nWidth"> 256 </param>
           <size> nHeight*nWidth </size>
         </testperf>
         <testperf>
-          <param> pSrcMtr </param> <values> im0 </values>
-          <param> pSrcVec </param> <values> im1 </values>
-          <param> pDstVec </param> <values> im2 </values>
-          <param> nHeight </param> <values> 128 </values>
-          <param> nWidth </param> <values> 16 128 256 </values>
+          <param name="pSrcMtr"> im0 </param>
+          <param name="pSrcVec"> im1 </param>
+          <param name="pDstVec"> im2 </param>
+          <param name="nHeight"> 128 </param>
+          <param name="nWidth"> 16 128 256 </param>
           <size> nHeight*nWidth </size>
         </testperf>
 
@@ -214,18 +214,18 @@ void nmppmMul_mv_colmajor_32s64s(const nm32s* pSrcMtr,const  nm64s* pSrcVec, nm6
     \xmlonly
         <testperf>
           <init> int nWidth=8; </init>
-          <param> pSrcMtr </param> <values> im0 im1 </values>
-          <param> pSrcVec </param> <values> im0 im1 </values>
-          <param> pDstVec </param> <values> im2 im3 </values>
-          <param> nHeight </param> <values> 128 </values>
+          <param name="pSrcMtr"> im0 im1 </param>
+          <param name="pSrcVec"> im0 im1 </param>
+          <param name="pDstVec"> im2 im3 </param>
+          <param name="nHeight"> 128 </param>
           <size> nHeight*nWidth </size>
         </testperf>
         <testperf>
           <init> int nWidth=8; </init>
-          <param> pSrcMtr </param> <values> im0 </values>
-          <param> pSrcVec </param> <values> im1 </values>
-          <param> pDstVec </param> <values> im2 </values>
-          <param> nHeight </param> <values> 128 </values>
+          <param name="pSrcMtr"> im0 </param>
+          <param name="pSrcVec"> im1 </param>
+          <param name="pDstVec"> im2 </param>
+          <param name="nHeight"> 128 </param>
           <size> nHeight*nWidth </size>
         </testperf>
 
@@ -280,20 +280,20 @@ void nmppmMul_mv_16s16s_8xH( v8nm16s* pSrcMtr,  v8nm16s* pSrcVec, nm16s* pDstVec
     \xmlonly
         <testperf>
           <init> int nWidth=8; </init>
-          <param> pSrcMtr </param> <values> im0 im1 </values>
-          <param> pnSrcVec </param> <values> im0 im1  </values>
-          <param> pDstVec </param> <values> im2 im3 </values>
-          <param> nAddVal </param> <values> -1 </values>
-          <param> nHeight </param> <values> 128 </values>
+          <param name="pSrcMtr"> im0 im1 </param>
+          <param name="pnSrcVec"> im0 im1  </param>
+          <param name="pDstVec"> im2 im3 </param>
+          <param name="nAddVal"> -1 </param>
+          <param name="nHeight"> 128 </param>
           <size> nHeight </size>
         </testperf>
         <testperf>
           <init> int nWidth=8; </init>
-          <param> pSrcMtr </param> <values>  im0 </values>
-          <param> pnSrcVec </param> <values> im1 </values>
-          <param> pDstVec </param> <values>  im2 </values>
-          <param> nAddVal </param> <values> -1 </values>
-          <param> nHeight </param> <values> 32 128 1024 </values>
+          <param name="pSrcMtr">  im0 </param>
+          <param name="pnSrcVec"> im1 </param>
+          <param name="pDstVec">  im2 </param>
+          <param name="nAddVal"> -1 </param>
+          <param name="nHeight"> 32 128 1024 </param>
           <size> nHeight </size>
         </testperf>
     \endxmlonly
@@ -346,9 +346,9 @@ void nmppmMul_mv__AddC(v2nm32s* pSrcMtr, v2nm32s* pnSrcVec, int nAddVal, nm32s* 
     \par
     \xmlonly
       <testperf>
-        <param> pSrcMtr </param> <values> im0 im1 </values>
-        <param> pDstVec </param> <values> im0 im1 </values>
-        <param> nHeight </param> <values> 128 </values>
+        <param name="pSrcMtr"> im0 im1 </param>
+        <param name="pDstVec"> im0 im1 </param>
+        <param name="nHeight"> 128 </param>
       </testperf>
 
     \endxmlonly
@@ -380,23 +380,23 @@ void MTR_ProdUnitV_16s_16xH( v16nm8s* pSrcMtr, nm16s* pDstVec, int nHeight);
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr </param> <values> im0 im1 </values>
-             <param> pDstMtr </param> <values> im0 im1 </values>
-             <param> pSrcVecStr </param> <values> im2 im3 </values>
-             <param> pSrcVecCol </param> <values> im2 im3 </values>
-             <param> MulN </param> <values> 2 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 128 </values>
+             <param name="pSrcMtr"> im0 im1 </param>
+             <param name="pDstMtr"> im0 im1 </param>
+             <param name="pSrcVecStr"> im2 im3 </param>
+             <param name="pSrcVecCol"> im2 im3 </param>
+             <param name="MulN"> 2 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 128 </param>
              <size> nHeight*nWidth </size>
         </testperf>
         <testperf>
-             <param> pSrcMtr </param> <values> im0 </values>
-             <param> pDstMtr </param> <values> im1 </values>
-             <param> pSrcVecStr </param> <values> im2 </values>
-             <param> pSrcVecCol </param> <values> im3 </values>
-             <param> MulN </param> <values> 2 </values>
-             <param> nHeight </param> <values> 128 </values>
-             <param> nWidth </param> <values> 8 32 128 </values>
+             <param name="pSrcMtr"> im0 </param>
+             <param name="pDstMtr"> im1 </param>
+             <param name="pSrcVecStr"> im2 </param>
+             <param name="pSrcVecCol"> im3 </param>
+             <param name="MulN"> 2 </param>
+             <param name="nHeight"> 128 </param>
+             <param name="nWidth"> 8 32 128 </param>
              <size> nHeight*nWidth </size>
         </testperf>
     \endxmlonly

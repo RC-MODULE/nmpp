@@ -63,14 +63,14 @@ typedef int NmppRoundMode;
     \par
     \xmlonly
         <testperf>
-	        <param> pVec </param> <values> im0 im1 </values>
-	        <param> nVal </param> <values> 555 </values>
-	        <param> nSize  </param> <values> 2048 </values>
+	        <param name="pVec"> im0 im1 </param>
+	        <param name="nVal"> 555 </param>
+	        <param name="nSize"> 2048 </param>
         </testperf>
         <testperf>
-	        <param> pVec </param> <values> im0 </values>
-	        <param> nVal </param> <values> 555 </values>
-	        <param> nSize  </param> <values> 8 128 1024 2048 </values>
+	        <param name="pVec"> im0 </param>
+	        <param name="nVal"> 555 </param>
+	        <param name="nSize"> 8 128 1024 2048 </param>
         </testperf>
     \endxmlonly
     */
@@ -120,12 +120,12 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64
     \par
     \xmlonly
         <testperf>
-             <param> pDstVec </param> <values> im0 im1 </values>
-             <param> nSize </param> <values> 2048 </values>
+             <param name="pDstVec"> im0 im1 </param>
+             <param name="nSize"> 2048 </param>
         </testperf>
         <testperf>
-             <param> pDstVec </param> <values> im0 </values>
-             <param> nSize </param> <values> 8 128 1024 2048 </values>
+             <param name="pDstVec"> im0 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
         </testperf>
     \endxmlonly
     */
@@ -196,21 +196,21 @@ void nmppsRandUniform_32f_integer(nm32f *pDstVec,int nSize,int hi,int low);
     \par
     \xmlonly
         <testperf>
-          <param> nMin </param> <values> 0 128 		</values>
-          <param> nMax  </param> <values> 2048 </values>
-          <param> nDivisible </param> <values> 1 </values>
+          <param name="nMin"> 0 128 		</param>
+          <param name="nMax"> 2048 </param>
+          <param name="nDivisible"> 1 </param>
           <size> 1 </size>
         </testperf>
         <testperf>
-          <param> nMin </param> <values> 128 		</values>
-          <param> nMax  </param> <values> 1024 2048 </values>
-          <param> nDivisible </param> <values> 1 </values>
+          <param name="nMin"> 128 		</param>
+          <param name="nMax"> 1024 2048 </param>
+          <param name="nDivisible"> 1 </param>
           <size> 1 </size>
         </testperf>
         <testperf>
-          <param> nMin </param> <values> 128 		</values>
-          <param> nMax  </param> <values> 2048 </values>
-          <param> nDivisible </param> <values> 1 2 </values>
+          <param name="nMin"> 128 		</param>
+          <param name="nMax"> 2048 </param>
+          <param name="nDivisible"> 1 2 </param>
           <size> 1 </size>
         </testperf>
 
@@ -266,28 +266,28 @@ int nmppsRandUniform();
     \par
     \xmlonly
         <testperf>
-             <param> pVec </param> <values> im0 im1 </values>
-             <param> nOffset </param> <values> 10 </values>
-             <param> nSlope </param> <values> 2 </values>
-             <param> nSize </param> <values> 2048 </values>
+             <param name="pVec"> im0 im1 </param>
+             <param name="nOffset"> 10 </param>
+             <param name="nSlope"> 2 </param>
+             <param name="nSize"> 2048 </param>
         </testperf>
         <testperf>
-             <param> pVec </param> <values> im0 </values>
-             <param> nOffset </param> <values> -10 10 </values>
-             <param> nSlope </param> <values> 2 </values>
-             <param> nSize </param> <values> 2048 </values>
+             <param name="pVec"> im0 </param>
+             <param name="nOffset"> -10 10 </param>
+             <param name="nSlope"> 2 </param>
+             <param name="nSize"> 2048 </param>
         </testperf>
         <testperf>
-             <param> pVec </param> <values> im0 </values>
-             <param> nOffset </param> <values> 10 </values>
-             <param> nSlope </param> <values> -2 2 </values>
-             <param> nSize </param> <values> 2048 </values>
+             <param name="pVec"> im0 </param>
+             <param name="nOffset"> 10 </param>
+             <param name="nSlope"> -2 2 </param>
+             <param name="nSize"> 2048 </param>
         </testperf>
         <testperf>
-             <param> pVec </param> <values> im0 </values>
-             <param> nOffset </param> <values> 10 </values>
-             <param> nSlope </param> <values> 2 </values>
-             <param> nSize </param> <values> 8 128 1024 2048 </values>
+             <param name="pVec"> im0 </param>
+             <param name="nOffset"> 10 </param>
+             <param name="nSlope"> 2 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
         </testperf>
     \endxmlonly
     */
@@ -339,14 +339,14 @@ void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> im0 im1 </values>
-             <param> pDstVec </param> <values> im0 im1 </values>
-             <param> nSize </param> <values> 2048 </values>
+             <param name="pSrcVec"> im0 im1 </param>
+             <param name="pDstVec"> im0 im1 </param>
+             <param name="nSize"> 2048 </param>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> im0 </values>
-             <param> pDstVec </param> <values> im1 </values>
-             <param> nSize </param> <values> 8 128 1024 2048 </values>
+             <param name="pSrcVec"> im0 </param>
+             <param name="pDstVec"> im1 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
         </testperf>
     \endxmlonly
 
@@ -428,14 +428,14 @@ void nmppsConvert_64s16s(const nm64s* pSrcVec, nm16s* pDstVec, int nSize);
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> im1 im2 </values>
-             <param> pDstVec </param> <values> im1 im2 </values>
-             <param> nSize </param> <values> 2048 </values>
+             <param name="pSrcVec"> im1 im2 </param>
+             <param name="pDstVec"> im1 im2 </param>
+             <param name="nSize"> 2048 </param>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> im3 </values>
-             <param> pDstVec </param> <values> im4 </values>
-             <param> nSize </param> <values> 8 128 1024 2048 </values>
+             <param name="pSrcVec"> im3 </param>
+             <param name="pDstVec"> im4 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
         </testperf>
     \endxmlonly
     */
@@ -461,16 +461,16 @@ void nmppsConvert_64f32f(const nm64f* pSrcVec, nm32f* pDstVec, int nSize);
  *  \details nmppsConvert_32f32s_ceiling округляет все дробные числа из pSrcVec к меньшему по модулю (например, 1.5 будет округлено до 1, 1.7 до 1, а -1.1 до -1)
 \xmlonly
 	<testperf>
-		 <param> pSrcVec </param> <values> im1 im2 </values>
-		 <param> pDstVec </param> <values> im1 im2 </values>
-		 <param> scale </param> <values> 1 </values>
-		 <param> nSize </param> <values> 2048 </values>
+		 <param name="pSrcVec"> im1 im2 </param>
+		 <param name="pDstVec"> im1 im2 </param>
+		 <param name="scale"> 1 </param>
+		 <param name="nSize"> 2048 </param>
 	</testperf>
 	<testperf>
-		 <param> pSrcVec </param> <values> im1 </values>
-		 <param> pDstVec </param> <values> im2 </values>
-		 <param> scale </param> <values> 1 </values>
-		 <param> nSize </param> <values> 8 128 1024 2048 </values>
+		 <param name="pSrcVec"> im1 </param>
+		 <param name="pDstVec"> im2 </param>
+		 <param name="scale"> 1 </param>
+		 <param name="nSize"> 8 128 1024 2048 </param>
 	</testperf>
 \endxmlonly
 */
@@ -492,16 +492,16 @@ void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int scal
 
 	\xmlonly
 		<testperf>
-			 <param> pSrcVec1 </param> <values> im1 im2 </values>
-			 <param> pSrcVec2 </param> <values> im1 im2 </values>
-			 <param> pDstVec </param> <values> im3 </values>
-			 <param> nSize </param> <values> 2048 </values>
+			 <param name="pSrcVec1"> im1 im2 </param>
+			 <param name="pSrcVec2"> im1 im2 </param>
+			 <param name="pDstVec"> im3 </param>
+			 <param name="nSize"> 2048 </param>
 		</testperf>
 		<testperf>
-			<param> pSrcVec1 </param> <values> im1 im2 </values>
-			<param> pSrcVec2 </param> <values> im1 im2 </values>
-			<param> pDstVec </param> <values> im3 </values>
-			<param> nSize </param> <values> 8 128 1024 2048 </values>
+			<param name="pSrcVec1"> im1 im2 </param>
+			<param name="pSrcVec2"> im1 im2 </param>
+			<param name="pDstVec"> im3 </param>
+			<param name="nSize"> 8 128 1024 2048 </param>
 		</testperf>
 	\endxmlonly
  */
@@ -519,14 +519,14 @@ void nmppsMerge_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec
  *  \details Функция выполняется на RISC-процессоре
  	\xmlonly
 	 	<testperf>
-		  	<param> pSrcVec </param> <values> im0 im1 </values>
-		  	<param> pDstVec </param> <values> im2 </values>
-		  	<param> nSize </param> <values> 2048 </values>
+		  	<param name="pSrcVec"> im0 im1 </param>
+		  	<param name="pDstVec"> im2 </param>
+		  	<param name="nSize"> 2048 </param>
 	 	</testperf>
 	 	<testperf>
-		  	<param> pSrcVec </param> <values> im0 </values>
-		  	<param> pDstVec </param> <values> im1 </values>
-		  	<param> nSize </param> <values> 8 128 1024 2048  </values>
+		  	<param name="pSrcVec"> im0 </param>
+		  	<param name="pDstVec"> im1 </param>
+		  	<param name="nSize"> 8 128 1024 2048  </param>
 	 	</testperf>
 	\endxmlonly
  */
@@ -570,14 +570,14 @@ void nmppsConvertRisc_32u8u(const nm32u* pSrcVec, nm8u* pDstVec, int nSize);
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec </param> <values> im0 im1 </values>
-             <param> pDstVec </param> <values> im1 im1 </values>
-             <param> nSize </param> <values> 2048 </values>
+             <param name="pSrcVec"> im0 im1 </param>
+             <param name="pDstVec"> im1 im1 </param>
+             <param name="nSize"> 2048 </param>
         </testperf>
         <testperf>
-             <param> pSrcVec </param> <values> im0 </values>
-             <param> pDstVec </param> <values> im1 </values>
-             <param> nSize </param> <values> 8 128 1024 2048 </values>
+             <param name="pSrcVec"> im0 </param>
+             <param name="pDstVec"> im1 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
         </testperf>
     \endxmlonly
 */
@@ -645,22 +645,22 @@ __INLINE__ void nmppsCopy_64sc(const nm64sc *pSrcVec, nm64sc *pDstVec, int nSize
     \par
     \xmlonly
         <testperf>
-            <param> pSrcVec    </param> <values> im0 im1 </values>
-            <param> pDstVec    </param> <values> im0 im1 </values>
-            <param> nSrcOffset </param> <values> 3 </values>
-            <param> nSize </param> <values> 10240 </values>
+            <param name="pSrcVec"> im0 im1 </param>
+            <param name="pDstVec"> im0 im1 </param>
+            <param name="nSrcOffset"> 3 </param>
+            <param name="nSize"> 10240 </param>
         </testperf>
         <testperf>
-            <param> pSrcVec    </param> <values> im0 </values>
-            <param> pDstVec    </param> <values> im1 </values>
-            <param> nSrcOffset </param> <values> 0 3 7 </values>
-            <param> nSize </param> <values> 10240 </values>
+            <param name="pSrcVec"> im0 </param>
+            <param name="pDstVec"> im1 </param>
+            <param name="nSrcOffset"> 0 3 7 </param>
+            <param name="nSize"> 10240 </param>
         </testperf>
         <testperf>
-            <param> pSrcVec    </param> <values> im0 </values>
-            <param> pDstVec    </param> <values> im1 </values>
-            <param> nSrcOffset </param> <values> 3 </values>
-            <param> nSize </param> <values> 8 128 1024 10240 </values>
+            <param name="pSrcVec"> im0 </param>
+            <param name="pDstVec"> im1 </param>
+            <param name="nSrcOffset"> 3 </param>
+            <param name="nSize"> 8 128 1024 10240 </param>
         </testperf>
     \endxmlonly
 
@@ -698,14 +698,14 @@ void nmppsCopyua_8s(const nm8s* pSrcVec, int nSrcOffset, nm8s* pDstVec,  int nSi
     \par
     \xmlonly
         <testperf>
-             <param> pSrcVec1 </param> <values> im0 im1 </values>
-             <param> pSrcVec2 </param> <values> im0 im1 </values>
-             <param> nSize </param> <values> 2048 </values>
+             <param name="pSrcVec1"> im0 im1 </param>
+             <param name="pSrcVec2"> im0 im1 </param>
+             <param name="nSize"> 2048 </param>
         </testperf>
         <testperf>
-             <param> pSrcVec1 </param> <values> im0 </values>
-             <param> pSrcVec2 </param> <values> im1 </values>
-             <param> nSize </param> <values> 8 128 1024 2048 </values>
+             <param name="pSrcVec1"> im0 </param>
+             <param name="pSrcVec2"> im1 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
         </testperf>
     \endxmlonly
 

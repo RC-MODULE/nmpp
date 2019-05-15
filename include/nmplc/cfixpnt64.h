@@ -34,7 +34,7 @@ extern "C" {
 	\par
     \xmlonly
         <testperf> 
-             <param> x </param> <values> 1 1000 10000000 </values>
+             <param name="x"> 1 1000 10000000 </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -68,8 +68,8 @@ extern "C" {
 	\par
     \xmlonly
         <testperf> 
-             <param> arg </param> <values> 0.5 10 1000 </values>
-             <param> fixpoint </param> <values> 1 32 63 </values>
+             <param name="arg"> 0.5 10 1000 </param>
+             <param name="fixpoint"> 1 32 63 </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -107,8 +107,8 @@ long nmppcDoubleToFix64(double arg, int fixpoint);
 	\par
     \xmlonly
         <testperf> 
-             <param> arg </param> <values> 1 10 1000 </values>
-             <param> fixpoint </param> <values> 1 32 63 </values>
+             <param name="arg"> 1 10 1000 </param>
+             <param name="fixpoint"> 1 32 63 </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -148,10 +148,10 @@ double nmppcFix64ToDouble(long arg , int fixpoint );
 	\par
     \xmlonly
         <testperf> 
-             <param> nDividend </param> <values> im0 im1 </values>
-			 <param> nDivisor  </param> <values> im0 im1 </values>
-             <param> nFixpoint </param> <values> 16 32 48 </values>
-			 <param> nQuotient </param> <values> im2 </values>
+             <param name="nDividend"> im0 im1 </param>
+			 <param name="nDivisor"> im0 im1 </param>
+             <param name="nFixpoint"> 16 32 48 </param>
+			 <param name="nQuotient"> im2 </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -187,9 +187,9 @@ void nmppcFixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotie
 	\par
     \xmlonly
         <testperf> 
-             <param> nArg </param> <values> 0x80000000  </values>
-			 <param> pnSin </param> <values>  im0 </values>
-			 <param> pnCos </param> <values>  im1 </values>
+             <param name="nArg"> 0x80000000  </param>
+			 <param name="pnSin">  im0 </param>
+			 <param name="pnCos">  im1 </param>
 			   <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -218,7 +218,7 @@ void nmppcFixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotie
 	\par
     \xmlonly
         <testperf> 
-			<param> nArg </param> <values> 0x80000000 </values>
+			<param name="nArg"> 0x80000000 </param>
 			<size> 1 </size>
         </testperf>
     \endxmlonly
@@ -248,7 +248,7 @@ void nmppcFixDiv64(long* nDividend, long* nDivisor, int nFixpoint, long* nQuotie
 	\par
     \xmlonly
         <testperf> 
-             <param> nArg </param> <values> 0x1000000000000000 </values>
+             <param name="nArg"> 0x1000000000000000 </param>
 			 <size> 1 </size>
         </testperf>
     \endxmlonly

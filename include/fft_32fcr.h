@@ -63,12 +63,12 @@ void nmppsDFT8Fwd_32fcr(const nm32fcr *x, nm32fcr *X, NmppsFFTSpec_32fcr *spec);
 	\param [in] spec структра, содержащая необходимые коэффициенты, для вычисления прямого БПФ определенного размера
 	\xmlonly
  <testperf>
-	  <param> pSrcVec1 </param> <values> L G </values>
-	  <param> nMulVal </param> <values> m </values>
-	  <param> pSrcVec2 </param> <values> L G </values>
-	  <param> nAddVal </param> <values>  n </values>
-	  <param> pDstVec </param> <values> L G </values>
-	  <param> nSize </param> <values> 10240 </values>
+	  <param name="pSrcVec1"> L G </param>
+	  <param name="nMulVal"> m </param>
+	  <param name="pSrcVec2"> L G </param>
+	  <param name="nAddVal">  n </param>
+	  <param name="pDstVec"> L G </param>
+	  <param name="nSize"> 10240 </param>
  </testperf>
  \endxmlonly
 

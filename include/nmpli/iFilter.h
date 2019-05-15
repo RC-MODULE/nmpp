@@ -243,36 +243,36 @@ void nmppiFilter_32s32s( nm32s * pSrcImg, nm32s* pDstImg, int nWidth, int nHeigh
     \par
     \xmlonly
        <testperf> 
-			<param> pSrcImg </param> <values> L G </values>
-			<param> pDstImg </param> <values> L G </values>
-			<param> pKernel </param> <values> L1 G1 </values>
-			<param> pWeights </param> <values> L </values>
-			<param> nKerWidth </param> <values> 5 </values>
-			<param> nKerHeight </param> <values> 5 </values>
-			<param> nImgWidth </param> <values> 128 </values>
-			<param> nImgHeight </param> <values> 128 </values>
+			<param name="pSrcImg"> L G </param>
+			<param name="pDstImg"> L G </param>
+			<param name="pKernel"> L1 G1 </param>
+			<param name="pWeights"> L </param>
+			<param name="nKerWidth"> 5 </param>
+			<param name="nKerHeight"> 5 </param>
+			<param name="nImgWidth"> 128 </param>
+			<param name="nImgHeight"> 128 </param>
 			<size> nImgWidth*nImgHeight </size>
         </testperf>
 		<testperf> 
-			<param> pSrcImg </param> <values> G  </values>
-			<param> pDstImg </param> <values> L </values>
-			<param> pKernel </param> <values>  L1 </values>
-			<param> pWeights </param> <values> L </values>
-			<param> nKerWidth </param> <values> 3 5 7 9 </values>
-			<param> nKerHeight </param> <values> 1 3 5 7 9 </values>
-			<param> nImgWidth </param> <values> 128 </values>
-			<param> nImgHeight </param> <values> 128 </values>
+			<param name="pSrcImg"> G  </param>
+			<param name="pDstImg"> L </param>
+			<param name="pKernel">  L1 </param>
+			<param name="pWeights"> L </param>
+			<param name="nKerWidth"> 3 5 7 9 </param>
+			<param name="nKerHeight"> 1 3 5 7 9 </param>
+			<param name="nImgWidth"> 128 </param>
+			<param name="nImgHeight"> 128 </param>
 			<size> nImgWidth*nImgHeight </size>
         </testperf>
 		<testperf> 
-			<param> pSrcImg </param> <values> G  </values>
-			<param> pDstImg </param> <values> L </values>
-			<param> pKernel </param> <values> L1 </values>
-			<param> pWeights </param> <values> L </values>
-			<param> nKerWidth </param> <values> 5 </values>
-			<param> nKerHeight </param> <values> 5 </values>
-			<param> nImgWidth </param> <values> 176 352 1024 </values>
-			<param> nImgHeight </param> <values> 144 288 </values>
+			<param name="pSrcImg"> G  </param>
+			<param name="pDstImg"> L </param>
+			<param name="pKernel"> L1 </param>
+			<param name="pWeights"> L </param>
+			<param name="nKerWidth"> 5 </param>
+			<param name="nKerHeight"> 5 </param>
+			<param name="nImgWidth"> 176 352 1024 </param>
+			<param name="nImgHeight"> 144 288 </param>
 			<size> nImgWidth*nImgHeight </size>
         </testperf>
     \endxmlonly

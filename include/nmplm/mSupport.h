@@ -168,10 +168,10 @@ __INLINE__ void MTR_Free(void* ptr) {nmppsFree(ptr);}
     \par
     \xmlonly
         <testperf>
-             <param> pMTR   </param> <values> im0 </values>
-             <param> nWidth </param> <values> 4 </values>
-             <param> nY     </param> <values> 2 </values>
-             <param> nX     </param> <values> 2 </values>
+             <param name="pMTR"> im0 </param>
+             <param name="nWidth"> 4 </param>
+             <param name="nY"> 2 </param>
+             <param name="nX"> 2 </param>
              <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -232,11 +232,11 @@ __INLINE__ nm64u* MTR_Addr_64u(nm64u* pMTR, int nWidth, int nY, int nX) {	return
     \par
     \xmlonly
         <testperf>
-             <param> pMtr	</param> <values> im0 </values>
-			 <param> nWidth	</param> <values> 18 </values>
-			 <param> nY		</param> <values> 2  </values>
-			 <param> nX		</param> <values> 2  </values>
-             <param> nVal    </param> <values> 3 </values>
+             <param name="pMtr"> im0 </param>
+			 <param name="nWidth"> 18 </param>
+			 <param name="nY"> 2  </param>
+			 <param name="nX"> 2  </param>
+             <param name="nVal"> 3 </param>
              <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -297,11 +297,11 @@ __INLINE__ void MTR_SetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
     \par
     \xmlonly
         <testperf>
-             <param> pMtr	</param> <values> im0 </values>
-			 <param> nWidth	</param> <values> 18 </values>
-			 <param> nY		</param> <values> 2  </values>
-			 <param> nX		</param> <values> 2  </values>
-             <param> nVal   </param> <values> 5 </values>
+             <param name="pMtr"> im0 </param>
+			 <param name="nWidth"> 18 </param>
+			 <param name="nY"> 2  </param>
+			 <param name="nX"> 2  </param>
+             <param name="nVal"> 5 </param>
              <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -360,19 +360,19 @@ __INLINE__ void MTR_GetVal_64u(nm64u* pMtr,  int nWidth,  int nY, int nX, uint64
     \par
     \xmlonly
         <testperf>
-             <param> pSrcMtr </param> <values> im0 im1 </values>
-             <param> pDstVec </param> <values> im0 im1   </values>
-             <param> nCol </param> <values> 4 </values>
-             <param> nHeight </param> <values> 64 </values>
-             <param> nWidth </param> <values> 128 </values>
+             <param name="pSrcMtr"> im0 im1 </param>
+             <param name="pDstVec"> im0 im1   </param>
+             <param name="nCol"> 4 </param>
+             <param name="nHeight"> 64 </param>
+             <param name="nWidth"> 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
         <testperf>
-             <param> pSrcMtr </param> <values> im0 </values>
-             <param> pDstVec </param> <values> im1 </values>
-             <param> nCol </param> <values> 4 </values>
-             <param> nHeight </param> <values> 64 </values>
-             <param> nWidth </param> <values> 8 32 128 </values>
+             <param name="pSrcMtr"> im0 </param>
+             <param name="pDstVec"> im1 </param>
+             <param name="nCol"> 4 </param>
+             <param name="nHeight"> 64 </param>
+             <param name="nWidth"> 8 32 128 </param>
              <size> nWidth*nHeight </size>
         </testperf>
     \endxmlonly

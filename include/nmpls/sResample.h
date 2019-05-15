@@ -248,16 +248,16 @@ void SIG_Decimate16_64s(nm64s* pSrcVec,nm64s* pDstVec,int nDstSize);
     \par
     \xmlonly
        <testperf> 
-			<param> pSrcVec </param> <values> im0 im1 </values>
-			<param> pDstVec </param> <values> im2 im1 </values>
-			<param> pKernel </param> <values> im2 im3 </values>
-			<param> nSrcVecSize    </param> <values> 1024 </values>
+			<param name="pSrcVec"> im0 im1 </param>
+			<param name="pDstVec"> im2 im1 </param>
+			<param name="pKernel"> im2 im3 </param>
+			<param name="nSrcVecSize"> 1024 </param>
         </testperf>
 		<testperf> 
-			<param> pSrcVec </param> <values> im0  </values>
-			<param> pDstVec </param> <values> im1 </values>
-			<param> pKernel </param> <values> im2 </values>
-			<param> nSrcVecSize    </param> <values> 128 1024 4096 </values>
+			<param name="pSrcVec"> im0  </param>
+			<param name="pDstVec"> im1 </param>
+			<param name="pKernel"> im2 </param>
+			<param name="nSrcVecSize"> 128 1024 4096 </param>
         </testperf>
     \endxmlonly
     */

@@ -63,8 +63,8 @@
     \par
     \xmlonly
         <testperf>
-             <param> pVec   </param> <values> im1 im2 </values>
-             <param> nIndex </param> <values> 0 </values>
+             <param name="pVec"> im1 im2 </param>
+             <param name="nIndex"> 0 </param>
              <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -157,9 +157,9 @@ __INLINE__ nm64u* nmppsAddr_64u(nm64u* pVec, int nIndex) {return (nm64u*)pVec+nI
     \par
     \xmlonly
         <testperf>
-             <param> pVec </param> <values> im0 im1  </values>
-             <param> nVal    </param> <values> 3 </values>
-             <param> nIndex  </param> <values> 0 </values>
+             <param name="pVec"> im0 im1  </param>
+             <param name="nVal"> 3 </param>
+             <param name="nIndex"> 0 </param>
              <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -209,9 +209,9 @@ __INLINE__ void nmppsPut_64u(nm64u* pVec, int nIndex, uint64b nVal)	{pVec[nIndex
     \par
     \xmlonly
         <testperf>
-             <param> pVec		</param> <values> im0 im1	</values>
-             <param> nVal		</param> <values> im2	</values>
-             <param> nIndex		</param> <values> 0		</values>
+             <param name="pVec"> im0 im1	</param>
+             <param name="nVal"> im2	</param>
+             <param name="nIndex"> 0		</param>
              <size> 1 </size>
         </testperf>
     \endxmlonly
@@ -260,8 +260,8 @@ __INLINE__ void	nmppsGetVal_64u(const nm64u* pVec, int nIndex, uint64b*  nVal) {
     \par
     \xmlonly
         <testperf>
-             <param> pVec </param> <values> im0 im1  </values>
-             <param> nIndex  </param> <values> 0 </values>
+             <param name="pVec"> im0 im1  </param>
+             <param name="nIndex"> 0 </param>
              <size> 1 </size>
         </testperf>
     \endxmlonly

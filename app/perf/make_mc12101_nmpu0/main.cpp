@@ -1,6 +1,7 @@
 #include "nmpp.h"
 #include "time.h"
 #include "stdio.h"
+#include "string.h"
 #include "stdlib.h"
 
 #pragma data_section ".data_imu1"

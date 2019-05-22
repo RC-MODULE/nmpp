@@ -71,12 +71,12 @@
              <size> nWidth1*nHeight1*nWidth2 </size>
         </testperf>
         <testperf>
-             <param name="pSrcMtr1"> im0  </param>
-             <param name="pSrcMtr2"> im1  </param>
-             <param name="pDstMtr">  im2 </param>
-             <param name="nHeight1"> 64 </param>
-             <param name="nWidth2"> 64 </param>
-             <param name="nWidth1"> 8 32 128 </param>
+             <param name="pSrcMtr1"> im1  </param>
+             <param name="pSrcMtr2"> im2  </param>
+             <param name="pDstMtr">  im3 </param>
+             <param name="nWidth1"> 256 </param>
+             <param name="nHeight1"> 128 256 </param>
+             <param name="nWidth2"> 2 4 8 </param>
              <size> nWidth1*nHeight1*nWidth2 </size>
         </testperf>
     \endxmlonly

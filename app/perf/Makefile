@@ -5,6 +5,9 @@ all:
 	testperf config -i ../../include -b make_mc12101_nmpu1 --point fixed
 	testperf run
 
+config_mc5103:
+	testperf config -i ../../include -b make_mc5103 --point fixed
+
 config0:
 	testperf config -i ../../include -b make_mc12101_nmpu0
 

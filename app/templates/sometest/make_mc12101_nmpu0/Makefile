@@ -18,7 +18,7 @@ endif
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MC12101)/include" -I"$(NEURO)/include" -I"$(HAL)/include"
 LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12101)/lib" -L$(HAL)/lib -L"$(NEURO)/lib"
-LIBS     = mc12101lib_nm.lib libc4f.lib nmpp-nmc4f.lib hal-mc12101.lib
+LIBS     = mc12101lib_nm.lib libc4f.lib nmpp-nmc4f.lib hal-mc12101.lib libint6407.lib
 TARGET   = main.abs
 CFG      = mc12101brd-nmpu0.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))
@@ -26,7 +26,7 @@ SRC_ASM  = $(wildcard $(addsuffix /*.asm,..))
 
 
 $(TARGET): $(SRC_CPP) $(SRC_ASM) $(CFG) Makefile $(NMPP)/lib/nmpp-nmc4f.lib
-	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) clock.asm -nmc4 -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=16384 -heap1=16384 -heap2=16384 -heap3=16384
+	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) -nmc4 -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) -heap=16384 -heap1=16384 -heap2=16384 -heap3=16384
 #                                                                                         [L00]:64kB   [L01]:64kB  [G00]:64kB   [G01]:64kB
 
 

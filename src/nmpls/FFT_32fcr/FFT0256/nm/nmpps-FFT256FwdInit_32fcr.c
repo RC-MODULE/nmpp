@@ -13,12 +13,12 @@
 #include <math.h>
 #include "fft_32fcr.h"
 
-int nmppsFFT256FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
+int nmppsFFT256FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr** addr)
 {
     int i;
     int offset = 0;
     float alpha;
-    NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
+    NmppsFFTSpec_32fcr* spec_32fcr = (NmppsFFTSpec_32fcr*) malloc(sizeof(NmppsFFTSpec_32fcr));
     if(!spec_32fcr) {
         return 0x256F;
     }

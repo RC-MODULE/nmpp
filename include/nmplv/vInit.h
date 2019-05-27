@@ -105,12 +105,6 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64
         \ru Размер вектора.
         \en Vector size.
 		\~
-    \param nRandomize
-        \ru Произвольное число для инициализации
-                            генератора случайных чисел.
-        \en Arbitrary number for initialization
-                            of a random-number generator.
-		\~
     \retval pDstVec
         \ru Результирующий вектор.
         \en Result vec.
@@ -120,11 +114,11 @@ __INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64
     \par
     \xmlonly
         <testperf>
-             <param name="pDstVec"> im0 im1 </param>
+             <param name="pDstVec"> im1 im2 </param>
              <param name="nSize"> 2048 </param>
         </testperf>
         <testperf>
-             <param name="pDstVec"> im0 </param>
+             <param name="pDstVec"> im2 </param>
              <param name="nSize"> 8 128 1024 2048 </param>
         </testperf>
     \endxmlonly
@@ -145,11 +139,6 @@ __INLINE__ void nmppsRandUniform_16u(nm16u* pDstVec, int nSize) {nmppsRandUnifor
 __INLINE__ void nmppsRandUniform_32u(nm32u* pDstVec, int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize>>1);}
 __INLINE__ void nmppsRandUniform_64u(nm64u* pDstVec, int nSize) {nmppsRandUniform_64s((nm64s*)pDstVec,  nSize   );}
 
-void nmppsRandUniform_64f(nm64f* pDstVec, int nSize, double low, double hi);
-void nmppsRand_32f(nm32f* pDstVec, int nSize,float low,float hi);
-
-void nmppsRandUniform_32f_integer(nm32f *pDstVec,int nSize,int hi,int low);
-
 //__INLINE__ void nmppsRandUniform_64s(nm64s* pDstVec, int nSize, unsigned nRandomize = 1) {nmppsRandUniform_32u((nm32u*)pDstVec,  nSize<<1, nRandomize);}
 
 /**
@@ -162,6 +151,49 @@ void nmppsRandUniform_32f_integer(nm32f *pDstVec,int nSize,int hi,int low);
     //! \}
 
 
+	//*****************************************************************************
+
+    /**
+    \defgroup nmppsRandUniform_f nmppsRandUniform
+    \ingroup vInit_f
+    \brief
+        \ru Инициализация массива случайными числами.
+        \en Initialization of an array with random numbers.
+		\~
+    \param nSize
+        \ru Размер вектора.
+        \en Vector size.
+		\~
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en Result vec.
+		\~
+    \return \e void
+
+    \par
+    \xmlonly
+        <testperf>
+             <param name="pDstVec"> im1 im2 </param>
+             <param name="nSize"> 2048 </param>
+			 <param name="low"> 2048 </param>
+			 <param name="hi"> 2048 </param>
+        </testperf>
+        <testperf>
+             <param name="pDstVec"> im2 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
+			 <param name="low"> 2048 </param>
+			 <param name="hi"> 2048 </param>
+        </testperf>
+    \endxmlonly
+    */
+    //! \{
+void nmppsRandUniform_64f(nm64f* pDstVec, int nSize, double low, double hi);
+void nmppsRand_32f(nm32f* pDstVec, int nSize,float low,float hi);
+
+void nmppsRandUniform_32f_integer(nm32f *pDstVec,int nSize,int hi,int low);
+
+    //! \}
+	
 
 //*****************************************************************************
 

@@ -1,8 +1,19 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-FFT64InvInit_32fcr.c                          */
+//*   Contents:         Routine for the struct initialization               */
+//*                     of the W-coefficients for FFT64Inv                  */
+//***************************************************************************/
+
 #include <malloc32.h>
 #include <math.h>
 #include "fft_32fcr.h"
 
-int nmppsFFT64InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
+int nmppsFFT64InvInitAlloc_32fcr(NmppsFFTSpec_32fcr** addr)
 {
 	int i, j, k;
 	int gr1;
@@ -47,7 +58,7 @@ int nmppsFFT64InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
 
     spec_32fcr->Buffers[3] = spec_32fcr->Buffs[3]; // buff_fftxW
 
-	*iaddr = spec_32fcr;
+	*addr = spec_32fcr;
 	k = 0;
     for(i = 0; i <  8; i++) {
         for(j = 0; j < 64; j = j + 8) {

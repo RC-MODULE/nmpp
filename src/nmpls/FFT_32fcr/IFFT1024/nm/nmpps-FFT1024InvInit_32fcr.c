@@ -4,8 +4,8 @@
 //*                                                                         */
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
-//*   File:             nmpps-FFT1024FwdInit_32fcr.c                         */
-//*   Contents:         Routine for the stuct initializing                  */
+//*   File:             nmpps-FFT1024InvInit_32fcr.c                        */
+//*   Contents:         Routine for the struct initializing                  */
 //*                     of the W-coefficient for FFT1024Inv                 */
 //***************************************************************************/
 
@@ -13,7 +13,7 @@
 #include <math.h>
 #include "fft_32fcr.h"
 
-int nmppsFFT1024InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
+int nmppsFFT1024InvInitAlloc_32fcr(NmppsFFTSpec_32fcr** addr)
 {
 int i;
     int step = 0;
@@ -59,7 +59,7 @@ int i;
     spec_32fcr->Buffers[9] = spec_32fcr->Buffs[3] + 6;      // W7_16
     spec_32fcr->Buffers[10] = spec_32fcr->Buffs[3] + 7;     // buff_fftxW
 
-    *iaddr = spec_32fcr;
+    *addr = spec_32fcr;
 
 /**********************************Fields Fuliling**********************************/
     spec_32fcr->Buffers[0]->im = 0;

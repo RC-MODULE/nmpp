@@ -1,7 +1,18 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-FFT2048Inv_32fcr.c                            */
+//*   Contents:         Routine for inverse FFT 2048                        */
+//*                     of complex array with 32 bit elements				*/
+//***************************************************************************/
+
 #include "fft_32fcr.h"
 #include <malloc.h>
 
-void nmppsFFT2048Inv_32fcr(const nm32fcr *ix, nm32fcr *iX, NmppsFFTSpec_32fcr *ispec)
+void nmppsFFT2048Inv_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec, NmppsFFTSpec_32fcr* spec)
 {
-    nmppsFFT2048Fwd_32fcr(ix, iX, ispec);
+    nmppsFFT2048Fwd_32fcr(pSrcVec, pDstVec, spec);
 }

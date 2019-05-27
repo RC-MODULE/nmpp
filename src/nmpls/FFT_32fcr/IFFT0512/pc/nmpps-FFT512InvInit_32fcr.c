@@ -1,8 +1,19 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-FFT512InvInit_32fcr.c                         */
+//*   Contents:         Routine for the struct initialization               */
+//*                     of the W-coefficients for FFT512Inv                 */
+//***************************************************************************/
+
 #include "fft_32fcr.h"
 #include <malloc.h>
 #include <math.h>
 
-int nmppsFFT512InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
+int nmppsFFT512InvInitAlloc_32fcr(NmppsFFTSpec_32fcr** addr)
 {
     int i, j, k;
     int gr1;
@@ -36,7 +47,7 @@ int nmppsFFT512InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
     spec_32fcr->Buffers[6] = (nm32fcr *) malloc(256 * sizeof(nm32fcr)); // W256
     if (!spec_32fcr->Buffers[6])
         return 0x512B6;
-    *iaddr = spec_32fcr;
+    *addr = spec_32fcr;
     k = 0;
     for(i = 0; i <  8; i++) {
         for(j = 0; j < 64; j = j + 8) {

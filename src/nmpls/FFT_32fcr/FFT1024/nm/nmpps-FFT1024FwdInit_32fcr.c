@@ -4,7 +4,7 @@
 //*                                                                         */
 //*   Software design:  A.Brodyazhenko                                      */
 //*                                                                         */
-//*   File:             nmpps-FFT1024FwdInit_32fc.c                         */
+//*   File:             nmpps-FFT1024FwdInit_32fcr.c                        */
 //*   Contents:         Routine for the struct initialization               */
 //*                     of the W-coefficient for FFT1024Fwd                 */
 //***************************************************************************/
@@ -13,12 +13,12 @@
 #include <math.h>
 #include "fft_32fcr.h"
 
-int nmppsFFT1024FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
+int nmppsFFT1024FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr** addr)
 {
     int i;
     int step = 0;
     float alpha;
-    NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
+    NmppsFFTSpec_32fcr* spec_32fcr = (NmppsFFTSpec_32fcr*) malloc(sizeof(NmppsFFTSpec_32fcr));
     if(!spec_32fcr) {
         return 0x1024F;
     }

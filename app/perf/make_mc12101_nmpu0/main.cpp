@@ -4,6 +4,8 @@
 #include "string.h"
 #include "stdlib.h"
 
+#pragma data_section ".data_imu0"
+    long long im0[2048];
 #pragma data_section ".data_imu1"
     long long im1[2048];
 #pragma data_section ".data_imu2"
@@ -14,6 +16,10 @@
     long long im4[2048];
 #pragma data_section ".data_imu5"
     long long im5[2048];
+//#pragma data_section ".data_imu6"
+//    long long im6[2048];
+//#pragma data_section ".data_imu7"
+//    long long im7[2048];
 
 #pragma data_section ".data_emi"
     long long emi[4096];

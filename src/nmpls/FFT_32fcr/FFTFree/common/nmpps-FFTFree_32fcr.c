@@ -1,7 +1,16 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-FFTFree_32fcr.c                               */
+//***************************************************************************/
+
 #include <malloc.h>
 #include "fft_32fcr.h"
 
-int nmppsFFTFree_32fcr(NmppsFFTSpec_32fcr *spec)
+int nmppsFFTFree_32fcr(NmppsFFTSpec_32fcr* spec)
 {
 	int i;
 	if(spec) {

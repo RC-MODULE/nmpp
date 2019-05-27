@@ -2,7 +2,7 @@
 #include <malloc.h>
 #include <math.h>
 
-int nmppsFFT32FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr32)
+int nmppsFFT32FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr** addr)
 {
     int i, j, k;
     int gr1;
@@ -25,7 +25,7 @@ int nmppsFFT32FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr32)
     if (!spec_32fcr->Buffers[2])
         return 0x32F2;
 	k = 0;
-    *addr32 = spec_32fcr;
+    *addr = spec_32fcr;
     for(i = 0; i <  8; i++) {
         for(j = 0; j < 64; j = j + 8) {
             alpha = (2 * pi * (float)i * (float)k) / 8.0;

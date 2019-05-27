@@ -2,13 +2,13 @@
 #include <malloc.h>
 #include <math.h>
 
-int nmppsFFT512FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
+int nmppsFFT512FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr** addr)
 {
     int i, j, k;
     int gr1;
     const float pi = 3.141592653;
     float alpha;
-    NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
+    NmppsFFTSpec_32fcr* spec_32fcr = (NmppsFFTSpec_32fcr*) malloc(sizeof(NmppsFFTSpec_32fcr));
     if(!spec_32fcr) {
         return 0x512F;
     }

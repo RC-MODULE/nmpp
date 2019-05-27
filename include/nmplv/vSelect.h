@@ -56,8 +56,8 @@
 			<param name="nMaxValue"> im1 </param>
 			<param name="nSize"> 2048 </param>
 			<init>
-					nmppsSet(pSrcVec, 0, nSize);
-					nmppsPut(pSrcVec, nSize-1, 1);
+					nmppsSet($pSrcVec, 0, nSize);
+					nmppsPut($pSrcVec, nSize-1, 1);
 			</init>
         </testperf>
         <testperf>
@@ -65,8 +65,8 @@
 			<param name="nMaxValue"> im1 </param>
 			<param name="nSize"> 8 128 1024 2048 </param>
 			<init>
-					nmppsSet(pSrcVec, 0, nSize);
-					nmppsPut(pSrcVec, nSize-1, 1);
+					nmppsSet($pSrcVec, 0, nSize);
+					nmppsPut($pSrcVec, nSize-1, 1);
 			</init>
         </testperf>
     \endxmlonly
@@ -162,8 +162,8 @@ int nmppsMax_32sm(const nm32s* srcVec, int size, int32b* maxValue, nm64s* tmp);
 			<param name="nMinValue"> im1	</param>
 			<param name="nSize"> 2048 </param>
 			<init>
-					nmppsSet(pSrcVec, 0, nSize);
-					nmppsPut(pSrcVec, nSize-1, -1);
+					nmppsSet($pSrcVec, 0, nSize);
+					nmppsPut($pSrcVec, nSize-1, -1);
 			</init>
         </testperf>
         <testperf>
@@ -171,8 +171,8 @@ int nmppsMax_32sm(const nm32s* srcVec, int size, int32b* maxValue, nm64s* tmp);
 			<param name="nMinValue"> im2	</param>
 			<param name="nSize"> 8 128 1024 2048 </param>
 			<init>
-					nmppsSet(pSrcVec, 0, nSize);
-					nmppsPut(pSrcVec, nSize-1, -1);
+					nmppsSet($pSrcVec, 0, nSize);
+					nmppsPut($pSrcVec, nSize-1, -1);
 			</init>
         </testperf>
     \endxmlonly
@@ -303,8 +303,8 @@ int nmppsMin_32sm(const nm32s* srcVec, int size, int32b* minValue, nm64s* tmp);
 			<param name="nSearchDir"> 1 -1 </param>
 			<param name="nSize"> 64 1024 2048 </param>
 			<init>
-					nmppsSet(pSrcVec, 0, nSize);
-					nmppsPut(pSrcVec, nSize-1, 1);
+					nmppsSet($pSrcVec, 0, nSize);
+					nmppsPut($pSrcVec, nSize-1, 1);
 			</init>
 		</testperf>
     \endxmlonly
@@ -391,8 +391,8 @@ void nmppsMaxIndx_32s(nm32s31b *pSrcVec, int nSize, int* nIndex, int32b *nMaxVal
 			<param name="nSearchDir"> 1 -1 </param>
 			<param name="nSize"> 64 1024 2048 </param>
 			<init>
-					nmppsSet(pSrcVec,0,nSize);
-					nmppsPut(pSrcVec,nSize-1,-1);
+					nmppsSet($pSrcVec,0,nSize);
+					nmppsPut($pSrcVec,nSize-1,-1);
 			</init>
 		</testperf>
 	\endxmlonly
@@ -488,7 +488,7 @@ int nmppsMinIndxV1024_32s(int* pSrcVec,int nStride,int* nPos);
 		<testperf>
 			 <param name="pSrcVec"> im0 im1 </param>
 			 <param name="nSize"> 8 64 512 </param>
-			 <init>  nmppsSet(pSrcVec, 1, nSize); </init>
+			 <init>  nmppsSet_32s(pSrcVec, 1, nSize); </init>
 		</testperf>
 	\endxmlonly
 	*/
@@ -529,7 +529,7 @@ int nmppsFirstZeroIndx_32s(int* pSrcVec, int nSize);
 		<testperf>
 			 <param name="pSrcVec"> im0 im1 </param>
 			 <param name="nSize"> 8 64 512 </param>
-			 <init> nmppsSet(pSrcVec, 0, nSize); </init>
+			 <init> nmppsSet_32s(pSrcVec, 0, nSize); </init>
 		</testperf>
 	\endxmlonly
 	*/

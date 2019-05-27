@@ -1,15 +1,26 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-FFT32InvInit_32fcr.c                          */
+//*   Contents:         Routine for the struct initialization               */
+//*                     of the W-coefficients for FFT32Inv                  */
+//***************************************************************************/
+
 #include <malloc32.h>
 #include <math.h>
 #include "fft_32fcr.h"
 
-int nmppsFFT32InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
+int nmppsFFT32InvInitAlloc_32fcr(NmppsFFTSpec_32fcr** addr)
 {
     int i, j, k;
     int gr1;
     const float pi = 3.1415926535;
     float alpha;
-    nm32fcr *SinCos = (nm32fcr *) malloc0(64 * sizeof(nm32fcr));
-    NmppsFFTSpec_32fcr *spec_32fcr = (NmppsFFTSpec_32fcr *) malloc(sizeof(NmppsFFTSpec_32fcr));
+    nm32fcr* SinCos = (nm32fcr*) malloc0(64 * sizeof(nm32fcr));
+    NmppsFFTSpec_32fcr* spec_32fcr = (NmppsFFTSpec_32fcr*) malloc(sizeof(NmppsFFTSpec_32fcr));
     if(!spec_32fcr) {
         return 0x32B;
     }
@@ -38,7 +49,7 @@ int nmppsFFT32InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
         return 0x32B3;
 
     spec_32fcr->Buffers[3] = spec_32fcr->Buffs[3];
-    *iaddr = spec_32fcr;
+    *addr = spec_32fcr;
     k = 0;
     for(i = 0; i <  8; i++) {
         for(j = 0; j < 64; j = j + 8) {

@@ -1468,14 +1468,14 @@ void nmppsMul_Mul_Sub_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, const nm
 		 <param name="pSrcVec1"> im1 im2 </param>
 		 <param name="pSrcVec2"> im2 </param>
 		 <param name="pDstVec"> im2 im3 </param>
-		 <param name="С"> 5 </param>
+		 <param name="C"> 5 </param>
 		 <param name="nSize"> 2048 </param>
 	</testperf>
 	<testperf>
 		<param name="pSrcVec1"> im1 </param>
 		<param name="pSrcVec2"> im2 </param>
 		<param name="pDstVec"> im3 </param>
-		<param name="С"> 5 </param>
+		<param name="C"> 5 </param>
 		<param name="nSize"> 8 128 1024 2048 </param>
 	</testperf>
 \endxmlonly

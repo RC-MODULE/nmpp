@@ -2,7 +2,7 @@
 #include <malloc.h>
 #include <math.h>
 
-int nmppsFFT128FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr128)
+int nmppsFFT128FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr** addr)
 {
     int i, j, k;
     int gr1;
@@ -30,7 +30,7 @@ int nmppsFFT128FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr128)
     spec_32fcr->Buffers[4] = (nm32fcr *) malloc(64 * sizeof(nm32fcr)); // W64
     if (!spec_32fcr->Buffers[4])
         return 0x128F4;
-    *addr128 = spec_32fcr;
+    *addr = spec_32fcr;
     k = 0;
     for(i = 0; i <  8; i++) {
         for(j = 0; j < 64; j = j + 8) {

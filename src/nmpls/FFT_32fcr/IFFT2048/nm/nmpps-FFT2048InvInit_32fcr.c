@@ -1,8 +1,19 @@
+//***************************************************************************/
+//*                     RC Module Inc., Moscow, Russia                      */
+//*                     NeuroMatrix(r) NM640x Software                      */
+//*                                                                         */
+//*   Software design:  A.Brodyazhenko                                      */
+//*                                                                         */
+//*   File:             nmpps-FFT2048InvInit_32fcr.c                        */
+//*   Contents:         Routine for the struct initializing                 */
+//*                     of the W-coefficient for FFT2048Inv                 */
+//***************************************************************************/
+
 #include <malloc32.h>
 #include <math.h>
 #include "fft_32fcr.h"
 
-int nmppsFFT2048InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
+int nmppsFFT2048InvInitAlloc_32fcr(NmppsFFTSpec_32fcr** addr)
 {
     int i;
     const float pi = 3.141592653;
@@ -48,7 +59,7 @@ int nmppsFFT2048InvInitAlloc_32fcr(NmppsFFTSpec_32fcr **iaddr)
     spec_32fcr->Buffers[9] = spec_32fcr->Buffs[3] + 6;      // W7_16
     spec_32fcr->Buffers[10] = spec_32fcr->Buffs[3] + 7;     // W2048
 
-    *iaddr = spec_32fcr;
+    *addr = spec_32fcr;
 
 /********************************Fields Fulliling********************************/
     spec_32fcr->Buffers[0]->im = 0;

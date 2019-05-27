@@ -2,7 +2,7 @@
 #include <math.h>
 #include "fft_32fcr.h"
 
-int nmppsFFT64FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr **addr)
+int nmppsFFT64FwdInitAlloc_32fcr(NmppsFFTSpec_32fcr** addr)
 {
 	int i, j, k;
 	int gr1;

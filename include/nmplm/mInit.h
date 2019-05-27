@@ -187,21 +187,21 @@ void nmppmCopy_32fc(
         <testperf>
              <param name="pSrcMtr"> im0 im1 </param>
              <param name="pDstMtr"> im0 im1 </param>
-             <param name="nDstStride"> 256 </param>
-             <param name="nDstOffset"> 64 </param>
-             <param name="nHeight"> 8 </param>
+             <param name="nDstStride"> 32 </param>
+             <param name="nDstOffset"> 32 </param>
+             <param name="nHeight"> 32 </param>
              <param name="nWidth"> 32 </param>
-             <param name="nSrcStride"> 128 </param>
+             <param name="nSrcStride"> 32 </param>
              <size>  nHeight* nWidth </size>
         </testperf>
         <testperf>
              <param name="pSrcMtr"> im0 </param>
              <param name="pDstMtr"> im1 </param>
-             <param name="nDstStride"> 64 128 256 </param>
-             <param name="nDstOffset"> 16 32 64 </param>
+             <param name="nDstStride"> 128 </param>
+             <param name="nDstOffset"> 32 64 </param>
              <param name="nHeight"> 8 </param>
-             <param name="nWidth"> 8 16 32 </param>
-             <param name="nSrcStride"> 32 64 128 </param>
+             <param name="nWidth"> 16 32 </param>
+             <param name="nSrcStride"> 64 128 </param>
              <size>  nHeight* nWidth </size>
         </testperf>
     \endxmlonly

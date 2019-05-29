@@ -26,26 +26,38 @@
 
 
 	/**
+	 *  
+	 *  \defgroup dasum nmblas_dasum
 	 *  \brief takes the sum of the absolute values
 	 *  \ingroup LEVEL1	 
 	 *  
 	 *  \param [in] N number of elements in input vector
 	 *  \param [in] X array, dimension ( 1 + ( N - 1 )*abs( INCX )
 	 *  \param [in] INCX  storage spacing between elements of X
+	    \par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <size> N </size>
+            </testperf>
+        \endxmlonly
 	 *  \return the sum of the absolute values.
-	 *  
-	 *  \details More details
 	 */
+//! \{
 double nmblas_dasum(
 	const int N,
 	const double *X,
 	const int INCX
 );
+//! \}
 
 enum nm_trans{nm_n=0,nm_t=1};
 
 
 	/**
+	 *  \defgroup daxpy nmblas_daxpy
 	 *  \brief constant times a vector plus a vector
 	 *  \ingroup LEVEL1	 	 
 	 *  
@@ -55,10 +67,20 @@ enum nm_trans{nm_n=0,nm_t=1};
 	 *  \param [in] INCX storage spacing between elements of X
 	 *  \param [in,out] Y array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 	 *  \param [in] INCY storage spacing between elements of Y
-     *  \return 
-	 *  
-	 *  \details 
+	    \par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" A "> 5 </param>
+                 <param name=" X "> im1 im2 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <param name=" Y "> im1 im2 </param>
+				 <param name=" INCY "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 void nmblas_daxpy(
 	const int N,
 	const double A,
@@ -67,8 +89,10 @@ void nmblas_daxpy(
 	double *Y,
 	const int INCY
 ); 
+//! \}
 
 	/**
+	 *  \defgroup dcopy nmblas_dcopy
 	 *  \brief copies a vector, X, to a vector, Y
 	 *  \ingroup LEVEL1
 	 *  
@@ -77,10 +101,20 @@ void nmblas_daxpy(
 	 *  \param [in] INCX storage spacing between elements of X
 	 *  \param [out] Y array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 	 *  \param [in] INCY storage spacing between elements of Y
-	 *  \return 
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 im2 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <param name=" Y "> im1 im2 </param>
+				 <param name=" INCY "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
+
 	 */
+//! \{
 void nmblas_dcopy(
 	const int N,
 	const double* X,
@@ -88,7 +122,10 @@ void nmblas_dcopy(
 	double* Y,
 	const int INCY
 );
+//! \}
+
 	/**
+	 *  \defgroup ddot nmblas_ddot
 	 *  \brief  forms the dot product of two vectors.
 	 *  \ingroup LEVEL1
 	 *  
@@ -98,10 +135,20 @@ void nmblas_dcopy(
 	 *  \param [in] Y array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 	 *  \param [in] INCY storage spacing between elements of Y
 	 *  \return Return dot product of two vectors
-	 *  
-	 *  \details 
-	 */
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 im2 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <param name=" Y "> im1 im2 </param>
+				 <param name=" INCY "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 
+	 */
+//! \{
 double nmblas_ddot(
 	const int N,
 	const double* X,
@@ -109,8 +156,10 @@ double nmblas_ddot(
 	const double* Y,
 	const int INCY
 );
+//! \}
 
 	/**
+	 *  \defgroup dnrm2 nmblas_dnrm2
 	 *  \brief returns the euclidean norm of a vector via the function name, so that  SCNRM2 := sqrt( x**H*x )
 	 *  \ingroup LEVEL1
 	 *  
@@ -118,15 +167,26 @@ double nmblas_ddot(
 	 *  \param [in] X array, dimension ( 1 + ( N - 1 )*abs( INCX )
 	 *  \param [in] INCX storage spacing between elements of X
 	 *  \return euclidean norm
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" x "> im1 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 double nmblas_dnrm2(
 	const int N,
 	const double *x,
 	const int INCX
 );
+//! \}
+
 	/**
+	 *  \defgroup drot nmblas_drot
 	 *  \brief applies a plane rotation
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -137,9 +197,21 @@ double nmblas_dnrm2(
 	 *  \param [in] INCY storage spacing between elements of Y
 	 *  \param [in] C 
 	 *  \param [in] S 
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 im2 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <param name=" Y "> im1 im2 </param>
+				 <param name=" INCY "> 1 </param>
+				 <param name=" C "> 1 </param>
+				 <param name=" S "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 void nmblas_drot(
 	const int N,
 	double *X,
@@ -149,8 +221,10 @@ void nmblas_drot(
 	const double C,
 	const double S
 ); 
+//! \}
 
 	/**
+	 *  \defgroup drotg nmblas_drotg
 	 *  \brief construct givens plane rotation
 	 *  \ingroup LEVEL1	 	 
 	 *  
@@ -158,18 +232,18 @@ void nmblas_drot(
 	 *  \param [in] B 
 	 *  \param [in] C 
 	 *  \param [out] S 
-	 *  \return 
-	 *  
-	 *  \details 
 	 */
+//! \{
 void nmblas_drotg(
 	double *A, 
 	double *B, 
 	double *C, 
 	double *S
 );
+//! \}
 
 	/**
+	 *  \defgroup drotm nmblas_drotm
 	 *  \brief  Apply a Given's rotation constructed by DROTMG.
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -182,6 +256,7 @@ void nmblas_drotg(
 	 *  
 	 *  \details 
 	 */
+//! \{
 void nmblas_drotm(
 	const int N,
 	double *X,
@@ -189,9 +264,11 @@ void nmblas_drotm(
 	double *Y,
 	const int INCY,
 	double *param
-);   
+);
+//! \} 
 
 	/**
+	 *  \defgroup dscal nmblas_dscal
 	 *  \brief scales a vector by a constant
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -199,17 +276,28 @@ void nmblas_drotm(
 	 *  \param [in] A specifies the scalar alpha.
 	 *  \param [in,out] X array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 	 *  \param [in] INCX storage spacing between elements of X
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+				 <param name=" ALPHA "> 5 </param>
+                 <param name=" X "> im1 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 void nmblas_dscal(
 	const int N,
 	const double ALPHA,
 	double*X,
 	const int INCX
 ); 
+//! \}
 
 	/**
+	 *  \defgroup dsdot nmblas_dsdot
 	 *  \brief Compute the inner product of two vectors with double precision accumulation.
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -223,9 +311,19 @@ void nmblas_dscal(
      * DSDOT = sum for I = 0 to N-1 of  SX(LX+I*INCX) * SY(LY+I*INCY),
      * where LX = 1 if INCX .GE. 0, else LX = 1+(1-N)*INCX, and LY is
      * defined in a similar way using INCY.
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 im2 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <param name=" Y "> im1 im2 </param>
+				 <param name=" INCY "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly 
 	 */
+//! \{
 double nmblas_dsdot(
 	const int N,
 	const float* X,
@@ -233,8 +331,10 @@ double nmblas_dsdot(
 	const float* Y,
 	const int INCY
 );
+//! \}
 
 	/**
+	 *  \defgroup dswap nmblas_dswap
 	 *  \brief interchanges two vectors
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -247,6 +347,7 @@ double nmblas_dsdot(
 	 *  
 	 *  \details 
 	 */
+//! \{
 void nmblas_dswap(
 	const int N,
 	double *X,
@@ -254,8 +355,10 @@ void nmblas_dswap(
 	double *Y,
 	const int INCY
 );
+//! \}
 
 	/**
+	 *  \defgroup dznrm2 nmblas_dznrm2
 	 *  \brief  returns the euclidean norm of a vector via the function name, so that   DZNRM2 := sqrt( x**H*x )
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -263,16 +366,26 @@ void nmblas_dswap(
 	 *  \param [in] X COMPLEX*16 array of DIMENSION at least ( 1 + ( m - 1 )*abs( INCX  )  )
 	 *  \param [in] INCX storage spacing between elements of X
 	 *  \return  euclidean norm 
-	 *  
-	 *  \details ???????????????
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 double nmblas_dznrm2(
 	const int N,
 	const double *X,
 	const int INCX
 );  
+//! \}
 
 	/**
+	 *  \defgroup idamax nmblas_idamax
 	 *  \brief finds the index of the first element having maximum absolute value.
 	 *  \ingroup LEVEL1
 	 *  
@@ -280,17 +393,27 @@ double nmblas_dznrm2(
 	 *  \param [in] X array, dimension ( 1 + ( N - 1 )*abs( INCX ))
 	 *  \param [in] INCX storage spacing between elements of X
 	 *  \return index of the first element having maximum absolute value.
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 int nmblas_idamax(
 	const int N,
 	const double* X,
 	const int INCX
 );
+//! \}
 //////////////////////////////////////////////////////level 1 single precition
 
 	/**
+	 *  \defgroup isamax nmblas_isamax
 	 *  \brief finds the index of the first element having maximum absolute value.
 	 *  \ingroup LEVEL1
 	 *  
@@ -298,16 +421,26 @@ int nmblas_idamax(
 	 *  \param [in] X array, dimension ( 1 + ( N - 1 )*abs( INCX )
 	 *  \param [in] INCX storage spacing between elements of X
 	 *  \return index of the first element having maximum absolute value.
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 4096 </param>
+                 <param name=" X "> im1 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 int nmblas_isamax(
 	const int N,
 	const float* X,
 	const int INCX
 );
+//! \}
 
 	/**
+	 *  \defgroup sasum nmblas_sasum
 	 *  \brief takes the sum of the absolute values
 	 *  \ingroup LEVEL1
 	 *  
@@ -315,17 +448,26 @@ int nmblas_isamax(
 	 *  \param [in] A specifies the scalar alpha
 	 *  \param [in] X array, dimension ( 1 + ( N - 1 )*abs( INCX )
 	 *  \return sum of the absolute values
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 float nmblas_sasum(
 	const int N,
 	const float *X,
 	const int INCX
 );
-
+//! \}
 	
 	/**
+	 *  \defgroup saxpy nmblas_saxpy	
 	 *  \brief  constant times a vector plus a vector
 	 *  \ingroup LEVEL1
 	 *  
@@ -335,10 +477,20 @@ float nmblas_sasum(
 	 *  \param [in] INCX storage spacing between elements of X
 	 *  \param [in,out] Y array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 	 *  \param [in] INCY storage spacing between elements of Y
-	 *  \return 
-	 *  
-	 *  \details 
+	    \par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" A "> 5 </param>
+                 <param name=" X "> im1 im2 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <param name=" Y "> im1 im2 </param>
+				 <param name=" INCY "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 void nmblas_saxpy(
     int N,
 	const float A,
@@ -346,9 +498,11 @@ void nmblas_saxpy(
 	const int INCX,
 	float *Y,
 	const int INCY
-);   
+);
+//! \}
 
 	/**
+	 *  \defgroup scnrm2 nmblas_scnrm2
 	 *  \brief returns the euclidean norm of a vector via the function name, so that  SCNRM2 := sqrt( x**H*x )
 	 *  \ingroup LEVEL1
 	 *  
@@ -356,16 +510,26 @@ void nmblas_saxpy(
 	 *  \param [in] X array, dimension ( 1 + ( N - 1 )*abs( INCX )
 	 *  \param [in] INCX storage spacing between elements of X
 	 *  \return euclidean norm
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 float nmblas_scnrm2(
 	const int N,
 	const float* X,
 	const int INCX
-); 
+);
+//! \}
 
 	/**
+	 *  \defgroup scopy nmblas_scopy
 	 *  \brief copies a vector, X, to a vector, Y
 	 *  \ingroup LEVEL1
 	 *  
@@ -374,10 +538,19 @@ float nmblas_scnrm2(
 	 *  \param [in] INCX storage spacing between elements of X
 	 *  \param [out] Y array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 	 *  \param [in] INCY storage spacing between elements of Y
-	 *  \return 
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 im2 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <param name=" Y "> im1 im2 </param>
+				 <param name=" INCY "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly 
 	 */
+//! \{
 void nmblas_scopy(
 	const int N,
 	const float* X,
@@ -385,8 +558,10 @@ void nmblas_scopy(
 	float* Y,
 	const int INCY
 );
+//! \}
 
 	/**
+	 *  \defgroup sdot nmblas_sdot
 	 *  \brief SDOT forms the dot product of two vectors.
 	 *  \ingroup LEVEL1
 	 *  
@@ -396,9 +571,19 @@ void nmblas_scopy(
 	 *  \param [in] Y array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 	 *  \param [in] INCY storage spacing between elements of Y
 	 *  \return Return dot product of two vectors
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 im2 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <param name=" Y "> im1 im2 </param>
+				 <param name=" INCY "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly 
 	 */
+//! \{
 float nmblas_sdot(
 	const int N,
 	const float *X,
@@ -406,7 +591,10 @@ float nmblas_sdot(
 	const float *Y,
 	const int INCY
 );
+//! \}
+
 	/**
+	 *  \defgroup sdsdot nmblas_sdsdot
 	 *  \brief Compute the inner product of two vectors with double precision accumulation.
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -423,6 +611,7 @@ float nmblas_sdot(
 	 *  
 	 *  \details 
 	 */
+//! \{
 float nmblas_sdsdot(
 	const int N,
 	const float B,
@@ -431,7 +620,10 @@ float nmblas_sdsdot(
 	const float* Y,
 	const int INCY
 );
+//! \}
+
 	/**
+	 *  \defgroup snrm2 nmblas_snrm2
 	 *  \brief SNRM2 returns the euclidean norm of a vector via the function name, so that SNRM2 := sqrt( x'*x ).
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -439,16 +631,25 @@ float nmblas_sdsdot(
 	 *  \param [in] X array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 	 *  \param [in] INCX storage spacing between elements of X
 	 *  \return  euclidean norm 
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 float nmblas_snrm2(
 	const int N,
 	const float* X,
 	const int INCX
 );
-
+//! \}
 	/**
+	 *  \defgroup srot nmblas_srot
 	 *  \brief applies a plane rotation
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -462,6 +663,7 @@ float nmblas_snrm2(
 	 *  
 	 *  \details 
 	 */
+//! \{
 void nmblas_srot(
 	const int N,
 	float *X,
@@ -471,7 +673,10 @@ void nmblas_srot(
 	const float C,
 	const float S
 );
+//! \}
+
 	/**
+	 *  \defgroup srotm nmblas_srotm
 	 *  \brief  Apply a Given's rotation constructed by SROTMG.
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -484,6 +689,7 @@ void nmblas_srot(
 	 *  
 	 *  \details 
 	 */
+//! \{
 void nmblas_srotm(
 	const int N,
 	float *X,
@@ -491,9 +697,10 @@ void nmblas_srotm(
 	float *Y,
 	const int INCY,
 	float *param
-);   
-
+);
+//! \}
 	/**
+	 *  \defgroup sscal nmblas_sscal
 	 *  \brief scales a vector by a constant
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -501,18 +708,28 @@ void nmblas_srotm(
 	 *  \param [in] A specifies the scalar alpha.
 	 *  \param [in,out] X array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 	 *  \param [in] INCX storage spacing between elements of X
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+				 <param name=" A "> 5 </param>
+                 <param name=" X "> im1 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 void nmblas_sscal(
 	const int N,
 	const float A,
 	const float *X,
 	const int INCX
 ); 
-
+//! \}
 
 	/**
+	 *  \defgroup sswap nmblas_sswap
 	 *  \brief interchanges two vectors
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -521,10 +738,19 @@ void nmblas_sscal(
 	 *  \param [in] INCX storage spacing between elements of X
 	 *  \param [in,out] Y array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 	 *  \param [in] INCY storage spacing between elements of Y
-	 *  \return 
-	 *  
-	 *  \details 
+	 	\par
+        \xmlonly
+            <testperf>
+	    	     <param name=" N "> 8 128 1024 2048 </param>
+                 <param name=" X "> im1 im2 </param>
+	    		 <param name=" INCX "> 1 </param>
+				 <param name=" Y "> im1 im2 </param>
+				 <param name=" INCY "> 1 </param>
+				 <size> N </size>
+            </testperf>
+		\endxmlonly
 	 */
+//! \{
 void nmblas_sswap(
 	const int N,
 	const float *X,
@@ -532,10 +758,12 @@ void nmblas_sswap(
 	const float *Y,
 	const int INCY
 );
+//! \}
 
 /////////////////LEVEL 2 
 
    /**
+	*  \defgroup sgemv nmblas_sgemv
     *  \brief performs one of the matrix-vector operations   y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y, where alpha and beta are scalars, x and y are vectors and A is an  m by n matrix.
     *  
     *  \param [in] TRANS is CHARACTER*1
@@ -572,6 +800,7 @@ void nmblas_sswap(
     *  
     *  \details 
     */
+//! \{
 void nmblas_sgemv(
    const enum nm_trans        TRANS,
    const int                  M,
@@ -585,8 +814,10 @@ void nmblas_sgemv(
    float                     * Y,
    const int                  INCY
 );
+//! \}
 
    /**
+	*  \defgroup dgemv nmblas_dgemv
     *  \brief performs one of the matrix-vector operations   y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y, where alpha and beta are scalars, x and y are vectors and A is an  m by n matrix.
     *  
     *  \param [in] TRANS is CHARACTER*1
@@ -623,6 +854,7 @@ void nmblas_sgemv(
     *  
     *  \details 
     */
+//! \{
 void nmblas_dgemv(
    const enum nm_trans        TRANS,
    const int                  M,
@@ -636,7 +868,8 @@ void nmblas_dgemv(
    double                     * Y,
    const int                  INCY
 );
- 
+//! \}
+
 void MullMatrix_f( 
 	void* 	A, 
 	int 	pI, 

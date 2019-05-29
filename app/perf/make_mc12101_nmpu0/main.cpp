@@ -1,4 +1,5 @@
 #include "nmpp.h"
+#include "nmblas.h"
 #include "time.h"
 #include "stdio.h"
 #include "string.h"

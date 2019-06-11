@@ -53,24 +53,24 @@ begin ".text"
 	gr3 = [ar4++];
 	ar1 = ar3 + gr3;
 	fpu 0 rep 16 vreg0 = [ar1++gr1];
-	fpu 0 .complex vreg0 = vreg0 * .retrive(vreg1);
+	fpu 0 .complex vreg2 = vreg0 * .retrive(vreg1);
 	gr3 = [ar4++];
 	ar1 = ar3 + gr3;
 	fpu 1 rep 16 vreg0 = [ar1++gr1];
-	fpu 1 .complex vreg0 = vreg0 * .retrive(vreg1);
+	fpu 1 .complex vreg2 = vreg0 * .retrive(vreg1);
 	gr3 = [ar4++];
 	ar1 = ar3 + gr3;
 	fpu 2 rep 16 vreg0 = [ar1++gr1];
-	fpu 2 .complex vreg0 = vreg0 * .retrive(vreg1);
+	fpu 2 .complex vreg2 = vreg0 * .retrive(vreg1);
 	gr3 = [ar4++];
 	ar1 = ar3 + gr3;
 	fpu 3 rep 16 vreg0 = [ar1++gr1];
-	fpu 3 .complex vreg0 = vreg0 * .retrive(vreg1);
+	fpu 3 .complex vreg2 = vreg0 * .retrive(vreg1);
 
-	fpu 0 rep 16 [ar0++] = vreg0;
-	fpu 1 rep 16 [ar6++] = vreg0;
-	fpu 2 rep 16 [ar0++] = vreg0;
-	fpu 3 rep 16 [ar6++] = vreg0;
+	fpu 0 rep 16 [ar0++] = vreg2;
+	fpu 1 rep 16 [ar6++] = vreg2;
+	fpu 2 rep 16 [ar0++] = vreg2;
+	fpu 3 rep 16 [ar6++] = vreg2;
 	gr0--;
 	if > goto SORT_32_16;
 

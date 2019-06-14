@@ -40,6 +40,7 @@ solution "nmpp"
 		ROOT.."/src/nmpli/Support/common/*.cpp",
 		ROOT.."/src/nmplm/Core/pc/*.cpp",
 		ROOT.."/src/nmplm/Init/pc/*.cpp",
+		ROOT.."/src/nmplm/Init/pc/*.c	",
 		ROOT.."/src/nmplm/Inverse/common/*.cpp",
 		ROOT.."/src/nmplm/MatrixVector/pc/*.cpp",
 		ROOT.."/src/nmplm/MatrixVector/pc/*.c",

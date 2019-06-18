@@ -27,7 +27,7 @@ DEF_MIN_REP();
 macro VEC_CMP_EQ_0(N)
 .if (NMPP_MIN_REP <= N);
 	delayed return;
-		rep N ram = [ar0++gr0] with 0-data ;
+		rep N data,ram = [ar0++gr0] with 0-data ;
 		rep N with not activate afifo and not activate ram;
 		rep N [ar6++gr6] = afifo;
 .endif;
@@ -49,7 +49,7 @@ global vec_CmpEq0 :label;
 		ar2 = Cmp_rep0 with gr5--;
 	<next_Cmp_rep32>
 		nul;
-		rep 32 ram = [ar0++gr0] with 0-data;
+		rep 32 data,ram = [ar0++gr0] with 0-data;
 	if <>0 delayed goto next_Cmp_rep32 with gr5--;
 		rep 32 with not activate afifo and not activate ram;
 		rep 32 [ar6++gr6] = afifo;

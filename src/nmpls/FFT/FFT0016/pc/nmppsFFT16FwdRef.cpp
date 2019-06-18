@@ -261,7 +261,7 @@ void nmppsFFT16Fwd2x8_RefInt(const nm32sc* src, nm32sc* dst)
 
 // http://ru.dsplib.org/content/fft_dec_in_time/fft_dec_in_time.html
 // алогритм БПФ с прореживанием по времени
-void nmppsFFT16Fwd2x8Time_RefFloat(const nm32sc* src, nm32sc* dst)
+void nmppsFFT16Fwd8x2Time_RefFloat(const nm32sc* src, nm32sc* dst)
 {
 	vec<cmplx<double> > X(16);
 	vec<cmplx<double> > Y(16);

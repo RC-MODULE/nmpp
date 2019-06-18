@@ -21,10 +21,13 @@ void nmppsFFT32Fwd282_RefFloat(const nm32sc* src, nm32sc* dst);
 void nmppsDFT64Fwd_RefFloat(const nm32sc* src, nm32sc* dst);
 void nmppsFFT64Fwd88_RefFloat(const nm32sc* src, nm32sc* dst);
 
-void nmppsDFT128Fwd_RefFloat(const nm32sc* src, nm32sc* dst);
-void nmppsFFT128Fwd882_RefFloat(const nm32sc* src, nm32sc* dst);
-void nmppsFFT128Fwd828_RefFloat(const nm32sc* src, nm32sc* dst);
-
+void nmppsDFT128Fwd_RefFlt   (const nm32sc* src, nm32sc* dst);
+void nmppsFFT128Fwd882_RefFlt(const nm32sc* src, nm32sc* dst);
+void nmppsFFT128Fwd828_RefFlt(const nm32sc* src, nm32sc* dst);
+void nmppsFFT128Fwd828_RefInt(const nm32sc* src, nm32sc* dst);
+extern "C" {
+	void nmppsFFT128Fwd828_RefNmc(const nm32sc* src, nm32sc* dst);
+};
 void nmppsDFT256Fwd_RefFloat(const nm32sc* src, nm32sc* dst);
 void nmppsFFT256Fwd2882_RefFloat(const nm32sc* src, nm32sc* dst);
 

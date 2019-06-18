@@ -24,25 +24,30 @@
 
 begin ".text_nmplv"
 
+  
+
     //--------------------------------------------------------------------
-    //! \fn nm8s * nmppsAddr_8s(nm8s *pVec, int nIndex) 
+    //! \fn nm16s * nmppsAddr_16s(nm16s *pVec, int nIndex) 
 	//!
-	//! \perfinclude _nmppsAddr_8s.html
+	//! \perfinclude _nmppsAddr_16s.html
     //--------------------------------------------------------------------
-	   
-global _char._.0.8.8nmppsAddr_.1char._const._.0.9._int.2 :label;
-<_char._.0.8.8nmppsAddr_.1char._const._.0.9._int.2>
+    
+
+global _nmppsAddr_16s:label;
+<_nmppsAddr_16s>
 .branch;
 	ar5 = sp-4 with gr7=gr5;	
 	gr5 = [ar5++];
-	ar5 = [ar5++] with gr5 A>>=2;
+	ar5 = [ar5++] with gr5 A>>=1;
 delayed return;
 	nul;
 	ar5+=gr5   with gr5 = gr7;
 	nul;
+return;
 .wait;
 
-  
+ 
+
 
 end ".text_nmplv";
 

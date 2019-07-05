@@ -65,17 +65,17 @@
              <param name="pSrcMtr1">im1 im2 im3</param>
              <param name="pSrcMtr2">im1 im2 im3</param>
              <param name="pDstMtr"> im1 im2 im3</param>
-             <param name="nHeight1"> 64 </param>
+             <param name="nHeight1"> 8 16 64 </param>
              <param name="nWidth2"> 64 </param>
-             <param name="nWidth1"> 128 </param>
+             <param name="nWidth1"> 32 64 </param>
              <size> nWidth1*nHeight1*nWidth2 </size>
         </testperf>
         <testperf>
              <param name="pSrcMtr1"> im1  </param>
              <param name="pSrcMtr2"> im2  </param>
              <param name="pDstMtr">  im3 </param>
-             <param name="nWidth1"> 256 </param>
-             <param name="nHeight1"> 128 256 </param>
+             <param name="nWidth1"> 16 32 64 </param>
+             <param name="nHeight1"> 8 32 64 </param>
              <param name="nWidth2"> 2 4 8 </param>
              <size> nWidth1*nHeight1*nWidth2 </size>
         </testperf>

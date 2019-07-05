@@ -30,8 +30,8 @@ void nmppsFFT256Fwd_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec, NmppsFFTSpec
         //X256[i + 128].im = 0;
        // X256[i + 128].re = 0;
     }
-    nmppsFFT128Fwd_32fcr(pSrcVec, pDstVec, spec);
-    nmppsFFT128Fwd_32fcr(pSrcVec, pDstVec, spec);
+    nmppsFFT128Fwd_32fcr(buff256, buff256, spec);
+    nmppsFFT128Fwd_32fcr(buff256xW, buff256xW, spec);
     for(i = 0; i < 128; i++) {
         pDstVec[i].im = buff256[i].im + (spec->Buffers[5][i].re * buff256xW[i].im + spec->Buffers[5][i].im * buff256xW[i].re);
         pDstVec[i].re = buff256[i].re + (spec->Buffers[5][i].re * buff256xW[i].re - spec->Buffers[5][i].im * buff256xW[i].im);

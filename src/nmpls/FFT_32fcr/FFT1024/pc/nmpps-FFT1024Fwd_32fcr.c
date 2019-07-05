@@ -21,8 +21,8 @@ void nmppsFFT1024Fwd_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec, NmppsFFTSpe
         buff1024xW[i].im = pSrcVec[2 * i + 1].im;
         buff1024xW[i].re = pSrcVec[2 * i + 1].re;
     }
-    nmppsFFT512Fwd_32fcr(pSrcVec, pDstVec, spec);
-    nmppsFFT512Fwd_32fcr(pSrcVec, pDstVec, spec);
+    nmppsFFT512Fwd_32fcr(buff1024, buff1024, spec);
+    nmppsFFT512Fwd_32fcr(buff1024xW, buff1024xW, spec);
     for(i = 0; i < 512; i++) {
         pDstVec[i].im = buff1024[i].im + (spec->Buffers[7][i].re * buff1024xW[i].im + spec->Buffers[7][i].im * buff1024xW[i].re);
         pDstVec[i].re = buff1024[i].re + (spec->Buffers[7][i].re * buff1024xW[i].re - spec->Buffers[7][i].im * buff1024xW[i].im);

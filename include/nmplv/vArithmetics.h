@@ -1182,6 +1182,7 @@ void nmppsMulC_2s16s   (const nm2s* pSrcVec, int16b nVal, nm16s* pDstVec, int nS
 void nmppsMulC_32f(const nm32f* pSrcVec, nm32f* pDstVec, float C, int nSize);
 //! \}
 
+
 /**
 \defgroup nmppsMul_Mul_Add nmppsMul_Mul_Add
 \ingroup vArithmetics_f
@@ -1444,6 +1445,7 @@ void nmppsMulC_AddC_32f(const nm32f* pSrcVec, float nMulC, float nAddC, nm32f* p
 \endxmlonly
 */
 //! \{
+void nmppsMul_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);
 void nmppsMul_32fcr(const nm32fcr* pSrcVec1, const nm32fcr* pSrcVec2, nm32fcr* pDstVec, int nSize);
 //! \}
 

@@ -1257,6 +1257,77 @@ void nmppsClipPowC_64s(nm64s* pSrcVec, int nClipFactor, nm64s* pDstVec, int nSiz
     //! \{
 void nmppsClipCC_32s(nm32s30b* pSrcVec, int30b nNegThresh, int30b nPosThresh, nm32s30b* pDstVec, int nSize);
     //! \}
+	
+	/**
+    \defgroup nmppsThreshold_Lt_Gt_f nmppsThreshold_Lt_Gt_f
+    \ingroup vSelect
+    \brief
+        \ru Пороговая функция с нижним и верхним порогами
+        \en Threshold function with loaw and high thresholds.
+
+		\~
+
+	\f[
+        pDstVec[i]  =  \left \{ \begin{array}{lcl}
+            max,   & if & pSrcVec[i] > max \\
+            pSrcVec[i],   & if & min \le pSrcVec[i] \le max  \\
+            min,   & if & pSrcVec[i] < min  \\
+        \end{array} \right.
+    \f]
+
+	\f[ i = \overline{0 \ldots nSize-1} \f]
+
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
+		\~
+	\retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
+		\~
+    \param min
+        \ru Нижний порог насыщения.
+        \en The lower saturation threshold.
+		\~
+    \param max
+        \ru Верхний порог насыщения.
+        \en The upper saturation threshold.
+		\~
+    \param nSize
+        \ru Размер вектора в элементах.
+        \en Vector size in elements.
+		\~
+    \return \e void
+
+
+    \par
+    \xmlonly
+        <testperf>
+             <param name="pSrcVec"> im0 im1 </param>
+             <param name="pDstVec"> im0 im1 </param>
+             <param name="min"> -127 </param>
+             <param name="max"> 127 </param>
+             <param name="nSize"> 2048 </param>
+        </testperf>
+        <testperf>
+             <param name="pSrcVec"> im0 </param>
+             <param name="pDstVec"> im1 </param>
+             <param name="min"> -255 -127 </param>
+             <param name="max"> 127 255 </param>
+             <param name="nSize"> 2048 </param>
+        </testperf>
+        <testperf>
+             <param name="pSrcVec"> im0 </param>
+             <param name="pDstVec"> im1 </param>
+             <param name="min"> -127 </param>
+             <param name="max"> 127 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
+        </testperf>
+    \endxmlonly
+    */
+    //! \{
+void nmppsThreshold_Lt_Gt_32f(nm32f* pSrcVec, nm32f* pDstVec, float min, float max,  int nSize);
+	//! \}
 
 //*****************************************************************************
 

@@ -12,7 +12,7 @@
 // void nmppsAddC_32fcr(const nm32fcr *pSrcVec, nm32fcr *pDstVec, float C, int nSize);
 
 global _nmppsAddC_32fcr: label;
-begin "text"
+begin ".text_nmplv"
 <_nmppsAddC_32fcr>
 	ar5 = ar7 - 2;
 	push ar3, gr3;
@@ -52,4 +52,4 @@ begin "text"
 	pop ar2, gr2;
 	pop ar3, gr3;
 	return;
-end "text";
+end ".text_nmplv";

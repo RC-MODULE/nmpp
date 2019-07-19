@@ -15,7 +15,7 @@ global _nmppsSub_32f: label;
 // x2 - pSrcVec2
 // f - pDstVec
 
-begin "text"
+begin ".text_nmplv"
 <_nmppsSub_32f>
 	ar5 = ar7 - 2;
 	push ar2, gr2;
@@ -56,4 +56,4 @@ begin "text"
 	pop ar1, gr1;
 	pop ar2, gr2;
 	return;
-end "text";
+end ".text_nmplv";

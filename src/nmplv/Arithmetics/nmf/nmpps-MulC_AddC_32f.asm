@@ -16,13 +16,13 @@ global _nmppsMulC_AddC_32f: label;
 // Const2 - AddC
 // f - pDstVec
 
-nobits ".data"
+nobits ".data_nmplv"
 	temp: long[2];	//mulC, addC
-end ".data";
+end ".data_nmplv";
 
 More_64f:label;
 
-begin ".text"
+begin ".text_nmplv"
 <_nmppsMulC_AddC_32f>
 	ar5 = ar7 - 2;
 	push ar0, gr0;
@@ -69,4 +69,4 @@ begin ".text"
 	pop ar5, gr5;
 	pop ar0, gr0;
 	return;
-end ".text";
+end ".text_nmplv";

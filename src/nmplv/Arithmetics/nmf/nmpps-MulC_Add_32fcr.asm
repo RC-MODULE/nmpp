@@ -15,12 +15,12 @@ global _nmppsMulC_Add_32fcr: label;
 // C  - C
 // f - pDstVec
 
-data ".data"
+data ".data_nmplv"
 	temp: word[2];
-end ".data";
+end ".data_nmplv";
 
 
-begin ".text"
+begin ".text_nmplv"
 <_nmppsMulC_Add_32fcr>
 	ar5 = ar7-2;
 	push ar0,gr0;
@@ -68,4 +68,4 @@ begin ".text"
 	pop ar1,gr1;
 	pop ar0,gr0;
 	return;
-end ".text";
+end ".text_nmplv";

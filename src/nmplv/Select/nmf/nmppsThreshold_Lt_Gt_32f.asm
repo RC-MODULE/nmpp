@@ -2,12 +2,12 @@
 //void nmppsThreshold_Lt_Gt_32f(nm32f* pSrcVec, nm32f* pDstVec, float min, float max,  int size);
 global _nmppsThreshold_Lt_Gt_32f: label;
 
-nobits ".data_demo3d"
+nobits ".data_nmplv"
 	buffer_long_min: long;
 	buffer_long_max: long;
-end ".data_demo3d";
+end ".data_nmplv";
 
-begin ".text_demo3d"
+begin ".text_nmplv"
 <_nmppsThreshold_Lt_Gt_32f>
 	ar5 = ar7-2	;
 	push ar0,gr0;
@@ -70,4 +70,4 @@ begin ".text_demo3d"
 	pop ar1,gr1;
 	pop ar0,gr0;
 	return;
-end ".text_demo3d";
+end ".text_nmplv";

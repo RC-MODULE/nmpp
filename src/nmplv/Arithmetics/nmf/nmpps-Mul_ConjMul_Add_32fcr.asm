@@ -15,12 +15,12 @@
 // y2 - pSrcVec4
 // f  - pDstVec
 
-data ".data_imu1"
+data ".data_nmplv"
 	ForConj: word[2] = (float(-1), float(1));
-end ".data_imu1";
+end ".data_nmplv";
 
 global _nmppsMul_ConjMul_Add_32fcr: label;
-begin "text"
+begin ".text_nmplv"
 <_nmppsMul_ConjMul_Add_32fcr>
 	ar5 = ar7 - 2;
 	push ar4, gr4;
@@ -94,4 +94,4 @@ begin "text"
 	pop ar3, gr3;
 	pop ar4, gr4;
 	return;
-end "text";
+end ".text_nmplv";

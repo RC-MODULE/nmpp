@@ -27,6 +27,7 @@ SRC_DIRS         = 	 \
 					$(ROOT)/src/nmplm/Inverse/common \
 					$(ROOT)/src/nmplm/MatrixVector/nm \
 					$(ROOT)/src/nmplm/Support/common \
+					$(ROOT)/src/nmplm/Stat/common \
 					$(ROOT)/src/nmpls/Correlation/nm \
 					$(ROOT)/src/nmpls/Metric \
 					$(ROOT)/src/nmpls/FFT/common \

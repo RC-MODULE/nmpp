@@ -81,6 +81,8 @@ For convenience of application programs development the library has implementati
 */
 #include "mInverse.h"
 
+#include "mStat.h"
+
 //#include "profile\profdata.h"
 
 

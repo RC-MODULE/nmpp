@@ -9,7 +9,16 @@
 //***************************************************************************/
 #include "nmtype.h"
 
-void nmppsMul_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, nm32fcr *pDstVec, int nSize)
+
+void nmppsMul_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize)
+{
+	int i;
+	for(i = 0; i < nSize; i++) {
+		pDstVec[i] = pSrcVec1[i] * pSrcVec2[i];
+	}
+}
+
+void nmppsMul_32fcr(const nm32fcr* pSrcVec1, const nm32fcr* pSrcVec2, nm32fcr* pDstVec, int nSize)
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
@@ -21,7 +30,7 @@ void nmppsMul_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, nm32fcr *p
 	}
 }
 
-void nmppsConjMul_32fcr(const nm32fcr *pSrcVec1, const nm32fcr *pSrcVec2, nm32fcr *pDstVec, int nSize)
+void nmppsConjMul_32fcr(const nm32fcr* pSrcVec1, const nm32fcr* pSrcVec2, nm32fcr* pDstVec, int nSize)
 {
 	int i;
 	for(i = 0; i < nSize; i++) {

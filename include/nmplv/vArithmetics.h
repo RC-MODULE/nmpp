@@ -634,6 +634,62 @@ void nmppsSubC_16s(const nm16s* pSrcVec, int16b nVal,   nm16s* pDstVec, int nSiz
 void nmppsSubC_32s(const nm32s* pSrcVec, int32b nVal,   nm32s* pDstVec, int nSize);
 void nmppsSubC_64s(const nm64s* pSrcVec, int64b nVal,   nm64s* pDstVec, int nSize);
     //! \}
+	
+    /**
+    \defgroup nmppsSubC_f nmppsSubC
+    \ingroup vArithmetics_f
+    \brief
+        \ru Вычитание константы из  вектора.
+        \en Subtraction of a constant from a vec.
+
+		\~
+
+	\f[
+        pDstVec[i]  =  pSrcVec[i]  -  nVal
+    \f]
+
+	\f[
+        i = \overline{0 \ldots nSize-1}
+    \f]
+
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
+		\~
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
+		\~
+    \param C
+        \ru Вычитаемая константа.
+        \en The deducted constant.
+		\~
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vector size in elements.
+		\~
+    \return \e void
+
+
+    \par
+    \xmlonly
+        <testperf>
+             <param name="pSrcVec"> im0 im1 </param>
+             <param name="pDstVec"> im0 im1 </param>
+             <param name="C"> 3 </param>
+             <param name="nSize"> 2048 </param>
+        </testperf>
+        <testperf>
+             <param name="pSrcVec"> im0 </param>
+             <param name="pDstVec"> im1 </param>
+             <param name="C"> 3 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
+        </testperf>
+    \endxmlonly
+    */
+    //! \{
+void nmppsSubC_32f (const nm32f* pSrcVec, nm32f*  pDstVec, float C, int nSize);
+    //! \}
 
 //*****************************************************************************
 
@@ -698,6 +754,62 @@ void nmppsSubCRev_64s(const nm64s* pSrcVec, int64b nVal, nm64s* pDstVec, int nSi
     //! \}
 
 //*****************************************************************************
+
+    /**
+    \defgroup nmppsSubCRev_f nmppsSubCRev
+    \ingroup vArithmetics_f
+    \brief
+        \ru Вычитание вектора из  константы.
+        \en Subtraction of a vec from a constant.
+
+		\~
+
+	\f[
+        pDstVec[i]  = C -  pSrcVec[i]
+    \f]
+
+	\f[
+        i = \overline{0 \ldots nSize-1}
+    \f]
+
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
+		\~
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
+		\~
+    \param C
+        \ru Вычитаемая константа.
+        \en The deducted constant.
+		\~
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vector size in elements.
+		\~
+    \return \e void
+
+
+    \par
+    \xmlonly
+        <testperf>
+             <param name="pSrcVec"> im0 im1 </param>
+             <param name="pDstVec"> im0 im1 </param>
+             <param name="C"> 3 </param>
+             <param name="nSize"> 2048 </param>
+        </testperf>
+        <testperf>
+             <param name="pSrcVec"> im0 </param>
+             <param name="pDstVec"> im1 </param>
+             <param name="C"> 3 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
+        </testperf>
+    \endxmlonly
+    */
+    //! \{
+void nmppsSubCRev_32f (const nm32f* pSrcVec, nm32f*  pDstVec, float C, int nSize);
+    //! \}
 
     /**
     \defgroup nmppsSub nmppsSub
@@ -1070,6 +1182,7 @@ void nmppsMulC_2s16s   (const nm2s* pSrcVec, int16b nVal, nm16s* pDstVec, int nS
 void nmppsMulC_32f(const nm32f* pSrcVec, nm32f* pDstVec, float C, int nSize);
 //! \}
 
+
 /**
 \defgroup nmppsMul_Mul_Add nmppsMul_Mul_Add
 \ingroup vArithmetics_f
@@ -1332,6 +1445,7 @@ void nmppsMulC_AddC_32f(const nm32f* pSrcVec, float nMulC, float nAddC, nm32f* p
 \endxmlonly
 */
 //! \{
+void nmppsMul_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);
 void nmppsMul_32fcr(const nm32fcr* pSrcVec1, const nm32fcr* pSrcVec2, nm32fcr* pDstVec, int nSize);
 //! \}
 

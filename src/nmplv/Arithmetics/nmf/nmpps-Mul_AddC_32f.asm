@@ -19,7 +19,7 @@ begin ".data"
 	valueC: long;
 end ".data";
 
-begin ".text"
+begin ".text_nmplv"
 <_nmppsMul_AddC_32f>
 	ar5 = ar7-2;
 	push ar0,gr0;
@@ -67,4 +67,4 @@ begin ".text"
 	pop ar1,gr1;
 	pop ar0,gr0;
 	return;
-end ".text";
+end ".text_nmplv";

@@ -16,7 +16,7 @@
 // f - pDstVec3
 
 global _nmppsMul_Mul_Add_32fcr: label;
-begin "text"
+begin ".text_nmplv"
 <_nmppsMul_Mul_Add_32fcr>
 	ar5 = ar7 - 2;
 	push ar4, gr4;
@@ -78,4 +78,4 @@ begin "text"
 	pop ar3, gr3;
 	pop ar4, gr4;
 	return;
-end "text";
+end ".text_nmplv";

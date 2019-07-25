@@ -11,7 +11,7 @@
 // void nmppsMul_32fcr(const nm32fcr *pSrcVec1, nm32fcr *pSrcVec2, nm32fcr *pDstVec, int nSize)
 
 global _nmppsMul_32fcr: label;
-begin ".text"
+begin ".text_nmplv"
 <_nmppsMul_32fcr>
 	ar5 = ar7 - 2;
 	push ar3, gr3;
@@ -51,4 +51,4 @@ begin ".text"
 	pop ar2, gr2;
 	pop ar3, gr3;
 	return;
-end ".text";
+end ".text_nmplv";

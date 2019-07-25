@@ -10,7 +10,7 @@
 global _nmppsCmpLtC_v2nm32f: label;
 //void nmppsCmpLtC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlags, nm1* oddFlags, int step, int nSize);
 
-begin ".text"
+begin ".text_nmplv"
 <_nmppsCmpLtC_v2nm32f>
 	ar5 = ar7 - 2;
 	push ar3, gr3;
@@ -59,4 +59,4 @@ begin ".text"
 	pop ar2, gr2;
 	pop ar3, gr3;
 	return;
-end ".text";
+end ".text_nmplv";

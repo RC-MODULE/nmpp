@@ -32,7 +32,7 @@ begin "text"
 
 	ar1 = ar3 + 4;
 	fpu 2 rep vlen vreg0 = [ar1++gr1]; // x2
-	
+
 	ar1 = ar3 + 12;
 	fpu 3 rep vlen vreg0 = [ar1++gr1]; // x6
 
@@ -41,10 +41,10 @@ begin "text"
 
 	ar1 = ar3 + 28;
 	fpu 3 rep vlen vreg1 = [ar1++gr1]; // x14
-	
+
 	ar4 = [ar5++]; // W4_16
 	gr2 = ar0;
-	
+
 	fpu 0 .float vreg2 = vreg0 + vreg1; // y0
 	fpu 1 .float vreg2 = vreg0 + vreg1; // y2
 	fpu 2 .float vreg2 = vreg0 + vreg1; // y4
@@ -71,7 +71,7 @@ begin "text"
 	fpu 0 .float vreg5 = vreg2 + vreg4; // Y0
 	fpu 1 .complex vreg6 = vreg3 * .retrive(vreg5) + vreg4; // Y1
 	fpu 2 .float vreg5 = vreg2 + vreg4; // Y4
-	fpu 3 .complex vreg6 = vreg3 * .retrive(vreg5) + vreg4; // Y5	
+	fpu 3 .complex vreg6 = vreg3 * .retrive(vreg5) + vreg4; // Y5
 
 	gr0 = ar0; // saving W2_16
 
@@ -103,7 +103,7 @@ begin "text"
 //2, 18, 10, 26, 6, 22, 14, 30
 	ar1 = ar3 + 2;
 	fpu 0 rep vlen vreg0 = [ar1++gr1]; // x0
-	
+
 	ar1 = ar3 + 10;
 	fpu 1 rep vlen vreg0 = [ar1++gr1]; // x2
 
@@ -149,7 +149,7 @@ begin "text"
 	fpu 0 .float vreg0 = vreg4 + vreg7; 					// Y0
 	fpu 1 .complex vreg0 = vreg5 * .retrive(vreg6) + vreg7; // Y1
 	fpu 2 .float vreg0 = vreg4 + vreg7; 					// Y4
-	fpu 3 .complex vreg0 = vreg5 * .retrive(vreg6) + vreg7; // Y5	
+	fpu 3 .complex vreg0 = vreg5 * .retrive(vreg6) + vreg7; // Y5
 
 	fpu 0 .float vreg1 = vreg4 - vreg7; 					 // Y2
 	fpu 1 .complex vreg1 = -vreg5 * .retrive(vreg6) + vreg7; // Y3
@@ -233,13 +233,13 @@ begin "text"
 	ar1 = ar4;
 	fpu 0 rep vlen [ar1++gr1] = vreg2;
 	ar4 = ar4 + 2;
-	ar1 = ar4;	
+	ar1 = ar4;
 	fpu 1 rep vlen [ar1++gr1] = vreg2;
 	ar4 = ar4 + 2;
 	ar1 = ar4;
 	fpu 2 rep vlen [ar1++gr1] = vreg2;
 	ar4 = ar4 + 2;
-	ar1 = ar4;	
+	ar1 = ar4;
 	fpu 3 rep vlen [ar1++gr1] = vreg2;
 
 	fpu 0 .complex vreg3 = -vreg7 * .retrive(vreg4) + vreg3; // X12
@@ -252,10 +252,10 @@ begin "text"
 	ar1 = ar4;
 	fpu 0 rep vlen [ar1++gr1] = vreg3;
 	ar4 = ar4 + 2;
-	ar1 = ar4;	
+	ar1 = ar4;
 	fpu 1 rep vlen [ar1++gr1] = vreg3;
 	ar4 = ar4 + 2;
-	ar1 = ar4;	
+	ar1 = ar4;
 	fpu 2 rep vlen [ar1++gr1] = vreg3;
 	ar4 = ar4 + 2;
 	ar1 = ar4;

@@ -93,9 +93,9 @@ default:
 
 $(TARGET): $(TMP_DIR) $(OUT_DIR) $(OBJECTS) 
 	$(info "[Linking...]")
-	echo rcs $(TARGET) > .objects
+	echo rcs $(TARGET) > .objects 
 	$(MAKE) -s --no-print-directory -f printobj.mk >> .objects
-	$(AR) @.objects
+	$(AR) @.objects | errecho
 	
 nmc4vars_win.mk:
 	copy "$(NMC_GCC_TOOLPATH)\nmc4-ide\include\nmc4vars_win.mk" nmc4vars_win.mk
@@ -107,16 +107,16 @@ $(OUT_DIR):
 	-mkdir "$(@)"
 	
 $(TMP_DIR)/%.o: %.c 
-	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
+	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) | errecho
 
 $(TMP_DIR)/%.o: %.cpp
-	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
+	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) | errecho
 	
 $(TMP_DIR)/%.o: %.asm 
-	$(AS) $(AS_FLAGS) $(<) -o$(@)
+	$(AS) $(AS_FLAGS) $(<) -o$(@)				 | errecho
 
 $(TMP_DIR)/%.o: %.s 
-	$(AS) $(AS_FLAGS) $(<) -o$(@)
+	$(AS) $(AS_FLAGS) $(<) -o$(@)				 | errecho
 	
 .phony: time
 time:

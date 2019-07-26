@@ -26,7 +26,7 @@
 //! \perfinclude _nmppiResampleDown2X__FPUcPUciiPl.html
 //!
 
-void nmppiResampleDown2X(
+void nmppiResampleDown2X_8u8u(
 		nm8u7b*		pSrcImg,	// input buffer		:long Local	[h*w/8]
 		nm8u7b*		pDstImg,	// output buffer	:long Global[h*w/16]
 		int			nSrcWidth,	//Image width		width = [0,8,16...]
@@ -34,7 +34,7 @@ void nmppiResampleDown2X(
 		nm64s*		pKernel
 		)
 {
-    SIG_ResampleDown2_8u((nm8u7b*)pSrcImg,(nm8u7b*)pDstImg,nSrcHeight*nSrcWidth,pKernel);
+    nmppsResampleDown2_8u8u((nm8u7b*)pSrcImg,(nm8u7b*)pDstImg,nSrcHeight*nSrcWidth,pKernel);
 }
 
 //!
@@ -42,7 +42,7 @@ void nmppiResampleDown2X(
 //!
 
 
-void nmppiResampleDown2X(
+void nmppiResampleDown2X_16u16u(
                       nm16u15b*		pSrcImg,	// input buffer		:long Local	[h*w/8]
                       nm16u15b*		pDstImg,	// output buffer	:long Global[h*w/16]
                       int				nSrcWidth,	//Image width		width = [0,8,16...]
@@ -50,7 +50,7 @@ void nmppiResampleDown2X(
 					  nm64s*		pKernel
                       )
 {
-    SIG_ResampleDown2_16u((nm16u15b*)pSrcImg,(nm16u15b*)pDstImg,nSrcHeight*nSrcWidth,pKernel);
+    nmppsResampleDown2_16u16u((nm16u15b*)pSrcImg,(nm16u15b*)pDstImg,nSrcHeight*nSrcWidth,pKernel);
 }
 
 
@@ -58,7 +58,7 @@ void nmppiResampleDown2X(
 //! \perfinclude _nmppiResampleDown2X__FPUcPUsiiPlPv.html
 //!
 
-void nmppiResampleDown2X(
+void nmppiResampleDown2X_8u16u(
                       nm8u*			pSrcImg,	// input buffer		:long Local	[h*w/8]
                       nm16u*		pDstImg,	// output buffer	:long Global[h*w/16]
                       int				nSrcWidth,	//Image width		width = [0,8,16...]
@@ -69,7 +69,7 @@ void nmppiResampleDown2X(
 {
     int len = nSrcHeight*nSrcWidth;
     nmppsConvert_8s16s((nm8s*)pSrcImg,(nm16s*)pTmpBuf,len);
-    SIG_ResampleDown2_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,len,pKernel);
+    nmppsResampleDown2_16u16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,len,pKernel);
 }
 
 //!
@@ -81,7 +81,7 @@ void nmppiResampleDown2X(
 //!
 
 
-void nmppiResampleDown2Y_8u_tmp(
+void nmppiResampleDown2Y_8u16u_tmp(
 		nm8u*			pSrcImg,	// input buffer		:long Local	[h*w/8]
 		nm16u*			pDstImg,	// output buffer	:long Global[h*w/16]
 		int				nSrcWidth,	//Image width		width = [0,8,16...]
@@ -91,7 +91,7 @@ void nmppiResampleDown2Y_8u_tmp(
 {
 
     nmppsConvert_8s16s((nm8s*)pSrcImg,(nm16s*)pTmpBuf,nSrcHeight*nSrcWidth);
-    nmppiResampleDown2Y_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,nSrcWidth);
+    nmppiResampleDown2Y_16u16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,nSrcWidth);
 }
 
 //!
@@ -102,7 +102,7 @@ void nmppiResampleDown2Y_8u_tmp(
 //! \perfinclude _nmppiResampleDown2XY__FPUcPUsiiPlPv.html
 //!
 
-void nmppiResampleDown2XY_tmp(
+void nmppiResampleDown2XY_8u16u_tmp(
                        nm8u*			pSrcImg,	// input buffer		:long Local	[h*w/8]
                        nm16u*			pDstImg,	// output buffer	:long Global[h*w/16]
                        int				nSrcWidth,	//Image width		width = [0,8,16...]
@@ -112,8 +112,8 @@ void nmppiResampleDown2XY_tmp(
                        )
 {
     nmppsConvert_8s16s((nm8s*)pSrcImg,(nm16s*)pTmpBuf,nSrcHeight*nSrcWidth);
-    SIG_ResampleDown2_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
-    nmppiResampleDown2Y_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,(nSrcWidth/2));
+    nmppsResampleDown2_16u16u((nm16u15b*)pTmpBuf,(nm16u15b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
+    nmppiResampleDown2Y_16u16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,(nSrcWidth/2));
 }
 
 //!
@@ -124,7 +124,7 @@ void nmppiResampleDown2XY_tmp(
 //! \perfinclude _nmppiResampleDown2XY__FPUcPUciiPlPv.html
 //!
 
-void nmppiResampleDown2XY_tmp(
+void nmppiResampleDown2XY_8u8u_tmp(
                        nm8u7b*		pSrcImg,	// input buffer		:long Local	[h*w/8]
                        nm8u7b* 		pDstImg,	// output buffer	:long Global[h*w/16]
                        int				nSrcWidth,	//Image width		width = [0,8,16...]
@@ -133,8 +133,8 @@ void nmppiResampleDown2XY_tmp(
                        void*			pTmpBuf	// output buffer	:long Global[h*w/4]	
                        )
 {
-    SIG_ResampleDown2_8u((nm8u7b*)pSrcImg,(nm8u7b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
-    nmppiResampleDown2Y_8u((nm8u7b*)pTmpBuf,(nm8u7b*)pDstImg,nSrcHeight,(nSrcWidth/2));
+    nmppsResampleDown2_8u8u((nm8u7b*)pSrcImg,(nm8u7b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
+    nmppiResampleDown2Y_8u8u((nm8u7b*)pTmpBuf,(nm8u7b*)pDstImg,nSrcHeight,(nSrcWidth/2));
 }
 
 //!
@@ -146,7 +146,7 @@ void nmppiResampleDown2XY_tmp(
 //!
 
 
-void nmppiResampleDown2XY_16u(
+void nmppiResampleDown2XY_16u16u(
 						nm16u15b*	pSrcImg,	// input buffer		:long Local	[h*w/8]
 						nm16u15b*	pDstImg,	// output buffer	:long Global[h*w/16]
 						int			nSrcWidth,	//Image width		width = [0,8,16...]
@@ -155,7 +155,7 @@ void nmppiResampleDown2XY_16u(
 						void*		pTmpBuf	// output buffer	:long Global[h*w/4]	
 		)
 {
-    SIG_ResampleDown2_16u((nm16u15b*)pSrcImg,(nm16u15b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
-    nmppiResampleDown2Y_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,(nSrcWidth/2));
+    nmppsResampleDown2_16u16u((nm16u15b*)pSrcImg,(nm16u15b*)pTmpBuf,nSrcHeight*nSrcWidth,pKernel);
+    nmppiResampleDown2Y_16u16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstImg,nSrcHeight,(nSrcWidth/2));
 }
 

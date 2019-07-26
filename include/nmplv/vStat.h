@@ -68,8 +68,6 @@
     //! \{
 	unsigned nmppsCrc_32u		(const unsigned int* pSrcVec, int nSize);
 	unsigned nmppsCrcAcc_32u	(const unsigned int* pSrcVec, int nSize, unsigned int* crcAccumulator);
-	unsigned nmppsCrcMask_32u	(const unsigned int* pSrcVec, unsigned mask, int nSize);
-	unsigned nmppsCrcMaskAcc_32u(const unsigned int* pSrcVec, unsigned int mask, int nSize, unsigned int* crcAccumulator);
 	
 	
    

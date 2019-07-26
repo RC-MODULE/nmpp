@@ -20,8 +20,11 @@
 
 #include "nmtype.h"
 
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////////
-void SIG_ResampleDown2(
+void nmppsResampleDown2_16u16u(
 		nm16u15b*		pSrc,	// input buffer		:long Local	[len/8]
 		nm16u15b*		pDst,	// output buffer	:long Global[len/4/2]
 		int				len,		// size of input buffer in 16 bit elements. nSize=[0,2,4,...]
@@ -32,7 +35,7 @@ void SIG_ResampleDown2(
 		((nm16s*)pDst)[i] = ((unsigned short)(((nm16u*)pSrc)[2*i]+((nm16u*)pSrc)[2*i+1])>>1);
 }
 /////////////////////////////////////////////////////////////////////////////////////////
-void SIG_ResampleDown2(
+void nmppsResampleDown2_8u8u(
 		nm8u7b*			pSrc,	// input buffer		:long Local	[len/8]
 		nm8u7b*			pDst,	// output buffer	:long Global[len/4/2]
 		int				len,	// size of input buffer in 16 bit elements. nSize=[0,2,4,...]
@@ -45,12 +48,12 @@ void SIG_ResampleDown2(
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 
-int SIG_SetResampleDown2_16u16u(nm64s* pKernel)
+int nmppsSetResampleDown2_16u16u(nm64s* pKernel)
 {
 	return 0;
 }
 
-int SIG_SetResampleUp3Down2_8u8u(nm64s* pKernel)
+int nmppsSetResampleUp3Down2_8u8u(nm64s* pKernel)
 {
 	return 0;
 }

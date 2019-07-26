@@ -21,8 +21,13 @@
 #ifndef _S_RESAMPLE_H_INCLUDED_
 #define _S_RESAMPLE_H_INCLUDED_
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
+
     /**
-    \defgroup SIG_ResampleDown2 SIG_ResampleDown2
+    \defgroup nmppsResampleDown2 nmppsResampleDown2
     \ingroup sResample
     \brief
         \ru Уменьшение числа отсчетов в двое. 
@@ -57,22 +62,22 @@
     */
 
     //! \{
-void SIG_ResampleDown2_8u(nm8u7b* pSrcVec, nm8u7b* pDstVec, int nSrcVecSize, nm64s* pKernel);
-void SIG_ResampleDown2_16u(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm64s* pKernel);
+void nmppsResampleDown2_8u8u(nm8u7b* pSrcVec, nm8u7b* pDstVec, int nSrcVecSize, nm64s* pKernel);
+void nmppsResampleDown2_16u16u(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm64s* pKernel);
     //! \}
 
 //\param	pTmpBuf		
 //    \ru Временный буффер размера 2*nSize. 
 //    \en Temporary buffer with size 2*nSize. 
 
-//void SIG_ResampleDown2(nm8u* pSrcVec, nm16u* pDstVec, int nSrcVecSize, nm64s* pKernel, void* pTmpBuf);
-void SIG_ResampleDown2_8u16u(nm8u* pSrcVec,nm16u*	pDstVec,void*	pTmpBuf,int	nSize);
+//void nmppsResampleDown2(nm8u* pSrcVec, nm16u* pDstVec, int nSrcVecSize, nm64s* pKernel, void* pTmpBuf);
+void nmppsResampleDown2_8u16u(nm8u* pSrcVec,nm16u*	pDstVec,void*	pTmpBuf,int	nSize);
 
 //*****************************************************************************
 
     /**
 		\~
-    \defgroup SIG_ResampleUp3Down2 SIG_ResampleUp3Down2
+    \defgroup nmppsResampleUp3Down2 nmppsResampleUp3Down2
     \ingroup sResample
     \brief
         \ru Передискретизации сигнала в 3/2 раза 
@@ -105,16 +110,16 @@ void SIG_ResampleDown2_8u16u(nm8u* pSrcVec,nm16u*	pDstVec,void*	pTmpBuf,int	nSiz
     
     */
     //! \{
-void SIG_ResampleUp3Down2(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize, nm64s* pKernel);
+void nmppsResampleUp3Down2_8s16s(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize, nm64s* pKernel);
     //! \}
 //*****************************************************************************
 
     /**
-    \defgroup SIG_CreateResample SIG_CreateResample
+    \defgroup nmppsCreateResample nmppsCreateResample
     \ingroup sResample
     \brief
-        \ru Создание ядра для функции передискретизации SIG_Resample(). 
-        \en Creation of the core for resampling function SIG_Resample(). 
+        \ru Создание ядра для функции передискретизации nmppsResample(). 
+        \en Creation of the core for resampling function nmppsResample(). 
     
 		\~
         \ru Функции выделяют память и инициализируют таблицы весовых коэффициентов для использования в функциях передискретизации. 
@@ -131,25 +136,25 @@ void SIG_ResampleUp3Down2(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize, nm64s*
         \en Pointer to auxilary structure, which contains filter coefficents in internal format. 
 
 		\~
-    \note \ru Используется перед вызовом функции SIG_Filter.
-          \en This functions is used before call  of SIG_Filter.
+    \note \ru Используется перед вызовом функции nmppsFilter.
+          \en This functions is used before call  of nmppsFilter.
 		  \~
     */
 
     //! \{
-void SIG_CreateResampleUp3Down2_8s16s(nm64s** pKernel, int nHint);
-void SIG_CreateResampleDown2_8u8u(nm64s** pKernel, int nHint);
-void SIG_CreateResampleDown2_16u16u(nm64s** pKernel, int nHint);
+void nmppsCreateResampleUp3Down2_8s16s(nm64s** pKernel, int nHint);
+void nmppsCreateResampleDown2_8u8u(nm64s** pKernel, int nHint);
+void nmppsCreateResampleDown2_16u16u(nm64s** pKernel, int nHint);
     //! \}
 
 //*****************************************************************************
 
     /**
-    \defgroup SIG_SetResample SIG_SetResample
+    \defgroup nmppsSetResample nmppsSetResample
     \ingroup sResample
     \brief
-        \ru Создание ядра для функции передискретизации SIG_Resample(). 
-        \en Creation of the core for resampling function SIG_Resample(). 
+        \ru Создание ядра для функции передискретизации nmppsResample(). 
+        \en Creation of the core for resampling function nmppsResample(). 
     
 		\~
         \ru Функции инициализируют таблицы весовых коэффициентов для использования в функциях передискретизации. 
@@ -165,19 +170,19 @@ void SIG_CreateResampleDown2_16u16u(nm64s** pKernel, int nHint);
 		\ru Размер проинициализированной структуры pKernel в 32р. словах
 		\en Size of inited structure pKernel in 32 bit words
 		\~
-    \note \ru Используется перед вызовом функции SIG_Filter.
-          \en This functions is used before call  of SIG_Filter.
+    \note \ru Используется перед вызовом функции nmppsFilter.
+          \en This functions is used before call  of nmppsFilter.
 
 		\~
-    \note \ru Используется перед вызовом функции SIG_Resample().
-          \en This functions is used before call  of SIG_Resample().
+    \note \ru Используется перед вызовом функции nmppsResample().
+          \en This functions is used before call  of nmppsResample().
 		\~ 
 		*/
 
     //! \{
-int SIG_SetResampleUp3Down2_8s16s(nm64s* pKernel);
-int SIG_SetResampleDown2_8u8u(nm64s* pKernel);
-int SIG_SetResampleDown2_16u16u(nm64s* pKernel);
+int nmppsSetResampleUp3Down2_8s16s(nm64s* pKernel);
+int nmppsSetResampleDown2_8u8u(nm64s* pKernel);
+int nmppsSetResampleDown2_16u16u(nm64s* pKernel);
     //! \}
 
 
@@ -185,25 +190,25 @@ int SIG_SetResampleDown2_16u16u(nm64s* pKernel);
 
      /**
     \internal
-    \defgroup SIG_Decimate16 SIG_Decimate16
+    \defgroup nmppsDecimate16 nmppsDecimate16
 		\ingroup sResample
     */
     //! \{
-void SIG_Decimate16_8s(nm8s* pSrcVec,nm8s* pDstVec,int nDstSize);
-void SIG_Decimate16_16s(nm16s* pSrcVec,nm16s* pDstVec,int nDstSize);
-void SIG_Decimate16_32s(nm32s* pSrcVec,nm32s* pDstVec,int nDstSize);
-void SIG_Decimate16_64s(nm64s* pSrcVec,nm64s* pDstVec,int nDstSize);
+void nmppsDecimate16_8s(nm8s* pSrcVec,nm8s* pDstVec,int nDstSize);
+void nmppsDecimate16_16s(nm16s* pSrcVec,nm16s* pDstVec,int nDstSize);
+void nmppsDecimate16_32s(nm32s* pSrcVec,nm32s* pDstVec,int nDstSize);
+void nmppsDecimate16_64s(nm64s* pSrcVec,nm64s* pDstVec,int nDstSize);
     //! \}
 
 
 //*****************************************************************************
 
     /**
-    \defgroup SIG_Resample_perf SIG_Resample_perf
+    \defgroup nmppsResample_perf nmppsResample_perf
 		\ingroup sResample
 		\brief 
-			\ru Функции для оценки производительности функций фильтрации SIG_Resample()
-			\en Functions for performance estimation of SIG_Filter() functions . 
+			\ru Функции для оценки производительности функций фильтрации nmppsResample()
+			\en Functions for performance estimation of nmppsFilter() functions . 
 		
 		\~
 		\ru Функция  эквивалентно следующим псевдоинструкциям: 
@@ -211,12 +216,12 @@ void SIG_Decimate16_64s(nm64s* pSrcVec,nm64s* pDstVec,int nDstSize);
 		\~
 		\~
     \code
-	void SIG_Resample***_perf(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm64s* pKernel);
+	void nmppsResample***_perf(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm64s* pKernel);
 	{
-		SIG_SetResample***_***(pKernel); 
+		nmppsSetResample***_***(pKernel); 
 		clock_t t0,t1;	
 		t0=clock();
-		SIG_Resample***(pSrcVec, pDstVec, nSize,pKernel);
+		nmppsResample***(pSrcVec, pDstVec, nSize,pKernel);
 		t1=clock();
 		exit(t1-t0);
 	}
@@ -241,8 +246,8 @@ void SIG_Decimate16_64s(nm64s* pSrcVec,nm64s* pDstVec,int nDstSize);
         \en The result vec. 
 	
 		\~
-    \note \ru Инициализация служебной структуры производится соответсвующей функцией SIG_SetFilter() и SIG_CreateFilter().
-          \en Initialization of Auxilary structure is performed by call of appropriate SIF_SetFilter function and SIG_CreateFilter().
+    \note \ru Инициализация служебной структуры производится соответсвующей функцией nmppsSetFilter() и nmppsCreateFilter().
+          \en Initialization of Auxilary structure is performed by call of appropriate SIF_SetFilter function and nmppsCreateFilter().
 
 		\~
     \par
@@ -262,9 +267,9 @@ void SIG_Decimate16_64s(nm64s* pSrcVec,nm64s* pDstVec,int nDstSize);
     \endxmlonly
     */
     //! \{
-void SIG_ResampleUp3Down2_perf(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize, nm64s* pKernel);
-void SIG_ResampleDown2_perf_8u(nm8u7b* pSrcVec, nm8u7b* pDstVec, int nSrcVecSize, nm64s* pKernel);
-void SIG_ResampleDown2_perf_16u(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm64s* pKernel);
+void nmppsResampleUp3Down2_perf(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize, nm64s* pKernel);
+void nmppsResampleDown2_perf_8u(nm8u7b* pSrcVec, nm8u7b* pDstVec, int nSrcVecSize, nm64s* pKernel);
+void nmppsResampleDown2_perf_16u(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm64s* pKernel);
     //! \}
 	
 	
@@ -275,9 +280,9 @@ void SIG_ResampleDown2_perf_16u(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVe
 //! \tparam nmbits_in  Тип указывающий разрядность входного вектора. Допустимые типы : nm8s,nm16s,nm32s
 //! \tparam nmbits_out Тип указывающий разрядность выходного вектора. Допустимые типы : nm8s,nm16s,nm32s. Разрядность входного вектора не должна превышать разрядности выходного.
 //! \par Пример
-//! \include app\example\Filter\SIG_Filter_16s32s\main.cpp 
+//! \include app\example\Filter\nmppsFilter_16s32s\main.cpp 
 #ifdef EEE
-template <class nmbits_in, class nmbits_out> class CSIG_ResampleUp3Down2
+template <class nmbits_in, class nmbits_out> class CnmppsResampleUp3Down2
 {
 public:
 	void (*pfFree32)(void*);	///< Указатель на функции освобождения памяти (pKernel)
@@ -319,5 +324,13 @@ public:
 
 };
 #endif
+	
+	
+	
+
+#ifdef __cplusplus
+		};
+#endif
+
 	
 #endif // 

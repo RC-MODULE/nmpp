@@ -187,7 +187,7 @@ void nmppiResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pD
 	pVResample16s=nmppsMalloc_16s(nSrcSize*3*3/2/2+nSrcWidth*100);
 
 	nmppsSubC_8s((nm8s*)pSrcImg,char(128),(nm8s*)pSrc8s,nSrcSize);
-	SIG_ResampleUp3Down2((nm8s*)pSrc8s,pHResample16s+nSrcWidth*50,nSrcSize,pKernel);
+	nmppsResampleUp3Down2_8s16s((nm8s*)pSrc8s,pHResample16s+nSrcWidth*50,nSrcSize,pKernel);
 	nmppsRShiftC_16s(pHResample16s+nSrcWidth*50,6,pHResample16s+nSrcWidth*50,nSrcSize*3/2);
 	nmppiVResample3div2_RShift0(pHResample16s+nSrcWidth*50,nSrcWidth*3/2,nSrcHeight,pVResample16s+nSrcWidth*50);
 	nmppsClipRShiftConvertAddC_16s8s(pVResample16s+nSrcWidth*50, 6+7,6,128,(nm8s*)pDstImg, nSrcSize*3*3/2/2);

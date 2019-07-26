@@ -27,7 +27,7 @@
 //!
 //! \perfinclude _SIG_ResampleDown2__FPUcPUsPvi.html
 //!
-void SIG_ResampleDown2(
+void nmppsResampleDown2_8u16u(
 		nm8u*			pSrcVec,	// input buffer		:long Local	[h*w/8]
 		nm16u*			pDstVec,	// output buffer	:long Global[h*w/16]
 		void*			pTmpBuf,	// output buffer	:long Global[h*w/4]	
@@ -36,7 +36,7 @@ void SIG_ResampleDown2(
 {
     nmppsConvert_8s16s((nm8s*)pSrcVec,(nm16s*)pTmpBuf,nSize);
 	nm64s* pKernel;
-	SIG_CreateResampleDown2_16u16u(&pKernel,MEM_LOCAL);
-    SIG_ResampleDown2_16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstVec,nSize,pKernel);
+	nmppsCreateResampleDown2_16u16u(&pKernel,MEM_LOCAL);
+    nmppsResampleDown2_16u16u((nm16u15b*)pTmpBuf,(nm16u15b*)pDstVec,nSize,pKernel);
 }
 /////////////////////////////////////////////////////////////////////////////////////////

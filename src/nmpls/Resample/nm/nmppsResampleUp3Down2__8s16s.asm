@@ -23,15 +23,13 @@
 extern vec_Mul2D2W8_AddVr:label;
 begin ".text_nmpls"
 
-//! \fn void SIG_ResampleUp3Down2(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize, nm64s* pKernel);
+//! \fn void nmppsResampleUp3Down2(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize, nm64s* pKernel);
 //!
-// \perfinclude _SIG_ResampleUp3Down2__FPcPSsiPl.html
+// \perfinclude _nmppsResampleUp3Down2__FPcPSsiPl.html
 
 //
-global _SIG_ResampleUp3Down2__FPcPSsiPl:label;
-global _void._.8.8SIG_ResampleUp3Down2.1char._.0.9._short._.0.9._int.9._long._.0.2:label;
-<_SIG_ResampleUp3Down2__FPcPSsiPl>
-<_void._.8.8SIG_ResampleUp3Down2.1char._.0.9._short._.0.9._int.9._long._.0.2>
+global _nmppsResampleUp3Down2_8s16s:label;
+<_nmppsResampleUp3Down2_8s16s>
 .branch;
 	ar5 = sp - 2;
 	

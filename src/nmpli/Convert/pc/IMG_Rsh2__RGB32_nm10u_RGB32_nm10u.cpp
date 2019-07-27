@@ -17,7 +17,8 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-#include "nmpli.h"
+//#include "nmpli.h"
+#include "nmpli/iDef.h"
 
 void nmppiRsh2(RGB32_nm10u* pSrcImg, RGB32_nm10u* pDstImg, int nSize)
 {

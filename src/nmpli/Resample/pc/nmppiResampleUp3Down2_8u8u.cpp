@@ -1,6 +1,10 @@
 #include "nmpli.h"
 #include "nmpls.h"
 #include "nmtl.h"
+
+extern "C"{
+	
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 static double PolyphaseFilter3div2[3*4*2+1] = {     
 		 0,
@@ -176,7 +180,7 @@ void nmppiVResample3div2_RShift0(nm16s* pSrcImg, int nWidth, int nHeight, nm16s*
 	}
 }
 
-void nmppiResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDstImg, nm64s* pKernel, void* pTmp)
+void nmppiResampleUp3Down2_8u8u(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pDstImg, nm64s* pKernel, void* pTmp)
 {
 	int nSrcSize=nSrcWidth*nSrcHeight;
 	nm8s*  pSrc8s;
@@ -263,3 +267,5 @@ void nmppiResampleUp3Down2(nm8u* pSrcImg,int nSrcWidth, int nSrcHeight, nm8u* pD
 //	nmppsFree(pSrc8s);
 //	
 //}
+
+};

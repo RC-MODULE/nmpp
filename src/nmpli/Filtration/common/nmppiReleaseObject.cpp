@@ -2,6 +2,10 @@
 
 
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
 
 
 //!
@@ -12,3 +16,9 @@ void nmppiReleaseObject(nm64s* kernel)
 {
 	nmppsFree(kernel);
 }
+
+
+
+#ifdef __cplusplus
+		};
+#endif

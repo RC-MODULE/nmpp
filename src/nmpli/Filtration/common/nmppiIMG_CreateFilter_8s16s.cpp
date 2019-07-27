@@ -11,6 +11,11 @@
 //	nSize=13 nDisp=6,2 
 
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
+
 
 int GetDisp0(int nSize)
 {
@@ -350,3 +355,9 @@ template<> CnmppiFIR<nm8s,nm16s>::~CnmppiFIR(){
 		pfFree32(pKernel); 
 }
 */
+
+
+
+#ifdef __cplusplus
+		};
+#endif

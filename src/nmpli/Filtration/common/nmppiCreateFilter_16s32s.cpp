@@ -4,6 +4,11 @@
 #include "nmpli.h"
 
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
+
 
 // nSize=3  nDisp=1,3 nMatrix=2
 // nSize=5  nDisp=2,4 nMatrix=2
@@ -325,3 +330,8 @@ template<> CnmppiFIR<nm16s,nm32s>::~CnmppiFIR(){
 }
 
 */
+
+
+#ifdef __cplusplus
+		};
+#endif

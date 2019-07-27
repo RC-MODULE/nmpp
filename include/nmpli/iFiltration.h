@@ -21,6 +21,10 @@
 #ifndef _IFILTRATION_H_INCLUDED_
 #define _IFILTRATION_H_INCLUDED_
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
 #include "iFilter.h"
 //*****************************************************************************
 
@@ -78,6 +82,10 @@ void nmppiMedian3x3(  nm8s7b * pSrc, nm8s7b *pDst, int nWidth, int nHeight, void
 
 
 
+
+#ifdef __cplusplus
+		};
+#endif
 
 
 #endif // _IFILTER_H_INCLUDED_

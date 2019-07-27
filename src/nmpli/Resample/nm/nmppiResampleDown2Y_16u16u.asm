@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: ResizeDown2Y_C7.as $
+//  $Workfile:: ResizeDown2Y_S15.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   ResizeDown2Y_C7.asm
+//! \file   ResizeDown2Y_S15.asm
 //! \author Павел Лукашевич
 //! \brief  Функции изменения размеров изображения.
 //!
@@ -22,21 +22,20 @@
 import from macros.mlb;
 
 data ".data_nmpli_G"
-	Mask:	long = 0fefefefefefefefeh;
+	Mask:	long = 0fffefffefffefffeh;
 end ".data_nmpli_G";
 /////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
 begin ".text_nmpli"
-
     //--------------------------------------------------------------------
-    //! \fn void nmppiResampleDown2Y(nm8u7b* pSrcImg, nm8u7b* pDstImg, int nSrcWidth, int nSrcHeight)
+    //! \fn void nmppiResampleDown2Y(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWidth, int nSrcHeight)
     //!
-//! \perfinclude _nmppiResampleDown2Y__FPUcPUcii.html
+//! \perfinclude _nmppiResampleDown2Y__FPUsPUsii.html
     //--------------------------------------------------------------------
+
 extern vec_Add_VV_shift:label;
-global _nmppiResampleDown2Y__FUcPUcPii:label;
-global _void._.8.8nmppiResampleDown2Y.1unsigned._char.9._unsigned._char._.0.9._int._.0.9._int.2 :label;
-<_nmppiResampleDown2Y__FUcPUcPii>
-<_void._.8.8nmppiResampleDown2Y.1unsigned._char.9._unsigned._char._.0.9._int._.0.9._int.2>
+global _nmppiResampleDown2Y_16u16u:label;
+<_nmppiResampleDown2Y_16u16u>
 .branch;
 				
 	ar5 = sp - 2	with gr7=false;
@@ -51,15 +50,11 @@ global _void._.8.8nmppiResampleDown2Y.1unsigned._char.9._unsigned._char._.0.9._i
 	gr4 = [--ar5];					// w
 	gr3 = [--ar5];					// h
 
-	nb1 = 080808080h;
+	nb1 = 080008000h	with gr3>>=1;
+	ar4 = Mask			with gr4>>=2;
 	wtw;
-
-	ar4 = Mask;
-
-	with gr3>>=1;
-	with gr4>>=3;
-
 	with gr3 - gr4;
+
 	if > delayed goto VerticalScroll
 		with gr0 = gr4<<1;
 		ar1 = ar0 + gr0;

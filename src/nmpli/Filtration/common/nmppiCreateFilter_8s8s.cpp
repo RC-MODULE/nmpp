@@ -3,6 +3,9 @@
 #include "nmpli.h"
 #include <string.h>
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
 
 
 int  Sig_GetNumberOfArrays_Filter_8s8s(int nSize);
@@ -89,3 +92,9 @@ int nmppiGetFilterKernelSize32_8s8s(int nKerWidth, int nKerHeight){
 //		pfFree32(pKernel);
 //}
 //
+
+
+#ifdef __cplusplus
+		};
+#endif
+

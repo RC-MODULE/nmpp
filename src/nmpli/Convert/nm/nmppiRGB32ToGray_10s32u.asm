@@ -38,22 +38,17 @@ extern vec_vsum_data_vr:label;
 //!
 //! \perfinclude _nmppiRGB32ToGray__F11RGB32_nm10sPPUii.html
  
-global _nmppiRGB32ToGray__F13RGB32_nm10sPPUii:label;
-global _void._.8.8nmppiRGB32ToGray.1class._RGB32_nm10s._.0.9._unsigned._int._.0.9._int.2 :label;
-<_nmppiRGB32ToGray__F13RGB32_nm10sPPUii>
-<_void._.8.8nmppiRGB32ToGray.1class._RGB32_nm10s._.0.9._unsigned._int._.0.9._int.2>
+global _nmppiRGB32ToGray_10s32u:label;
+<_nmppiRGB32ToGray_10s32u>
 .branch;
 	vr = 0; 
-	goto  _nmppiRGB32ToGray__F13RGB32_nm10sPPii+2;
+	goto  _nmppiRGB32ToGray_10s32s+2;
 		
 
 //! \fn void nmppiRGB32ToGray(RGB32_nm10s* pRGB, nm32s* pDstGray, int nSize);
 //!
-//! \perfinclude _nmppiRGB32ToGray__F11RGB32_nm10sPPii.html
-global _nmppiRGB32ToGray__F13RGB32_nm10sPPii:label;
-global _void._.8.8nmppiRGB32ToGray.1class._RGB32_nm10s._.0.9._int._.0.9._int.2 :label;
-<_nmppiRGB32ToGray__F13RGB32_nm10sPPii>
-<_void._.8.8nmppiRGB32ToGray.1class._RGB32_nm10s._.0.9._int._.0.9._int.2>
+global _nmppiRGB32ToGray_10s32s:label;
+<_nmppiRGB32ToGray_10s32s>
 	vr  = 0FF800000h;
 	ar5 = tbl_w_RGB2Gray	with gr7=true;
 	sb  = 80200802h			with gr7<<=31;  // sb=(10+10+10+2)x2

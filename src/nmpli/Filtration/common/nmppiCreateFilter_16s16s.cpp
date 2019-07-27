@@ -4,6 +4,11 @@
 #include "nmpli.h"
 
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
+
 
 
 	// f(3)=3
@@ -219,3 +224,8 @@ template<> CnmppiFIR<nm16s,nm16s>::~CnmppiFIR(){
 		pfFree32(pKernel);
 }
 */
+
+
+#ifdef __cplusplus
+		};
+#endif

@@ -60,15 +60,15 @@ For convenience of application programs development the library has implementati
 
     /**
     * \ru
-    *     \defgroup iInit Инициализация и копирование 
+    *     \defgroup iConvert Инициализация и копирование 
     * \en
-    *     \defgroup iInit Initialization and copy
+    *     \defgroup iConvert Initialization and copy
     * \~
     * \ingroup nmppiGroup
     */
 
 
-//#include "iInit.h"
+#include "iConvert.h"
 //*****************************************************************************
 
     /*

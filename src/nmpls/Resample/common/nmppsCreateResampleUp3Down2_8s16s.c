@@ -49,11 +49,10 @@
 //    0.0195,
 //	0};
 
-/*
-void SIG_CreateResampleUp3Down2_8s16s(nm64s** pKernel, int nHint)
+
+void nmppsCreateResampleUp3Down2_8s16s(nm64s** pKernel, int nHint)
 {
-	nmppsMalloc_16s((nm16s**)pKernel,16*3*4,nHint);
-	SIG_SetResampleUp3Down2_8s16s(*pKernel);
+	*pKernel=nmppsMalloc_16s(16*3*4);
+	nmppsSetResampleUp3Down2_8s16s(*pKernel);
 
 }
-*/

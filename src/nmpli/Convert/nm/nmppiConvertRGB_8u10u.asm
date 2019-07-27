@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: ConvertRGB30_RGB24.ASM $
+//  $Workfile:: ConvertRGB24_RGB30.ASM $
 //
 //  Библиотека обработки изображений
 //
@@ -10,37 +10,36 @@
 //
 //! \if file_doc
 //!
-//! \file   ConvertRGB30_RGB24.asm
+//! \file   ConvertRGB24_RGB30.asm
 //! \author Сергей Ландышев.
-//! \brief  Функция конвертирует элементы RGB из 10-ти разрядного представления
-//!         в 8-ми разрядное. 
+//! \brief  Функция конвертирует элементы RGB из 8-ми разрядного представления
+//!         в 10-ти разрядное. 
 //!
 //! \endif
 //!
 //------------------------------------------------------------------------
 extern vec_vsum_data_0: label;
-global _nmppiConvert__F13RGB32_nm10uP12RGB32_nm8uPi: label;
-global _void._.8.8nmppiConvert.1class._RGB32_nm10u._.0.9._class._RGB32_nm8u._.0.9._int.2 :label;
+
 
     //--------------------------------------------------------------------
 begin ".text_nmpli"
 Weights:	long[8] = (
 		00000000000000001hl,
-		00000000000000100hl,
-		00000000000010000hl,
+		00000000000000400hl,
+		00000000000100000hl,
 		00000000000000000hl,
 		00000000100000000hl,
-		00000010000000000hl,
-		00001000000000000hl,
+		00000040000000000hl,
+		00010000000000000hl,
 		00000000000000000hl);
 
     //--------------------------------------------------------------------
-    //! \fn  void nmppiConvert(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize); 
+    //! \fn  void nmppiConvert(RGB32_nm8u* pSrcImg, RGB32_nm10u* pDstImg, int nSize); 
     //!
-	//! \perfinclude _nmppiConvert__F11RGB32_nm10uP10RGB32_nm8uPi.html
+	//! \perfinclude _nmppiConvert__F10RGB32_nm8uP11RGB32_nm10uPi.html
     //--------------------------------------------------------------------
-<_nmppiConvert__F13RGB32_nm10uP12RGB32_nm8uPi>
-<_void._.8.8nmppiConvert.1class._RGB32_nm10u._.0.9._class._RGB32_nm8u._.0.9._int.2>
+<_nmppiConvertRGB32_8u10u>
+global _nmppiConvertRGB32_8u10u: label;
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;
     push ar5, gr5 with gr0++;
@@ -50,8 +49,8 @@ Weights:	long[8] = (
     ar6 = [--ar5];
     gr5 = [--ar5];
     
-    nb1 = 080808080h;
-	sb = 080200802h;
+    nb1 = 0880a0280h;
+	sb = 02020202h;
 	ar5 = Weights;
 	rep 8 wfifo = [ar5++], ftw, wtw;
 

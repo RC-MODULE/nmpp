@@ -28,7 +28,7 @@ float PolyphaseFilter3x4[3*4*2+1] = {
    -0.0057,
    0};
 
-int SIG_SetResampleUp3Down2_8s16s(nm64s* Kernel)
+int nmppsSetResampleUp3Down2_8s16s(nm64s* Kernel)
 {
 	nm16s* pKernel=(nm16s*)Kernel;
 

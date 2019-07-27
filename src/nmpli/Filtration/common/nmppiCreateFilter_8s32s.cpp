@@ -4,6 +4,11 @@
 #include "nmpli.h"
 
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
+
 
 //	nSize=3  nDisp=1,7,5,3 
 //  nSize=5  nDisp=2,8,6,4 
@@ -474,3 +479,7 @@ int nmppiGetFilterKernelSize32_8s32s(int nKerWidth, int nKerHeight)
 //
 
 
+
+#ifdef __cplusplus
+		};
+#endif

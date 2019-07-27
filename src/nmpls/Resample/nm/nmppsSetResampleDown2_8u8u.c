@@ -1,6 +1,6 @@
 #include "nmtype.h"
 
-int SIG_SetResampleDown2_8u8u(nm64s* pKernel)
+int nmppsSetResampleDown2_8u8u(nm64s* pKernel)
 {
 	pKernel[0]=0x00000000000000001l;
 	pKernel[1]=0x00000000000000001l;

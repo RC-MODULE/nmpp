@@ -1,6 +1,9 @@
 #include "nmtype.h"
 #include "nmtl.h"
 //////////////////////////////////////////////////////////////////////////////////////////////////////
+extern "C" {
+	
+
 static double PolyphaseFilter3div2[3*4*2+1] = {     
 		 0,
    -0.0057,
@@ -113,7 +116,7 @@ void MakeResampleUp3Down2TblFiles()
 //	fout_cpp << "double tblDCT_right[8][8]=" << tblDCT_left;
 }
 
-int SIG_SetResampleUp3Down2_8s16s(nm64s* pKernel)
+int nmppsSetResampleUp3Down2_8s16s(nm64s* pKernel)
 {
 	for(int i=0;i<25;i++)
 	{
@@ -122,7 +125,7 @@ int SIG_SetResampleUp3Down2_8s16s(nm64s* pKernel)
 	return 0;
 }
 
-void SIG_ResampleUp3Down2(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize,  nm64s* pKernel)
+void nmppsResampleUp3Down2(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize,  nm64s* pKernel)
 {
 	nmvec16s vKernel((nm16s*)pKernel,25);				// Filter kernel
 	nmvec8s  vSrcUpsample(nSrcVecSize*3,20);	// Resampled vSrc by 3 times
@@ -167,7 +170,7 @@ void SIG_ResampleUp3Down2(nm8s* pSrcVec, nm16s* pDstVec, int nSrcVecSize,  nm64s
 
 
 
-void SIG_Resample5div4_RShift0(nm8s* pSrcVec,int nSrcVecSize, nm16s* pDstVec)
+void nmppsResample5div4_RShift0(nm8s* pSrcVec,int nSrcVecSize, nm16s* pDstVec)
 {
 	nmvec16s vKernel(41);				// Filter kernel
 	nmvec8s  vSrcUpsample(nSrcVecSize*5,22);	// Resampled vSrc by 5 times
@@ -199,7 +202,7 @@ void SIG_Resample5div4_RShift0(nm8s* pSrcVec,int nSrcVecSize, nm16s* pDstVec)
 	}
 }
 
-void SIG_Resample(nm8s* pSrcVec, int nSrcVecSize, int nP, int nQ, int nK, int nWindow, nm16s* pDstVec)
+void nmppsResample(nm8s* pSrcVec, int nSrcVecSize, int nP, int nQ, int nK, int nWindow, nm16s* pDstVec)
 {
 
 	const double PI=3.1415926535897932384626433832795;
@@ -300,7 +303,7 @@ void SIG_Resample(nm8s* pSrcVec, int nSrcVecSize, int nP, int nQ, int nK, int nW
 	}
 }
 
-void SIG_VResample(nm8s* pSrcImg, int nSrcStride, int nSrcWidth, int nSrcHeight, int nP, int nQ, int nK, int nWindow, nm16s* pDstImg)
+void nmppsVResample(nm8s* pSrcImg, int nSrcStride, int nSrcWidth, int nSrcHeight, int nP, int nQ, int nK, int nWindow, nm16s* pDstImg)
 {
 	nmmtr8s  mSrcImg(pSrcImg,nSrcHeight,nSrcWidth);
 	nmmtr16s mDstImg(pDstImg,nSrcHeight*nP/nQ,nSrcWidth);
@@ -400,3 +403,5 @@ void SIG_VResample(nm8s* pSrcImg, int nSrcStride, int nSrcWidth, int nSrcHeight,
 
 	}
 }
+
+};

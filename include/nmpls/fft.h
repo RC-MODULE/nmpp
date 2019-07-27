@@ -250,9 +250,7 @@
 	int  nmppsDFT8192Inv_i 			(const nm32sc* src, nm32sc* dst, int bits);
 
 	void nmppsFFTResetSpec(NmppsFFTSpec* spec);
-#ifdef __cplusplus
-		};
-#endif
+
 
 //#include "nmtl/tcmplx.h"
 void nmppsFFT32FwdRef2x16  ( nm32sc* src, nm32sc* dst); // C++
@@ -283,7 +281,9 @@ void nmppsFFT2048Inv4888_RefInt(const nm32sc* src, nm32sc* dst);
 
 //void nmppsFFT64FwdRef2x2x16_f( nm32sc* src, nm32sc* dst);
 
-
+#ifdef __cplusplus
+		};
+#endif
 
 #define SKIP_SINCOS 4
 

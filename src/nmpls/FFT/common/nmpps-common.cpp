@@ -160,7 +160,7 @@ void load_wfifo(cmplx<int>* wcoef, int wstep, int size){
 void load_wfifo(nm32sc* wcoef, int wstep, int size){
 	load_wfifo((nm64s*)wcoef, wstep, size);
 }
-
+/*
 void vsum_data(nm8s* data,  nm32sc* afifo, int vr){
 
 	afifo->re=vr;
@@ -190,3 +190,4 @@ void vsum_data(nm8s* data,  cmplx<int>* afifo, int vr){
 	vsum_data(data,  (nm32sc*)afifo, vr);
 }
 
+*/

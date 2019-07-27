@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 //
-//  $Workfile:: ResampleDown2_S15.as $
+//  $Workfile:: ResampleDown2_C7.as $
 //
 //  Векторно-матричная библиотека
 //
@@ -10,7 +10,7 @@
 //
 //! \if file_doc
 //!
-//! \file   ResampleDown2_S15.asm
+//! \file   ResampleDown2_C7.asm
 //! \author Сергей Мушкаев
 //! \brief  Функции изменения размеров для векторов.
 //!
@@ -18,12 +18,12 @@
 //!
 //------------------------------------------------------------------------
 
-//#include "vResize.h"
+//#include "vResize.h" 
 
 import from macros.mlb;
 
 data ".data_nmpls_G"
-	Mask:	long = 0fffefffefffefffeh;
+	Mask:	long = 0fefefefefefefefeh;
 end ".data_nmpls_G";
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -46,18 +46,15 @@ end MTR_AVG_REP;
 /////////////////////////////////////////////////////////////////////////////////////////
 begin ".text_nmpls"
 /////////////////////////////////////////////////////////////////////////////////////////
+extern vec_MUL_2V8toW16_shift:label;
 
-extern vec_MUL_2V4toW8_shift:label;
-
-//! \fn void SIG_ResampleDown2(nm16u15b* pSrcVec, nm16u15b* pDstVec, int nSrcVecSize, nm64s* pKernel);
+//! \fn void nmppsResampleDown2_8u8u(nm8u7b* pSrcVec, nm8u7b* pDstVec, int nSrcVecSize, nm64s* pKernel);
 //!
-// \perfinclude _SIG_ResampleDown2__FPUsPUsiPl.html
+// \perfinclude _nmppsResampleDown2__FPUcPUciPl.html
 
 
-global _SIG_ResampleDown2__FPUsPUsi:label;
-global _void._.8.8SIG_ResampleDown2.1unsigned._short._.0.9._unsigned._short._.0.9._int.9._long._.0.2 :label;
-<_SIG_ResampleDown2__FPUsPUsi>
-<_void._.8.8SIG_ResampleDown2.1unsigned._short._.0.9._unsigned._short._.0.9._int.9._long._.0.2>
+global _nmppsResampleDown2_8u8u:label;
+<_nmppsResampleDown2_8u8u>
 .branch;
 					
 	ar5 = sp - 2	with gr7=false;
@@ -71,17 +68,17 @@ global _void._.8.8SIG_ResampleDown2.1unsigned._short._.0.9._unsigned._short._.0.
 	ar6 = [--ar5];					// pDst
 	gr5 = [--ar5];					// len
 
-	gr4 = 80008000h;
-	sb  = 00020002h;
+	gr4 = 80808080h;
+	sb  = 02020202h;
 	nb1 = gr4;
 
 	ar1 = ar0+gr0;
 	
-	ar5 = [--ar5] with gr5>>=3; //128bit word count
+	ar5 = [--ar5] with gr5>>=4; //128bit word count
 	ar3 = Mask with gr0 = gr1;// gr0=4	
 
 //////////////////////////////////////////////////////////////
-	call vec_MUL_2V4toW8_shift;
+	call vec_MUL_2V8toW16_shift;
 //////////////////////////////////////////////////////////////
 
 	pop ar6,gr6;
@@ -93,4 +90,3 @@ global _void._.8.8SIG_ResampleDown2.1unsigned._short._.0.9._unsigned._short._.0.
 
 .wait;
 end ".text_nmpls";
- 

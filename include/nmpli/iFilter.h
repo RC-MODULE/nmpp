@@ -24,6 +24,11 @@
 #define NmppiFilterState nm64s
 #include "nmtype.h"
 
+#ifdef __cplusplus
+		extern "C" {
+#endif
+
+
 struct S_nmppiFilterKernel {
 #ifdef __NM__
 	nm32s* pDispArray;
@@ -354,6 +359,13 @@ void nmppiFilter_32s32s( nm32s * pSrcImg, nm32s* pDstImg, int nWidth, int nHeigh
 //};
 //
 //! \}
+
+
+#ifdef __cplusplus
+		};
+#endif
+
+
 #endif // _IFILTER_H_INCLUDED_
 
 

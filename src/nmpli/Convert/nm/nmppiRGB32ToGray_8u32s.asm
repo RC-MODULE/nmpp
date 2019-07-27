@@ -31,10 +31,8 @@ RamL: long=(8080808080808080hl);
 	//! \perfinclude _nmppiRGB32ToGray__F10RGB32_nm8uPPii.html
     //--------------------------------------------------------------------
 
-global _nmppiRGB32ToGray__F12RGB32_nm8uPPii:label;
-global _void._.8.8nmppiRGB32ToGray.1class._RGB32_nm8u._.0.9._int._.0.9._int.2 :label;
-<_nmppiRGB32ToGray__F12RGB32_nm8uPPii>
-<_void._.8.8nmppiRGB32ToGray.1class._RGB32_nm8u._.0.9._int._.0.9._int.2>
+global _nmppiRGB32ToGray_8u32s:label;
+<_nmppiRGB32ToGray_8u32s>
 vr=0l; skip job;
 
 
@@ -46,10 +44,8 @@ vr=0l; skip job;
     //--------------------------------------------------------------------
 
 
-global _nmppiRGB32ToGray__F12RGB32_nm8uPPUii:label;
-global _void._.8.8nmppiRGB32ToGray.1class._RGB32_nm8u._.0.9._unsigned._int._.0.9._int.2 :label;
-<_nmppiRGB32ToGray__F12RGB32_nm8uPPUii>
-<_void._.8.8nmppiRGB32ToGray.1class._RGB32_nm8u._.0.9._unsigned._int._.0.9._int.2>
+global _nmppiRGB32ToGray_8u32u:label;
+<_nmppiRGB32ToGray_8u32u>
 vr=80000000800000hl;
 <job>  ar5=ar7-2;
   push ar0,gr0 with gr7=true;push ar1,gr1 with gr7<<=31;

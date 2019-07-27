@@ -20,11 +20,11 @@
 
 #include "nmpli.h"
 
+extern "C"{
 
-
-void nmppiResampleDown2Y(
-                      nm16u15b*		pSrcImg,	// input buffer		:long Local	[len/4]
-                      nm16u15b*		pDst,	// output buffer	:long Global[len/4/2]
+void nmppiResampleDown2Y_16u16u(
+                      nm16u15b*			pSrcImg,	// input buffer		:long Local	[len/4]
+                      nm16u15b*			pDst,	// output buffer	:long Global[len/4/2]
                       int				w,		// size of input buffer in 16 bit elements. nSize=[0,4,...]
                       int				h		// size of input buffer in 16 bit elements. nSize=[0,4,...]
                       )
@@ -35,7 +35,7 @@ void nmppiResampleDown2Y(
 }
 
 
-void nmppiResampleDown2Y(
+void nmppiResampleDown2Y_8u8u(
                       nm8u7b*			pSrcImg,	// input buffer		:long Local	[len/4]
                       nm8u7b*			pDst,	// output buffer	:long Global[len/4/2]
                       int				w,		// size of input buffer in 16 bit elements. nSize=[0,4,...]
@@ -47,3 +47,5 @@ void nmppiResampleDown2Y(
             ((nm8u*)pDst)[i*w+j] =
             (unsigned char)(((nm8u*)pSrcImg)[2*i*w+j]+((nm8u*)pSrcImg)[2*i*w+j+w])>>1;
 }
+
+};

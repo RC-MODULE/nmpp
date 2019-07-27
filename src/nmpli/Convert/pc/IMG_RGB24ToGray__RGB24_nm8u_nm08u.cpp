@@ -17,9 +17,12 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-#include "nmpli.h"
+#include "nmpli/iDef.h"
+#include "nmtype.h"
+extern "C"{
+	
 int pCoeff_RGB2Gray[4]={ 0x1d2f,0x9646,0x4c8b,0 };
-void nmppiRGB32ToGray(RGB32_nm10s * pRGB, nm32u* pDstGray, int nSize)
+void nmppiRGB32ToGray_10s32u(RGB32_nm10s * pRGB, nm32u* pDstGray, int nSize)
 {  
 	unsigned nY;
 	for (int i=0; i<nSize; i++)
@@ -30,7 +33,7 @@ void nmppiRGB32ToGray(RGB32_nm10s * pRGB, nm32u* pDstGray, int nSize)
 		pDstGray[i]=nY;
 	}
 }
-void nmppiRGB32ToGray(RGB32_nm10s * pRGB, nm32s* pDstGray, int nSize)
+void nmppiRGB32ToGray_10s32s(RGB32_nm10s * pRGB, nm32s* pDstGray, int nSize)
 {
 	int nY;
 	for (int i=0; i<nSize; i++)
@@ -42,7 +45,7 @@ void nmppiRGB32ToGray(RGB32_nm10s * pRGB, nm32s* pDstGray, int nSize)
 	}
 }
 
-void nmppiRGB24ToGray(RGB24_nm8u* pRGB, nm8u* pDstGray, int nSize)
+void nmppiRGB24ToGray_8u8u(RGB24_nm8u* pRGB, nm8u* pDstGray, int nSize)
 {
 	unsigned nY;
 	for (int i=0; i<nSize; i++)
@@ -54,3 +57,4 @@ void nmppiRGB24ToGray(RGB24_nm8u* pRGB, nm8u* pDstGray, int nSize)
 	}
 }
 
+};

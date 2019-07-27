@@ -33,6 +33,10 @@ cmplx<double> W32(int power)
 
 cmplx<int > toFix(cmplx<double> X,double Ampl);
 
+
+#ifdef __cplusplus
+		extern "C" {
+#endif
 void nmppsFFT32FwdRef2x16( nm32sc* src, nm32sc* dst)
 {
 	int MAX=128;
@@ -109,3 +113,8 @@ void nmppsFFT32FwdRef2x16_f( nm32sc* src, nm32sc* dst)
 	}
 }
 
+
+
+#ifdef __cplusplus
+		};
+#endif

@@ -64,10 +64,8 @@ begin ".text_nmpli"
 //! \perfinclude _nmppiVResample3div2_RShift0__FPSsiiPSs.html
 
 //
-global _nmppiVResample3div2_RShift0__FPSsiiPSs:label;
-global _void._.8.8nmppiVResample3div2_RShift0.1short._.0.9._int.9._int.9._short._.0.2 :label;
-<_nmppiVResample3div2_RShift0__FPSsiiPSs>
-<_void._.8.8nmppiVResample3div2_RShift0.1short._.0.9._int.9._int.9._short._.0.2>
+global _nmppiVResample3div2_RShift0_16s16s:label;
+<_nmppiVResample3div2_RShift0_16s16s>
 .branch;
 	ar5 = sp - 2;
 	

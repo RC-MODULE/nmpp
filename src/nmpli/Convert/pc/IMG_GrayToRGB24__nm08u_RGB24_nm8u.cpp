@@ -13,7 +13,7 @@ void nmppiRShiftConvert( nm32s* pSrcImg, int nSrcStride, nm16s* pDstImg,  int nS
 }
 */
 
-void nmppiConvert(RGB32_nm8u* pSrcImg, RGB32_nm10u* pDstImg, int nSize)
+void nmppiConvertRGB32_8u10u(RGB32_nm8u* pSrcImg, RGB32_nm10u* pDstImg, int nSize)
 {
     int *pnSrc = (int*)pSrcImg;
     int *pnDst = (int*)pDstImg;
@@ -25,7 +25,7 @@ void nmppiConvert(RGB32_nm8u* pSrcImg, RGB32_nm10u* pDstImg, int nSize)
     }
 }
 
-void nmppiConvert(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize)
+void nmppiConvertRGB32_10u8u(RGB32_nm10u* pSrcImg, RGB32_nm8u* pDstImg, int nSize)
 {
     int *pnSrc = (int*)pSrcImg;
     int *pnDst = (int*)pDstImg;

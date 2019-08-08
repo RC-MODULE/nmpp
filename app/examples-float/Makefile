@@ -1,3 +1,5 @@
+ROOT = ../..
+PATH2LOCAL = .
 #########################################################################
 #                                                                       #
 # This Makefile recursively allows to :                                 #

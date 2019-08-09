@@ -1,5 +1,6 @@
 #include "math.h"
 
+//extern "C" {
 void nmppsNormDiff_L2_32f(const float* pSrc1, const float* pSrc2, int len, float* pNorm)
 {
 	int i;
@@ -11,3 +12,4 @@ void nmppsNormDiff_L2_32f(const float* pSrc1, const float* pSrc2, int len, float
 	}
 	*pNorm=sqrtf(sum);
 }
+//};

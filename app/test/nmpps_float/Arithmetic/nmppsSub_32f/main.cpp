@@ -1,5 +1,6 @@
 #include <nmtype.h>
 #include <malloc32.h>
+#include <time.h>
 #include <nmpp.h>
 
 #define PI 3.1415

@@ -107,16 +107,16 @@ $(OUT_DIR):
 	-mkdir "$(@)"
 	
 $(TMP_DIR)/%.o: %.c 
-	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
+	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
 
 $(TMP_DIR)/%.o: %.cpp
-	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) 
+	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
 	
 $(TMP_DIR)/%.o: %.asm 
-	$(AS) $(AS_FLAGS) $(<) -o$(@)
+	$(AS) $(AS_FLAGS) $(<) -o$(@) $(ERRECHO)
 
 $(TMP_DIR)/%.o: %.s 
-	$(AS) $(AS_FLAGS) $(<) -o$(@)
+	$(AS) $(AS_FLAGS) $(<) -o$(@) $(ERRECHO)
 	
 .phony: time
 time:

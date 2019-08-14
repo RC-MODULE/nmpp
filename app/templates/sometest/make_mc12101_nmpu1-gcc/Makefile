@@ -25,11 +25,12 @@ TARGET   =$(PROJECT)
 INC_DIRS = -I"$(NMPP)/include"
 LIB_DIRS = -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4" -L"$(NMPP)/lib"  -L"$(HAL)/lib"
 LIBS     = -lnmpp-nmc4 -lhal-mc12101
+MAP      = $(PROJECT).map
 CFG      =  "-Wl,-cmc12101brd-nmpu1.cfg"
 SRC_CPP  = $(wildcard $(ROOT)/*.cpp)
 
 $(TARGET): $(SRC_CPP) Makefile
-	$(CC) $(CC_FLAGS) $(SRC_CPP) $(INC_DIRS) $(LIB_DIRS) $(LIBS) -lc $(CFG) -Wl,--whole-archive -lmc12101 -Wl,--no-whole-archive -o $(TARGET)
+	$(CC) $(CC_FLAGS) $(SRC_CPP) $(INC_DIRS) $(LIB_DIRS) $(LIBS) -lc $(CFG) -Wl,--whole-archive -lmc12101 -Wl,--no-whole-archive -o $(TARGET) -Map=$(MAP) 
 
 PATH:=$(MC12101)/bin;$(PATH)
 

@@ -21,16 +21,16 @@ AS       = nmc-gcc
 CC_FLAGS = -std=c++11 -O2 -Wall -mnmc4-float
 ROOT     = ..
 PROJECT  = main
-TARGET   =$(PROJECT)
+TARGET   = $(PROJECT)
 INC_DIRS = -I"$(NMPP)/include" -I"$(HAL)/include"
 LIB_DIRS = -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4" -L"$(NMPP)/lib" -L"$(HAL)/lib"
 LIBS     = -lnmpp-nmc4f -lhal-mc12101
-
+MAP      = $(PROJECT).map
 CFG      =  "-Wl,-cmc12101brd-nmpu0.cfg"
 SRC_CPP  = $(wildcard $(ROOT)/*.cpp)
 
 $(TARGET): $(SRC_CPP) Makefile
-	$(CC) $(CC_FLAGS) $(SRC_CPP) $(INC_DIRS) $(LIB_DIRS) $(LIBS) -lc $(CFG) -Wl,--whole-archive -lmc12101 -Wl,--no-whole-archive -o $(TARGET)
+	$(CC) $(CC_FLAGS) $(SRC_CPP) $(INC_DIRS) $(LIB_DIRS) $(LIBS) -lc $(CFG) -Wl,--whole-archive -lmc12101 -Wl,--no-whole-archive -o $(TARGET) -Wl,-Map=$(MAP) 
 
 PATH:=$(MC12101)/bin;$(PATH)
 

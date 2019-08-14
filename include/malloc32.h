@@ -17,14 +17,18 @@ typedef void (*t_free_func)(void*);
 #define HEAP_3 8
 
 
-void *malloc0(unsigned int size);
-void *malloc1(unsigned int size);
-void *malloc2(unsigned int size);
-void *malloc3(unsigned int size);
+void* malloc0(unsigned int size);
+void* malloc1(unsigned int size);
+void* malloc2(unsigned int size);
+void* malloc3(unsigned int size);
 
 void* malloc32 (unsigned size_int32, unsigned bank_mask);
 void  free32(void* p);
 
+// universal malloc for nmc-gcc and nmcc (универсальный маллок для nmc-gcc и nmcc)
+// size - размер выделяемой памяти в 32-битных словах
+// heap_num - номер кучи, в которой будет выделена память (для nmcc от 0 до 3, для nmc-gcc от 0 до 15)
+void* nmppMalloc(unsigned size, int heap_num);
 
 typedef void (Free32Func)(void*);
 typedef void* (Malloc32Func)(unsigned int);

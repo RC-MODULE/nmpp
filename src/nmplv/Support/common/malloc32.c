@@ -5,6 +5,29 @@
 #include "nmplv/vBitwise.h"
 
 
+void* nmppMalloc(unsigned size, int heap_num)
+{
+#ifdef __GNUC__
+    nmc_malloc_set_heap(heap_num);
+	return malloc(size);
+#else
+	switch(heap_num) {
+	    case 0:
+		    return malloc0(size);
+			break;
+	    case 1:
+		    return malloc1(size);
+			break;
+	    case 2:
+		    return malloc2(size);
+			break;
+	    case 3:
+		    return malloc3(size);
+			break;
+	}
+#endif
+}
+
 //#ifdef __NM__
 //	__INLINE__ void* malloc32(unsigned sizeInt32) { return malloc(sizeInt32);}
 //#else 

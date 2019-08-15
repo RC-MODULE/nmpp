@@ -25,73 +25,73 @@ SECTIONS
   {
     *(.fini);
   } > NMMB7
-  .data_nmmb0 : ALIGN(0x8)
+  .mem_bank0 : ALIGN(0x8)
   {
-    *(.data_nmmb0);
+    *(.mem_bank0);
   } > NMMB0
-  .data_nmmb1 : ALIGN(0x8)
+  .mem_bank1 : ALIGN(0x8)
   {
-    *(.data_nmmb1);
+    *(.mem_bank1);
   } > NMMB1
-  .data_nmmb2 : ALIGN(0x8)
+  .mem_bank2 : ALIGN(0x8)
   {
-    *(.data_nmmb2);
+    *(.mem_bank2);
   } > NMMB2
-  .data_nmmb3 : ALIGN(0x8)
+  .mem_bank3 : ALIGN(0x8)
   {
-    *(.data_nmmb3);
+    *(.mem_bank3);
   } > NMMB3
-  .data_nmmb4 : ALIGN(0x8)
+  .mem_bank4 : ALIGN(0x8)
   {
-    *(.data_nmmb4);
+    *(.mem_bank4);
   } > NMMB4
-  .data_nmmb5 : ALIGN(0x8)
+  .mem_bank5 : ALIGN(0x8)
   {
-    *(.data_nmmb5);
+    *(.mem_bank5);
   } > NMMB5
-  .data_nmmb6 : ALIGN(0x8)
+  .mem_bank6 : ALIGN(0x8)
   {
-    *(.data_nmmb6);
+    *(.mem_bank6);
   } > NMMB6
-  .data_nmmb7 : ALIGN(0x8)
+  .mem_bank7 : ALIGN(0x8)
   {
-    *(.data_nmmb7);
+    *(.mem_bank7);
   } > NMMB7
   .data_ddr : ALIGN(0x8)
   {
     *(.data_ddr);
   } > EMI_CPU
-  .data_nmmb0.bss : ALIGN(0x8)
+  .mem_bank0.bss : ALIGN(0x8)
   {
-    *(.data_nmmb0.bss);
+    *(.mem_bank0.bss);
   } > NMMB0
-  .data_nmmb1.bss : ALIGN(0x8)
+  .mem_bank1.bss : ALIGN(0x8)
   {
-    *(.data_nmmb1.bss);
+    *(.mem_bank1.bss);
   } > NMMB1
-  .data_nmmb2.bss : ALIGN(0x8)
+  .mem_bank2.bss : ALIGN(0x8)
   {
-    *(.data_nmmb2.bss);
+    *(.mem_bank2.bss);
   } > NMMB2
-  .data_nmmb3.bss : ALIGN(0x8)
+  .mem_bank3.bss : ALIGN(0x8)
   {
-    *(.data_nmmb3.bss);
+    *(.mem_bank3.bss);
   } > NMMB3
-  .data_nmmb4.bss : ALIGN(0x8)
+  .mem_bank4.bss : ALIGN(0x8)
   {
-    *(.data_nmmb4.bss);
+    *(.mem_bank4.bss);
   } > NMMB4
-  .data_nmmb5.bss : ALIGN(0x8)
+  .mem_bank5.bss : ALIGN(0x8)
   {
-    *(.data_nmmb5.bss);
+    *(.mem_bank5.bss);
   } > NMMB5
-  .data_nmmb6.bss : ALIGN(0x8)
+  .mem_bank6.bss : ALIGN(0x8)
   {
-    *(.data_nmmb6.bss);
+    *(.mem_bank6.bss);
   } > NMMB6
-  .data_nmmb7.bss : ALIGN(0x8)
+  .mem_bank7.bss : ALIGN(0x8)
   {
-    *(.data_nmmb7.bss);
+    *(.mem_bank7.bss);
   } > NMMB7
   .data_ddr.bss : ALIGN(0x8)
   {

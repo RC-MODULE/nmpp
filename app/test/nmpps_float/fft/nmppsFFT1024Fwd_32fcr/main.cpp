@@ -7,9 +7,9 @@
 
 #define		SIZE 		1024
 
-#pragma data_section ".data_imu6"
+#pragma data_section ".mem_bank6"
 	nm32fcr src[SIZE];
-#pragma data_section ".data_imu5"
+#pragma data_section ".mem_bank5"
 	nm32fcr dst[SIZE];
 
 int main()

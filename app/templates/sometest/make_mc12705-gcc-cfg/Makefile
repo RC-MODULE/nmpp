@@ -1,3 +1,4 @@
+ROOT=../../../../../..
 
 SHELL	=cmd
 OS_RM   =cmd /c del /Q

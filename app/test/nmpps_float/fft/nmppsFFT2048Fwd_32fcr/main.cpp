@@ -5,9 +5,9 @@
 #include <malloc.h>
 #include <stdio.h>
 
-#pragma data_section ".data_imu5"
+#pragma data_section ".mem_bank5"
 	nm32fcr src[2048];
-#pragma data_section ".data_imu5"
+#pragma data_section ".mem_bank5"
 	nm32fcr dst[2048];
 
 

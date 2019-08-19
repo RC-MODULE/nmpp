@@ -870,6 +870,8 @@ void nmblas_dgemv(
 );
 //! \}
 
+#include<nmblas/nmblas_sgemm.h>
+
 void MullMatrix_f( 
 	void* 	A, 
 	int 	pI, 
@@ -880,7 +882,7 @@ void MullMatrix_f(
     void* 	C,
     int 	pJ, 
     int 	ldC,
-    bool 	plusC 
+    int 	plusC 
 );
 
 

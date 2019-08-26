@@ -106,7 +106,7 @@ $(TMP_DIR):
 $(OUT_DIR): 
 	-mkdir "$(@)"
 	
-ERRECHO = 2>&1 | errecho	
+
 $(TMP_DIR)/%.o: %.c 
 	$(CC) $(CC_FLAGS) -c $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
 

@@ -44,6 +44,7 @@ void nmppsPowx_64f(const nm64f *pSrcVec, nm64f *pDstVec, nm32u Deg, int nSize)
 			len = (nSize+1)/4;
 			len0 = len-1;
 			len1 = nSize - len*3 -1;
+            nSize = 0;
 		}
 		else if ( nSize<=32*4 ){
 			len = (nSize+3)/4;

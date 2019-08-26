@@ -47,37 +47,31 @@
 //	aux functions
 
 //	load old C for specific fpu
-static inline void
-loadCFromMemory( const float* pc, int ldc, const int fpu, int& dummy_to_link )
+static inline __attribute__((always_inline)) void
+loadCFromMemory( const float* pc, int ldc, const int fpu, int* dummy_to_link )
 {
 	asm (
-			"ar0= %1 + %5;\n\t"
-			"gr0= %2;\n\t"
-			"fpu %4 rep vlen vreg7= [ar0++gr0];\n\t"
-			: "+m"(dummy_to_link)
-			: "a"(pc), "g"(ldc), "m"(*pc), "i"(fpu), "i"(fpu*2)
-				: "ar0", "gr0" );
+			"fpu %4 rep vlen vreg7= [%1++%2];\n\t"
+			: "+m"(*dummy_to_link)
+			: "RA0"( pc + fpu*2 ), "RG0"(ldc), "m" (*(const float (*)[])pc), "i"(fpu) );
 }
 
 //	load A for all fpu-s
-static inline void
-loadAFromMemory( const float* pa, int lda, const int vrNum, int& dummy_to_link )
+static inline __attribute__((always_inline)) void
+loadAFromMemory( const float* pa, int lda, const int vrNum, int* dummy_to_link )
 {
 	asm (
-			"ar0= %1;\n\t"
-			"gr0= %2;\n\t"
-			"fpu 0 rep vlen vreg%3 = [ar0++gr0];\n\t"
+			"fpu 0 rep vlen vreg%3 = [%1++%2];\n\t"
 //	All fpu-s got the same vector
 			"fpu 1 vreg%3 = fpu 0 vreg%3;\n\t"
 			"fpu 2 vreg%3 = fpu 1 vreg%3;\n\t"
 			"fpu 3 vreg%3 = fpu 2 vreg%3;\n\t"
-				: "+m" (dummy_to_link), "+a" (pa)
-				: "r"(lda), "i"(vrNum), "m"(*pa)
-				: "ar0", "gr0" );
+				: "+m" (*dummy_to_link), "+RA0" (pa)
+				: "RG0"(lda), "i"(vrNum), "m"(*(const float (*)[])pa) );
 }
 
-static inline void
-loadBAndMAdd( const float* pb, const float* pb1, int ldb, const int vrNum, int& dummy_to_link )
+static inline __attribute__((always_inline)) void
+loadBAndMAdd( const float* pb, const float* pb1, int ldb, const int vrNum, int* dummy_to_link )
 {
 	asm (
 			"fpu 0 rep 1 vreg4 = [%1++];\n\t"
@@ -89,13 +83,13 @@ loadBAndMAdd( const float* pb, const float* pb1, int ldb, const int vrNum, int& 
 			"fpu 3 rep 1 vreg4 = [%1++];\n\t"
 			"fpu 3 rep 1 vreg5 = [%2++];\n\t"
 	      	ALL_FPU (".matrix vreg7= vreg%3 * .retrieve (vreg4,vreg5) + vreg7;")
-				: "+m" (dummy_to_link), "+a" (pb), "+a" (pb1)
-				: "i"(vrNum), "m"(*pb) );
+				: "+m" (*dummy_to_link), "+a" (pb), "+a" (pb1)
+				: "i"(vrNum), "m"(*(const float (*)[])pb), "m"(*(const float (*)[])pb1) );
 }
 
 //	Same as loadBAndMAdd, but without "+C"
-static inline void
-loadBAndMultiply( const float* pb, const float* pb1, int ldb, const int vrNum, int& dummy_to_link )
+static inline __attribute__((always_inline)) void
+loadBAndMultiply( const float* pb, const float* pb1, int ldb, const int vrNum, int* dummy_to_link )
 {
 	asm (
 			"fpu 0 rep 1 vreg4 = [%1++];\n\t"
@@ -107,22 +101,19 @@ loadBAndMultiply( const float* pb, const float* pb1, int ldb, const int vrNum, i
 			"fpu 3 rep 1 vreg4 = [%1++];\n\t"
 			"fpu 3 rep 1 vreg5 = [%2++];\n\t"
 	      	ALL_FPU (".matrix vreg7= vreg%3 * .retrieve (vreg4,vreg5);")
-				: "+m" (dummy_to_link), "+a" (pb), "+a" (pb1)
-				: "i"(vrNum), "m"(*pb) );
+				: "+m" (*dummy_to_link), "+a" (pb), "+a" (pb1)
+				: "i"(vrNum), "m"(*(const float (*)[])pb), "m"(*(const float (*)[])pb1) );
 }
 
 
 
-static inline void
-storeCToMemory( float* pc, int ldc, const int fpu, int& dummy_to_link )
+static inline __attribute__((always_inline)) void
+storeCToMemory( float* pc, int ldc, const int fpu, int* dummy_to_link )
 {
 	asm (
-			"ar0= %1;\n\t"
-			"gr0= %2;\n\t"
 			"fpu %4 rep vlen [ar0++gr0] = vreg7;\n\t"
-			: "=m"(*pc)
-			: "g"(pc), "g"(ldc), "m"(dummy_to_link), "i"(fpu)
-				: "ar0", "gr0" );
+			: "=m"(*(float (*)[])pc)
+			: "RA0"(pc), "RG0"(ldc), "m"(*dummy_to_link), "i"(fpu) );
 }
 
 
@@ -149,9 +140,9 @@ nmblas_sgemm(	const enum nm_trans TransA,
 	//	Нижеследующие сравнения и деления должны быть локализованы строго до векторного кода,
 	//	поскольку реализующие их интринсики испортят значения в векторных регистрах!
 	//	{	all float intrinsic calls must be here!
-	bool beta0  = beta ==0.0f;
-	bool alpha1 = alpha==1.0f;
-	bool beta1;
+	int beta0  = beta ==0.0f;
+	int alpha1 = alpha==1.0f;
+	int beta1;
 	if ( !beta0 ){
 		if ( !alpha1 && alpha !=0.0f )
 			beta /= alpha;
@@ -163,7 +154,7 @@ nmblas_sgemm(	const enum nm_trans TransA,
 	const int I=M;
 	const int J=N;
 	int i, j, k;
-	int dummy_to_link;	//	workaround to reflect dependence by vector registers
+	int* dummy_to_link;	//	workaround to reflect dependence by vector registers
 
 	for(i=0; i<I; i+=32){
 		asm volatile(
@@ -179,7 +170,7 @@ nmblas_sgemm(	const enum nm_trans TransA,
 			const float* pb1;
 			float bufScalar[2] __attribute__ ((aligned (8)));
 
-			asm("":"=m"(dummy_to_link));
+			asm("":"=m"(*dummy_to_link),"=a"(dummy_to_link));
 
 			if ( !beta0 ){
 				//	read C[i][j]
@@ -198,7 +189,7 @@ nmblas_sgemm(	const enum nm_trans TransA,
 							"fpu 2 vreg4 = fpu 1 vreg4;\n\t"
 							"fpu 3 vreg4 = fpu 2 vreg4;\n\t"
 					      	ALL_FPU (".float vreg7= vreg7 * .retrieve (vreg4);")
-								: "+m" (dummy_to_link), "+a" (pbeta)
+								: "+m" (*dummy_to_link), "+a" (pbeta)
 								: "m"(*bufScalar) );
 				}
 			}
@@ -207,7 +198,7 @@ nmblas_sgemm(	const enum nm_trans TransA,
 				pb  = B + k*ldb +j;
 				pb1 = B +(k+1)*ldb +j;
 
-				asm("":"=m"(dummy_to_link));
+				asm("":"=m"(*dummy_to_link));
 				loadAFromMemory ( pa,      lda, 0, dummy_to_link );
 
 				loadBAndMultiply( pb, pb1, ldb, 0, dummy_to_link );
@@ -249,7 +240,7 @@ nmblas_sgemm(	const enum nm_trans TransA,
 						"fpu 2 vreg4 = fpu 1 vreg4;\n\t"
 						"fpu 3 vreg4 = fpu 2 vreg4;\n\t"
 				      	ALL_FPU (".float vreg7= vreg7 * .retrieve (vreg4);")
-							: "+m" (dummy_to_link), "+a" (palpha)
+							: "+m" (*dummy_to_link), "+a" (palpha)
 							: "m"(*bufScalar) );
 			}
 

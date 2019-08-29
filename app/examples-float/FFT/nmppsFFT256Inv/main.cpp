@@ -12,12 +12,12 @@
 #define SIZE 256
 
 #ifdef __GNUC__ // NMC-GCC C++ compilier 
-nm32fcr src[SIZE] __attribute__ ((section (".data_imu1")));
-nm32fcr dst[SIZE] __attribute__ ((section (".data_imu2")));
+nm32fcr src[SIZE] __attribute__ ((section (".mem_bank1")));
+nm32fcr dst[SIZE] __attribute__ ((section (".mem_bank2")));
 #else 			// NMSDK C++ compiler
-#pragma data_section ".data_imu1"
+#pragma data_section ".mem_bank1"
 nm32fcr src[SIZE];
-#pragma data_section ".data_imu2"
+#pragma data_section ".mem_bank2"
 nm32fcr dst[SIZE];
 #endif 
 

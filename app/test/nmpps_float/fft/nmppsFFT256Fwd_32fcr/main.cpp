@@ -13,7 +13,7 @@ public:
   }
   ~Duration() {
     t2 = clock();
-	printf("%s%d\n", message, t2 - t1 - 60);
+	printf("%s%d\n", message, (int)(t2 - t1 - 60));
   }
 private:
   char* message;
@@ -26,10 +26,18 @@ private:
 
 #define		SIZE 		256
 
+
+#ifdef __GNUC__
+/**************************NMC-GCC************************/
+__attribute__((section(".mem_bank1")))  nm32fcr src[256];
+__attribute__((section(".mem_bank5")))  nm32fcr dst[256];
+#else
+/**************************NMCC************************/
 #pragma data_section ".mem_bank1"
 	nm32fcr src[256];
 #pragma data_section ".mem_bank5"
 	nm32fcr dst[256];
+#endif
 
 int main()
 {
@@ -55,10 +63,10 @@ int main()
 		return st;
 	}
 	{
-	DURATION("FFT256Fwd: ")
-	//t1 = clock();
+	//DURATION("FFT256Fwd: ")
+	t1 = clock();
 	nmppsFFT256Fwd_32fcr(src, dst, rat);
-	//t2 = clock();
+	t2 = clock();
 	}
 	nmppsFFT256Inv_32fcr(dst, dst, irat);
 	st = nmppsFFTFree_32fcr(rat);

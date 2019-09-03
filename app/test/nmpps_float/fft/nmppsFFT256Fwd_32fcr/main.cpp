@@ -13,7 +13,7 @@ public:
   }
   ~Duration() {
     t2 = clock();
-	printf("%s%d\n", message, (int)(t2 - t1 - 60));
+	printf("%s%d\n", message, (int)(t2 - t1 - 109));
   }
 private:
   char* message;

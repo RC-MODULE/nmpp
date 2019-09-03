@@ -35,6 +35,8 @@
 
  //! \}
 
+ 
+#ifdef __GNUC__
 #ifndef NMBLAS_SGEMM_H_
 #define NMBLAS_SGEMM_H_
 
@@ -262,3 +264,4 @@ nmblas_sgemm(	const enum nm_trans TransA,
 
 
 #endif /* NMBLAS_SGEMM_H_ */
+#endif /* __GNUC__ */

@@ -13,7 +13,7 @@ public:
   }
   ~Duration() {
     t2 = clock();
-	printf("%s%d\n", message, (int)(t2 - t1 - 60));
+	//printf("%s%d\n", message, (int)(t2 - t1 - 60));
   }
 private:
   char* message;
@@ -64,9 +64,9 @@ int main()
 	}
 	{
 	//DURATION("FFT256Fwd: ")
-	t1 = clock();
+	//t1 = clock();
 	nmppsFFT256Fwd_32fcr(src, dst, rat);
-	t2 = clock();
+	//t2 = clock();
 	}
 	nmppsFFT256Inv_32fcr(dst, dst, irat);
 	st = nmppsFFTFree_32fcr(rat);

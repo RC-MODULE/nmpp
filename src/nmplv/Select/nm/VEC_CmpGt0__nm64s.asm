@@ -38,8 +38,8 @@ global _nmppsCmpGt0_64s:label;
 	ar6 = [--ar5]	with gr6 = gr7;	// pDstVec,		
 	gr5 = [--ar5];					// nSize
 	gr7 = 80000000h;
-	nb1 = gr7;
-	f1cr = gr7;
+	nb1h = gr7;
+	f1crh = gr7;
 	wtw;
 	
 	ar5 = ar7	with gr1 = false;

@@ -1039,6 +1039,71 @@ void nmppsCmpEq0_32u31b(nm32u31b* pSrcVec, nm1* pDstVec, int nSize, int nTrueFla
 //void nmppsCmpNe0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 
     //! \}
+	
+//*****************************************************************************
+
+    /**
+    \defgroup nmppsCmpGt0 nmppsCmpGt0
+    \ingroup vSelect
+    \brief
+        \ru Сравнивает элементы массива на больше нуля.
+        \en Compares the array elements less zero.
+
+		\~
+
+	\f[
+     pDstVec(i)  =  \{ \begin{array}{lcl}
+        11 \ldots 1b,   &  if &  pSrcVec(i) > 0  \\
+        00 \ldots 0b,   &  if &  pSrcVec(i) \le 0  \\
+     \end{array}
+    \f]
+
+	\f[ i = \overline{0 \ldots nSize-1} \f]
+
+    \ru Если элемент входного вектора больше 0, во все биты
+        соответствующего элемента выходного вектора записывается 1.
+    \en If an element of the input vec is greater than zero then
+        1 is beeing written to all bits of output vec element.
+
+		\~
+		\~
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
+		\~
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vectors size in elements.
+
+		\~
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
+
+		\~
+    \return \e void
+
+
+    \par
+    \xmlonly
+        <testperf>
+             <param name="pSrcVec"> im0 im1 </param>
+             <param name="pDstVec"> im0 im1 </param>
+             <param name="nSize"> 2048 </param>
+        </testperf>
+        <testperf>
+             <param name="pSrcVec"> im0 </param>
+             <param name="pDstVec"> im1 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
+        </testperf>
+    \endxmlonly
+    */
+    //! \{
+void nmppsCmpGt0_8s (const nm8s* pSrcVec,  nm8s* pDstVec,  int nSize);
+void nmppsCmpGt0_16s(const nm16s* pSrcVec, nm16s* pDstVec, int nSize);
+void nmppsCmpGt0_32s(const nm32s* pSrcVec, nm32s* pDstVec, int nSize);
+void nmppsCmpGt0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
+    //! \}
 
     /**
     \defgroup nmppsCmpMinMaxV_ nmppsCmpMinMaxV_

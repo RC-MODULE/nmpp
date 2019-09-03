@@ -17,7 +17,7 @@
 //! \endif
 //!
 //------------------------------------------------------------------------
-int nmppsFirstZeroPos(int* pSrcVec, int nSize)
+int nmppsFirstZeroIndx_32s(int* pSrcVec, int nSize)
 {
 	#ifdef RPC
 	//RPC_HOST_PPI(nmppsAbs1_4s,pSrcVec,pDstVec,nSize);

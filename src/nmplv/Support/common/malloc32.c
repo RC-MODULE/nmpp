@@ -9,8 +9,9 @@ void* nmppMalloc(unsigned size, int heap_num)
 {
 #ifdef __GNUC__
     nmc_malloc_set_heap(heap_num);
-	return malloc(size);
-#else
+#endif
+
+#if __NM__
 	switch(heap_num) {
 	    case 0:
 		    return malloc0(size);
@@ -25,6 +26,8 @@ void* nmppMalloc(unsigned size, int heap_num)
 		    return malloc3(size);
 			break;
 	}
+#else
+	return malloc(size);	
 #endif
 }
 

@@ -1,4 +1,4 @@
-//***************************************************************************/
+	//***************************************************************************/
 //*                     RC Module Inc., Moscow, Russia                      */
 //*                     NeuroMatrix(r) NM640x Software                      */
 //*                                                                         */
@@ -8,20 +8,15 @@
 //*   Contents:         The function computes f = x1 * C + x2 				*/
 //***************************************************************************/
 
-global _nmppsMulC_Add_32fcr: label;
-//void nmppsMulC_Add_32fcr(nm32fcr* pSrcVec1, nm32fcr* pSrcVec2, nm32fcr* pDstVec, float C, int nSize);
+global _nmppsMulC_AddV_32f: label;
+//void nmppsMulC_AddV_32f(nm32f* pSrcVec1, nm32f* pSrcVec2, nm32f* pDstVec, float C, int nSize);
 // x1 - pSrcVec1
 // x2 - pSrcVec2
 // C  - C
 // f - pDstVec
 
-data ".data_nmplv"
-	temp: word[2];
-end ".data_nmplv";
-
-
 begin ".text_nmplv"
-<_nmppsMulC_Add_32fcr>
+<_nmppsMulC_AddV_32f>
 	ar5 = ar7-2;
 	push ar0,gr0;
 	push ar1,gr1;
@@ -35,12 +30,12 @@ begin ".text_nmplv"
 	gr2 = [--ar5];
 	gr5 = [--ar5];
 	
-	ar2=gr2 			with gr7 = gr5<<27;
-	[temp] = ar2,gr2 	with gr7 >>=27;
-	ar2=temp 			with gr5 >>=5;
-		
+	ar5 = ar7;
+	ar2 = gr2 			with gr7 = gr5<<26;
+	push ar2, gr2	 	with gr7 >>=27;
+	gr5 >>= 6;		
 	if =0 delayed goto Tail with gr7--;
-		fpu 0 rep 1 vreg2 = [ar2];
+		fpu 0 rep 1 vreg2 = [ar5];
 		vlen = gr7 with gr5--;	
 	
 <Next32>
@@ -62,6 +57,7 @@ begin ".text_nmplv"
 
 <End>	
 	
+	pop ar2,gr2;
 	pop ar6,gr6;
 	pop ar5,gr5;
 	pop ar2,gr2;

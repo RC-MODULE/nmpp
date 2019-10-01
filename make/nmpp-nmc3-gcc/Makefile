@@ -49,9 +49,6 @@ endif
 -include 		 nmc4vars_win.mk
 #include          $(ROOT)/global.mk
 
-ifndef NEURO
-$(error *** ERROR: 'NEURO' environment variable is not defined! NMSDK might not have installed correctly. )
-endif
 
 ARCH             =nmc3
 #--------------  target & input dirs -------------------

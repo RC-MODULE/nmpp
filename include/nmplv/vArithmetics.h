@@ -1552,7 +1552,7 @@ void nmppsMul_Mul_Sub_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, const nm
 //! \}
 
 /**
-\defgroup nmppsMulC_Add_f nmppsMulC_Add
+\defgroup nmppsMulC_AddV_f nmppsMulC_Add
 \ingroup vArithmetics_f
 \brief
 	\ru Умножение вектора на константу с накоплением (pDstVec[i] = pSrcVec1[i] * С + pSrcVec2[i])
@@ -1595,7 +1595,7 @@ void nmppsMul_Mul_Sub_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, const nm
 \endxmlonly
 */
 //! \{
-void nmppsMulC_Add_32fcr(const nm32fcr* pSrcVec1, const nm32fcr* pSrcVec2, nm32fcr* pDstVec, float C, int nSize);
+void nmppsMulC_AddV_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, float C, int nSize);
 //! \}
 //*******************************************************************
 

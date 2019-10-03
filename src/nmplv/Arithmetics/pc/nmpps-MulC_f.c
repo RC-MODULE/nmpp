@@ -16,3 +16,11 @@ void nmppsMulC_32f(const nm32f* pSrcVec, nm32f* pDstVec, float C, int nSize)
         pDstVec[i] = C * pSrcVec[i];
     }
 }
+
+void nmppsMulC_AddV_AddC_32f(nm32f* pSrcVec, float mulVal, nm32f* pVecAdd, float addVal, nm32f* pDstVec, int nSize)
+{
+    int i;
+    for(i = 0; i < nSize; i++) {
+        pDstVec[i] = mulVal * pSrcVec[i] + pVecAdd[i] + addVal;
+    }
+}

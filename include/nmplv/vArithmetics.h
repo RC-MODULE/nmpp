@@ -1404,6 +1404,63 @@ void nmppsMulC_AddC_32f(const nm32f* pSrcVec, float nMulC, float nAddC, nm32f* p
 //! \}
 
 /**
+\defgroup nmppsMulC_AddV_AddC_32f nmppsMulC_AddV_AddC
+\ingroup vArithmetics_f
+\brief
+	\ru Умножение вектора на константу с прибавлением вектора и константы (pDstVec[i] = nMulC * pSrcVec[i] + pVecAdd[i] + nAddC)
+	\en pDstVec[i] = nMulC * pSrcVec[i] + nAddC
+	\~
+\param pSrcVec
+	\ru Входной вектор
+	\en Input vec
+	\~
+\param nMulC
+	\ru Константа
+	\en Const
+	\~
+\param pVecAdd
+	\ru Входной вектор
+	\en Input vec
+	\~
+\param nAddC
+	\ru Константа
+	\en Const
+	\~
+\param nSize
+	\ru Размер векторов в элементах
+	\en Vector size in elements
+	\~
+\retval pDstVec
+	\ru Результирующий вектор
+	\en The result vec
+	\~
+\return \e void
+
+\par
+\xmlonly
+	<testperf>
+		 <param name="pSrcVec"> im1 im2 </param>
+		 <param name="nMulC"> 5 </param>
+		 <param name="pVecAdd"> im1 im2 </param>
+		 <param name="nAddC"> 5 </param>
+		 <param name="pDstVec"> im2 im3 </param>
+		 <param name="nSize"> 2048 </param>
+	</testperf>
+	<testperf>
+		<param name="pSrcVec"> im1 </param>
+		<param name="nMulC"> 5 </param>
+		<param name="pVecAdd"> im1 im2 </param>
+		<param name="nAddC"> 5 </param>
+		<param name="pDstVec"> im3 </param>
+		<param name="nSize"> 8 128 256 512 1024 2048 </param>
+	</testperf>
+\endxmlonly
+*/
+//! \{
+void nmppsMulC_AddV_AddC_32f(nm32f* pSrcVec, float nMulC, nm32f* pVecAdd, float nAddC, nm32f* pDstVec, int nSize);
+//! \}
+
+/**
 \defgroup nmppsMul_f nmppsMul
 \ingroup vArithmetics_f
 \brief

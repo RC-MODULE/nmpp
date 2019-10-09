@@ -81,8 +81,8 @@ else
   MB7707_MAC = eth0
 endif
 
-#PLATFORMS = vs8 mc5103 emu6405  mb7707 mc12101 gcc
-PLATFORMS = x86 mc12101_nmpu0 mc12101_nmpu0-gcc-ld mc12101_nmpu0-gcc-cfg mc12101_nmpu1 mc12101_nmpu1-gcc-ld mc12101_nmpu1-gcc-cfg mc5103 mc7601 gcc emu6405 mc12705-gcc-cfg mc12705-gcc-ld
+#PLATFORMS = vs8 mc5103 emu6405  mb7707 mc12101 gcc mc5103 mc7601 gcc emu6405 mc12705-gcc-cfg mc12705-gcc-ld
+PLATFORMS = x86 mc12101_nmpu0 mc12101_nmpu0-gcc-ld mc12101_nmpu0-gcc-cfg mc12101_nmpu1 mc12101_nmpu1-gcc-ld mc12101_nmpu1-gcc-cfg 
 TARGET1=mc5103
 TARGET2=x86
 #mc12101_nmc1

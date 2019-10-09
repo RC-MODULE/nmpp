@@ -47,6 +47,7 @@ ifeq ($(OS),Windows_NT)
 SHELL 			 = cmd
 endif
 
+$(info $(realapth))
 -include 		 nmc4vars_win.mk
 #include          $(ROOT)/global.mk
 

@@ -58,4 +58,4 @@ skip:
 	@echo SDK missing. Compilation is skipped!
 
 reset:
-reset12101
+	reset12101

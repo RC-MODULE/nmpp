@@ -1,13 +1,7 @@
 # Latest premake  https://premake.github.io/
 ROOT             = ../..
 include          $(ROOT)/global.mk
-VS8       = Visual_Studio_8_2005
-VS12      = Visual_Studio_12_2013
-VS12X64   = Visual_Studio_12_2013_Win64
-VS14      = Visual_Studio_14_2014
-VS14X64   = Visual_Studio_14_2014_Win64
-VS15X64   = Visual_Studio_15_2017_Win64
-MINGW     = d:/SDK/MinGW
+
 
 .PHONY: mingw unix;
 
@@ -43,7 +37,7 @@ endif
 
 PROJECT = nmpp
 all: vs2015
-	$(VS14X64) && "$(VS140COMNTOOLS)vsvars32" && msbuild nmpp-x64.vcxproj /p:Configuration=Release
+	
 	
 configure-mingw MinGW/Makefile:
 	-$(RMDIR)   MinGW	

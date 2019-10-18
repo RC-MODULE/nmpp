@@ -114,20 +114,21 @@ $(TMP_DIR)/%.o: %.asm
 $(TMP_DIR)/%.o: %.s 
 	$(AS) $(AS_FLAGS) $(<) -o$(@) $(ERRECHO)
 	
-nmcc:
-	$(MAKE) -f nmcc.mk -j4
-		
+legacy:
+	$(MAKE) -f legacy.mk
+	
+
 	
 #========================== Visual Studio support ===================
 HEADER_DIRS      =$(ROOT)/include $(ROOT)/include/nmplv $(ROOT)/include/nmpli $(ROOT)/include/nmpls $(ROOT)/include/nmplm $(ROOT)/include/nmplc
 RESOURCES        =Makefile
 
 
-vs2005: Makefile
-	$(MAKE) -f $(ROOT)/deps/projector/vs8.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(PROJECT).vcproj 
+#vs2005: Makefile
+#	$(MAKE) -f $(ROOT)/deps/projector/vs8.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(PROJECT).vcproj 
 
-vs2015 : Makefile
-	$(MAKE) -f $(ROOT)/deps/projector/vs13.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(PROJECT).vcxproj
+#vs2015 : Makefile
+#	$(MAKE) -f $(ROOT)/deps/projector/vs13.mk nmc-app MAK=$(realpath .)/Makefile --silent >$(PROJECT).vcxproj
 
 #========================== cleanup ===================
 include $(ROOT)/clean.mk

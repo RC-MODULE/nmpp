@@ -114,8 +114,8 @@ $(TMP_DIR)/%.o: %.asm
 $(TMP_DIR)/%.o: %.s 
 	$(AS) $(AS_FLAGS) $(<) -o$(@) $(ERRECHO)
 	
-nmcc:
-	$(MAKE) -f nmcc.mk -j4
+legacy:
+	$(MAKE) -f legacy.mk -j4
 		
 	
 #========================== Visual Studio support ===================

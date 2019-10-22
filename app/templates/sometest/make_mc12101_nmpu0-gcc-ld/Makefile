@@ -1,4 +1,4 @@
-ROOT=../../../../..
+
 
 # BUILD AND RUN MAKEFILE
 # This makefile builds simple nmc-application containing single cpp-file  
@@ -7,7 +7,7 @@ ROOT=../../../../..
 #include $(NMC_GCC_TOOLPATH)/nmc4-ide/include/nmc4vars_win.mk
 #NMCGCC = $(NMC_GCC_TOOLPATH)/nmc4-ide
 -include nmc4vars_win.mk
-
+-include $(ROOT)/clean.mk
 
 .SUFFIXES:
 
@@ -25,24 +25,20 @@ PROJECT  = main
 TARGET   =$(PROJECT)
 INC_DIRS = -I"$(NMPP)/include" -I"$(HAL)/include"
 LIB_DIRS = -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4" -L"$(NMPP)/lib" -L"$(HAL)/lib"
-LIBS     = -lnmpp-nmc4f -lhal-mc12101
-
+LIBS     = -lnmpp-nmc4f -lhal-mc12101 
+MAP      = $(PROJECT).map
 CFG      =  "-Wl,-Tmc12101board-nmpu0.ld"
 SRC_CPP  = $(wildcard $(ROOT)/*.cpp)
 
+.DEFAULT_GOAL := $(TARGET)
+
 $(TARGET): $(SRC_CPP) Makefile
-	$(CC) $(CC_FLAGS) $(SRC_CPP) $(INC_DIRS) $(LIB_DIRS) $(LIBS) -lc $(CFG) -Wl,--whole-archive -lmc12101 -Wl,--no-whole-archive -o $(TARGET)
+	$(CC) $(CC_FLAGS) $(SRC_CPP) $(INC_DIRS) $(LIB_DIRS) $(LIBS) -lc $(CFG) -Wl,--whole-archive -lmc12101 -Wl,--no-whole-archive -o$(TARGET) -Wl,-Map=$(MAP) 
 
 PATH:=$(MC12101)/bin;$(PATH)
 
 run: $(TARGET)
 	mc12101run $(TARGET)
-
-clean:
-	-rm -f *.abs *.elf .*  *.o
-
-skip:
-	@echo SDK missing. Compilation is skipped!
 
 reset:
 	reset12101

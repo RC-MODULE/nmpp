@@ -18,11 +18,11 @@ SECTIONS
   .init : ALIGN(0x8)
   {
     *(.init);
-  } > C0_IMU5
+  } > C0_IMU0
   .fini : ALIGN(0x8)
   {
     *(.fini);
-  } > C0_IMU3
+  } > C0_IMU0
   .data_imu0 : ALIGN(0x8)
   {
     *(.data_imu0);

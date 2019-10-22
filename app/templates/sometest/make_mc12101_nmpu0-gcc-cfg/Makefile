@@ -6,6 +6,8 @@
 #include $(NMC_GCC_TOOLPATH)/nmc4-ide/include/nmc4vars_win.mk
 #NMCGCC = $(NMC_GCC_TOOLPATH)/nmc4-ide
 -include nmc4vars_win.mk
+-include $(ROOT)/clean.mk
+
 
 
 .SUFFIXES:
@@ -29,6 +31,8 @@ MAP      = $(PROJECT).map
 CFG      =  "-Wl,-cmc12101brd-nmpu0.cfg"
 SRC_CPP  = $(wildcard $(ROOT)/*.cpp)
 
+.DEFAULT_GOAL := $(TARGET)
+
 $(TARGET): $(SRC_CPP) Makefile
 	$(CC) $(CC_FLAGS) $(SRC_CPP) $(INC_DIRS) $(LIB_DIRS) $(LIBS) -lc $(CFG) -Wl,--whole-archive -lmc12101 -Wl,--no-whole-archive -o $(TARGET) -Wl,-Map=$(MAP) 
 
@@ -36,12 +40,6 @@ PATH:=$(MC12101)/bin;$(PATH)
 
 run: $(TARGET)
 	mc12101run $(TARGET)
-
-clean:
-	-rm -f *.abs *.elf .*  *.o
-
-skip:
-	@echo SDK missing. Compilation is skipped!
 
 reset:
 	reset12101

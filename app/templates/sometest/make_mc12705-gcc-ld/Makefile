@@ -10,9 +10,8 @@ endef
 include nmc4vars_win.mk
 
 
-INC_DIRS = -I"$(NMPP)/include" -I"$(MC12101)/include" -I"$(NEURO)/include" -I"$(HAL)/include" -I$(ROOT)/include
-#LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12101)/lib" -L$(HAL)/lib -L"$(NEURO)/lib"
-LIB_DIRS = -L"$(NMPP)/lib" 
+INC_DIRS = -I"$(NMPP)/include" -I"$(MC12705)/include" -I"$(HAL)/include" -I$(ROOT)/include
+LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12705)/lib" -L$(HAL)/lib 
 LIBS     =  -lnmpp-nmc4  -lnmpp-nmc4f
 TARGET   = main.abs
 CFG      = mc12705board.ld

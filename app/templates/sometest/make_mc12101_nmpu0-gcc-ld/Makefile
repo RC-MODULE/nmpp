@@ -43,7 +43,7 @@ run: 	$(TARGET)
 	mc12101run $(TARGET)
 
 reset:
-	reset12101
+	mc12101reset
 	
 nmc4vars_win.mk:
 	copy "$(NMC_GCC_TOOLPATH)\nmc4-ide\include\nmc4vars_win.mk" nmc4vars_win.mk

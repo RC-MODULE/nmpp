@@ -6,7 +6,7 @@
 
 -include nmc4vars_win.mk
 -include $(ROOT)/clean.mk
-
+NMPP?=$(ROOT)
 .SUFFIXES:
 
 
@@ -16,17 +16,18 @@ endif
 
 PROJECT  = main
 TARGET   = $(PROJECT)
-MAP      = $(PROJECT).map
+
 CC       = nmc-g++
 AS       = nmc-gcc
-CC_FLAGS = -std=c++11 -O2 -Wall -mnmc4
+CXXFLAGS = -std=c++11 -O2 -Wall -mnmc4
 LIBS     = -lnmpp-nmc4 -lhal-mc12101 -lc -Wl,--whole-archive -lmc12101 -Wl,--no-whole-archive
 CFG      = mc12101board-nmpu1.ld
+MAP      = $(PROJECT).map
+LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-T$(CFG)
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(HAL)/include"
 LIB_DIRS = -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4" -L"$(NMPP)/lib"  -L"$(HAL)/lib"
 SRC_DIRS = ..
-
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
 SRC_ASM  = $(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
 SRC_C    = $(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
@@ -35,11 +36,11 @@ SRC_ALL  = $(SRC_CPP) $(SRC_ASM) $(SRC_C)
 .DEFAULT_GOAL := $(TARGET)
 
 $(TARGET): $(SRC_ALL) Makefile
-	$(CC) $(CC_FLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS) -o $(TARGET) -Wl,-Map=$(MAP) -Wl,-T$(CFG)
+	$(CC) -o$(TARGET) $(CXXFLAGS) $(LDFLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS)
 
 PATH:=$(MC12101)/bin;$(PATH)
 
-run: $(TARGET)
+run: 	$(TARGET)
 	mc12101run $(TARGET) -p
 
 reset:

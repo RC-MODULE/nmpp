@@ -30,6 +30,7 @@ SRC_DIRS+= $(ROOT)/src/nmplv/Arithmetics/nmf
 SRC_DIRS+= $(ROOT)/src/nmplv/Init/common
 SRC_DIRS+= $(ROOT)/src/nmplv/Init/nmf
 SRC_DIRS+= $(ROOT)/src/nmplv/Init/nmf/cores_Convert_32f32s
+SRC_DIRS+= $(ROOT)/src/nmplv/Init/nmf/cores_Copy_32f
 SRC_DIRS+= $(ROOT)/src/nmplv/Init/nm-risc
 SRC_DIRS+= $(ROOT)/src/nmblas/level1/nm
 SRC_DIRS+= $(ROOT)/src/nmblas/level1/nmcore

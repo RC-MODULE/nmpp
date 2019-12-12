@@ -10,7 +10,7 @@
 
 global _nmppsCopyRisc_32f: label;
 begin ".text_nmplv"
-<nmppsCopyRisc_32f>
+<_nmppsCopyRisc_32f>
 	ar5 = ar7 - 2;
 	push ar1, gr1;
 	push ar0, gr0;
@@ -22,7 +22,7 @@ begin ".text_nmplv"
 <CopyRisc_32f>
 	gr0 = [ar0++];	// loading
     [ar1++] = gr0 with gr7--;
-	if > delayed goto CopyRisc_32f;
+	if > goto CopyRisc_32f;
 
 <exit_CopyRisc_32f>
 	pop ar0, gr0;

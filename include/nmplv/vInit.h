@@ -643,18 +643,88 @@ __INLINE__ void nmppsCopy_64sc(const nm64sc *pSrcVec, nm64sc *pDstVec, int nSize
 		<testperf>
 			 <param name="pSrcVec"> im1 im2 </param>
 			 <param name="pDstVec"> im3 </param>
-			 <param name="size"> 2048 </param>
+			 <param name="size"> 16 256 2048 </param>
+		</testperf>
+		<testperf>
+			 <param name="pSrcVec"> im1+1 im2+1 </param>
+			 <param name="pDstVec"> im3+1 </param>
+			 <param name="size"> 16 256 2048 </param>
 		</testperf>
 		<testperf>
 			<param name="pSrcVec"> im1 im2 </param>
+			<param name="pDstVec"> im3+1 </param>
+			<param name="size"> 16 256 2048 </param>
+		</testperf>
+		<testperf>
+			<param name="pSrcVec"> im1+1 im2+1 </param>
 			<param name="pDstVec"> im3 </param>
-			<param name="size"> 8 128 1024 2048 </param>
+			<param name="size"> 16 256 2048 </param>
 		</testperf>
 	\endxmlonly
  */
 //! \{
-void Copy_32f(const nm32f* pSrcVec, nm32f* pDstVec, int size);
 void nmppsCopy_32f(const nm32f* pSrcVec, nm32f* pDstVec, int size);
+//! \}
+
+/** \defgroup nmppsCopy_f nmppsCopy
+ *  \ingroup vInit_f
+ *  \brief Копирование массива
+ *
+    \param pSrcVec указатель на входной массив чисел
+    \param pDstVec указатель на выходной массив чисел
+    \param size количество элементов в массиве pSrcVec 
+
+	\xmlonly
+		<testperf>
+			 <param name="pSrcVec"> im1+1 im2+1 </param>
+			 <param name="pDstVec"> im3+1 </param>
+			 <param name="size"> 16 256 2048 </param>
+		</testperf>
+	\endxmlonly
+ */
+//! \{
+void nmppsCopy_32f_odd_odd_address(const nm32f* pSrcVec, nm32f* pDstVec, int size);
+//! \}
+
+/** \defgroup nmppsCopy_f nmppsCopy
+ *  \ingroup vInit_f
+ *  \brief Копирование массива
+ *
+    \param pSrcVec указатель на входной массив чисел
+    \param pDstVec указатель на выходной массив чисел
+    \param size количество элементов в массиве pSrcVec 
+
+	\xmlonly
+		<testperf>
+			 <param name="pSrcVec"> im1+1 im2+1 </param>
+			 <param name="pDstVec"> im3 </param>
+			 <param name="size"> 16 256 2048 </param>
+		</testperf>
+	\endxmlonly
+ */
+//! \{
+void nmppsCopy_32f_even_odd_address(const nm32f* pSrcVec, nm32f* pDstVec, int size);
+//! \}
+
+
+/** \defgroup nmppsCopy_f nmppsCopy
+ *  \ingroup vInit_f
+ *  \brief Копирование массива
+ *
+    \param pSrcVec указатель на входной массив чисел
+    \param pDstVec указатель на выходной массив чисел
+    \param size количество элементов в массиве pSrcVec 
+
+	\xmlonly
+		<testperf>
+			 <param name="pSrcVec"> im1 im2 </param>
+			 <param name="pDstVec"> im3 </param>
+			 <param name="size"> 16 256 2048 </param>
+		</testperf>
+	\endxmlonly
+ */
+//! \{
+void nmppsCopy_32f_even_even_address(const nm32f* pSrcVec, nm32f* pDstVec, int size);
 //! \}
 
 

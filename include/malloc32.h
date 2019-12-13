@@ -22,7 +22,8 @@ void* malloc1(unsigned int size);
 void* malloc2(unsigned int size);
 void* malloc3(unsigned int size);
 
-void* malloc32 (unsigned size_int32, unsigned bank_mask);
+//void* malloc32 (unsigned size_int32, unsigned bank_mask);
+//#define  malloc32 (unsigned size_int32) 
 void  free32(void* p);
 
 // universal malloc for nmc-gcc and nmcc (универсальный маллок для nmc-gcc и nmcc)

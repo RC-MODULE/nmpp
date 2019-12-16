@@ -54,7 +54,6 @@ endif
 ifndef NEURO
 $(error *** ERROR: 'NEURO' environment variable is not defined! NMSDK might not have installed correctly. )
 endif
-
 ARCH             =nmc4
 #--------------  target & input dirs -------------------
 include          $(ROOT)/make/src-nmc-int.mk
@@ -120,6 +119,7 @@ $(TMP_DIR):
 	
 $(OUT_DIR): 
 	-mkdir "$(@)"
+
 	
 $(TMP_DIR)/%.o: %.asm 
 	$(AS) $(AS_FLAGS) $(<) -o$(@) $(ERRECHO)

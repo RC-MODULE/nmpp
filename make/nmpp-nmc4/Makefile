@@ -26,14 +26,14 @@
 #   LIB_DIRS        - set of search library pathes (with -l flag separated)
 #   TMP_DIR         - temporary build-folder (Debug/Release)
 #   
-#   CC              - C/C++ compiler
-#   CC_FLAGS        - C/C++ compiler flags   
-#   AS				- assembler
-#   AS_FLAGS        - assembler flags for compiling of pure .asm files 
+#   CFLAGS          - C compiler
+#   CXXFLAGS        - C++ compiler flags   
+#   AS              - assembler
+#   ASMFLAGS        - assembler flags for compiling of pure .asm files 
 #   AR              - librarian
-#   AR_FLAGS        - librarian flags of (libr/linker)
+#   ARFLAGS         - librarian flags of (libr/linker)
 #
-#============== PROJECT & BUILD CONFIGURATION ==========
+
 ROOT             = ../..
 ifeq ($(OS),Windows_NT)
 nmc4vars_win.mk:
@@ -44,8 +44,8 @@ SHELL 			 = cmd
 endif
 
 
--include 		 nmc4vars_win.mk
-#include          $(ROOT)/global.mk
+
+
 
 
 ARCH             = nmc4
@@ -59,12 +59,11 @@ TARGET           = $(OUT_DIR)/$(PROJECT).a
 include          $(ROOT)/make/src-nmc-int.mk
 #------------------------------------------------
 CC               = nmc-gcc
-LD               = nmc-ld
 AR               = nmc-ar
 AS               = asm
-CC_FLAGS 	 = -m$(ARCH) $(INC_DIRS)  -std=c99 -c
-AR_FLAGS         = rcs $(TARGET)
-AS_FLAGS         =-$(ARCH) -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
+CXXFLAGS 	 = -m$(ARCH) $(INC_DIRS)  -std=c99 -c
+ARFLAGS         = rcs $(TARGET)
+ASFLAGS         =-$(ARCH) -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 .SUFFIXES:
 # regular search of *.c *.cpp,*.asm,*.s sources in all $(SRC_DIRS)
@@ -72,7 +71,6 @@ ALL_CPP =$(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
 ALL_ASM =$(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
 ALL_C   =$(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
 ALL_S   =$(wildcard $(addsuffix /*.s,$(SRC_DIRS)))
-ALL_H   =$(wildcard $(addsuffix /*.h,$(HEADER_DIRS)))
 
 VPATH    = $(SRC_DIRS)
 
@@ -83,16 +81,32 @@ OBJECTS_C   = $(notdir $(patsubst %.c,%.o,$(ALL_C)))
 OBJECTS_S   = $(notdir $(patsubst %.s,%.o,$(ALL_S)))
 export OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S))
 
-#======================== BUILD RULES ====================================
+#========================== NeuroMatrix build ===================	
 .DEFAULT_GOAL=default
+
 default: 
 	$(MAKE) $(TARGET) -j4 
+	
+logo:
+	$(info *******************************************************************************)
+	$(info **                                                                           **)
+	$(info **                       Neuro Matrix <$(CONFIGURATION)> compiling...          )
+	$(info **                                                                           **)
+	$(info *******************************************************************************)
 
-$(TARGET): $(TMP_DIR) $(OUT_DIR) $(OBJECTS) 
+
+$(TARGET): logo $(TMP_DIR) $(OUT_DIR) $(OBJECTS) 
 	$(info "[Linking...]")
 	echo rcs $(TARGET) > .objects 
 	$(MAKE) -s --no-print-directory -f printobj.mk >> .objects
 	$(AR) @.objects $(ERRECHO)
+	@echo *******************************************************************************
+	@echo **                                                                           **
+	@echo **                                   Build OK!                               **
+	@echo **                                                                           **
+	@echo *******************************************************************************
+legacy:
+	$(MAKE) -f legacy.mk
 	
 
 $(TMP_DIR):
@@ -101,21 +115,19 @@ $(TMP_DIR):
 $(OUT_DIR): 
 	-mkdir "$(@)"
 	
-
-$(TMP_DIR)/%.o: %.c 
-	$(CC) $(CC_FLAGS) $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
+$(TMP_DIR)/%.o: %.c
+	$(CC) $(CXXFLAGS) $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
 
 $(TMP_DIR)/%.o: %.cpp
-	$(CC) $(CC_FLAGS) $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
+	$(CC) $(CXXFLAGS) $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
 	
 $(TMP_DIR)/%.o: %.asm 
-	$(AS) $(AS_FLAGS) $(<) -o$(@) $(ERRECHO)
+	$(AS) $(ASFLAGS) $(<) -o$(@) $(ERRECHO)
 
 $(TMP_DIR)/%.o: %.s 
-	$(AS) $(AS_FLAGS) $(<) -o$(@) $(ERRECHO)
+	$(AS) $(ASFLAGS) $(<) -o$(@) $(ERRECHO)
 	
-legacy:
-	$(MAKE) -f legacy.mk -j4
+
 		
 	
 #========================== Visual Studio support ===================

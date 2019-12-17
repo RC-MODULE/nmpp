@@ -12,7 +12,7 @@ config_mc12705:
 	testperf config -i ../../include -b make_mc12705
 
 config_mc12101_0:
-	testperf config -i ../../include -b make_mc12101_nmpu0
+	testperf config -i ../../include -b make_mc12101_nmpu0 -p floating
 
 config_mc12101_1:
 	testperf config -i ../../include -b make_mc12101_nmpu1 --point fixed
@@ -27,7 +27,7 @@ run:
 	testperf run
 
 kill:
-	testperf kill
+	testperf del
 
 outdir:
 	testperf outdir

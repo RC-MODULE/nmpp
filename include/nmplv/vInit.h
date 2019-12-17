@@ -666,7 +666,7 @@ __INLINE__ void nmppsCopy_64sc(const nm64sc *pSrcVec, nm64sc *pDstVec, int nSize
 void nmppsCopy_32f(const nm32f* pSrcVec, nm32f* pDstVec, int size);
 //! \}
 
-/** \defgroup nmppsCopy_f nmppsCopy
+/** \defgroup nmppsCopy_f_odd_odd_address nmppsCopy_32f_odd_odd_address
  *  \ingroup vInit_f
  *  \brief Копирование массива
  *
@@ -686,7 +686,7 @@ void nmppsCopy_32f(const nm32f* pSrcVec, nm32f* pDstVec, int size);
 void nmppsCopy_32f_odd_odd_address(const nm32f* pSrcVec, nm32f* pDstVec, int size);
 //! \}
 
-/** \defgroup nmppsCopy_f nmppsCopy
+/** \defgroup nmppsCopy_f_even_odd_address nmppsCopy_even_odd_address
  *  \ingroup vInit_f
  *  \brief Копирование массива
  *
@@ -707,7 +707,7 @@ void nmppsCopy_32f_even_odd_address(const nm32f* pSrcVec, nm32f* pDstVec, int si
 //! \}
 
 
-/** \defgroup nmppsCopy_f nmppsCopy
+/** \defgroup nmppsCopy_f_even_even_address nmppsCopy_even_even_address
  *  \ingroup vInit_f
  *  \brief Копирование массива
  *
@@ -745,7 +745,7 @@ void nmppsCopy_32f_even_even_address(const nm32f* pSrcVec, nm32f* pDstVec, int s
 		<testperf>
 			<param name="pSrcVec"> im1 im2 </param>
 			<param name="pDstVec"> im3 </param>
-			<param name="size"> 8 128 1024 2048 </param>
+			<param name="nSize"> 8 128 1024 2048 </param>
 		</testperf>
 	\endxmlonly
  */

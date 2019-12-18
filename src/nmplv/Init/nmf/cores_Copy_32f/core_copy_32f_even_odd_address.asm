@@ -19,18 +19,18 @@ begin "text"
 	push ar3, gr3;
 	push ar2, gr2;
 	push ar1, gr1;
-	push ar0, gr0;
+	push ar0, gr0 with gr6 = gr5;
 
 	// ar0 = [--ar5]; // input
 	// ar6 = [--ar5]; // output
 	// gr5 = [--ar5]; // size N
 
-	gr6 = gr5;
+
 	ar2 = ar6 + gr6;                // getting a last element address 
 	ar2++;                          // getting after the last element address
 	gr3 = [ar2] with gr4 = false;   // saving a element after the last element
 
-	gr1 = [ar0] with gr6 = gr5;     // reading a first element and saving N (count elements)
+	gr1 = [ar0];     // reading a first element and saving N (count elements)
 	[ar6++] = gr1 with gr4++;       // copying a first element to a output array
 
     ar1 = ar0 + 2;                  // a input address with the offset	
@@ -52,6 +52,7 @@ begin "text"
 	if =0 goto even_parity;
 <less64_copy_32f_even_odd_address>
 	gr5 >>= 1;
+	if =0 goto even_parity;
     gr5--;
 	vlen = gr5;
     fpu rep vlen .packer = [ar0++] with .float .in_low <= .float .in_high;

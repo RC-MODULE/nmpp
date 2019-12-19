@@ -6,7 +6,7 @@ typedef void (*pfn_nmppsCopy_32f)(const nm32f* pSrcVec, nm32f* pDstVec, int size
 pfn_nmppsCopy_32f nmppsCopy_32f_array[4] = {&nmppsCopy_32f_even_even_address,
                                             &nmppsCopy_32f_even_odd_address,
 											&nmppsCopy_32f_odd_odd_address,
-											&nmppsCopyRisc_32f};
+											&nmppsCopy_32f_odd_even_address};
 
 int GetCopyingFuncNum(int src_address, int dst_address)
 {

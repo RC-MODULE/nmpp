@@ -1,71 +1,63 @@
-#include <nmtype.h>
-#include <malloc32.h>
-#include <nmpp.h>
-#include <stdio.h>
+#include "nmpp.h"
+#include "stdio.h"
 
-#define 				SIZE					256
+#define MAX_SIZE 11000
 
-//template<typename T, typename B>
-//class FloatCopyTester {
-//public:
-//  FloatCopyTester() {
-//    src = (T*)malloc(size);
-//	dst = (T*)malloc(size + additional_memory);
-//  }
-//  ~FloatCopyTester() {
-//	free(src);
-//	free(dst);
-//  }
-//  
-//  int TestCopyEvenEvenAddress();
-//  
-//private:
-//  T* src = nullptr;
-//  T* dst = nullptr;
-//  size_t size = 256;
-//  size_t additional_memory = 32;
-//}
-//
-//template<typename T, typename B>
-//int FloatCopyTester<T, B>:: TestCopyEvenEvenAddress()
-//{
-//  
-//}
-
-unsigned TestCopyEvenEvenAddress()
+void FullArray_32f(nm32f* array, int size)
 {
-  size_t additional_memory = 32;
-  nm32f* src = (T*)malloc(SIZE);
-  nm32f* dst = (T*)malloc(SIZE + additional_memory);
-  
-  for(int i = 0; i < SIZE; i++) {
-	src[i] = i;
-  }
-  
-  for(int i = SIZE; i < SIZE + additional_memory; i++) {
-	src[i] = 777;
-  }
-  
-  for(int i = 0; i < SIZE + 11; i++) {
-	dst_32f[i] = 555;
-  }
-  
-  unsigned crc = 0;
-  
-  for(int iSize = 2; iSize < SIZE; iSize++) {
-	nmppsCopy_32f(src, dst, iSize);
-	nmppsCrcAcc_32f(dst, 0, SIZE + additional_memory, &crc);
-  }
-  
-  free(src);
-  free(dst);
-  return crc >> 2;
+	for(int i = 0;i < size; i++){
+		array[i] = 0xCDCDCD;
+	}
 }
 
-
-int main()
+void TestCopy_32f(nm32f* src, nm32f* dst, int max_size, unsigned int* crc)
 {
-  int crc = TestCopyEvenEvenAddress();
-  return crc;
+	for (int size = 2; size < MAX_SIZE; size++) {
+		nmppsCopy_32f(src, dst, size);
+		nmppsCrcAcc_32f((nm32f*)dst, 0, size + 2, crc);
+	}
 }
 
+int main(){
+	nm32f* src = (nm32f*)nmppsMalloc_32f(MAX_SIZE + 2);
+	nm32f* dst  = (nm32f*)nmppsMalloc_32f(MAX_SIZE + 2);
+	
+	printf("parity src address: %d\n", (int)src & 1);
+	printf("parity src address: %d\n", (int)dst & 1);
+	
+	/* nmppsRandUniform_32f( src1, MAX_SIZE,0,10000);
+	nmppsRandUniform_32f( src2, MAX_SIZE,0,10000);
+	nmppsRandUniform_32f( src3, MAX_SIZE,0,10000); */
+	for(int i = 0;i < MAX_SIZE + 2; i++){
+		src[i] = i;
+	}
+	
+	FullArray_32f(dst, MAX_SIZE + 2);
+
+	unsigned int crc = 0;
+	nmppsCrcAcc_32f((nm32f*)src, 0, MAX_SIZE, &crc);
+	//nmppsSet_32s((nm32s*)dst,0xCDCDCDCD,MAX_SIZE);
+
+	printf("origin crc = %d\n", crc >> 2);
+// Test copy from even address to even address
+    TestCopy_32f(src, dst, MAX_SIZE, &crc);
+    printf("even to even crc = %d\n", crc >> 2);
+    FullArray_32f(dst, MAX_SIZE + 2);
+
+// Test copy from odd address to odd address
+    TestCopy_32f(src + 1, dst + 1, MAX_SIZE, &crc);
+    printf("odd to odd crc = %d\n", crc >> 2);
+	FullArray_32f(dst, MAX_SIZE + 2);
+
+// Test copy from even address to odd address
+    TestCopy_32f(src, dst + 1, MAX_SIZE, &crc);
+    printf("even to odd crc = %d\n", crc >> 2);
+    FullArray_32f(dst, MAX_SIZE + 2);
+
+// Test copy from odd address to even address
+    TestCopy_32f(src + 1, dst, MAX_SIZE, &crc);
+    printf("odd to even crc = %d\n", crc >> 2);
+    FullArray_32f(dst, MAX_SIZE + 2);
+
+	return crc >> 2;
+}

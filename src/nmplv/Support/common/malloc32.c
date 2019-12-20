@@ -598,6 +598,7 @@ void* malloc32(unsigned size_int32 )
 #endif
 }
 */
+/*
 void* malloc32 (unsigned size_int32, unsigned bank_mask)
 {
 #ifdef __NM__
@@ -623,7 +624,7 @@ void* malloc32 (unsigned size_int32, unsigned bank_mask)
 	return malloc(size_int32*4);
 #endif	
 }
-
+*/
 void free32(void* p)
 {
 	free(p);

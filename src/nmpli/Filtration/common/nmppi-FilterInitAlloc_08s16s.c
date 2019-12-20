@@ -332,7 +332,7 @@ int nmppiFilterInitAlloc_8s16s(NmppiFilterState** ppState, int* pKernel, int ker
 	//nKerWidth=n_KerWidth;
 	//nKerHeight=n_KerHeight;
 	int stateSize=nmppiFilterGetStateSize32_8s16s( kerWidth,  kerHeight);
-	*ppState=(nm64s*)malloc32(stateSize,-1);
+	*ppState=(nm64s*)malloc32(stateSize);
 	if (ppState){
 		nmppiFilterInit_8s16s(pKernel,kerWidth,  kerHeight, imgWidth, *ppState);
 		return 0;

@@ -1,10 +1,10 @@
 
-global _Copy_32f: label;
+global _nmppsCopy_32f_even_odd_address: label;
 
-extern core_Copy_32f: label;
+extern core_copy_32f_even_odd_address: label;
 
 begin ".text_nmplv"
-<_Copy_32f>
+<_nmppsCopy_32f_even_odd_address>
 	ar5 = ar7 - 2;
 	push ar6, gr6;
 	push ar5, gr5;
@@ -14,7 +14,7 @@ begin ".text_nmplv"
 	ar6 = [--ar5];    	// output nm32f* pDstVec
 	gr5 = [--ar5];    	// nSize
 
-	call core_Copy_32f;
+	call core_copy_32f_even_odd_address;
 
 	pop ar0, gr0;
 	pop ar5, gr5;

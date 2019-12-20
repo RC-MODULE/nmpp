@@ -1,15 +1,14 @@
 
-global core_Copy_32f: label;
+global core_Copy_32f_even_even_address: label;
 
 begin ".text_nmplv"
-<core_Copy_32f>
+<core_Copy_32f_even_even_address>
 	push ar1, gr1;
 	push ar2, gr2;
 	push ar5, gr5;
 
-//	ar0 = [--ar5]; 					// x - pSrcVec
-//	ar6 = [--ar5]; 					// f - pDstVec
-//	gr0 = [--ar5]; 					// step
+//	ar0 = [--ar5]; 					// src - pSrcVec
+//	ar6 = [--ar5]; 					// dst - pDstVec
 //	gr5 = [--ar5];					// size N
 
 	gr1 = gr5 >> 6;
@@ -28,18 +27,17 @@ begin ".text_nmplv"
 <less64_core_Copy_32f>
 		nul;
 		gr2 >>= 1;										   // проверяем, 1 в остатке или больше
-	if =0 delayed goto core_Copy_32f_OneElement;
+	if =0 delayed goto core_Copy_32f_one_element;
 		gr2--;
 		vlen = gr2;
 	fpu 0 rep vlen vreg0 = [ar0++];
 	fpu 0 rep vlen [ar6++] = vreg0;
-<core_Copy_32f_OneElement>
+<core_Copy_32f_one_element>
 	gr5 <<= 31;
-	if =0 delayed goto exit_core_Copy_32f;
-		ar1, gr1 = [ar6];
-		fpu 0 rep 1 vreg0 = [ar0++];
-	fpu 0 rep 1 [ar6++] = vreg2;
-	[--ar6] = gr1;
+	gr5 >>= 31;
+	if =0 goto exit_core_Copy_32f;
+	gr1 = [ar0++];
+	[ar6++] = gr1;
 <exit_core_Copy_32f>
 	pop ar5, gr5;
 	pop ar2, gr2;

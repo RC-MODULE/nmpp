@@ -321,7 +321,7 @@ int nmppiFilterInitAlloc_16s32s(NmppiFilterState** ppState,int* pKernel, int ker
 	//nKerWidth=n_KerWidth;
 	//nKerHeight=n_KerHeight;
 	int KernelSize=nmppiFilterGetStateSize_16s32s( kerWidth,  kerHeight);
-	*ppState=(NmppiFilterState*)malloc32(KernelSize,-1);
+	*ppState=(NmppiFilterState*)malloc32(KernelSize);
 	
 	if (ppState){
 		nmppiFilterInit_16s32s(pKernel,kerWidth,  kerHeight, imgWidth, *ppState);

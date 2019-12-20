@@ -4,7 +4,7 @@
 //*                                                                         */
 //*   Software design:  I.Zhilenkov                                      	*/
 //*                                                                         */
-//*   File:             nmpps-MulC_Add_32fcr.asm                           	*/
+//*   File:             nmpps-MulC_Add_32f.asm                           	*/
 //*   Contents:         The function computes f = x1 * x2 + x3 				*/
 //***************************************************************************/
 
@@ -35,20 +35,21 @@ begin ".text_nmplv"
 	gr7 = gr5<<27;
 	gr7 >>=27;
 	gr5 >>=5;
-	Next32:label;
-	ar5 = Next32;
 	
 	if =0 delayed goto Tail with gr7--;
 		nul;
-		vlen = gr7 with gr5--;	
+		vlen = gr7;	
 	
 <Next32>
 	fpu 0 rep 32 vreg0 = [ar0++]; 
-	fpu 0 rep 32 vreg1 = [ar1++]; 
-	if > delayed goto ar5 with gr5--;
-		fpu 0 rep 32 vreg2 = [ar2++]; 	
-		fpu 0 .float vreg6 = vreg0 * vreg1 + vreg2; 
-		fpu 0 rep 32 [ar6++] = vreg7;
+	fpu 0 rep 32 vreg1 = [ar1++];
+	fpu 0 .float vreg2 = vreg0 * vreg1;
+	fpu 1 vreg1 = fpu 0 vreg2;
+	fpu 1 rep 32 vreg2 = [ar2++]; 	
+	fpu 1 .float vreg3 = vreg1 + vreg2; 
+	fpu 1 rep 32 [ar6++] = vreg3;
+	with gr5--;
+	if > goto Next32;
 <Tail>	
 	gr7;		//flag tail
 	if < delayed goto End;	
@@ -56,10 +57,13 @@ begin ".text_nmplv"
 		nul;	
 		
 	fpu 0 rep vlen vreg0 = [ar0++]; 
-	fpu 0 rep vlen vreg1 = [ar1++]; 
-	fpu 0 rep vlen vreg2 = [ar2++]; 
-	fpu 0 .float vreg7 = vreg0 * vreg1+vreg2; 
-	fpu 0 rep vlen [ar6++] = vreg7;
+	fpu 0 rep vlen vreg1 = [ar1++];
+	fpu 0 .float vreg2 = vreg0 * vreg1;
+	fpu 1 vreg1 = fpu 0 vreg2;
+	fpu 1 rep vlen vreg2 = [ar2++]; 	
+	fpu 1 .float vreg3 = vreg1 + vreg2; 
+	fpu 1 rep vlen [ar6++] = vreg3;
+
 
 <End>	
 	

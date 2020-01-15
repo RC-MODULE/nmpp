@@ -1,7 +1,12 @@
+// A.Brodyazhenko, 2019
+// void nmppsCopy_32f_even_odd_address(const float* pSrcVec, float* pDstVec, int size);
+// src - only even address
+// dst - only odd address
+// size - all
 
 global _nmppsCopy_32f_even_odd_address: label;
 
-extern core_copy_32f_even_odd_address: label;
+extern core_copy_32f_odd_even_address: label;
 
 begin ".text_nmplv"
 <_nmppsCopy_32f_even_odd_address>
@@ -14,8 +19,14 @@ begin ".text_nmplv"
 	ar6 = [--ar5];    	// output nm32f* pDstVec
 	gr5 = [--ar5];    	// nSize
 
-	call core_copy_32f_even_odd_address;
+	gr5--;
+	if =0 delayed goto exit_nmppsCopy_32f_even_odd_address;
+	    gr0 = [ar0++];
+	    [ar6++] = gr0;
 
+	call core_copy_32f_odd_even_address;
+
+<exit_nmppsCopy_32f_even_odd_address>
 	pop ar0, gr0;
 	pop ar5, gr5;
 	pop ar6, gr6;

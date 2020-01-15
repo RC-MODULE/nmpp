@@ -365,6 +365,7 @@
     <ClCompile Include="..\..\src\nmplv\Arithmetics\pc\nmpps-MulC.c" />
     <ClCompile Include="..\..\src\nmplv\Arithmetics\pc\nmpps-MulC_AddC_2s16s.c" />
     <ClCompile Include="..\..\src\nmplv\Arithmetics\pc\nmpps-MulC_AddC_32f.c" />
+    <ClCompile Include="..\..\src\nmplv\Arithmetics\pc\nmpps-MulC_AddV_32f.c" />
     <ClCompile Include="..\..\src\nmplv\Arithmetics\pc\nmpps-MulC_Add_32fcr.c" />
     <ClCompile Include="..\..\src\nmplv\Arithmetics\pc\nmpps-MulC_f.c" />
     <ClCompile Include="..\..\src\nmplv\Arithmetics\pc\nmpps-Mul_AddC.c" />

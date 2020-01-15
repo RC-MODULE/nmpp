@@ -12,8 +12,8 @@
 
 int main()
 {
-	nm32f* src_32f = (nm32f*) nmppsMalloc_32f(SIZE);
-	nm32s* dst_32s = (nm32s*) nmppsMalloc_32s(SIZE + 11);
+	//nm32f* src_32f = (nm32f*) nmppsMalloc_32f(SIZE);
+	//nm32s* dst_32s = (nm32s*) nmppsMalloc_32s(SIZE + 11);
 	//nm32f* dst_32s = (nm32f*) nmppsMalloc_32f(SIZE + 11);
 	nmppsRand_32f(src_32f, SIZE, -5, 15);
 	// float value = -5.01f;

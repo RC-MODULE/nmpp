@@ -1,3 +1,8 @@
+// A.Brodyazhenko, 2019
+// void nmppsCopy_32f_odd_even_address(const float* pSrcVec, float* pDstVec, int size);
+// src - only odd address
+// dst - only even address
+// size - all
 
 global _nmppsCopy_32f_odd_even_address: label;
 

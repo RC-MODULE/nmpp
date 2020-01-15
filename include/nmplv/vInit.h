@@ -700,6 +700,26 @@ void nmppsCopy_32f_odd_odd_address(const nm32f* pSrcVec, nm32f* pDstVec, int siz
 void nmppsCopy_32f_even_odd_address(const nm32f* pSrcVec, nm32f* pDstVec, int size);
 //! \}
 
+/** \defgroup nmppsCopy_f_even_odd_address_last_zero nmppsCopy_even_odd_address_last_zero
+ *  \ingroup vInit_f
+ *  \brief Копирование массива
+ *
+    \param pSrcVec указатель на входной массив чисел
+    \param pDstVec указатель на выходной массив чисел
+    \param size количество элементов в массиве pSrcVec (если size четное, то копируется на один элемент больше)
+
+	\xmlonly
+		<testperf>
+			 <param name="pSrcVec"> im1 im2 </param>
+			 <param name="pDstVec"> im3+1 </param>
+			 <param name="size"> 16 256 2048 </param>
+		</testperf>
+	\endxmlonly
+ */
+//! \{
+void nmppsCopy_32f_even_odd_address_last_zero(const nm32f* pSrcVec, nm32f* pDstVec, int size);
+//! \}
+
 
 /** \defgroup nmppsCopy_f_odd_even_address nmppsCopy_odd_even_address
  *  \ingroup vInit_f

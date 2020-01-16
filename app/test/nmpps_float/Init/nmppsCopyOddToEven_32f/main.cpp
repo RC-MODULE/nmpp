@@ -1,6 +1,6 @@
 #include "nmpp.h"
 
-#define MAX_SIZE 10000
+#define MAX_SIZE 15000
 int main(){
 	nm32f* src = (nm32f*)nmppsMalloc_32f(MAX_SIZE + 2);
 	nm32f* dst  = (nm32f*)nmppsMalloc_32f(MAX_SIZE + 2);
@@ -17,7 +17,7 @@ int main(){
 	//nmppsSet_32s((nm32s*)dst,0xCDCDCDCD,MAX_SIZE);
 
 	for (int size = 1; size < MAX_SIZE; size++) {
-		nmppsCopy_32f_odd_even_address(src + 1, dst, size);
+		nmppsCopyOddToEven_32f(src + 1, dst, size);
 		nmppsCrcAcc_32f((nm32f*)dst, 0, size + 2 , &crc);
 	}
 	return crc >> 2;

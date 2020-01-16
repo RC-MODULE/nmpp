@@ -1,13 +1,22 @@
 
-// A.Brodyazhenko, 2019
-// void copy_32f_odd_even_address(ar0 = src, ar6 = dst, gr5 = size);
-// src - only odd address
-// dst - only even address
-// size - all 
+//******************************************************************************************//
+//* A.Brodyazhenko, 2019                                                                   *//
+//* Prototype: void vec_CopyOddToEven_32f(ar0 = src, ar6 = dst, gr5 = size);               *//
+//* Contents: A Copying of a floating point array from odd src address to even dst address *//
+//* src - odd address only                                                                 *//
+//* dst - even address only                                                                *//
+//* size - all size except zero (1, 2, 3, 4, ... )                                         *//
+//******************************************************************************************//
 
-global core_copy_32f_odd_even_address: label;
+// A.Brodyazhenko, 2019
+// void vec_CopyOddToEven_32f(ar0 = src, ar6 = dst, gr5 = size);
+// src - odd address only
+// dst - even address only
+// size - all size except zero (1, 2, 3, 4, ... )
+
+global vec_CopyOddToEven_32f: label;
 begin "text"
-<core_copy_32f_odd_even_address>
+<vec_CopyOddToEven_32f>
 	// ar5 = ar7 - 2;
 	push ar6, gr6;
 	push ar5, gr5;

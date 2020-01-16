@@ -26,7 +26,7 @@ int main(){
 
 	for (int size = 1; size < MAX_SIZE; size++) {
 		//if(size == 1985) continue;
-		nmppsCopy_32f_even_odd_address(src, dst + 1, MAX_SIZE);
+		nmppsCopyEvenToOdd_32f(src, dst + 1, MAX_SIZE);
 		nmppsCrcAcc_32f((nm32f*)dst, 0, size + 2 , &crc);
 		//if(dst[3002] == 3001.0f) {
 		//	printf("s = %d\n", size);

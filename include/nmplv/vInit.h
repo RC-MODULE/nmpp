@@ -627,11 +627,11 @@ __INLINE__ void nmppsCopy_64sc(const nm64sc *pSrcVec, nm64sc *pDstVec, int nSize
 
 /** \defgroup nmppsCopy_f nmppsCopy
  *  \ingroup vInit_f
- *  \brief Копирование массива
+ *  \brief Копирование массива чисел с плавающей точкой одинарной точности (с любого на любой адрес)
  *
-    \param pSrcVec указатель на входной массив чисел
-    \param pDstVec указатель на выходной массив чисел
-    \param size количество элементов в массиве pSrcVec 
+    \param pSrcVec указатель на входной массив чисел (адрес может быть как четным, так и нечетным)
+    \param pDstVec указатель на выходной массив чисел (адрес может быть как четным, так и нечетным)
+    \param size количество элементов в массиве pSrcVec (может быть любым неотрицательным, кроме 0)
 
 	\xmlonly
 		<testperf>
@@ -657,16 +657,16 @@ __INLINE__ void nmppsCopy_64sc(const nm64sc *pSrcVec, nm64sc *pDstVec, int nSize
 	\endxmlonly
  */
 //! \{
-void nmppsCopy_32f(const nm32f* pSrcVec, nm32f* pDstVec, int size);
+void nmppsCopy_32f(const float* pSrcVec, float* pDstVec, int size);
 //! \}
 
 /** \defgroup nmppsCopy_f_odd_odd_address nmppsCopy_32f_odd_odd_address
  *  \ingroup vInit_f
- *  \brief Копирование массива
+ *  \brief Копирование массива чисел с плавающей точкой одинарной точности (с нечетного на нечетный адрес)
  *
-    \param pSrcVec указатель на входной массив чисел
-    \param pDstVec указатель на выходной массив чисел
-    \param size количество элементов в массиве pSrcVec 
+    \param pSrcVec указатель на входной массив чисел (адрес может быть только нечетным)
+    \param pDstVec указатель на выходной массив чисел (адрес может быть только нечетным)
+    \param size количество элементов в массиве pSrcVec (может быть любым неотрицательным, кроме 0)
 
 	\xmlonly
 		<testperf>
@@ -677,16 +677,16 @@ void nmppsCopy_32f(const nm32f* pSrcVec, nm32f* pDstVec, int size);
 	\endxmlonly
  */
 //! \{
-void nmppsCopy_32f_odd_odd_address(const nm32f* pSrcVec, nm32f* pDstVec, int size);
+void nmppsCopyOddToOdd_32f(const float* pSrcVec, float* pDstVec, int size);
 //! \}
 
 /** \defgroup nmppsCopy_f_even_odd_address nmppsCopy_even_odd_address
  *  \ingroup vInit_f
- *  \brief Копирование массива
+ *  \brief Копирование массива чисел с плавающей точкой одинарной точности (с четного на нечетный адрес)
  *
-    \param pSrcVec указатель на входной массив чисел
-    \param pDstVec указатель на выходной массив чисел
-    \param size количество элементов в массиве pSrcVec 
+    \param pSrcVec указатель на входной массив чисел (адрес может быть только четным)
+    \param pDstVec указатель на выходной массив чисел (адрес может быть только нечетным)
+    \param size количество элементов в массиве pSrcVec (может быть любым неотрицательным, кроме 0)
 
 	\xmlonly
 		<testperf>
@@ -697,37 +697,17 @@ void nmppsCopy_32f_odd_odd_address(const nm32f* pSrcVec, nm32f* pDstVec, int siz
 	\endxmlonly
  */
 //! \{
-void nmppsCopy_32f_even_odd_address(const nm32f* pSrcVec, nm32f* pDstVec, int size);
-//! \}
-
-/** \defgroup nmppsCopy_f_even_odd_address_last_zero nmppsCopy_even_odd_address_last_zero
- *  \ingroup vInit_f
- *  \brief Копирование массива
- *
-    \param pSrcVec указатель на входной массив чисел
-    \param pDstVec указатель на выходной массив чисел
-    \param size количество элементов в массиве pSrcVec (если size четное, то копируется на один элемент больше)
-
-	\xmlonly
-		<testperf>
-			 <param name="pSrcVec"> im1 im2 </param>
-			 <param name="pDstVec"> im3+1 </param>
-			 <param name="size"> 16 256 2048 </param>
-		</testperf>
-	\endxmlonly
- */
-//! \{
-void nmppsCopy_32f_even_odd_address_last_zero(const nm32f* pSrcVec, nm32f* pDstVec, int size);
+void nmppsCopyEvenToOdd_32f(const float* pSrcVec, float* pDstVec, int size);
 //! \}
 
 
 /** \defgroup nmppsCopy_f_odd_even_address nmppsCopy_odd_even_address
  *  \ingroup vInit_f
- *  \brief Копирование массива
+ *  \brief Копирование массива чисел с плавающей точкой одинарной точности (с нечетного на четный адрес)
  *
-    \param pSrcVec указатель на входной массив чисел
-    \param pDstVec указатель на выходной массив чисел
-    \param size количество элементов в массиве pSrcVec 
+    \param pSrcVec указатель на входной массив чисел (адрес может быть только нечетным)
+    \param pDstVec указатель на выходной массив чисел (адрес может быть только четным)
+    \param size количество элементов в массиве pSrcVec (может быть любым неотрицательным, кроме 0)
 
 	\xmlonly
 		<testperf>
@@ -738,17 +718,17 @@ void nmppsCopy_32f_even_odd_address_last_zero(const nm32f* pSrcVec, nm32f* pDstV
 	\endxmlonly
  */
 //! \{
-void nmppsCopy_32f_odd_even_address(const nm32f* pSrcVec, nm32f* pDstVec, int size);
+void nmppsCopyOddToEven_32f(const float* pSrcVec, float* pDstVec, int size);
 //! \}
 
 
 /** \defgroup nmppsCopy_f_even_even_address nmppsCopy_even_even_address
  *  \ingroup vInit_f
- *  \brief Копирование массива
+ *  \brief Копирование массива чисел с плавающей точкой одинарной точности (с четного на четный адрес)
  *
-    \param pSrcVec указатель на входной массив чисел
-    \param pDstVec указатель на выходной массив чисел
-    \param size количество элементов в массиве pSrcVec 
+    \param pSrcVec указатель на входной массив чисел (адрес может быть только четным)
+    \param pDstVec указатель на выходной массив чисел (адрес может быть только четным)
+    \param size количество элементов в массиве pSrcVec (может быть любым неотрицательным)
 
 	\xmlonly
 		<testperf>
@@ -759,7 +739,7 @@ void nmppsCopy_32f_odd_even_address(const nm32f* pSrcVec, nm32f* pDstVec, int si
 	\endxmlonly
  */
 //! \{
-void nmppsCopy_32f_even_even_address(const nm32f* pSrcVec, nm32f* pDstVec, int size);
+void nmppsCopyEvenToEven_32f(const float* pSrcVec, float* pDstVec, int size);
 //! \}
 
 
@@ -785,7 +765,7 @@ void nmppsCopy_32f_even_even_address(const nm32f* pSrcVec, nm32f* pDstVec, int s
 	\endxmlonly
  */
 //! \{
-void nmppsCopyRisc_32f(const nm32f* pSrcVec, nm32f* pDstVec, int nSize);
+void nmppsCopyRisc_32f(const float* pSrcVec, float* pDstVec, int nSize);
 //! \}
 
 //*****************************************************************************

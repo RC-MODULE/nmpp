@@ -15,22 +15,20 @@
 // size - all size except zero (1, 2, 3, 4, ... )
 
 global vec_CopyOddToEven_32f: label;
-begin "text"
+begin ".text_nmplv"
 <vec_CopyOddToEven_32f>
 	// ar5 = ar7 - 2;
-	push ar6, gr6;
 	push ar5, gr5;
 	push ar4, gr4;
 	push ar1, gr1 with gr4 = false; 
-	push ar0, gr0 with gr4++;
 
 	// ar0 = [--ar5]; // input
 	// ar6 = [--ar5]; // output
 	// gr5 = [--ar5]; // size N
 
-	ar0-- with gr6 = gr5;
+	ar0-- with gr1 = gr5;
 
-	ar1 = ar0 + 2;                  // an input address with the offset	(2 elements)
+	ar1 = ar0 + 2 with gr4++;                  // an input address with the offset	(2 elements)
 
 	gr7 = gr5 >> 6;
 	if =0 goto less64_copy_32f_odd_even_address;
@@ -60,17 +58,15 @@ begin "text"
     fpu 0 .float vreg2 = vreg0 + vreg1;
 	fpu 0 rep vlen [ar6++] = vreg2;
     
-	gr6 and gr4;
+	gr1 and gr4;
 	if =0 goto exit_copy_32f_odd_even_address;
 
 <copying_last_element>
-    gr0 = [ar0++];
-	[ar6++] = gr0;
+    gr1 = [ar0++];
+	[ar6++] = gr1;
 <exit_copy_32f_odd_even_address>
-	pop ar0, gr0;
 	pop ar1, gr1;
 	pop ar4, gr4;
 	pop ar5, gr5;
-	pop ar6, gr6;
 	return;
-end "text";
+end ".text_nmplv";

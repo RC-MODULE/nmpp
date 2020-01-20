@@ -660,7 +660,7 @@ __INLINE__ void nmppsCopy_64sc(const nm64sc *pSrcVec, nm64sc *pDstVec, int nSize
 void nmppsCopy_32f(const float* pSrcVec, float* pDstVec, int size);
 //! \}
 
-/** \defgroup nmppsCopy_f_odd_odd_address nmppsCopy_32f_odd_odd_address
+/** \defgroup nmppsCopy_f_odd_odd_address nmppsCopyOddToOdd_32f
  *  \ingroup vInit_f
  *  \brief Копирование массива чисел с плавающей точкой одинарной точности (с нечетного на нечетный адрес)
  *
@@ -680,7 +680,7 @@ void nmppsCopy_32f(const float* pSrcVec, float* pDstVec, int size);
 void nmppsCopyOddToOdd_32f(const float* pSrcVec, float* pDstVec, int size);
 //! \}
 
-/** \defgroup nmppsCopy_f_even_odd_address nmppsCopy_even_odd_address
+/** \defgroup nmppsCopy_f_even_odd_address nmppsCopyEvenToOdd_32f
  *  \ingroup vInit_f
  *  \brief Копирование массива чисел с плавающей точкой одинарной точности (с четного на нечетный адрес)
  *
@@ -701,7 +701,7 @@ void nmppsCopyEvenToOdd_32f(const float* pSrcVec, float* pDstVec, int size);
 //! \}
 
 
-/** \defgroup nmppsCopy_f_odd_even_address nmppsCopy_odd_even_address
+/** \defgroup nmppsCopy_f_odd_even_address nmppsCopyOddToEven_32f
  *  \ingroup vInit_f
  *  \brief Копирование массива чисел с плавающей точкой одинарной точности (с нечетного на четный адрес)
  *
@@ -722,7 +722,7 @@ void nmppsCopyOddToEven_32f(const float* pSrcVec, float* pDstVec, int size);
 //! \}
 
 
-/** \defgroup nmppsCopy_f_even_even_address nmppsCopy_even_even_address
+/** \defgroup nmppsCopy_f_even_even_address nmppsCopyEvenToEven_32f
  *  \ingroup vInit_f
  *  \brief Копирование массива чисел с плавающей точкой одинарной точности (с четного на четный адрес)
  *

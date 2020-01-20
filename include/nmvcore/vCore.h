@@ -548,14 +548,13 @@
 
  //-----------------------------------------------------------------------------
     /**
-		\~
+	\~
     \defgroup vec_CopyOddToEven_32f
     \ingroup vCore_f
    
         \ru Ядро функций nmppsCopyOddToEven_32f и nmppsCopyEvenToOdd_32f. 
         \en Core of nmppsCopyOddToEven_32f and nmppsCopyEvenToOdd_32f functions. 
     
-		\~
         \ru Функция копирует числа с плавающей точкой одинарной точности, лежащие с нечетного адреса, на четный: 
         \en The function copies single-precision floating-point numbers from an odd address to an even address 
 		\~
@@ -570,7 +569,6 @@
         \ru указатель (может быть только четным) на выходной массив чисел с плавающей точкой одинарной точности 
         \en pointer (even only) to an output array of single-precision floating-point numbers
 		\~
-		\~
 
 	\param gr5  
         \ru размер (может быть любой кроме 0) входного массива size = [1, 2 ... 31, 32, 33 ...]
@@ -584,7 +582,7 @@
 
 //! \{ 
 void vec_CopyOddToEven_32f(nmreg ar0, nmreg ar6, nmreg gr5); 
-//! \}
+ //! \}
  
  
 //-----------------------------------------------------------------------------

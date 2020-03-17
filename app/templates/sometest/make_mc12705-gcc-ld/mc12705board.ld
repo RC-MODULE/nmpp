@@ -61,41 +61,41 @@ SECTIONS
   {
     *(.data_ddr);
   } > EMI_CPU
-  .mem_bank0.bss : ALIGN(0x8)
+  .bss.mem_bank0 : ALIGN(0x8)
   {
-    *(.mem_bank0.bss);
+    *(.bss.mem_bank0);
   } > NMMB0
-  .mem_bank1.bss : ALIGN(0x8)
+  .bss.mem_bank1 : ALIGN(0x8)
   {
-    *(.mem_bank1.bss);
+    *(.bss.mem_bank1);
   } > NMMB1
-  .mem_bank2.bss : ALIGN(0x8)
+  .bss.mem_bank2 : ALIGN(0x8)
   {
-    *(.mem_bank2.bss);
+    *(.bss.mem_bank2);
   } > NMMB2
-  .mem_bank3.bss : ALIGN(0x8)
+  .bss.mem_bank3 : ALIGN(0x8)
   {
-    *(.mem_bank3.bss);
+    *(.bss.mem_bank3);
   } > NMMB3
-  .mem_bank4.bss : ALIGN(0x8)
+  .bss.mem_bank4 : ALIGN(0x8)
   {
-    *(.mem_bank4.bss);
+    *(.bss.mem_bank4);
   } > NMMB4
-  .mem_bank5.bss : ALIGN(0x8)
+  .bss.mem_bank5 : ALIGN(0x8)
   {
-    *(.mem_bank5.bss);
+    *(.bss.mem_bank5);
   } > NMMB5
-  .mem_bank6.bss : ALIGN(0x8)
+  .bss.mem_bank6 : ALIGN(0x8)
   {
-    *(.mem_bank6.bss);
+    *(.bss.mem_bank6);
   } > NMMB6
-  .mem_bank7.bss : ALIGN(0x8)
+  .bss.mem_bank7 : ALIGN(0x8)
   {
-    *(.mem_bank7.bss);
+    *(.bss.mem_bank7);
   } > NMMB7
-  .data_ddr.bss : ALIGN(0x8)
+  .bss.data_ddr : ALIGN(0x8)
   {
-    *(.data_ddr.bss);
+    *(.bss.data_ddr);
   } > EMI_CPU
 
   .heap : ALIGN(0x8)

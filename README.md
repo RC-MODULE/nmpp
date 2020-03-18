@@ -23,14 +23,28 @@
 
   
 # Состав бинарных библиотек:  
-- Целевые **NMC3/NMC4** библиотеки:  
-  /lib/nmpp-nmc3.lib   (Release)   :NM6405,NM6406,soc  
-  /lib/nmpp-nmc3d.lib  (Debug)     :NM6405,NM6406,soc  
-  /lib/nmpp-nmc4.lib   (Release)   :NM6407 NMC1 (Fixed point)  
-  /lib/nmpp-nmc4d.lib  (Debug)     :NM6407 NMC1 (Fixed point)  
-  /lib/nmpp-nmc4f.lib  (Release)   :NM6407 NMC0 (FPU)  
-  /lib/nmpp-nmc4fd.lib (Debug)     :NM6407 NMC0 (FPU)  
+- Целевые **NMC3/NMC4** библиотеки под NMСGCC копилятор:  
  
+ |библиотека/процессор   |1879ХБ1Я| 6406| 6407(int)| 6407(fpu)| 6408|
+ |-----------------------|--------|-----|----------|----------|-----|
+ |/lib/libnmpp-nmc3.a    |+       |   + |          |          |     |
+ |/lib/libnmpp-nmc4.a    |        |     |+         |          |     |
+ |/lib/libnmpp-nmc4f.a   |        |     |          |+         |+    |
+
+  
+- Целевые **NMC3/NMC4** библиотеки под устаревший (legacy) компилятор:    
+
+ |библиотека/процессор   |1879ХБ1Я| 6406| 6407(int)| 6407(fpu)| 6408|
+ |-----------------------|--------|-----|----------|-----|
+ |/lib/nmpp-nmc3.lib     |   +    |   + |          |     |
+ |/lib/nmpp-nmc3d.lib    |   +    |   + |          |     |
+ |/lib/nmpp-nmc4.lib     |        |     |+         |     |     |
+ |/lib/nmpp-nmc4d.lib    |        |     |+         |     |     |
+ |/lib/nmpp-nmc4f.lib    |        |     |          |+    | +   |
+ |/lib/nmpp-nmc4fd.lib   |        |     |          |+    | +   |
+
+ 
+
 - **x86/x64** эмуляторы nmc-библиотек на ПК:   
   /lib/libnmpp-x86.a - compiled by GNU GCC  
   /lib/nmpp-x86.lib  - (Release) compiled by Microsoft Visual Studio  
@@ -39,6 +53,7 @@
 - **ARM** библиотека вызов NMC функций со стороны ARM-ядра средствами rpc (для систем на кристалле с ARM ядром):  
   /lib/libnmpp-arm-rpc.a
   
+> **d**  признак Debug версии библиотеки
 
 
 # Установка NMPP 
@@ -48,18 +63,22 @@
 
 * Для обеспечения полной функциональности Makefile-ов (тестов/примеров/генерации проектов и .т.д.), а также кросс-платформенной работы Makefile как в ОС Windows, так и в Linux  используются UNIX-утилиты (rm,cp,which,...).  В среде ОС Windows вызываются их аналоги из пакета [GnuWin](http://gnuwin32.sourceforge.net/), в виду чего требуется их предварительная установка. 
 Сокращенный необходимый комплект всех необходимых GnuWin утилит включая: make,cmake,gzip и пр. можно установить с помощью online-установщика [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite)
-* NeuroMatrix SDK  
+
+* NeuroMatrix NMGCC-SDK  
+  Для сборки библиотек gcc компилятором под NeuroMatrix 
+
+* Leqacy NeuroMatrix SDK  (устаревшая версия SDK)
   Для сборки библиотек под NeuroMatrix требуется NMSDK версией не ниже 3.07
 
 * x86/x64 SDK   
   Для эмуляции NeuroMatrix функций из состава NMPP под x86/x64 возможна сборка библиотек с помощью   Gnu GCC.  http://www.mingw.org/  или http://win-builds.org/doku.php или Microsoft Visual Studio, и в частности версиями Express:  
 [Visual Studio 2005 Express](http://apdubey.blogspot.ru/2009/04/microsoft-visual-studio-2005-express.html)  
-[Visual Studio 2013 Express](https://www.microsoft.com/en-US/download/details.aspx?id=44914)  
+[Visual Studio Express](https://visualstudio.microsoft.com/ru/vs/older-downloads/)  
 
 
  
 
-## Сборка NeuroMatrix библиотек  
+## Сборка NeuroMatrix библиотек  GCC  компилятором 
   Сборка осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp_archictecture*. 
   
 ```
@@ -67,36 +86,25 @@ nmpp> cd make/nmpp-nmc3
 nmpp/make/nmpp-nmc3> make 
 nmpp/make/nmpp-nmc3> make DEBUG=y
 ```
+## Сборка NeuroMatrix библиотек Legacy  компилятором 
+  Сборка устравшим компилятором осуществляется командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp_archictecture*. 
+  
+```
+nmpp> cd make/nmpp-nmc3
+nmpp/make/nmpp-nmc3> make legacy
+nmpp/make/nmpp-nmc3> make legacy DEBUG=y
+```
+
 ## Сборка x86/x64 библиотек  
-  Генерация самих проектов оcуществляется средствами **cmake**.  
+  Генерация самих проектов оcуществляется средствами **premake**.  
  Сконфигурировать проект можно командой   
+ 
 ```\nmpp\make\nmpp-x86-x64> make vs8 ```  
 ```\nmpp\make\nmpp-x86-x64> make vs14 ```  
 где с помощью ключей:  vs8, vs12, vs12x64, vs12x64, unix, mingw ...
 указывается требуемый компилятор   
 ## Настройка переменных окружения  
 Для удобства подключения библиотек к собственным проектам рекомендуется использовать переменную окружения **NMPP**. Создать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  ```make install``` из папки *./make*.
-
-## Зависимости  
-Для сборки примеров и тестов могут потребоваться некоторые дополнительные средства разработки, визуализации, системные и прикладные библиотеки. За установку комплекта ПО зависимостей отвечает  online-установщик [dev-kit](https://github.com/RC-MODULE/dev-kit)
-Необходимые зависимости для данного проекта NMPP можно скачать и установить локально в папке */deps* командой:
-* Вариант A:
-
-```bat
- nmpp/deps> make download
- nmpp/deps> make install
-```
->в случае proxy-авторизации необходимо установить переменные:
-```
-nmpp/deps>set  http_proxy=http://username:password@proxy:port/  
-nmpp/deps>set https_proxy=http://username:password@proxy:port/
-```
-
-* Вариант B:  
-либо  ```install.bat ``` c возможностью диалоговой proxy аутентификацией
-
-> в состав зависимостей также включено системное ПО плат и само NMSDK. Установка этих компонент не модифицирует системных переменных окружения, не влияет на возможно ранее установленное ПО  и служит в целях совместимости и соответствия версий ПО. 
-
 
 Настройка переменных, указывающих пути к зависимостям осуществляется в файле */global.mk* корневой директории NMPP. Если переменные окружения , идущие с конструкцией присвоения **?=** , не определены в системе, то они будут настроены на локальные пути к папке /deps 
  

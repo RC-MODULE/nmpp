@@ -35,13 +35,13 @@
 - Целевые **NMC3/NMC4** библиотеки под устаревший (legacy) компилятор:    
 
  |библиотека/процессор   |1879ХБ1Я| 6406| 6407(int)| 6407(fpu)| 6408|
- |-----------------------|--------|-----|----------|-----|
- |/lib/nmpp-nmc3.lib     |   +    |   + |          |     |
- |/lib/nmpp-nmc3d.lib    |   +    |   + |          |     |
- |/lib/nmpp-nmc4.lib     |        |     |+         |     |     |
- |/lib/nmpp-nmc4d.lib    |        |     |+         |     |     |
- |/lib/nmpp-nmc4f.lib    |        |     |          |+    | +   |
- |/lib/nmpp-nmc4fd.lib   |        |     |          |+    | +   |
+ |-----------------------|--------|-----|----------|--------- |-----|
+ |/lib/nmpp-nmc3.lib     |   +    |   + |          |          |     |
+ |/lib/nmpp-nmc3d.lib    |   +    |   + |          |          |     |
+ |/lib/nmpp-nmc4.lib     |        |     |+         |          |     |
+ |/lib/nmpp-nmc4d.lib    |        |     |+         |          |     |
+ |/lib/nmpp-nmc4f.lib    |        |     |          |+         | +   |
+ |/lib/nmpp-nmc4fd.lib   |        |     |          |+         | +   |
 
  
 

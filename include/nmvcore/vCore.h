@@ -48,6 +48,18 @@
     * \~
     * 
 	*/
+	
+	/**
+    *
+    * \ru
+    *     	\defgroup vCore_f  Элементарные функции 
+    *  	 	\ingroup CORE_Group_f
+    * \en
+    *     	\defgroup vCore_f Kernel functions
+    *  		\ingroup CORE_Group_f
+    * \~
+    * 
+	*/
 
 
 	/**
@@ -496,7 +508,83 @@
  void vec_data(nmreg ar0, nmreg gr0, nmreg gr5, nmreg ar6, nmreg gr6); 
  //! \}
 
+ //-----------------------------------------------------------------------------
+    /**
+	\~
+    \defgroup vec_copyEvenToEven_32f
+    \ingroup vCore_f
+   
+        \ru Ядро функций nmppsCopyEvenToEven_32f и nmppsCopyOddToOdd_32f. 
+        \en Core of nmppsCopyEvenToEven_32f and nmppsCopyOddToOdd_32f functions. 
+    
+        \ru Функция копирует числа с плавающей точкой одинарной точности, лежащие с четного адреса, на четный: 
+        \en The function copies single-precision floating-point numbers from an even address to an even address 
+		\~
+		\~
+    
+    \param ar0 
+        \ru указатель (может быть только четным) на входной массив чисел с плавающей точкой одинарной точности 
+        \en pointer (even only) to an input array of single-precision floating-point numbers
+		\~
+    
+    \param ar6 
+        \ru указатель (может быть только четным) на выходной массив чисел с плавающей точкой одинарной точности 
+        \en pointer (even only) to an output array of single-precision floating-point numbers
+        \~
+	\param gr5  
+        \ru размер (может быть любой) входного массива size = [0, 1, 2 ... 31, 32, 33 ...]
+        \en size (all sizes) of an input array size = [0, 1, 2 ... 31, 32, 33 ...]
+    	\~
+    \restr 
+        \ru При выходе из функции изменяется содержимое регистров: ar0, ar6. 
+        \en On exiting the function the contents of registers changes: ar0, ar6. 
+            ar0, ar6
+		*/
 
+//! \{ 
+ void vec_CopyEvenToEven_32f(nmreg ar0, nmreg ar6, nmreg gr5); 
+ //! \}
+ 
+
+ //-----------------------------------------------------------------------------
+    /**
+	\~
+    \defgroup vec_CopyOddToEven_32f
+    \ingroup vCore_f
+   
+        \ru Ядро функций nmppsCopyOddToEven_32f и nmppsCopyEvenToOdd_32f. 
+        \en Core of nmppsCopyOddToEven_32f and nmppsCopyEvenToOdd_32f functions. 
+    
+        \ru Функция копирует числа с плавающей точкой одинарной точности, лежащие с нечетного адреса, на четный: 
+        \en The function copies single-precision floating-point numbers from an odd address to an even address 
+		\~
+		\~
+    
+    \param ar0 
+        \ru указатель (может быть только нечетным) на входной массив чисел с плавающей точкой одинарной точности 
+        \en pointer (odd only) to an input array of single-precision floating-point numbers
+		\~
+    
+    \param ar6 
+        \ru указатель (может быть только четным) на выходной массив чисел с плавающей точкой одинарной точности 
+        \en pointer (even only) to an output array of single-precision floating-point numbers
+		\~
+
+	\param gr5  
+        \ru размер (может быть любой кроме 0) входного массива size = [1, 2 ... 31, 32, 33 ...]
+        \en size (all sizes except 0) of an input array size = [1, 2 ... 31, 32, 33 ...]
+		\~
+    \restr 
+        \ru При выходе из функции изменяется содержимое регистров: ar0, ar6. 
+        \en On exiting the function the contents of registers changes: ar0, ar6. 
+            ar0, ar6
+		*/
+
+//! \{ 
+void vec_CopyOddToEven_32f(nmreg ar0, nmreg ar6, nmreg gr5); 
+ //! \}
+ 
+ 
 //-----------------------------------------------------------------------------
     /**
 		\~

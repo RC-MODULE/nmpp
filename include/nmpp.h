@@ -53,6 +53,10 @@
     \ingroup integer
 */
 
+/** \defgroup CORE_Group_f Базовые регистровые функции библиотеки
+    \ingroup float
+*/
+
 #include "./malloc32.h"
 #include "./metric.h"
 #include "./nmplv/vStat.h"

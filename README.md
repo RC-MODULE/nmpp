@@ -1,40 +1,40 @@
-# [NMPP](https://github.com/RC-MODULE/nmpp)
+п»ї# [NMPP](https://github.com/RC-MODULE/nmpp)
 
-# Документация:  
+# Р”РѕРєСѓРјРµРЅС‚Р°С†РёСЏ:  
   HTML: http://rc-module.github.io/nmpp/  
   CHM(ZIP):  http://rc-module.github.io/nmpp/nmpp.zip  
-  CHM:  http://rc-module.github.io/nmpp/nmpp.chm (При открытии необходимо снять галочку "Всегда спрашивать при открытии этого файла")  
+  CHM:  http://rc-module.github.io/nmpp/nmpp.chm (РџСЂРё РѕС‚РєСЂС‹С‚РёРё РЅРµРѕР±С…РѕРґРёРјРѕ СЃРЅСЏС‚СЊ РіР°Р»РѕС‡РєСѓ "Р’СЃРµРіРґР° СЃРїСЂР°С€РёРІР°С‚СЊ РїСЂРё РѕС‚РєСЂС‹С‚РёРё СЌС‚РѕРіРѕ С„Р°Р№Р»Р°")  
   PDF:  http://rc-module.github.io/nmpp/nmpp.pdf  
 
-# Назначение  
-  NMPP (Neuro Matrix Performance Primitives) - C/C++ библиотека примитивов для архитектуры NeuroMatrix.
-  Содержит оптимизированные функции для работы со скалярами, векторами, матрицами, сигналами и изображениями.
-  Поддерживает как целочисленную арифметику с 1,2,4,8,16,32,64-разрядными даннами процессоров семейства NMC3,
-  так и арифметику с плавающей точкой одинарной и двойной точности для процессора NMC4. 
+# РќР°Р·РЅР°С‡РµРЅРёРµ  
+  NMPP (Neuro Matrix Performance Primitives) - C/C++ Р±РёР±Р»РёРѕС‚РµРєР° РїСЂРёРјРёС‚РёРІРѕРІ РґР»СЏ Р°СЂС…РёС‚РµРєС‚СѓСЂС‹ NeuroMatrix.
+  РЎРѕРґРµСЂР¶РёС‚ РѕРїС‚РёРјРёР·РёСЂРѕРІР°РЅРЅС‹Рµ С„СѓРЅРєС†РёРё РґР»СЏ СЂР°Р±РѕС‚С‹ СЃРѕ СЃРєР°Р»СЏСЂР°РјРё, РІРµРєС‚РѕСЂР°РјРё, РјР°С‚СЂРёС†Р°РјРё, СЃРёРіРЅР°Р»Р°РјРё Рё РёР·РѕР±СЂР°Р¶РµРЅРёСЏРјРё.
+  РџРѕРґРґРµСЂР¶РёРІР°РµС‚ РєР°Рє С†РµР»РѕС‡РёСЃР»РµРЅРЅСѓСЋ Р°СЂРёС„РјРµС‚РёРєСѓ СЃ 1,2,4,8,16,32,64-СЂР°Р·СЂСЏРґРЅС‹РјРё РґР°РЅРЅР°РјРё РїСЂРѕС†РµСЃСЃРѕСЂРѕРІ СЃРµРјРµР№СЃС‚РІР° NMC3,
+  С‚Р°Рє Рё Р°СЂРёС„РјРµС‚РёРєСѓ СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ РѕРґРёРЅР°СЂРЅРѕР№ Рё РґРІРѕР№РЅРѕР№ С‚РѕС‡РЅРѕСЃС‚Рё РґР»СЏ РїСЂРѕС†РµСЃСЃРѕСЂР° NMC4. 
 
-# Компоненты библиотеки  
-  NMPP библиотека включает в себя следующие компоненты:  
-  - nmvcore- универсальные низкоуровневые векторные функции с регистровым интерфейсом передачи параметров
-  - nmppc  - скалярные функции
-  - nmppv  - функции работы с векторами
-  - nmppm  - функции работы с матрицами
-  - nmpps  - функции обработки сигналов
-  - nmppi  - функции обработки изображений 
+# РљРѕРјРїРѕРЅРµРЅС‚С‹ Р±РёР±Р»РёРѕС‚РµРєРё  
+  NMPP Р±РёР±Р»РёРѕС‚РµРєР° РІРєР»СЋС‡Р°РµС‚ РІ СЃРµР±СЏ СЃР»РµРґСѓСЋС‰РёРµ РєРѕРјРїРѕРЅРµРЅС‚С‹:  
+  - nmvcore- СѓРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Рµ РЅРёР·РєРѕСѓСЂРѕРІРЅРµРІС‹Рµ РІРµРєС‚РѕСЂРЅС‹Рµ С„СѓРЅРєС†РёРё СЃ СЂРµРіРёСЃС‚СЂРѕРІС‹Рј РёРЅС‚РµСЂС„РµР№СЃРѕРј РїРµСЂРµРґР°С‡Рё РїР°СЂР°РјРµС‚СЂРѕРІ
+  - nmppc  - СЃРєР°Р»СЏСЂРЅС‹Рµ С„СѓРЅРєС†РёРё
+  - nmppv  - С„СѓРЅРєС†РёРё СЂР°Р±РѕС‚С‹ СЃ РІРµРєС‚РѕСЂР°РјРё
+  - nmppm  - С„СѓРЅРєС†РёРё СЂР°Р±РѕС‚С‹ СЃ РјР°С‚СЂРёС†Р°РјРё
+  - nmpps  - С„СѓРЅРєС†РёРё РѕР±СЂР°Р±РѕС‚РєРё СЃРёРіРЅР°Р»РѕРІ
+  - nmppi  - С„СѓРЅРєС†РёРё РѕР±СЂР°Р±РѕС‚РєРё РёР·РѕР±СЂР°Р¶РµРЅРёР№ 
 
   
-# Состав бинарных библиотек:  
-- Целевые **NMC3/NMC4** библиотеки под NMСGCC копилятор:  
+# РЎРѕСЃС‚Р°РІ Р±РёРЅР°СЂРЅС‹С… Р±РёР±Р»РёРѕС‚РµРє:  
+- Р¦РµР»РµРІС‹Рµ **NMC3/NMC4** Р±РёР±Р»РёРѕС‚РµРєРё РїРѕРґ NMРЎGCC РєРѕРїРёР»СЏС‚РѕСЂ:  
  
- |библиотека/процессор   |1879ХБ1Я| 6406| 6407(int)| 6407(fpu)| 6408|
+ |Р±РёР±Р»РёРѕС‚РµРєР°/РїСЂРѕС†РµСЃСЃРѕСЂ   |1879РҐР‘1РЇ| 6406| 6407(int)| 6407(fpu)| 6408|
  |-----------------------|--------|-----|----------|----------|-----|
  |/lib/libnmpp-nmc3.a    |+       |   + |          |          |     |
  |/lib/libnmpp-nmc4.a    |        |     |+         |          |     |
  |/lib/libnmpp-nmc4f.a   |        |     |          |+         |+    |
 
   
-- Целевые **NMC3/NMC4** библиотеки под устаревший (legacy) компилятор:    
+- Р¦РµР»РµРІС‹Рµ **NMC3/NMC4** Р±РёР±Р»РёРѕС‚РµРєРё РїРѕРґ СѓСЃС‚Р°СЂРµРІС€РёР№ (legacy) РєРѕРјРїРёР»СЏС‚РѕСЂ:    
 
- |библиотека/процессор   |1879ХБ1Я| 6406| 6407(int)| 6407(fpu)| 6408|
+ |Р±РёР±Р»РёРѕС‚РµРєР°/РїСЂРѕС†РµСЃСЃРѕСЂ   |1879РҐР‘1РЇ| 6406| 6407(int)| 6407(fpu)| 6408|
  |-----------------------|--------|-----|----------|-----|
  |/lib/nmpp-nmc3.lib     |   +    |   + |          |     |
  |/lib/nmpp-nmc3d.lib    |   +    |   + |          |     |
@@ -45,49 +45,49 @@
 
  
 
-- **x86/x64** эмуляторы nmc-библиотек на ПК:   
+- **x86/x64** СЌРјСѓР»СЏС‚РѕСЂС‹ nmc-Р±РёР±Р»РёРѕС‚РµРє РЅР° РџРљ:   
   /lib/libnmpp-x86.a - compiled by GNU GCC  
   /lib/nmpp-x86.lib  - (Release) compiled by Microsoft Visual Studio  
   /lib/nmpp-x86d.lib - (Debug)   compiled by Microsoft Visual Studio  
   
-- **ARM** библиотека вызов NMC функций со стороны ARM-ядра средствами rpc (для систем на кристалле с ARM ядром):  
+- **ARM** Р±РёР±Р»РёРѕС‚РµРєР° РІС‹Р·РѕРІ NMC С„СѓРЅРєС†РёР№ СЃРѕ СЃС‚РѕСЂРѕРЅС‹ ARM-СЏРґСЂР° СЃСЂРµРґСЃС‚РІР°РјРё rpc (РґР»СЏ СЃРёСЃС‚РµРј РЅР° РєСЂРёСЃС‚Р°Р»Р»Рµ СЃ ARM СЏРґСЂРѕРј):  
   /lib/libnmpp-arm-rpc.a
   
-> **d**  признак Debug версии библиотеки
+> **d**  РїСЂРёР·РЅР°Рє Debug РІРµСЂСЃРёРё Р±РёР±Р»РёРѕС‚РµРєРё
 
 
-# Установка NMPP 
-## Системные требования
-*  Сборка компонент (статические lib-библиотеки, тесты, примеры) построена на сборочных скриптах Makefile. Для корректного запуска сборочных Makefile-ов  под Windows требуется установленный GNU **make**.
-Для ОС Windows рекомендуется версия make 3.81  (3.82- проявляет себя нестабильно). make 3.81 - входит в состав [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite) (см.ниже)
+# РЈСЃС‚Р°РЅРѕРІРєР° NMPP 
+## РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ
+*  РЎР±РѕСЂРєР° РєРѕРјРїРѕРЅРµРЅС‚ (СЃС‚Р°С‚РёС‡РµСЃРєРёРµ lib-Р±РёР±Р»РёРѕС‚РµРєРё, С‚РµСЃС‚С‹, РїСЂРёРјРµСЂС‹) РїРѕСЃС‚СЂРѕРµРЅР° РЅР° СЃР±РѕСЂРѕС‡РЅС‹С… СЃРєСЂРёРїС‚Р°С… Makefile. Р”Р»СЏ РєРѕСЂСЂРµРєС‚РЅРѕРіРѕ Р·Р°РїСѓСЃРєР° СЃР±РѕСЂРѕС‡РЅС‹С… Makefile-РѕРІ  РїРѕРґ Windows С‚СЂРµР±СѓРµС‚СЃСЏ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹Р№ GNU **make**.
+Р”Р»СЏ РћРЎ Windows СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РІРµСЂСЃРёСЏ make 3.81  (3.82- РїСЂРѕСЏРІР»СЏРµС‚ СЃРµР±СЏ РЅРµСЃС‚Р°Р±РёР»СЊРЅРѕ). make 3.81 - РІС…РѕРґРёС‚ РІ СЃРѕСЃС‚Р°РІ [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite) (СЃРј.РЅРёР¶Рµ)
 
-* Для обеспечения полной функциональности Makefile-ов (тестов/примеров/генерации проектов и .т.д.), а также кросс-платформенной работы Makefile как в ОС Windows, так и в Linux  используются UNIX-утилиты (rm,cp,which,...).  В среде ОС Windows вызываются их аналоги из пакета [GnuWin](http://gnuwin32.sourceforge.net/), в виду чего требуется их предварительная установка. 
-Сокращенный необходимый комплект всех необходимых GnuWin утилит включая: make,cmake,gzip и пр. можно установить с помощью online-установщика [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite)
+* Р”Р»СЏ РѕР±РµСЃРїРµС‡РµРЅРёСЏ РїРѕР»РЅРѕР№ С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅРѕСЃС‚Рё Makefile-РѕРІ (С‚РµСЃС‚РѕРІ/РїСЂРёРјРµСЂРѕРІ/РіРµРЅРµСЂР°С†РёРё РїСЂРѕРµРєС‚РѕРІ Рё .С‚.Рґ.), Р° С‚Р°РєР¶Рµ РєСЂРѕСЃСЃ-РїР»Р°С‚С„РѕСЂРјРµРЅРЅРѕР№ СЂР°Р±РѕС‚С‹ Makefile РєР°Рє РІ РћРЎ Windows, С‚Р°Рє Рё РІ Linux  РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ UNIX-СѓС‚РёР»РёС‚С‹ (rm,cp,which,...).  Р’ СЃСЂРµРґРµ РћРЎ Windows РІС‹Р·С‹РІР°СЋС‚СЃСЏ РёС… Р°РЅР°Р»РѕРіРё РёР· РїР°РєРµС‚Р° [GnuWin](http://gnuwin32.sourceforge.net/), РІ РІРёРґСѓ С‡РµРіРѕ С‚СЂРµР±СѓРµС‚СЃСЏ РёС… РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅР°СЏ СѓСЃС‚Р°РЅРѕРІРєР°. 
+РЎРѕРєСЂР°С‰РµРЅРЅС‹Р№ РЅРµРѕР±С…РѕРґРёРјС‹Р№ РєРѕРјРїР»РµРєС‚ РІСЃРµС… РЅРµРѕР±С…РѕРґРёРјС‹С… GnuWin СѓС‚РёР»РёС‚ РІРєР»СЋС‡Р°СЏ: make,cmake,gzip Рё РїСЂ. РјРѕР¶РЅРѕ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ СЃ РїРѕРјРѕС‰СЊСЋ online-СѓСЃС‚Р°РЅРѕРІС‰РёРєР° [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite)
 
 * NeuroMatrix NMGCC-SDK  
-  Для сборки библиотек gcc компилятором под NeuroMatrix 
+  Р”Р»СЏ СЃР±РѕСЂРєРё Р±РёР±Р»РёРѕС‚РµРє gcc РєРѕРјРїРёР»СЏС‚РѕСЂРѕРј РїРѕРґ NeuroMatrix 
 
-* Leqacy NeuroMatrix SDK  (устаревшая версия SDK)
-  Для сборки библиотек под NeuroMatrix требуется NMSDK версией не ниже 3.07
+* Leqacy NeuroMatrix SDK  (СѓСЃС‚Р°СЂРµРІС€Р°СЏ РІРµСЂСЃРёСЏ SDK)
+  Р”Р»СЏ СЃР±РѕСЂРєРё Р±РёР±Р»РёРѕС‚РµРє РїРѕРґ NeuroMatrix С‚СЂРµР±СѓРµС‚СЃСЏ NMSDK РІРµСЂСЃРёРµР№ РЅРµ РЅРёР¶Рµ 3.07
 
 * x86/x64 SDK   
-  Для эмуляции NeuroMatrix функций из состава NMPP под x86/x64 возможна сборка библиотек с помощью   Gnu GCC.  http://www.mingw.org/  или http://win-builds.org/doku.php или Microsoft Visual Studio, и в частности версиями Express:  
+  Р”Р»СЏ СЌРјСѓР»СЏС†РёРё NeuroMatrix С„СѓРЅРєС†РёР№ РёР· СЃРѕСЃС‚Р°РІР° NMPP РїРѕРґ x86/x64 РІРѕР·РјРѕР¶РЅР° СЃР±РѕСЂРєР° Р±РёР±Р»РёРѕС‚РµРє СЃ РїРѕРјРѕС‰СЊСЋ   Gnu GCC.  http://www.mingw.org/  РёР»Рё http://win-builds.org/doku.php РёР»Рё Microsoft Visual Studio, Рё РІ С‡Р°СЃС‚РЅРѕСЃС‚Рё РІРµСЂСЃРёСЏРјРё Express:  
 [Visual Studio 2005 Express](http://apdubey.blogspot.ru/2009/04/microsoft-visual-studio-2005-express.html)  
 [Visual Studio Express](https://visualstudio.microsoft.com/ru/vs/older-downloads/)  
 
 
  
 
-## Сборка NeuroMatrix библиотек  GCC  компилятором 
-  Сборка осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp_archictecture*. 
+## РЎР±РѕСЂРєР° NeuroMatrix Р±РёР±Р»РёРѕС‚РµРє  GCC  РєРѕРјРїРёР»СЏС‚РѕСЂРѕРј 
+  РЎР±РѕСЂРєР° РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚СЃСЏ РєРѕРјР°РЅРґРѕР№ ```make``` РёР· СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµР№ Р°СЂС…РёС‚РµРєС‚СѓСЂРµ РїР°РїРєРё */make/nmpp_archictecture*. 
   
 ```
 nmpp> cd make/nmpp-nmc3
 nmpp/make/nmpp-nmc3> make 
 nmpp/make/nmpp-nmc3> make DEBUG=y
 ```
-## Сборка NeuroMatrix библиотек Legacy  компилятором 
-  Сборка устравшим компилятором осуществляется командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp_archictecture*. 
+## РЎР±РѕСЂРєР° NeuroMatrix Р±РёР±Р»РёРѕС‚РµРє Legacy  РєРѕРјРїРёР»СЏС‚РѕСЂРѕРј 
+  РЎР±РѕСЂРєР° СѓСЃС‚СЂР°РІС€РёРј РєРѕРјРїРёР»СЏС‚РѕСЂРѕРј РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚СЃСЏ РєРѕРјР°РЅРґРѕР№ ```make``` СЃ РєР»СЋС‡РѕРј ```legacy``` РёР· СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµР№ Р°СЂС…РёС‚РµРєС‚СѓСЂРµ РїР°РїРєРё */make/nmpp_archictecture*. 
   
 ```
 nmpp> cd make/nmpp-nmc3
@@ -95,18 +95,18 @@ nmpp/make/nmpp-nmc3> make legacy
 nmpp/make/nmpp-nmc3> make legacy DEBUG=y
 ```
 
-## Сборка x86/x64 библиотек  
-  Генерация самих проектов оcуществляется средствами **premake**.  
- Сконфигурировать проект можно командой   
+## РЎР±РѕСЂРєР° x86/x64 Р±РёР±Р»РёРѕС‚РµРє  
+  Р“РµРЅРµСЂР°С†РёСЏ СЃР°РјРёС… РїСЂРѕРµРєС‚РѕРІ РѕcСѓС‰РµСЃС‚РІР»СЏРµС‚СЃСЏ СЃСЂРµРґСЃС‚РІР°РјРё **premake**.  
+ РЎРєРѕРЅС„РёРіСѓСЂРёСЂРѕРІР°С‚СЊ РїСЂРѕРµРєС‚ РјРѕР¶РЅРѕ РєРѕРјР°РЅРґРѕР№   
  
 ```\nmpp\make\nmpp-x86-x64> make vs8 ```  
 ```\nmpp\make\nmpp-x86-x64> make vs14 ```  
-где с помощью ключей:  vs8, vs12, vs12x64, vs12x64, unix, mingw ...
-указывается требуемый компилятор   
-## Настройка переменных окружения  
-Для удобства подключения библиотек к собственным проектам рекомендуется использовать переменную окружения **NMPP**. Создать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  ```make install``` из папки *./make*.
+РіРґРµ СЃ РїРѕРјРѕС‰СЊСЋ РєР»СЋС‡РµР№:  vs8, vs12, vs12x64, vs12x64, unix, mingw ...
+СѓРєР°Р·С‹РІР°РµС‚СЃСЏ С‚СЂРµР±СѓРµРјС‹Р№ РєРѕРјРїРёР»СЏС‚РѕСЂ   
+## РќР°СЃС‚СЂРѕР№РєР° РїРµСЂРµРјРµРЅРЅС‹С… РѕРєСЂСѓР¶РµРЅРёСЏ  
+Р”Р»СЏ СѓРґРѕР±СЃС‚РІР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ Р±РёР±Р»РёРѕС‚РµРє Рє СЃРѕР±СЃС‚РІРµРЅРЅС‹Рј РїСЂРѕРµРєС‚Р°Рј СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ РѕРєСЂСѓР¶РµРЅРёСЏ **NMPP**. РЎРѕР·РґР°С‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ **NMPP** Рё РїСЂРёСЃРІРѕРёС‚СЊ РµР№ РїСѓС‚СЊ Рє СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕР№ РїР°РїРєРµ NMPP РјРѕР¶РЅРѕ СЃ РїРѕРјРѕС‰СЊСЋ РєРѕРјР°РЅРґС‹  ```make install``` РёР· РїР°РїРєРё *./make*.
 
-Настройка переменных, указывающих пути к зависимостям осуществляется в файле */global.mk* корневой директории NMPP. Если переменные окружения , идущие с конструкцией присвоения **?=** , не определены в системе, то они будут настроены на локальные пути к папке /deps 
+РќР°СЃС‚СЂРѕР№РєР° РїРµСЂРµРјРµРЅРЅС‹С…, СѓРєР°Р·С‹РІР°СЋС‰РёС… РїСѓС‚Рё Рє Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРј РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚СЃСЏ РІ С„Р°Р№Р»Рµ */global.mk* РєРѕСЂРЅРµРІРѕР№ РґРёСЂРµРєС‚РѕСЂРёРё NMPP. Р•СЃР»Рё РїРµСЂРµРјРµРЅРЅС‹Рµ РѕРєСЂСѓР¶РµРЅРёСЏ , РёРґСѓС‰РёРµ СЃ РєРѕРЅСЃС‚СЂСѓРєС†РёРµР№ РїСЂРёСЃРІРѕРµРЅРёСЏ **?=** , РЅРµ РѕРїСЂРµРґРµР»РµРЅС‹ РІ СЃРёСЃС‚РµРјРµ, С‚Рѕ РѕРЅРё Р±СѓРґСѓС‚ РЅР°СЃС‚СЂРѕРµРЅС‹ РЅР° Р»РѕРєР°Р»СЊРЅС‹Рµ РїСѓС‚Рё Рє РїР°РїРєРµ /deps 
  
 
   
@@ -153,102 +153,102 @@ PLATFORMS = vs8 mc5103 emu6405 mc7601 mb7707_libload
 ## STRUCTURE OF LIBRARY:  
 ```bat
 NMPP    
-¦    
+В¦    
 +---app                         -Applications    
-¦   +---examples                   -Folder with examples  
-¦   ¦   +---nmplc                      - Scalar library usage examples  
-¦   ¦   ¦   +---Fixpoint32  
-¦   ¦   ¦   ¦   +---make_emu             - build for emulator  
-¦   ¦   ¦   ¦   +---make_mb7707          - build for MB7707  
-¦   ¦   ¦   ¦   L---make_mc5103          - build for MC5103  
-¦   ¦   ¦   L---Sqrt64  
-¦   ¦   ¦       +---make_emu  
-¦   ¦   ¦       +---make_mb7707  
-¦   ¦   ¦       L---make_mc5103  
+В¦   +---examples                   -Folder with examples  
+В¦   В¦   +---nmplc                      - Scalar library usage examples  
+В¦   В¦   В¦   +---Fixpoint32  
+В¦   В¦   В¦   В¦   +---make_emu             - build for emulator  
+В¦   В¦   В¦   В¦   +---make_mb7707          - build for MB7707  
+В¦   В¦   В¦   В¦   L---make_mc5103          - build for MC5103  
+В¦   В¦   В¦   L---Sqrt64  
+В¦   В¦   В¦       +---make_emu  
+В¦   В¦   В¦       +---make_mb7707  
+В¦   В¦   В¦       L---make_mc5103  
 .....  
-¦   ¦   +---nmpli                     - Image processing library usage examples  
-¦   ¦   ¦   +---IMG_Filter_32s32s  
-¦   ¦   ¦   ¦   +---make_emu               - build for emulator  
-¦   ¦   ¦   ¦   +---make_gcc               - build for x86 by gcc   
-¦   ¦   ¦   ¦   +---make_mb7707            - build for MB7707  
-¦   ¦   ¦   ¦   +---make_mc5103            - build for MC5103  
-¦   ¦   ¦   ¦   L---make_vs8              - build for Microsoft Visual Studio 8.0  
-¦   ¦   ¦   ¦   L---make_vs13              - build for Microsoft Visual Studio 13.0  
-¦   ¦   ¦   +---IMG_Filter_8s16s  
+В¦   В¦   +---nmpli                     - Image processing library usage examples  
+В¦   В¦   В¦   +---IMG_Filter_32s32s  
+В¦   В¦   В¦   В¦   +---make_emu               - build for emulator  
+В¦   В¦   В¦   В¦   +---make_gcc               - build for x86 by gcc   
+В¦   В¦   В¦   В¦   +---make_mb7707            - build for MB7707  
+В¦   В¦   В¦   В¦   +---make_mc5103            - build for MC5103  
+В¦   В¦   В¦   В¦   L---make_vs8              - build for Microsoft Visual Studio 8.0  
+В¦   В¦   В¦   В¦   L---make_vs13              - build for Microsoft Visual Studio 13.0  
+В¦   В¦   В¦   +---IMG_Filter_8s16s  
 .....  
-¦   ¦   +---nmplm                    - Matrix processing library usage examples  
-¦   ¦   ¦   +---Inverse  
-¦   ¦   ¦   ¦   +---make_emu  
-¦   ¦   ¦   ¦   +---make_gcc  
-¦   ¦   ¦   ¦   +---make_mb7707  
-¦   ¦   ¦   ¦   +---make_mc5103  
-¦   ¦   ¦   ¦   L---make_vs8  
-¦   ¦   ¦   ¦   L---make_vs13  
-¦   ¦   ¦   L---Simple  
+В¦   В¦   +---nmplm                    - Matrix processing library usage examples  
+В¦   В¦   В¦   +---Inverse  
+В¦   В¦   В¦   В¦   +---make_emu  
+В¦   В¦   В¦   В¦   +---make_gcc  
+В¦   В¦   В¦   В¦   +---make_mb7707  
+В¦   В¦   В¦   В¦   +---make_mc5103  
+В¦   В¦   В¦   В¦   L---make_vs8  
+В¦   В¦   В¦   В¦   L---make_vs13  
+В¦   В¦   В¦   L---Simple  
 .....  
-¦   ¦   +---nmpls                    - Signal processing library usage examples  
-¦   ¦   ¦   +---FFT  
-¦   ¦   ¦   ¦   L---FFT256  
-¦   ¦   ¦   ¦   ¦    +---make_emu  
-¦   ¦   ¦   ¦   ¦    +---make_gcc  
-¦   ¦   ¦   ¦   ¦    +---make_mb7707  
-¦   ¦   ¦   ¦   ¦    +---make_mc5103  
-¦   ¦   ¦   ¦   ¦    L---make_vs8  
-¦   ¦   ¦   ¦   ¦    L---make_vs13  
+В¦   В¦   +---nmpls                    - Signal processing library usage examples  
+В¦   В¦   В¦   +---FFT  
+В¦   В¦   В¦   В¦   L---FFT256  
+В¦   В¦   В¦   В¦   В¦    +---make_emu  
+В¦   В¦   В¦   В¦   В¦    +---make_gcc  
+В¦   В¦   В¦   В¦   В¦    +---make_mb7707  
+В¦   В¦   В¦   В¦   В¦    +---make_mc5103  
+В¦   В¦   В¦   В¦   В¦    L---make_vs8  
+В¦   В¦   В¦   В¦   В¦    L---make_vs13  
 .....  
-¦   ¦   ¦   +---Filter  
-¦   ¦   ¦   ¦   +---SIG_Filter_16s16s  
+В¦   В¦   В¦   +---Filter  
+В¦   В¦   В¦   В¦   +---SIG_Filter_16s16s  
 .....  
-¦   ¦   ¦   ¦   +---SIG_Filter_16s32s  
+В¦   В¦   В¦   В¦   +---SIG_Filter_16s32s  
 .....  
-¦   ¦   +---nmplv                   - Vector processing library usage examples  
-¦   ¦   ¦   +---Simple  
+В¦   В¦   +---nmplv                   - Vector processing library usage examples  
+В¦   В¦   В¦   +---Simple  
 .....  
-¦   ¦   L---nmvcore                 - Vector core function usage exmaples  
-¦   ¦       L---VecMulC  
-¦   ¦           +---make_emu  
-¦   ¦           +---make_mb7707  
-¦   ¦           L---make_mc5103  
+В¦   В¦   L---nmvcore                 - Vector core function usage exmaples  
+В¦   В¦       L---VecMulC  
+В¦   В¦           +---make_emu  
+В¦   В¦           +---make_mb7707  
+В¦   В¦           L---make_mc5103  
 .....  
-¦   +---templates                   - Temaplates for example projects generation  
-¦   ¦   L---sometest  
-¦   ¦       +---make_emu  
-¦   ¦       +---make_gcc  
-¦   ¦       +---make_mb7707  
-¦   ¦       +---make_mc5103  
-¦   ¦       +---make_mc7601  
-¦   ¦       L---make_vs8  
+В¦   +---templates                   - Temaplates for example projects generation  
+В¦   В¦   L---sometest  
+В¦   В¦       +---make_emu  
+В¦   В¦       +---make_gcc  
+В¦   В¦       +---make_mb7707  
+В¦   В¦       +---make_mc5103  
+В¦   В¦       +---make_mc7601  
+В¦   В¦       L---make_vs8  
 ....  
 +---doc                             - Documentation folder  
 +---include                         - Header folder  
-¦   +---nmplc                            - scalar functions  
-¦   +---nmpli                            - image  functions    
-¦   +---nmplm                            - matrix functions  
-¦   +---nmpls                            - signal functions  
-¦   +---nmplv                            - vector functions  
-¦   +---nmtl                             - templates functions  
-¦   L---nmvcore                          - vector core function  
+В¦   +---nmplc                            - scalar functions  
+В¦   +---nmpli                            - image  functions    
+В¦   +---nmplm                            - matrix functions  
+В¦   +---nmpls                            - signal functions  
+В¦   +---nmplv                            - vector functions  
+В¦   +---nmtl                             - templates functions  
+В¦   L---nmvcore                          - vector core function  
 +---lib                            - Library folder  
-¦   +---libnmpp_gcc.a                 - emulation library compiled by GNU GCC(mingw32)  
-¦   +---nmpp_nmc3.lib                 - NeuroMatrix Core3 compatible library (Release)  
-¦   +---nmpp_nmc3d.lib                - NeuroMatrix Core3 copatibale library (Debug)  
-¦   +---nmpp_x86.lib                 - emulation library compiled by Microsoft Visual Studio (Release)  
-¦   L---nmpp_x86d.lib                - emulation library compiled by Microsoft Visual Studio  (Debug)  
-¦
+В¦   +---libnmpp_gcc.a                 - emulation library compiled by GNU GCC(mingw32)  
+В¦   +---nmpp_nmc3.lib                 - NeuroMatrix Core3 compatible library (Release)  
+В¦   +---nmpp_nmc3d.lib                - NeuroMatrix Core3 copatibale library (Debug)  
+В¦   +---nmpp_x86.lib                 - emulation library compiled by Microsoft Visual Studio (Release)  
+В¦   L---nmpp_x86d.lib                - emulation library compiled by Microsoft Visual Studio  (Debug)  
+В¦
 +---make                           - Make folder  
-¦   +---distrib                        
-¦   +---doxy                           
-¦   +---nmc3                           - library project for NMSDK/NMC3 architecture  
-¦   +---nmpp-x86-x64                   - cmake folder to generate  x86 library  with GNU GCC  / Visual Studio 8.0/  Visual Studio 13.0 ...
-¦
+В¦   +---distrib                        
+В¦   +---doxy                           
+В¦   +---nmc3                           - library project for NMSDK/NMC3 architecture  
+В¦   +---nmpp-x86-x64                   - cmake folder to generate  x86 library  with GNU GCC  / Visual Studio 8.0/  Visual Studio 13.0 ...
+В¦
 L---src                           - Sources  
     +---nmplc                        - Scalar   
 	...  
     +---nmpli                        - Image  
-    ¦   +---Convert  
-    ¦   ¦   +---common                  - NM&PC source folder  
-    ¦   ¦   +---nm                      - NM source only  
-    ¦   ¦   L---pc                      - PC source only  
+    В¦   +---Convert  
+    В¦   В¦   +---common                  - NM&PC source folder  
+    В¦   В¦   +---nm                      - NM source only  
+    В¦   В¦   L---pc                      - PC source only  
     ...  
     +---nmplm                        - Matrix  
     +---nmpls                        - Signal  
@@ -257,7 +257,7 @@ L---src                           - Sources
 ```
 
 
-## Обратная связь:  
-Предложения , вопросы , замечания  можно направлять на  Sergey Mushkaev <mushkaev@module.ru>
+## РћР±СЂР°С‚РЅР°СЏ СЃРІСЏР·СЊ:  
+РџСЂРµРґР»РѕР¶РµРЅРёСЏ , РІРѕРїСЂРѕСЃС‹ , Р·Р°РјРµС‡Р°РЅРёСЏ  РјРѕР¶РЅРѕ РЅР°РїСЂР°РІР»СЏС‚СЊ РЅР°  Sergey Mushkaev <mushkaev@module.ru>
 
 

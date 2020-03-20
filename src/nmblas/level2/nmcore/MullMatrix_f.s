@@ -1,5 +1,6 @@
 
 global _MullMatrix_f : label;
+global _nmppmMul_mm_32f : label;
 
 begin ".text"
 
@@ -8,6 +9,7 @@ begin ".text"
 PlusC : label;
 
 <_MullMatrix_f>
+<_nmppmMul_mm_32f>
 
 	push ar6, gr6;
 	ar6 = ar7;

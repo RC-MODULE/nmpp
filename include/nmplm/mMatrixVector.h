@@ -53,6 +53,14 @@
         \ru Число столбцов матрицы множителя.
         \en Column count in multiplier mtr.
 		\~
+    \param	nStride
+        \ru Адресное смещение между строками матрицы.
+        \en Address offset between rows.
+		\~
+    \param	bPlusDst
+        \ru Флаг - указание прибавить к произведению прежнее значение Dst
+        \en Flag - add old Dst to the product.
+		\~
     \retval	pDstMtr
         \ru Результирующая матрица.
         \en The result mtr.
@@ -110,6 +118,13 @@ void nmppmMul_mm_colmajor_16s64s(const nm16s* pSrcMtr1, int nHeight1, int nWidth
 
 void nmppmMul_mm_colmajor_32s32s(const nm32s* pSrcMtr1, int nHeight1, int nWidth1, const nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
 void nmppmMul_mm_colmajor_32s64s(const nm32s* pSrcMtr1, int nHeight1, int nWidth1, const nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
+
+void nmppmMul_mm_32f  ( float* pSrcMtr1,  int nHeight1, int nStride1,
+                        float* pSrcMtr2,  int nWidth1,  int nStride2,
+                        float* pDstMtr,   int nWidth2,  int nStrideDst,  bool bPlusDst );
+void nmppmMul_mt_32f  ( float* pSrcMtr1,  int nHeight1, int nStride1,
+                        float* pSrcMtr2,  int nWidth1,  int nStride2,
+                        float* pDstMtr,   int nWidth2,  int nStrideDst,  bool bPlusDst );
 
     //! \}
 

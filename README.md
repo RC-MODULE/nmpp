@@ -49,6 +49,8 @@
   /lib/libnmpp-x86.a - compiled by GNU GCC  
   /lib/nmpp-x86.lib  - (Release) compiled by Microsoft Visual Studio  
   /lib/nmpp-x86d.lib - (Debug)   compiled by Microsoft Visual Studio  
+  /lib/nmpp-x64.lib  - (Release) compiled by Microsoft Visual Studio  
+  /lib/nmpp-x64d.lib - (Debug)   compiled by Microsoft Visual Studio  
   
 - **ARM** библиотека вызов NMC функций со стороны ARM-ядра средствами rpc (для систем на кристалле с ARM ядром):  
   /lib/libnmpp-arm-rpc.a

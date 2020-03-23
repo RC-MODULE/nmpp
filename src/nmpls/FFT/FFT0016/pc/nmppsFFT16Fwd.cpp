@@ -24,7 +24,7 @@
 //#include "fftext.h"
 #include "nmtl/tcmplx_spec.h"
 #include <math.h>
-#include "printx.h"
+//#include "printx.h"
 #include "fftexp.h"
 #ifndef PI
 #define PI 3.14159265359
@@ -94,12 +94,12 @@ extern "C" {
 		//		B[2 * i] += C[2 * j + 1] * expFFT<8>(2 * i*j + i, amplitude);
 		//	}
 
-		PRINT_MATRIX_32S("[pC]", C, 8, 2);
-		PRINT_MATRIX_32S("[pD]", D, 8, 2);
+		//PRINT_MATRIX_32S("[pC]", C, 8, 2);
+		//PRINT_MATRIX_32S("[pD]", D, 8, 2);
 		
 		load_wfifo(C, 2, 4);
-		PRINT_MATRIX_16S("[pWRe]", pwRe, 4, 4);
-		PRINT_MATRIX_16S("[pWIm]", pwIm, 4, 4);
+		//PRINT_MATRIX_16S("[pWRe]", pwRe, 4, 4);
+		//PRINT_MATRIX_16S("[pWIm]", pwIm, 4, 4);
 		
 
 		for (int i = 0; i < 4; i++) {
@@ -109,8 +109,8 @@ extern "C" {
 			pwIm += 4;
 		}
 		//[8]
-		PRINT_MATRIX_32X("[pARe]", ARe, 8, 2);
-		PRINT_MATRIX_32X("[pAIm]", AIm, 8, 2);
+	//	PRINT_MATRIX_32X("[pARe]", ARe, 8, 2);
+	//	PRINT_MATRIX_32X("[pAIm]", AIm, 8, 2);
 		//------------- 1.1 ---------------
 
 		load_wfifo(C + 1, 2, 4);
@@ -122,8 +122,8 @@ extern "C" {
 		}
 		//[8]
 
-		PRINT_MATRIX_32X("[pBRe]", BRe, 8, 2);
-		PRINT_MATRIX_32X("[pBIm]", BIm, 8, 2);
+		//PRINT_MATRIX_32X("[pBRe]", BRe, 8, 2);
+		//PRINT_MATRIX_32X("[pBIm]", BIm, 8, 2);
 
 		//------------- 1.2 ---------------
 		//for (int i = 0; i < 4; i++)
@@ -139,8 +139,8 @@ extern "C" {
 			pwRe += 4;
 			pwIm += 4;
 		}
-		PRINT_MATRIX_32X("[pARe]", ARe, 8, 2);
-		PRINT_MATRIX_32X("[pAIm]", AIm, 8, 2);
+		//PRINT_MATRIX_32X("[pARe]", ARe, 8, 2);
+		//PRINT_MATRIX_32X("[pAIm]", AIm, 8, 2);
 
 		//[8]
 		//------------- 1.3 ---------------
@@ -151,8 +151,8 @@ extern "C" {
 			pwRe += 4;
 			pwIm += 4;
 		}
-		PRINT_MATRIX_32X("[pBRe]", BRe, 8, 2);
-		PRINT_MATRIX_32X("[pBIm]", BIm, 8, 2);
+		//PRINT_MATRIX_32X("[pBRe]", BRe, 8, 2);
+		//PRINT_MATRIX_32X("[pBIm]", BIm, 8, 2);
 
 		//[8]
 
@@ -165,8 +165,8 @@ extern "C" {
 		}
 		//[16]
 
-		PRINT_MATRIX_32X("[pA]", A, 8, 2);
-		PRINT_MATRIX_32X("[pB]", B, 8, 2);
+		//PRINT_MATRIX_32X("[pA]", A, 8, 2);
+		//PRINT_MATRIX_32X("[pB]", B, 8, 2);
 
 
 		//------------3.0
@@ -176,7 +176,7 @@ extern "C" {
 			Y[i + 8].re = A[i].re - B[i].re;
 			Y[i + 8].im = A[i].im - B[i].im;
 		}
-		PRINT_MATRIX_32X("[pY]", Y, 16, 2);
+		//PRINT_MATRIX_32X("[pY]", Y, 16, 2);
 		//[16]
 
 		//for (int i = 0; i < 16; i++) {
@@ -200,7 +200,7 @@ extern "C" {
 		//dst = raw;
 		nmppsFFT16Fwd242Raw(src, raw, spec);
 
-		PRINT_MATRIX_32X("raw", raw, 16, 2);
+		//PRINT_MATRIX_32X("raw", raw, 16, 2);
 
 		for (int i = 0; i < 16; i++) {
 			dst[i].re = raw[i].re >> shift;

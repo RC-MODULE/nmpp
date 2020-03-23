@@ -181,6 +181,8 @@
     <ClCompile Include="..\..\src\nmplc\fixpoint32\pc\scl_fixarctan32__int.c" />
     <ClCompile Include="..\..\src\nmplc\fixpoint32\pc\scl_fixsqrt32__int.c" />
     <ClCompile Include="..\..\src\nmplc\init\common\nmppcRand.c" />
+    <ClCompile Include="..\..\src\nmplc\integer\pc\nmppc-Sqrt_32u.c" />
+    <ClCompile Include="..\..\src\nmplc\integer\pc\nmppc-Sqrt_64u.c" />
     <ClCompile Include="..\..\src\nmpli\Arithmetics\pc\IMG_Halfsum__nm16s_nm16s.cpp" />
     <ClCompile Include="..\..\src\nmpli\Arithmetics\pc\IMG_WAdd2I__RGB32_nm10s_RGB32_nm10s.cpp" />
     <ClCompile Include="..\..\src\nmpli\Convert\pc\IMG_GrayToRGB24__nm08u_RGB24_nm8u.cpp" />
@@ -237,9 +239,11 @@
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0032\common\nmpps-fft32fwdinit.c" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0032\common\nmpps-fft32fwdref.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0032\pc\nmpps-fft32fwd.c" />
+    <ClCompile Include="..\..\src\nmpls\FFT\FFT0032\pc\nmppsFFT32FwdRef.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0064\common\nmpps-fft64fwdinit.c" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0064\common\nmpps-fft64fwdref.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0064\pc\nmpps-fft64fwd.c" />
+    <ClCompile Include="..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256FwdRef.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256fwd.c" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0256\common\nmpps-fft256inv.c" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0256\pc\W256Tbl.cpp" />
@@ -247,20 +251,26 @@
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Fwd.c" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0512\common\nmpps-FFT512Inv.c" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0512\pc\W512tbl.cpp" />
+    <ClCompile Include="..\..\src\nmpls\FFT\FFT0512\pc\nmpps-FFT512Fwd.cpp">
+      <ObjectFileName>$(IntDir)\nmpps-FFT512Fwd1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\src\nmpls\FFT\FFT0512\pc\nmpps-FFT512Inv.cpp">
+      <ObjectFileName>$(IntDir)\nmpps-FFT512Inv1.obj</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="..\..\src\nmpls\FFT\FFT0512\pc\pcFFT512.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT1024\common\nmpps-FFT1024Fwd.c" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT1024\common\nmpps-FFT1024Inv.c" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT1024\common\nmppsFFT1024FwdRef_32fc.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT1024\pc\W1024Tbl.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT1024\pc\pcFFT1024.cpp" />
-    <ClCompile Include="..\..\src\nmpls\FFT\FFT2048\common\nmpps-FFT2048FwdInit.cpp" />
+    <ClCompile Include="..\..\src\nmpls\FFT\FFT2048\common\nmpps-fft2048fwdinit.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT2048\pc\W2048Tbl.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT2048\pc\nmpps-fft2048fwd.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT2048\pc\nmpps-fft2048fwdref.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT2048\pc\pcFFT2048.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT4096\pc\pcFFT4096.cpp" />
-    <ClCompile Include="..\..\src\nmpls\FFT\FFT8192\common\nmpps-FFT8192FwdInit.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT8192\common\nmpps-FFT8192FwdRef.cpp" />
+    <ClCompile Include="..\..\src\nmpls\FFT\FFT8192\common\nmpps-fft8192fwdinit.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT8192\pc\nmpps-FFT8192Fwd.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFT8192\pc\pcFFT8192.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\FFTFree\common\nmpps-fftfree.c" />
@@ -271,14 +281,14 @@
     <ClCompile Include="..\..\src\nmpls\FFT\IFFT1024\pc\iW1024Tbl.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\IFFT1024\pc\pcIFFT1024.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\IFFT2048\common\nmpps-FFT2048Inv.cpp" />
-    <ClCompile Include="..\..\src\nmpls\FFT\IFFT2048\common\nmpps-FFT2048InvInit.cpp" />
+    <ClCompile Include="..\..\src\nmpls\FFT\IFFT2048\common\nmpps-fft2048invinit.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\IFFT2048\pc\iW2048Tbl.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\IFFT2048\pc\nmpps-fft2048inv.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\IFFT2048\pc\nmpps-fft2048invref.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\IFFT2048\pc\pcIFFT2048.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\IFFT4096\pc\pcIFFT4096.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\IFFT8192\common\nmpps-FFT8192InvInit.cpp" />
-    <ClCompile Include="..\..\src\nmpls\FFT\IFFT8192\common\nmpps-FFT8192InvRef.cpp" />
+    <ClCompile Include="..\..\src\nmpls\FFT\IFFT8192\common\nmpps-fft8192invref.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\IFFT8192\pc\nmpps-FFT8192Inv.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\IFFT8192\pc\pcIFFT8192.cpp" />
     <ClCompile Include="..\..\src\nmpls\FFT\common\nmpps-common.cpp" />
@@ -411,7 +421,6 @@
     <ClCompile Include="..\..\src\nmplv\Init\pc\nmppsCnv_Risc.c" />
     <ClCompile Include="..\..\src\nmplv\Init\pc\nmppsCnv_f.c" />
     <ClCompile Include="..\..\src\nmplv\Init\pc\nmppsCopy.c" />
-    <ClCompile Include="..\..\src\nmplv\Init\pc\nmppsCopy_f.c" />
     <ClCompile Include="..\..\src\nmplv\Init\pc\nmppsMerge.c" />
     <ClCompile Include="..\..\src\nmplv\Init\pc\nmppsRandUniform_64s.c" />
     <ClCompile Include="..\..\src\nmplv\Init\pc\nmppsSet.c" />

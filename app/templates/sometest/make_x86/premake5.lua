@@ -10,7 +10,7 @@
 	  links { "nmpp-x86"} 
 	  libdirs { "$(NMPP)/lib","$(HAL)/lib"}
 	  includedirs { "$(NMPP)/include","$(HAL)/include"}
-	  
+	  systemversion 'latest'
       configuration "Debug"
          defines { "DEBUG" }
          symbols  "On" 

@@ -83,10 +83,10 @@ vs2015:
 	
 vs2017:
 	premake5 vs2017
-	"$(VS150COMNTOOLS)VsDevCmd" && msbuild nmpp.vcxproj /p:Configuration=Release /property:Platform=win32
-	"$(VS150COMNTOOLS)VsDevCmd" && msbuild nmpp.vcxproj /p:Configuration=Debug   /property:Platform=win32
-	"$(VS150COMNTOOLS)VsDevCmd" && msbuild nmpp.vcxproj /p:Configuration=Release /property:Platform=x64
-	"$(VS150COMNTOOLS)VsDevCmd" && msbuild nmpp.vcxproj /p:Configuration=Debug   /property:Platform=x64
+	"$(VS150COMNTOOLS)\VsDevCmd" && msbuild nmpp.vcxproj /p:Configuration=Release /property:Platform=win32
+	"$(VS150COMNTOOLS)\VsDevCmd" && msbuild nmpp.vcxproj /p:Configuration=Debug   /property:Platform=win32
+	"$(VS150COMNTOOLS)\VsDevCmd" && msbuild nmpp.vcxproj /p:Configuration=Release /property:Platform=x64
+	"$(VS150COMNTOOLS)\VsDevCmd" && msbuild nmpp.vcxproj /p:Configuration=Debug   /property:Platform=x64
 
 include $(ROOT)/clean.mk
 	

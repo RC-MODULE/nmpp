@@ -121,10 +121,10 @@ void nmppmMul_mm_colmajor_32s64s(const nm32s* pSrcMtr1, int nHeight1, int nWidth
 
 void nmppmMul_mm_32f  ( float* pSrcMtr1,  int nHeight1, int nStride1,
                         float* pSrcMtr2,  int nWidth1,  int nStride2,
-                        float* pDstMtr,   int nWidth2,  int nStrideDst,  bool bPlusDst );
+                        float* pDstMtr,   int nWidth2,  int nStrideDst,  int bPlusDst );
 void nmppmMul_mt_32f  ( float* pSrcMtr1,  int nHeight1, int nStride1,
                         float* pSrcMtr2,  int nWidth1,  int nStride2,
-                        float* pDstMtr,   int nWidth2,  int nStrideDst,  bool bPlusDst );
+                        float* pDstMtr,   int nWidth2,  int nStrideDst,  int bPlusDst );
 
     //! \}
 

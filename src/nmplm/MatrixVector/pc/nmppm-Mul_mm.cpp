@@ -233,6 +233,27 @@ void nmppmMul_mm_32s32s( nm32s* srcMtrA, int heightA, int widthA,  nm32s* srcMtr
 	}
 }
 
+void nmppmMul_mm_32f( float* srcMtr1,  int nHeight1, int nStride1,
+                      float* srcMtr2,  int nWidth1,  int nStride2,
+                      float* dstMtr,   int nWidth2,  int nStrideDst,  int bPlusDst )
+{
+	int i,j,k,sum;
+	float* col2;
+	float* row1  =srcMtr1;
+	float* rowDst=dstMtr;
+
+	for(i=0; i<nHeight1; i++, row1+=nStride1, rowDst+=nStrideDst){
+		for(j=0; j<nWidth2; j++){
+			col2=srcMtr2+j;
+            sum = bPlusDst ? rowDst[j] : 0;
+			for(k=0; k<nWidth1; k++){
+				sum+=row1[k]*col2[k*nStride2];
+			}
+			rowDst[j]=sum;
+		}
+	}
+}
+
 void nmppmMul_mm_32s64s( nm32s* srcMtrA, int heightA, int widthA,  nm64s* srcMtrB, nm64s* dstMtr, int widthB)
 {
 	int i,j,k;

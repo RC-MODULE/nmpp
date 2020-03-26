@@ -26,6 +26,7 @@ static long long 				Randomize=-1;
 //! 
 //! \perfinclude _nmppsRandUniform__FPUiiUi_.html
 //! 
+extern "C"{
 
 void nmppsRandUniform_32f_integer(
 		nm32f*	pDstVec,		// array									:int Global [SizeInt]
@@ -34,23 +35,25 @@ void nmppsRandUniform_32f_integer(
 		int     low
 		)
 {
-	const int range = 1.0/(0x100000000);
+	const int range = (int)(1.0/(0x100000000));
 	int i;
 	int r;
 	int result_int;
 	unsigned int R;
-	int b = 0.5*(hi+low);
+	int b = (int) (0.5*(hi+low));
 	int k = (hi-low)*range;
 	if((low == 0)&(hi == 0)){return;}
 	
 	for(i=0;i<nSize;i++){
-		R=Randomize<<63;
+		R=(unsigned int)(Randomize<<63);
 		Randomize>>=1;
 		Randomize|=R;
 		Randomize=1664525*Randomize+1013904223;
-		r=Randomize;
+		r=(unsigned int)Randomize;
 		result_int = k*r+b;
 		pDstVec[i] = (float)result_int; 
 	}
 	return;
 }
+
+};

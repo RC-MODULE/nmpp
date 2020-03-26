@@ -14,11 +14,7 @@ int main()
 	float* src1=nmppsMalloc_32f( maxW1*maxW0 );
 	float* dst =nmppsMalloc_32f( maxW1*(maxH0+1) );
 	
-    nm32s* dst_32s = (nm32s*) nmppsMalloc_32s( maxW1*(maxH0+1) );
-	nmppsSet_32s((nm32s*)dst_32s, (int)0xCCCCCCCC, maxW1*(maxH0+1) );
-
-	if ((src0==0)||(src1==0)||(dst==0)||(dst_32s==0)) return -1;
-
+	if ((src0==0)||(src1==0)||(dst==0)) return -1;
 
 	unsigned int crc = 0;
 	
@@ -34,8 +30,7 @@ int main()
                 nmppmMul_mm_32f  (  src0,  h0,  w0,
                                     src1,  w0,  w1,
                                     dst,   w1,  w1,  true );
-                nmppsConvert_32f32s_truncate ( dst, dst_32s, 0, w1*(h0+1) );                
-				nmppsCrcAcc_32s (dst_32s, w1*(h0+1),&crc);
+				nmppsCrcAcc_32f (dst, 1, w1*h0,&crc);
 			}
 		}
 	}
@@ -44,7 +39,6 @@ int main()
 	nmppsFree(src0);
 	nmppsFree(src1);
 	nmppsFree(dst);
-	nmppsFree(dst_32s);
 	
 
 	return crc>>2;

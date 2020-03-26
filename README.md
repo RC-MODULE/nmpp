@@ -111,22 +111,24 @@ nmpp/make/nmpp-nmc3> make legacy DEBUG=y
 
 ## Сборка x86/x64 библиотек  
   Генерация самих проектов оcуществляется средствами [**premake5**](https://premake.github.io/).  
- Сконфигурировать проект можно командой   
+ Сконфигурировать проект под нужный SDK и собрать его можно командой   
  
-```\nmpp\make\nmpp-x86-x64> make vs2008 ```  
+```\nmpp\make\nmpp-x86-x64> make vs2005 ```  
 ```\nmpp\make\nmpp-x86-x64> make vs2015 ```  
 ```\nmpp\make\nmpp-x86-x64> make vs2017 ```  
 где с помощью ключей:  vs2008, vs20015, vs2017 , unix, mingw ...
-указывается требуемый компилятор   
+указывается требуемый SDK   
+
 ## Настройка переменных окружения  
-Для удобства подключения библиотек к собственным проектам рекомендуется использовать переменную окружения **NMPP**. Создать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  ```make setnev``` из папки *./make*.
+Для удобства подключения библиотек к собственным проектам, а также примерам и тестам  рекомендуется использовать переменную окружения **NMPP**. Создать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  
+````\nmpp\make\> make setnev``` 
 
 > Настройка переменных, указывающих пути к зависимостям осуществляется в файле */global.mk* корневой директории NMPP. Если переменные окружения , идущие с конструкцией присвоения **?=** , не определены в системе, то они будут настроены на локальные пути к папке /deps 
  
 
   
   
-## EXAMPLES:  
+## Примеры:  
 Each library component contains several examples in *./app/examples*.
 Each example can be built for different targets.  
 
@@ -152,7 +154,7 @@ Action of **global.mk** may be overriden by **local.mk** if exists.
   Building and running of examples for some targets may be skipped if appropriate environment    variable (**VS80COMNTOOLS**,**VS120COMNTOOLS**,**CROSS_COMPILE**)
   containing path to according SDK  is not defined in your system.
 
-## TESTS:  
+## Тесты:  
 Running tests is performed by execution and comparision of results on different target paltforms:
 ```bat
   cd /app/test

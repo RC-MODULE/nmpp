@@ -75,7 +75,8 @@ install: all setenv
 	
 	
 setenv:
-	setenv -ua NMPP $(realpath ..)
+	setenv -ua NMPP "$(realpath ..)"
+
 
 		
 #	$(OS_SET_ENV)

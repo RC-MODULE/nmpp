@@ -14,10 +14,10 @@ else
   OS_SET_ENV = export NMPP=$(realpath ..)
 endif
 
-.PHONY : all nmpp-nmc3 nmpp-nmc4 nmpp-nmc4f nmpp-nmc3-gcc nmpp-nmc4-gcc nmpp-nmc4f-gcc nmpp-x86-x64
+.PHONY : all nmpp-nmc3 nmpp-nmc4 nmpp-nmc4f nmpp-nmc3-legacy nmpp-nmc4-legacy nmpp-nmc4f-legacy nmpp-x86-x64
 
 
-all: nmpp-nmc3 nmpp-nmc4 nmpp-nmc4f nmpp-nmc3-gcc nmpp-nmc4-gcc nmpp-nmc4f-gcc nmpp-x86-x64
+all: nmpp-nmc3 nmpp-nmc4 nmpp-nmc4f nmpp-nmc3-legacy nmpp-nmc4-legacy nmpp-nmc4f-legacy nmpp-x86-x64
 	
 
 nmpp-nmc3:
@@ -29,14 +29,14 @@ nmpp-nmc4:
 nmpp-nmc4f:
 	$(MAKE) -C ./nmpp-nmc4f
 	
-nmpp-nmc3-gcc:
-	$(MAKE) -C ./nmpp-nmc3-gcc
+nmpp-nmc3-legacy:
+	$(MAKE) -C ./nmpp-nmc3 legacy
 
-nmpp-nmc4-gcc:
-	$(MAKE) -C ./nmpp-nmc4-gcc
+nmpp-nmc4-legacy:
+	$(MAKE) -C ./nmpp-nmc4 legacy
 	
-nmpp-nmc4f-gcc:
-	$(MAKE) -C ./nmpp-nmc4f-gcc
+nmpp-nmc4f-legacy:
+	$(MAKE) -C ./nmpp-nmc4f legacy
 	
 nmpp-x86-x64:
 	$(MAKE) -C ./nmpp-x86-x64
@@ -58,9 +58,6 @@ clean:
 	$(MAKE) -C ./nmpp-nmc3 clean
 	$(MAKE) -C ./nmpp-nmc4 clean
 	$(MAKE) -C ./nmpp-nmc4f clean
-	$(MAKE) -C ./nmpp-nmc3-gcc clean
-	$(MAKE) -C ./nmpp-nmc4-gcc clean
-	$(MAKE) -C ./nmpp-nmc4f-gcc clean
 	
 	
 	$(MAKE) -C ./nmpp-nmc3-rpc clean

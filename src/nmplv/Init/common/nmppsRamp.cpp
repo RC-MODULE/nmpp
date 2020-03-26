@@ -23,7 +23,7 @@
 //! \perfinclude _nmppsRamp__FPciii_.html
 //!
 
-
+extern "C"{
 void nmppsRamp_8s(nm8s* pVec, int8b nOffset, int8b nSlope, int nSize)
 {
 	int i;
@@ -63,3 +63,4 @@ void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize)
 	for(i=0; i<nSize; i++, pVec++, nOffset+=nSlope)
 		*pVec=nOffset;
 }
+};

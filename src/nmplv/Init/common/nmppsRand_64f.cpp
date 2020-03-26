@@ -27,7 +27,11 @@
 //! 
 
 
+	
 static unsigned long long				Randomize=-1;
+
+extern "C"{
+
 ////////////////////////////////////////////////////////////////////////////
 //  Random initialization of 64-bit Buffer
 void nmppsRandUniform_64f(
@@ -67,6 +71,7 @@ void nmppsRandUniform_64f(
 	//Randomize=Rand;
 }
 
+};
 //#ifndef __NM__
 		//r = r + 0x1;
 		//r = r >> 11;

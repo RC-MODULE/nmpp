@@ -11,6 +11,7 @@
 
 typedef void (*pfn_nmppsCopy_32f)(const nm32f* pSrcVec, nm32f* pDstVec, int size);
 
+extern "C"{
 pfn_nmppsCopy_32f nmppsCopy_32f_array[4] = {&nmppsCopyEvenToEven_32f,
                                             &nmppsCopyEvenToOdd_32f,
 											&nmppsCopyOddToEven_32f,
@@ -31,3 +32,4 @@ void nmppsCopy_32f(const nm32f* pSrcVec, nm32f* pDstVec, int size)
 
   (nmppsCopy_32f_array[num])(pSrcVec, pDstVec, size);  
 }
+};

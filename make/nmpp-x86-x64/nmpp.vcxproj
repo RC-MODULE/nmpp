@@ -414,7 +414,7 @@
     <ClCompile Include="..\..\src\nmplv\Init\common\nmchar.cpp" />
     <ClCompile Include="..\..\src\nmplv\Init\common\nmppsCopy_32f.c" />
     <ClCompile Include="..\..\src\nmplv\Init\common\nmppsRamp.c" />
-    <ClCompile Include="..\..\src\nmplv\Init\common\nmppsRand32u.c" />
+    <ClCompile Include="..\..\src\nmplv\Init\common\nmppsRand32u.cpp" />
     <ClCompile Include="..\..\src\nmplv\Init\common\nmppsRand_64f.c" />
     <ClCompile Include="..\..\src\nmplv\Init\common\nmppsrand_32f.c" />
     <ClCompile Include="..\..\src\nmplv\Init\pc\nmppsCnv.c" />

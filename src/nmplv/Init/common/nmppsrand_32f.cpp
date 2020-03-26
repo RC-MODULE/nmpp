@@ -26,7 +26,7 @@
 //! \perfinclude _nmppsRandUniform__FPUiiUi_.html
 //! 
 
-
+extern "C"{
 static long long				Randomize=-1;
 ////////////////////////////////////////////////////////////////////////////
 //  Random initialization of 64-bit Buffer
@@ -68,4 +68,4 @@ void nmppsRand_32f(
 	//Randomize=Rand;
 }
 
-
+};

@@ -89,12 +89,11 @@
 * Генерация сборочных проектов x86/x64 библиотек/тестов, в т.ч. для VisualStudio, осуществляется [premake5](https://premake.github.io/)  версией не ниже premake-5.0.0-alpha14
 
 * Для обеспечения полной функциональности Makefile-ов (тестов/примеров/генерации проектов и .т.д.), а также кросс-платформенной работы Makefile как в ОС Windows, так и в Linux  используются :    UNIX-утилиты:   
-[rm,cp,mkdir,rmdir,...](http://gnuwin32.sourceforge.net/packages/coreutils.htm)  
-[find](http://gnuwin32.sourceforge.net/packages/findutils.htm) (требует переимнования в gfind.exe для устранения конфликта
- со встроенным системным System32\find.exe)  
+[rm,cp,mkdir,rmdir,...](http://gnuwin32.sourceforge.net/packages/coreutils.htm )  
+[find](http://gnuwin32.sourceforge.net/packages/findutils.htm ) (требует переимнования в gfind.exe для устранения конфликта
+ с системным Windows\System32\find.exe)  
 
-
-> Сокращенный необходимый комплект всех необходимых GnuWin утилит включая: make, premake, SetEnv, cmake,gzip и пр.  входит в состав online-установщика [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite) 
+* Пути к premake и GnuWin утилитами должны быть прописаны в PATH 
 
 
 

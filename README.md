@@ -73,10 +73,10 @@
 # Установка NMPP 
 ## Системные требования
 * NeuroMatrix NMGCC-SDK  
-  Для сборки библиотек gcc компилятором под NeuroMatrix 
+  Для сборки библиотек под NeuroMatrix  gcc компилятором 
 
 * Leqacy NeuroMatrix SDK  (устаревшая версия SDK)
-  Для сборки библиотек под NeuroMatrix требуется NMSDK версией не ниже 3.07
+  Для сборки библиотек под NeuroMatrix предыдущим компилятором требуется  NMSDK версией не ниже 3.07
 
 * x86/x64 SDK   
   Для эмуляции NeuroMatrix функций из состава NMPP под x86/x64 возможна сборка библиотек с помощью   Gnu GCC.  http://www.mingw.org/  или http://win-builds.org/doku.php или Microsoft Visual Studio, и в частности версиями Express:  
@@ -90,7 +90,7 @@
 
 * Для обеспечения полной функциональности Makefile-ов (тестов/примеров/генерации проектов и .т.д.), а также кросс-платформенной работы Makefile как в ОС Windows, так и в Linux  используются :    UNIX-утилиты:   
 [rm,cp,mkdir,rmdir,...](http://gnuwin32.sourceforge.net/packages/coreutils.htm)  
-[find](http://gnuwin32.sourceforge.net/packages/findutils.htm) (требует переимнования в gfind.exe для устранения конфликта с системным microsoft find)  
+[find](http://gnuwin32.sourceforge.net/packages/findutils.htm) (требует переимнования в gfind.exe для устранения конфликта со встроенным системным System32\find.exe)  
 
 
 > Сокращенный необходимый комплект всех необходимых GnuWin утилит включая: make, premake, cmake,gzip и пр.  входят в состав online-установщика [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite) 
@@ -98,7 +98,7 @@
 
 
 ## Сборка NeuroMatrix библиотек  GCC  компилятором 
-  Сборка осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp_archictecture*. 
+  Сборка осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp_<archictecture>*. 
   
 ```
 nmpp> cd make/nmpp-nmc3
@@ -106,7 +106,7 @@ nmpp/make/nmpp-nmc3> make
 nmpp/make/nmpp-nmc3> make DEBUG=y
 ```
 ## Сборка NeuroMatrix библиотек Legacy  компилятором 
-  Сборка устравшим компилятором осуществляется командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp_archictecture*. 
+  Сборка устаревшим компилятором осуществляется командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp_<archictecture>*. 
   
 ```
 nmpp> cd make/nmpp-nmc3
@@ -125,7 +125,7 @@ nmpp/make/nmpp-nmc3> make legacy DEBUG=y
 указывается требуемый SDK   
 
 ## Настройка переменных окружения  
-Для удобства подключения библиотек к собственным проектам, а также примерам и тестам  рекомендуется использовать переменную окружения **NMPP**. Создать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  
+Для удобства подключения библиотек к собственным проектам, а также к примерам и тестам  рекомендуется использовать переменную окружения **NMPP**. Создать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  
 ```\nmpp\make\> make setenv```
 
 
@@ -137,7 +137,7 @@ nmpp/make/nmpp-nmc3> make legacy DEBUG=y
 ```\nmpp\app\test> make configure ```   
 ```\nmpp\app\examples-float> make configure ```  
 
-Список платформ для которых будут сформированы сборочные проекты определеяются перерменной PLATFORMS в global.mk или local.mk
+Список платформ для которых будут сформированы сборочные проекты определяются перерменной PLATFORMS в global.mk или local.mk
 
  
   

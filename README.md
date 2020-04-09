@@ -86,19 +86,19 @@
 *  Сборка компонент (статические lib-библиотеки, тесты, примеры) построена на Makefile скриптах. Для корректного запуска сборочных Makefile-ов  под Windows требуется установленный GNU **make**.
 Для ОС Windows рекомендуется версия make [3.81](https://sourceforge.net/projects/gnuwin32/files/make/3.81/)  (3.82- проявляет себя нестабильно). 
 
-* Генерация сборочных проектов x86/x64 библиотек/тестов  осуществляется [premake5](https://premake.github.io/)  версией не ниже premake-5.0.0-alpha14
+* Генерация сборочных проектов x86/x64 библиотек/тестов, в т.ч. для VisualStudio, осуществляется [premake5](https://premake.github.io/)  версией не ниже premake-5.0.0-alpha14
 
 * Для обеспечения полной функциональности Makefile-ов (тестов/примеров/генерации проектов и .т.д.), а также кросс-платформенной работы Makefile как в ОС Windows, так и в Linux  используются :    UNIX-утилиты:   
 [rm,cp,mkdir,rmdir,...](http://gnuwin32.sourceforge.net/packages/coreutils.htm)  
 [find](http://gnuwin32.sourceforge.net/packages/findutils.htm) (требует переимнования в gfind.exe для устранения конфликта со встроенным системным System32\find.exe)  
 
 
-> Сокращенный необходимый комплект всех необходимых GnuWin утилит включая: make, premake, cmake,gzip и пр.  входят в состав online-установщика [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite) 
+> Сокращенный необходимый комплект всех необходимых GnuWin утилит включая: make, premake, cmake,gzip и пр.  входит в состав online-установщика [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite) 
 
 
 
 ## Сборка NeuroMatrix библиотек  GCC  компилятором 
-  Сборка осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp_<archictecture>*. 
+  Сборка осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp_\<archictecture\>* :  
   
 ```
 nmpp> cd make/nmpp-nmc3
@@ -106,7 +106,7 @@ nmpp/make/nmpp-nmc3> make
 nmpp/make/nmpp-nmc3> make DEBUG=y
 ```
 ## Сборка NeuroMatrix библиотек Legacy  компилятором 
-  Сборка устаревшим компилятором осуществляется командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp_<archictecture>*. 
+  Сборка устаревшим компилятором осуществляется командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp_\<archictecture\>*:   
   
 ```
 nmpp> cd make/nmpp-nmc3
@@ -117,10 +117,12 @@ nmpp/make/nmpp-nmc3> make legacy DEBUG=y
 ## Сборка x86/x64 библиотек  
   Генерация самих проектов оcуществляется средствами [**premake5**](https://premake.github.io/).  
  Сконфигурировать проект под нужный SDK и собрать его можно командой   
- 
-```\nmpp\make\nmpp-x86-x64> make vs2005 ```  
-```\nmpp\make\nmpp-x86-x64> make vs2015 ```  
-```\nmpp\make\nmpp-x86-x64> make vs2017 ```  
+``` 
+nmpp\make\nmpp-x86-x64> make vs2005  
+nmpp\make\nmpp-x86-x64> make vs2015  
+nmpp\make\nmpp-x86-x64> make vs2017
+```
+
 где с помощью ключей:  vs2008, vs20015, vs2017 , unix, mingw ...
 указывается требуемый SDK   
 
@@ -134,13 +136,14 @@ nmpp/make/nmpp-nmc3> make legacy DEBUG=y
 ## Сборка примеров и тестов   
  Для сборки тестов и примеров  необходим [HAL](https://github.com/RC-MODULE/hal) со скомпилированными соотвествующими библиотеками и прописанной переменной окружения *HAL*.
  Все тесты и часть примеров идут только с исходными текстами. Сконфигурировать сборочные проекты пакетно можно командой ```make configure ``` из корневой папки с тестами или примерами, например:  
-```\nmpp\app\test> make configure ```   
+
+```\nmpp\app\test> make configure ```  
 ```\nmpp\app\examples-float> make configure ```  
   
 Список платформ для которых будут сформированы сборочные проекты определяются перерменной PLATFORMS в global.mk или local.mk   
   
-Сборка и запуск примера осуществляюется командами ```make ``` и ```make run ``` из соотвествующей папки */make_<board_compiler>*, например:  
-```cd \nmpp\app\examples\nmpps\nmppsAbs\make_mc12101_nmpu1-gcc-ld\>```   
+Сборка и запуск примера осуществляюется командами ```make ``` и ```make run ``` из соотвествующей папки */make_\<board_compiler\>*, например:  
+```nmpp\> cd \app\examples\nmpps\nmppsAbs\make_mc12101_nmpu1-gcc-ld```   
 ```\> make```   
 ```\> make run ```   
  

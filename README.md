@@ -90,10 +90,11 @@
 
 * Для обеспечения полной функциональности Makefile-ов (тестов/примеров/генерации проектов и .т.д.), а также кросс-платформенной работы Makefile как в ОС Windows, так и в Linux  используются :    UNIX-утилиты:   
 [rm,cp,mkdir,rmdir,...](http://gnuwin32.sourceforge.net/packages/coreutils.htm)  
-[find](http://gnuwin32.sourceforge.net/packages/findutils.htm) (требует переимнования в gfind.exe для устранения конфликта со встроенным системным System32\find.exe)  
+[find](http://gnuwin32.sourceforge.net/packages/findutils.htm) (требует переимнования в gfind.exe для устранения конфликта
+ со встроенным системным System32\find.exe)  
 
 
-> Сокращенный необходимый комплект всех необходимых GnuWin утилит включая: make, premake, cmake,gzip и пр.  входит в состав online-установщика [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite) 
+> Сокращенный необходимый комплект всех необходимых GnuWin утилит включая: make, premake, SetEnv, cmake,gzip и пр.  входит в состав online-установщика [GnuWin32-lite](https://github.com/RC-MODULE/gnuwin32-lite) 
 
 
 

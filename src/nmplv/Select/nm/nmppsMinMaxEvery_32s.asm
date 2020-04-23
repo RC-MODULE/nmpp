@@ -25,12 +25,12 @@ extern vec_CompareMinMax:label;
 
 CompareMinMax_rep0:label;
 
-//! \fn void  nmppsCmpMinMaxV_32s(nm32s *pSrcVec1, nm32s *pSrcVec2, nm32s *pDstMin, nm32s *pDstMax, int nSize) 
+//! \fn void  _nmppsMinMaxEvery_32s(nm32s *pSrcVec1, nm32s *pSrcVec2, nm32s *pDstMin, nm32s *pDstMax, int nSize) 
 //!
-//! \perfinclude _nmppsCmpMinMaxV_32s.html
+//! \perfinclude _nmppsMinMaxEvery_32s.html
 
-global _nmppsCmpMinMaxV_32s:label;
-<_nmppsCmpMinMaxV_32s>
+global _nmppsMinMaxEvery_32s:label;
+<_nmppsMinMaxEvery_32s>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0 with gr0=false;
@@ -56,10 +56,10 @@ global _nmppsCmpMinMaxV_32s:label;
 		
 	pop ar6,gr6;
 	pop ar5,gr5;
-    pop ar4,gr4;
+	pop ar4,gr4;
 	pop ar3,gr3;
+	pop ar2,gr2;
 	pop ar1,gr1;
-    pop ar2,gr2;
 	pop ar0,gr0;
 return;
 .wait;

@@ -953,10 +953,10 @@ void nmppsCmpLtC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlag
 //*****************************************************************************
 
     /**
-    \defgroup nmppsCmpEq0 nmppsCmpEq0
+    \defgroup nmppsCmpEq0_reduced nmppsCmpEq0(Reduced)
     \ingroup vSelect
     \brief
-        \ru Сравнивает элементы массива на признак равенства нулю.
+        \ru Сравнивает элементы массива неполной разрядности на признак равенства нулю.
         \en Compare vec elements to zero equlity.
 
 		\~
@@ -1106,7 +1106,7 @@ void nmppsCmpGt0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
     //! \}
 
     /**
-    \defgroup nmppsCmpMinMaxV_ nmppsCmpMinMaxV_
+    \defgroup nmppsMinMaxEvery_ nmppsMinMaxEvery_
     \ingroup vSelect
 
     \brief
@@ -1169,9 +1169,9 @@ void nmppsCmpGt0_64s(const nm64s* pSrcVec, nm64s* pDstVec, int nSize);
 
 		*/
     //! \{
-void nmppsCmpMinMaxV_8s(nm8s*  pSrcVec1, nm8s* pSrcVec2,  nm8s*  pDstMin,  nm8s*  pDstMax, int nSize);
-void nmppsCmpMinMaxV_16s(nm16s*  pSrcVec1, nm16s* pSrcVec2,  nm16s*  pDstMin,  nm16s*  pDstMax, int nSize);
-void nmppsCmpMinMaxV_32s(nm32s*  pSrcVec1, nm32s* pSrcVec2,  nm32s*  pDstMin,  nm32s*  pDstMax, int nSize);
+void nmppsMinMaxEvery_8s(nm8s*  pSrcVec1, nm8s* pSrcVec2,  nm8s*  pDstMin,  nm8s*  pDstMax, int nSize);
+void nmppsMinMaxEvery_16s(nm16s*  pSrcVec1, nm16s* pSrcVec2,  nm16s*  pDstMin,  nm16s*  pDstMax, int nSize);
+void nmppsMinMaxEvery_32s(nm32s*  pSrcVec1, nm32s* pSrcVec2,  nm32s*  pDstMin,  nm32s*  pDstMax, int nSize);
     //! \}
 
 
@@ -2094,7 +2094,7 @@ void nmppsCmpGtC_v2nm32f(const v2nm32f* pSrcVec, const v2nm32f* C, nm1* evenFlag
 	\defgroup nmppsCmpEqV_ nmppsCmpEqV_
     \ingroup vSelect
     \brief
-        \ru Поэлементное сравнение элементов двух вектров на признак равенства.
+        \ru Поэлементное сравнение элементов (неполной разрядности) двух вектров на признак равенства.
         \en Elementwise vec comparision for equality .
 		\~
 

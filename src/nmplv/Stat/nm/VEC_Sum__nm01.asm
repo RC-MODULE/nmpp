@@ -45,14 +45,12 @@ begin ".text_nmplv"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//! \fn void nmppsSum(nm1* pSrcVec, int nSize, int32b* pnRes, void* pTmpBuf);
+//! \fn void nmppsSum_1(nm1* pSrcVec, int nSize, int32b* pnRes, void* pTmpBuf);
 //!
-//! \perfinclude _nmppsSum__F3nm1PiPiPv.html
+//! \perfinclude nmppsSum_1.html
 
-global _nmppsSum__F3nm1PiPiPv:label;
-global _void._.8.8nmppsSum.1class._nm1._.0.9._int.9._int._.0.9._void._.0.2 :label;
-<_nmppsSum__F3nm1PiPiPv>
-<_void._.8.8nmppsSum.1class._nm1._.0.9._int.9._int._.0.9._void._.0.2>
+global _nmppsSum_1:label;
+<_nmppsSum_1>
 .branch;
 	ar5 = sp - 2;
 	push ar0,gr0 with gr0=false;

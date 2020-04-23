@@ -415,14 +415,14 @@ public:
 
 #ifdef __NM__
 #else
-typedef  nmvec<signed char>			nmvec8s;
+typedef  nmvec<char>			nmvec8s;
 typedef  nmvec<unsigned char>	nmvec8u;
 
-typedef  nmvec<signed short>			nmvec16s;
+typedef  nmvec< short>			nmvec16s;
 typedef  nmvec<unsigned short>	nmvec16u;
 #endif
 
-typedef  nmvec<signed int>				nmvec32s;
+typedef  nmvec<int>				nmvec32s;
 typedef  nmvec<long long>			nmvec64s;
 
 typedef  nmvec<unsigned int>	nmvec32u;

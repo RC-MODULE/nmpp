@@ -1,4 +1,6 @@
 
+default: config_mc12101_1_gcc
+	
 
 all_mc12101:
 	testperf config -i ../../include -b make_mc12101_nmpu0

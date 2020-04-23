@@ -50,8 +50,8 @@ global _nmppsConvert_16s64s:label;
 //!
 //! \perfinclude _nmppsConvert_16u.html
 
-global _nmppsConvert_16u:label;
-<_nmppsConvert_16u>
+global _nmppsConvert_16u64u:label;
+<_nmppsConvert_16u64u>
 .branch;
 	nb1 = 80008000h;
 	<JumpFromSigned>

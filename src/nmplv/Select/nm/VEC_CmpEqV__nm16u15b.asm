@@ -5,11 +5,11 @@ extern nmppsDataXorRamV_ActivateAfifoVr_: label;
 extern _nmppsTmpBuffer64_L_: word;
 
 begin ".text_nmplv"
-	//! \fn void nmppsCmpEqV_16u(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int nSize, int16b shTrueFlag);
+	//! \fn void nmppsCmpEqV_16u15b(nm16u15b* pSrcVec1, nm16u15b* pSrcVec2, nm16s* pDstVec, int nSize, int16b shTrueFlag);
 	//!
-	//! \perfinclude _nmppsCmpEqV_16u.html
-global _nmppsCmpEqV_16u:label;
-<_nmppsCmpEqV_16u>
+	//! \perfinclude _nmppsCmpEqV_16u15b.html
+global _nmppsCmpEqV_16u15b:label;
+<_nmppsCmpEqV_16u15b>
 .branch;    
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;

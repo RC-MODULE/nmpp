@@ -6,12 +6,12 @@ extern _nmppsTmpBuffer64_L_: word;
 
 begin ".text_nmplv"
     //--------------------------------------------------------------------
-	//! \fn void nmppsCmpEqV_8u(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b chTrueFlag);
+	//! \fn void nmppsCmpEqV_8u7b(nm8u7b* pSrcVec1, nm8u7b* pSrcVec2, nm8s* pDstVec, int nSize, int8b chTrueFlag);
 	//!
-	//! \perfinclude _nmppsCmpEqV_8u.html
+	//! \perfinclude _nmppsCmpEqV_8u7b.html
     //--------------------------------------------------------------------
-global _nmppsCmpEqV_8u:label;
-<_nmppsCmpEqV_8u>
+global _nmppsCmpEqV_8u7b:label;
+<_nmppsCmpEqV_8u7b>
 .branch;    
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;

@@ -63,7 +63,7 @@ AR               = nmc-ar
 AS               = asm
 CXXFLAGS 	 = -m$(ARCH) $(INC_DIRS)  -std=c99 -c
 ARFLAGS         = rcs $(TARGET)
-ASFLAGS         =-$(ARCH) -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
+ASFLAGS         =-$(ARCH) -nmc4_fixed -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 .SUFFIXES:
 # regular search of *.c *.cpp,*.asm,*.s sources in all $(SRC_DIRS)

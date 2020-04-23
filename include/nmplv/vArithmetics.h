@@ -81,7 +81,7 @@
         <testperf>
              <param name="pSrcVec"> im0 </param>
              <param name="pDstVec"> im1 </param>
-             <param name="nSize"> 8 128 1024 2048 </param>
+             <param name="nSize"> 16 128 1024 2048 </param>
         </testperf>
     \endxmlonly
 
@@ -2246,7 +2246,7 @@ void nmppsSum_64s(const nm64s* pSrcVec, int nSize, int64b *pnRes);
 
 */
 //! \{
-void nmppsSum_1s (const nm1* pSrcVec, int nSize, int32b* pnRes, void* pTmpBuf);
+void nmppsSum_1 (const nm1* pSrcVec, int nSize, int32b* pnRes, void* pTmpBuf);
 //! \}
 
     /**

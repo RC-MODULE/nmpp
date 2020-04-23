@@ -1,16 +1,15 @@
     //--------------------------------------------------------------------
-extern nmppsDupValueInVector8_: label;
-extern nmppsBuildDiagWeights8_: label;
+extern nmppsDupValueInVector16_: label;
+extern nmppsBuildDiagWeights16_: label;
 extern nmppsDataXorRamN_ActivateAfifoVr_: label;
 extern _nmppsTmpBuffer64_L_: word;
 
 begin ".text_nmplv"
-	//! \fn void nmppsCmpNeC_8u(nm8u7b* pSrcVec,  uint7b chCmpVal,  nm8s* pDstVec, int nSize, int8b chTrueFlag);
+	//! \fn void nmppsCmpNeC_16u15b(nm16u15b* pSrcVec,  uint15b shCmpVal,   nm16s* pDstVec, int nSize, int16b shTrueFlag);
 	//!
-	//! \perfinclude _nmppsCmpNeC_8u.html
-global _nmppsCmpNeC_8u:label;
-       
-<_nmppsCmpNeC_8u>
+	//! \perfinclude nmppsCmpNeC_16u15b.html
+global _nmppsCmpNeC_16u15b:label;
+<_nmppsCmpNeC_16u15b>
 .branch;    
     ar5 = sp - 2;
     push ar0, gr0 with gr0 = false;
@@ -23,20 +22,20 @@ global _nmppsCmpNeC_8u:label;
     gr7 = [--ar5];                  // shCmpVal.
     ar6 = [--ar5];                  // pDstVec.
     gr5 = [--ar5];                  // nSize.
-    gr1 = [--ar5] with gr5 >>= 3;   // shTrueFlag.
+    gr1 = [--ar5] with gr5 >>= 2;   // shTrueFlag.
 
         //--------------------------------
         // Заполнение матрицы и векторов.
     ar1 = _nmppsTmpBuffer64_L_;
-    call nmppsBuildDiagWeights8_;
-    call nmppsDupValueInVector8_ with gr1 = gr7;
+    call nmppsBuildDiagWeights16_;
+    call nmppsDupValueInVector16_ with gr1 = gr7;
         //--------------------------------
     
     ar1 = _nmppsTmpBuffer64_L_;
     nb1 = 0FFFFFFFFh;
-	sb = 02020202h;
-	rep 8 wfifo = [ar1++], ftw, wtw;
-	f1cr = 0FEFEFEFEh;
+	sb = 020002h;
+	rep 4 wfifo = [ar1++], ftw, wtw;
+	f1cr = 0FFFEFFFEh;
     call nmppsDataXorRamN_ActivateAfifoVr_;
         
     
@@ -46,6 +45,6 @@ global _nmppsCmpNeC_8u:label;
     pop ar0, gr0;
     return;
 .wait;
-
     //--------------------------------------------------------------------
+        
 end ".text_nmplv";

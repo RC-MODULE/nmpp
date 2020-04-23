@@ -372,7 +372,7 @@ void nmppsRamp_64s(nm64s* pVec, int64b nOffset, int64b nSlope, int nSize);
         <testperf>
              <param name="pSrcVec"> im0 </param>
              <param name="pDstVec"> im1 </param>
-             <param name="nSize"> 8 128 1024 2048 </param>
+             <param name="nSize"> 64 128 1024 2048 </param>
         </testperf>
     \endxmlonly
 

@@ -82,9 +82,9 @@
              <param name="pSrcMtr1"> im1  </param>
              <param name="pSrcMtr2"> im2  </param>
              <param name="pDstMtr">  im3 </param>
-             <param name="nWidth1"> 16 32 64 </param>
+             <param name="nWidth1">  32 64 </param>
              <param name="nHeight1"> 8 32 64 </param>
-             <param name="nWidth2"> 2 4 8 </param>
+             <param name="nWidth2">  8 8 16</param>
              <size> nWidth1*nHeight1*nWidth2 </size>
         </testperf>
     \endxmlonly
@@ -107,6 +107,16 @@ void nmppmMul_mm_32s64s( nm32s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSr
 
 void nmppmMul_mm_64s64s( nm64s* pSrcMtr1, int nHeight1, int nWidth1,  nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
 
+
+void nmppmMul_mm_32f  ( float* pSrcMtr1,  int nHeight1, int nStride1,
+                        float* pSrcMtr2,  int nWidth1,  int nStride2,
+                        float* pDstMtr,   int nWidth2,  int nStrideDst,  int bPlusDst );
+void nmppmMul_mt_32f  ( float* pSrcMtr1,  int nHeight1, int nStride1,
+                        float* pSrcMtr2,  int nWidth1,  int nStride2,
+                        float* pDstMtr,   int nWidth2,  int nStrideDst,  int bPlusDst );
+
+    //! \}
+
 void nmppmMul_mm_colmajor_8s8s  (const nm8s* pSrcMtr1,  int nHeight1, int nWidth1, const nm8s* pSrcMtr2,  nm8s*  pDstMtr, int nWidth2);
 void nmppmMul_mm_colmajor_8s16s (const nm8s* pSrcMtr1,  int nHeight1, int nWidth1, const nm16s* pSrcMtr2, nm16s* pDstMtr, int nWidth2);
 void nmppmMul_mm_colmajor_8s32s (const nm8s* pSrcMtr1,  int nHeight1, int nWidth1, const nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
@@ -118,15 +128,6 @@ void nmppmMul_mm_colmajor_16s64s(const nm16s* pSrcMtr1, int nHeight1, int nWidth
 
 void nmppmMul_mm_colmajor_32s32s(const nm32s* pSrcMtr1, int nHeight1, int nWidth1, const nm32s* pSrcMtr2, nm32s* pDstMtr, int nWidth2);
 void nmppmMul_mm_colmajor_32s64s(const nm32s* pSrcMtr1, int nHeight1, int nWidth1, const nm64s* pSrcMtr2, nm64s* pDstMtr, int nWidth2);
-
-void nmppmMul_mm_32f  ( float* pSrcMtr1,  int nHeight1, int nStride1,
-                        float* pSrcMtr2,  int nWidth1,  int nStride2,
-                        float* pDstMtr,   int nWidth2,  int nStrideDst,  int bPlusDst );
-void nmppmMul_mt_32f  ( float* pSrcMtr1,  int nHeight1, int nStride1,
-                        float* pSrcMtr2,  int nWidth1,  int nStride2,
-                        float* pDstMtr,   int nWidth2,  int nStrideDst,  int bPlusDst );
-
-    //! \}
 
 
 	//*****************************************************************************
@@ -190,11 +191,11 @@ void nmppmMul_mv_8s64s( nm8s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHei
 void nmppmMul_mv_16s64s( nm16s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
 void nmppmMul_mv_32s64s( nm32s* pSrcMtr,  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
 
+
+    //! \}
 void nmppmMul_mv_colmajor_8s64s (const nm8s*  pSrcMtr,const  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
 void nmppmMul_mv_colmajor_16s64s(const nm16s* pSrcMtr,const  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
 void nmppmMul_mv_colmajor_32s64s(const nm32s* pSrcMtr,const  nm64s* pSrcVec, nm64s* pDstVec, int nHeight, int nWidth);
-
-    //! \}
 
 	/**
     \defgroup nmppmMul_mv_8xH nmppmMul_mv_8xH

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл G:/nmpp/include/nmpls/sCorrelation.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_1f30cf843b9ea20f6dea0da1ef33de82.html">include</a></li><li class="navelem"><a class="el" href="dir_4c9b5858b9f270e59ba9806334240e87.html">nmpls</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">sCorrelation.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//------------------------------------------------------------------------</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  $Workfile:: sConvolution. $</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Векторно-матричная библиотека</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//  Copyright (c) RC Module Inc.</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//  $Revision: 1.1 $      $Date: 2005/01/12 14:09:07 $</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#ifndef _SCONVOLUTION_H_INCLUDED_</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define _SCONVOLUTION_H_INCLUDED_</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="nmtype_8h.html">nmtype.h</a>&quot;</span></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//*****************************************************************************</span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">void</span> SIG_XCorr_32s(<a class="code" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pSrcVec, <span class="keywordtype">int</span> nSrcVecSize,<a class="code" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pKernel, <span class="keywordtype">int</span> nKernelSize, <a class="code" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pDstVec, <span class="keywordtype">void</span>* pTmpBuf);</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> SIG_XCorr_16s32s(<a class="code" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a>* pSrcVec, <span class="keywordtype">int</span> nSrcVecSize,<a class="code" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pKernel, <span class="keywordtype">int</span> nKernelSize, <a class="code" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pDstVec, <span class="keywordtype">void</span>* pTmpBuf);</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">void</span> SIG_XCorr_8s32s(<a class="code" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a>* pSrcVec,  <span class="keywordtype">int</span> nSrcVecSize,<a class="code" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pKernel, <span class="keywordtype">int</span> nKernelSize, <a class="code" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pDstVec, <span class="keywordtype">void</span>* pTmpBuf);</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="group__nmvectype_html_ga340133c964d0ae670f3bd3ff3a6b172a"><div class="ttname"><a href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a></div><div class="ttdeci">int nm32s</div><div class="ttdef"><b>Definition:</b> <a href="nmtype_8h_source.html#l00292">nmtype.h:292</a></div></div>
+<div class="ttc" id="nmtype_8h_html"><div class="ttname"><a href="nmtype_8h.html">nmtype.h</a></div></div>
+<div class="ttc" id="group__nmvectype_html_ga3f652021fc381bc06646b4622fb24ad2"><div class="ttname"><a href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a></div><div class="ttdeci">void nm16s</div><div class="ttdef"><b>Definition:</b> <a href="nmtype_8h_source.html#l00239">nmtype.h:239</a></div></div>
+<div class="ttc" id="group__nmvectype_html_ga0b5a4182e80e797c3a7589069b9fc2e4"><div class="ttname"><a href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a></div><div class="ttdeci">void nm8s</div><div class="ttdef"><b>Definition:</b> <a href="nmtype_8h_source.html#l00163">nmtype.h:163</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:46:59. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

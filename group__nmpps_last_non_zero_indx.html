@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsLastNonZeroIndx</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppsLastNonZeroIndx<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_select.html">Операции сравнения</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Поиск позиции последнего ненулевого элемента в векторе .  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga18c62fcfa85245a00b1d339448dffe32"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_last_non_zero_indx.html#ga18c62fcfa85245a00b1d339448dffe32">nmppsLastNonZeroIndx_32s</a> (int *pSrcVec, int nSize)</td></tr>
+<tr class="separator:ga18c62fcfa85245a00b1d339448dffe32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Поиск позиции последнего ненулевого элемента в векторе . </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td>Входной массив.</td></tr>
+    <tr><td class="paramname">nIndex</td><td>Размер массива.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Позиция нулевого элемента или -1 в случае если нулевой элемент не найден</dd></dl>
+<dl class="section user"><dt>Restrictions:</dt><dd>Вычисления проиводятся на скалярном ядре, поэтому указатель на данные pSrcVec может ссылаться на нечетный адрес. Поиск производится с конца до первого ненулевого элемента.</dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga18c62fcfa85245a00b1d339448dffe32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga18c62fcfa85245a00b1d339448dffe32">&#9670;&nbsp;</a></span>nmppsLastNonZeroIndx_32s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nmppsLastNonZeroIndx_32s </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>8 </td><td>1727 </td><td>215.87 </td></tr>
+<tr>
+<td>im0 </td><td>64 </td><td>11700 </td><td>182.81 </td></tr>
+<tr>
+<td>im0 </td><td>512 </td><td>90862 </td><td>177.46 </td></tr>
+<tr>
+<td>im1 </td><td>8 </td><td>1742 </td><td>217.75 </td></tr>
+<tr>
+<td>im1 </td><td>64 </td><td>11624 </td><td>181.62 </td></tr>
+<tr>
+<td>im1 </td><td>512 </td><td>90547 </td><td>176.85 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>512 </td><td>90547 </td><td>176.85 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>8 </td><td>1742 </td><td>217.75 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

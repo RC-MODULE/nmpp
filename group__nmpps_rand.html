@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsRand</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppsRand<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmppc_group.html">Скалярные функции</a> &raquo; <a class="el" href="group__c_init.html">Инициализация</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Генерация случайного числа с равномерным раcпределением.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga9ba010da05658a8914e72e2c0b960186"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_rand.html#ga9ba010da05658a8914e72e2c0b960186">nmppcRandMinMaxDiv</a> (int nMin, int nMax, int nDivisible)</td></tr>
+<tr class="separator:ga9ba010da05658a8914e72e2c0b960186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga05651844a6fd852734bef5195f7f1da7"><td class="memItemLeft" align="right" valign="top"><a id="ga05651844a6fd852734bef5195f7f1da7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>nmppcRandMinMax</b> (int nMin, int nMax)</td></tr>
+<tr class="separator:ga05651844a6fd852734bef5195f7f1da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa3c733ce50141d1d63a241a4b1c1a2e6"><td class="memItemLeft" align="right" valign="top"><a id="gaa3c733ce50141d1d63a241a4b1c1a2e6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>nmppcRand</b> ()</td></tr>
+<tr class="separator:gaa3c733ce50141d1d63a241a4b1c1a2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Генерация случайного числа с равномерным раcпределением. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nMin</td><td>Минимальное возможное значение случайного числа.</td></tr>
+    <tr><td class="paramname">nMax</td><td>Максимальное возможное значение случайного числа.</td></tr>
+    <tr><td class="paramname">nDivisible</td><td>Значение, которому будет кратно случайное число.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>int</em> Случайное число в диапазоне либо [nMin, nMax]. Для функции без параметров данный диапазон [-2^31; 2^31-1].</dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga9ba010da05658a8914e72e2c0b960186"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9ba010da05658a8914e72e2c0b960186">&#9670;&nbsp;</a></span>nmppcRandMinMaxDiv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nmppcRandMinMaxDiv </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nMin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nMax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nDivisible</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>nMin </th><th>nMax </th><th>nDivisible </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>0 </td><td>10240 </td><td>1 </td><td>5598 </td><td>5598.00 </td></tr>
+<tr>
+<td>128 </td><td>10240 </td><td>1 </td><td>5670 </td><td>5670.00 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>nMin </th><th>nMax </th><th>nDivisible </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>0 </td><td>10240 </td><td>1 </td><td>5598 </td><td>5598.00 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>nMin </th><th>nMax </th><th>nDivisible </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>128 </td><td>10240 </td><td>1 </td><td>5670 </td><td>5670.00 </td></tr>
+</table>
+<p>Perfomance table 1</p>
+<table class="doxtable">
+<tr>
+<th>nMin </th><th>nMax </th><th>nDivisible </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>128 </td><td>1024 </td><td>1 </td><td>5704 </td><td>5704.00 </td></tr>
+<tr>
+<td>128 </td><td>10240 </td><td>1 </td><td>5651 </td><td>5651.00 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>nMin </th><th>nMax </th><th>nDivisible </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>128 </td><td>10240 </td><td>1 </td><td>5651 </td><td>5651.00 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>nMin </th><th>nMax </th><th>nDivisible </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>128 </td><td>1024 </td><td>1 </td><td>5704 </td><td>5704.00 </td></tr>
+</table>
+<p>Perfomance table 2</p>
+<table class="doxtable">
+<tr>
+<th>nMin </th><th>nMax </th><th>nDivisible </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>128 </td><td>10240 </td><td>1 </td><td>5660 </td><td>5660.00 </td></tr>
+<tr>
+<td>128 </td><td>10240 </td><td>2 </td><td>5286 </td><td>5286.00 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>nMin </th><th>nMax </th><th>nDivisible </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>128 </td><td>10240 </td><td>2 </td><td>5286 </td><td>5286.00 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>nMin </th><th>nMax </th><th>nDivisible </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>128 </td><td>10240 </td><td>1 </td><td>5660 </td><td>5660.00 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:46:59. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

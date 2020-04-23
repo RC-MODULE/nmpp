@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsWeightedSum</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppsWeightedSum<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_arithmetics.html">Арифметические операции</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Поэлементное взвешенное суммирование элементов двух векторов  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga4ffe3afa697f6582d29457c4cdc09fed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_weighted_sum.html#ga4ffe3afa697f6582d29457c4cdc09fed">nmppsWeightedSum_8s16s</a> (<a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *pSrcVec1, int nW1, <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *pSrcVec2, int nW2, <a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga4ffe3afa697f6582d29457c4cdc09fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7c7580bede55d5d505b2f12663b16f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_weighted_sum.html#gaa7c7580bede55d5d505b2f12663b16f8">nmppsWeightedSum_16s32s</a> (<a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *pSrcVec1, int nW1, <a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *pSrcVec2, int nW2, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gaa7c7580bede55d5d505b2f12663b16f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada240b0b6b11813b441321dc61292ae2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_weighted_sum.html#gada240b0b6b11813b441321dc61292ae2">nmppsWeightedSum_32s64s</a> (<a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pSrcVec1, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> nW1, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pSrcVec2, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> nW2, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gada240b0b6b11813b441321dc61292ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Поэлементное взвешенное суммирование элементов двух векторов </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ pDstVec[i] = nW1 \cdot pSrcVec1[i] + nW2 \cdot pSrcVec2[i], \]" src="form_35.png"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ = \overline{0 \ldots nSize-1} \]" src="form_36.png"/>
+</p>
+<pre class="fragment">  \param pSrcVec1
+</pre><p> 1-ый входной вектор. </p><pre class="fragment"> \param nW1
+</pre><p> 1-ый весовой коэффициент </p><pre class="fragment"> \param pSrcVec2
+</pre><p> 2-ой входной вектор. </p><pre class="fragment"> \param nW2
+</pre><p> 2-ой весовой коэффициент </p><pre class="fragment"> \param nSize
+</pre><p> Размер векторов в элементах. </p><pre class="fragment"> \retval pDstVec
+</pre><p> Результирующий вектор.</p>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="gaa7c7580bede55d5d505b2f12663b16f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa7c7580bede55d5d505b2f12663b16f8">&#9670;&nbsp;</a></span>nmppsWeightedSum_16s32s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsWeightedSum_16s32s </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nW1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nW2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nW1 </th><th>nW2 </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1510 </td><td>188.75 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1381 </td><td>10.79 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>2642 </td><td>2.58 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>4337 </td><td>2.12 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1405 </td><td>2C;.DA </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1406 </td><td>10.98 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>2766 </td><td>2.70 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>4291 </td><td>2.10 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1385 </td><td>173.12 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1357 </td><td>10.60 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>2659 </td><td>2.60 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>4471 </td><td>2.18 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1523 </td><td>190.37 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1369 </td><td>10.70 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>2674 </td><td>2.61 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>4454 </td><td>2.17 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1412 </td><td>176.50 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1375 </td><td>10.74 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>2733 </td><td>2.67 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>4345 </td><td>2.12 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1524 </td><td>190.50 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1471 </td><td>11.49 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>2753 </td><td>2.69 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>4257 </td><td>2.08 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1522 </td><td>190.25 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1355 </td><td>10.59 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>2682 </td><td>2.62 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>4287 </td><td>2.09 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1531 </td><td>191.37 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1361 </td><td>10.63 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>2672 </td><td>2.61 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>4367 </td><td>2.13 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nW1 </th><th>nW2 </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>4257 </td><td>2.08 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nW1 </th><th>nW2 </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1531 </td><td>191.37 </td></tr>
+</table>
+
+</div>
+</div>
+<a id="gada240b0b6b11813b441321dc61292ae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gada240b0b6b11813b441321dc61292ae2">&#9670;&nbsp;</a></span>nmppsWeightedSum_32s64s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsWeightedSum_32s64s </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>&#160;</td>
+          <td class="paramname"><em>nW1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>&#160;</td>
+          <td class="paramname"><em>nW2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nW1 </th><th>nW2 </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1614 </td><td>201.75 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1665 </td><td>13.01 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>4411 </td><td>4.31 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>7743 </td><td>3.78 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1588 </td><td>198.50 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1659 </td><td>12.96 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>4635 </td><td>4.53 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>7643 </td><td>3.73 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1495 </td><td>186.87 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1727 </td><td>13.49 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>4422 </td><td>4.32 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>7687 </td><td>3.75 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1468 </td><td>183.50 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1656 </td><td>12.94 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>4507 </td><td>4.40 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>7560 </td><td>3.69 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1476 </td><td>184.50 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1788 </td><td>13.97 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>4417 </td><td>4.31 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>7561 </td><td>3.69 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1603 </td><td>200.37 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1797 </td><td>14.04 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>4420 </td><td>4.32 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>7548 </td><td>3.69 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1593 </td><td>199.12 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1800 </td><td>14.06 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>4533 </td><td>4.43 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>7658 </td><td>3.74 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1591 </td><td>198.87 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1650 </td><td>12.89 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>4623 </td><td>4.51 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>7552 </td><td>3.69 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nW1 </th><th>nW2 </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>7548 </td><td>3.69 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nW1 </th><th>nW2 </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1614 </td><td>201.75 </td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga4ffe3afa697f6582d29457c4cdc09fed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4ffe3afa697f6582d29457c4cdc09fed">&#9670;&nbsp;</a></span>nmppsWeightedSum_8s16s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsWeightedSum_8s16s </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nW1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nW2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nW1 </th><th>nW2 </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1476 </td><td>184.50 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1471 </td><td>11.49 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>2042 </td><td>1.99 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>2825 </td><td>1.38 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1577 </td><td>197.12 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1484 </td><td>11.59 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>2027 </td><td>1.98 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>2820 </td><td>1.38 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1458 </td><td>182.25 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1452 </td><td>11.34 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>2154 </td><td>2.10 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>2930 </td><td>1.43 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1595 </td><td>199.37 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1465 </td><td>11.45 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>2131 </td><td>2.08 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>2809 </td><td>1.37 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1578 </td><td>197.25 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1589 </td><td>12.41 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>2044 </td><td>2.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>2882 </td><td>1.41 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1578 </td><td>197.25 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1448 </td><td>11.31 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>2027 </td><td>1.98 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>2805 </td><td>1.37 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1601 </td><td>200.12 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>128 </td><td>1582 </td><td>12.36 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>1024 </td><td>2081 </td><td>2.03 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>2048 </td><td>2926 </td><td>1.43 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>8 </td><td>1458 </td><td>182.25 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>128 </td><td>1568 </td><td>12.25 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>1024 </td><td>2099 </td><td>2.05 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>2926 </td><td>1.43 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nW1 </th><th>nW2 </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>0 </td><td>0 </td><td>2048 </td><td>2805 </td><td>1.37 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nW1 </th><th>nW2 </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im1 </td><td>0 </td><td>0 </td><td>8 </td><td>1601 </td><td>200.12 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

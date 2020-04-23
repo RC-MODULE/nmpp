@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Функции графического вывода текста</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Функции графического вывода текста<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmppi_group.html">Функции обработки изображений</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="memitem:ga312f60c1ab228e4daf0a80da201cb158"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmppi_print.html#ga312f60c1ab228e4daf0a80da201cb158">nmppiPrint8x15</a> (char *str, void *img, int imgWidth, int x, int y, int FGcolor, int BGcolor)</td></tr>
+<tr class="memdesc:ga312f60c1ab228e4daf0a80da201cb158"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints text over 8-bit grayscale image buffer with 8x15 font size.  <a href="#ga312f60c1ab228e4daf0a80da201cb158">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga312f60c1ab228e4daf0a80da201cb158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2295bfe028c4fdd43ff4073da02ca039"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmppi_print.html#ga2295bfe028c4fdd43ff4073da02ca039">hex2ascii</a> (int value, char *str)</td></tr>
+<tr class="memdesc:ga2295bfe028c4fdd43ff4073da02ca039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts integer to 8-byte string in hexadecimal base.  <a href="#ga2295bfe028c4fdd43ff4073da02ca039">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga2295bfe028c4fdd43ff4073da02ca039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<h2 class="groupheader">Функции</h2>
+<a id="ga2295bfe028c4fdd43ff4073da02ca039"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2295bfe028c4fdd43ff4073da02ca039">&#9670;&nbsp;</a></span>hex2ascii()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* hex2ascii </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts integer to 8-byte string in hexadecimal base. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Value to be converted to a string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>Array in memory where to store the resulting null-terminated string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>A pointer to the resulting null-terminated string, same as parameter str.</dd></dl>
+<p>Details </p>
+
+</div>
+</div>
+<a id="ga312f60c1ab228e4daf0a80da201cb158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga312f60c1ab228e4daf0a80da201cb158">&#9670;&nbsp;</a></span>nmppiPrint8x15()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nmppiPrint8x15 </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>img</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>imgWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>FGcolor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>BGcolor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints text over 8-bit grayscale image buffer with 8x15 font size. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>String to be printed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">img</td><td>Pointer to 8-bit grayscale image , where text should be printed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">imgWidth</td><td>Image width </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Horizontal positon in image where text should be printed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Vertical positon in image where text should be printed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">FGcolor</td><td>Foreground text color </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">BGcolor</td><td>Background text color </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>x-coordinate behind printed text</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Russian text is supported in win-1251 codepage </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:46:59. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,117 @@
+\form#0:\[ Res = 2^nFixpoint/nVal \]
+\form#1:\[ // pDstImg[y][x] = \sum\limits_{i = 0}^{nKerHeight-1} \sum\limits_{j = 0}^{nKerWidth-1} {pSrcImg[y+i-nKerHeight/2][x+j-nKerWidth/2] \cdot pWeights[i][j]} ,x=0 \ldots nImgWidth-1,y=0 \ldots nImgHeight-1 // \]
+\form#2:\[ A \cdot x = b \]
+\form#3:\[ A \cdot X = B \]
+\form#4:\[ pDstVec(i) = \sum_{j=0}^{w-1} pSrcMtr(i, j) \]
+\form#5:\[ pMtr[nY][nX] = nVal \]
+\form#6:\[ nVal=pMtr[nY][nX] \]
+\form#7:\[ DstVec_i = \sum \limits_{j = 0}^{nKernelSize - 1} pSrcVec[i + j] \cdot pKernel[j] \]
+\form#8:\[ i = \overline{0 \ldots nSrcVecSize-nKernelSize+1} \]
+\form#9:\[ pDstVec = \frac{1}{2} \left( pSrcVec(2*x) + pSrcVec(2*x+1) \right) \]
+\form#10:\[ pDstVec[i] = abs \{ pSrcVec[i] \}, \]
+\form#11:\[ i = \overline{0 \ldots nSize-1} \]
+\form#12:\[ pDstVec[i] = \{ \begin{array}{lcl} pSrcVec[i], & if & pSrcVec[i] \ge 0 \\ -pSrcVec[i]-1, & if & pSrcVec[i] < 0 \\ \end{array} \]
+\form#13:\[ pDstVec[i] = - pDstVec[i] \]
+\form#14:\[ pDstVec[i] = pSrcVec[i] + nVal, \]
+\form#15:\[ pDstVec[i] = pSrcVec1[i] + pSrcVec2[i], \]
+\form#16:\[ pDstVec[i] = pSrcVec1[i] + pSrcVec2[i] + nVal, \]
+\form#17:\[ pDstVec[i] = pSrcVec[i] - nVal \]
+\form#18:\[ pDstVec[i] = nVal - pSrcVec[i], \]
+\form#19:\[ pDstVec[i] = C - pSrcVec[i] \]
+\form#20:\[ pDstVec[i] = pSrcVec1[i] - pSrcVec2[i] \]
+\form#21:\[ pDstVec[i] = abs \{ pSrcVec1[i] - pSrcVec2[i]\}, \]
+\form#22:\[ pDstVec[i] = \{ \begin{array}{lcl} pSrcVec1[i] - pSrcVec2[i] , & if & pSrcVec1[i] - pSrcVec2[i] \ge 0 \\ pSrcVec1[i] - pSrcVec2[i]-1, & if & pSrcVec1[i] - pSrcVec2[i] < 0 \\ \end{array} \]
+\form#23:\[ pDstVec[i] = nVal \cdot pSrcVec[i], \]
+\form#24:\[ pDstVec[i] = pSrcVec1[i] \cdot pSrcVec2[i] + nVal, \]
+\form#25:\[ pDstVec[i] = nMulVal \cdot pSrcVec[i] + nAddVal, \]
+\form#26:\[ \quad i = \overline{0 \ldots nSize-1} \]
+\form#27:\[ dataSparseDst[i \cdot stepSparseDst][k] = dataSparseSrc[i \cdot stepSparseSrc][k]\cdot mulArg[k] + addArg[k], \]
+\form#28:\[ i = \overline{0 \ldots size-1}; k = \overline{0 \ldots K-1}, \]
+\form#29:\[ dataSparseDst[i \cdot stepSparseDst][k] = (dataSparseSrc[i \cdot stepSparseSrc][k]>>preshiftArg[k])\cdot mulArg[k] + addArg[k], \]
+\form#30:\[ pDstVec[i] = nMulVal \cdot pSrcVec1[i] + pSrcVec2[i] + nAddVal, \]
+\form#31:\[ pDstVec[i] = \sum\limits_{j = 0}^{(nNumberOfVectors - 1)} {ppSrcVec(j)(i)} \]
+\form#32:\[ pDstVec[i] = \frac {pSrcVec[i]}{Divisor}, \]
+\form#33:\[ return = \sum\limits_{i = 0}^{(nSize - 1)} {pSrcVec[i]} \]
+\form#34:\[ nRes = \sum_{i=}^{nSize-1} pSrcVec1[i] \cdot pSrcVec2[i] \]
+\form#35:\[ pDstVec[i] = nW1 \cdot pSrcVec1[i] + nW2 \cdot pSrcVec2[i], \]
+\form#36:\[ = \overline{0 \ldots nSize-1} \]
+\form#37:\[ pDstVec[i] = \overline {pSrcVec[i]}, \]
+\form#38:\[ pDstVec[i] = pSrcVec[i] \wedge nVal, \]
+\form#39:\[ pDstVec[i] = pSrcVec1[i] \wedge pSrcVec2[i] \]
+\form#40:\[ pDstVec[i] = pSrcVec1[i] \wedge pSrcVec2[i] \wedge pSrcVec3[i] \wedge pSrcVec4[i] \]
+\form#41:\[ pDstVec[i] = pSrcVec1[i] \wedge not pSrcVec2[i] \]
+\form#42:\[ pDstVec[i] = pSrcVec[i] \vee nVal \]
+\form#43:\[ pDstVec[i] = pSrcVec1[i] \vee pSrcVec2[i] \]
+\form#44:\[ pDstVec[i] = pSrcVec1[i] \vee pSrcVec2[i] \vee pSrcVec3[i] \]
+\form#45:\[ pDstVec[i] = pSrcVec1[i] \vee pSrcVec2[i] \vee pSrcVec3[i] \vee pSrcVec4[i] \]
+\form#46:\[ pDstVec[i] = (pSrcVec1[i] \qquad and \qquad pMaskVec[i]) \qquad or \qquad (pSrcVec2[i] \qquad and \qquad \overline { pMaskVec[i]} ) \]
+\form#47:\[ pDstVec[i] = pSrcVec[i] >> nShift, \]
+\form#48:\[ pDstVec[i] = (pSrcVec[i] >> nShift) + nAddVal, \]
+\form#49:\[ pVec[i] = nVal, \]
+\form#50:\[ pVec[i] = nOffset + nSlope \cdot i \]
+\form#51:\[ pDstVec[i] = pSrcVec[i], \]
+\form#52:\[ pDstVec[i] = pSrcVec[nSrcOffset+i] \]
+\form#53:\[ nMaxValue = \mathop {max}\limits_{i} \left({pSrcVec[i]} \right) \]
+\form#54:\[ nMinValue = \mathop {min}\limits_{i} \left({pSrcVec[i]} \right) \]
+\form#55:\[ nMaxValue = \mathop {max} \limits_{i} \left(pSrcVec[i] \right) \]
+\form#56:\[ nMinValue = \mathop {min} \limits_{i} \left(pSrcVec[i] \right) \]
+\form#57:\[ pDstMinVec[i] = \min (pSrcVec1[i], pSrcVec2[i]) \]
+\form#58:$ 2^{15}-1 $
+\form#59:\[ pDstMaxVec[i] = \max (pSrcVec1[i], pSrcVec2[i]) \]
+\form#60:\[ pDstMin[i] = \min (pSrcVec1[i], pSrcVec2[i]) \]
+\form#61:\[ pDstSignMask[i] = \left\{ \begin{array}{ll} 11 \ldots 1b, & pSrcVec1[i] < pSrcVec2[i] \\ 00 \ldots 0b, & pSrcVec1[i] <= pSrcVec2[i] \\ \end{array} \right. \]
+\form#62:\[ pDstVec(i) = \{ \begin{array}{lcl} 11 \ldots 1b, & if & pSrcVec(i) < 0 \\ 00 \ldots 0b, & if & pSrcVec(i) \ge 0 \\ \end{array} \]
+\form#63:\[ pDstVec(i) = \{ \begin{array}{lcl} 1, & if & pSrcVec(i) = 0 \\ 0, & if & pSrcVec(i) \neq 0\\ \end{array}, if~ nTrueFlag=1 \]
+\form#64:\[ pDstVec(i) = \{ \begin{array}{lcl} 0, & if & pSrcVec(i) = 0 \\ 1, & if & pSrcVec(i) \neq 0\\ \end{array}, if~ nTrueFlag=0 \]
+\form#65:\[ pDstVec(i) = \{ \begin{array}{lcl} 11 \ldots 1b, & if & pSrcVec(i) > 0 \\ 00 \ldots 0b, & if & pSrcVec(i) \le 0 \\ \end{array} \]
+\form#66:\[ pDstMax[i] = \max (pSrcVec1[i], pSrcVec2[i]) \]
+\form#67:\[ pDstVec[i] = \left \{ \begin{array}{lcl} -2^{nClipFactor}, & if & pSrcVec[i] < -2^{nClipFactor} \\ pSrcVec[i], & if & -2^{nClipFactor} \le pSrcVec[i] \le 2^{nClipFactor}-1 \\ 2^{nClipFactor}-1, & if & pSrcVec[i] > 2^{nClipFactor}-1 \\ \end{array} \right. \]
+\form#68:\[ pDstVec[i] = \left \{ \begin{array}{lcl} nPosThresh, & if & pSrcVec[i] > nPosThresh \\ pSrcVec[i], & if & nNegThresh \le pSrcVec[i] \le nPosThresh \\ nNegThresh, & if & pSrcVec[i] < nNegThresh \\ \end{array} \right. \]
+\form#69:$ nPosThresh \subset [0 \ldots 2^{30}-1] $
+\form#70:$ nNegThresh \subset [-2^{30} \ldots 0] $
+\form#71:\[ pDstVec[i] = \left \{ \begin{array}{lcl} max, & if & pSrcVec[i] > max \\ pSrcVec[i], & if & min \le pSrcVec[i] \le max \\ min, & if & pSrcVec[i] < min \\ \end{array} \right. \]
+\form#72:\[ pDstVec[i] = Convert(Clip(pSrcVec[i],nClipFactor) >> nShift) + nAddValue \]
+\form#73:\[ pDstVec[i] = Convert(Clip(pSrcVec[i],nClipFactor)) + nAddValue \]
+\form#74:\[ pDstVec(i) = \{ \begin{array}{lcl} nTrueFlag, & if & pSrcVec(i) = nCmpVal \\ 0, & if & pSrcVec(i) \neq nCmpVal \\ \end{array} \]
+\form#75:\[ pDstVec(i) = \{ \begin{array}{lcl} -1, & if & pSrcVec(i) \neq 0 \\ 0, & if & pSrcVec(i) = 0 \\ \end{array} \]
+\form#76:\[ pDstVec(i) = \{ \begin{array}{lcl} -1, & if & pSrcVec(i) = 0 \\ 0, & if & pSrcVec(i) \neq 0 \\ \end{array} \]
+\form#77:\[ pDstVec(i) = \{ \begin{array}{lcl} nTrueFlag, & if & pSrcVec(i) \neq nCmpVal \\ 0, & if & pSrcVec(i) = nCmpVal \\ \end{array} \]
+\form#78:\[ pVec(nIndex) = Val \]
+\form#79:\[ pDstVec[i]=pSrcVec[pRemapTable[i]], \]
+\form#80:$[-1,0]$
+\form#81:$[-2^1,\ldots,+2^1-1]=[-2,\ldots,+1]$
+\form#82:$[-2^3,\ldots,+2^3-1]=[-8,\ldots,+7]$
+\form#83:$[-2^7,\ldots,+2^7-1]=[-128,\ldots,+127]$
+\form#84:$[-2^6,\ldots,+2^6-1]=[-64,\ldots,+63]$
+\form#85:$[-2^{15},\ldots,^+2^{15}-1]$
+\form#86:$[-2^{14},\ldots,+2^{14}-1]$
+\form#87:$[-2^{31},\ldots,+2^{31}-1]$
+\form#88:$[-2^{30},\ldots,2^{30}-1]$
+\form#89:$[-2^{29},\ldots,2^{29}-1]$
+\form#90:$[-2^{63},\ldots,^+2^{63}-1]$
+\form#91:$[-2^{62},\ldots,+2^{62}-1]$
+\form#92:$[0,\ldots,+2^2-1]=[0,\ldots,3]$
+\form#93:$[0,\ldots,+2^4-1]=[0,\ldots,15]$
+\form#94:$[0,\ldots,+2^3-1]=[0,\ldots,7]$
+\form#95:$[0,\ldots,+2^8-1]=[0,\ldots,255]$
+\form#96:$[0,\ldots,+2^7-1]=[0,\ldots,127]$
+\form#97:$[0,\ldots,2^{16}-1]$
+\form#98:$[-2^{14},\ldots,^+2^{14}-1]$
+\form#99:$[0,\ldots,2^{32}-1]$
+\form#100:$[0,\ldots,2^{31}-1]$
+\form#101:$[0,\ldots,2^{64}-1]$
+\form#102:$[-2^2,\ldots,+2^2-1]=[-4,\ldots,+3]$
+\form#103:$[-2^{15},\ldots,+2^{15}-1]$
+\form#104:$[-2^{29},\ldots,+2^{29}-1]$
+\form#105:$[-2^{30},\ldots,+2^{30}-1]$
+\form#106:$[-2^{63},\ldots,+2^{63}-1]$
+\form#107:$[0,1]=[0,1]$
+\form#108:$[0,\ldots,2^2-1]=[0,\ldots,3]$
+\form#109:$[0,\ldots,2^3-1]=[0,\ldots,7]$
+\form#110:$[0,\ldots,2^4-1]=[0,\ldots,15]$
+\form#111:$[0,\ldots,2^7-1]=[0,\ldots,127]$
+\form#112:$[0,\ldots,2^8-1]=[0,\ldots,255]$
+\form#113:$[0,\ldots,2^{15}-1]$
+\form#114:$[0,\ldots,2^{63}-1]$
+\form#115:$[-64,\ldots,+63]$
+\form#116:$[0,\ldots,7]$

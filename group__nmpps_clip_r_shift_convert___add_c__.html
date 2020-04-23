@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsClipRShiftConvert_AddC_</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppsClipRShiftConvert_AddC_<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_select.html">Операции сравнения</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Сокращение разрядности данных c предварительной их обработкой.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga07268850908a75740967be7dce9807cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_clip_r_shift_convert___add_c__.html#ga07268850908a75740967be7dce9807cb">nmppsClipRShiftConvertAddC_16s8s</a> (<a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *pSrcVec, int nClipFactor, int nShift, <a class="el" href="group__nmtype.html#ga76ec3af99402ffbf69b57b18f11defad">int8b</a> nAddValue, <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga07268850908a75740967be7dce9807cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ebf6070bc28190f69f731cbba3a49df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_clip_r_shift_convert___add_c__.html#ga2ebf6070bc28190f69f731cbba3a49df">nmppsClipRShiftConvertAddC_32s8s</a> (<a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pSrcVec, int nClipFactor, int nShift, <a class="el" href="group__nmtype.html#ga76ec3af99402ffbf69b57b18f11defad">int8b</a> nAddValue, <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga2ebf6070bc28190f69f731cbba3a49df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Сокращение разрядности данных c предварительной их обработкой. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ pDstVec[i] = Convert(Clip(pSrcVec[i],nClipFactor) &gt;&gt; nShift) + nAddValue \]" src="form_72.png"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ i = \overline{0 \ldots nSize-1} \]" src="form_11.png"/>
+</p>
+<p>Сокращение разрядности данных выполняется после предварительной обработки и осуществляется путем отбрасывания старших битов.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td>Входной вектор.</td></tr>
+    <tr><td class="paramname">nClipFactor</td><td>Показатель степени, определяющий верхний и нижний пороги насыщения. =[1,2,3...15]</td></tr>
+    <tr><td class="paramname">nShift</td><td>Параметр определяет на сколько позиций =[2,4,6...14] нужно сдвинуть биты элементов вектора;</td></tr>
+    <tr><td class="paramname">nAddValue</td><td>Добавляемая константа.</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер векторов в элементах.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td>Результирующий вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga07268850908a75740967be7dce9807cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga07268850908a75740967be7dce9807cb">&#9670;&nbsp;</a></span>nmppsClipRShiftConvertAddC_16s8s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsClipRShiftConvertAddC_16s8s </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nClipFactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nShift</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmtype.html#ga76ec3af99402ffbf69b57b18f11defad">int8b</a>&#160;</td>
+          <td class="paramname"><em>nAddValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2430 </td><td>0.59 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2305 </td><td>0.56 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2297 </td><td>0.56 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2291 </td><td>0.56 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2291 </td><td>0.56 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2430 </td><td>0.59 </td></tr>
+</table>
+<p>Perfomance table 1</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>1 </td><td>2 </td><td>127 </td><td>4096 </td><td>2308 </td><td>0.56 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2296 </td><td>0.56 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>15 </td><td>2 </td><td>127 </td><td>4096 </td><td>2298 </td><td>0.56 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2296 </td><td>0.56 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>1 </td><td>2 </td><td>127 </td><td>4096 </td><td>2308 </td><td>0.56 </td></tr>
+</table>
+<p>Perfomance table 2</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2390 </td><td>0.58 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>4 </td><td>127 </td><td>4096 </td><td>2311 </td><td>0.56 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>6 </td><td>127 </td><td>4096 </td><td>2414 </td><td>0.59 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>4 </td><td>127 </td><td>4096 </td><td>2311 </td><td>0.56 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>6 </td><td>127 </td><td>4096 </td><td>2414 </td><td>0.59 </td></tr>
+</table>
+<p>Perfomance table 3</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>0 </td><td>4096 </td><td>2421 </td><td>0.59 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>64 </td><td>4096 </td><td>2307 </td><td>0.56 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2294 </td><td>0.56 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2294 </td><td>0.56 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>0 </td><td>4096 </td><td>2421 </td><td>0.59 </td></tr>
+</table>
+<p>Perfomance table 4</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>8 </td><td>636 </td><td>79.50 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>128 </td><td>645 </td><td>5.04 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>1024 </td><td>951 </td><td>0.93 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2294 </td><td>0.56 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>2294 </td><td>0.56 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>8 </td><td>636 </td><td>79.50 </td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga2ebf6070bc28190f69f731cbba3a49df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2ebf6070bc28190f69f731cbba3a49df">&#9670;&nbsp;</a></span>nmppsClipRShiftConvertAddC_32s8s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsClipRShiftConvertAddC_32s8s </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nClipFactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nShift</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmtype.html#ga76ec3af99402ffbf69b57b18f11defad">int8b</a>&#160;</td>
+          <td class="paramname"><em>nAddValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3343 </td><td>0.82 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3327 </td><td>0.81 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3332 </td><td>0.81 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3333 </td><td>0.81 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3327 </td><td>0.81 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3343 </td><td>0.82 </td></tr>
+</table>
+<p>Perfomance table 1</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>1 </td><td>2 </td><td>127 </td><td>4096 </td><td>3355 </td><td>0.82 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3334 </td><td>0.81 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>15 </td><td>2 </td><td>127 </td><td>4096 </td><td>3332 </td><td>0.81 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>15 </td><td>2 </td><td>127 </td><td>4096 </td><td>3332 </td><td>0.81 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>1 </td><td>2 </td><td>127 </td><td>4096 </td><td>3355 </td><td>0.82 </td></tr>
+</table>
+<p>Perfomance table 2</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3354 </td><td>0.82 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>4 </td><td>127 </td><td>4096 </td><td>3354 </td><td>0.82 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>6 </td><td>127 </td><td>4096 </td><td>3441 </td><td>0.84 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3354 </td><td>0.82 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>6 </td><td>127 </td><td>4096 </td><td>3441 </td><td>0.84 </td></tr>
+</table>
+<p>Perfomance table 3</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>0 </td><td>4096 </td><td>3459 </td><td>0.84 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>64 </td><td>4096 </td><td>3463 </td><td>0.85 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3456 </td><td>0.84 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3456 </td><td>0.84 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>64 </td><td>4096 </td><td>3463 </td><td>0.85 </td></tr>
+</table>
+<p>Perfomance table 4</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>8 </td><td>646 </td><td>80.75 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>128 </td><td>650 </td><td>5.08 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>1024 </td><td>1224 </td><td>1.20 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3339 </td><td>0.82 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>4096 </td><td>3339 </td><td>0.82 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nClipFactor </th><th>nShift </th><th>nAddValue </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>4 </td><td>2 </td><td>127 </td><td>8 </td><td>646 </td><td>80.75 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

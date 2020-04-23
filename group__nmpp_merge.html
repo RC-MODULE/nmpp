@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppMerge</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppMerge<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_transform.html">Переупорядочивание и сортировка</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Собирает массив из двух, чередуя элементы из каждого. Функция обратная nmppsSplit.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gaa6b935c0fec3c208cf53557302b2d73c"><td class="memItemLeft" align="right" valign="top"><a id="gaa6b935c0fec3c208cf53557302b2d73c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsMerge_8s</b> (const <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *src0, const <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *src1, <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *dst, int sizeSrc)</td></tr>
+<tr class="separator:gaa6b935c0fec3c208cf53557302b2d73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac224c88eafd0aefa24e7038aa2b03b74"><td class="memItemLeft" align="right" valign="top"><a id="gac224c88eafd0aefa24e7038aa2b03b74"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsMerge_16s</b> (const <a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *src0, const <a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *src1, <a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *dst, int sizeSrc)</td></tr>
+<tr class="separator:gac224c88eafd0aefa24e7038aa2b03b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa16dde18ce3054bdc444e7e3a4c59dd"><td class="memItemLeft" align="right" valign="top"><a id="gaaa16dde18ce3054bdc444e7e3a4c59dd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsMerge_32s</b> (const <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *src0, const <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *src1, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *dst, int sizeSrc)</td></tr>
+<tr class="separator:gaaa16dde18ce3054bdc444e7e3a4c59dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Собирает массив из двух, чередуя элементы из каждого. Функция обратная nmppsSplit. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">src0</td><td>Входной массив размера sizeSrc </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">src1</td><td>Входной массив размера sizeSrc </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dst</td><td>Выходной массив размера 2*sizeSrc </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sizeSrc</td><td>Размер выходного массива в элементах. Кратность параметра sizeSrc должна соответствовать 64-р. слову. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd></dd></dl>
+<p>Details </p>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

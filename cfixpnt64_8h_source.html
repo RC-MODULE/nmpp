@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл G:/nmpp/include/nmplc/cfixpnt64.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_1f30cf843b9ea20f6dea0da1ef33de82.html">include</a></li><li class="navelem"><a class="el" href="dir_94f133d16eb02293296c60711f0e2e69.html">nmplc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">cfixpnt64.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//***************************************************************************/</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//*                                                                         */</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//*                    Neuroprocessor NM6403 SDK v.1.2                      */</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//*                                                                         */</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//*               Заголовочный файл fixpoint64  функций                     */</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//*                1999 (c) RC Module Inc., Moscow, Russia                  */</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//*                                                                         */</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//*                                                                         */</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//*  Date:28.12.99                                                          */</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//***************************************************************************/</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//=============================================================================</span></div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> nmppcFixSqrt64(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> x);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">//=============================================================================</span></div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"></span><span class="keywordtype">long</span> nmppcDoubleToFix64(<span class="keywordtype">double</span> arg, <span class="keywordtype">int</span> fixpoint);</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">//=============================================================================</span></div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">double</span> <a class="code" href="group__nmppc_fix64_to_double.html#ga9d4433d1adc89cd23ecd936eabcc285f">nmppcFix64ToDouble</a>(<span class="keywordtype">long</span> arg , <span class="keywordtype">int</span> fixpoint );</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">//=============================================================================</span></div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__nmppc_fix_div64.html#ga0741f42553a290380d02a834a7bc1a72">nmppcFixDiv64</a>(<span class="keywordtype">long</span>* nDividend, <span class="keywordtype">long</span>* nDivisor, <span class="keywordtype">int</span> nFixpoint, <span class="keywordtype">long</span>* nQuotient);</div><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="comment">//     Функция деления A/B для целых чисел со знаком 2*abs(A)&lt;abs(B)         </span></div><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">//=============================================================================</span></div><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="group__nmppc_fix_sin_cos64.html#ga0590121f26483c0f9258ee6ccfe16630">nmppcFixSinCos64</a>(<span class="keywordtype">long</span> nArg, <span class="keywordtype">long</span>* pnSin, <span class="keywordtype">long</span> *pnCos);</div><div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">//=============================================================================</span></div><div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment"></span> <span class="keywordtype">long</span> <a class="code" href="group__nmppc_fix_arc_tan64.html#gae97921ed245613d2ebaef8b491219871">nmppcFixArcTan64</a>(<span class="keywordtype">long</span> nArg);</div><div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div><div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; <span class="comment">//=============================================================================</span></div><div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment"></span>        <span class="keywordtype">long</span> <a class="code" href="group__nmppc_fix64_exp01.html#ga6dbc7e207d1ab8077360f05c9cdb1b41">nmppcFix64Exp01</a>(<span class="keywordtype">long</span> nArg);</div><div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div><div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="keywordtype">long</span> nmppcFrExp(<span class="keywordtype">double</span> nArg);</div><div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div><div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div><div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                };</div><div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div><div class="ttc" id="group__nmppc_fix64_exp01_html_ga6dbc7e207d1ab8077360f05c9cdb1b41"><div class="ttname"><a href="group__nmppc_fix64_exp01.html#ga6dbc7e207d1ab8077360f05c9cdb1b41">nmppcFix64Exp01</a></div><div class="ttdeci">long nmppcFix64Exp01(long nArg)</div></div>
+<div class="ttc" id="group__nmppc_fix_sin_cos64_html_ga0590121f26483c0f9258ee6ccfe16630"><div class="ttname"><a href="group__nmppc_fix_sin_cos64.html#ga0590121f26483c0f9258ee6ccfe16630">nmppcFixSinCos64</a></div><div class="ttdeci">void nmppcFixSinCos64(long nArg, long *pnSin, long *pnCos)</div></div>
+<div class="ttc" id="group__nmppc_fix_arc_tan64_html_gae97921ed245613d2ebaef8b491219871"><div class="ttname"><a href="group__nmppc_fix_arc_tan64.html#gae97921ed245613d2ebaef8b491219871">nmppcFixArcTan64</a></div><div class="ttdeci">long nmppcFixArcTan64(long nArg)</div></div>
+<div class="ttc" id="group__nmppc_fix_div64_html_ga0741f42553a290380d02a834a7bc1a72"><div class="ttname"><a href="group__nmppc_fix_div64.html#ga0741f42553a290380d02a834a7bc1a72">nmppcFixDiv64</a></div><div class="ttdeci">void nmppcFixDiv64(long *nDividend, long *nDivisor, int nFixpoint, long *nQuotient)</div></div>
+<div class="ttc" id="group__nmppc_fix64_to_double_html_ga9d4433d1adc89cd23ecd936eabcc285f"><div class="ttname"><a href="group__nmppc_fix64_to_double.html#ga9d4433d1adc89cd23ecd936eabcc285f">nmppcFix64ToDouble</a></div><div class="ttdeci">double nmppcFix64ToDouble(long arg, int fixpoint)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:46:59. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

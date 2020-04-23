@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppcFixDiv64</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppcFixDiv64<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmppc_group.html">Скалярные функции</a> &raquo; <a class="el" href="group__c_fixpoint64.html">Fix-point 64</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Деление двух целых чисел с записью результата в формате fixed-point.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga0741f42553a290380d02a834a7bc1a72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmppc_fix_div64.html#ga0741f42553a290380d02a834a7bc1a72">nmppcFixDiv64</a> (long *nDividend, long *nDivisor, int nFixpoint, long *nQuotient)</td></tr>
+<tr class="separator:ga0741f42553a290380d02a834a7bc1a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Деление двух целых чисел с записью результата в формате fixed-point. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nDividend</td><td>Делимое</td></tr>
+    <tr><td class="paramname">nDivisor</td><td>Делитель. Делитель должен быть по модулю больше чем делимое.</td></tr>
+    <tr><td class="paramname">nFixpoint</td><td>Позиция двоичной точки</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">nQuotient</td><td>Частное в формате числа с фиксированной точкой</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga0741f42553a290380d02a834a7bc1a72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0741f42553a290380d02a834a7bc1a72">&#9670;&nbsp;</a></span>nmppcFixDiv64()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppcFixDiv64 </td>
+          <td>(</td>
+          <td class="paramtype">long *&#160;</td>
+          <td class="paramname"><em>nDividend</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long *&#160;</td>
+          <td class="paramname"><em>nDivisor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nFixpoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long *&#160;</td>
+          <td class="paramname"><em>nQuotient</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>nDividend </th><th>nDivisor </th><th>nFixpoint </th><th>nQuotient </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>16 </td><td>im2 </td><td>977 </td><td>977.00 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>32 </td><td>im2 </td><td>1459 </td><td>1459.00 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>48 </td><td>im2 </td><td>1881 </td><td>1881.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>16 </td><td>im2 </td><td>977 </td><td>977.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>32 </td><td>im2 </td><td>1532 </td><td>1532.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>48 </td><td>im2 </td><td>1982 </td><td>1982.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>16 </td><td>im2 </td><td>975 </td><td>975.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>32 </td><td>im2 </td><td>1520 </td><td>1520.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>48 </td><td>im2 </td><td>1864 </td><td>1864.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>16 </td><td>im2 </td><td>969 </td><td>969.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>32 </td><td>im2 </td><td>1415 </td><td>1415.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>48 </td><td>im2 </td><td>1875 </td><td>1875.00 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>nDividend </th><th>nDivisor </th><th>nFixpoint </th><th>nQuotient </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>16 </td><td>im2 </td><td>969 </td><td>969.00 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>nDividend </th><th>nDivisor </th><th>nFixpoint </th><th>nQuotient </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>48 </td><td>im2 </td><td>1982 </td><td>1982.00 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:46:59. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

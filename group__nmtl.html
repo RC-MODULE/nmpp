@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: контроль переполнения</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#define-members">Макросы</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">контроль переполнения</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnmmtr.html">nmmtr&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnmmtrpack.html">nmmtrpack&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnmvecpack.html">nmvecpack&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvec.html">vec&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:gae52d1b3e5fc0f94df002b637da74195f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmtl.html#gae52d1b3e5fc0f94df002b637da74195f">GetVec</a>&#160;&#160;&#160;getvec</td></tr>
+<tr class="separator:gae52d1b3e5fc0f94df002b637da74195f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gac8ce54db2709bee7d58d8249d89a7c88"><td class="memItemLeft" align="right" valign="top">__INLINE__ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmtl.html#gac8ce54db2709bee7d58d8249d89a7c88">operator&lt;&lt;</a> (ostream &amp;s, <a class="el" href="classmtr.html">mtr</a>&lt; unsigned char &gt; &amp;<a class="el" href="classmtr.html">mtr</a>)</td></tr>
+<tr class="separator:gac8ce54db2709bee7d58d8249d89a7c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>определяет классы, предназначенные для контроля переполнения при реализации библиотеки на PC.</p>
+<p>–реализации библиотеки на PC производит контроль переполнения с выдачей сообщения об ошибке пользователю библиотеки. Для этой цели определены шаблонные классы для вектора, матрицы и скалярного числа, позволяющие производить базовые операции над их элементами. </p>
+<h2 class="groupheader">Макросы</h2>
+<a id="gae52d1b3e5fc0f94df002b637da74195f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae52d1b3e5fc0f94df002b637da74195f">&#9670;&nbsp;</a></span>GetVec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GetVec&#160;&#160;&#160;getvec</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Класс матриц.</p>
+<dl class="section user"><dt>Примеры:</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> Test[10]={1,125,3,4,5,6,7,8,9,10};</div><div class="line"><span class="keywordtype">int</span> Res [10];</div><div class="line"></div><div class="line"><a class="code" href="classmtr.html">mtr&lt;int&gt;</a> AA0(3,3);      </div><div class="line"><a class="code" href="classvec.html">vec&lt;int&gt;</a> A0(3);         </div><div class="line">scalar&lt;int&gt; a0(2);              </div><div class="line"></div><div class="line"><a class="code" href="classmtr.html">mtr&lt;int&gt;</a> BB0(3,3);</div><div class="line"><a class="code" href="classmtr.html">mtr&lt;int&gt;</a> CC0(3,3);</div><div class="line"><a class="code" href="classvec.html">vec&lt;int&gt;</a> C0(3);</div><div class="line"></div><div class="line">BB0.SetData(Test);      </div><div class="line"></div><div class="line">BB0=AA0;                        </div><div class="line">A0 =AA0[2];             </div><div class="line">a0 =AA0[2][2];</div><div class="line"></div><div class="line">CC0=AA0+BB0;    </div><div class="line">CC0=AA0*a0;             </div><div class="line">C0 =AA0*A0;             </div><div class="line">CC0=AA0*BB0;    </div></div><!-- fragment --> 
+<p class="definition">См. определение в файле <a class="el" href="tmatrix_8h_source.html">tmatrix.h</a> строка <a class="el" href="tmatrix_8h_source.html#l00060">60</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Функции</h2>
+<a id="gac8ce54db2709bee7d58d8249d89a7c88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac8ce54db2709bee7d58d8249d89a7c88">&#9670;&nbsp;</a></span>operator<<()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__INLINE__ ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmtr.html">mtr</a>&lt; unsigned char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mtr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Класс матриц.</p>
+<dl class="section user"><dt>Примеры:</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> Test[10]={1,125,3,4,5,6,7,8,9,10};</div><div class="line"><span class="keywordtype">int</span> Res [10];</div><div class="line"></div><div class="line"><a class="code" href="classmtr.html">mtr&lt;int&gt;</a> AA0(3,3);      </div><div class="line"><a class="code" href="classvec.html">vec&lt;int&gt;</a> A0(3);         </div><div class="line">scalar&lt;int&gt; a0(2);              </div><div class="line"></div><div class="line"><a class="code" href="classmtr.html">mtr&lt;int&gt;</a> BB0(3,3);</div><div class="line"><a class="code" href="classmtr.html">mtr&lt;int&gt;</a> CC0(3,3);</div><div class="line"><a class="code" href="classvec.html">vec&lt;int&gt;</a> C0(3);</div><div class="line"></div><div class="line">BB0.SetData(Test);      </div><div class="line"></div><div class="line">BB0=AA0;                        </div><div class="line">A0 =AA0[2];             </div><div class="line">a0 =AA0[2][2];</div><div class="line"></div><div class="line">CC0=AA0+BB0;    </div><div class="line">CC0=AA0*a0;             </div><div class="line">C0 =AA0*A0;             </div><div class="line">CC0=AA0*BB0;    </div></div><!-- fragment --> 
+<p class="definition">См. определение в файле <a class="el" href="nmtlio_8h_source.html">nmtlio.h</a> строка <a class="el" href="nmtlio_8h_source.html#l00064">64</a></p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

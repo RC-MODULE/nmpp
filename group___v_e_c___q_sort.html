@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: VEC_QSort</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">VEC_QSort<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_transform.html">Переупорядочивание и сортировка</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Сортировка массива по убыванию.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga8bc65141ead8c6f230a3fad5a08fe649"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_e_c___q_sort.html#ga8bc65141ead8c6f230a3fad5a08fe649">nmppsQSort_32s</a> (<a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pSrcDstVec, int nSize)</td></tr>
+<tr class="separator:ga8bc65141ead8c6f230a3fad5a08fe649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Сортировка массива по убыванию. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcDstVec</td><td>Входной и результирующий вектор.</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер вектора в элементах.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt>Restrictions:</dt><dd>Функция работает рекурсивно, передавая параметры через стек, поэтому размер стека должен быть больше 4*log2(nSize) 32-битных слов в лучшем случае (элементы массива расположены беспорядочно) и больше 6*nSize 32-битных слов в худшем случае (элементы массива уже упорядочены)</dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga8bc65141ead8c6f230a3fad5a08fe649"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8bc65141ead8c6f230a3fad5a08fe649">&#9670;&nbsp;</a></span>nmppsQSort_32s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsQSort_32s </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>256 </td><td>231182 </td><td>903.05 </td></tr>
+<tr>
+<td>im1 </td><td>256 </td><td>230017 </td><td>898.50 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>256 </td><td>230017 </td><td>898.50 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>256 </td><td>231182 </td><td>903.05 </td></tr>
+</table>
+<p>Perfomance table 1</p>
+<table class="doxtable">
+<tr>
+<th>pSrcDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>8 </td><td>3945 </td><td>493.12 </td></tr>
+<tr>
+<td>im1 </td><td>128 </td><td>110927 </td><td>866.62 </td></tr>
+<tr>
+<td>im1 </td><td>256 </td><td>325314 </td><td>1270.76 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>8 </td><td>3945 </td><td>493.12 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>256 </td><td>325314 </td><td>1270.76 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл G:/nmpp/include/nmtl/tfixpointmath.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_1f30cf843b9ea20f6dea0da1ef33de82.html">include</a></li><li class="navelem"><a class="el" href="dir_4de81daf40526bbcdd75be124a690a7d.html">nmtl</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">tfixpointmath.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _tfixpoint_MATH</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _tfixpoint_MATH</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> po<span class="keywordtype">int</span>&gt; __INLINE__ <a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> pow (<a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> a, <a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> b) { <span class="keywordflow">return</span> pow(a.flt(), b.flt());}</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> po<span class="keywordtype">int</span>&gt; __INLINE__ <a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> fabs(<a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> a)  { <span class="keywordflow">return</span> fabs(a.flt());}</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> po<span class="keywordtype">int</span>&gt; __INLINE__ <a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> log (<a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> a)  { <span class="keywordflow">return</span> log (a.flt());}</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> po<span class="keywordtype">int</span>&gt; __INLINE__ <a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> sqrt(<a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> a)  { <span class="keywordflow">return</span> sqrt(a.flt());}</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> po<span class="keywordtype">int</span>&gt; __INLINE__ <a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> cos (<a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> a)  { <span class="keywordflow">return</span> cos (a.flt());}</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> po<span class="keywordtype">int</span>&gt; __INLINE__ <a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> sin (<a class="code" href="classtfixpoint.html">tfixpoint&lt;T,point&gt;</a> a)  { <span class="keywordflow">return</span> sin (a.flt());}</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classtfixpoint_html"><div class="ttname"><a href="classtfixpoint.html">tfixpoint</a></div><div class="ttdef"><b>Definition:</b> <a href="nmtl_2tfixpoint_8h_source.html#l00052">tfixpoint.h:52</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:46:59. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

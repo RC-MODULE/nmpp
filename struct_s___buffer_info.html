@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Структура S_BufferInfo</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="struct_s___buffer_info-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Структура S_BufferInfo</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>класс буфер - заголовок в начале выделяемой данамической памяти  
+ <a href="struct_s___buffer_info.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="multiheap_8h_source.html">multiheap.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:afc90d52c5defb9ff4925f2a026d760e5"><td class="memItemLeft" align="right" valign="top"><a id="afc90d52c5defb9ff4925f2a026d760e5"></a>
+int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s___buffer_info.html#afc90d52c5defb9ff4925f2a026d760e5">DataBegin</a> ()</td></tr>
+<tr class="memdesc:afc90d52c5defb9ff4925f2a026d760e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает указатель на данные в буфере <br /></td></tr>
+<tr class="separator:afc90d52c5defb9ff4925f2a026d760e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38b6dbe7c43f87c12ea020254849e5f2"><td class="memItemLeft" align="right" valign="top"><a id="a38b6dbe7c43f87c12ea020254849e5f2"></a>
+int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s___buffer_info.html#a38b6dbe7c43f87c12ea020254849e5f2">DataEnd</a> ()</td></tr>
+<tr class="memdesc:a38b6dbe7c43f87c12ea020254849e5f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает указатель на конец данных в буфере (следу) <br /></td></tr>
+<tr class="separator:a38b6dbe7c43f87c12ea020254849e5f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b8c3c18debb3d2c9445b91fecacb791"><td class="memItemLeft" align="right" valign="top"><a id="a6b8c3c18debb3d2c9445b91fecacb791"></a>
+int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s___buffer_info.html#a6b8c3c18debb3d2c9445b91fecacb791">EndGuardBits</a> ()</td></tr>
+<tr class="memdesc:a6b8c3c18debb3d2c9445b91fecacb791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает указатель на конечные защитные поля (2 слова) <br /></td></tr>
+<tr class="separator:a6b8c3c18debb3d2c9445b91fecacb791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d3ab3f7774da9cd05e2700eefb2ea5c"><td class="memItemLeft" align="right" valign="top"><a id="a2d3ab3f7774da9cd05e2700eefb2ea5c"></a>
+unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>CheckGuardBits</b> ()</td></tr>
+<tr class="separator:a2d3ab3f7774da9cd05e2700eefb2ea5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a7f4c19279bb45b8cac24f6a71f3c6c1c"><td class="memItemLeft" align="right" valign="top"><a id="a7f4c19279bb45b8cac24f6a71f3c6c1c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>guardInfoBits0</b></td></tr>
+<tr class="separator:a7f4c19279bb45b8cac24f6a71f3c6c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4a3bf87a8216fe58c73db373dbf205a"><td class="memItemLeft" align="right" valign="top"><a id="ac4a3bf87a8216fe58c73db373dbf205a"></a>
+size_t32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s___buffer_info.html#ac4a3bf87a8216fe58c73db373dbf205a">size32Buffer</a></td></tr>
+<tr class="memdesc:ac4a3bf87a8216fe58c73db373dbf205a"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; размер массива данных в буфере в 32-р словах <br /></td></tr>
+<tr class="separator:ac4a3bf87a8216fe58c73db373dbf205a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1408f412fca5e748e37bb2131adc4ccc"><td class="memItemLeft" align="right" valign="top"><a id="a1408f412fca5e748e37bb2131adc4ccc"></a>
+<a class="el" href="struct_s___buffer_info.html">S_BufferInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s___buffer_info.html#a1408f412fca5e748e37bb2131adc4ccc">pPrevBuffer</a></td></tr>
+<tr class="memdesc:a1408f412fca5e748e37bb2131adc4ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; указатель на предыдущий буфер в списке <br /></td></tr>
+<tr class="separator:a1408f412fca5e748e37bb2131adc4ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eccbe7ae8655084de931866809e4f1b"><td class="memItemLeft" align="right" valign="top"><a id="a2eccbe7ae8655084de931866809e4f1b"></a>
+<a class="el" href="struct_s___buffer_info.html">S_BufferInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s___buffer_info.html#a2eccbe7ae8655084de931866809e4f1b">pNextBuffer</a></td></tr>
+<tr class="memdesc:a2eccbe7ae8655084de931866809e4f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; указатель на следующий буфер в списке <br /></td></tr>
+<tr class="separator:a2eccbe7ae8655084de931866809e4f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ee321e84d6eaa0936a75d4d1154e4de"><td class="memItemLeft" align="right" valign="top"><a id="a8ee321e84d6eaa0936a75d4d1154e4de"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s___buffer_info.html#a8ee321e84d6eaa0936a75d4d1154e4de">isLocked</a></td></tr>
+<tr class="memdesc:a8ee321e84d6eaa0936a75d4d1154e4de"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; флаг блокировки буфера, запрещаюий его удаление с помощью Release() <br /></td></tr>
+<tr class="separator:a8ee321e84d6eaa0936a75d4d1154e4de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ccc29506401cb083a520ded97f389b"><td class="memItemLeft" align="right" valign="top"><a id="ad5ccc29506401cb083a520ded97f389b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>guardInfoBits1</b></td></tr>
+<tr class="separator:ad5ccc29506401cb083a520ded97f389b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>класс буфер - заголовок в начале выделяемой данамической памяти </p>
+
+<p class="definition">См. определение в файле <a class="el" href="multiheap_8h_source.html">multiheap.h</a> строка <a class="el" href="multiheap_8h_source.html#l00014">14</a></p>
+</div><hr/>Объявления и описания членов структуры находятся в файле:<ul>
+<li>G:/nmpp/include/<a class="el" href="multiheap_8h_source.html">multiheap.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:05. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

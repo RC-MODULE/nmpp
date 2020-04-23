@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл G:/nmpp/include/nmpli/iReodering.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_1f30cf843b9ea20f6dea0da1ef33de82.html">include</a></li><li class="navelem"><a class="el" href="dir_bc6f8cf282dd53e5fd2b287b4f793631.html">nmpli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">iReodering.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __IREODERING_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __IREODERING_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                <span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//*****************************************************************************</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//*****************************************************************************</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//*****************************************************************************</span></div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__nmppi_split_into_blocks.html#ga7bb08b1783f52464ee49fb8ac378d181">nmppiSplitIntoBlocks8x8</a>(</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <a class="code" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a>*   pSrcImg,        </div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                        <a class="code" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a>*   pDstBlockSeq,</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        <span class="keywordtype">int</span>             nWidth, </div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        <span class="keywordtype">int</span>             nHeight </div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                        );</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        </div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">void</span> nmppiSplitInto2x2Blocks8x8(</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                                                        <a class="code" href="group__nmvectype.html#ga5c0012c537d65f7fc8bb6bfda4218552">nm8u</a>*   pSrcImg,        </div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                                        <a class="code" href="group__nmvectype.html#ga5c0012c537d65f7fc8bb6bfda4218552">nm8u</a>*   pDstBlockSeq,</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                                        <span class="keywordtype">int</span>             nWidth, </div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                                                        <span class="keywordtype">int</span>             nHeight </div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                                                        );</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordtype">void</span> nmppiSplitInto2x2Blocks8x8xor(</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                                                           <a class="code" href="group__nmvectype.html#ga5c0012c537d65f7fc8bb6bfda4218552">nm8u</a>*        pSrcImg,        </div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                                                           <a class="code" href="group__nmvectype.html#ga5c0012c537d65f7fc8bb6bfda4218552">nm8u</a>*        pDstBlockSeq,</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                                                           <a class="code" href="group__nmvectype.html#ga5c0012c537d65f7fc8bb6bfda4218552">nm8u</a>*        pXor,</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                                                           <span class="keywordtype">int</span>          nWidth, </div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                                                           <span class="keywordtype">int</span>          nHeight </div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                                                           );</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">//*****************************************************************************</span></div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div><div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__nmppi_merge_from_blocks.html#ga0b4d3d921bf33020173fc6ecf2465725">nmppiMergeFromBlocks8x8</a>(</div><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                <a class="code" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a>*   pSrcBlockSeq,   </div><div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                        <a class="code" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a>*   pDstImg,        </div><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                        <span class="keywordtype">int</span>             nWidth, </div><div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                        <span class="keywordtype">int</span>             nHeight </div><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                        );</div><div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div><div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div><div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        };</div><div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        </div><div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="group__nmppi_split_into_blocks_html_ga7bb08b1783f52464ee49fb8ac378d181"><div class="ttname"><a href="group__nmppi_split_into_blocks.html#ga7bb08b1783f52464ee49fb8ac378d181">nmppiSplitIntoBlocks8x8</a></div><div class="ttdeci">void nmppiSplitIntoBlocks8x8(nm8s *pSrcImg, nm8s *pDstBlockSeq, int nWidth, int nHeight)</div></div>
+<div class="ttc" id="group__nmppi_merge_from_blocks_html_ga0b4d3d921bf33020173fc6ecf2465725"><div class="ttname"><a href="group__nmppi_merge_from_blocks.html#ga0b4d3d921bf33020173fc6ecf2465725">nmppiMergeFromBlocks8x8</a></div><div class="ttdeci">void nmppiMergeFromBlocks8x8(nm8s *pSrcBlockSeq, nm8s *pDstImg, int nWidth, int nHeight)</div></div>
+<div class="ttc" id="group__nmvectype_html_ga5c0012c537d65f7fc8bb6bfda4218552"><div class="ttname"><a href="group__nmvectype.html#ga5c0012c537d65f7fc8bb6bfda4218552">nm8u</a></div><div class="ttdeci">void nm8u</div><div class="ttdef"><b>Definition:</b> <a href="nmtype_8h_source.html#l00446">nmtype.h:446</a></div></div>
+<div class="ttc" id="group__nmvectype_html_ga0b5a4182e80e797c3a7589069b9fc2e4"><div class="ttname"><a href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a></div><div class="ttdeci">void nm8s</div><div class="ttdef"><b>Definition:</b> <a href="nmtype_8h_source.html#l00163">nmtype.h:163</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:46:59. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

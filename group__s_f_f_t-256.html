@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: FFT-256</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">FFT-256<div class="ingroups"><a class="el" href="group__float.html">Функции с плавающей точкой</a> &raquo; <a class="el" href="group___s_i_g___group__f.html">Функции обработки сигналов</a> &raquo; <a class="el" href="group__s_f_f_t__32fcr.html">Быстрое преобразование Фурье</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Функция для вычисления прямого БПФ с плавающей точкой над вектором, состоящим из 256 комплексных чисел  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga7f2d2bcf2ba0adfb88bf0e85fb1bdd92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_f_f_t-256.html#ga7f2d2bcf2ba0adfb88bf0e85fb1bdd92">nmppsFFT256Fwd_32fcr</a> (const <a class="el" href="structs__nm32fcr.html">nm32fcr</a> *pSrcVec, <a class="el" href="structs__nm32fcr.html">nm32fcr</a> *pDstVec, <a class="el" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a> *spec)</td></tr>
+<tr class="separator:ga7f2d2bcf2ba0adfb88bf0e85fb1bdd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Функция для вычисления прямого БПФ с плавающей точкой над вектором, состоящим из 256 комплексных чисел </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pSrcVec</td><td>входной вектор комплексных чисел (на мнимая и действительная части имеют тип float) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">[out]</td><td>pDstVec выходной вектор комплексных чисел (на мнимая и действительная части имеют тип float) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">spec</td><td>структра, содержащая необходимые коэффициенты, для вычисления прямого БПФ определенного размера</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Для достижения максимальной производительности (1763 такта) необходимо положить входной вектор в 1-ый банк, выходной вектор в 5-ый банк </p><dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga7f2d2bcf2ba0adfb88bf0e85fb1bdd92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7f2d2bcf2ba0adfb88bf0e85fb1bdd92">&#9670;&nbsp;</a></span>nmppsFFT256Fwd_32fcr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsFFT256Fwd_32fcr </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structs__nm32fcr.html">nm32fcr</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structs__nm32fcr.html">nm32fcr</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a> *&#160;</td>
+          <td class="paramname"><em>spec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>2911 </td><td>11.37 </td></tr>
+<tr>
+<td>im1 </td><td>im2 </td><td>2896 </td><td>11.31 </td></tr>
+<tr>
+<td>im1 </td><td>im3 </td><td>2891 </td><td>11.29 </td></tr>
+<tr>
+<td>im1 </td><td>im4 </td><td>3027 </td><td>11.82 </td></tr>
+<tr>
+<td>im1 </td><td>im5 </td><td>3015 </td><td>11.78 </td></tr>
+<tr>
+<td>im2 </td><td>im1 </td><td>2927 </td><td>11.43 </td></tr>
+<tr>
+<td>im2 </td><td>im2 </td><td>2891 </td><td>11.29 </td></tr>
+<tr>
+<td>im2 </td><td>im3 </td><td>3008 </td><td>11.75 </td></tr>
+<tr>
+<td>im2 </td><td>im4 </td><td>3046 </td><td>11.90 </td></tr>
+<tr>
+<td>im2 </td><td>im5 </td><td>3021 </td><td>11.80 </td></tr>
+<tr>
+<td>im3 </td><td>im1 </td><td>2895 </td><td>11.31 </td></tr>
+<tr>
+<td>im3 </td><td>im2 </td><td>3012 </td><td>11.77 </td></tr>
+<tr>
+<td>im3 </td><td>im3 </td><td>2931 </td><td>11.45 </td></tr>
+<tr>
+<td>im3 </td><td>im4 </td><td>3013 </td><td>11.77 </td></tr>
+<tr>
+<td>im3 </td><td>im5 </td><td>3037 </td><td>11.86 </td></tr>
+<tr>
+<td>im4 </td><td>im1 </td><td>2916 </td><td>11.39 </td></tr>
+<tr>
+<td>im4 </td><td>im2 </td><td>2925 </td><td>11.43 </td></tr>
+<tr>
+<td>im4 </td><td>im3 </td><td>3020 </td><td>11.80 </td></tr>
+<tr>
+<td>im4 </td><td>im4 </td><td>3026 </td><td>11.82 </td></tr>
+<tr>
+<td>im4 </td><td>im5 </td><td>3019 </td><td>11.79 </td></tr>
+<tr>
+<td>im5 </td><td>im1 </td><td>3017 </td><td>11.79 </td></tr>
+<tr>
+<td>im5 </td><td>im2 </td><td>2939 </td><td>11.48 </td></tr>
+<tr>
+<td>im5 </td><td>im3 </td><td>3029 </td><td>11.83 </td></tr>
+<tr>
+<td>im5 </td><td>im4 </td><td>2921 </td><td>11.41 </td></tr>
+<tr>
+<td>im5 </td><td>im5 </td><td>3013 </td><td>11.77 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im3 </td><td>2891 </td><td>11.29 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im2 </td><td>im4 </td><td>3046 </td><td>11.90 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:46:59. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmblas_dsdot</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmblas_dsdot<div class="ingroups"><a class="el" href="group___l_e_v_e_l1.html">BLASS-LEVEL1</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Compute the inner product of two vectors with double precision accumulation.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga7fb41510d592f5163dbe29b8b567fe54"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsdot.html#ga7fb41510d592f5163dbe29b8b567fe54">nmblas_dsdot</a> (const int N, const float *X, const int INCX, const float *Y, const int INCY)</td></tr>
+<tr class="separator:ga7fb41510d592f5163dbe29b8b567fe54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Compute the inner product of two vectors with double precision accumulation. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>number of elements in input vector </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>single precision scalar to be added to inner product </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">X</td><td>array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) single precision vector with N elementsr </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">INCX</td><td>storage spacing between elements of X </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Y</td><td>array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">INCY</td><td>storage spacing between elements of Y </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Returns D.P. dot product accumulated in D.P., for S.P. SX and SY DSDOT = sum for I = 0 to N-1 of SX(LX+I*INCX) * SY(LY+I*INCY), where LX = 1 if INCX .GE. 0, else LX = 1+(1-N)*INCX, and LY is defined in a similar way using INCY. </dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga7fb41510d592f5163dbe29b8b567fe54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7fb41510d592f5163dbe29b8b567fe54">&#9670;&nbsp;</a></span>nmblas_dsdot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double nmblas_dsdot </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>N</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>INCX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>Y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>INCY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>N </th><th>X </th><th>INCX </th><th>Y </th><th>INCY </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>8 </td><td>im1 </td><td>1 </td><td>im1 </td><td>1 </td><td>733 </td><td>91.62 </td></tr>
+<tr>
+<td>8 </td><td>im1 </td><td>1 </td><td>im2 </td><td>1 </td><td>745 </td><td>93.12 </td></tr>
+<tr>
+<td>8 </td><td>im2 </td><td>1 </td><td>im1 </td><td>1 </td><td>733 </td><td>91.62 </td></tr>
+<tr>
+<td>8 </td><td>im2 </td><td>1 </td><td>im2 </td><td>1 </td><td>849 </td><td>106.12 </td></tr>
+<tr>
+<td>128 </td><td>im1 </td><td>1 </td><td>im1 </td><td>1 </td><td>899 </td><td>7.02 </td></tr>
+<tr>
+<td>128 </td><td>im1 </td><td>1 </td><td>im2 </td><td>1 </td><td>872 </td><td>6.81 </td></tr>
+<tr>
+<td>128 </td><td>im2 </td><td>1 </td><td>im1 </td><td>1 </td><td>878 </td><td>6.86 </td></tr>
+<tr>
+<td>128 </td><td>im2 </td><td>1 </td><td>im2 </td><td>1 </td><td>875 </td><td>6.84 </td></tr>
+<tr>
+<td>1024 </td><td>im1 </td><td>1 </td><td>im1 </td><td>1 </td><td>2709 </td><td>2.65 </td></tr>
+<tr>
+<td>1024 </td><td>im1 </td><td>1 </td><td>im2 </td><td>1 </td><td>2722 </td><td>2.66 </td></tr>
+<tr>
+<td>1024 </td><td>im2 </td><td>1 </td><td>im1 </td><td>1 </td><td>2720 </td><td>2.66 </td></tr>
+<tr>
+<td>1024 </td><td>im2 </td><td>1 </td><td>im2 </td><td>1 </td><td>2694 </td><td>2.63 </td></tr>
+<tr>
+<td>2048 </td><td>im1 </td><td>1 </td><td>im1 </td><td>1 </td><td>4806 </td><td>2.35 </td></tr>
+<tr>
+<td>2048 </td><td>im1 </td><td>1 </td><td>im2 </td><td>1 </td><td>4817 </td><td>2.35 </td></tr>
+<tr>
+<td>2048 </td><td>im2 </td><td>1 </td><td>im1 </td><td>1 </td><td>4817 </td><td>2.35 </td></tr>
+<tr>
+<td>2048 </td><td>im2 </td><td>1 </td><td>im2 </td><td>1 </td><td>4808 </td><td>2.35 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>N </th><th>X </th><th>INCX </th><th>Y </th><th>INCY </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>2048 </td><td>im1 </td><td>1 </td><td>im1 </td><td>1 </td><td>4806 </td><td>2.35 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>N </th><th>X </th><th>INCX </th><th>Y </th><th>INCY </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>8 </td><td>im2 </td><td>1 </td><td>im2 </td><td>1 </td><td>849 </td><td>106.12 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:46:59. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

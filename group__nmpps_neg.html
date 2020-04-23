@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsNeg</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppsNeg<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_arithmetics.html">Арифметические операции</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Изменение знака элементов вектора на противоположный.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga11c5c1462ecdaab59d53268dc5e4d8f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_neg.html#ga11c5c1462ecdaab59d53268dc5e4d8f0">nmppsNeg_8s</a> (const <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga11c5c1462ecdaab59d53268dc5e4d8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab13468c5cae122ae3d7d0cfbc111d4f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_neg.html#gab13468c5cae122ae3d7d0cfbc111d4f5">nmppsNeg_16s</a> (const <a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gab13468c5cae122ae3d7d0cfbc111d4f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50f8d4204c508c77ed913517b2a2df43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_neg.html#ga50f8d4204c508c77ed913517b2a2df43">nmppsNeg_32s</a> (const <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga50f8d4204c508c77ed913517b2a2df43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14cf92eb1a045016439bea0f6f2b028b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_neg.html#ga14cf92eb1a045016439bea0f6f2b028b">nmppsNeg_64s</a> (const <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga14cf92eb1a045016439bea0f6f2b028b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Изменение знака элементов вектора на противоположный. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ pDstVec[i] = - pDstVec[i] \]" src="form_13.png"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ i = \overline{0 \ldots nSize-1} \]" src="form_11.png"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td>Входной вектор.</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер векторов в элементах.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td>Результирующий вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="gab13468c5cae122ae3d7d0cfbc111d4f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab13468c5cae122ae3d7d0cfbc111d4f5">&#9670;&nbsp;</a></span>nmppsNeg_16s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsNeg_16s </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>2048 </td><td>1355 </td><td>0.66 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>1344 </td><td>0.66 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>2048 </td><td>1349 </td><td>0.66 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>2048 </td><td>1444 </td><td>0.71 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>1344 </td><td>0.66 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>2048 </td><td>1444 </td><td>0.71 </td></tr>
+</table>
+<p>Perfomance table 1</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>8 </td><td>487 </td><td>60.87 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>128 </td><td>436 </td><td>3.41 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>1024 </td><td>836 </td><td>0.82 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>1331 </td><td>0.65 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>1331 </td><td>0.65 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>8 </td><td>487 </td><td>60.87 </td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga50f8d4204c508c77ed913517b2a2df43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga50f8d4204c508c77ed913517b2a2df43">&#9670;&nbsp;</a></span>nmppsNeg_32s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsNeg_32s </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>2048 </td><td>2368 </td><td>1.16 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>2370 </td><td>1.16 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>2048 </td><td>2369 </td><td>1.16 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>2048 </td><td>2376 </td><td>1.16 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>2048 </td><td>2368 </td><td>1.16 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>2048 </td><td>2376 </td><td>1.16 </td></tr>
+</table>
+<p>Perfomance table 1</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>8 </td><td>474 </td><td>59.25 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>128 </td><td>490 </td><td>3.83 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>1024 </td><td>1337 </td><td>1.31 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>2374 </td><td>1.16 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>2374 </td><td>1.16 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>8 </td><td>474 </td><td>59.25 </td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga14cf92eb1a045016439bea0f6f2b028b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga14cf92eb1a045016439bea0f6f2b028b">&#9670;&nbsp;</a></span>nmppsNeg_64s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsNeg_64s </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>2048 </td><td>4415 </td><td>2.16 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>4533 </td><td>2.21 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>2048 </td><td>4409 </td><td>2.15 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>2048 </td><td>4416 </td><td>2.16 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>2048 </td><td>4409 </td><td>2.15 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>4533 </td><td>2.21 </td></tr>
+</table>
+<p>Perfomance table 1</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>8 </td><td>466 </td><td>58.25 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>128 </td><td>688 </td><td>5.37 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>1024 </td><td>2487 </td><td>2.43 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>4421 </td><td>2.16 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>4421 </td><td>2.16 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>8 </td><td>466 </td><td>58.25 </td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga11c5c1462ecdaab59d53268dc5e4d8f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11c5c1462ecdaab59d53268dc5e4d8f0">&#9670;&nbsp;</a></span>nmppsNeg_8s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsNeg_8s </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>2048 </td><td>898 </td><td>0.44 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>817 </td><td>0.40 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>2048 </td><td>816 </td><td>0.40 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>2048 </td><td>890 </td><td>0.43 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>2048 </td><td>816 </td><td>0.40 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>2048 </td><td>898 </td><td>0.44 </td></tr>
+</table>
+<p>Perfomance table 1</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>8 </td><td>463 </td><td>57.87 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>128 </td><td>479 </td><td>3.74 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>1024 </td><td>600 </td><td>0.59 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>821 </td><td>0.40 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>2048 </td><td>821 </td><td>0.40 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>8 </td><td>463 </td><td>57.87 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsMul_AddC</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppsMul_AddC<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_arithmetics.html">Арифметические операции</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Поэлементное умножение векторов с прибавлением константы.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga9404f0ea2b17336dbb870974ab563076"><td class="memItemLeft" align="right" valign="top"><a id="ga9404f0ea2b17336dbb870974ab563076"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsMul_AddC_64s</b> (const <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pSrcVec1, const <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pSrcVec2, const <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pnVal, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga9404f0ea2b17336dbb870974ab563076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Поэлементное умножение векторов с прибавлением константы. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ pDstVec[i] = pSrcVec1[i] \cdot pSrcVec2[i] + nVal, \]" src="form_24.png"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ i = \overline{0 \ldots nSize-1} \]" src="form_11.png"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec1</td><td>Входной вектор.</td></tr>
+    <tr><td class="paramname">pSrcVec2</td><td>Входной вектор.</td></tr>
+    <tr><td class="paramname">pnVal</td><td>указаель на константу-инкремент.</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер векторов в элементах.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td>Результирующий вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

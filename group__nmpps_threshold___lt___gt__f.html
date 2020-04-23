@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsThreshold_Lt_Gt_f</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppsThreshold_Lt_Gt_f<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_select.html">Операции сравнения</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Пороговая функция с нижним и верхним порогами  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gae9138ecd2d46e8ab7556848d29ccbd94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_threshold___lt___gt__f.html#gae9138ecd2d46e8ab7556848d29ccbd94">nmppsThreshold_Lt_Gt_32f</a> (nm32f *pSrcVec, nm32f *pDstVec, float min, float max, int nSize)</td></tr>
+<tr class="separator:gae9138ecd2d46e8ab7556848d29ccbd94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Пороговая функция с нижним и верхним порогами </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ pDstVec[i] = \left \{ \begin{array}{lcl} max, &amp; if &amp; pSrcVec[i] &gt; max \\ pSrcVec[i], &amp; if &amp; min \le pSrcVec[i] \le max \\ min, &amp; if &amp; pSrcVec[i] &lt; min \\ \end{array} \right. \]" src="form_71.png"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ i = \overline{0 \ldots nSize-1} \]" src="form_11.png"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td>Входной вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td>Результирующий вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>Нижний порог насыщения.</td></tr>
+    <tr><td class="paramname">max</td><td>Верхний порог насыщения.</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер вектора в элементах.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="gae9138ecd2d46e8ab7556848d29ccbd94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae9138ecd2d46e8ab7556848d29ccbd94">&#9670;&nbsp;</a></span>nmppsThreshold_Lt_Gt_32f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsThreshold_Lt_Gt_32f </td>
+          <td>(</td>
+          <td class="paramtype">nm32f *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">nm32f *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>min </th><th>max </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>-127 </td><td>127 </td><td>2048 </td><td>7443 </td><td>3.63 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>-127 </td><td>127 </td><td>2048 </td><td>7511 </td><td>3.67 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>-127 </td><td>127 </td><td>2048 </td><td>7438 </td><td>3.63 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>-127 </td><td>127 </td><td>2048 </td><td>7463 </td><td>3.64 </td></tr>
+</table>
+<p>The best configuration:</p>
+<p>pSrcVec | pDstVec | min | max | nSize | ticks | ticks/elem &mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|&mdash;</p>
+<p>The worst configuration:</p>
+<p>pSrcVec | pDstVec | min | max | nSize | ticks | ticks/elem &mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|&mdash;</p>
+<p>Perfomance table 1</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>min </th><th>max </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>-255 </td><td>127 </td><td>2048 </td><td>7476 </td><td>3.65 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>-255 </td><td>255 </td><td>2048 </td><td>7446 </td><td>3.64 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>-127 </td><td>127 </td><td>2048 </td><td>7442 </td><td>3.63 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>-127 </td><td>255 </td><td>2048 </td><td>7447 </td><td>3.64 </td></tr>
+</table>
+<p>The best configuration:</p>
+<p>pSrcVec | pDstVec | min | max | nSize | ticks | ticks/elem &mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|&mdash;</p>
+<p>The worst configuration:</p>
+<p>pSrcVec | pDstVec | min | max | nSize | ticks | ticks/elem &mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|&mdash;</p>
+<p>Perfomance table 2</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>min </th><th>max </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>-127 </td><td>127 </td><td>8 </td><td>603 </td><td>75.37 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>-127 </td><td>127 </td><td>128 </td><td>836 </td><td>6.53 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>-127 </td><td>127 </td><td>1024 </td><td>3922 </td><td>3.83 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>-127 </td><td>127 </td><td>2048 </td><td>7435 </td><td>3.63 </td></tr>
+</table>
+<p>The best configuration:</p>
+<p>pSrcVec | pDstVec | min | max | nSize | ticks | ticks/elem &mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|&mdash;</p>
+<p>The worst configuration:</p>
+<p>pSrcVec | pDstVec | min | max | nSize | ticks | ticks/elem &mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|---&mdash;|&mdash; </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

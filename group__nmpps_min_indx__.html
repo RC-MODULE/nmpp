@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsMinIndx_</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppsMinIndx_<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_select.html">Операции сравнения</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Поиск значения минимального элемента вектора и его положения (положений) в векторе.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga572b4dbe260a96e4a99885c624da3bb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_min_indx__.html#ga572b4dbe260a96e4a99885c624da3bb8">nmppsMinIndx_8s</a> (<a class="el" href="group__nmvectype.html#ga871a7c1018a70544e4ce34f440840b9c">nm8s7b</a> *pSrcVec, int nSize, int *nIndex, <a class="el" href="group__nmtype.html#ga76ec3af99402ffbf69b57b18f11defad">int8b</a> *nMinValue, void *pLTmpBuf, void *pGTmpBuf, int nSearchDir)</td></tr>
+<tr class="separator:ga572b4dbe260a96e4a99885c624da3bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8b06677ab2aa1c889476a342f862493b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_min_indx__.html#ga8b06677ab2aa1c889476a342f862493b">nmppsMinIndx_16s</a> (<a class="el" href="group__nmvectype.html#gad8babf625e9f2a3dddab71587bb87ca3">nm16s15b</a> *pSrcVec, int nSize, int *nIndex, <a class="el" href="group__nmtype.html#gac616dda8e00b5e305cd64c816cbd8ca2">int16b</a> *nMinValue, void *pLTmpBuf, void *pGTmpBuf, int nSearchDir)</td></tr>
+<tr class="separator:ga8b06677ab2aa1c889476a342f862493b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95a313279c401ac6e03c54288a4f5bcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_min_indx__.html#ga95a313279c401ac6e03c54288a4f5bcb">nmppsMinIndx_32s</a> (<a class="el" href="group__nmvectype.html#ga40bd6583b76e1fd3078c89f2e09d7ff2">nm32s31b</a> *pSrcVec, int nSize, int *nIndex, <a class="el" href="group__nmtype.html#gaa06da44f55c38bad96f0d3f45534cd2e">int32b</a> *nMinValue, void *pLTmpBuf, void *pGTmpBuf, int nSearchDir)</td></tr>
+<tr class="separator:ga95a313279c401ac6e03c54288a4f5bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Поиск значения минимального элемента вектора и его положения (положений) в векторе. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ nMinValue = \mathop {min} \limits_{i} \left(pSrcVec[i] \right) \]" src="form_56.png"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td>Входной вектор.</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер вектора в элементах. Занимаемый этим вектором объем памяти должен быть кратен 64 длинным словам (nm64s[64,128,...]).</td></tr>
+    <tr><td class="paramname">pLTmpBuf</td><td>Временный массив на локальной шине .</td></tr>
+    <tr><td class="paramname">pGTmpBuf</td><td>Временный массив на глобальной шине из nSize элементов.</td></tr>
+    <tr><td class="paramname">nSearchDir</td><td>Направление поиска минимума. <br />
+ При nSearchDir = 1, поиск ведется от начала массива.<br />
+ При nSearchDir = -1, поиск ведется от конца массива.<br />
+ Значение минимального элемента.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">nIndex</td><td>Индекс первого найденного минимума среди равных.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt>Restrictions:</dt><dd>Ограничения на параметры приводятся в описании каждой из функций.</dd></dl>
+<dl class="section user"><dt>Restrictions:</dt><dd>Диапазоны входных элементов могут быть "плавающими" <br />
+ Например для данных nm16s15b максимальный и минимальный элементы массива должны отличатся не более чем на 2^15-1. Примеры допустимых диапазонов входных чисел для типа nm16s15b : <pre class="fragment">    Here are some examples of admissible ranges for input numbers: \n
+</pre> [0000h..7FFFh]=[ 0..+32767 ] [FFFFh..7FFEh]=[ -1..+32766 ] [C000h..3FFFh]=[-16384..+16383 ] [8000h..0000h]=[-32768..0 ] </dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga8b06677ab2aa1c889476a342f862493b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8b06677ab2aa1c889476a342f862493b">&#9670;&nbsp;</a></span>nmppsMinIndx_16s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsMinIndx_16s </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#gad8babf625e9f2a3dddab71587bb87ca3">nm16s15b</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmtype.html#gac616dda8e00b5e305cd64c816cbd8ca2">int16b</a> *&#160;</td>
+          <td class="paramname"><em>nMinValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pLTmpBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pGTmpBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSearchDir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pLTmpBuf </th><th>pGTmpBuf </th><th>nMinValue </th><th>nIndex </th><th>nSearchDir </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>64 </td><td>6337 </td><td>99.02 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>1024 </td><td>8346 </td><td>8.15 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>2048 </td><td>8207 </td><td>4.01 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>64 </td><td>4585 </td><td>71.64 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>1024 </td><td>6405 </td><td>6.25 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>2048 </td><td>6161 </td><td>3.01 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>64 </td><td>6437 </td><td>100.58 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>1024 </td><td>8375 </td><td>8.18 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>2048 </td><td>8086 </td><td>3.95 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>64 </td><td>4571 </td><td>71.42 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>1024 </td><td>6423 </td><td>6.27 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>2048 </td><td>6158 </td><td>3.01 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pLTmpBuf </th><th>pGTmpBuf </th><th>nMinValue </th><th>nIndex </th><th>nSearchDir </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>2048 </td><td>6158 </td><td>3.01 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pLTmpBuf </th><th>pGTmpBuf </th><th>nMinValue </th><th>nIndex </th><th>nSearchDir </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>64 </td><td>6437 </td><td>100.58 </td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga95a313279c401ac6e03c54288a4f5bcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga95a313279c401ac6e03c54288a4f5bcb">&#9670;&nbsp;</a></span>nmppsMinIndx_32s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsMinIndx_32s </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga40bd6583b76e1fd3078c89f2e09d7ff2">nm32s31b</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmtype.html#gaa06da44f55c38bad96f0d3f45534cd2e">int32b</a> *&#160;</td>
+          <td class="paramname"><em>nMinValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pLTmpBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pGTmpBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSearchDir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pLTmpBuf </th><th>pGTmpBuf </th><th>nMinValue </th><th>nIndex </th><th>nSearchDir </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>64 </td><td>14099 </td><td>220.30 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>1024 </td><td>18023 </td><td>17.60 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>2048 </td><td>20483 </td><td>10.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>64 </td><td>5685 </td><td>88.83 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>1024 </td><td>7979 </td><td>7.79 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>2048 </td><td>8963 </td><td>4.38 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>64 </td><td>14017 </td><td>219.02 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>1024 </td><td>17708 </td><td>17.29 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>2048 </td><td>20610 </td><td>10.06 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>64 </td><td>5801 </td><td>90.64 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>1024 </td><td>7979 </td><td>7.79 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>2048 </td><td>9060 </td><td>4.42 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pLTmpBuf </th><th>pGTmpBuf </th><th>nMinValue </th><th>nIndex </th><th>nSearchDir </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>2048 </td><td>8963 </td><td>4.38 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pLTmpBuf </th><th>pGTmpBuf </th><th>nMinValue </th><th>nIndex </th><th>nSearchDir </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>64 </td><td>14099 </td><td>220.30 </td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga572b4dbe260a96e4a99885c624da3bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga572b4dbe260a96e4a99885c624da3bb8">&#9670;&nbsp;</a></span>nmppsMinIndx_8s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsMinIndx_8s </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga871a7c1018a70544e4ce34f440840b9c">nm8s7b</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmtype.html#ga76ec3af99402ffbf69b57b18f11defad">int8b</a> *&#160;</td>
+          <td class="paramname"><em>nMinValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pLTmpBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pGTmpBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSearchDir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pLTmpBuf </th><th>pGTmpBuf </th><th>nMinValue </th><th>nIndex </th><th>nSearchDir </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>64 </td><td>12111 </td><td>189.23 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>1024 </td><td>15440 </td><td>15.08 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>2048 </td><td>16338 </td><td>7.98 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>64 </td><td>4030 </td><td>62.97 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>1024 </td><td>5702 </td><td>5.57 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>2048 </td><td>4822 </td><td>2.35 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>64 </td><td>12328 </td><td>192.62 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>1024 </td><td>15454 </td><td>15.09 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>2048 </td><td>16219 </td><td>7.92 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>64 </td><td>4069 </td><td>63.58 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>1024 </td><td>5559 </td><td>5.43 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>2048 </td><td>4852 </td><td>2.37 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pLTmpBuf </th><th>pGTmpBuf </th><th>nMinValue </th><th>nIndex </th><th>nSearchDir </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>-1 </td><td>2048 </td><td>4822 </td><td>2.35 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pLTmpBuf </th><th>pGTmpBuf </th><th>nMinValue </th><th>nIndex </th><th>nSearchDir </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>5 </td><td>5 </td><td>1 </td><td>64 </td><td>12328 </td><td>192.62 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

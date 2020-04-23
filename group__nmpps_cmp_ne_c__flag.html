@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsCmpNeC_flag</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppsCmpNeC_flag<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_select.html">Операции сравнения</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Сравнивает элементы массива на признак неравенства константе.<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ pDstVec(i) = \{ \begin{array}{lcl} nTrueFlag, &amp; if &amp; pSrcVec(i) \neq nCmpVal \\ 0, &amp; if &amp; pSrcVec(i) = nCmpVal \\ \end{array} \]" src="form_77.png"/>
+</p>
+<p>.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gabca865cbc4921fb374ba54cf152942f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_cmp_ne_c__flag.html#gabca865cbc4921fb374ba54cf152942f4">nmppsCmpNeC_8u7b</a> (<a class="el" href="group__nmvectype.html#gad0322b61a50041012cad74d371cc3217">nm8u7b</a> *pSrcVec, <a class="el" href="group__nmtype.html#gafa9f39e5621f856dc23294d5a736f3e3">uint7b</a> nCmpVal, <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *pDstVec, int nSize, <a class="el" href="group__nmtype.html#ga76ec3af99402ffbf69b57b18f11defad">int8b</a> nTrueFlag)</td></tr>
+<tr class="separator:gabca865cbc4921fb374ba54cf152942f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga275fd3c11198843d50ae420f7e4845e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_cmp_ne_c__flag.html#ga275fd3c11198843d50ae420f7e4845e9">nmppsCmpNeC_16u15b</a> (<a class="el" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a> *pSrcVec, <a class="el" href="group__nmtype.html#ga21984864434e3e1352abc9ad526534f8">uint15b</a> nCmpVal, <a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *pDstVec, int nSize, <a class="el" href="group__nmtype.html#gac616dda8e00b5e305cd64c816cbd8ca2">int16b</a> nTrueFlag)</td></tr>
+<tr class="separator:ga275fd3c11198843d50ae420f7e4845e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Сравнивает элементы массива на признак неравенства константе.</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ pDstVec(i) = \{ \begin{array}{lcl} nTrueFlag, &amp; if &amp; pSrcVec(i) \neq nCmpVal \\ 0, &amp; if &amp; pSrcVec(i) = nCmpVal \\ \end{array} \]" src="form_77.png"/>
+</p>
+<p>. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ pDstVec(i) = \{ \begin{array}{lcl} nTrueFlag, &amp; if &amp; pSrcVec(i) \neq nCmpVal \\ 0, &amp; if &amp; pSrcVec(i) = nCmpVal \\ \end{array} \]" src="form_77.png"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ i = \overline{0 \ldots nSize-1} \]" src="form_11.png"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td>Входной вектор.</td></tr>
+    <tr><td class="paramname">nCmpVal</td><td>Значение константы для сравнения</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер векторов в элементах.</td></tr>
+    <tr><td class="paramname">nTrueFlag</td><td>Значние флага, устанавливаемого при выполнении условия</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td>Результирующий вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga275fd3c11198843d50ae420f7e4845e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga275fd3c11198843d50ae420f7e4845e9">&#9670;&nbsp;</a></span>nmppsCmpNeC_16u15b()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsCmpNeC_16u15b </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmtype.html#ga21984864434e3e1352abc9ad526534f8">uint15b</a>&#160;</td>
+          <td class="paramname"><em>nCmpVal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga3f652021fc381bc06646b4622fb24ad2">nm16s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmtype.html#gac616dda8e00b5e305cd64c816cbd8ca2">int16b</a>&#160;</td>
+          <td class="paramname"><em>nTrueFlag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nCmpVal </th><th>nSize </th><th>nTrueFlag </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>8 </td><td>1 </td><td>934 </td><td>934.00 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>128 </td><td>1 </td><td>782 </td><td>782.00 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>512 </td><td>1 </td><td>1036 </td><td>1036.00 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>1024 </td><td>1 </td><td>1416 </td><td>1416.00 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>2048 </td><td>1 </td><td>2186 </td><td>2186.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>0 </td><td>8 </td><td>1 </td><td>837 </td><td>837.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>0 </td><td>128 </td><td>1 </td><td>789 </td><td>789.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>0 </td><td>512 </td><td>1 </td><td>1059 </td><td>1059.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>0 </td><td>1024 </td><td>1 </td><td>1430 </td><td>1430.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>0 </td><td>2048 </td><td>1 </td><td>2202 </td><td>2202.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>0 </td><td>8 </td><td>1 </td><td>930 </td><td>930.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>0 </td><td>128 </td><td>1 </td><td>919 </td><td>919.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>0 </td><td>512 </td><td>1 </td><td>1046 </td><td>1046.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>0 </td><td>1024 </td><td>1 </td><td>1424 </td><td>1424.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>0 </td><td>2048 </td><td>1 </td><td>2184 </td><td>2184.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>0 </td><td>8 </td><td>1 </td><td>805 </td><td>805.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>0 </td><td>128 </td><td>1 </td><td>897 </td><td>897.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>0 </td><td>512 </td><td>1 </td><td>1052 </td><td>1052.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>0 </td><td>1024 </td><td>1 </td><td>1446 </td><td>1446.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>0 </td><td>2048 </td><td>1 </td><td>2193 </td><td>2193.00 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nCmpVal </th><th>nSize </th><th>nTrueFlag </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>128 </td><td>1 </td><td>782 </td><td>782.00 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nCmpVal </th><th>nSize </th><th>nTrueFlag </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>0 </td><td>2048 </td><td>1 </td><td>2202 </td><td>2202.00 </td></tr>
+</table>
+
+</div>
+</div>
+<a id="gabca865cbc4921fb374ba54cf152942f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabca865cbc4921fb374ba54cf152942f4">&#9670;&nbsp;</a></span>nmppsCmpNeC_8u7b()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsCmpNeC_8u7b </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#gad0322b61a50041012cad74d371cc3217">nm8u7b</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmtype.html#gafa9f39e5621f856dc23294d5a736f3e3">uint7b</a>&#160;</td>
+          <td class="paramname"><em>nCmpVal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmtype.html#ga76ec3af99402ffbf69b57b18f11defad">int8b</a>&#160;</td>
+          <td class="paramname"><em>nTrueFlag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nCmpVal </th><th>nSize </th><th>nTrueFlag </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>8 </td><td>1 </td><td>825 </td><td>825.00 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>128 </td><td>1 </td><td>867 </td><td>867.00 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>512 </td><td>1 </td><td>886 </td><td>886.00 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>1024 </td><td>1 </td><td>1075 </td><td>1075.00 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>2048 </td><td>1 </td><td>1569 </td><td>1569.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>0 </td><td>8 </td><td>1 </td><td>866 </td><td>866.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>0 </td><td>128 </td><td>1 </td><td>825 </td><td>825.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>0 </td><td>512 </td><td>1 </td><td>878 </td><td>878.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>0 </td><td>1024 </td><td>1 </td><td>1069 </td><td>1069.00 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>0 </td><td>2048 </td><td>1 </td><td>1456 </td><td>1456.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>0 </td><td>8 </td><td>1 </td><td>976 </td><td>976.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>0 </td><td>128 </td><td>1 </td><td>958 </td><td>958.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>0 </td><td>512 </td><td>1 </td><td>997 </td><td>997.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>0 </td><td>1024 </td><td>1 </td><td>1063 </td><td>1063.00 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>0 </td><td>2048 </td><td>1 </td><td>1453 </td><td>1453.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>0 </td><td>8 </td><td>1 </td><td>829 </td><td>829.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>0 </td><td>128 </td><td>1 </td><td>827 </td><td>827.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>0 </td><td>512 </td><td>1 </td><td>874 </td><td>874.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>0 </td><td>1024 </td><td>1 </td><td>1064 </td><td>1064.00 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>0 </td><td>2048 </td><td>1 </td><td>1448 </td><td>1448.00 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nCmpVal </th><th>nSize </th><th>nTrueFlag </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>8 </td><td>1 </td><td>825 </td><td>825.00 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec </th><th>pDstVec </th><th>nCmpVal </th><th>nSize </th><th>nTrueFlag </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>0 </td><td>2048 </td><td>1 </td><td>1569 </td><td>1569.00 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

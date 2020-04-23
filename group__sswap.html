@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmblas_sswap</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmblas_sswap<div class="ingroups"><a class="el" href="group___l_e_v_e_l1.html">BLASS-LEVEL1</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>interchanges two vectors  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga692b50b31beebe79029f5e4c33a2c03c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sswap.html#ga692b50b31beebe79029f5e4c33a2c03c">nmblas_sswap</a> (const int N, const float *X, const int INCX, const float *Y, const int INCY)</td></tr>
+<tr class="separator:ga692b50b31beebe79029f5e4c33a2c03c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>interchanges two vectors </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>number of elements in input vector </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">X</td><td>array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">INCX</td><td>storage spacing between elements of X </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">Y</td><td>array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">INCY</td><td>storage spacing between elements of Y </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga692b50b31beebe79029f5e4c33a2c03c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga692b50b31beebe79029f5e4c33a2c03c">&#9670;&nbsp;</a></span>nmblas_sswap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmblas_sswap </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>N</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>INCX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>Y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>INCY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>N </th><th>X </th><th>INCX </th><th>Y </th><th>INCY </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>8 </td><td>im1 </td><td>1 </td><td>im1 </td><td>1 </td><td>545 </td><td>68.12 </td></tr>
+<tr>
+<td>8 </td><td>im1 </td><td>1 </td><td>im2 </td><td>1 </td><td>571 </td><td>71.37 </td></tr>
+<tr>
+<td>8 </td><td>im2 </td><td>1 </td><td>im1 </td><td>1 </td><td>686 </td><td>85.75 </td></tr>
+<tr>
+<td>8 </td><td>im2 </td><td>1 </td><td>im2 </td><td>1 </td><td>553 </td><td>69.12 </td></tr>
+<tr>
+<td>128 </td><td>im1 </td><td>1 </td><td>im1 </td><td>1 </td><td>672 </td><td>5.25 </td></tr>
+<tr>
+<td>128 </td><td>im1 </td><td>1 </td><td>im2 </td><td>1 </td><td>641 </td><td>5.01 </td></tr>
+<tr>
+<td>128 </td><td>im2 </td><td>1 </td><td>im1 </td><td>1 </td><td>625 </td><td>4.88 </td></tr>
+<tr>
+<td>128 </td><td>im2 </td><td>1 </td><td>im2 </td><td>1 </td><td>663 </td><td>5.18 </td></tr>
+<tr>
+<td>1024 </td><td>im1 </td><td>1 </td><td>im1 </td><td>1 </td><td>2460 </td><td>2.40 </td></tr>
+<tr>
+<td>1024 </td><td>im1 </td><td>1 </td><td>im2 </td><td>1 </td><td>1624 </td><td>1.59 </td></tr>
+<tr>
+<td>1024 </td><td>im2 </td><td>1 </td><td>im1 </td><td>1 </td><td>1715 </td><td>1.67 </td></tr>
+<tr>
+<td>1024 </td><td>im2 </td><td>1 </td><td>im2 </td><td>1 </td><td>2469 </td><td>2.41 </td></tr>
+<tr>
+<td>2048 </td><td>im1 </td><td>1 </td><td>im1 </td><td>1 </td><td>4515 </td><td>2.20 </td></tr>
+<tr>
+<td>2048 </td><td>im1 </td><td>1 </td><td>im2 </td><td>1 </td><td>2816 </td><td>1.37 </td></tr>
+<tr>
+<td>2048 </td><td>im2 </td><td>1 </td><td>im1 </td><td>1 </td><td>2722 </td><td>1.33 </td></tr>
+<tr>
+<td>2048 </td><td>im2 </td><td>1 </td><td>im2 </td><td>1 </td><td>4506 </td><td>2.20 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>N </th><th>X </th><th>INCX </th><th>Y </th><th>INCY </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>2048 </td><td>im2 </td><td>1 </td><td>im1 </td><td>1 </td><td>2722 </td><td>1.33 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>N </th><th>X </th><th>INCX </th><th>Y </th><th>INCY </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>8 </td><td>im2 </td><td>1 </td><td>im1 </td><td>1 </td><td>686 </td><td>85.75 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:46:59. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

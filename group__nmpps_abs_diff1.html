@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsAbsDiff1</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">nmppsAbsDiff1<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_arithmetics.html">Арифметические операции</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Функция логического вычисления модулей разностей элементов двух векторов.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga3a132735d4c079f8947dab2e0aa0b0b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_abs_diff1.html#ga3a132735d4c079f8947dab2e0aa0b0b0">nmppsAbsDiff1_8s</a> (<a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *pSrcVec1, <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *pSrcVec2, <a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga3a132735d4c079f8947dab2e0aa0b0b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Функция логического вычисления модулей разностей элементов двух векторов. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ pDstVec[i] = \{ \begin{array}{lcl} pSrcVec1[i] - pSrcVec2[i] , &amp; if &amp; pSrcVec1[i] - pSrcVec2[i] \ge 0 \\ pSrcVec1[i] - pSrcVec2[i]-1, &amp; if &amp; pSrcVec1[i] - pSrcVec2[i] &lt; 0 \\ \end{array} \]" src="form_22.png"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ i = \overline{0 \ldots nSize-1} \]" src="form_11.png"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec1</td><td>Входной вектор.</td></tr>
+    <tr><td class="paramname">pSrcVec2</td><td>Вычитаемый вектор.</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер векторов в элементах.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td>Результирующий вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt>Restrictions:</dt><dd>Разность элементов векторов не должна быть равна минимальному значению для соответствующего типа (т.е. -128, -2^15 и т.д). В противном случае, абсолютное значение для таких элементов вычисляется не верно, давая на выходе то же самое число.</dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga3a132735d4c079f8947dab2e0aa0b0b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3a132735d4c079f8947dab2e0aa0b0b0">&#9670;&nbsp;</a></span>nmppsAbsDiff1_8s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsAbsDiff1_8s </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga0b5a4182e80e797c3a7589069b9fc2e4">nm8s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perfomance table 0</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im2 </td><td>2048 </td><td>1406 </td><td>0.69 </td></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im3 </td><td>2048 </td><td>1454 </td><td>0.71 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>2048 </td><td>1409 </td><td>0.69 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im3 </td><td>2048 </td><td>1401 </td><td>0.68 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im2 </td><td>2048 </td><td>1406 </td><td>0.69 </td></tr>
+<tr>
+<td>im1 </td><td>im0 </td><td>im3 </td><td>2048 </td><td>1401 </td><td>0.68 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>2048 </td><td>1397 </td><td>0.68 </td></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im3 </td><td>2048 </td><td>1410 </td><td>0.69 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im1 </td><td>im1 </td><td>im2 </td><td>2048 </td><td>1397 </td><td>0.68 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im0 </td><td>im3 </td><td>2048 </td><td>1454 </td><td>0.71 </td></tr>
+</table>
+<p>Perfomance table 1</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>8 </td><td>569 </td><td>71.12 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>128 </td><td>554 </td><td>4.33 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>1024 </td><td>809 </td><td>0.79 </td></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>2048 </td><td>1387 </td><td>0.68 </td></tr>
+</table>
+<p>The best configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>2048 </td><td>1387 </td><td>0.68 </td></tr>
+</table>
+<p>The worst configuration:</p>
+<table class="doxtable">
+<tr>
+<th>pSrcVec1 </th><th>pSrcVec2 </th><th>pDstVec </th><th>nSize </th><th>ticks </th><th>ticks/elem  </th></tr>
+<tr>
+<td>im0 </td><td>im1 </td><td>im2 </td><td>8 </td><td>569 </td><td>71.12 </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по nmpp. Последние изменения: Чт 23 Апр 2020 20:47:00. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

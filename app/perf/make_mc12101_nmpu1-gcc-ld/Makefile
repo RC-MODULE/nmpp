@@ -34,7 +34,7 @@ $(TARGET): $(SRC_CPP) Makefile
 PATH:=$(MC12101)/bin;$(PATH)
 
 run: $(TARGET)
-	make -B
+#	make -B
 	mc12101run $(TARGET) -p
 
 clean:

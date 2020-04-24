@@ -2,6 +2,15 @@
 default: config_mc12101_1_gcc
 	
 
+all: config_mc12101_0_gcc config_mc12101_1_gcc run outdir
+	
+
+config_mc12101_1_gcc:
+	testperf config -i ../../include -b make_mc12101_nmpu1-gcc-ld --point fixed	
+
+run:
+
+
 all_mc12101:
 	testperf config -i ../../include -b make_mc12101_nmpu0
 	testperf config -i ../../include -b make_mc12101_nmpu1 --point fixed

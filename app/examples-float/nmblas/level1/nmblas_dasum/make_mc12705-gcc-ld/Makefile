@@ -1,14 +1,20 @@
 ROOT=../../../../../..
 
-SHELL	=cmd
-OS_RM   =cmd /c del /Q
+ifeq ($(OS),Windows_NT)
+SHELL   = cmd
+OS_RM   = cmd /c del /Q
+NMC4VARS= nmc4vars_win.mk
+include nmc4vars_win.mk
+else 
+OS_RM    = rm -f -r
+endif
 
 export PATH:=$(realpath $(MC12705)/bin);$(PATH);
 define BACKSLASH
 	$(subst /,\,$(1))
 endef
 
-include nmc4vars_win.mk
+
 
 
 INC_DIRS = -I"$(NMPP)/include" -I"$(MC12705)/include" -I"$(HAL)/include" -I$(ROOT)/include
@@ -25,8 +31,8 @@ SRC_ASM  = $(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
 #	nmcc -o$(TARGET) -m.main.map $(SRC_CPP) $(SRC_ASM) -nmc4 -g -O0 $(INC_DIRS) $(LIB_DIRS) $(LIBS) -c$(CFG) $(HEAPS)
 #                                                                                         [L00]:64kB   [L01]:64kB  [G00]:64kB   [G01]:64kB
 
-$(TARGET): nmc4vars_win.mk $(SRC_CPP) $(SRC_ASM)
-	nmc-g++ -o $(TARGET) $(SRC_CPP) $(SRC_ASM) $(INC_DIRS) -Wl,--whole-archive -lmc12705load_nmc -Wl,--no-whole-archive $(LIB_DIRS) $(LIBS) -L "$(NMC_GCC_TOOLPATH)\nmc4-ide\lib" -Wl,-T$(CFG) -mmas
+$(TARGET): $(NMC4VARS) $(SRC_CPP) $(SRC_ASM)
+	nmc-g++ -o $(TARGET) $(SRC_CPP) $(SRC_ASM) $(INC_DIRS) -Wl,--whole-archive -lmc12705load_nmc -Wl,--no-whole-archive $(LIB_DIRS) $(LIBS) -L "$(NMC_GCC_TOOLPATH)/nmc4-ide/lib" -Wl,-T$(CFG) -mmas
 
 
 nmc4vars_win.mk:

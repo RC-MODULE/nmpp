@@ -35,8 +35,8 @@ int GetCopyingFuncNum(int src_address, int dst_address)
 
 void nmppsCopy_32f(const nm32f* pSrcVec, nm32f* pDstVec, int size)
 {
-  int src_address = (int)(pSrcVec);
-  int dst_address = (int)(pDstVec);
+  int src_address = *((int*)(&pSrcVec));
+  int dst_address = *((int*)(&pDstVec));
 
   int num = GetCopyingFuncNum(src_address, dst_address);
 

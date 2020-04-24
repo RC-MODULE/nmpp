@@ -36,6 +36,6 @@ run: $(TARGET)
 	mc12705run $(TARGET) -c0 -n0
 	
 clean:
-	$(OS_RM) nmc4vars_win.mk $(TARGET))
-	$(OS_RM) *.elf *.map *.abs *.dll *.exe
+	$(OS_RM) nmc4vars_win.mk $(TARGET)
+	$(OS_RM) *.elf *.map *.abs *.exe
 	

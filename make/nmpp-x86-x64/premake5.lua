@@ -8,8 +8,9 @@ solution "nmpp"
 		
 	project "nmpp"
 	  --objdir ("o")
-	  kind "StaticLib"
-	  systemversion "latest"
+		kind "StaticLib"
+		filter {"system:windows", "action:vs*"}
+        	 systemversion "latest"
 	  
 	  files { ROOT.."../include/*.h",
 		ROOT.."/src/nmblas/level1/pc/*.c",

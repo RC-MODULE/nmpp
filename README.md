@@ -98,13 +98,17 @@
 
 
 ## Сборка NeuroMatrix библиотек  GCC  компилятором 
-  Сборка осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp_\<archictecture\>* :  
-  
-```
-nmpp> cd make/nmpp-nmc3
-nmpp/make/nmpp-nmc3> make 
-nmpp/make/nmpp-nmc3> make DEBUG=y
-```
+  Сборка библиотеки осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp-\<archictecture\>* :  
+
+| Команда 									| Результат 		  |
+|-------------------------------------------|----------------------|
+|``` nmpp/make/nmpp-nmc3> make ```  		| nmpp/lib/nmpp-nmc3.lib |
+|``` nmpp/make/nmpp-nmc3> make DEBUG=y```	|  nmpp/lib/nmpp-nmc3d.lib |
+
+
+
+
+
 ## Сборка NeuroMatrix библиотек Legacy  компилятором 
   Сборка устаревшим компилятором осуществляется командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp_\<archictecture\>*:   
   

@@ -38,8 +38,10 @@ endif
 PROJECT = nmpp
 all: vs2015
 	
+gmake: gmake2
+	
 
-gmake gmake2:
+gmake2:
 	$(CP) Makefile .Makefile.origin
 	premake5 gmake2
 	$(CP) Makefile .Makefile.premake

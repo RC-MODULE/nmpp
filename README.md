@@ -98,48 +98,64 @@
 
 
 ## Сборка NeuroMatrix библиотек  GCC  компилятором 
-  Сборка библиотеки осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp-\<archictecture\>* :  
+  Сборка библиотек осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp-\<archictecture\>* :  
 
-| Команда 									| Результат 		  |
-|-------------------------------------------|----------------------|
-|``` nmpp/make/nmpp-nmc3> make ```  		| nmpp/lib/nmpp-nmc3.lib |
-|``` nmpp/make/nmpp-nmc3> make DEBUG=y```	|  nmpp/lib/nmpp-nmc3d.lib |
-
-
+| Команда 									| Собранная библиотека 	|
+|-------------------------------------------|-----------------------|
+|``` nmpp/make/nmpp-nmc3> make ```  		| nmpp/lib/libnmpp-nmc3.a  |
+|``` nmpp/make/nmpp-nmc3> make DEBUG=y```	| nmpp/lib/libnmpp-nmc3d.a |
+|``` nmpp/make/nmpp-nmc4> make ```  		| nmpp/lib/libnmpp-nmc4.a  |
+|``` nmpp/make/nmpp-nmc4> make DEBUG=y```	| nmpp/lib/libnmpp-nmc4d.a |
+|``` nmpp/make/nmpp-nmc4f> make ```  		| nmpp/lib/libnmpp-nmc4f.a |
+|``` nmpp/make/nmpp-nmc4f> make DEBUG=y```	| nmpp/lib/libnmpp-nmc4f.a |
 
 
 
 ## Сборка NeuroMatrix библиотек Legacy  компилятором 
-  Сборка устаревшим компилятором осуществляется командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp_\<archictecture\>*:   
-  
-```
-nmpp> cd make/nmpp-nmc3
-nmpp/make/nmpp-nmc3> make legacy
-nmpp/make/nmpp-nmc3> make legacy DEBUG=y
-```
+  Сборка устаревшим компилятором осуществляется командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp-\<archictecture\>*:   
+| Команда 										| Собранная библиотека	  |
+|-----------------------------------------------|-------------------------|
+|```nmpp/make/nmpp-nmc3> make legacy```  		| nmpp/lib/nmpp-nmc3.lib  |
+|```nmpp/make/nmpp-nmc3> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc3.lib  |
+|```nmpp/make/nmpp-nmc4> make legacy```  		| nmpp/lib/nmpp-nmc4.lib  |
+|```nmpp/make/nmpp-nmc4> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc4d.lib |
+|```nmpp/make/nmpp-nmc4f> make legacy ```  		| nmpp/lib/nmpp-nmc4f.lib |
+|```nmpp/make/nmpp-nmc4f> make legacy DEBUG=y```| nmpp/lib/nmpp-nmc4f.lib |
+
 
 ## Сборка x86/x64 библиотек  
-  Генерация самих проектов оcуществляется средствами [**premake5**](https://premake.github.io/).  
- Сконфигурировать проект под нужный SDK и собрать его можно командой   
-``` 
-nmpp\make\nmpp-x86-x64> make vs2005  
-nmpp\make\nmpp-x86-x64> make vs2015  
-nmpp\make\nmpp-x86-x64> make vs2017
-```
+  Генерация сборочных файлов/проектов оcуществляется средствами [**premake5**](https://premake.github.io/).  
+В среде Windows cконфигурировать проект под MS Visual Studio и собрать его можно одной из команд:   
+``` nmpp\make\nmpp-x86-x64> make vs2005  ```  
+``` nmpp\make\nmpp-x86-x64> make vs2015  ```  
+``` nmpp\make\nmpp-x86-x64> make vs2017  ```  
+в результате будут собраны:   
+\nmpp\lib\nmpp-x86.lib   
+\nmpp\lib\nmpp-x86d.lib   
+\nmpp\lib\nmpp-x64.lib   
+\nmpp\lib\nmpp-x64d.lib   
 
-где с помощью ключей:  vs2008, vs20015, vs2017 , unix, mingw ...
-указывается требуемый SDK   
+
+
+В Linux/Windows возможна сборка через GCC/MinGW с помощью ключа ```gmake``` :
+| Команда 										| Собранная библиотека	  |
+|-----------------------------------------------|-------------------------|
+|``` nmpp\make\nmpp-x86-x64> make gmake  ```	|nmpp/lib/libnmpp-x64.a (Linux)|   
+|``` nmpp\make\nmpp-x86-x64> make gmake  ```	|nmpp/lib/nmpp-x86.lib (Widows)|   
+
+
+Возможные ключи :  vs2005, vs2015, vs2017 , gmake 
+
+Команда ```  nmpp\make\nmpp-x86-x64> make ```  без ключа иниицрует сборку под VS2015 в Winodws и под GСС в Linux.
 
 ## Настройка переменных окружения  
-Для удобства подключения библиотек к собственным проектам, а также к примерам и тестам  рекомендуется использовать переменную окружения **NMPP**. Создать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  
+Для удобства подключения библиотек к собственным проектам, а также к примерам и тестам  рекомендуется использовать переменную окружения **NMPP**. В Windows cоздать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  
 ```\nmpp\make\> make setenv```
 
 
-> Настройка переменных, указывающих пути к зависимостям осуществляется в файле */global.mk* корневой директории NMPP. Если переменные окружения , идущие с конструкцией присвоения **?=** , не определены в системе, то они будут настроены на локальные пути к папке /deps 
- 
 ## Сборка примеров и тестов   
  Для сборки тестов и примеров  необходим [HAL](https://github.com/RC-MODULE/hal) со скомпилированными соотвествующими библиотеками и прописанной переменной окружения *HAL*.
- Все тесты и часть примеров идут только с исходными текстами. Сконфигурировать сборочные проекты пакетно можно командой ```make configure ``` из корневой папки с тестами или примерами, например:  
+ Некоторые тесты и примеров идут только с исходными С++ текстами. Сконфигурировать сборочные проекты пакетно можно командой ```make configure ``` из корневой папки с тестами или примерами, например:  
 
 ```\nmpp\app\test> make configure ```  
 ```\nmpp\app\examples-float> make configure ```  

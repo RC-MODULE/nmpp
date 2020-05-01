@@ -38,34 +38,13 @@ endif
 PROJECT = nmpp
 all: vs2015
 	
-	
-configure-mingw MinGW/Makefile:
-	-$(RMDIR)   MinGW	
-	$(MKDIR) 	MinGW
-	cd    		MinGW && cmake .. -G "MinGW Makefiles"
-#	cd    		MinGW && set path=$(MINGW)/bin;$(PATH) &&	cmake .. -G "MinGW Makefiles" 
 
-mingw: MinGW/Makefile
-	$(MAKE) -C MinGW 
-	
-configure-unix Unix/Makefile:     
-	-$(RMDIR)   Unix	
-	$(MKDIR)    Unix
-	cd          Unix &&  cmake .. -G "Unix Makefiles" 
-#	cd          Unix &&  set path=$(MINGW)/bin;$(PATH) && cmake .. -G "Unix Makefiles" -DCMAKE_POSITION_INDEPENDENT_CODE=ON
-	
-unix: Unix/Makefile
-	$(MAKE) -C Unix
-#	-DCMAKE_C_COMPILER="d:/SDK/MinGW/bin/gcc" -DCMAKE_CXX_COMPILER="d:/SDK/MinGW/bin/g++"  -DCMAKE_MAKE_PROGRAM="d:/SDK/MinGW/bin/mingw32-make" 
-
-
-
-gmake:
+gmake gmake2:
 	$(CP) Makefile .Makefile.origin
-	premake5 gmake
+	premake5 gmake2
 	$(CP) Makefile .Makefile.premake
 	$(CP) .Makefile.origin Makefile
-	$(MAKE) -f .Makefile.premake nmpp
+	$(MAKE) -f .Makefile.premake nmpp config=release_x64
 	
 vs2005:    	
 	premake5 vs2005
@@ -88,5 +67,28 @@ vs2017:
 	"$(VS150COMNTOOLS)\VsDevCmd" && msbuild nmpp.vcxproj /p:Configuration=Release /property:Platform=x64
 	"$(VS150COMNTOOLS)\VsDevCmd" && msbuild nmpp.vcxproj /p:Configuration=Debug   /property:Platform=x64
 
-include $(ROOT)/clean.mk
+
+	
+cmake-mingw:
+	-$(RMDIR)   MinGW	
+	$(MKDIR) 	MinGW
+	cd    		MinGW && cmake .. -G "MinGW Makefiles"
+#	cd    		MinGW && set path=$(MINGW)/bin;$(PATH) &&	cmake .. -G "MinGW Makefiles" 
+
+
+cmake-unix:     
+	-$(RMDIR)   Unix	
+	$(MKDIR)    Unix
+	cd          Unix &&  cmake .. -G "Unix Makefiles" 
+#	cd          Unix &&  set path=$(MINGW)/bin;$(PATH) && cmake .. -G "Unix Makefiles" -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+	
+unix: Unix/Makefile
+	$(MAKE) -C Unix
+#	-DCMAKE_C_COMPILER="d:/SDK/MinGW/bin/gcc" -DCMAKE_CXX_COMPILER="d:/SDK/MinGW/bin/g++"  -DCMAKE_MAKE_PROGRAM="d:/SDK/MinGW/bin/mingw32-make" 
+
+
+#include $(ROOT)/clean.mk
+clean:
+	-$(OS_RD) -f 1 2 3 4 obj MinGW
+	-$(OS_RM) .Makefile.* nmpp.make
 	

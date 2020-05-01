@@ -3,15 +3,23 @@
 ROOT = "../.."
 -- A solution contains projects, and defines the available configurations
 solution "nmpp"
-    configurations { "Debug", "Release" }
-	platforms { "Win32","x64"}
+    configurations { "Release", "Debug" }
+	
+	filter {"system:linux", "action:gmake*"}
+		platforms { "x64"}
+  
+	filter {"system:windows", "action:gmake*"}
+		platforms { "Win32","x64"}
+
+	filter {"system:windows", "action:vs*"}
+		platforms { "Win32","x64"}
+		systemversion ="latest"
 		
+      	
 	project "nmpp"
 	  --objdir ("o")
 		kind "StaticLib"
-		filter {"system:windows", "action:vs*"}
-        	 systemversion "latest"
-	  
+		
 	  files { ROOT.."../include/*.h",
 		ROOT.."/src/nmblas/level1/pc/*.c",
 		ROOT.."/src/nmblas/level2/pc/*.c",
@@ -177,30 +185,30 @@ solution "nmpp"
 		
 		configuration {"Debug","Win32"}
 			targetsuffix ("-x86d")
-			architecture "x32"
+			architecture "x86"
 			defines { "DEBUG"}
-			symbols  "On" 
+			symbols  ="On" 
 			objdir "1"
 		
 		configuration {"Release","Win32"}
 			targetsuffix ("-x86")
-			architecture "x32"
+			architecture "x86"
 			defines { "NDEBUG"}
-			symbols  "Off" 
+			symbols  ="Off" 
 			objdir "2"
 		
 		configuration {"Debug","x64"}
 			targetsuffix ("-x64d")
-			architecture "x64"
+			architecture "x86_64"
 			defines { "DEBUG"}
-			symbols  "On" 
+			symbols  ="On" 
 			objdir "3"
 		
 		configuration {"Release","x64"}
 			targetsuffix ("-x64")
-			architecture "x64"
+			architecture "x86_64"
 			defines { "NDEBUG"}
-			symbols  "Off" 
+			symbols  ="Off" 
 			objdir "4"
 	 
  

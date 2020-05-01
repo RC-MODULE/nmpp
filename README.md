@@ -25,15 +25,16 @@
 # Архитектуры 
   Поддерживаюся архитектуры NMC3 и NMC4.  Для NMC4 библиотеки разделяются по типу ядра: с плавающей точкой и целочисленной арифметикой.
 
-- Поддерживаемые процессоры :
- |процессор/ядро   													|nmc3	| nmc4 	| nmc4f	| arm	|
- |------------------------------------------------------------------|-------|-------|-------|-------|
- |[1879ХБ1Я](https://www.module.ru/products/1/18791-2) 				|   +   |     	|       |   +   |
- |[К1879ВЯ1Я](https://www.module.ru/products/1/23-18791) 		 	|   +   |     	|       |   +   |
- |[К1888ВС018](https://www.module.ru/products/1/1888018-2) 		 	|   +   |     	|       |   +   |
- |[1879ВМ5(NM6406)](https://www.module.ru/products/1/3-18795) 		|   +   |     	|       |       |
- |[1879ВМ6Я(6407)](https://www.module.ru/products/1/81-18796)       |       |   + 	|   +   |       |
- |[1879ВМ8Я(6408)](https://www.module.ru/products/1/26-18798)       | 	    |       |   +   |   +   |
+ Поддерживаемые процессоры :  
+
+|Процессор/ядро   													|nmc3	| nmc4 	| nmc4f	| arm	|
+|------------------------------------------------------------------|-------|-------|-------|-------|
+|[1879ХБ1Я](https://www.module.ru/products/1/18791-2) 				|   +   |     	|       |   +   |
+|[К1879ВЯ1Я](https://www.module.ru/products/1/23-18791) 		 	|   +   |     	|       |   +   |
+|[К1888ВС018](https://www.module.ru/products/1/1888018-2) 		 	|   +   |     	|       |   +   |
+|[1879ВМ5(NM6406)](https://www.module.ru/products/1/3-18795) 		|   +   |     	|       |       |
+|[1879ВМ6Я(6407)](https://www.module.ru/products/1/81-18796)       |       |   + 	|   +   |       |
+|[1879ВМ8Я(6408)](https://www.module.ru/products/1/26-18798)       | 	    |       |   +   |   +   |
  
 
 
@@ -71,7 +72,7 @@
 
 * Для обеспечения полной функциональности Makefile-ов (тестов/примеров/генерации проектов и .т.д.), а также кросс-платформенной работы Makefile как в ОС Windows, так и в Linux  используются :    UNIX-утилиты:   
 [rm,cp,mkdir,rmdir,...](http://gnuwin32.sourceforge.net/packages/coreutils.htm )  
-[find](http://gnuwin32.sourceforge.net/packages/findutils.htm ) (требует переимнования в gfind.exe для устранения конфликта
+[find](http://gnuwin32.sourceforge.net/packages/findutils.htm ) (требует переименования в gfind.exe для устранения конфликта
  с системным Windows\System32\find.exe)  
 
 * Пути к premake5 и GnuWin утилитами должны быть прописаны в PATH 
@@ -83,12 +84,12 @@
 
 | Команда 									| Собранная библиотека 	|
 |-------------------------------------------|-----------------------|
-|``` nmpp/make/nmpp-nmc3> make ```  		| nmpp/lib/libnmpp-nmc3.a  |
-|``` nmpp/make/nmpp-nmc3> make DEBUG=y```	| nmpp/lib/libnmpp-nmc3d.a |
-|``` nmpp/make/nmpp-nmc4> make ```  		| nmpp/lib/libnmpp-nmc4.a  |
-|``` nmpp/make/nmpp-nmc4> make DEBUG=y```	| nmpp/lib/libnmpp-nmc4d.a |
-|``` nmpp/make/nmpp-nmc4f> make ```  		| nmpp/lib/libnmpp-nmc4f.a |
-|``` nmpp/make/nmpp-nmc4f> make DEBUG=y```	| nmpp/lib/libnmpp-nmc4f.a |
+|``` /nmpp/make/nmpp-nmc3> make ```  		| nmpp/lib/libnmpp-nmc3.a  |
+|``` /nmpp/make/nmpp-nmc3> make DEBUG=y```	| nmpp/lib/libnmpp-nmc3d.a |
+|``` /nmpp/make/nmpp-nmc4> make ```  		| nmpp/lib/libnmpp-nmc4.a  |
+|``` /nmpp/make/nmpp-nmc4> make DEBUG=y```	| nmpp/lib/libnmpp-nmc4d.a |
+|``` /nmpp/make/nmpp-nmc4f> make ```  		| nmpp/lib/libnmpp-nmc4f.a |
+|``` /nmpp/make/nmpp-nmc4f> make DEBUG=y```	| nmpp/lib/libnmpp-nmc4f.a |
 > **d** - признак Debug версии библиотеки  
 > **f** - признак библиотеки для ядра с плавающей точкой . Если  без префикса - для целочисленного ядра.
 
@@ -96,27 +97,29 @@
 
 ## Сборка NeuroMatrix библиотек Legacy  компилятором 
   Сборка устаревшим компилятором возможна командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp-\<archictecture\>*:   
-| Команда 										| Собранная библиотека	  |
-|-----------------------------------------------|-------------------------|
-|```nmpp/make/nmpp-nmc3> make legacy```  		| nmpp/lib/nmpp-nmc3.lib  |
-|```nmpp/make/nmpp-nmc3> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc3.lib  |
-|```nmpp/make/nmpp-nmc4> make legacy```  		| nmpp/lib/nmpp-nmc4.lib  |
-|```nmpp/make/nmpp-nmc4> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc4d.lib |
-|```nmpp/make/nmpp-nmc4f> make legacy ```  		| nmpp/lib/nmpp-nmc4f.lib |
-|```nmpp/make/nmpp-nmc4f> make legacy DEBUG=y```| nmpp/lib/nmpp-nmc4f.lib |
+
+| Команда 											| Собранная библиотека	  |
+|-----------------------------------------------	|-------------------------|
+|```/nmpp/make/nmpp-nmc3> make legacy```  			| nmpp/lib/nmpp-nmc3.lib  |
+|```/nmpp/make/nmpp-nmc3> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc3.lib  |
+|```/nmpp/make/nmpp-nmc4> make legacy```  			| nmpp/lib/nmpp-nmc4.lib  |
+|```/nmpp/make/nmpp-nmc4> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc4d.lib |
+|```/nmpp/make/nmpp-nmc4f> make legacy ```  		| nmpp/lib/nmpp-nmc4f.lib |
+|```/nmpp/make/nmpp-nmc4f> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc4f.lib |
 
 
 ## Сборка x86/x64 библиотек  
-  Генерация сборочных файлов/проектов для x86/64 рахитектуры в Windows/Linux оcуществляется средствами [**premake5**](https://premake.github.io/).  
+  Генерация сборочных файлов/проектов для x86/64 архитектуры в Windows/Linux оcуществляется средствами [**premake5**](https://premake.github.io/).  
 Сконфигурировать проект  и собрать его можно одной из команд:   
-| Команда 										| Собранная библиотека	  |
-|-----------------------------------------------|-------------------------|
-|``` nmpp\make\nmpp-x86-x64> make vs2015  ```	| nmpp\lib\nmpp-x86.lib   |
-|												| nmpp\lib\nmpp-x86d.lib  | 
-|												| nmpp\lib\nmpp-x64.lib   |
-|												| nmpp\lib\nmpp-x64d.lib  |
-|``` nmpp\make\nmpp-x86-x64> make gmake  ```	| nmpp\lib\nmpp-x86.lib (Windows)|   
-|``` nmpp\make\nmpp-x86-x64> make gmake  ```	| nmpp/lib/libnmpp-x64.a (Linux)|   
+
+| Команда| Собранная библиотека  |
+|--------------------------------------------|-------------------------|
+|``` \nmpp\make\nmpp-x86-x64> make vs2015```| nmpp\lib\nmpp-x86.lib   |
+|											| nmpp\lib\nmpp-x86d.lib  | 
+|											| nmpp\lib\nmpp-x64.lib   |
+|											| nmpp\lib\nmpp-x64d.lib  |
+|``` \nmpp\make\nmpp-x86-x64> make gmake```	| nmpp\lib\nmpp-x86.lib (Windows)|   
+|``` /nmpp/make/nmpp-x86-x64> make gmake```	| nmpp/lib/libnmpp-x64.a (Linux)|   
  
 > x86/x64 эмуляторы билиотек включают в себя функции как с плавающей арифметикой , так и с целочисленной. 
 
@@ -133,16 +136,10 @@
 
 ``` nmpp\make\nmpp-x86-x64> make vs2015  ```  
 ``` nmpp\make\nmpp-x86-x64> make vs2017  ```  
-в результате будут собраны:   
 
 
 
-В Linux/Windows возможна сборка через GCC/MinGW с помощью ключа ```gmake``` :
-
-
-Возможные ключи :  vs2005, vs2015, vs2017 , gmake 
-
-Команда ```  nmpp\make\nmpp-x86-x64> make ```  без ключа иниицрует сборку под VS2015 в Winodws и под GСС в Linux.
+> Команда ```  nmpp\make\nmpp-x86-x64> make ```  без ключа инициирует сборку под VS2015 в Windows и под GСС в Linux.
 
 ## Настройка переменных окружения  
 Для удобства подключения библиотек к собственным проектам, а также к примерам и тестам  рекомендуется использовать переменную окружения **NMPP**. В Windows cоздать переменную **NMPP** и присвоить ей путь к установленной папке NMPP можно с помощью команды  
@@ -156,9 +153,9 @@
 ```\nmpp\app\test> make configure ```  
 ```\nmpp\app\examples-float> make configure ```  
   
-Список платформ для которых будут сформированы сборочные проекты определяются перерменной PLATFORMS в global.mk или local.mk   
+Список платформ для которых будут сформированы сборочные проекты определяются переменной PLATFORMS в global.mk или local.mk   
   
-Сборка и запуск примера осуществляюется командами ```make ``` и ```make run ``` из соотвествующей папки */make_\<board_compiler\>*, например:  
+Сборка и запуск примера осуществляюется командами ```make ``` и ```make run ``` из соответствующей папки */make_\<board_compiler\>*, например:  
 ```nmpp\> cd \app\examples\nmpps\nmppsAbs\make_mc12101_nmpu1-gcc-ld```   
 ```\> make```   
 ```\> make run ```   

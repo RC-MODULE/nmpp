@@ -1,52 +1,45 @@
 # Latest premake  https://premake.github.io/
 ROOT             = ../..
-include          $(ROOT)/global.mk
-
-
-.PHONY: mingw unix;
 
 ifeq ($(OS),Windows_NT)
+  .DEFAULT_GOAL := vs2015
   SHELL = cmd
-  WHICH = where
-  RMALL = del /Q /A:A                  
-  RMDIR = rmdir /Q /S
-  MKDIR = mkdir  
-  CPDIR = xcopy /e /y
-  CP    = copy                
-  MV    = move                 
-  ECHO  = echo  
-  define OSX
-	$(subst /,\,$(1))
-  endef  
+  OS_RD    = rd /Q /S 
+  OS_RM    = del /Q
+  OS_CP    = copy
+  OS_MKDIR = mkdir  
   export CC = gcc
 else
-  WHICH = which
-  RMALL = rm -f                 
-  RMDIR = rm -fr               
-  MKDIR = mkdir -p             
-  CPDIR = cp -r                
-  CP    = cp                   
-  MV    = mv                   
-  ECHO  = echo    
-  define OSX
-	$(subst \,/,$(1))
-  endef  
+  .DEFAULT_GOAL := gmake
+  OS_RM    = rm -f -r
+  OS_RD    = rm -d -r
+  OS_CP    = cp
+  OS_MKDIR = mkdir -p  
 endif
-#	$(CP)		$(call OSX,$(VS8)/Debug/*.lib) 	$(call OSX,../../lib/)
-#	$(CP)  		$(call OSX,$(VS8)/Release/*.lib) $(call OSX,../../lib/)
 
 PROJECT = nmpp
-all: vs2015
-	
-gmake: gmake2
-	
 
-gmake2:
-	$(CP) Makefile .Makefile.origin
+
+#Generate GNU Makefiles (including Cygwin and MinGW)
+ifeq ($(OS),Windows_NT)
+gmake qmake2:
+	$(OS_CP) Makefile .Makefile.origin
 	premake5 gmake2
-	$(CP) Makefile .Makefile.premake
-	$(CP) .Makefile.origin Makefile
+	$(OS_CP) Makefile .Makefile.premake
+	$(OS_CP) .Makefile.origin Makefile
+	$(OS_RM) .Makefile.origin 
+	$(MAKE) -f .Makefile.premake nmpp config=all
+	#$(MAKE) -f .Makefile.premake nmpp config=release_win32
+else 
+	#Generate GNU Makefiles (This generator is deprecated by gmake2) :	https://github.com/premake/premake-core/wiki/Using-Premake
+gmake:
+	$(OS_CP) Makefile .Makefile.origin
+	premake5 gmake
+	$(OS_CP) Makefile .Makefile.premake
+	$(OS_CP) .Makefile.origin Makefile
+	$(OS_RM) .Makefile.origin 
 	$(MAKE) -f .Makefile.premake nmpp config=release_x64
+endif
 	
 vs2005:    	
 	premake5 vs2005
@@ -72,15 +65,15 @@ vs2017:
 
 	
 cmake-mingw:
-	-$(RMDIR)   MinGW	
-	$(MKDIR) 	MinGW
+	-$(OS_RD)   MinGW	
+	$(OS_MKDIR) 	MinGW
 	cd    		MinGW && cmake .. -G "MinGW Makefiles"
 #	cd    		MinGW && set path=$(MINGW)/bin;$(PATH) &&	cmake .. -G "MinGW Makefiles" 
 
 
 cmake-unix:     
-	-$(RMDIR)   Unix	
-	$(MKDIR)    Unix
+	-$(OS_RD)   Unix	
+	$(OS_MKDIR)    Unix
 	cd          Unix &&  cmake .. -G "Unix Makefiles" 
 #	cd          Unix &&  set path=$(MINGW)/bin;$(PATH) && cmake .. -G "Unix Makefiles" -DCMAKE_POSITION_INDEPENDENT_CODE=ON
 	
@@ -91,6 +84,6 @@ unix: Unix/Makefile
 
 #include $(ROOT)/clean.mk
 clean:
-	-$(OS_RD) -f 1 2 3 4 obj MinGW
+	-$(OS_RD) 1 2 3 4 obj 
 	-$(OS_RM) .Makefile.* nmpp.make
 	

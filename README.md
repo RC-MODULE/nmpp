@@ -21,44 +21,10 @@
   - nmpps  - функции обработки сигналов
   - nmppi  - функции обработки изображений 
 
-  
-# Состав бинарных библиотек:  
-- Целевые **NMC3/NMC4** библиотеки под NMСGCC копилятор:  
- 
- |библиотека             |
- |-----------------------|
- |/lib/libnmpp-nmc3.a    |
- |/lib/libnmpp-nmc4.a    |
- |/lib/libnmpp-nmc4f.a   |
+# Архитектуры 
+  Поддерживаюся архитектуры NMC3 и NMC4.  Для NMC4 библиотеки разделяются по типу ядра: с плавающей точкой и целочисленной арифметикой.
 
-  
-- Целевые **NMC3/NMC4** библиотеки под устаревший (legacy) компилятор:    
-
- |библиотека             |
- |-----------------------|
- |/lib/nmpp-nmc3.lib     |
- |/lib/nmpp-nmc3d.lib    |
- |/lib/nmpp-nmc4.lib     |
- |/lib/nmpp-nmc4d.lib    |
- |/lib/nmpp-nmc4f.lib    |
- |/lib/nmpp-nmc4fd.lib   |
-
-- **x86/x64** эмуляторы nmc-библиотек на ПК:   
-  /lib/libnmpp-x86.a - compiled by GNU GCC  
-  /lib/nmpp-x86.lib  - (Release) compiled by Microsoft Visual Studio  
-  /lib/nmpp-x86d.lib - (Debug)   compiled by Microsoft Visual Studio  
-  /lib/nmpp-x64.lib  - (Release) compiled by Microsoft Visual Studio  
-  /lib/nmpp-x64d.lib - (Debug)   compiled by Microsoft Visual Studio  
- 
-- **ARM** библиотека вызов NMC функций со стороны ARM-ядра средствами rpc (для систем на кристалле с ARM ядром):  
-  /lib/libnmpp-arm-rpc.a
-
-> **d** - признак Debug версии библиотеки  
-> **f** - признак библиотеки для ядра с плавающей точкой (без префикса - для целочисленного ядра). x86/x64 эмуляторы билиотек включают в себя обе версии. 
-
- 
-- состав СБИС по процессорным ядрам:
-
+- Поддерживаемые процессоры :
  |процессор/ядро   													|nmc3	| nmc4 	| nmc4f	| arm	|
  |------------------------------------------------------------------|-------|-------|-------|-------|
  |[1879ХБ1Я](https://www.module.ru/products/1/18791-2) 				|   +   |     	|       |   +   |
@@ -69,6 +35,20 @@
  |[1879ВМ8Я(6408)](https://www.module.ru/products/1/26-18798)       | 	    |       |   +   |   +   |
  
 
+
+# Кроссплатформенность    
+  Для отладки и прототипирования проектов на x86/64 архитектуре предоставляются эмуляционные библиотеки для Windows/Linux . 
+  Библиотеки точно иммитируют исполнение функций для NeuroMatrix c побитовой точностью в x86/64-приложении .
+  Функции имеют единый интерфейс и могут использоваться в кроссплатформенной (x86/NeuroMatrix) разработке приложений под Windows/Linux. 
+  
+  Также имеется  **ARM** библиотека осуществляющая  вызов NMC функций со стороны ARM-ядра средствами rpc (для систем на кристалле с ARM ядром):  
+  /lib/libnmpp-arm-rpc.a
+  В частности ,данная библиотека осуществляют взаимосвязь Matlab/Simulink с NeuroMatrix.
+
+# Сборка 
+  Под NeuroMatrix сборка соуществляется NMСGCC копилятором. Также поддерживается устаревший (legacy)  компилятор .
+  Эммуляторы библиотк собираются через  VisualStudio/MinGW  под Windows и GCC в Linux .
+  
 
 # Установка NMPP 
 ## Системные требования
@@ -93,7 +73,7 @@
 [find](http://gnuwin32.sourceforge.net/packages/findutils.htm ) (требует переимнования в gfind.exe для устранения конфликта
  с системным Windows\System32\find.exe)  
 
-* Пути к premake и GnuWin утилитами должны быть прописаны в PATH 
+* Пути к premake5 и GnuWin утилитами должны быть прописаны в PATH 
 
 
 
@@ -108,11 +88,13 @@
 |``` nmpp/make/nmpp-nmc4> make DEBUG=y```	| nmpp/lib/libnmpp-nmc4d.a |
 |``` nmpp/make/nmpp-nmc4f> make ```  		| nmpp/lib/libnmpp-nmc4f.a |
 |``` nmpp/make/nmpp-nmc4f> make DEBUG=y```	| nmpp/lib/libnmpp-nmc4f.a |
+> **d** - признак Debug версии библиотеки  
+> **f** - признак библиотеки для ядра с плавающей точкой . Если  без префикса - для целочисленного ядра.
 
 
 
 ## Сборка NeuroMatrix библиотек Legacy  компилятором 
-  Сборка устаревшим компилятором осуществляется командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp-\<archictecture\>*:   
+  Сборка устаревшим компилятором возможна командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp-\<archictecture\>*:   
 | Команда 										| Собранная библиотека	  |
 |-----------------------------------------------|-------------------------|
 |```nmpp/make/nmpp-nmc3> make legacy```  		| nmpp/lib/nmpp-nmc3.lib  |
@@ -124,24 +106,37 @@
 
 
 ## Сборка x86/x64 библиотек  
-  Генерация сборочных файлов/проектов оcуществляется средствами [**premake5**](https://premake.github.io/).  
-В среде Windows cконфигурировать проект под MS Visual Studio и собрать его можно одной из команд:   
-``` nmpp\make\nmpp-x86-x64> make vs2005  ```  
+  Генерация сборочных файлов/проектов для x86/64 рахитектуры в Windows/Linux оcуществляется средствами [**premake5**](https://premake.github.io/).  
+Сконфигурировать проект  и собрать его можно одной из команд:   
+| Команда 										| Собранная библиотека	  |
+|-----------------------------------------------|-------------------------|
+|``` nmpp\make\nmpp-x86-x64> make vs2015  ```	| nmpp\lib\nmpp-x86.lib   |
+|												| nmpp\lib\nmpp-x86d.lib  | 
+|												| nmpp\lib\nmpp-x64.lib   |
+|												| nmpp\lib\nmpp-x64d.lib  |
+|``` nmpp\make\nmpp-x86-x64> make gmake  ```	| nmpp\lib\nmpp-x86.lib (Windows)|   
+|``` nmpp\make\nmpp-x86-x64> make gmake  ```	| nmpp/lib/libnmpp-x64.a (Linux)|   
+ 
+> x86/x64 эмуляторы билиотек включают в себя функции как с плавающей арифметикой , так и с целочисленной. 
+
+Возможные ключи ```make```:
+| Ключ   | ОС      | Toolchain            |
+|--------|---------|-----------------------|
+| vs2005 | Windows | MS Visual Studio 2005 |
+| vs2015 | Windows | MS Visual Studio 2015 |
+| vs2017 | Windows | MS Visual Studio 2017 |
+| gmake  | Windows | MinGW|
+| gmake  | Linux   | GCC |
+
+
+
 ``` nmpp\make\nmpp-x86-x64> make vs2015  ```  
 ``` nmpp\make\nmpp-x86-x64> make vs2017  ```  
 в результате будут собраны:   
-\nmpp\lib\nmpp-x86.lib   
-\nmpp\lib\nmpp-x86d.lib   
-\nmpp\lib\nmpp-x64.lib   
-\nmpp\lib\nmpp-x64d.lib   
 
 
 
 В Linux/Windows возможна сборка через GCC/MinGW с помощью ключа ```gmake``` :
-| Команда 										| Собранная библиотека	  |
-|-----------------------------------------------|-------------------------|
-|``` nmpp\make\nmpp-x86-x64> make gmake  ```	|nmpp/lib/libnmpp-x64.a (Linux)|   
-|``` nmpp\make\nmpp-x86-x64> make gmake  ```	|nmpp/lib/nmpp-x86.lib (Widows)|   
 
 
 Возможные ключи :  vs2005, vs2015, vs2017 , gmake 

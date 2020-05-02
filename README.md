@@ -1,7 +1,7 @@
 ﻿# [NMPP](https://github.com/RC-MODULE/nmpp)
 
 # Документация:  
-  HTML: http://rc-module.github.io/nmpp/  
+  HTML: http://rc-module.github.io/nmpp/modules.html  
   CHM(ZIP):  http://rc-module.github.io/nmpp/nmpp.zip  
   CHM:  http://rc-module.github.io/nmpp/nmpp.chm (При открытии необходимо снять галочку "Всегда спрашивать при открытии этого файла")  
   PDF:  http://rc-module.github.io/nmpp/nmpp.pdf  
@@ -21,6 +21,7 @@
   - nmppm  - функции работы с матрицами
   - nmpps  - функции обработки сигналов
   - nmppi  - функции обработки изображений 
+  - nmblas - BLAS библиотека 
 
 # Архитектуры 
   Поддерживаются архитектуры NMC3 и NMC4.  Для NMC4 библиотеки разделяются по типу ядра: с плавающей точкой и целочисленной арифметикой.
@@ -28,13 +29,13 @@
  Поддерживаемые процессоры :  
 
 |Процессор/ядро   													|nmc3	| nmc4 	| nmc4f	| arm	|
-|------------------------------------------------------------------|-------|-------|-------|-------|
+|-------------------------------------------------------------------|-------|-------|-------|-------|
 |[1879ХБ1Я](https://www.module.ru/products/1/18791-2) 				|   +   |     	|       |   +   |
-|[К1879ВЯ1Я](https://www.module.ru/products/1/23-18791) 		 	|   +   |     	|       |   +   |
+|[К1879ВЯ1Я](https://www.module.ru/products/1/23-18791) 	 		|   +   |     	|       |   +   |
 |[К1888ВС018](https://www.module.ru/products/1/1888018-2) 		 	|   +   |     	|       |   +   |
 |[1879ВМ5(NM6406)](https://www.module.ru/products/1/3-18795) 		|   +   |     	|       |       |
-|[1879ВМ6Я(6407)](https://www.module.ru/products/1/81-18796)       |       |   + 	|   +   |       |
-|[1879ВМ8Я(6408)](https://www.module.ru/products/1/26-18798)       | 	    |       |   +   |   +   |
+|[1879ВМ6Я(6407)](https://www.module.ru/products/1/81-18796)       	|       |   + 	|   +   |       |
+|[1879ВМ8Я(6408)](https://www.module.ru/products/1/26-18798)       	| 	    |       |   +   |   +   |
  
 
 
@@ -78,15 +79,15 @@
 
 > Пути к make, premake5 и GnuWin утилитам должны быть прописаны в PATH 
 
-> Установить  переменные окружения , все необходимые утилиты (make, premake5, GnuWin утилиты  и пр.), SDK плат (БЗИО-библиотеки загрузки и обмена) под Windows  можно с помощью инсталятора nmkit.
+> Установить  переменные окружения , все необходимые утилиты (make, premake5, GnuWin утилиты  и пр.), ПО поддержки плат (БЗИО-библиотеки загрузки и обмена) под Windows  можно с помощью инсталятора nmkit.
 
 
 
 ## Сборка NeuroMatrix библиотек  GCC  компилятором 
   Сборка библиотек осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp-\<archictecture\>* :  
 
-| Команда 									| Собранная библиотека 	|
-|-------------------------------------------|-----------------------|
+| Команда 									| Результат сборки         |
+|-------------------------------------------|--------------------------|
 |``` /nmpp/make/nmpp-nmc3> make ```  		| nmpp/lib/libnmpp-nmc3.a  |
 |``` /nmpp/make/nmpp-nmc3> make DEBUG=y```	| nmpp/lib/libnmpp-nmc3d.a |
 |``` /nmpp/make/nmpp-nmc4> make ```  		| nmpp/lib/libnmpp-nmc4.a  |
@@ -101,10 +102,10 @@
 ## Сборка NeuroMatrix библиотек Legacy  компилятором 
   Сборка устаревшим компилятором возможна командой ```make``` с ключом ```legacy``` из соответствующей архитектуре папки */make/nmpp-\<archictecture\>*:   
 
-| Команда 											| Собранная библиотека	  |
+| Команда 											| Результат сборки 	      |
 |-----------------------------------------------	|-------------------------|
 |```/nmpp/make/nmpp-nmc3> make legacy```  			| nmpp/lib/nmpp-nmc3.lib  |
-|```/nmpp/make/nmpp-nmc3> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc3.lib  |
+|```/nmpp/make/nmpp-nmc3> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc3d.lib |
 |```/nmpp/make/nmpp-nmc4> make legacy```  			| nmpp/lib/nmpp-nmc4.lib  |
 |```/nmpp/make/nmpp-nmc4> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc4d.lib |
 |```/nmpp/make/nmpp-nmc4f> make legacy ```  		| nmpp/lib/nmpp-nmc4f.lib |
@@ -113,27 +114,27 @@
 
 ## Сборка x86/x64 библиотек  
   Генерация сборочных файлов/проектов для x86/64 архитектуры в Windows/Linux оcуществляется средствами [**premake5**](https://premake.github.io/).  
-Сконфигурировать проект  и собрать его можно одной из команд:   
+Сконфигурировать проект и собрать библиотеку можно одной из команд:   
 
-| Команда| Собранная библиотека  |
-|--------------------------------------------|-------------------------|
-|``` \nmpp\make\nmpp-x86-x64> make vs2015```| nmpp\lib\nmpp-x86.lib   |
-|											| nmpp\lib\nmpp-x86d.lib  | 
-|											| nmpp\lib\nmpp-x64.lib   |
-|											| nmpp\lib\nmpp-x64d.lib  |
+| Команда                                   | Результат сборки               |
+|-------------------------------------------|------------------------------- |
+|``` \nmpp\make\nmpp-x86-x64> make vs2015```| nmpp\lib\nmpp-x86.lib          |
+|											| nmpp\lib\nmpp-x86d.lib         | 
+|											| nmpp\lib\nmpp-x64.lib          |
+|											| nmpp\lib\nmpp-x64d.lib         |
 |``` \nmpp\make\nmpp-x86-x64> make gmake```	| nmpp\lib\nmpp-x86.lib (Windows)|   
-|``` /nmpp/make/nmpp-x86-x64> make gmake```	| nmpp/lib/libnmpp-x64.a (Linux)|   
+|``` /nmpp/make/nmpp-x86-x64> make gmake```	| nmpp/lib/libnmpp-x64.a (Linux) |   
  
-> x86/x64 эмуляторы билиотек включают в себя функции как с плавающей арифметикой , так и с целочисленной. 
+> x86/x64 эмуляторы библиотек включают в себя функции как с плавающей  , так и с целочисленной арифметикой. 
 
 Возможные ключи ```make```:
-| Ключ   | ОС      | Toolchain            |
+| Ключ   | ОС      | Toolchain             |
 |--------|---------|-----------------------|
 | vs2005 | Windows | MS Visual Studio 2005 |
 | vs2015 | Windows | MS Visual Studio 2015 |
 | vs2017 | Windows | MS Visual Studio 2017 |
-| gmake  | Windows | MinGW|
-| gmake  | Linux   | GCC |
+| gmake  | Windows | MinGW                 |
+| gmake  | Linux   | GCC                   |
 
 
 

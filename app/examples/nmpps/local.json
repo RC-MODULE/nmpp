@@ -1,0 +1,6 @@
+{   
+    "include_dirs": ["nmppsAbs","nmppsAndC"],
+    "targets"  : ["x86","emu6405","gcc","mb7707","mb7707_edcltool"]
+    
+    
+}

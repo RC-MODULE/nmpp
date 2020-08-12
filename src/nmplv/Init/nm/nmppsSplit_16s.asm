@@ -50,6 +50,7 @@ global _nmppsSplit_16s: label;
    f1cr=0;
    ar5 = ar7-2;
    push ar6,gr6;
+   push ar5,gr5;
    push ar0,gr0 with gr0=false;
    push ar1,gr1 with gr0++; // gr0=1
    push ar2,gr2 with gr0<<=2; // gr0=4
@@ -74,6 +75,7 @@ global _nmppsSplit_16s: label;
    pop ar2,gr2;
    pop ar1,gr1;
    pop ar0,gr0;
+   pop ar5,gr5;
    pop ar6,gr6;
    return;
 .wait;   

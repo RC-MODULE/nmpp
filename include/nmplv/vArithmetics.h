@@ -501,6 +501,62 @@ void nmppsAdd_64s(const nm64s* pSrcVec1, const nm64s* pSrcVec2, nm64s* pDstVec, 
 void nmppsAdd_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);
 //! \}
 
+    /**
+    \defgroup nmppsAddC_f nmppsAddC
+    \ingroup vArithmetics_f
+    \brief
+        \ru Сложение вектора с константой.
+        \en Addition of a constant and a vec.
+
+		\~
+
+	\f[
+        pDstVec[i]  =  pSrcVec[i]  +  nVal
+    \f]
+
+	\f[
+        i = \overline{0 \ldots nSize-1}
+    \f]
+
+    \param pSrcVec
+        \ru Входной вектор.
+        \en Input vec.
+		\~
+    \retval pDstVec
+        \ru Результирующий вектор.
+        \en The result vec.
+		\~
+    \param C
+        \ru Складываемая константа.
+        \en The added constant.
+		\~
+    \param nSize
+        \ru Размер векторов в элементах.
+        \en Vector size in elements.
+		\~
+    \return \e void
+
+
+    \par
+    \xmlonly
+        <testperf>
+             <param name="pSrcVec"> im0 im1 </param>
+             <param name="pDstVec"> im0 im1 </param>
+             <param name="C"> 3 </param>
+             <param name="nSize"> 2048 </param>
+        </testperf>
+        <testperf>
+             <param name="pSrcVec"> im0 </param>
+             <param name="pDstVec"> im1 </param>
+             <param name="C"> 3 </param>
+             <param name="nSize"> 8 128 1024 2048 </param>
+        </testperf>
+    \endxmlonly
+    */
+    //! \{
+void nmppsAddC_32f (const nm32f* pSrcVec, nm32f*  pDstVec, float C, int nSize);
+    //! \}
+
 void nmppsAddEx_64s (const nm64s *pSrcVec1, int srcStep1, const nm64s *pSrcVec2, int srcStep2, nm64s *pDstVec, int dstStep, int nSize  );
 
 void nmppsAdd4V_16s(

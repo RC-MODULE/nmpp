@@ -22,13 +22,13 @@
 
 extern vec_vsum_data_0:label;
 
-data ".data"
+data ".data_nmplv"
     WConvert8to32: long[8*4] =  (			1hl, 100000000hl, 0hl dup 6,	// Extract 0,1-st byte
 								 0hl dup 2,	1hl, 100000000hl, 0hl dup 4,	// Extract 2,3-rd byte
 								 0hl dup 4,	1hl, 100000000hl, 0hl dup 2,	// Extract 4,5-th byte
 								 0hl dup 6,	1hl, 100000000hl	     		// Extract 6,7-rd byte);
 								 );
-end ".data";
+end ".data_nmplv";
 
 
 begin ".text_nmplv"

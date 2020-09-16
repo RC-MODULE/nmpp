@@ -15,9 +15,9 @@ global _nmppsMul_AddC_32f: label;
 // C - nValueC
 // f - pDstVec
 
-begin ".data"
+begin ".data_nmplv"
 	valueC: long;
-end ".data";
+end ".data_nmplv";
 
 begin ".text_nmplv"
 <_nmppsMul_AddC_32f>

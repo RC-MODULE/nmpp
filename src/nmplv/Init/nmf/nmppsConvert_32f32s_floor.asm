@@ -19,7 +19,7 @@ global _nmppsConvert_32f32s_floor: label;
 
 extern core_nmppsConvert_32f32s_floor: label;
 
-begin "text"
+begin ".text_nmplv"
 <_nmppsConvert_32f32s_floor>
 	ar5 = ar7 - 2;
 	push ar2, gr2;
@@ -37,4 +37,4 @@ begin "text"
 	pop ar1, gr1;
 	pop ar2, gr2;
 	return;
-end "text";
+end ".text_nmplv";

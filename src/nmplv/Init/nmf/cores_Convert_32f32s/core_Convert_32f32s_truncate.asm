@@ -25,7 +25,7 @@ end "data2";
 
 global core_nmppsConvert_32f32s_truncate: label;
 
-begin "text"
+begin ".text_nmplv"
 <core_nmppsConvert_32f32s_truncate>
 //	set fp_round_to_zero;
 
@@ -79,4 +79,4 @@ begin "text"
 
 <exit_Conv32f32s_truncate>
 	return;
-end "text";
+end ".text_nmplv";

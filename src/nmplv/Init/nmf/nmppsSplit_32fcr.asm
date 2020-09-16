@@ -1,5 +1,5 @@
 global _nmppsSplit_32fcr: label;
-begin "text"
+begin ".text_nmplv"
 <_nmppsSplit_32fcr>
 	ar5 = ar7 - 2;
 	push ar3, gr3;
@@ -44,4 +44,4 @@ begin "text"
 	pop ar2, gr2;
 	pop ar3, gr3;
 	return;
-end "text";
+end ".text_nmplv";

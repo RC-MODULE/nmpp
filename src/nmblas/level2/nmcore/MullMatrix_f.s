@@ -2,7 +2,7 @@
 global _MullMatrix_f : label;
 global _nmppmMul_mm_32f : label;
 
-begin ".text"
+begin ".text_nmblas"
 
 
     
@@ -592,6 +592,6 @@ delayed goto fromPlusC;
     
 
 
-end ".text";
+end ".text_nmblas";
 
 

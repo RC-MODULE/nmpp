@@ -20,7 +20,7 @@ nobits "data"
 end "data";
 
 global core_nmppsConvert_32f32s_rounding: label;
-begin "text"
+begin ".text_nmplv"
 <core_nmppsConvert_32f32s_rounding>
 	set fp_round_up;
 	ar2 = ar2 + 127;
@@ -57,4 +57,4 @@ begin "text"
 
 <exit_Conv32f32s_rounding>
 	return;
-end "text";
+end ".text_nmplv";

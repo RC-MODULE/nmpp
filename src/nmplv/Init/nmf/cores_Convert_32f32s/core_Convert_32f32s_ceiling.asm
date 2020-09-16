@@ -25,7 +25,7 @@ end "data1";
 
 global core_nmppsConvert_32f32s_ceiling: label;
 
-begin "text"
+begin ".text_nmplv"
 <core_nmppsConvert_32f32s_ceiling>
 	ar2 = ar2 + 127;
 	gr2 = ar2;
@@ -67,4 +67,4 @@ begin "text"
 
 <exit_Conv32f32s_ceiling>
 	return;
-end "text";
+end ".text_nmplv";

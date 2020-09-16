@@ -22,11 +22,11 @@
 
 import from macros.mlb;
 extern vec_vsum_data_0:label;
-data ".data"
+data ".data_nmplv"
     WConvert32to64: long[2*2] =  (1hl,	0hl,	// Extract 1-st byte
 								  0hl,	1hl		// Extract 4-rd byte
 								 );
-end ".data";
+end ".data_nmplv";
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////////////
 

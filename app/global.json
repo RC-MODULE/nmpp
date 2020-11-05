@@ -2,8 +2,8 @@
     "template_dir": "templates\\sometest",
     "target_index": "make_",
     "exclude_dirs": ["d"],
-    "include_dirs": ["examples"],
-    "targets"  : ["x86","emu6405","gcc","mb7707","mb7707_edcltool"],
+    "include_dirs": ["examples","test"],
+    "targets"  : ["x86","emu6405","mc12101_nmpu0-gcc-ld" ],
     "test": ["x86","emu6405"],
     "log": "nmcmake.log",
     "root_dir": ".."

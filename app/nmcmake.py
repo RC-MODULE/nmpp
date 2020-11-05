@@ -38,7 +38,12 @@ def exclude_dir(directory_path_arr, data_from_json):
 # Функция на изменения настроек, связанные
 def change_settings(data_json_change, path):
     with open(os.path.join(path, 'local.json'), 'r') as f:
-        data = json.loads(f.read())
+        try:
+            data = json.loads(f.read())
+        except json.decoder.JSONDecodeError:
+            print('Invalid local.json')
+            print(f'Check and fix the JSON in {path}')
+            exit()
     for key, value in data.items():
         if data[key] != []:
             data_json_change[key] = value
@@ -73,7 +78,12 @@ def inheritance(directory, json_settings):
             global_json_directory = os.getcwd()
             list_of_files = os.listdir(global_json_directory)
     with open(path_to_file, 'r') as f:  # Открытие файла с расширением .json
-        data = json.loads(f.read())
+        try:
+            data = json.loads(f.read())
+        except json.decoder.JSONDecodeError:
+            print(f'Invalid {path_to_file}')
+            print(f'Check and fix the JSON in {os.getcwd()}')
+            exit()
     for key in data.keys():
         if key not in json_settings:  # Проверка на остуствие какого-либо поля в local.json
             json_settings[key] = data[key]
@@ -110,7 +120,59 @@ def add_ROOT(directory_path, settings, path_to_global):
                 else:
                     print('ROOT has already defined')
         os.chdir(directory_path)
-    print(directory_path)
+    print(directory_path + ' [CONFIGURED]')
+
+
+# Проверка на local.json и изменение настроек в соответствии с директорией
+def json_flag_check(flags, current_directory, settings):
+    k = True
+    last_consisting_flag = ''
+    change_settings_flag = True
+    for flag in flags:
+        arr1 = flag.split(os.path.sep)
+        arr2 = current_directory.split(os.path.sep)
+        for i in range(len(arr1)):  # Проверка на флаг внутри пути
+            if arr1[i] != arr2[i]:
+                k = False
+                break
+        if k:
+            last_consisting_flag = flag  # Последний путь входящий в текущую директорию
+            change_settings_flag = False
+        # if flag in current_directory:
+    if change_settings_flag:
+        return True
+    else:
+        with open(os.path.join(last_consisting_flag, 'local.json'), 'r') as f:
+            try:
+                data = json.loads(f.read())
+            except json.decoder.JSONDecodeError:
+                print(f'Invalid local.json')
+                print(f'Check and fix the JSON in {last_consisting_flag}')
+                exit()
+        for key, value in data.items():
+            if data[key] != []:
+                settings[key] = value
+        return False
+
+
+# Проверка на наличие .cpp
+def check_cpp(files):
+    for file in files:
+        if file.endswith('.cpp'):
+            return True
+    return False
+
+
+# Создание кастомного лога
+def setup_logger(name, log_file, formatter_type, level=logging.DEBUG):
+    formatter = logging.Formatter(formatter_type)
+    handler = logging.FileHandler(log_file)
+    handler.setFormatter(formatter)
+    logger = logging.getLogger(name)
+    logger.propagate = False
+    logger.setLevel(level)
+    logger.addHandler(handler)
+    return logger
 
 
 '''
@@ -121,6 +183,7 @@ def add_ROOT(directory_path, settings, path_to_global):
 
 @timer
 def configure():
+    json_flag = list()
     is_local = False
     folder = []
     settings = dict()
@@ -144,9 +207,13 @@ def configure():
             directory = os.getcwd()
             inner_files = os.listdir(directory)
     json_directory = directory  # Необходим флаг для хранения пути до начального json-файла
-    new_local_json_flag = json_directory  # Флаг для хранения пути нижележащего json-файла(если такие будут)
     with open(path, 'r') as f:  # Открытие файла с расширением .json
-        data = json.loads(f.read())
+        try:
+            data = json.loads(f.read())
+        except json.decoder.JSONDecodeError:
+            print(f'Invalid {path}')
+            print(f'Check and fix the JSON in {directory}')
+            exit()
     for key, value in data.items():
         settings[key] = value
     if is_local:  # Флаг, который указывает на то, что мы встретили первым local.json
@@ -157,22 +224,21 @@ def configure():
     # Проход по дереву дочерних элементов, относительно папки, откуда вызван метод
     for i in os.walk(directory):
         folder.append(i)
-    if 'main.cpp' not in folder[0][2]:
+    if not check_cpp(folder[0][2]):
         folder.pop(0)
     for i in folder:
-        if new_local_json_flag not in i[0]:  # Сохранение настроек начального json-файла
+        if json_flag_check(json_flag, i[0], data):  # Сохранение настроек вышележащего json-файла
             for key, value in settings.items():
                 data[key] = value
-            new_local_json_flag = json_directory  # Сохранение флага относительно начального json-файла
+            json_flag = json_flag[:0]  # Очистка списка флагов путей
         if data['include_dirs'] == []:  # Если нет специальных папок
-            if 'local.json' in i[2]:  # Поиск нижележащего local.json
-                change_settings(data, i[0])  # Изменение .json настроек
-                new_local_json_flag = i[0]  # Сохранение флага относительно директории, в которой найден local.json
             if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
                 continue
-            if 'main.cpp' in i[2]:  # Конечная ветвь
-                # Переход в папку templates
-                os.chdir(path_to_global)
+            if 'local.json' in i[2]:  # Поиск нижележащего local.json
+                change_settings(data, i[0])  # Изменение .json настроек
+                json_flag.append(i[0])  # Сохранение флагов относительно директории, в которой найден local.json
+            if check_cpp(i[2]):  # Конечная ветвь
+                os.chdir(path_to_global)  # Переход в папку templates
                 os.chdir(data['template_dir'])
                 for cfg in data['targets']:
                     try:
@@ -184,14 +250,14 @@ def configure():
                     copytree(os.path.join(os.getcwd(), data['target_index'] + cfg), os.path.join(i[0], data['target_index'] + cfg))
                 add_ROOT(i[0], settings, path_to_global)
         else:
-            if 'local.json' in i[2]:
-                change_settings(data, i[0])
-                new_local_json_flag = i[0]
             if include_dir(i[0].split('\\'), data['include_dirs']):
                 continue
             if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
                 continue
-            if 'main.cpp' in i[2]:
+            if 'local.json' in i[2]:
+                change_settings(data, i[0])
+                json_flag.append(i[0])
+            if check_cpp(i[2]):
                 os.chdir(path_to_global)
                 os.chdir(data['template_dir'])
                 for cfg in data['targets']:
@@ -206,7 +272,7 @@ def configure():
 
 
 '''
-Метод удаления, удаляют все скопированные конфигурации
+Метод удаления, удаляют все конфигурации
 (папки из templates) в дочерних папках.
 '''
 
@@ -225,8 +291,94 @@ def kill():
             else:
                 for element in folder[1]:
                     shutil.rmtree(os.path.join(folder[0], element))  # Удаление папки и всего внутреннего контента
-            print(folder[0])
+            print(folder[0] + ' [KILLED]')
     print('\nAll configures were deleted')
+
+
+'''
+Метод удаления, удаляют все скопированные конфигурации
+(папки из templates) в дочерних папках.
+'''
+
+
+@timer
+def wipe():
+    json_flag = list()
+    is_local = False
+    folder = []
+    settings = dict()
+    init_directory = os.getcwd()
+    directory = os.getcwd()
+    inner_files = os.listdir(directory)
+    while True:  # Поиск до первого local.json или до global.json
+        if 'global.json' in inner_files:
+            path = 'global.json'
+            print('global JSON founded')
+            break
+        elif 'local.json' in inner_files:
+            path = 'local.json'
+            print('local JSON founded')
+            is_local = True
+            break
+        else:
+            print('JSON-file NOT FOUND!')
+            os.chdir(os.path.dirname(directory))  # Смена директории на родительскую(т.е. идем наверх)
+            directory = os.getcwd()
+            inner_files = os.listdir(directory)
+    json_directory = directory  # Необходим флаг для хранения пути до начального json-файла
+    with open(path, 'r') as f:  # Открытие файла с расширением .json
+        try:
+            data = json.loads(f.read())
+        except json.decoder.JSONDecodeError:
+            print(f'Invalid {path}')
+            print(f'Check and fix the JSON in {directory}')
+            exit()
+    for key, value in data.items():
+        settings[key] = value
+    if is_local:  # Флаг, который указывает на то, что мы встретили первым local.json
+        inheritance(json_directory, settings)
+        for key, value in settings.items():
+            data[key] = value
+    directory = init_directory
+    # Проход по дереву дочерних элементов, относительно папки, откуда вызван метод
+    for i in os.walk(directory):
+        folder.append(i)
+    if not check_cpp(folder[0][2]):
+        folder.pop(0)
+    for i in folder:
+        if json_flag_check(json_flag, i[0], data):  # Сохранение настроек вышележащего json-файла
+            for key, value in settings.items():
+                data[key] = value
+            json_flag = json_flag[:0]  # Очистка списка флагов путей
+        if data['include_dirs'] == []:  # Если нет специальных папок
+            if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
+                continue
+            if 'local.json' in i[2]:  # Поиск нижележащего local.json
+                change_settings(data, i[0])  # Изменение .json настроек
+                json_flag.append(i[0])  # Сохранение флагов относительно директории, в которой найден local.json
+            if check_cpp(i[2]):  # Конечная ветвь
+                if i[1] == []:
+                    continue
+                else:
+                    for element in i[1]:
+                        shutil.rmtree(os.path.join(i[0], element))  # Удаление папки и всего внутреннего контента
+                print(i[0] + ' [KILLED]')
+        else:
+            if include_dir(i[0].split('\\'), data['include_dirs']):
+                continue
+            if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
+                continue
+            if 'local.json' in i[2]:
+                change_settings(data, i[0])
+                json_flag.append(i[0])
+            if check_cpp(i[2]):
+                if i[1] == []:
+                    continue
+                else:
+                    for element in i[1]:
+                        shutil.rmtree(os.path.join(i[0], element))  # Удаление папки и всего внутреннего контента
+                print(i[0] + ' [KILLED]')
+    print('\nAll certain files were deleted')
 
 
 @timer
@@ -235,6 +387,8 @@ def test():
 
 
 def run_external_app(args):
+    error_counter = 0
+    json_flag = list()
     is_local = False
     folder = []
     settings = dict()
@@ -258,9 +412,13 @@ def run_external_app(args):
             directory = os.getcwd()
             inner_files = os.listdir(directory)
     json_directory = directory  # Необходим флаг для хранения пути до начального json-файла
-    new_local_json_flag = json_directory  # Флаг для хранения пути нижележащего json-файла(если такие будут)
     with open(path, 'r') as f:  # Открытие файла с расширением .json
-        data = json.loads(f.read())
+        try:
+            data = json.loads(f.read())
+        except json.decoder.JSONDecodeError:
+            print(f'Invalid {path}')
+            print(f'Check and fix the JSON in {directory}')
+            exit()
     for key, value in data.items():
         settings[key] = value
     if is_local:  # Флаг, который указывает на то, что мы встретили первым local.json
@@ -273,25 +431,26 @@ def run_external_app(args):
     else:
         log_path = os.path.join(path_to_global, data['log'])
         cmd = args
-    logging.basicConfig(format=u'%(filename)s[LINE:%(lineno)d]# %(levelname)-8s [%(asctime)s]  %(message)s', level=logging.DEBUG, filename=u'{log}'.format(log=log_path))
+    full_logger = setup_logger('full_logger', log_path + '.log', '%(filename)s[LINE:%(lineno)d]# %(levelname)-8s [%(asctime)s]  %(message)s')
+    short_logger = setup_logger('short_logger', log_path + '_S.log', '%(message)s')
     directory = init_directory
     # Проход по дереву дочерних элементов, относительно папки, откуда вызван метод
     for i in os.walk(directory):
         folder.append(i)
-    if 'main.cpp' not in folder[0][2]:
+    if not check_cpp(folder[0][2]):
         folder.pop(0)
     for i in folder:
-        if new_local_json_flag not in i[0]:  # Сохранение настроек начального json-файла
+        if json_flag_check(json_flag, i[0], data):  # Сохранение настроек вышележащего json-файла
             for key, value in settings.items():
                 data[key] = value
-            new_local_json_flag = json_directory  # Сохранение флага относительно начального json-файла
+            json_flag = json_flag[:0]  # Очистка списка флагов путей
         if data['include_dirs'] == []:  # Если нет специальных папок
-            if 'local.json' in i[2]:  # Поиск нижележащего local.json
-                change_settings(data, i[0])  # Изменение .json настроек
-                new_local_json_flag = i[0]  # Сохранение флага относительно директории, в которой найден local.json
             if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
                 continue
-            if 'main.cpp' in i[2]:  # Конечная ветвь
+            if 'local.json' in i[2]:  # Поиск нижележащего local.json
+                change_settings(data, i[0])  # Изменение .json настроек
+                json_flag.append(i[0])  # Сохранение флагов относительно директории, в которой найден local.json
+            if check_cpp(i[2]):  # Конечная ветвь
                 if i[1] == []:
                     print('Files were not confgiured!')
                 else:
@@ -301,17 +460,21 @@ def run_external_app(args):
                             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
                             print(result.stdout.encode('cp1251').decode('cp866'), result.stderr.encode('cp1251').decode('cp866'))
                             if result.returncode == 2:  # Появление ошибки и сохранение информацию о нем (расположение, текст ошибки)
-                                logging.error(u'\ndirectory : {folder}\ntext : {error}'.format(folder=os.getcwd(), error=result.stderr.encode('cp1251').decode('cp866')))  # Запись в лог
+                                full_logger.error(u'\ndirectory : {folder}\ntext : {error}'.format(folder=os.getcwd(), error=result.stderr.encode('cp1251').decode('cp866')))  # Запись в лог
+                                short_logger.error(u'{folder} - [FAILED]'.format(folder=os.getcwd()))
+                                error_counter += 1
+                            elif result.returncode == 0:
+                                short_logger.info(u'{folder} - [PASSED]'.format(folder=os.getcwd()))
                             print('---------------------------')
         else:
-            if 'local.json' in i[2]:
-                change_settings(data, i[0])
-                new_local_json_flag = i[0]
             if include_dir(i[0].split('\\'), data['include_dirs']):
                 continue
             if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
                 continue
-            if 'main.cpp' in i[2]:
+            if 'local.json' in i[2]:
+                change_settings(data, i[0])
+                json_flag.append(i[0])
+            if check_cpp(i[2]):
                 if i[1] == []:
                     print('Files were not confgiured!')
                 else:
@@ -321,10 +484,16 @@ def run_external_app(args):
                             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
                             print(result.stdout.encode('cp1251').decode('cp866'), result.stderr.encode('cp1251').decode('cp866'))
                             if result.returncode == 2:  # Появление ошибки и сохранение информацию о нем (расположение, текст ошибки)
-                                logging.error(u'\ndirectory : {folder}\ntext : {error}'.format(folder=os.getcwd(), error=result.stderr.encode('cp1251').decode('cp866')))  # Запись в лог
+                                full_logger.error(u'\ndirectory : {folder}\ntext : {error}'.format(folder=os.getcwd(), error=result.stderr.encode('cp1251').decode('cp866')))  # Запись в лог
+                                short_logger.error(u'{folder} - [FAILED]'.format(folder=os.getcwd()))
+                                error_counter += 1
+                            elif result.returncode == 0:
+                                short_logger.info(u'{folder} - [PASSED]'.format(folder=os.getcwd()))
                             print('---------------------------')
     if len(cmd) > 0:
         print(f'\n{" ".join(cmd)} process is done\n')
+        if error_counter > 0:
+            print(f'\nTotal number of errors - {error_counter}')
 
 
 if __name__ == "__main__":
@@ -336,6 +505,8 @@ if __name__ == "__main__":
             configure()
         elif op == 'kill':
             kill()
+        elif op == 'wipe':
+            wipe()
         elif op == 'test':
             print('test')
         else:

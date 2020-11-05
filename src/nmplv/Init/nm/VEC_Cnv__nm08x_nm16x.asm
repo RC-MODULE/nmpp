@@ -21,10 +21,10 @@
 //#include "vConvert.h"
 
 extern vec_vsum_data_0:label;
-data ".data"
+data ".data_nmplv"
     WConvert8to16: long[16] =  ( 1l, 10000hl, 100000000hl, 1000000000000hl, 0l dup 8,
 								 1l, 10000hl, 100000000hl, 1000000000000hl);
-end ".data";
+end ".data_nmplv";
 
 begin ".text_nmplv"
 /////////////////////////////////////////////////////////////////////////////////

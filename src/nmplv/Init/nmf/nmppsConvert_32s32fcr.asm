@@ -12,7 +12,7 @@
 
 global _nmppsConvert_32s32fcr: label;
 global _nmppsConvert_32u32fcr: label;
-begin "text"
+begin ".text_nmplv"
 <_nmppsConvert_32s32fcr>
 <_nmppsConvert_32u32fcr>
 	ar5 = ar7 - 2;
@@ -74,4 +74,4 @@ begin "text"
 	pop ar3, gr3;
 	pop ar4, gr4;
 	return;
-end "text";
+end ".text_nmplv";

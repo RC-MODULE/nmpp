@@ -22,7 +22,7 @@
 
 extern vec_vsum_data_0:label;
 
-data ".data"
+data ".data_nmplv"
     WConvert8to64: long[8*8] =  (			1hl, 0hl dup 7,	// Extract 1-st byte
 								 0hl	  ,	1hl, 0hl dup 6,	// Extract 2-rd byte
 								 0hl dup 2,	1hl, 0hl dup 5,	// Extract 3-rd byte
@@ -32,7 +32,7 @@ data ".data"
 								 0hl dup 6,	1hl, 0hl,		// Extract 7-rd byte
 								 0hl dup 7,	1hl	     		// Extract 8-rd byte);
 								 );
-end ".data";
+end ".data_nmplv";
 
 
 begin ".text_nmplv"

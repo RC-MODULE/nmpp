@@ -1,10 +1,10 @@
 global _accmul32_64f : label;
 
-data ".data"
+data ".data_nmblas"
 	result: long ;
-end ".data";
+end ".data_nmblas";
 
-begin ".text"
+begin ".text_nmblas"
 <_accmul32_64f>
 	
 	ar5 = ar7-2;
@@ -40,4 +40,4 @@ begin ".text"
 	pop ar0,gr0;
 
 	return;
-end ".text";
+end ".text_nmblas";

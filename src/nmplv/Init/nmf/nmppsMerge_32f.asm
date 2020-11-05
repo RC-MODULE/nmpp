@@ -14,13 +14,13 @@
 
 global _nmppsMerge_32f : label;
 
-begin ".data"
+begin ".data_nmplv"
 .align;
 	one_zero : word[2] = (float(1),float(0));
 	zero_one : word[2] = (float(0),float(1));
-end ".data";
+end ".data_nmplv";
 
-begin ".text"
+begin ".text_nmplv"
 <_nmppsMerge_32f>
 //void nmppsMerge_32f(const nm32f* pSrcVec1, const nm32f* pSrcVec2, nm32f* pDstVec, int nSize);	
 	ar5 = ar7 - 2;
@@ -77,4 +77,4 @@ begin ".text"
 	pop ar1,gr1;
 	pop ar0,gr0;
 	return;
-end ".text";
+end ".text_nmplv";

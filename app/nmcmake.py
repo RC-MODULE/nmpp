@@ -1,5 +1,7 @@
 ﻿#!/usr/bin/env python
 
+# Python v.3.6 minimum is required!
+
 import sys
 import os
 import time
@@ -232,7 +234,7 @@ def configure():
                 data[key] = value
             json_flag = json_flag[:0]  # Очистка списка флагов путей
         if data['include_dirs'] == []:  # Если нет специальных папок
-            if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
+            if exclude_dir(i[0].split('/'), data['exclude_dirs']):
                 continue
             if 'local.json' in i[2]:  # Поиск нижележащего local.json
                 change_settings(data, i[0])  # Изменение .json настроек
@@ -250,9 +252,9 @@ def configure():
                     copytree(os.path.join(os.getcwd(), data['target_index'] + cfg), os.path.join(i[0], data['target_index'] + cfg))
                 add_ROOT(i[0], settings, path_to_global)
         else:
-            if include_dir(i[0].split('\\'), data['include_dirs']):
+            if include_dir(i[0].split('/'), data['include_dirs']):
                 continue
-            if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
+            if exclude_dir(i[0].split('/'), data['exclude_dirs']):
                 continue
             if 'local.json' in i[2]:
                 change_settings(data, i[0])
@@ -351,7 +353,7 @@ def wipe():
                 data[key] = value
             json_flag = json_flag[:0]  # Очистка списка флагов путей
         if data['include_dirs'] == []:  # Если нет специальных папок
-            if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
+            if exclude_dir(i[0].split('/'), data['exclude_dirs']):
                 continue
             if 'local.json' in i[2]:  # Поиск нижележащего local.json
                 change_settings(data, i[0])  # Изменение .json настроек
@@ -364,9 +366,9 @@ def wipe():
                         shutil.rmtree(os.path.join(i[0], element))  # Удаление папки и всего внутреннего контента
                 print(i[0] + ' [KILLED]')
         else:
-            if include_dir(i[0].split('\\'), data['include_dirs']):
+            if include_dir(i[0].split('/'), data['include_dirs']):
                 continue
-            if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
+            if exclude_dir(i[0].split('/'), data['exclude_dirs']):
                 continue
             if 'local.json' in i[2]:
                 change_settings(data, i[0])
@@ -445,7 +447,7 @@ def run_external_app(args):
                 data[key] = value
             json_flag = json_flag[:0]  # Очистка списка флагов путей
         if data['include_dirs'] == []:  # Если нет специальных папок
-            if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
+            if exclude_dir(i[0].split('/'), data['exclude_dirs']):
                 continue
             if 'local.json' in i[2]:  # Поиск нижележащего local.json
                 change_settings(data, i[0])  # Изменение .json настроек
@@ -467,9 +469,9 @@ def run_external_app(args):
                                 short_logger.info(u'{folder} - [PASSED]'.format(folder=os.getcwd()))
                             print('---------------------------')
         else:
-            if include_dir(i[0].split('\\'), data['include_dirs']):
+            if include_dir(i[0].split('/'), data['include_dirs']):
                 continue
-            if exclude_dir(i[0].split('\\'), data['exclude_dirs']):
+            if exclude_dir(i[0].split('/'), data['exclude_dirs']):
                 continue
             if 'local.json' in i[2]:
                 change_settings(data, i[0])

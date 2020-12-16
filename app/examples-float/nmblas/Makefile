@@ -1,17 +1,22 @@
 ROOT=../../..
 
+ifeq ($(OS),Windows_NT)
+	PYTHON = python
+else
+	PYTHON = python3
+endif
 
 configure:
-	python $(ROOT)/app/nmcmake.py configure 
+	$(PYTHON) $(ROOT)/app/nmcmake.py configure 
 
 build:
-	python $(ROOT)/app/nmcmake.py make 
+	$(PYTHON) $(ROOT)/app/nmcmake.py make 
 	
 kill:
-	python $(ROOT)/app/nmcmake.py kill
+	$(PYTHON) $(ROOT)/app/nmcmake.py kill
 	
 run :
-	python $(ROOT)/app/nmcmake.py make run
+	$(PYTHON) $(ROOT)/app/nmcmake.py make run
 
 clean :
-	python $(ROOT)/app/nmcmake.py make clean
+	$(PYTHON) $(ROOT)/app/nmcmake.py make clean

@@ -1,6 +1,6 @@
 {   
     
-    "targets"  : ["x86","mc12101_nmpu0-gcc-cfg","mc12101_nmpu0-gcc-ld","mc12101_nmpu0-legacy" ]
+    "targets"  : ["x64","mc12101_nmpu0-gcc-cfg","mc12101_nmpu0-gcc-ld","mc12101_nmpu0-legacy","mc12705-gcc-cfg","mc12705-gcc-ld" ]
     
     
 }

@@ -35,7 +35,7 @@
 
  //! \}
 
-#ifndef __NM__
+#ifdef __NM__
 #ifdef __GNUC__
 #ifndef NMBLAS_SGEMM_H_
 #define NMBLAS_SGEMM_H_

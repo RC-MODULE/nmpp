@@ -13,7 +13,7 @@ vs2015:    	$(PROJECT).vcxproj
 vs2005:    	$(PROJECT).vcproj
 	"$(VS80COMNTOOLS)vsvars32" && vcbuild $(PROJECT).vcproj
 
-$(TARGET): vs2015
+$(TARGET): gmake
 	
 .PHONY: run 
 	

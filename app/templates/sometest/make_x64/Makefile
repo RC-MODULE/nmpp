@@ -3,11 +3,11 @@
 include $(ROOT)/global.mk
 	   
 PROJECT = test-x64
-TARGET  = $(call OSX,bin/Release/$(PROJECT))
+TARGET  = $(call OSX,bin/x64/Release/$(PROJECT))
 
 vs2015:    	$(PROJECT).vcxproj
 #	"$(VS140COMNTOOLS)vsvars32" && msbuild $(PROJECT).vcxproj
-	"$(VS140COMNTOOLS)vsvars32" && msbuild $(PROJECT).vcxproj /p:Configuration=Release
+	"$(VS140COMNTOOLS)vsvars32" && msbuild $(PROJECT).vcxproj /p:Configuration=Release /property:Platform=x64
 
 	
 vs2005:    	$(PROJECT).vcproj

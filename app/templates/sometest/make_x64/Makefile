@@ -4,6 +4,7 @@ include $(ROOT)/global.mk
 	   
 PROJECT = test-x64
 TARGET  = $(call OSX,bin/x64/Release/$(PROJECT))
+.DEFAULT_GOAL = gmake 
 
 vs2015:    	$(PROJECT).vcxproj
 #	"$(VS140COMNTOOLS)vsvars32" && msbuild $(PROJECT).vcxproj

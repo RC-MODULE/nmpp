@@ -1,13 +1,10 @@
 
-# BUILD AND RUN MAKEFILE
-# This makefile builds simple nmc-application containing single cpp-file  
-# Rule 'run' executes the application on MC12101 board 
-
 -include $(ROOT)/clean.mk
 NMPP?=$(ROOT)
 .SUFFIXES:
 
-
+BOARD = mc12101
+BSP = $(MC12101)
 ifndef MC12101
 $(warning *** WARNING: 'MC12101' environment variable is not defined! Board SDK might not have installed correctly. )
 endif 
@@ -17,16 +14,18 @@ TARGET   = $(PROJECT)
 
 CC       = nmcc
 AS       = asm
-CXXFLAGS = -nmc4_float -O2 -nm2ms 
 ASMFLAGS = -nmc4 -nm2ms -split_sir
-LIBS     = mc12101lib_nm_legacy.lib libc4f.lib nmpp-nmc4f.lib hal-mc12101.lib cppnew4.lib libint_6407.lib
+CXXFLAGS = -nmc4_float -O2 -nm2ms 
+LIBS     = nmpp-nmc4f.lib hal-$(BOARD).lib 
+LIBS    += $(BOARD)lib_nm_legacy.lib libc4f.lib cppnew4.lib libint_6407.lib
+CFG      = $(BOARD)-nmpu0.cfg
 MAP      = $(PROJECT).map
-CFG      = mc12101brd-nmpu0.cfg
+
 HEAPS 	 = -heap=16384 -heap1=16384 -heap2=16384 -heap3=16384
 LDFLAGS  = -m$(MAP) -c$(CFG) $(HEAPS)
 
-INC_DIRS = -I"$(NEURO)/include" -I"$(NMPP)/include" -I"$(MC12101)/include" -I"$(HAL)/include"
-LIB_DIRS = -L"$(NEURO)/lib"     -L"$(NMPP)/lib"     -L"$(MC12101)/lib"     -L"$(HAL)/lib"
+INC_DIRS = -I"$(BSP)/include"  -I"$(NMPP)/include"  -I"$(HAL)/include" -I"$(NEURO)/include"
+LIB_DIRS = -L"$(BSP)/lib"      -L"$(NMPP)/lib"      -L"$(HAL)/lib"     -L"$(NEURO)/lib"
 SRC_DIRS = ..
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
 SRC_ASM  = $(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
@@ -38,13 +37,11 @@ SRC_ALL  = $(SRC_CPP) $(SRC_ASM) $(SRC_C)
 $(TARGET): $(SRC_ALL) Makefile
 	$(CC) -o$(TARGET) $(CXXFLAGS) $(LDFLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS)
 
-PATH:=$(MC12101)/bin;$(PATH)
+PATH:=$(BSP)/bin;$(PATH)
 
 run: 	$(TARGET)
-	mc12101run $(TARGET)
+	$(BOARD)run $(TARGET)
 
-reset:
-	mc12101reset
 
 vs2015:
 	premake5 vs2015

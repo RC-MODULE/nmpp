@@ -162,12 +162,10 @@ void nmppsFFT32Fwd_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec, NmppsFFTSpec_
 void nmppsFFT64Fwd_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec, NmppsFFTSpec_32fcr* spec);
 //! \}
 
-    /**
+    /*!
     \defgroup sFFT-128 FFT-128
     \ingroup sFFT_32fcr
-
 	\brief Функция для вычисления прямого БПФ с плавающей точкой над вектором, состоящим из 128 комплексных чисел
-
 	\param [in] pSrcVec входной вектор комплексных чисел (на мнимая и действительная части имеют тип float)
 	\retval [out] pDstVec выходной вектор комплексных чисел (на мнимая и действительная части имеют тип float)
 	\param [in] spec структра, содержащая необходимые коэффициенты, для вычисления прямого БПФ определенного размера
@@ -183,23 +181,20 @@ void nmppsFFT64Fwd_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec, NmppsFFTSpec_
     		 <size> 128 </size>
         </testperf>
     \endxmlonly
- *
- */
+*/
 //! \{
 void nmppsFFT128Fwd_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec, NmppsFFTSpec_32fcr* spec);
 //! \}
 
-    /**
+/*!
     \defgroup sFFT-256 FFT-256
     \ingroup sFFT_32fcr
-
 	\brief Функция для вычисления прямого БПФ с плавающей точкой над вектором, состоящим из 256 комплексных чисел
-
-	\param [in] pSrcVec входной вектор комплексных чисел (на мнимая и действительная части имеют тип float)
-	\retval [out] pDstVec выходной вектор комплексных чисел (на мнимая и действительная части имеют тип float)
-	\param [in] spec структра, содержащая необходимые коэффициенты, для вычисления прямого БПФ определенного размера
- *  \details Для достижения максимальной производительности (1763 такта) необходимо положить входной вектор в 1-ый банк, выходной вектор в 5-ый банк
- *  \par
+ \param [in] pSrcVec входной вектор комплексных чисел (на мнимая и действительная части имеют тип float)
+ \retval [out] pDstVec выходной вектор комплексных чисел (на мнимая и действительная части имеют тип float)
+ \param [in] spec структра, содержащая необходимые коэффициенты, для вычисления прямого БПФ определенного размера
+    \details Для достижения максимальной производительности (1763 такта) необходимо положить входной вектор в 1-ый банк, выходной вектор в 5-ый банк
+    \par
     \xmlonly
         <testperf>
 		 <init>
@@ -211,8 +206,7 @@ void nmppsFFT128Fwd_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec, NmppsFFTSpec
     		 <size> 256 </size>
         </testperf>
     \endxmlonly
- *
- */
+*/
 //! \{
 void nmppsFFT256Fwd_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec, NmppsFFTSpec_32fcr* spec);
 //! \}

@@ -1,40 +1,53 @@
 
-NMPP?=$(ROOT)
-
 ifeq ($(OS),Windows_NT)
-include nmc4vars_win.mk
-SHELL   =cmd
-OS_RM   =cmd /c del /Q
-NMC4VARS=nmc4vars_win.mk
-LIBLOAD =mc12705load_nmc
-export PATH:=$(realpath $(MC12705)/bin);$(PATH)
-else 
-OS_RM   =rm -f -r
-LIBLOAD =nm6408load_nmc
-export PATH:=$(realpath $(MC12705)/bin):$(PATH)
+-include nmc4vars_win.mk
 endif
+-include $(ROOT)/clean.mk
+NMPP?=$(ROOT)
+.SUFFIXES:
 
+BOARD = mc12705
+BSP = $(MC12705)
+ifndef MC12705
+$(warning *** WARNING: 'MC12705' environment variable is not defined! Board SDK might not have installed correctly. )
+endif 
 
-INC_DIRS = -I"$(NMPP)/include" -I"$(MC12705)/include" -I"$(HAL)/include" -I$(ROOT)/include
-LIB_DIRS = -L"$(NMPP)/lib"     -L"$(MC12705)/lib"     -L"$(HAL)/lib" 
-LIBS     = -lnmpp-nmc4  -lnmpp-nmc4f -Wl,--whole-archive -l$(LIBLOAD) -Wl,--no-whole-archive
-TARGET   = main.abs
-CFG      = mc12705board.ld
-SRC_DIRS = .. 
+PROJECT  = main
+TARGET   = $(PROJECT)
+
+CC       = nmc-g++
+AS       = nmc-gcc
+CXXFLAGS = -std=c++11 -O2 -Wall -mnmc4-float
+LIBS     = -lnmpp-nmc4f -lhal-$(BOARD) -lc  -Wl,--whole-archive -l$(BOARD)load_nmc -Wl,--no-whole-archive
+CFG      = $(BOARD)-nmpu0.cfg
+MAP      = $(PROJECT).map
+
+LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-c$(CFG)
+
+INC_DIRS = -I"$(BSP)/include" -I"$(NMPP)/include" -I"$(HAL)/include"
+LIB_DIRS = -L"$(BSP)/lib"     -L"$(NMPP)/lib"     -L"$(HAL)/lib" -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4"
+SRC_DIRS = ..
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
 SRC_ASM  = $(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
+SRC_C    = $(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
+SRC_ALL  = $(SRC_CPP) $(SRC_ASM) $(SRC_C)
 
-$(TARGET): $(NMC4VARS) $(SRC_CPP) $(SRC_ASM)
-	nmc-g++ -o $(TARGET) $(SRC_CPP) $(SRC_ASM) $(INC_DIRS) $(LIB_DIRS) $(LIBS)  -Wl,-T$(CFG) -mmas
+.DEFAULT_GOAL := $(TARGET)
 
+$(TARGET): $(SRC_ALL) Makefile
+	$(CC) -o$(TARGET) $(CXXFLAGS) $(LDFLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS)
+
+PATH:=$(BSP)/bin;$(PATH)
+
+run: 	$(TARGET)
+	$(BOARD)run $(TARGET) -c0 -n0
+
+	
 nmc4vars_win.mk:
 	copy "$(NMC_GCC_TOOLPATH)\nmc4-ide\include\nmc4vars_win.mk" nmc4vars_win.mk
-
-
-run: $(TARGET)
-	mc12705run $(TARGET) -c0 -n0
 	
-clean:
-	$(OS_RM) nmc4vars_win.mk $(TARGET)
-	$(OS_RM) *.elf *.map *.abs *.exe
+vs2015:
+	premake5 vs2015
 	
+vs2008:
+	premake5 vs2008		

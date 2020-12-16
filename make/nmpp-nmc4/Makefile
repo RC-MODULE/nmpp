@@ -61,7 +61,7 @@ include          $(ROOT)/make/src-nmc-int.mk
 CC               = nmc-gcc
 AR               = nmc-ar
 AS               = asm
-CXXFLAGS 	 = -m$(ARCH) $(INC_DIRS)  -std=c99 -c
+CXXFLAGS 	 = -m$(ARCH) $(INC_DIRS)  -std=c99 -c -E
 ARFLAGS         = rcs $(TARGET)
 ASFLAGS         =-$(ARCH) -nmc4_fixed -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
 #=================== SOURCE & OBJECTS COLLECTION ===========================

@@ -18,11 +18,11 @@ TARGET   = $(PROJECT)
 CC       = nmc-g++
 AS       = nmc-gcc
 CXXFLAGS = -std=c++11 -O2 -Wall -mnmc4-float
-LIBS     = -lnmpp-nmc4f -lhal-$(BOARD) -lc  -Wl,--whole-archive -l$(BOARD)load_nmc -Wl,--no-whole-archive
-CFG      = $(BOARD).cfg
+LIBS     = -lnmpp-nmc4f -lc  -Wl,--whole-archive -l$(BOARD)load_nmc -Wl,--no-whole-archive
+CFG      = $(BOARD).ld
 MAP      = $(PROJECT).map
 
-LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-c$(CFG)
+LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-T$(CFG)
 
 INC_DIRS = -I"$(BSP)/include" -I"$(NMPP)/include" -I"$(HAL)/include"
 LIB_DIRS = -L"$(BSP)/lib"     -L"$(NMPP)/lib"     -L"$(HAL)/lib" -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4"

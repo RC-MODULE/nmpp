@@ -1,0 +1,6 @@
+{   
+    
+    "targets"  : ["x86","mc12101_nmpu0-gcc-cfg","mc12101_nmpu0-gcc-ld","mc12101_nmpu0-legacy" ]
+    
+    
+}

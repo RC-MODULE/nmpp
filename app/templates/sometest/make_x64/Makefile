@@ -43,7 +43,8 @@ gmake:
 	premake5 gmake --verbose
 	$(CP) Makefile .Makefile.premake
 	$(CP) .Makefile.origin Makefile
-	$(MAKE) -f .Makefile.premake test-x64 verbose=y config=release
+	$(MAKE) -f .Makefile.premake test-x64 verbose=y config=release_x64
+	
 	
 	
 	

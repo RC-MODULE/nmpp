@@ -167,7 +167,7 @@
 Сборка и запуск одтельного примера также осуществляется командами ```make ``` и ```make run ``` из соответствующей папки */make_\<board_core_compiler\>*, например:   
 
 ```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make ```   
-запуcтить пример: 
+запуcтить пример:    
 ```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make run```   
  
 > Для генераци сборочных проектов труебуется Python не ниже 3.6 

@@ -152,14 +152,14 @@
  Некоторые тесты и примеров идут только с исходными С++ текстами. Сконфигурировать сборочные проекты пакетно можно командой ```make configure ``` из корневой папки с тестами или примерами, например:  
 
 
-
-```\nmpp\app\examples-float\nmblas\> make configure ```  
-Далее собрать все проекты командой :
-```\nmpp\app\examples-float\nmblas\> make build  ```  
-Зупусить все примеры поочердно: 
-```\nmpp\app\examples-float\nmblas\> make run  ```  
-Удалить все конфигуарции : 
-```\nmpp\app\examples-float\nmblas\> make kill  ```  
+ 
+```\nmpp\app\examples-float\nmblas\> make configure ```    
+Далее собрать все проекты командой :   
+```\nmpp\app\examples-float\nmblas\> make build  ```     
+Зупусить все примеры поочердно:    
+```\nmpp\app\examples-float\nmblas\> make run  ```     
+Удалить все конфигуарции :    
+```\nmpp\app\examples-float\nmblas\> make kill  ```     
 
 Список платформ для которых будут сформированы сборочные проекты определяются в local.json . 
 Глобальные настройки в \nmpp\app\global.json 

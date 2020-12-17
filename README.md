@@ -28,14 +28,14 @@
 
  Поддерживаемые процессоры :  
 
-|Процессор/ядро   													|nmc3	| nmc4 	| nmc4f	| arm	|
-|-------------------------------------------------------------------|-------|-------|-------|-------|
-|[1879ХБ1Я](https://www.module.ru/products/1/18791-2) 				|   +   |     	|       |   +   |
-|[К1879ВЯ1Я](https://www.module.ru/products/1/23-18791) 	 		|   +   |     	|       |   +   |
-|[К1888ВС018](https://www.module.ru/products/1/1888018-2) 		 	|   +   |     	|       |   +   |
-|[1879ВМ5(NM6406)](https://www.module.ru/products/1/3-18795) 		|   +   |     	|       |       |
-|[1879ВМ6Я(6407)](https://www.module.ru/products/1/81-18796)       	|       |   + 	|   +   |       |
-|[1879ВМ8Я(6408)](https://www.module.ru/products/1/26-18798)       	| 	    |       |   +   |   +   |
+|Процессор/ядро   													|nmc3	| nmc4 	| nmc4f	| arm	| модули                                                           |
+|-------------------------------------------------------------------|-------|-------|-------|-------|------------------------------------------------------------------|
+|[1879ХБ1Я](https://www.module.ru/products/1/18791-2)				|   +   |     	|       |   +   |[MB77.07](https://www.module.ru/products/2-moduli/7707),[МВ73.02](https://www.module.ru/products/2-moduli/7302)           |
+|[К1879ВЯ1Я](https://www.module.ru/products/1/23-18791) 	 		|   +   |     	|       |   +   |[МС76.01](https://www.module.ru/products/2-moduli/13--7601)       |
+|[К1888ВС018](https://www.module.ru/products/1/1888018-2) 		 	|   +   |     	|       |   +   |[MB115.01](https://www.module.ru/products/2-moduli/mb11501)       |
+|[1879ВМ5(NM6406)](https://www.module.ru/products/1/3-18795) 		|   +   |     	|       |       |[МС51.03](https://www.module.ru/products/2-moduli/15--5103)       |
+|[К1879ВМ6Я(6407)](https://www.module.ru/products/1/81-18796)       |       |   + 	|   +   |       |[МС121.01](https://www.module.ru/products/2-moduli/12101)         |
+|[1879ВМ8Я(6408)](https://www.module.ru/products/1/26-18798)       	|       |       |   +   |   +   |[МС127.05](https://www.module.ru/products/2-moduli/12705)         |
  
 
 
@@ -85,7 +85,7 @@
 
 
 
-## Сборка NeuroMatrix библиотек  GCC  компилятором 
+## Сборка NeuroMatrix библиотек  GCC  компилятором (Windows/Linux)
   Сборка библиотек осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp-\<archictecture\>* :  
 
 | Команда 									| Результат сборки         |
@@ -151,6 +151,8 @@
  Для сборки тестов и примеров  может быть необходим [HAL](https://github.com/RC-MODULE/hal) со скомпилированными соответствующими библиотеками и прописанной переменной окружения *HAL*.
  Некоторые тесты и примеров идут только с исходными С++ текстами. Сконфигурировать сборочные проекты пакетно можно командой ```make configure ``` из корневой папки с тестами или примерами, например:  
 
+
+
 ```\nmpp\app\examples-float\nmblas\> make configure ```  
 Далее собрать все проекты командой :
 ```\nmpp\app\examples-float\nmblas\> make build  ```  
@@ -168,7 +170,7 @@
 запуcтить пример: 
 ```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make run```
  
-  
+> Для генераци сборочных проектов труебуется Pyhton не ниже 3.6 
   
 ## Примеры:  
 Each library component contains several examples in *./app/examples*.

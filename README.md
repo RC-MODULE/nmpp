@@ -161,17 +161,18 @@
 Удалить все конфигуарции :    
 ```\nmpp\app\examples-float\nmblas\> make kill  ```     
 
-Список платформ для которых будут сформированы сборочные проекты определяются в local.json . 
+Список платформ для которых будут сформированы сборочные проекты определяются в \nmpp\app\examples-float\nmblas\local.json  . 
 Глобальные настройки в \nmpp\app\global.json 
   
-Сборка и запуск одтельного примера также осуществляется командами ```make ``` и ```make run ``` из соответствующей папки */make_\<board_core_compiler\>*, например:  
+Сборка и запуск одтельного примера также осуществляется командами ```make ``` и ```make run ``` из соответствующей папки */make_\<board_core_compiler\>*, например:   
 
-```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make ```
+```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make ```   
 запуcтить пример: 
-```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make run```
+```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make run```   
  
-> Для генераци сборочных проектов труебуется Pyhton не ниже 3.6 
+> Для генераци сборочных проектов труебуется Python не ниже 3.6 
   
+<!--
 ## Примеры:  
 Each library component contains several examples in *./app/examples*.
 Each example can be built for different targets.  
@@ -317,7 +318,7 @@ L---src                           - Sources
     L---nmvcore                      - Vector core   
 ```
 
-
+-->
 ## Обратная связь:  
 Предложения , вопросы , замечания  можно направлять на  <mushkaev@module.ru>
 

@@ -6,7 +6,7 @@ solution "nmpp"
     configurations { "Release", "Debug" }
 	
 	filter {"system:linux", "action:gmake*"}
-		platforms { "x64"}
+		platforms { "x86","x64"}
   
 	filter {"system:windows", "action:gmake*"}
 		platforms { "Win32","x64"}
@@ -183,14 +183,14 @@ solution "nmpp"
 		targetdir (ROOT.."/lib")
 		
 		
-		configuration {"Debug","Win32"}
+		configuration {"Debug","x86"}
 			targetsuffix ("-x86d")
 			architecture "x86"
 			defines { "DEBUG"}
 			symbols  ="On" 
 			objdir "1"
 		
-		configuration {"Release","Win32"}
+		configuration {"Release","x86"}
 			targetsuffix ("-x86")
 			architecture "x86"
 			defines { "NDEBUG"}

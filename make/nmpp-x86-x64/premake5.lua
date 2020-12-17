@@ -9,10 +9,10 @@ solution "nmpp"
 		platforms { "x86","x64"}
   
 	filter {"system:windows", "action:gmake*"}
-		platforms { "Win32","x64"}
+		platforms { "x86","x64"}
 
 	filter {"system:windows", "action:vs*"}
-		platforms { "Win32","x64"}
+		platforms { "x86","x64"}
 		systemversion ="latest"
 		
       	

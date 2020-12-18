@@ -169,9 +169,10 @@
 ```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make ```   
 запуcтить пример:    
 ```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make run```   
- 
+
+> Должны быть установлены соотвествующие переменные окружения к корневым каталогам ПО поддержки плат   (MС5103,MC12101,MC12705 и .т.д.)
 > Для генераци сборочных проектов труебуется Python не ниже 3.6 
-  
+
 <!--
 ## Примеры:  
 Each library component contains several examples in *./app/examples*.

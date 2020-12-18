@@ -10,7 +10,7 @@ ifeq ($(OS),Windows_NT)
   OS_MKDIR = mkdir  
   export CC = gcc
 else
-  .DEFAULT_GOAL := gmake
+  .DEFAULT_GOAL := gmake64
   OS_RM    = rm -f -r
   OS_RD    = rm -d -r
   OS_CP    = cp
@@ -20,26 +20,24 @@ endif
 PROJECT = nmpp
 
 
-#Generate GNU Makefiles (including Cygwin and MinGW)
-ifeq ($(OS),Windows_NT)
-gmake qmake2:
+
+#Generate GNU Makefiles :	https://github.com/premake/premake-core/wiki/Using-Premake
+gmake32:
 	$(OS_CP) Makefile .Makefile.origin
 	premake5 gmake2
 	$(OS_CP) Makefile .Makefile.premake
 	$(OS_CP) .Makefile.origin Makefile
 	$(OS_RM) .Makefile.origin 
-	$(MAKE) -f .Makefile.premake nmpp config=all
-	#$(MAKE) -f .Makefile.premake nmpp config=release_win32
-else 
-	#Generate GNU Makefiles (This generator is deprecated by gmake2) :	https://github.com/premake/premake-core/wiki/Using-Premake
-gmake:
+	$(MAKE) -f .Makefile.premake nmpp config=release_x86
+
+
+gmake64:
 	$(OS_CP) Makefile .Makefile.origin
-	premake5 gmake
+	premake5 gmake2
 	$(OS_CP) Makefile .Makefile.premake
 	$(OS_CP) .Makefile.origin Makefile
 	$(OS_RM) .Makefile.origin 
-	$(MAKE) -f .Makefile.premake nmpp config=release_x86
-endif
+	$(MAKE) -f .Makefile.premake nmpp config=release_x64
 	
 vs2005:    	
 	premake5 vs2005
@@ -66,7 +64,7 @@ vs2017:
 	
 cmake-mingw:
 	-$(OS_RD)   MinGW	
-	$(OS_MKDIR) 	MinGW
+	$(OS_MKDIR) MinGW
 	cd    		MinGW && cmake .. -G "MinGW Makefiles"
 #	cd    		MinGW && set path=$(MINGW)/bin;$(PATH) &&	cmake .. -G "MinGW Makefiles" 
 

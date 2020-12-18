@@ -3,6 +3,7 @@
 -- A solution contains projects, and defines the available configurations
   solution "test-x86"		 
 	configurations { "Debug", "Release" }
+	platforms {"x86"}
 	project "test-x86"
       kind "ConsoleApp"
       language "C++"

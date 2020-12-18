@@ -460,7 +460,7 @@ typedef nm4u nm4u3b;
 		\~
 	\~	\f$[0,\ldots,+2^7-1]=[0,\ldots,127]\f$
 	*/
-typedef unsigned char nm8u7b;
+typedef  nm8u nm8u7b;
 //-----------------------------------------------------------------------------
     /**
 	\ingroup nmvectype

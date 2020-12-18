@@ -28,14 +28,14 @@
 
  Поддерживаемые процессоры :  
 
-|Процессор/ядро   													|nmc3	| nmc4 	| nmc4f	| arm	|
-|-------------------------------------------------------------------|-------|-------|-------|-------|
-|[1879ХБ1Я](https://www.module.ru/products/1/18791-2) 				|   +   |     	|       |   +   |
-|[К1879ВЯ1Я](https://www.module.ru/products/1/23-18791) 	 		|   +   |     	|       |   +   |
-|[К1888ВС018](https://www.module.ru/products/1/1888018-2) 		 	|   +   |     	|       |   +   |
-|[1879ВМ5(NM6406)](https://www.module.ru/products/1/3-18795) 		|   +   |     	|       |       |
-|[1879ВМ6Я(6407)](https://www.module.ru/products/1/81-18796)       	|       |   + 	|   +   |       |
-|[1879ВМ8Я(6408)](https://www.module.ru/products/1/26-18798)       	| 	    |       |   +   |   +   |
+|Процессор/ядро   													|nmc3	| nmc4 	| nmc4f	| arm	| модули                                                           |
+|-------------------------------------------------------------------|-------|-------|-------|-------|------------------------------------------------------------------|
+|[1879ХБ1Я](https://www.module.ru/products/1/18791-2)				|   +   |     	|       |   +   |[MB77.07](https://www.module.ru/products/2-moduli/7707),[МВ73.02](https://www.module.ru/products/2-moduli/7302)           |
+|[К1879ВЯ1Я](https://www.module.ru/products/1/23-18791) 	 		|   +   |     	|       |   +   |[МС76.01](https://www.module.ru/products/2-moduli/13--7601)       |
+|[К1888ВС018](https://www.module.ru/products/1/1888018-2) 		 	|   +   |     	|       |   +   |[MB115.01](https://www.module.ru/products/2-moduli/mb11501)       |
+|[1879ВМ5(NM6406)](https://www.module.ru/products/1/3-18795) 		|   +   |     	|       |       |[МС51.03](https://www.module.ru/products/2-moduli/15--5103)       |
+|[К1879ВМ6Я(6407)](https://www.module.ru/products/1/81-18796)       |       |   + 	|   +   |       |[МС121.01](https://www.module.ru/products/2-moduli/12101)         |
+|[1879ВМ8Я(6408)](https://www.module.ru/products/1/26-18798)       	|       |       |   +   |   +   |[МС127.05](https://www.module.ru/products/2-moduli/12705)         |
  
 
 
@@ -70,9 +70,11 @@
 
 * Генерация сборочных проектов x86/x64 библиотек/тестов, в т.ч. для VisualStudio, осуществляется [premake5](https://premake.github.io/) . Требуется версия не ниже premake-5.0.0-alpha15
 
+<!---
 * Для обеспечения полной функциональности Makefile-ов (тестов/примеров/генерации проектов и т.д.), а также кросс-платформенной работы Makefile в ОС Windows и Linux  используются UNIX-утилиты:   
 [rm,cp,mkdir,rmdir,...](http://gnuwin32.sourceforge.net/packages/coreutils.htm ),  
 [find](http://gnuwin32.sourceforge.net/packages/findutils.htm ) (find.exe требуется переименовать в gfind.exe для устранения конфликта с системным Windows\System32\find.exe)  
+-->
 
 * Для запуска примеров на вычислительных модулях (МС51.03, МС121.01, МВ77.07   и др.) требуются библиотеки загрузки и обмена  (БЗИО) с установленными соответствующими переменными окружения  (MC5103, MC12101, MB7707... )
 
@@ -83,7 +85,7 @@
 
 
 
-## Сборка NeuroMatrix библиотек  GCC  компилятором 
+## Сборка NeuroMatrix библиотек  GCC  компилятором (Windows/Linux)
   Сборка библиотек осуществляется командой ```make``` из соответствующей архитектуре папки */make/nmpp-\<archictecture\>* :  
 
 | Команда 									| Результат сборки         |
@@ -122,8 +124,8 @@
 |											| nmpp\lib\nmpp-x86d.lib         | 
 |											| nmpp\lib\nmpp-x64.lib          |
 |											| nmpp\lib\nmpp-x64d.lib         |
-|``` \nmpp\make\nmpp-x86-x64> make gmake```	| nmpp\lib\nmpp-x86.lib (Windows)|   
-|``` /nmpp/make/nmpp-x86-x64> make gmake```	| nmpp/lib/libnmpp-x64.a (Linux) |   
+|``` \nmpp\make\nmpp-x86-x64> make gmake32```	| nmpp\lib\nmpp-x86.lib (Windows)|   
+|``` /nmpp/make/nmpp-x86-x64> make gmake64```	| nmpp/lib/libnmpp-x64.a (Linux) |   
  
 > x86/x64 эмуляторы библиотек включают в себя функции как с плавающей  , так и с целочисленной арифметикой. 
 
@@ -133,8 +135,8 @@
 | vs2005 | Windows | MS Visual Studio 2005 |
 | vs2015 | Windows | MS Visual Studio 2015 |
 | vs2017 | Windows | MS Visual Studio 2017 |
-| gmake  | Windows | MinGW                 |
-| gmake  | Linux   | GCC                   |
+| gmake32  | Windows | MinGW                 |
+| gmake64  | Linux   | GCC                   |
 
 
 
@@ -146,21 +148,31 @@
 
 
 ## Сборка примеров и тестов   
- Для сборки тестов и примеров  необходим [HAL](https://github.com/RC-MODULE/hal) со скомпилированными соответствующими библиотеками и прописанной переменной окружения *HAL*.
+ Для сборки тестов и примеров  может быть необходим [HAL](https://github.com/RC-MODULE/hal) со скомпилированными соответствующими библиотеками и прописанной переменной окружения *HAL*.
  Некоторые тесты и примеров идут только с исходными С++ текстами. Сконфигурировать сборочные проекты пакетно можно командой ```make configure ``` из корневой папки с тестами или примерами, например:  
 
-```\nmpp\app\test> make configure ```  
-```\nmpp\app\examples-float> make configure ```  
-  
-Список платформ для которых будут сформированы сборочные проекты определяются переменной PLATFORMS в global.mk или local.mk   
-  
-Сборка и запуск примера осуществляется командами ```make ``` и ```make run ``` из соответствующей папки */make_\<board_core_compiler\>*, например:  
-```nmpp\> cd \app\examples\nmpps\nmppsAbs\make_mc12101_nmpu1-gcc-ld```   
-```\> make```   
-```\> make run ```   
+
  
+```\nmpp\app\examples-float\nmblas\> make configure ```    
+Далее собрать все проекты командой :   
+```\nmpp\app\examples-float\nmblas\> make build  ```     
+Зупусить все примеры поочердно:    
+```\nmpp\app\examples-float\nmblas\> make run  ```     
+Удалить все конфигуарции :    
+```\nmpp\app\examples-float\nmblas\> make kill  ```     
+
+Список платформ для которых будут сформированы сборочные проекты определяются в \nmpp\app\examples-float\nmblas\local.json  . 
+Глобальные настройки в \nmpp\app\global.json 
   
+Сборка и запуск одтельного примера также осуществляется командами ```make ``` и ```make run ``` из соответствующей папки */make_\<board_core_compiler\>*, например:   
+
+```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make ```   
+запуcтить пример:    
+```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make run```   
+ 
+> Для генераци сборочных проектов труебуется Python не ниже 3.6 
   
+<!--
 ## Примеры:  
 Each library component contains several examples in *./app/examples*.
 Each example can be built for different targets.  
@@ -306,7 +318,7 @@ L---src                           - Sources
     L---nmvcore                      - Vector core   
 ```
 
-
+-->
 ## Обратная связь:  
 Предложения , вопросы , замечания  можно направлять на  <mushkaev@module.ru>
 

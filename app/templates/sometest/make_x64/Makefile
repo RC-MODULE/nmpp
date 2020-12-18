@@ -34,10 +34,10 @@ vs2005:
 	"$(VS80COMNTOOLS)vsvars32" && vcbuild $(PROJECT).vcproj
 
 gmake:
-	$(CP) Makefile .Makefile.origin
+	$(OS_CP) Makefile .Makefile.origin
 	premake5 gmake2 --verbose
-	$(CP) Makefile .Makefile.premake
-	$(CP) .Makefile.origin Makefile
+	$(OS_CP) Makefile .Makefile.premake
+	$(OS_CP) .Makefile.origin Makefile
 	$(MAKE) -f .Makefile.premake test-x64 verbose=y config=release_x64
 	
 	

@@ -38,7 +38,7 @@ gmake:
 	$(OS_CP) Makefile .Makefile.premake
 	$(OS_CP) .Makefile.origin Makefile
 	$(OS_RM) .Makefile.origin 
-	$(MAKE) -f .Makefile.premake nmpp config=release_x64
+	$(MAKE) -f .Makefile.premake nmpp config=release_x86
 endif
 	
 vs2005:    	

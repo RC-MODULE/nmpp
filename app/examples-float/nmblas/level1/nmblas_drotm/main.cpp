@@ -26,6 +26,7 @@ int main(){
 	param[3] = 0.707;//h12
 	param[4] = 0.707;//h22
 
+	// DROTM - BLAS level one. Applies a modified Givens rotation.
 
 	for(int i=0;i<SIZE;i++){
 		x[i] = 10*sin(PI/6*i);
@@ -33,7 +34,7 @@ int main(){
 		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
 	}
 	printf("\n");
-///////////////////////////////////////////////////////////////////////////////	case 1 
+
 	param[0] = -2; 
 	printf("PARAM is -2\n");
 	nmblas_drotm(SIZE,x,1,y,1,param);
@@ -42,36 +43,7 @@ int main(){
 		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
 	}
 	printf("\n");
-////////////////////////////////////////////////////////////////////////////// case 2
-	param[0] = -1; 
-	printf("PARAM is -1\n");
 
-	nmblas_drotm(SIZE,x,1,y,1,param);
-
-	for(int i=0;i<SIZE;i++){
-		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
-	}
-	printf("\n");
-
-///////////////////////////////////////////////////////////////////////////////// case 3
-	param[0] = 0; 
-	printf("PARAM is 0\n");
-	nmblas_drotm(SIZE,x,1,y,1,param);
-	
-	for(int i=0;i<SIZE;i++){
-		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
-	}
-	printf("\n");
-//////////////////////////////////////////////////////////////////////////////// case 4 
-	param[0] = 1; 
-	printf("PARAM is 1\n");
-	nmblas_drotm(SIZE,x,1,y,1,param);
-	
-	
-	for(int i=0;i<SIZE;i++){
-		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
-	}
-	printf("\n");
 	return 1;
 }
 	

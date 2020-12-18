@@ -22,8 +22,6 @@ int main(){
 		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
 	}
 	
-	double alpha =2;
-	//y=alpha * x + y
 	nmblas_dcopy(SIZE/2,x,2,y,1);
 	for(int i=0;i<SIZE;i++){
 		printf("y[%d]=%f\n",i,y[i]);

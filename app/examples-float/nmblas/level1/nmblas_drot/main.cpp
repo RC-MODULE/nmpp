@@ -20,10 +20,11 @@ double y[SIZE];
 
 
 int main(){
+	printf("Input :\n");
 	for(int i=0;i<SIZE;i++){
 		x[i] = 10*sin(PI/6*i);
 		y[i] = 10*cos(PI/6*i);
-		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
+		printf("x[%d]=%f \t y[%d]=%f\n",i,x[i],i,y[i]);
 	}
 	
 	double alpha =2;
@@ -31,8 +32,10 @@ int main(){
 	nmblas_drot(SIZE,x,1,y,1,0.5,0.866);
 
 	printf("\n");
+	printf("Result :\n");
+	
 	for(int i=0;i<SIZE;i++){
-		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
+		printf("x[%d]=%f \t y[%d]=%f\n",i,x[i],i,y[i]);
 	}
 
 	return 1;

@@ -166,9 +166,11 @@
   
 Сборка и запуск одтельного примера также осуществляется командами ```make ``` и ```make run ``` из соответствующей папки */make_\<board_core_compiler\>*, например:   
 
-```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make ```   
-запуcтить пример:    
-```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make run```   
+```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0> make ```   
+запуcтить пример на плате:    
+```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0> make run```   
+запуcтить пример на эмуляторе nmc-qemu:    
+```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0> make qemu```   
 
 > Должны быть установлены соотвествующие переменные окружения к корневым каталогам ПО поддержки плат   (MС5103,MC12101,MC12705 и .т.д.)
 > Для генераци сборочных проектов труебуется Python не ниже 3.6 

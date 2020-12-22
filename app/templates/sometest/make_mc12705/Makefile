@@ -20,7 +20,7 @@ CC       = nmc-g++
 AS       = nmc-gcc
 CXXFLAGS = -std=c++11 -O2 -Wall -mnmc4-float
 LIBS     = -lnmpp-nmc4f -lc  -Wl,--whole-archive -l$(BOARD)load_nmc -Wl,--no-whole-archive
-CFG      = $(BOARD).ld
+CFG      = $(BOARD).lds
 MAP      = $(PROJECT).map
 
 LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-T$(CFG)

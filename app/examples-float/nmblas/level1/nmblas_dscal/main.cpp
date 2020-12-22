@@ -77,6 +77,7 @@ int main(){
 	for(int i=0;i<SIZE;i++){
 		printf("%f\n",buffer_a[i]);
 	}
+	
 	// ------ case 2 -----------
 	printf("Result case 2 :x10.0\n");
 	
@@ -84,17 +85,19 @@ int main(){
 	for(int i=0;i<SIZE;i++){
 		printf("%f\n",buffer_a[i]);
 	}
+	
 	// ------ case 3 -----------
 	printf("Result case 3: x0.1 \n");
 	
-	nmblas_dscal(SIZE/2,0.1,buffer_a+SIZE,-2);
+	nmblas_dscal(SIZE/2,0.1,buffer_a+SIZE-1,-2);
 	for(int i=0;i<SIZE;i++){
 		printf("%f\n",buffer_a[i]);
 	}
+	
 	// ------ case 4 -----------
 	printf("Result case 3: x0.5 \n");
 	
-	nmblas_dscal(SIZE,0.5,buffer_a+SIZE,-1);
+	nmblas_dscal(SIZE,0.5,buffer_a+SIZE-1,-1);
 	for(int i=0;i<SIZE;i++){
 		printf("%f\n",buffer_a[i]);
 	}

@@ -1,6 +1,8 @@
 {   
     
-    "targets"  : ["x64","mc12101_nmpu0"],
+    "targets"  : ["x64","mc12101_nmpu0","mc12705"],
+    "targets_win"   : ["x86","mc12101_nmpu0","mc12705"],
+    "targets_linux" : ["x64","mc12101_nmpu0","mc12705"],
 	"exclude_dirs": ["nmc_tests","nmblas_dscal","nmblas_dsdot","nmblas_dswap","nmblas_idamax","nmblas_isamax","nmblas_sasum","nmblas_saxpy","nmblas_scopy","nmblas_sdot","nmblas_sdsdot","nmblas_snrm2","nmblas_srot","nmblas_srotm","nmblas_sscal","nmblas_sswap"]
     
     

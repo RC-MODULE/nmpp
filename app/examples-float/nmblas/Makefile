@@ -18,5 +18,8 @@ kill:
 run :
 	$(PYTHON) $(ROOT)/app/nmcmake.py make run
 
+qemu:
+	$(PYTHON) $(ROOT)/app/nmcmake.py make qemu
+
 clean :
 	$(PYTHON) $(ROOT)/app/nmcmake.py make clean

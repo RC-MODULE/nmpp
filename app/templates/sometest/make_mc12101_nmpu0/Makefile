@@ -1,15 +1,16 @@
 
 ifeq ($(OS),Windows_NT)
+SHELL=cmd
 -include nmc4vars_win.mk
 endif
 -include $(ROOT)/clean.mk
 NMPP?=$(ROOT)
 .SUFFIXES:
 
-BOARD = mc12705
-BSP = $(MC12705)
-ifndef MC12705
-$(warning *** WARNING: 'MC12705' environment variable is not defined! Board SDK might not have installed correctly. )
+BOARD = mc12101
+BSP = $(MC12101)
+ifndef MC12101
+$(warning *** WARNING: 'MC12101' environment variable is not defined! Board SDK might not have installed correctly. )
 endif 
 
 PROJECT  = main
@@ -18,10 +19,9 @@ TARGET   = $(PROJECT)
 CC       = nmc-g++
 AS       = nmc-gcc
 CXXFLAGS = -std=c++11 -O2 -Wall -mnmc4-float
-LIBS     = -lnmpp-nmc4f -lc  -Wl,--whole-archive -l$(BOARD)load_nmc -Wl,--no-whole-archive
-CFG      = $(BOARD).ld
+LIBS     = -lnmpp-nmc4f -lhal-$(BOARD) -lc  -Wl,--whole-archive -l$(BOARD)lib_nm -Wl,--no-whole-archive
+CFG      = $(BOARD)-nmpu0.ld
 MAP      = $(PROJECT).map
-
 LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-T$(CFG)
 
 INC_DIRS = -I"$(BSP)/include" -I"$(NMPP)/include" -I"$(HAL)/include"
@@ -37,10 +37,14 @@ SRC_ALL  = $(SRC_CPP) $(SRC_ASM) $(SRC_C)
 $(TARGET): $(SRC_ALL) Makefile
 	$(CC) -o$(TARGET) $(CXXFLAGS) $(LDFLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS)
 
-PATH:=$(BSP)/bin;$(PATH)
+#PATH:=$(BSP)/bin;$(PATH)
 
 run: 	$(TARGET)
-	$(BOARD)run $(TARGET) -c0 -n0
+	$(BOARD)run $(TARGET)
+
+qemu:	
+	$(MAKE) LIBS="-lnmpp-nmc4f -lc " -B
+	nmc-qemu $(TARGET)
 
 	
 nmc4vars_win.mk:

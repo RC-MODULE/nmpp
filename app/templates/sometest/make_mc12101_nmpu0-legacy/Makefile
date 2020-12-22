@@ -1,4 +1,4 @@
-
+SHELL=cmd
 -include $(ROOT)/clean.mk
 NMPP?=$(ROOT)
 .SUFFIXES:
@@ -37,7 +37,7 @@ SRC_ALL  = $(SRC_CPP) $(SRC_ASM) $(SRC_C)
 $(TARGET): $(SRC_ALL) Makefile
 	$(CC) -o$(TARGET) $(CXXFLAGS) $(LDFLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS)
 
-PATH:=$(BSP)/bin;$(PATH)
+#PATH:=$(BSP)/bin;$(PATH)
 
 run: 	$(TARGET)
 	$(BOARD)run $(TARGET)

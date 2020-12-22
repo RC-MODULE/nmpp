@@ -17,6 +17,7 @@ double y[SIZE];
 
 
 int main(){
+	printf("Input:\n");
 	for(int i=0;i<SIZE;i++){
 		x[i] = i;
 		y[i] = i;
@@ -26,11 +27,11 @@ int main(){
 	double alpha =2;
 	//y=alpha * x + y
 	nmblas_daxpy(SIZE,alpha,x,1,y,1);
-	
+	printf("Result:\n");
 	for(int i=0;i<SIZE;i++){
 		printf("y[%d]=%f\n",i,y[i]);
 	}
 
-	return 1;
+	return 0;
 }
 

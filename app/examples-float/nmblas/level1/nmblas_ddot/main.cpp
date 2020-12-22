@@ -6,12 +6,12 @@
 #define SIZE 10
 
 #ifdef __GNUC__ // NMC-GCC C++ compilier 
-double x[SIZE] __attribute__ ((section (".mem_bank1")));
-double y[SIZE] __attribute__ ((section (".mem_bank2")));
+double x[SIZE] __attribute__ ((section (".data_imu1")));
+double y[SIZE] __attribute__ ((section (".data_imu2")));
 #else 			// NMSDK C++ compiler
-#pragma data_section ".mem_bank1"
+#pragma data_section ".data_imu1"
 double x[SIZE];
-#pragma data_section ".mem_bank2"
+#pragma data_section ".data_imu2"
 double y[SIZE];
 #endif 
 
@@ -26,6 +26,6 @@ int main(){
 	double result = nmblas_ddot(SIZE,x,1,y,1);
 	printf("result=%f\n",result);
 
-	return result;
+	return 0;
 }
 

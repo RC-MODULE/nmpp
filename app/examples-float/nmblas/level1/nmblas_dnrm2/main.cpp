@@ -8,6 +8,6 @@ int main(){
 	}
 	
 	double result = nmblas_dnrm2(SIZE,src,1);
-	return result;
+	return 0;
 }
 

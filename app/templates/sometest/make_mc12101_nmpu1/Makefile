@@ -1,5 +1,6 @@
 
 ifeq ($(OS),Windows_NT)
+SHELL=cmd
 -include nmc4vars_win.mk
 endif
 -include $(ROOT)/clean.mk
@@ -17,9 +18,9 @@ TARGET   = $(PROJECT)
 
 CC       = nmc-g++
 AS       = nmc-gcc
-CXXFLAGS = -std=c++11 -O2 -Wall -mnmc4-float
-LIBS     = -lnmpp-nmc4f -lhal-$(BOARD) -lc  -Wl,--whole-archive -l$(BOARD)lib_nm -Wl,--no-whole-archive
-CFG      = $(BOARD)-nmpu0.ld
+CXXFLAGS = -std=c++11 -O2 -Wall -mnmc4
+LIBS     = -lnmpp-nmc4 -lhal-$(BOARD) -lc  -Wl,--whole-archive -l$(BOARD)lib_nm -Wl,--no-whole-archive
+CFG      = $(BOARD)-nmpu1.ld
 MAP      = $(PROJECT).map
 LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-T$(CFG)
 
@@ -36,10 +37,14 @@ SRC_ALL  = $(SRC_CPP) $(SRC_ASM) $(SRC_C)
 $(TARGET): $(SRC_ALL) Makefile
 	$(CC) -o$(TARGET) $(CXXFLAGS) $(LDFLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS)
 
-PATH:=$(BSP)/bin;$(PATH)
+#PATH:=$(BSP)/bin;$(PATH)
 
 run: 	$(TARGET)
 	$(BOARD)run $(TARGET)
+
+qemu:	
+	$(MAKE) LIBS="-lnmpp-nmc4 -lc " -B
+	nmc-qemu $(TARGET)
 
 	
 nmc4vars_win.mk:

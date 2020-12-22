@@ -38,6 +38,6 @@ int main(){
 		printf("x[%d]=%f \t y[%d]=%f\n",i,x[i],i,y[i]);
 	}
 
-	return 1;
+	return 0;
 }
 

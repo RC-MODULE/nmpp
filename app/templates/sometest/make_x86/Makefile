@@ -47,6 +47,9 @@ gmake:
 run:	
 	$(TARGET)
 	
+qemu:
+	
+	
 test: .exitcode
 	
 .exitcode: $(TARGET) .test.bat

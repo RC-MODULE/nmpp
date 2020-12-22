@@ -26,6 +26,6 @@ int main(){
 	for(int i=0;i<SIZE;i++){
 		printf("y[%d]=%f\n",i,y[i]);
 	}
-	return 1;
+	return 0;
 }
 

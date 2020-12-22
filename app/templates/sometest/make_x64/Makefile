@@ -46,6 +46,8 @@ gmake:
 	
 run:	
 	$(TARGET)
+
+qemu:
 	
 test: .exitcode
 	

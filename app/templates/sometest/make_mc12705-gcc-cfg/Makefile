@@ -1,5 +1,6 @@
 
 ifeq ($(OS),Windows_NT)
+SHELL = cmd
 -include nmc4vars_win.mk
 endif
 -include $(ROOT)/clean.mk
@@ -37,10 +38,13 @@ SRC_ALL  = $(SRC_CPP) $(SRC_ASM) $(SRC_C)
 $(TARGET): $(SRC_ALL) Makefile
 	$(CC) -o$(TARGET) $(CXXFLAGS) $(LDFLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS)
 
-PATH:=$(BSP)/bin;$(PATH)
+#PATH:=$(BSP)/bin;$(PATH)
 
 run: 	$(TARGET)
 	$(BOARD)run $(TARGET) -c0 -n0
+qemu:	
+	$(MAKE) LIBS="-lnmpp-nmc4f -lc " -B
+	nmc-qemu $(TARGET)
 
 	
 nmc4vars_win.mk:

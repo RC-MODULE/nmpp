@@ -147,25 +147,25 @@ SECTIONS
   } > C0_IMU3
   .heap4 : ALIGN(0x8)
   {
-    *(.heap);
+    *(.heap4);
 	. = ORIGIN(C0_IMU4) + LENGTH(C0_IMU4);
     __HEAP_4_END = .;
   } > C0_IMU4
   .heap5 : ALIGN(0x8)
   {
-    *(.heap1);
+    *(.heap5);
 	. = ORIGIN(C0_IMU5) + LENGTH(C0_IMU5);
     __HEAP_5_END = .;
   } > C0_IMU5
   .heap6 : ALIGN(0x8)
   {
-    *(.heap2);
+    *(.heap6);
 	. = ORIGIN(C0_IMU6) + LENGTH(C0_IMU6);
     __HEAP_6_END = .;
   } > C0_IMU6
   .heap7 : ALIGN(0x8)
   {
-    *(.heap3);
+    *(.heap7);
 	. = ORIGIN(C0_IMU7) + LENGTH(C0_IMU7);
     __HEAP_7_END = .;
   } > C0_IMU7

@@ -127,25 +127,25 @@ SECTIONS
 
   .heap4 : ALIGN(0x8)
   {
-    *(.heap);
+    *(.heap4);
 	. = ORIGIN(NMMB4) + LENGTH(NMMB4);
     __HEAP_4_END = .;
   } > NMMB4
   .heap5 : ALIGN(0x8)
   {
-    *(.heap1);
+    *(.heap5);
 	. = ORIGIN(NMMB5) + LENGTH(NMMB5);
     __HEAP_5_END = .;
   } > NMMB5
   .heap6 : ALIGN(0x8)
   {
-    *(.heap2);
+    *(.heap6);
 	. = ORIGIN(NMMB6) + LENGTH(NMMB6);
     __HEAP_6_END = .;
   } > NMMB6
   .heap7 : ALIGN(0x8)
   {
-    *(.heap3);
+    *(.heap7);
 	. = ORIGIN(NMMB7) + LENGTH(NMMB7);
     __HEAP_7_END = .;
   } > NMMB7

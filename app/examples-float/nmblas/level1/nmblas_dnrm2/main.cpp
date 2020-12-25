@@ -1,8 +1,10 @@
 #include "nmblas.h"
+#include "stdio.h"
 #define SIZE 10
 double src[SIZE];
 
 int main(){
+	printf("-");
 	for(int i=0;i<SIZE;i++){
 		src[i] = i;
 	}

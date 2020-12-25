@@ -24,7 +24,7 @@ int main(){
 	for(int i=0;i<SIZE;i++){
 		x[i] = 10*sin(PI/6*i);
 		y[i] = 10*cos(PI/6*i);
-		printf("x[%d]=%f \t y[%d]=%f\n",i,x[i],i,y[i]);
+		printf("x[%d]=%f\ty[%d]=%f\n",i,x[i],i,y[i]);
 	}
 	
 	double alpha =2;
@@ -35,7 +35,7 @@ int main(){
 	printf("Result :\n");
 	
 	for(int i=0;i<SIZE;i++){
-		printf("x[%d]=%f \t y[%d]=%f\n",i,x[i],i,y[i]);
+		printf("x[%d]=%f\ty[%d]=%f\n",i,x[i],i,y[i]);
 	}
 
 	return 0;

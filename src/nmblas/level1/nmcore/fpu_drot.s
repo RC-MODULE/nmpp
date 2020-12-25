@@ -67,7 +67,7 @@ begin "text"
   fpu 2 rep vlen [ar3++gr3] = vreg3;//x
 
 <END>
-  pop ar3,gr3;
   pop ar4,gr4;
+  pop ar3,gr3;
   return;
 end "text";

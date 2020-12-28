@@ -99,14 +99,15 @@
 		if (settings==-1)
 			return 0;
 		/*
-		for(int k=0; k<64; k+=2){
+		int k;
+		for(k=0; k<64; k+=2){
 			for(int p=0; p<8; p++,i++){
 				nm32sc w=fixW64(p*k,127);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i,w.re);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256,w.im);
 			}
 		}
-		for(int k=0; k<64; k+=2){
+		for(k=0; k<64; k+=2){
 			for(int p=8; p<16; p++,i++){
 				nm32sc w=fixW64(p*k,127);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i,w.re);
@@ -114,7 +115,7 @@
 			}
 		}
 
-		for(int k=1; k<64; k+=2){
+		for(k=1; k<64; k+=2){
 			for(int p=0; p<8; p++,i++){
 				nm32sc w=fixW64(p*k,127);
 				nmppsPut_8s((nm8s*)spec->fftTable[0],i+256,w.re);

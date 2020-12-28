@@ -31,7 +31,8 @@ void nmppsResampleDown2_16u16u(
 		nm64s*			pKernel
 		)
 {
-	for(int i=0;i<(len/8)*4;i++)
+	int i;
+	for(i=0;i<(len/8)*4;i++)
 		((nm16s*)pDst)[i] = ((unsigned short)(((nm16u*)pSrc)[2*i]+((nm16u*)pSrc)[2*i+1])>>1);
 }
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -42,7 +43,8 @@ void nmppsResampleDown2_8u8u(
 		nm64s*			pKernel
 		)
 {
-	for(int i=0;i<(len/16)*8;i++)
+	int i;
+	for(i=0;i<(len/16)*8;i++)
 		((nm8u*)pDst)[i] = \
 		((unsigned char)(((nm8u*)pSrc)[2*i]+((nm8u*)pSrc)[2*i+1])>>1);
 }

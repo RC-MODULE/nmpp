@@ -161,17 +161,19 @@
 Удалить все конфигуарции :    
 ```\nmpp\app\examples-float\nmblas\> make kill  ```     
 
-Список платформ для которых будут сформированы сборочные проекты определяются в \nmpp\app\examples-float\nmblas\local.json  . 
-Глобальные настройки в \nmpp\app\global.json 
+Список платформ для которых будут сформированы сборочные проекты определяются в файле \nmpp\app\examples-float\nmblas\local.json  и требуют редактирования под имеющиеся платы. 
+Глобальные настройки находятся в \nmpp\app\global.json . Генерация проектов производится через копирование шаблонов , полный перечень которых сдержится в папке \nmpp\app\templates\sometest 
   
-Сборка и запуск одтельного примера также осуществляется командами ```make ``` и ```make run ``` из соответствующей папки */make_\<board_core_compiler\>*, например:   
+Сборка и запуск отдельного примера также осуществляется командами ```make ``` и ```make run ``` из соответствующей папки */make_\<board_core_compiler\>*, например:   
 
-```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make ```   
-запуcтить пример:    
-```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0-gcc-ld> make run```   
+```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0> make ```   
+запуcтить пример на плате:    
+```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0> make run```   
+запуcтить пример на эмуляторе nmc-qemu:    
+```\nmpp\app\examples-float\nmblas\level1\nmblas_dcopy\make_mc12101_nmpu0> make qemu```   
 
-> Должны быть установлены соотвествующие переменные окружения к корневым каталогам ПО поддержки плат   (MС5103,MC12101,MC12705 и .т.д.)
-> Для генераци сборочных проектов труебуется Python не ниже 3.6 
+> Должны быть установлены соответствующие переменные окружения к корневым каталогам ПО поддержки плат   (MС5103,MC12101,MC12705 и .т.д.)
+> Для генерации сборочных проектов требуется Python не ниже 3.6 
 
 <!--
 ## Примеры:  

@@ -76,7 +76,8 @@ const 	nm1*	pSrcVec,			// input buffer		:long Local [nSize]
 	for (i=0;i<nSize>>6;i++)
 	{
 		x=Src[i];
-		for(int j=0;j<64;j++)
+		int j;
+		for(j=0;j<64;j++)
 			sum+=(x>>j)&1;
 		
 	}

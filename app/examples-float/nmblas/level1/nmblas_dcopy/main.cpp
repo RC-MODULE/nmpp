@@ -19,7 +19,7 @@ int main(){
 	for(int i=0;i<SIZE;i++){
 		x[i] = i;
 		y[i] = 0;
-		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
+		printf("x[%d]=%f\ty[%d]=%f\n",i,x[i],i,y[i]);
 	}
 	
 	nmblas_dcopy(SIZE/2,x,2,y,1);

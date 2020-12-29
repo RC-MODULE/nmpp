@@ -33,7 +33,8 @@ void nmppsFFT32FwdRaw(const nm32sc*	src, nm32sc*	dst, NmppsFFTSpec*	spec)
 	//[ar0:lo]+[ar0:hi] -> [ar1:lo]
 	//[ar0:lo]-[ar0:hi] -> [ar2:lo]
 	//------- stage 1 --------------
-	//!for(int i=0; i<16; i++){
+	//!int i;
+	//!for(i=0; i<16; i++){
 	//!	sum[i]=x[i]+x[i+16];
 	//!	dif[i]=x[i]-x[i+16];
 	//!}

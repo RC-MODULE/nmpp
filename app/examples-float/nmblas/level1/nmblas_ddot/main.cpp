@@ -20,7 +20,7 @@ int main(){
 	for(int i=0;i<SIZE;i++){
 		x[i] = i;
 		y[i] = i;
-		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
+		printf("x[%d]=%f\ty[%d]=%f\n",i,x[i],i,y[i]);
 	}
 	
 	double result = nmblas_ddot(SIZE,x,1,y,1);

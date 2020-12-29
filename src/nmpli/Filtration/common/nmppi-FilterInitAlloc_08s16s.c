@@ -250,8 +250,10 @@ int nmppiFilterInit_8s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImg
 	nmppsPut_32s(((nm32s*)pKernel),1,(int)pDispArray);					// ar0 displacement for first array
 
 	
-	for(int j=0; j<nKerHeight; j++){
-		for(int i=0; i<nNumberOfArrays0; i++){
+	int j;
+	for(j=0; j<nKerHeight; j++){
+		int i;
+		for(i=0; i<nNumberOfArrays0; i++){
 			*pDispArray=(i<<1)+nSrcDisp0+disp;
 			pDispArray++;
 		}
@@ -263,8 +265,9 @@ int nmppiFilterInit_8s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImg
 	nmppsPut_32s(((nm32s*)pKernel),3, nNumberOfArrays1*nKerHeight);// Number of arrays
 	nmppsPut_32s(((nm32s*)pKernel),4,(int)pDispArray);			 // ar0 displacement for first array
 	
-	for(int j=0; j<nKerHeight; j++){
-		for(int i=0; i<nNumberOfArrays1; i++){
+	for(j=0; j<nKerHeight; j++){
+		int i;
+		for(i=0; i<nNumberOfArrays1; i++){
 			*pDispArray=(i<<1)+nSrcDisp1+disp;
 			pDispArray++;
 		}
@@ -281,8 +284,9 @@ int nmppiFilterInit_8s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImg
 
 	//-------------- Weight Matrix 0 -------------------
 	nmppsPut_32s(((nm32s*)pKernel),2,((int)pWeightMatrix));	// weights for first array
-	for(int j=0,k=0; j<nKerHeight; j++){
-		for(int i=0; i<nKerWidth;i++,k++){
+	for(j=0,k=0; j<nKerHeight; j++){
+		int i;
+		for(i=0; i<nKerWidth;i++,k++){
 			nmppsPut_16s(pWeightMatrix,8*4+i*4	-nDisp0*2*2, pWeights[k]);
 			nmppsPut_16s(pWeightMatrix,8*4+i*4+5	-nDisp0*2*2, pWeights[k]);
 			nmppsPut_16s(pWeightMatrix,8*4+i*4+10 -nDisp0*2*2, pWeights[k]);
@@ -293,8 +297,9 @@ int nmppiFilterInit_8s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImg
 
 	//-------------- Weight Matrix 1 ------------------
 	nmppsPut_32s(((nm32s*)pKernel),5,((int)pWeightMatrix));	// weights for first array
-	for(int j=0,k=0; j<nKerHeight; j++){
-		for(int i=0; i<nKerWidth;i++,k++){
+	for(j=0,k=0; j<nKerHeight; j++){
+		int i;
+		for(i=0; i<nKerWidth;i++,k++){
 			nmppsPut_16s(pWeightMatrix,8*4+i*4	-nDisp1*2*2, pWeights[k]);
 			nmppsPut_16s(pWeightMatrix,8*4+i*4+5	-nDisp1*2*2, pWeights[k]);
 			nmppsPut_16s(pWeightMatrix,8*4+i*4+10 -nDisp1*2*2, pWeights[k]);

@@ -76,11 +76,14 @@ SECTIONS
   } > C0_IMU3
   
 
-/************rpc***************/
+/************rpc . important ALIGN(0x8) in both *****/
+  .rpc_services.bss : ALIGN(0x8)
+  {
+    *(.rpc_services.bss);
+  } > EMI
   .rpc_services : ALIGN(0x8)
   {
     *(.rpc_services);
-    *(.rpc_services.bss);
   } > EMI
 /************rpc***************/
   

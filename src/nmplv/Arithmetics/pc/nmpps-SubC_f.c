@@ -23,7 +23,8 @@
 
 
 void nmppsSubC_32f(const nm32f* pSrcVec, nm32f* pDstVec, float C, int nSize){
-	for(int i=0;i<nSize;i++){
+	int i;
+	for(i=0;i<nSize;i++){
 		pDstVec[i] = pSrcVec[i] - C;
 	}	
 }

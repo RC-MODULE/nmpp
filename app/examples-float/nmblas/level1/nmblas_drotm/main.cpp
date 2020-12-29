@@ -31,7 +31,7 @@ int main(){
 	for(int i=0;i<SIZE;i++){
 		x[i] = 10*sin(PI/6*i);
 		y[i] = 10*cos(PI/6*i);
-		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
+		printf("x[%d]=%f\ty[%d]=%f\n",i,x[i],i,y[i]);
 	}
 	printf("\n");
 
@@ -40,7 +40,7 @@ int main(){
 	nmblas_drotm(SIZE,x,1,y,1,param);
 
 	for(int i=0;i<SIZE;i++){
-		printf("x[%d]=%f y[%d]=%f\n",i,x[i],i,y[i]);
+		printf("x[%d]=%f\ty[%d]=%f\n",i,x[i],i,y[i]);
 	}
 	printf("\n");
 

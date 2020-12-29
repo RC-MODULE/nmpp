@@ -51,7 +51,7 @@ ARCH             =nmc3
 PROJECT          = libnmpp-$(ARCH)
 TMP_DIR          = Release
 OUT_DIR          = $(ROOT)/lib
-TARGET           = $(OUT_DIR)/$(PROJECT).a
+TARGET_LIB           = $(OUT_DIR)/$(PROJECT).a
 #INC_DIRS        =
 #SRC_DIRS        =
 include          $(ROOT)/make/src-nmc-int.mk
@@ -61,7 +61,7 @@ LD               = nmc-ld
 AR               = nmc-ar
 AS               = asm
 CC_FLAGS 	 = -m$(ARCH) $(INC_DIRS)  -std=c99 -c
-AR_FLAGS         = rcs $(TARGET)
+AR_FLAGS         = rcs $(TARGET_LIB)
 AS_FLAGS         = -$(ARCH) -nm2ms  $(INC_DIRS) 
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
@@ -85,11 +85,11 @@ export OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJE
 #======================== BUILD RULES ====================================
 .DEFAULT_GOAL=default
 default: 
-	$(MAKE) $(TARGET) -j4 
+	$(MAKE) $(TARGET_LIB) -j4 
 
-$(TARGET): $(TMP_DIR) $(OUT_DIR) $(OBJECTS) 
+$(TARGET_LIB): $(TMP_DIR) $(OUT_DIR) $(OBJECTS) 
 	$(info "[Linking...]")
-	echo rcs $(TARGET) > .objects
+	echo rcs $(TARGET_LIB) > .objects
 	$(MAKE) -s --no-print-directory -f printobj.mk >> .objects
 	$(AR) @.objects $(ERRECHO)
 	

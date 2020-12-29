@@ -42,9 +42,10 @@ $(TARGET): $(SRC_ALL) Makefile
 
 run: 	$(TARGET)
 	$(BOARD)run $(TARGET) -c0 -n0
+
 qemu:	
-	$(MAKE) LIBS="-lnmpp-nmc4f -lc " -B
-	nmc-qemu $(TARGET)
+	$(MAKE) LIBS="-lnmpp-nmc4f -lc " -B TARGET=$(TARGET)_qemu
+	nmc-qemu $(TARGET)_qemu
 
 	
 nmc4vars_win.mk:

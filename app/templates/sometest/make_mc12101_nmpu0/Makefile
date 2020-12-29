@@ -45,6 +45,7 @@ run: 	$(TARGET)
 qemu:	
 	$(MAKE) LIBS="-lnmpp-nmc4f -lc " -B
 	nmc-qemu $(TARGET)
+	$(OS_RM) $(TARGET)
 
 	
 nmc4vars_win.mk:

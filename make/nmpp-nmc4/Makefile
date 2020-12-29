@@ -20,7 +20,7 @@
 #
 # DEFENITIONS:
 #   PROJECT         - project name     
-#   TARGET          - output target (.lib or .abs) file with path
+#   TARGET_LIB          - output TARGET_LIB (.lib or .abs) file with path
 #   INC_DIRS        - set of search pathes for the macro libraries and includes (with -I flag separated)
 #   SRC_DIRS        - set of explicit  search pathes of all (.c .cpp .asm) source files (with space separated)
 #   LIB_DIRS        - set of search library pathes (with -l flag separated)
@@ -53,7 +53,7 @@ ARCH             = nmc4
 PROJECT          = libnmpp-$(ARCH)
 TMP_DIR          = Release
 OUT_DIR          = $(ROOT)/lib
-TARGET           = $(OUT_DIR)/$(PROJECT).a
+TARGET_LIB       = $(OUT_DIR)/$(PROJECT).a
 #INC_DIRS        =
 #SRC_DIRS        =
 include          $(ROOT)/make/src-nmc-int.mk
@@ -61,9 +61,9 @@ include          $(ROOT)/make/src-nmc-int.mk
 CC               = nmc-gcc
 AR               = nmc-ar
 AS               = asm
-CXXFLAGS 	 = -m$(ARCH) $(INC_DIRS)  -std=c99 -c -E
-ARFLAGS         = rcs $(TARGET)
-ASFLAGS         =-$(ARCH) -nmc4_fixed -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
+CXXFLAGS 	     = -m$(ARCH) $(INC_DIRS)  -std=c99 -c -E
+ARFLAGS          = rcs $(TARGET_LIB)
+ASFLAGS          =-$(ARCH) -nmc4_fixed -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 .SUFFIXES:
 # regular search of *.c *.cpp,*.asm,*.s sources in all $(SRC_DIRS)
@@ -85,7 +85,7 @@ export OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJE
 .DEFAULT_GOAL=default
 
 default: 
-	$(MAKE) $(TARGET) -j4 
+	$(MAKE) $(TARGET_LIB) -j4 
 	
 logo:
 	$(info *******************************************************************************)
@@ -95,9 +95,9 @@ logo:
 	$(info *******************************************************************************)
 
 
-$(TARGET): logo $(TMP_DIR) $(OUT_DIR) $(OBJECTS) 
+$(TARGET_LIB): logo $(TMP_DIR) $(OUT_DIR) $(OBJECTS) 
 	$(info "[Linking...]")
-	echo rcs $(TARGET) > .objects 
+	echo rcs $(TARGET_LIB) > .objects 
 	$(MAKE) -s --no-print-directory -f printobj.mk >> .objects
 	$(AR) @.objects $(ERRECHO)
 	@echo *******************************************************************************

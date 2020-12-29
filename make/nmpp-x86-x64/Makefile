@@ -11,8 +11,8 @@ ifeq ($(OS),Windows_NT)
   export CC = gcc
 else
   .DEFAULT_GOAL := gmake64
-  OS_RM    = rm -f -r
-  OS_RD    = rm -d -r
+  OS_RM    = rm -f -r -f
+  OS_RD    = rm -d -r -f
   OS_CP    = cp
   OS_MKDIR = mkdir -p  
 endif

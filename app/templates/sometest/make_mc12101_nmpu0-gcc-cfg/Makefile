@@ -43,9 +43,8 @@ run: 	$(TARGET)
 	$(BOARD)run $(TARGET)
 
 qemu:	
-	$(MAKE) LIBS="-lnmpp-nmc4f -lc " -B
-	nmc-qemu $(TARGET)
-
+	$(MAKE) LIBS="-lnmpp-nmc4f -lc " -B TARGET=$(TARGET)_qemu
+	nmc-qemu $(TARGET)_qemu
 	
 nmc4vars_win.mk:
 	copy "$(NMC_GCC_TOOLPATH)\nmc4-ide\include\nmc4vars_win.mk" nmc4vars_win.mk

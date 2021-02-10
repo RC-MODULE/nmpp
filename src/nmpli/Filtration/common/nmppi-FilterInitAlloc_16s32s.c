@@ -219,6 +219,7 @@ int nmppiFilterInit_16s32s(int* pWeights, int nKerWidth, int nKerHeight, int nIm
 	nmppsPut_32s(((nm32s*)pKernel),0,(int)nNumberOfArrays0*nKerHeight);		// Number of arrays
 	nmppsPut_32s(((nm32s*)pKernel),1,(int)pDispArray);						// ar0 displacement for first array
 	int j;
+	int k;
 	for(j=0; j<nKerHeight; j++){
 		int i;
 		for(i=0; i< nNumberOfArrays0; i++){
@@ -232,7 +233,6 @@ int nmppiFilterInit_16s32s(int* pWeights, int nKerWidth, int nKerHeight, int nIm
 	nmppsPut_32s(((nm32s*)pKernel),3,(int)nNumberOfArrays1*nKerHeight);		// Number of arrays
 	nmppsPut_32s(((nm32s*)pKernel),4,(int)pDispArray);						// ar0 displacement for first array
 
-	int j;
 	for(j=0; j<nKerHeight; j++){
 		int i;
 		for(i=0; i< nNumberOfArrays1; i++){

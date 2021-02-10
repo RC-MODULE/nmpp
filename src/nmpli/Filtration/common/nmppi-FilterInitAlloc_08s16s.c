@@ -251,6 +251,7 @@ int nmppiFilterInit_8s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImg
 
 	
 	int j;
+	int k;
 	for(j=0; j<nKerHeight; j++){
 		int i;
 		for(i=0; i<nNumberOfArrays0; i++){

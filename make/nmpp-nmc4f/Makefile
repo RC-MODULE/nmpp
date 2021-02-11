@@ -62,9 +62,17 @@ CC               = nmc-g++
 LD               = nmc-ld
 AR               = nmc-ar
 AS               = asm
-CC_FLAGS 	 = -m$(ARCH) $(INC_DIRS)  -std=c++11 -c
+CXXFLAGS         = -m$(ARCH) $(INC_DIRS)  -std=c++11 -c -O2
 AR_FLAGS         = rcs $(TARGET_LIB)
 AS_FLAGS         =-$(ARCH) -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
+
+ifdef DEBUG      
+TARGET_LIB       = $(OUT_DIR)/$(PROJECT)d.a
+CXXFLAGS         = -m$(ARCH) $(INC_DIRS)  -std=c++11 -c -O0 -g
+TMP_DIR          =Debug
+endif 
+
+
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 .SUFFIXES:
 # regular search of *.c *.cpp,*.asm,*.s sources in all $(SRC_DIRS)
@@ -103,10 +111,10 @@ $(OUT_DIR):
 	
 
 $(TMP_DIR)/%.o: %.c 
-	$(CC) $(CC_FLAGS) $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
+	$(CC) $(CXXFLAGS) $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
 
 $(TMP_DIR)/%.o: %.cpp
-	$(CC) $(CC_FLAGS) $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
+	$(CC) $(CXXFLAGS) $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
 	
 $(TMP_DIR)/%.o: %.asm 
 	$(AS) $(AS_FLAGS) $(<) -o$(@) $(ERRECHO)

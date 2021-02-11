@@ -95,7 +95,7 @@
 |``` /nmpp/make/nmpp-nmc4> make ```  		| nmpp/lib/libnmpp-nmc4.a  |
 |``` /nmpp/make/nmpp-nmc4> make DEBUG=y```	| nmpp/lib/libnmpp-nmc4d.a |
 |``` /nmpp/make/nmpp-nmc4f> make ```  		| nmpp/lib/libnmpp-nmc4f.a |
-|``` /nmpp/make/nmpp-nmc4f> make DEBUG=y```	| nmpp/lib/libnmpp-nmc4f.a |
+|``` /nmpp/make/nmpp-nmc4f> make DEBUG=y```	| nmpp/lib/libnmpp-nmc4fd.a |
 > **d** - признак Debug версии библиотеки  
 > **f** - признак библиотеки для ядра с плавающей точкой . Если  без префикса - для целочисленного ядра.
 
@@ -111,7 +111,7 @@
 |```/nmpp/make/nmpp-nmc4> make legacy```  			| nmpp/lib/nmpp-nmc4.lib  |
 |```/nmpp/make/nmpp-nmc4> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc4d.lib |
 |```/nmpp/make/nmpp-nmc4f> make legacy ```  		| nmpp/lib/nmpp-nmc4f.lib |
-|```/nmpp/make/nmpp-nmc4f> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc4f.lib |
+|```/nmpp/make/nmpp-nmc4f> make legacy DEBUG=y```	| nmpp/lib/nmpp-nmc4fd.lib |
 
 
 ## Сборка x86/x64 библиотек  

@@ -1,6 +1,6 @@
 {   
     
-    "targets"  : ["x86","emu6405","mc12101_nmpu1-gcc-ld"]
+    "targets"  : ["x86","emu6405","mc12101_nmpu1"]
     
     
 }

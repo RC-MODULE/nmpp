@@ -250,7 +250,7 @@ int nmppiFilterInit_8s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImg
 	nmppsPut_32s(((nm32s*)pKernel),1,(int)pDispArray);					// ar0 displacement for first array
 
 	
-	int j;
+	int j,k;
 	for(j=0; j<nKerHeight; j++){
 		int i;
 		for(i=0; i<nNumberOfArrays0; i++){

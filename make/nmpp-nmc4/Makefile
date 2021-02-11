@@ -61,9 +61,17 @@ include          $(ROOT)/make/src-nmc-int.mk
 CC               = nmc-gcc
 AR               = nmc-ar
 AS               = asm
-CXXFLAGS 	     = -m$(ARCH) $(INC_DIRS)  -std=c99 -c -E
+CXXFLAGS         = -m$(ARCH) $(INC_DIRS)  -std=c99 -c -O2
 ARFLAGS          = rcs $(TARGET_LIB)
 ASFLAGS          =-$(ARCH) -nmc4_fixed -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
+
+ifdef DEBUG      
+TARGET_LIB       = $(OUT_DIR)/$(PROJECT)d.a
+CXXFLAGS         = -m$(ARCH) $(INC_DIRS)  -std=c99 -c -O0 -g
+TMP_DIR          =Debug
+endif 
+
+
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 .SUFFIXES:
 # regular search of *.c *.cpp,*.asm,*.s sources in all $(SRC_DIRS)

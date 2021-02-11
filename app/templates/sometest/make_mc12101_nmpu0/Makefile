@@ -19,7 +19,7 @@ TARGET   = $(PROJECT)
 CC       = nmc-g++
 AS       = nmc-gcc
 CXXFLAGS = -std=c++11 -O2 -Wall -mnmc4-float
-LIBS     = -lnmpp-nmc4f -lhal-$(BOARD) -lc  -Wl,--whole-archive -l$(BOARD)lib_nm -Wl,--no-whole-archive
+LIBS     = -lnmpp-nmc4f -lhal-$(BOARD) -lc  -Wl,--whole-archive -l$(BOARD) -Wl,--no-whole-archive
 CFG      = $(BOARD)-nmpu0.lds
 MAP      = $(PROJECT).map
 LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-T$(CFG)

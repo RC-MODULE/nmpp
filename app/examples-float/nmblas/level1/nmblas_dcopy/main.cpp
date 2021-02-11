@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "nmblas.h"
+#include "time.h"
 
 
-#define SIZE 16
+#define SIZE 1600
 
 #ifdef __GNUC__ // NMC-GCC C++ compilier 
 double x[SIZE] __attribute__ ((section (".data_imu1")));
@@ -21,11 +22,14 @@ int main(){
 		y[i] = 0;
 		printf("x[%d]=%f\ty[%d]=%f\n",i,x[i],i,y[i]);
 	}
-	
-	nmblas_dcopy(SIZE/2,x,2,y,1);
+	clock_t t0,t1;
+	t0=clock();
+	nmblas_dcopy(SIZE,x,2,y,1);
+	t1=clock();
 	for(int i=0;i<SIZE;i++){
 		printf("y[%d]=%f\n",i,y[i]);
 	}
+	//return t1-t0;
 	return 0;
 }
 

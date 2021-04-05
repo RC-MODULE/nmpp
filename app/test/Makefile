@@ -1,4 +1,4 @@
-ROOT=../../..
+ROOT=../..
 
 ifeq ($(OS),Windows_NT)
 	PYTHON = python

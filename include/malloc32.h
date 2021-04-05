@@ -26,6 +26,14 @@ void* malloc3(unsigned int size);
 //#define  malloc32 (unsigned size_int32) 
 void  free32(void* p);
 
+
+#ifdef __NM__
+	#define malloc32(size) malloc(size)
+
+#else 
+	#define malloc32(size) malloc((size)<<2)
+#endif 
+
 // universal malloc for nmc-gcc and nmcc (универсальный маллок для nmc-gcc и nmcc)
 // size - размер выделяемой памяти в 32-битных словах
 // heap_num - номер кучи, в которой будет выделена память (для nmcc от 0 до 3, для nmc-gcc от 0 до 15)

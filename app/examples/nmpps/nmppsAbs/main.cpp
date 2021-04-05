@@ -41,7 +41,7 @@ int main()
 	nm8s *src, *dst;
 
 	
-	//src=nmppsMalloc_8s(size);		// Allocates vec on Local bus
+	src=nmppsMalloc_8s(size);		// Allocates vec on Local bus
 	//dst=nmppsMalloc_8s(size);		// Allocates vec on Global bus
 	nmc_malloc_set_heap(0);
 	src=(nm8s*)malloc32(size/4);	// Allocates vec on Local bus

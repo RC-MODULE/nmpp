@@ -1,7 +1,7 @@
 #include "nmpp.h"
 #include "stdio.h"
 
-#define MAX_SIZE 11000
+#define MAX_SIZE 1000
 
 void FullArray_32f(nm32f* array, int size)
 {

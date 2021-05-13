@@ -7,13 +7,15 @@
 //* size - all sizes except zero (1, 2, 3, 4, ...)                                          *//
 //*******************************************************************************************//
 #include "nmtype.h"
-//#include "nmpp.h"
+#include "nmpp.h"
 //#include "nmplv\\vInit.h"
-void nmppsCopyOddToOdd_32f(const float* pSrcVec, float* pDstVec, int size);
-void nmppsCopyEvenToOdd_32f(const float* pSrcVec, float* pDstVec, int size);
-void nmppsCopyOddToEven_32f(const float* pSrcVec, float* pDstVec, int size);
-void nmppsCopyEvenToEven_32f(const float* pSrcVec, float* pDstVec, int size);
-
+//extern "C" {
+//void nmppsCopyOddToOdd_32f(const float* pSrcVec, float* pDstVec, int size);
+//void nmppsCopyEvenToOdd_32f(const float* pSrcVec, float* pDstVec, int size);
+//void nmppsCopyOddToEven_32f(const float* pSrcVec, float* pDstVec, int size);
+//void nmppsCopyEvenToEven_32f(const float* pSrcVec, float* pDstVec, int size);
+//
+//};
 
 typedef void (*pfn_nmppsCopy_32f)(nm32f const * pSrcVec, nm32f* pDstVec, int size);
 

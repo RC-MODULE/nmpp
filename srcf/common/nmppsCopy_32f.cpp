@@ -17,7 +17,7 @@
 //
 //};
 
-typedef void (*pfn_nmppsCopy_32f)(nm32f const * pSrcVec, nm32f* pDstVec, int size);
+typedef void (*pfn_nmppsCopy_32f)(const float * pSrcVec, float* pDstVec, int size);
 
 //void test(const float* pSrcVec, float* pDstVec, int size);
 
@@ -29,6 +29,11 @@ pfn_nmppsCopy_32f nmppsCopy_32f_array[4] = {&nmppsCopyEvenToEven_32f,
 											&nmppsCopyOddToEven_32f,
 											&nmppsCopyOddToOdd_32f
 										   };
+//pfn_nmppsCopy_32f nmppsCopy_32f_array[4] = {&nmppsCopyEvenToEven_32f,
+//                                            0,
+//											0,
+//											0
+//										   };
 
 int GetCopyingFuncNum(int src_address, int dst_address)
 {

@@ -37,7 +37,7 @@ int main()
 	nmppsSet_32u((nm32u*)G0,(0xCCCCCCCC),(LONG2INT(SizeG0)));
 	for(int nSize=0;nSize<charTestSize;nSize+=8*NMPP_MIN_REP)
 	{
-		nmppsConvert_8u((nm8u*)L0,(nm32u*)G0,nSize);	
+		nmppsConvert_8u32u((nm8u*)L0,(nm32u*)G0,nSize);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(int2INT(nSize)+128,LONG2INT(SizeG0)),&crc);
 	}
 

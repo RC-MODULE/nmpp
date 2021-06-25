@@ -37,3 +37,4 @@ SRC_DIRS+= $(ROOT)/src/nmblas/level2/nm
 SRC_DIRS+= $(ROOT)/src/nmblas/level2/nmcore
 SRC_DIRS+= $(ROOT)/src/nmplm/Init/nmf
 SRC_DIRS+= $(ROOT)/src/nmplm/Inverse/nmf
+SRC_DIRS+= $(ROOT)/srcf/common

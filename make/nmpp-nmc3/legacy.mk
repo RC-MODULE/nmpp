@@ -112,7 +112,7 @@ default:
 
 $(TARGET): $(TMP_DIR) $(OUT_DIR) $(OBJECTS) 
 	$(info "[Linking...]")
-	$(BUILDER) $(BUILDER_FLAGS) $(OBJECTS) 
+	$(BUILDER) $(BUILDER_FLAGS) $(OBJECTS) $(ERRECHO)
 
 $(TMP_DIR):
 	-mkdir "$(@)"
@@ -121,16 +121,16 @@ $(OUT_DIR):
 	-mkdir "$(@)"
 	
 $(TMP_DIR)/%.o: %.asm 
-	$(AS) $(AS_FLAGS) $(<) -o$(@)
+	$(AS) $(AS_FLAGS) $(<) -o$(@)	$(ERRECHO)
 	
 $(TMP_DIR)/%.o: $(TMP_DIR)/%.asmx 
-	$(AS) $(AS_FLAGS_C2ASM) $(<) -o$(@)
+	$(AS) $(AS_FLAGS_C2ASM) $(<) -o$(@) $(ERRECHO)
 
 $(TMP_DIR)/%.asmx: %.cpp 
-	$(CC) $(CCPP_FLAGS) $(<) -O$(@) $(INC_DIRS) 
+	$(CC) $(CCPP_FLAGS) $(<) -O$(@) $(INC_DIRS) $(ERRECHO)
 
 $(TMP_DIR)/%.asmx: %.c
-	$(CC) $(CC_FLAGS) $(<) -O$(@) $(INC_DIRS) 
+	$(CC) $(CC_FLAGS) $(<) -O$(@) $(INC_DIRS) $(ERRECHO)
 
  
 #========================== Visual Studio support ===================

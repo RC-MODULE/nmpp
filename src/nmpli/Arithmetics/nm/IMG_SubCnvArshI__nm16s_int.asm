@@ -2,7 +2,7 @@
 //
 //  $Workfile:: Sub32_16.ASM $
 //
-//  Библиотека обработки изображений
+//  Р‘РёР±Р»РёРѕС‚РµРєР° РѕР±СЂР°Р±РѕС‚РєРё РёР·РѕР±СЂР°Р¶РµРЅРёР№
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   Sub32_16.asm
-//! \author Сергей Свечников
-//! \brief  Преобразование с вычитанием и с форточкой.
+//! \author РЎРµСЂРіРµР№ РЎРІРµС‡РЅРёРєРѕРІ
+//! \brief  РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ СЃ РІС‹С‡РёС‚Р°РЅРёРµРј Рё СЃ С„РѕСЂС‚РѕС‡РєРѕР№.
 //!
 //! \endif
 //!
@@ -57,13 +57,13 @@ matrptr:word[2];
   gr1=20002h with gr7<<=6;   // gr1=instruction gr3<<=0
 
   if =0 delayed goto sh_all;
-  ar6=matrix4+2;  // берём младшие 16р. без сдвига,sb=20002
-  ar6=matrix4;    // делаем регистр sb, настроенный на shift32
+  ar6=matrix4+2;  // Р±РµСЂС‘Рј РјР»Р°РґС€РёРµ 16СЂ. Р±РµР· СЃРґРІРёРіР°,sb=20002
+  ar6=matrix4;    // РґРµР»Р°РµРј СЂРµРіРёСЃС‚СЂ sb, РЅР°СЃС‚СЂРѕРµРЅРЅС‹Р№ РЅР° shift32
   gr1=5010101bh;  // instruction: nul with gr3<<=0
   gr2=gr3 with gr1=gr1 or gr7; // do instruction gr3<<=(shift32)
   [SH_n]=gr1;     // modify instruction to: gr3<<=shift32
   nul;nul;nul;nul;// don't remove this four nuls;
-<SH_n> nul;       // исполнение инструукции gr3=2 << shift32
+<SH_n> nul;       // РёСЃРїРѕР»РЅРµРЅРёРµ РёРЅСЃС‚СЂСѓСѓРєС†РёРё gr3=2 << shift32
   gr1=gr3+gr2;    // gr3=2 + (2 << shift32)
 
 <sh_all>
@@ -74,7 +74,7 @@ matrptr:word[2];
    nb1=ar5;
    wtw;
      
-    gr2=31 with gr5=gr5>>2;  // W в четвёрках пикселей
+    gr2=31 with gr5=gr5>>2;  // W РІ С‡РµС‚РІС‘СЂРєР°С… РїРёРєСЃРµР»РµР№
     gr2=gr5 and gr2;  // new rep count
     if =0 delayed goto no_remainder with gr5<<=1;
     ar3=CC;  // remainder does not exists
@@ -89,7 +89,7 @@ matrptr:word[2];
     [DD+6]=gr1 with gr3 = gr3 or gr2;
     [DD+7]=gr3;
 <no_remainder>
-    gr1=4 with gr4-=gr5;   // (stride16 в словах)-(W в словах)
+    gr1=4 with gr4-=gr5;   // (stride16 РІ СЃР»РѕРІР°С…)-(W РІ СЃР»РѕРІР°С…)
     gr5>>=6;     // W (count of rep 32 for result)
        
 <LinesLoop>

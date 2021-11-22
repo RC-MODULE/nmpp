@@ -2,7 +2,7 @@
 //
 //  $Workfile:: ConvertRGB32nm10u_Gray32.cpp             $
 //
-//  <Название библиотеки>
+//  <РќР°Р·РІР°РЅРёРµ Р±РёР±Р»РёРѕС‚РµРєРё>
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -12,7 +12,7 @@
 //!
 //! \file   ConvertRGB32nm10u_Gray32.cpp
 //! \author S. Mushkaev
-//! \brief  Преобразование из RGB в Gray
+//! \brief  РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РёР· RGB РІ Gray
 //!
 //! \endif
 //!

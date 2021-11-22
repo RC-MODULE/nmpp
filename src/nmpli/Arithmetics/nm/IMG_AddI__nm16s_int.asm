@@ -2,7 +2,7 @@
 //
 //  $Workfile:: add16_16.asm $
 //
-//  Библиотека обработки изображений
+//  Р‘РёР±Р»РёРѕС‚РµРєР° РѕР±СЂР°Р±РѕС‚РєРё РёР·РѕР±СЂР°Р¶РµРЅРёР№
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   Add36_16.asm
-//! \author Сергей Свечников
-//! \brief  Преобразование со сложением и с форточкой.
+//! \author РЎРµСЂРіРµР№ РЎРІРµС‡РЅРёРєРѕРІ
+//! \brief  РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ СЃРѕ СЃР»РѕР¶РµРЅРёРµРј Рё СЃ С„РѕСЂС‚РѕС‡РєРѕР№.
 //!
 //! \endif
 //!
@@ -50,7 +50,7 @@ no_remainder: label;
    nb1=ar5 with gr0-=gr1;
    wtw;
    ar1=ar4 with gr4-=gr1;
-   gr3=31 with gr5=gr5>>2;  // W в четвёрках пикселей
+   gr3=31 with gr5=gr5>>2;  // W РІ С‡РµС‚РІС‘СЂРєР°С… РїРёРєСЃРµР»РµР№
    ar3=CC with gr3=gr5 and gr3;  // new rep count
    if <>0 delayed goto with_remainder with gr1=gr4;
    ar5=AA with gr3--; // for remainder handling 

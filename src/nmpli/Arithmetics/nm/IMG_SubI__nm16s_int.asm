@@ -2,7 +2,7 @@
 //
 //  $Workfile:: sub16_16.asm $
 //
-//  ¡Ë·ÎËÓÚÂÍ‡ Ó·‡·ÓÚÍË ËÁÓ·‡ÊÂÌËÈ
+//  –ë–∏–±–ª–∏–æ—Ç–µ–∫–∞ –æ–±—Ä–∞–±–æ—Ç–∫–∏ –∏–∑–æ–±—Ä–∞–∂–µ–Ω–∏–π
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   Add36_16.asm
-//! \author —Â„ÂÈ —‚Â˜ÌËÍÓ‚
-//! \brief  ¬˚˜ËÚ‡ÌËÂ Ï‡ÒÒË‚‡ SRC ËÁ Ï‡ÒÒË‚‡ ÂÁÛÎ¸Ú‡Ú‡.
+//! \author –°–µ—Ä–≥–µ–π –°–≤–µ—á–Ω–∏–∫–æ–≤
+//! \brief  –í—ã—á–∏—Ç–∞–Ω–∏–µ –º–∞—Å—Å–∏–≤–∞ SRC –∏–∑ –º–∞—Å—Å–∏–≤–∞ —Ä–µ–∑—É–ª—å—Ç–∞—Ç–∞.
 //!
 //! \endif
 //!
@@ -50,7 +50,7 @@ no_remainder: label;
    nb1=ar5 with gr0-=gr1;
 	 wtw;
    ar1=ar4 with gr4-=gr1;
-   gr3=31 with gr5=gr5>>2;  // W ‚ ˜ÂÚ‚∏Í‡ı ÔËÍÒÂÎÂÈ
+   gr3=31 with gr5=gr5>>2;  // W –≤ —á–µ—Ç–≤—ë—Ä–∫–∞—Ö –ø–∏–∫—Å–µ–ª–µ–π
    ar3=CC with gr3=gr5 and gr3;  // new rep count
    if <>0 delayed goto with_remainder with gr1=gr4;
    ar5=AA with gr3--; // for remainder handling 

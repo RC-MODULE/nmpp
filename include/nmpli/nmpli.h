@@ -69,10 +69,11 @@ For convenience of application programs development the library has implementati
 
 
 #include "iConvert.h"
+
+
 //*****************************************************************************
 
-    /*
-	\internal
+    /**
     * \ru
     *     \defgroup iResample Изменение размеров
     * \en
@@ -81,11 +82,13 @@ For convenience of application programs development the library has implementati
     * \ingroup nmppiGroup
     */
 
+
 #include "iResample.h"
+
+
 //*****************************************************************************
 
-    /*
-	\internal
+    /**
     * \ru
     *     \defgroup iSelect Операции выборки
     * \en
@@ -93,6 +96,7 @@ For convenience of application programs development the library has implementati
     * \~
     * \ingroup nmppiGroup
     */
+
 
 #include "iSelect.h"
 
@@ -123,7 +127,7 @@ For convenience of application programs development the library has implementati
 
 //*****************************************************************************
 
-	/**
+	/** \internal
 	* \ru 
 	* 	\defgroup nmppiPrint Функции графического вывода текста 
 	* \en

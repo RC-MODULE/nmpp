@@ -6,9 +6,9 @@
 
     /**
 	\internal
-    \defgroup nmppiCompareGtC nmppiCompareGtC
-    \ingroup iSelect
-    \brief
+	\defgroup nmppiCompareGtC nmppiCompareGtC
+	\ingroup iSelect
+	\brief
         \ru Поэлементное сравнение на превышение порога. 
         \en Elementwise comparison for threshold exceeding. 
     

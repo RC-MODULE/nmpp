@@ -29,7 +29,7 @@
 #endif
 
 
-struct S_nmppiFilterKernel {
+struct S_nmppiFilterKernel  {
 #ifdef __NM__
 	nm32s* pDispArray;
 	nm32s* pWeightMatrix;	

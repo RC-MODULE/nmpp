@@ -52,7 +52,7 @@
 
 void nmppsCreateResampleUp3Down2_8s16s(nm64s** pKernel, int nHint)
 {
-	*pKernel=nmppsMalloc_16s(16*3*4);
+	*pKernel=(nm64s*)nmppsMalloc_16s(16*3*4);
 	nmppsSetResampleUp3Down2_8s16s(*pKernel);
 
 }

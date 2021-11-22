@@ -12,6 +12,27 @@
 #include "malloc32.h"
 #include <string.h>
 
+
+
+
+/*
+struct S_nmppiFilterKernel {
+#ifdef __NM__
+	nm32s* pDispArray;
+	nm32s* pWeightMatrix;
+#else 
+	nm32s* 	pDispArray;
+	nm32s* 	pWeightMatrix;
+	int 	nKerWidth;
+	int 	nKerHeight;
+#endif
+};
+
+#define NmppiFilterState nm64s
+*/
+
+/*
+18.11.2021
 typedef struct SS_nmppiFilterKernel {
 #ifdef __NM__
 	nm32s* pDispArray;
@@ -23,6 +44,7 @@ typedef struct SS_nmppiFilterKernel {
 	int 	nKerHeight;
 #endif
 } S_nmppiFilterKernel;
+*/
 
 //	nSize=3  nDisp=1,5 
 //  nSize=5  nDisp=2,6 
@@ -199,12 +221,9 @@ static int GetDisp1(int nSize)
 
 int nmppiFilterInit_8s16s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWidth, NmppiFilterState* pKernel)
 {
-
 #ifndef __NM__
-	//((int*)pKernel)[0]=nKerWidth;
-	//((int*)pKernel)[1]=nKerHeight;
-	
-	S_nmppiFilterKernel* psKernel=(S_nmppiFilterKernel*) pKernel;
+
+	S_nmppiFilterKernel* psKernel = (S_nmppiFilterKernel*)pKernel;
 	psKernel->nKerHeight=nKerHeight;
 	psKernel->nKerWidth =nKerWidth;
 	psKernel->pDispArray=0;

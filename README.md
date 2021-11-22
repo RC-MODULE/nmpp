@@ -156,7 +156,7 @@
 ```\nmpp\app\examples-float\nmblas\> make configure ```    
 Далее собрать все проекты командой :   
 ```\nmpp\app\examples-float\nmblas\> make build  ```     
-Зупусить все примеры поочердно:    
+запуcтить все примеры поочердно:    
 ```\nmpp\app\examples-float\nmblas\> make run  ```     
 Удалить все конфигуарции :    
 ```\nmpp\app\examples-float\nmblas\> make kill  ```     

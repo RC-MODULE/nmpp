@@ -58,38 +58,54 @@ TARGET_LIB       = $(OUT_DIR)/$(PROJECT).a
 #SRC_DIRS        =
 include          $(ROOT)/make/src-nmc-int.mk
 #------------------------------------------------
-CC               = nmc-gcc
+CC               = nmc-g++
+LD               = nmc-ld
 AR               = nmc-ar
-AS               = asm
-CXXFLAGS         = -m$(ARCH) $(INC_DIRS)  -std=c99 -c -O2
+AS               = nmc-gcc
+ASM              = asm
+
+CXXFLAGS         = -m$(ARCH) $(INC_DIRS)  -std=c++11 -c -O2
 ARFLAGS          = rcs $(TARGET_LIB)
-ASFLAGS          =-$(ARCH) -nmc4_fixed -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
+ASFLAGS          = -m$(ARCH) -mgas -c $(INC_DIRS)
+ASMFLAGS         =-$(ARCH) -nmc4_fixed -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
 
 ifdef DEBUG      
 TARGET_LIB       = $(OUT_DIR)/$(PROJECT)d.a
-CXXFLAGS         = -m$(ARCH) $(INC_DIRS)  -std=c99 -c -O0 -g
+CXXFLAGS         = -m$(ARCH) $(INC_DIRS)  -std=c++11 -c -O0 -g
 TMP_DIR          =Debug
 endif 
 
 
+
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 .SUFFIXES:
-# regular search of *.c *.cpp,*.asm,*.s sources in all $(SRC_DIRS)
-ALL_CPP =$(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
-ALL_ASM =$(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
-ALL_C   =$(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
-ALL_S   =$(wildcard $(addsuffix /*.s,$(SRC_DIRS)))
+# regular search of *.c *.cpp,*.asm,*.s *.S sources in all $(SRC_DIRS)
+ALL_CPP =$(notdir $(wildcard $(addsuffix /*.cpp,$(SRC_DIRS))))
+ALL_ASM =$(notdir $(wildcard $(addsuffix /*.asm,$(SRC_DIRS))))
+ALL_C   =$(notdir $(wildcard $(addsuffix /*.c,$(SRC_DIRS))))
+ALL_s   =$(patsubst %.S,,$(notdir $(wildcard $(addsuffix /*.s,$(SRC_DIRS)))))
+ALL_S   =$(patsubst %.s,,$(notdir $(wildcard $(addsuffix /*.S,$(SRC_DIRS)))))
+
 
 VPATH    = $(SRC_DIRS)
 
 # collecting of objects
-OBJECTS_CPP = $(notdir $(patsubst %.cpp,%.o,$(ALL_CPP)))
-OBJECTS_ASM = $(notdir $(patsubst %.asm,%.o,$(ALL_ASM)))
-OBJECTS_C   = $(notdir $(patsubst %.c,%.o,$(ALL_C)))
-OBJECTS_S   = $(notdir $(patsubst %.s,%.o,$(ALL_S)))
-export OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S))
+OBJECTS_CPP = $(patsubst %.cpp,%.o,$(ALL_CPP))
+OBJECTS_ASM = $(patsubst %.asm,%.o,$(ALL_ASM))
+OBJECTS_C   = $(patsubst %.c,%.o,$(ALL_C))
+OBJECTS_s   = $(patsubst %.s,%.o,$(ALL_s))
+OBJECTS_S   = $(patsubst %.S,%.o,$(ALL_S))
 
-#========================== NeuroMatrix build ===================	
+
+export OBJECTS     = $(addprefix $(TMP_DIR)/,$(OBJECTS_C) $(OBJECTS_CPP)  $(OBJECTS_ASM) $(OBJECTS_S) $(OBJECTS_s))
+
+#$(info ----- $(ALL_s))
+#$(info ----- $(ALL_S))
+#$(info ----- $(OBJECTS_s))
+#$(info ----- $(OBJECTS_S))
+#$(info ----- )
+
+#======================== BUILD RULES ====================================
 .DEFAULT_GOAL=default
 
 default: 
@@ -113,6 +129,7 @@ $(TARGET_LIB): logo $(TMP_DIR) $(OUT_DIR) $(OBJECTS)
 	@echo **                                   Build OK!                               **
 	@echo **                                                                           **
 	@echo *******************************************************************************
+
 legacy:
 	$(MAKE) -f legacy.mk
 	
@@ -130,13 +147,18 @@ $(TMP_DIR)/%.o: %.cpp
 	$(CC) $(CXXFLAGS) $(<) -o$(@) $(INC_DIRS) $(ERRECHO)
 	
 $(TMP_DIR)/%.o: %.asm 
+	$(ASM) $(ASMFLAGS) $(<) -o$(@) $(ERRECHO)
+
+$(TMP_DIR)/%.o: %.S
 	$(AS) $(ASFLAGS) $(<) -o$(@) $(ERRECHO)
 
-$(TMP_DIR)/%.o: %.s 
+$(TMP_DIR)/%.o: %.s
 	$(AS) $(ASFLAGS) $(<) -o$(@) $(ERRECHO)
+
+
+
 	
 
-		
 	
 #========================== Visual Studio support ===================
 HEADER_DIRS      =$(ROOT)/include $(ROOT)/include/nmplv $(ROOT)/include/nmpli $(ROOT)/include/nmpls $(ROOT)/include/nmplm $(ROOT)/include/nmplc

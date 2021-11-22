@@ -88,6 +88,6 @@ void nmppiMedian3x3(  nm8s7b * pSrc, nm8s7b *pDst, int nWidth, int nHeight, void
 #endif
 
 
-#endif // _IFILTER_H_INCLUDED_
+#endif // _IFILTRATION_H_INCLUDED_
 
 

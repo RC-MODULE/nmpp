@@ -12,6 +12,7 @@
  
  
  //! \defgroup LEVEL1 BLASS-LEVEL1
+ //! \ingroup NMBLAS
  //! \{
  
  //! \}

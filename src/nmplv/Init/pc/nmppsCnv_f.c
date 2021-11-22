@@ -80,7 +80,15 @@ void nmppsConvert_32f32s_ceiling(const nm32f* pSrcVec, nm32s* pDstVec, int scale
 {
 	int i;
 	for(i = 0; i < nSize; i++) {
-		pDstVec[i] = Round((pSrcVec[i]) * powf(2.0, scale) + 0.5);
+		pDstVec[i] = -Round((-pSrcVec[i]) * powf(2.0, scale) - 0.5);
+	}
+}
+
+void nmppsConvert_32f32f_ceiling(const nm32f* pSrcVec, nm32f* pDstVec, int scale, int nSize)
+{
+	int i;
+	for(i = 0; i < nSize; i++) {
+		pDstVec[i] = -Round((-pSrcVec[i]) * powf(2.0, scale) - 0.5);
 	}
 }
 

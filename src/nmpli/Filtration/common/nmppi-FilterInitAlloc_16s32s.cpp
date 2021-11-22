@@ -7,7 +7,8 @@
 #include "nmplv/vInit.h"
 #include "malloc32.h"
 #include <string.h>
-
+/*
+18.11.2021
 typedef struct SS_nmppiFilterKernel {
 #ifdef __NM__
 	nm32s* pDispArray;
@@ -19,6 +20,7 @@ typedef struct SS_nmppiFilterKernel {
 	int 	nKerHeight;
 #endif
 } S_nmppiFilterKernel;
+*/
 // nSize=3  nDisp=1,3 nMatrix=2
 // nSize=5  nDisp=2,4 nMatrix=2
 // nSize=7  nDisp=3,1 nMatrix=3
@@ -176,7 +178,7 @@ static int GetDisp1(int nSize)
 int nmppiFilterInit_16s32s(int* pWeights, int nKerWidth, int nKerHeight, int nImgWidth, NmppiFilterState* pKernel)
 {
 #ifndef __NM__
-	S_nmppiFilterKernel* psKernel=(S_nmppiFilterKernel*) pKernel;
+	S_nmppiFilterKernel* psKernel = (S_nmppiFilterKernel*)pKernel;
 	psKernel->nKerWidth=nKerWidth;
 	psKernel->nKerHeight=nKerHeight;
 	psKernel->pDispArray=0;

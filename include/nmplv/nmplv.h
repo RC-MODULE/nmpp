@@ -214,7 +214,6 @@ For convenience of application programs development the library has implementati
 //*****************************************************************************
 
 	/**
-	\internal
     *
     * \ru
     *     \defgroup vStat Статистические функции

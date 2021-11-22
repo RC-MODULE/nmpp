@@ -96,7 +96,7 @@ public:
 
 //*****************************************************************************
 
-    /**
+    /*
 	\internal
     \defgroup nmppiMalloc nmppiMalloc
     \ingroup iSupport
@@ -149,23 +149,23 @@ void nmppiMalloc(nm64s** pptr, int nWidth, int nHeight, int hint = MEM_LOCAL);
     //! \}
 
 //*****************************************************************************
-    /**
-    \defgroup nmppiFree nmppiFree
-    \ingroup iSupport
-    \brief
-        \ru Освобождение памяти для изображений.
-        \en Memory deallocation for images.
+    /*
+	\defgroup nmppiFree nmppiFree
+	\ingroup iSupport
+	\brief
+		\ru Освобождение памяти для изображений.
+		\en Memory deallocation for images.
 		\~
-    \note \ru Данная функция должна вызываться только для
-              векторов, распределенных с помощью функций
-              nmppiMalloc.
-          \en This function should be called only for matrixis
-              allocated by nmppiMalloc functions.
-			  \~
-   */
+	\note 
+		\ru Данная функция должна вызываться только для
+			  векторов, распределенных с помощью функций
+			  nmppiMalloc.
+		\en This function should be called only for matrixis
+			  allocated by nmppiMalloc functions.
+		\~
+	*/
     //! \{
-
-void nmppiFree(void* ptr);
+//void nmppiFree(void* ptr);
     //! \}
 
 

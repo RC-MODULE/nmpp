@@ -32,7 +32,7 @@ extern "C" {
 
     /**
 	\internal
-    \defgroup nmppiResampleDown2X nmppiResampleDown2X
+    \defgroup nmppiResampleDown2X nmppiResampleDown2X+
     \ingroup iResample
     \brief
         \ru Уменьшение ширины изображения вдвое. 
@@ -136,8 +136,6 @@ void nmppiResampleDown2X_16u16u(nm16u15b* pSrcImg, nm16u15b* pDstImg, int nSrcWi
         изображения. 
     \en Pixel value for output image results from averaging 
         values from neighbour pixels on the input image. 
-
-		\~
 		\~
     \param pSrcImg		
         \ru Исходное изображение. 

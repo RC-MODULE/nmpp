@@ -31,6 +31,7 @@
  */
 
  //! \defgroup LEVEL3 BLASS-LEVEL3
+ //! \ingroup NMBLAS
  //! \{
 
  //! \}

@@ -1,5 +1,5 @@
-INC_DIRS         = -I"$(NEURO)/include"  -I$(ROOT)/include
-
+INC_DIRS         = -I../../include
+INC_DIRS+= -I../../include/nmpps
 
 SRC_DIRS         = 	 \
 					$(ROOT)/src/nmplc/arithmetic/common \
@@ -77,3 +77,32 @@ SRC_DIRS         = 	 \
 					$(ROOT)/src/nmplv/Transform/nm \
 					$(ROOT)/src/nmvcore/nm  \
 					$(ROOT)/src/nmplv/Init/nm-risc
+					
+					
+SRC_DIRS+= $(ROOT)/src/nmpps/arithmetic
+SRC_DIRS+= $(ROOT)/src/nmpps/atan
+SRC_DIRS+= $(ROOT)/src/nmpps/blackman
+SRC_DIRS+= $(ROOT)/src/nmpps/common
+SRC_DIRS+= $(ROOT)/src/nmpps/conversion
+SRC_DIRS+= $(ROOT)/src/nmpps/cos
+SRC_DIRS+= $(ROOT)/src/nmpps/div
+SRC_DIRS+= $(ROOT)/src/nmpps/exp
+SRC_DIRS+= $(ROOT)/src/nmpps/initialization
+SRC_DIRS+= $(ROOT)/src/nmpps/kaiser
+SRC_DIRS+= $(ROOT)/src/nmpps/norm
+SRC_DIRS+= $(ROOT)/src/nmpps/normalize
+SRC_DIRS+= $(ROOT)/src/nmpps/phase
+SRC_DIRS+= $(ROOT)/src/nmpps/random
+SRC_DIRS+= $(ROOT)/src/nmpps/shift
+SRC_DIRS+= $(ROOT)/src/nmpps/sort
+SRC_DIRS+= $(ROOT)/src/nmpps/sqrt
+SRC_DIRS+= $(ROOT)/src/nmpps/statistical
+SRC_DIRS+= $(ROOT)/src/nmpps/threshold
+SRC_DIRS+= $(ROOT)/src/nmpps/windowing
+SRC_DIRS+= $(ROOT)/src/nmpps/polar
+SRC_DIRS+= $(ROOT)/src/nmpps/powerspectr
+SRC_DIRS+= $(ROOT)/src/nmpps/winhamming
+SRC_DIRS+= $(ROOT)/src/nmpps/add
+SRC_DIRS+= $(ROOT)/src/nmpps/mul
+SRC_DIRS+= $(ROOT)/src/nmpps/sub
+					

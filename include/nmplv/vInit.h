@@ -484,7 +484,7 @@ void nmppsConvert_64f32f(const nm64f* pSrcVec, nm32f* pDstVec, int nSize);
    \param nSize число элементов во входном векторе (может быть только четным)
 *  \details Функция выполняется на сопроцессоре (процессор 1879ВМ6Я) с плавающей точкой с использованием переупаковщика данных
 *  \details nmppsConvert_32f32s_rounding округляет все дробные числа из pSrcVec до ближайших целых (например, 1.5 будет округлено до 2, 1.7 до 2, а 1.4 до 1)
- *  \details nmppsConvert_32f32s_ceiling округляет все дробные числа из pSrcVec к меньшему по модулю (например, 1.5 будет округлено до 1, 1.7 до 1, а -1.1 до -1)
+*  \details nmppsConvert_32f32s_ceiling округляет все дробные числа из pSrcVec к большему целому (например, 0=>0 , 0.1=>1 , 0.9=>1 , 1=>1 , 1.1=>2 1.5 =>2, 1.7=> 2, а -1.1 => -1)
 \xmlonly
 	<testperf>
 		 <param name="pSrcVec"> im1 im2 </param>
@@ -502,8 +502,9 @@ void nmppsConvert_64f32f(const nm64f* pSrcVec, nm32f* pDstVec, int nSize);
 */
 //! \{
 void nmppsConvert_32f32s_rounding(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize);
-void nmppsConvert_32f32s_ceiling(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize);
-void nmppsConvert_32f32s_floor(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize);
+void nmppsConvert_32f32f_ceiling (const nm32f* pSrcVec, nm32f* pDstVec, int scale, int nSize);
+void nmppsConvert_32f32s_ceiling (const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize);
+void nmppsConvert_32f32s_floor   (const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize);
 void nmppsConvert_32f32s_truncate(const nm32f* pSrcVec, nm32s* pDstVec, int scale, int nSize);
 //! \}
 

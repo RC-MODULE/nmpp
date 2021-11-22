@@ -14,6 +14,7 @@ global _nmppsConvert_32f32fcr: label;
 begin ".text_nmplv"
 <_nmppsConvert_32f32fcr>
 	ar5 = ar7 - 2;
+	push ar5, gr5;
 	push ar4, gr4;
 	push ar3, gr3;
 	push ar2, gr2;
@@ -71,5 +72,6 @@ begin ".text_nmplv"
 	pop ar2, gr2;
 	pop ar3, gr3;
 	pop ar4, gr4;
+	pop ar5, gr5;
 	return;
 end ".text_nmplv";

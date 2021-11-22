@@ -53,7 +53,15 @@
     \ingroup integer
 */
 
+/** \defgroup implement implement
+    \ingroup integer
+*/
+
 /** \defgroup CORE_Group_f Базовые регистровые функции библиотеки
+    \ingroup float
+*/
+
+/** \defgroup NMBLAS nmblas
     \ingroup float
 */
 
@@ -61,6 +69,4 @@
 #include "./metric.h"
 #include "./nmplv/vStat.h"
 
-/** \defgroup NMBLAS nmblas
-    \ingroup float
-*/
+

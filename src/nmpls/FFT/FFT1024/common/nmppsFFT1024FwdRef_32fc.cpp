@@ -78,7 +78,7 @@ int nmppsFFT1024Fwd2888DoubleReference_32sc(const nm32sc* src, nm32sc* dst)
 		y[i].re=src[i].re;
 		y[i].im=src[i].im;
 	}
-	// Вывод:
+	// Р’С‹РІРѕРґ:
 	//----------------- 0 -----------------
 	for(int k=0; k<1024; k++){
 		y[k]=expFFT<1024>(0)*x[0];

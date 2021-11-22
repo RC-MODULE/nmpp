@@ -166,7 +166,7 @@ begin ".text_fft"
 	//	First radix-2 FFT
 	//--------------------------------------
 	// transforms input array X[i],where i=0..1023 (X[i]=[X[i].imag|X[i].real]), 
-	// â array S[i],where i=0..2047 (S[i]=[S[i].imag|S[i].real]), 
+	// Ğ² array S[i],where i=0..2047 (S[i]=[S[i].imag|S[i].real]), 
 	// array X begin from address GSrcBuffer
 	// array S begin from address LBuffer
 	// array S cosists two subarrays S[0]..S[1023],conjg(S[0])..conjg(S[1023])
@@ -210,7 +210,7 @@ begin ".text_fft"
 	//////////////////////////////////////////////////////////////////
 	//------- Second radix-32 FFT ----------------
 	// transforms input array S[i],where i=0..2047 (S[i]=[S[i].imag|S[i].real]), 
-	// â array T[i],where i=0..1023 (T[i]=[T[i].imag|T[i].real]), 
+	// Ğ² array T[i],where i=0..1023 (T[i]=[T[i].imag|T[i].real]), 
 	// array S begin from address LBuffer2
 	// array T begin from address LBuffer1
 	// table of coef. IGW1_1024=exp(-2*i*pi*512*k*n/1024) begin from address IGW1_1024
@@ -331,8 +331,8 @@ begin ".text_fft"
 	//////////////////////////////////////////////////////////////////
 	//------- Third radix-16 FFT ----------------
 	// transforms input array T[i] by two stagees, where i=0..1023 (S[i]=[S[i].imag|S[i].real]), 
-	// at the I-st stageå T is transformed into array YY[i],where i=0..2047 (YY[i]=[YY[i].imag|YY[i].real]), 
-	// and at the II-nd stageå array YY is transformed into array Y
+	// at the I-st stageĞµ T is transformed into array YY[i],where i=0..2047 (YY[i]=[YY[i].imag|YY[i].real]), 
+	// and at the II-nd stageĞµ array YY is transformed into array Y
 	// Y[i],where i=0..1023 (Y[i]=[Y[i].imag|Y[i].real]), 
 	// array T  begins from address	LBuffer1
 	// array YY begins from address LBuffer2

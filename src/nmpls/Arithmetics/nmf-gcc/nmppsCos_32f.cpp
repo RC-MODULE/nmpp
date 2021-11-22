@@ -40,7 +40,7 @@ void nmppsCos_32f(const nm32f* pSrcVec, nm32f* pDstVec, int nSize)
 		int i;
 		for (i=0;i<nSize;i++)
 			b4[i]=pSrcVec[i];
-		nmppsCos_32f( o4, b4, 8 );//	ðåêóðñèÿ!
+		nmppsCos_32f( o4, b4, 8 );//	рекурсия!
 		for (i=0;i<nSize;i++)
 			pDstVec[i]=o4[i];
 		return;
@@ -100,11 +100,11 @@ void nmppsCos_32f(const nm32f* pSrcVec, nm32f* pDstVec, int nSize)
 					  , "m"(*pSrcVec), "g"(rMode) );
 
 		asm ( 	ALL_FPU (".float vreg2 = /vreg0/;")
-				//	ïðèâîäèì ê 0 < X < 2*pi
+				//	приводим к 0 < X < 2*pi
 				ALL_FPU (".float vreg1 = vreg2 * .retrive(vreg5)  + .retrive(vreg6);")
 				ALL_FPU (".float vreg3 = vreg1  - .retrive(vreg5);")
 				ALL_FPU (".float vreg1 = - vreg3 * .retrive(vreg5) + vreg2;")
-				: "+a" (cfs) : "r"(pSrcVec) );	//	ïðîâÿçûâàåì èíñòðóêöèè çàâèñèìîñòÿìè
+				: "+a" (cfs) : "r"(pSrcVec) );	//	провязываем инструкции зависимостями
 
 		//	actually, we presume rMode == 1 for best results,
 		//	but we are preserve user's current mode
@@ -118,14 +118,14 @@ void nmppsCos_32f(const nm32f* pSrcVec, nm32f* pDstVec, int nSize)
 				ALL_FPU_ANTI_MASK
 				ALL_FPU (".float vreg1= mask ? - vreg1 + .retrive(vreg5) : vreg1;") //  x= Pi-x
 
-				//	ðÿä Òåéëîðà
+				//	ряд Тейлора
 			    ALL_FPU (".float vreg2= vreg1 * vreg1;")
 			    ALL_FPU (".float vreg1= vreg2 * .retrive(vreg5) + .retrive(vreg6);")                  //  - 1/2 x*x
 			    ALL_FPU (".float vreg3= vreg2 * vreg2;")
 			    ALL_FPU (".float vreg1= vreg3 * .retrive(vreg5) +vreg1;")
 				: "+a" (cfs): "g"(rMode));
 
-		//	ïðîäîëæåíèå ðÿäà Òåéëîðà
+		//	продолжение ряда Тейлора
 		int i;
 		for( i=0; i<4; i++){
 			asm ( 	ALL_FPU (".float vreg3= vreg2 * vreg3;")

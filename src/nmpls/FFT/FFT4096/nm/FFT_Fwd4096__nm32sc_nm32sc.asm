@@ -64,7 +64,7 @@ begin ".text_fft"
 	push ar2,gr2 with gr2 = gr7 << 1;					// gr2=2 (CONST)
 	push ar3,gr3 with gr3 = gr7 << 31;					// gr3=80000000h (CONST)
 	push ar4,gr4 with gr4 = gr2 << 5;					// gr4=2^6
-	push ar5,gr5 with gr1 = gr7;						// gr1=1 (почти CONST)
+	push ar5,gr5 with gr1 = gr7;						// gr1=1 (РїРѕС‡С‚Рё CONST)
 	push ar6,gr6 with gr6 = gr7 << 8;					// gr6=256
 	
 //////////////////////////////////////////////////////////////////////////////
@@ -79,7 +79,7 @@ begin ".text_fft"
 	[Param.LBuffer1]  = gr5;							// LBuffer1[4096*2]
 	[Param.GBuffer2]  = ar2;							// GBuffer2[4096*2]
 
-	vr = gr4;											// vr=2^6 (добавляется для нормализации)
+	vr = gr4;											// vr=2^6 (РґРѕР±Р°РІР»СЏРµС‚СЃСЏ РґР»СЏ РЅРѕСЂРјР°Р»РёР·Р°С†РёРё)
 	
 	//////////////////////////////////////////////////////////////////////////
 	//        First radix-16 FFT 
@@ -95,28 +95,28 @@ begin ".text_fft"
 	gr6 = gr6 << 1;										// gr6=256*2
 	
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6], ftw;						// [G] GSrcBuffer (8 + 8 т.)
-	WTW_REG_DEPRICATED(gr3);												// 1-е 8 т.
+	rep 16 wfifo = [ar6++gr6], ftw;						// [G] GSrcBuffer (8 + 8 С‚.)
+	WTW_REG_DEPRICATED(gr3);												// 1-Рµ 8 С‚.
 .repeat 255;
 	ar1 = W1_4096;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W1_4096
-	WTW_REG_DEPRICATED(gr3);												// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);												// 2-Рµ 8 С‚.
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6];							// [G] GSrcBuffer (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];							// [G] GSrcBuffer (8 + 8 С‚.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;	// [L] W1_4096
-	WTW_REG_DEPRICATED(gr3);										// 1-е 8 т.
-	rep 32 [ar5++] = afifo;								// [G] Запись A, B, C, D в GBuffer2
+	WTW_REG_DEPRICATED(gr3);										// 1-Рµ 8 С‚.
+	rep 32 [ar5++] = afifo;								// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2
 .endrepeat;
 	ar1 = W1_4096;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W1_4096
-	WTW_REG_DEPRICATED(gr3);										// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);										// 2-Рµ 8 С‚.
 	
 	sb = gr2;
 	ar6 = GAddCmplxMask;
 	rep 2 wfifo = [ar6++];								// [G] [1|0][0|-1] => wfifo
 	
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;	// [L] W1_4096
-	rep 32 [ar5++] = afifo;								// [G] Запись A, B, C, D в GBuffer2
+	rep 32 [ar5++] = afifo;								// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2
 	
 	//////////////////////////////////////////////////////////////////////////
 	//        First Summation [re*im+im*re | re*re-im*im] 
@@ -137,16 +137,16 @@ begin ".text_fft"
 	//        First Right Shift Normalization
 	//------------------------------------------------------------------------
 
-	ar0 = [Param.LBuffer1];								// [L] LBuffer1 (не нормализованное S)
+	ar0 = [Param.LBuffer1];								// [L] LBuffer1 (РЅРµ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ S)
 	gr5 = 7;
-	ar6 = [Param.GBuffer2];								// [G] GBuffer2 (будет нормализованное S)
+	ar6 = [Param.GBuffer2];								// [G] GBuffer2 (Р±СѓРґРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ S)
 	VEC_ARSH32_aaCG(ar0, ar6, 4096 * 2, gr5);
 	
 	//////////////////////////////////////////////////////////////////////////
 	//        Second radix-16 FFT 
 	//------------------------------------------------------------------------
 	// gr3=80000000h
-	// S находится в GBuffer2
+	// S РЅР°С…РѕРґРёС‚СЃСЏ РІ GBuffer2
 	// gr1=1
 	// gr2=2
 
@@ -155,30 +155,30 @@ begin ".text_fft"
 	ar1 = W2_4096;
 	ar5 = [Param.GBuffer2];
 	gr4 = ar5;											// S
-	ar5 += 4096 * 2;									// GBuffer2 (2-я половина)
+	ar5 += 4096 * 2;									// GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 	gr6 = gr1 << 9;										// gr6=256*2
 
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6], ftw;						// [G] GBuffer2 (8 + 8 т.)
-	WTW_REG_DEPRICATED(gr3);										// 1-е 8 т.
+	rep 16 wfifo = [ar6++gr6], ftw;						// [G] GBuffer2 (8 + 8 С‚.)
+	WTW_REG_DEPRICATED(gr3);										// 1-Рµ 8 С‚.
 .repeat 255;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W2_4096
-	WTW_REG_DEPRICATED(gr3);										// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);										// 2-Рµ 8 С‚.
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6];							// [G] GBuffer2 (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];							// [G] GBuffer2 (8 + 8 С‚.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;	// [L] W2_4096
-	WTW_REG_DEPRICATED(gr3);										// 1-е 8 т.
-	rep 32 [ar5++] = afifo;								// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	WTW_REG_DEPRICATED(gr3);										// 1-Рµ 8 С‚.
+	rep 32 [ar5++] = afifo;								// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 .endrepeat;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W2_4096
-	WTW_REG_DEPRICATED(gr3);										// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);										// 2-Рµ 8 С‚.
 
 	sb = gr2;
 	ar6 = GAddCmplxMask;
 	rep 2 wfifo = [ar6++];								// [G] [1|0][0|-1] => wfifo
 
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;	// [L] W2_4096
-	rep 32 [ar5++] = afifo;								// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	rep 32 [ar5++] = afifo;								// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 	
 	//////////////////////////////////////////////////////////////////////////
 	//        Second Summation [re*im+im*re | re*re-im*im] 
@@ -191,8 +191,8 @@ begin ".text_fft"
 	ar0 = [Param.LBuffer1] with gr6 = gr1 << 1;
 	ar4 = ar6 + gr6 with gr6 = gr4;						// gr6=4
 .repeat 128;
-	rep 32 data = [ar4++gr4] with vsum, data, vr;		// [G] GBuffer2 (2-я половина) (Im)
-	rep 32 data = [ar6++gr6] with data + afifo;			// [G] GBuffer2 (2-я половина) (Re)
+	rep 32 data = [ar4++gr4] with vsum, data, vr;		// [G] GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°) (Im)
+	rep 32 data = [ar6++gr6] with data + afifo;			// [G] GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°) (Re)
 	rep 32 [ar0++] = afifo;								// [L] LBuffer1 (T)
 .endrepeat;
 
@@ -200,16 +200,16 @@ begin ".text_fft"
 	//        Second Right Shift Normalization
 	//------------------------------------------------------------------------
 
-	ar0 = [Param.LBuffer1];								// [L] LBuffer1 (не нормализованное T)
+	ar0 = [Param.LBuffer1];								// [L] LBuffer1 (РЅРµ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ T)
 	gr5 = 7;
-	ar6 = [Param.GBuffer2];								// [G] GBuffer2 (будет нормализованное T)
+	ar6 = [Param.GBuffer2];								// [G] GBuffer2 (Р±СѓРґРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ T)
 	VEC_ARSH32_aaCG(ar0, ar6, 4096 * 2, gr5);
 
 	//////////////////////////////////////////////////////////////////////////
 	//        Third radix-16 FFT 
 	//------------------------------------------------------------------------
 	// gr3=80000000h
-	// T находится в GBuffer2
+	// T РЅР°С…РѕРґРёС‚СЃСЏ РІ GBuffer2
 	// gr1=1
 	// gr2=2
 
@@ -222,26 +222,26 @@ begin ".text_fft"
 	gr6 = gr1 << 9;										// gr6=256 * 2
 
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6], ftw;						// [G] GBuffer2 (8 + 8 т.)
-	WTW_REG_DEPRICATED(gr3);												// 1-е 8 т.
+	rep 16 wfifo = [ar6++gr6], ftw;						// [G] GBuffer2 (8 + 8 С‚.)
+	WTW_REG_DEPRICATED(gr3);												// 1-Рµ 8 С‚.
 .repeat 255;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W3_4096
-	WTW_REG_DEPRICATED(gr3);										// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);										// 2-Рµ 8 С‚.
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6];							// [G] GBuffer2 (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];							// [G] GBuffer2 (8 + 8 С‚.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;	// [L] W3_4096
-	WTW_REG_DEPRICATED(gr3);												// 1-е 8 т.
-	rep 32 [ar5++] = afifo;								// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	WTW_REG_DEPRICATED(gr3);												// 1-Рµ 8 С‚.
+	rep 32 [ar5++] = afifo;								// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 .endrepeat;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;		// [L] W3_4096
-	WTW_REG_DEPRICATED(gr3);												// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);												// 2-Рµ 8 С‚.
 
 	sb = gr2;
 	ar6 = GAddCmplxMask;
 	rep 2 wfifo = [ar6++];								// [G] [1|0][0|-1] => wfifo
 
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;	// [L] W3_4096
-	rep 32 [ar5++] = afifo;								// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	rep 32 [ar5++] = afifo;								// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 
 	//////////////////////////////////////////////////////////////////////////
 	//        Third Summation [re*im+im*re | re*re-im*im] 
@@ -254,12 +254,12 @@ begin ".text_fft"
 	gr5 = [Param.LBuffer1] with gr6 = gr1 << 1;
 	ar4 = ar6 + gr6 with gr6 = gr4;						// gr6=4
 	gr3 = gr1 << 5;										// gr3=16*2
-	gr1 = gr1 << 9;										// gr1=256*2 (С этого момента gr1 больше != 1 (не CONST))
+	gr1 = gr1 << 9;										// gr1=256*2 (РЎ СЌС‚РѕРіРѕ РјРѕРјРµРЅС‚Р° gr1 Р±РѕР»СЊС€Рµ != 1 (РЅРµ CONST))
 
 	gr0 = gr5 with gr5 += gr2;
 .repeat 16;
-	rep 16 data = [ar4++gr4] with vsum, data, vr;		// [G] GBuffer2 (2-я половина) (Im)
-	rep 16 data = [ar6++gr6] with data + afifo;			// [G] GBuffer2 (2-я половина) (Re)
+	rep 16 data = [ar4++gr4] with vsum, data, vr;		// [G] GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°) (Im)
+	rep 16 data = [ar6++gr6] with data + afifo;			// [G] GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°) (Re)
 	ar1 = gr0 with gr0 += gr3;
 	rep 16 [ar1++gr1] = afifo;							// [L] LBuffer1
 .endrepeat;

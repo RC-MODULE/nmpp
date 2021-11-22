@@ -169,7 +169,7 @@ begin ".text_fft"
 	//////////////////////////////////////////////////////////////
 	//	First radix-2 FFT
 	//--------------------------------------
-	// transforms input array X[i] â array S[j]
+	// transforms input array X[i] Ğ² array S[j]
 	//			,where i=0..511 (X[i]=[X[i].imag|X[i].real]), 
 	//			,where j=0..1023 (S[i]=[S[i].imag|S[i].real]), 
 	// array X begins from address GSrcBuffer
@@ -209,8 +209,8 @@ begin ".text_fft"
 	//------- Second radix-16 FFT ----------------
 	// transforms input array S[i] into array T[j] by 2 stagees
 	//		,where i=0..511 ,j=0..511
-	// at I stageå into intermediate array SS[i],where i=0..1023 (SS[i]=[SS[i].imag|SS[i].real]), 
-	// and then at II stageå array SS is transformed into array T
+	// at I stageĞµ into intermediate array SS[i],where i=0..1023 (SS[i]=[SS[i].imag|SS[i].real]), 
+	// and then at II stageĞµ array SS is transformed into array T
 	// array T  begin from address	LBuffer1
 	//------GENERAL REGISTERS ON INPUT-----
 	// gr4=80000000h;

@@ -30,14 +30,14 @@ class Cplx_float
 public:
 	double Re;
 	double Im;
-} IW1_8192_float[N * 16], IW2_8192_float[N * 16], IW3_8192_float[N * 16]; //Плавающие коэффициенты
+} IW1_8192_float[N * 16], IW2_8192_float[N * 16], IW3_8192_float[N * 16]; //РџР»Р°РІР°СЋС‰РёРµ РєРѕСЌС„С„РёС†РёРµРЅС‚С‹
 
 class Wi_fixed
 {
 public:
 	char Re;
 	char Im;
-} IW1_8192_fixed[N * 16], IW2_8192_fixed[N * 16], IW3_8192_fixed[N * 16]; //Фиксированные коэффициенты
+} IW1_8192_fixed[N * 16], IW2_8192_fixed[N * 16], IW3_8192_fixed[N * 16]; //Р¤РёРєСЃРёСЂРѕРІР°РЅРЅС‹Рµ РєРѕСЌС„С„РёС†РёРµРЅС‚С‹
 
 Cplx_float IW8192(unsigned int power) //power = n * k
 {
@@ -47,23 +47,23 @@ Cplx_float IW8192(unsigned int power) //power = n * k
 	return IW;
 }
 
-void FFT_Inv8192_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффициенты вычисляются в цикле (не заранее))
+void FFT_Inv8192_float1(Cplx_float *X, Cplx_float *Y) //РџР»Р°РІР°СЋС‰Р°СЏ С‚РѕС‡РєР° (РєРѕСЌС„С„РёС†РёРµРЅС‚С‹ РІС‹С‡РёСЃР»СЏСЋС‚СЃСЏ РІ С†РёРєР»Рµ (РЅРµ Р·Р°СЂР°РЅРµРµ))
 {
 	Cplx_float S[N], T[N], P[N], Summ;
 
-	//Вычисление S (radix-2)
+	//Р’С‹С‡РёСЃР»РµРЅРёРµ S (radix-2)
 
 	for (int n = 0; n < N / 2; n++)
 		{
-			//S[n]=X[n]+X[n+N/2] (для чётных k) (k=0)
+			//S[n]=X[n]+X[n+N/2] (РґР»СЏ С‡С‘С‚РЅС‹С… k) (k=0)
 			S[n].Re = X[n].Re + X[n + N / 2].Re;
 			S[n].Im = X[n].Im + X[n + N / 2].Im;
-			//S[n+N/2]=X[n]-X[n+N/2] (для нечётных k) (k=1)
+			//S[n+N/2]=X[n]-X[n+N/2] (РґР»СЏ РЅРµС‡С‘С‚РЅС‹С… k) (k=1)
 			S[n + N / 2].Re = X[n].Re - X[n + N / 2].Re;
 			S[n + N / 2].Im = X[n].Im - X[n + N / 2].Im;
 		}
 
-	//Вычисление T
+	//Р’С‹С‡РёСЃР»РµРЅРёРµ T
 
 	for (int k2 = 0; k2 < 16; k2++)
 		for (int k1 = 0; k1 < 2; k1++)
@@ -74,7 +74,7 @@ void FFT_Inv8192_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 						Summ.Im = 0;
 						for (int m = 0; m < 16; m++)
 							{
-								//Summ+=W(256(k2*2+k1)m)*S(4096k1+256m+16j+i) (Комплексное умножение)
+								//Summ+=W(256(k2*2+k1)m)*S(4096k1+256m+16j+i) (РљРѕРјРїР»РµРєСЃРЅРѕРµ СѓРјРЅРѕР¶РµРЅРёРµ)
 								Summ.Re += IW8192(256 * (k2 * 2 + k1) * m).Re * S[4096 * k1 + 256 * m + 16 * j + i].Re - IW8192(256 * (k2 * 2 + k1) * m).Im * S[4096 * k1 + 256 * m + 16 * j + i].Im;
 								Summ.Im += IW8192(256 * (k2 * 2 + k1) * m).Im * S[4096 * k1 + 256 * m + 16 * j + i].Re + IW8192(256 * (k2 * 2 + k1) * m).Re * S[4096 * k1 + 256 * m + 16 * j + i].Im;
 							}
@@ -82,7 +82,7 @@ void FFT_Inv8192_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 						T[k1 * 4096 + k2 * 256 + j * 16 + i].Im = Summ.Im;
 					}
 
-	//Вычисление P
+	//Р’С‹С‡РёСЃР»РµРЅРёРµ P
 	
 	for (int k3 = 0; k3 < 16; k3++)
 		for (int k2 = 0; k2 < 16; k2++)
@@ -101,7 +101,7 @@ void FFT_Inv8192_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 						P[k1 * 4096 + k3 * 256 + k2 * 16 + i].Im = Summ.Im;
 					}
 
-	//Вычисление Y
+	//Р’С‹С‡РёСЃР»РµРЅРёРµ Y
 
 	for (int k4 = 0; k4 < 16; k4++)
 		for (int k3 = 0; k3 < 16; k3++)
@@ -120,7 +120,7 @@ void FFT_Inv8192_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 						Y[k4 * 512 + k3 * 32 + k2 * 2 + k1].Im = Summ.Im;
 					}
 	
-	//Деление на N (8192=2^13)
+	//Р”РµР»РµРЅРёРµ РЅР° N (8192=2^13)
 
 	for (int i = 0; i < N; i++)
 		{
@@ -129,7 +129,7 @@ void FFT_Inv8192_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 		}
 }
 
-void IMakeTable8192W1W2W3_float(void) //Вычисление коэффициентов (плавающих)
+void IMakeTable8192W1W2W3_float(void) //Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ (РїР»Р°РІР°СЋС‰РёС…)
 {
 	int idx = 0;
 	for (int k2 = 0; k2 < 16; k2++)
@@ -137,7 +137,7 @@ void IMakeTable8192W1W2W3_float(void) //Вычисление коэффициентов (плавающих)
 			for (int j = 0; j < 16; j++)
 				for (int i = 0; i < 16; i++)
 					for (int m = 0; m < 16; m++)
-						IW1_8192_float[idx++] = IW8192(256 * (k2 * 2 + k1) * m); //Для T
+						IW1_8192_float[idx++] = IW8192(256 * (k2 * 2 + k1) * m); //Р”Р»СЏ T
 
 	idx = 0;
 	for (int k3 = 0; k3 < 16; k3++)
@@ -145,7 +145,7 @@ void IMakeTable8192W1W2W3_float(void) //Вычисление коэффициентов (плавающих)
 			for (int k1 = 0; k1 < 2; k1++)
 				for (int i = 0; i < 16; i++)
 					for (int j = 0; j < 16; j++)
-						IW2_8192_float[idx++] = IW8192(16 * (k3 * 32 + k2 * 2 + k1) * j); //Для P
+						IW2_8192_float[idx++] = IW8192(16 * (k3 * 32 + k2 * 2 + k1) * j); //Р”Р»СЏ P
 
 	idx = 0;
 	for (int k4 = 0; k4 < 16; k4++)
@@ -153,30 +153,30 @@ void IMakeTable8192W1W2W3_float(void) //Вычисление коэффициентов (плавающих)
 			for (int k2 = 0; k2 < 16; k2++)
 				for (int k1 = 0; k1 < 2; k1++)
 					for (int i = 0; i < 16; i++)
-						IW3_8192_float[idx++] = IW8192((k4 * 512 + k3 * 32 + k2 * 2 + k1) * i); //Для Y
+						IW3_8192_float[idx++] = IW8192((k4 * 512 + k3 * 32 + k2 * 2 + k1) * i); //Р”Р»СЏ Y
 }
 
-void FFT_Inv8192_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффициенты вычисляются заранее)
+void FFT_Inv8192_float2(Cplx_float *X, Cplx_float *Y) //РџР»Р°РІР°СЋС‰Р°СЏ С‚РѕС‡РєР° (РєРѕСЌС„С„РёС†РёРµРЅС‚С‹ РІС‹С‡РёСЃР»СЏСЋС‚СЃСЏ Р·Р°СЂР°РЅРµРµ)
 {
 	Cplx_float S[N], T[N], P[N], Summ;
 
-//Вычисление коэффициентов
+//Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ
 
 	IMakeTable8192W1W2W3_float();
 
-//Вычисление S (radix-2)
+//Р’С‹С‡РёСЃР»РµРЅРёРµ S (radix-2)
 
 	for (int n = 0; n < N / 2; n++)
 		{
-			//S[n]=X[n]+X[n+N/2] (для чётных k) (k=0)
+			//S[n]=X[n]+X[n+N/2] (РґР»СЏ С‡С‘С‚РЅС‹С… k) (k=0)
 			S[n].Re = X[n].Re + X[n + N / 2].Re;
 			S[n].Im = X[n].Im + X[n + N / 2].Im;
-			//S[n+N/2]=X[n]-X[n+N/2] (для нечётных k) (k=1)
+			//S[n+N/2]=X[n]-X[n+N/2] (РґР»СЏ РЅРµС‡С‘С‚РЅС‹С… k) (k=1)
 			S[n + N / 2].Re = X[n].Re - X[n + N / 2].Re;
 			S[n + N / 2].Im = X[n].Im - X[n + N / 2].Im;
 		}
 
-//Вычисление T
+//Р’С‹С‡РёСЃР»РµРЅРёРµ T
 
 	int idx = 0;
 	for (int k2 = 0; k2 < 16; k2++)
@@ -188,7 +188,7 @@ void FFT_Inv8192_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 						Summ.Im = 0;
 						for (int m = 0; m < 16; m++)
 							{
-								//Summ+=W(256(k2*2+k1)m)*S(4096k1+256m+16j+i) (Комплексное умножение)
+								//Summ+=W(256(k2*2+k1)m)*S(4096k1+256m+16j+i) (РљРѕРјРїР»РµРєСЃРЅРѕРµ СѓРјРЅРѕР¶РµРЅРёРµ)
 								Summ.Re += IW1_8192_float[idx].Re * S[4096 * k1 + 256 * m + 16 * j + i].Re - IW1_8192_float[idx].Im * S[4096 * k1 + 256 * m + 16 * j + i].Im;
 								Summ.Im += IW1_8192_float[idx].Im * S[4096 * k1 + 256 * m + 16 * j + i].Re + IW1_8192_float[idx].Re * S[4096 * k1 + 256 * m + 16 * j + i].Im;
 								idx++;
@@ -197,7 +197,7 @@ void FFT_Inv8192_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 						T[k1 * 4096 + k2 * 256 + j * 16 + i].Im = Summ.Im;
 					}
 
-//Вычисление P
+//Р’С‹С‡РёСЃР»РµРЅРёРµ P
 	
 	idx = 0;
 	for (int k3 = 0; k3 < 16; k3++)
@@ -218,7 +218,7 @@ void FFT_Inv8192_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 						P[k1 * 4096 + k3 * 256 + k2 * 16 + i].Im = Summ.Im;
 					}
 
-//Вычисление Y
+//Р’С‹С‡РёСЃР»РµРЅРёРµ Y
 
 	idx = 0;
 	for (int k4 = 0; k4 < 16; k4++)
@@ -239,7 +239,7 @@ void FFT_Inv8192_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 						Y[k4 * 512 + k3 * 32 + k2 * 2 + k1].Im = Summ.Im;
 					}
 
-	//Деление на N (8192=2^13)
+	//Р”РµР»РµРЅРёРµ РЅР° N (8192=2^13)
 
 	for (int i = 0; i < N; i++)
 		{
@@ -248,7 +248,7 @@ void FFT_Inv8192_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 		}
 }
 
-void IMakeTable8192W1W2W3_fixed(void) //Вычисление коэффициентов (фиксированных) (Фактически просто копирование плавающих в фиксированные с учётом точности)
+void IMakeTable8192W1W2W3_fixed(void) //Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ (С„РёРєСЃРёСЂРѕРІР°РЅРЅС‹С…) (Р¤Р°РєС‚РёС‡РµСЃРєРё РїСЂРѕСЃС‚Рѕ РєРѕРїРёСЂРѕРІР°РЅРёРµ РїР»Р°РІР°СЋС‰РёС… РІ С„РёРєСЃРёСЂРѕРІР°РЅРЅС‹Рµ СЃ СѓС‡С‘С‚РѕРј С‚РѕС‡РЅРѕСЃС‚Рё)
 {
 	for (int idx = 0; idx < N * 16; idx++)
 		{
@@ -262,7 +262,7 @@ void IMakeTable8192W1W2W3_fixed(void) //Вычисление коэффициентов (фиксированных)
 }
 
 extern "C" {
-void FFT_Inv8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buffer2) //Аналог ассемблерной функции
+void FFT_Inv8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buffer2) //РђРЅР°Р»РѕРі Р°СЃСЃРµРјР±Р»РµСЂРЅРѕР№ С„СѓРЅРєС†РёРё
 {
 	class Cplx_fixed
 		{
@@ -271,26 +271,26 @@ void FFT_Inv8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buff
 				int Im;
 		} S_fixed[N], T_fixed[N], P_fixed[N], Summ_fixed;
 
-	unsigned int Half = 1 << 6; //Используется для нормализации
+	unsigned int Half = 1 << 6; //РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РЅРѕСЂРјР°Р»РёР·Р°С†РёРё
 
-//Вычисление коэффициентов
+//Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ
 
 	IMakeTable8192W1W2W3_float();
 	IMakeTable8192W1W2W3_fixed();
 
-//Вычисление S (radix-2)
+//Р’С‹С‡РёСЃР»РµРЅРёРµ S (radix-2)
 
 	for (int n = 0; n < N / 2; n++)
 		{
-			//S[n]=X[n]+X[n+N/2] (для чётных k) (k=0)
+			//S[n]=X[n]+X[n+N/2] (РґР»СЏ С‡С‘С‚РЅС‹С… k) (k=0)
 			S_fixed[n].Re = SrcBuffer[n].re + SrcBuffer[n + N / 2].re;
 			S_fixed[n].Im = SrcBuffer[n].im + SrcBuffer[n + N / 2].im;
-			//S[n+N/2]=X[n]-X[n+N/2] (для нечётных k) (k=1)
+			//S[n+N/2]=X[n]-X[n+N/2] (РґР»СЏ РЅРµС‡С‘С‚РЅС‹С… k) (k=1)
 			S_fixed[n + N / 2].Re = SrcBuffer[n].re - SrcBuffer[n + N / 2].re;
 			S_fixed[n + N / 2].Im = SrcBuffer[n].im - SrcBuffer[n + N / 2].im;
 		}
 
-//Вычисление T
+//Р’С‹С‡РёСЃР»РµРЅРёРµ T
 
 	int idx = 0;
 	for (int k2 = 0; k2 < 16; k2++)
@@ -302,7 +302,7 @@ void FFT_Inv8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buff
 						Summ_fixed.Im = 0;
 						for (int m = 0; m < 16; m++)
 							{
-								//Summ+=W(256(k2*2+k1)m)*S(4096k1+256m+16j+i) (Комплексное умножение)
+								//Summ+=W(256(k2*2+k1)m)*S(4096k1+256m+16j+i) (РљРѕРјРїР»РµРєСЃРЅРѕРµ СѓРјРЅРѕР¶РµРЅРёРµ)
 								Summ_fixed.Re += IW1_8192_fixed[idx].Re * S_fixed[4096 * k1 + 256 * m + 16 * j + i].Re - IW1_8192_fixed[idx].Im * S_fixed[4096 * k1 + 256 * m + 16 * j + i].Im;
 								Summ_fixed.Im += IW1_8192_fixed[idx].Im * S_fixed[4096 * k1 + 256 * m + 16 * j + i].Re + IW1_8192_fixed[idx].Re * S_fixed[4096 * k1 + 256 * m + 16 * j + i].Im;
 								idx++;
@@ -311,7 +311,7 @@ void FFT_Inv8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buff
 						T_fixed[k1 * 4096 + k2 * 256 + j * 16 + i].Im = Summ_fixed.Im;
 					}
 
-//Нормализация T
+//РќРѕСЂРјР°Р»РёР·Р°С†РёСЏ T
 
 	for (int i = 0; i < N; i++)
 		{
@@ -321,7 +321,7 @@ void FFT_Inv8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buff
 			T_fixed[i].Im >>= 7;
 		}
 
-//Вычисление P
+//Р’С‹С‡РёСЃР»РµРЅРёРµ P
 	
 	idx = 0;
 	for (int k3 = 0; k3 < 16; k3++)
@@ -342,7 +342,7 @@ void FFT_Inv8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buff
 						P_fixed[k1 * 4096 + k3 * 256 + k2 * 16 + i].Im = Summ_fixed.Im;
 					}
 
-//Нормализация P
+//РќРѕСЂРјР°Р»РёР·Р°С†РёСЏ P
 
 	for (int i = 0; i < N; i++)
 		{
@@ -352,7 +352,7 @@ void FFT_Inv8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buff
 			P_fixed[i].Im >>= 7;
 		}
 
-//Вычисление Y
+//Р’С‹С‡РёСЃР»РµРЅРёРµ Y
 
 	idx = 0;
 	for (int k4 = 0; k4 < 16; k4++)
@@ -373,7 +373,7 @@ void FFT_Inv8192(nm32sc* SrcBuffer, nm32sc* DstBuffer, void* Buffer1, void* Buff
 						DstBuffer[k4 * 512 + k3 * 32 + k2 * 2 + k1].im = Summ_fixed.Im;
 					}
 
-//Нормализация Y
+//РќРѕСЂРјР°Р»РёР·Р°С†РёСЏ Y
 
 	Half = 1 << 19;
 	for (int i = 0; i < N; i++)

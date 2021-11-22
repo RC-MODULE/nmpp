@@ -12,7 +12,7 @@ void nmppsExp_32f(const nm32f *pSrcVec, nm32f *pDstVec, int nSize)
 		int i;
 		for (i=0;i<nSize;i++)
 			b4[i]=pSrcVec[i];
-		nmppsExp_32f( b4, o4, 16 );//	рекурсия!
+		nmppsExp_32f( b4, o4, 16 );//	СЂРµРєСѓСЂСЃРёСЏ!
 		for (i=0;i<nSize;i++)
 			pDstVec[i]=o4[i];
 		return;
@@ -119,13 +119,13 @@ void nmppsExp_32f(const nm32f *pSrcVec, nm32f *pDstVec, int nSize)
 		//			}
 		//		}
 		int i;
-		for (i=0; i<7; i++){	//	брать константы из vreg6
+		for (i=0; i<7; i++){	//	Р±СЂР°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚С‹ РёР· vreg6
 			asm ( 	ALL_FPU (".float vreg2 - .retrive(vreg6), set mask if >;")
 					ALL_FPU_ANTI_MASK
 					ALL_FPU (".float vreg2= mask ?   vreg2 - .retrive(vreg6) : vreg2;")
 					ALL_FPU (".float vreg0= mask ?   vreg0 * .retrive(vreg6) : vreg0;")
 					ALL_FPU (".float vreg4= mask ?   vreg4 * .retrive(vreg6) : vreg4;")
-						: "+a" (cfs) );	//	провязываем инструкции зависимостями
+						: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		}
 		//		if (x<0){
 		//			x= -xx;

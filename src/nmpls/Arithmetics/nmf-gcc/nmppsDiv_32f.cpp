@@ -4,14 +4,14 @@
 #include "macros_fpu.h"
 
 static const float coeffs[68]= {
-           //  константы для
+           //  РєРѕРЅСЃС‚Р°РЅС‚С‹ РґР»СЏ
            //
            //    for (i=11;i>=0;i--){
            //        int pw=1<<i;
            //        float tr_h= pow( 2.0, pw );
-           //        if ( x>tr_h ){            константа 1 - tr_h
-           //            x /= tr_h;            константа 2 - 1/tr_h
-           //            res += pw;            константа 3 - pw
+           //        if ( x>tr_h ){            РєРѕРЅСЃС‚Р°РЅС‚Р° 1 - tr_h
+           //            x /= tr_h;            РєРѕРЅСЃС‚Р°РЅС‚Р° 2 - 1/tr_h
+           //            res += pw;            РєРѕРЅСЃС‚Р°РЅС‚Р° 3 - pw
            //        }
            //    }
 			DUP( 0.0f ),
@@ -54,7 +54,7 @@ void nmppsDiv_32f(const nm32f *pSrcVec1, const nm32f *pSrcVec2, nm32f *pDstVec, 
 			bx4[i]=pSrcVec1[i];
 			by4[i]=pSrcVec2[i];
 		}
-		nmppsDiv_32f( bx4, by4, o4, 8 );//	рекурсия!
+		nmppsDiv_32f( bx4, by4, o4, 8 );//	СЂРµРєСѓСЂСЃРёСЏ!
 		for (i=0;i<nSize;i++)
 			pDstVec[i]=o4[i];
 		return;
@@ -117,12 +117,12 @@ void nmppsDiv_32f(const nm32f *pSrcVec1, const nm32f *pSrcVec2, nm32f *pDstVec, 
 		asm ( 	ALL_FPU (".float vreg1 = /vreg0/;")		//	|y|
 				//  	res: X*0 + 1 ->  [1,1,1,...]
 				ALL_FPU (".float vreg4= vreg1 * .retrive(vreg5) + .retrive(vreg6);")
-				//	Если аргумент мал (1 > y), домножаем на 2^126
+				//	Р•СЃР»Рё Р°СЂРіСѓРјРµРЅС‚ РјР°Р» (1 > y), РґРѕРјРЅРѕР¶Р°РµРј РЅР° 2^126
 				ALL_FPU (".float vreg1 - .retrive(vreg5), set mask if <;")
 				ALL_FPU_ANTI_MASK
 				ALL_FPU (".float vreg1= mask ?   vreg1 * .retrive(vreg5) : vreg1;")
 				ALL_FPU (".float vreg4= mask ?   vreg4 * .retrive(vreg5) : vreg4;")
-					: "+a" (cfs) : "r"(pSrcVec2), "r"(pSrcVec1) );	//	провязываем инструкции зависимостями
+					: "+a" (cfs) : "r"(pSrcVec2), "r"(pSrcVec1) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 
 		//	READ X
 		asm ( 	"vlen = %1;  							\n\t"
@@ -136,7 +136,7 @@ void nmppsDiv_32f(const nm32f *pSrcVec1, const nm32f *pSrcVec2, nm32f *pDstVec, 
 					  , "m"(*pSrcVec1), "a" (cfs) );
 
 		int i;
-		//	Двигаем аргумент к единице (сверху)
+		//	Р”РІРёРіР°РµРј Р°СЂРіСѓРјРµРЅС‚ Рє РµРґРёРЅРёС†Рµ (СЃРІРµСЂС…Сѓ)
 		//  if  y > 2^i
 		//      y = y/2^i
 		//      d = d*2^i
@@ -145,14 +145,14 @@ void nmppsDiv_32f(const nm32f *pSrcVec1, const nm32f *pSrcVec2, nm32f *pDstVec, 
 					ALL_FPU_ANTI_MASK
 					ALL_FPU (".float vreg1= mask ?   vreg1 * .retrive(vreg5) : vreg1;")
 					ALL_FPU (".float vreg4= mask ?   vreg4 * .retrive(vreg5) : vreg4;")
-						: "+a" (cfs) );	//	провязываем инструкции зависимостями
+						: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		}
 
-		//	Ньютон
+		//	РќСЊСЋС‚РѕРЅ
 		//	(1/Y)0 = 1
 		asm ( 	ALL_FPU (".float vreg7= - vreg1*.retrive(vreg5) +  .retrive(vreg6);")
 				//ALL_FPU (".float vreg7= vreg3 * vreg1;")
-					: "+a" (cfs) );	//	провязываем инструкции зависимостями
+					: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		//	(1/Y) vreg7
 		//	2     vreg6
 		//	Y0    vreg1
@@ -160,21 +160,21 @@ void nmppsDiv_32f(const nm32f *pSrcVec1, const nm32f *pSrcVec2, nm32f *pDstVec, 
 		for (i=0; i<4; i++){
 			asm ( 	ALL_FPU (".float vreg3= - vreg1*vreg7 +  .retrive(vreg6);")
 					ALL_FPU (".float vreg7= vreg3 * vreg7;")
-						: "+a" (cfs) );	//	провязываем инструкции зависимостями
+						: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		}
 
-		//	Знак Y -> (X/Y)
-		asm ( 	ALL_FPU (".float vreg0 + vreg0, set mask if <;") //	Знак Y
+		//	Р—РЅР°Рє Y -> (X/Y)
+		asm ( 	ALL_FPU (".float vreg0 + vreg0, set mask if <;") //	Р—РЅР°Рє Y
 				ALL_FPU (".float vreg7= vreg7 * vreg2;")		// * X
 				ALL_FPU (".float vreg7= vreg7 * vreg4;")		// / exp(Y)
-				ALL_FPU (".float vreg7= mask ?   - vreg7 : vreg7;") //	Знак Y
-					: "+a" (cfs) );	//	провязываем инструкции зависимостями
+				ALL_FPU (".float vreg7= mask ?   - vreg7 : vreg7;") //	Р—РЅР°Рє Y
+					: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 
 		//	NaN
 		asm ( 	ALL_FPU (".float vreg0 + vreg0, set mask if <>0;")
 				ALL_FPU_ANTI_MASK
 				ALL_FPU (".float vreg7= not mask ?  vreg0 * .retrive(vreg6) : vreg7;")
-					: "+a" (cfs) );	//	провязываем инструкции зависимостями
+					: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 
 		//	WRITE
 		asm ( 	"vlen = %2;  \n\t"

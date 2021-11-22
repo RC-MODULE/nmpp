@@ -8,7 +8,7 @@ ccr_switch : label;
 <_set_fp_ccr>
 
 	gr7 = [ar7 - 3];
-	gr7 <<= 29;		//	íà ñëó÷àé, åñëè ïåðåäàäóò áÿêó
+	gr7 <<= 29;		//	Ð½Ð° ÑÐ»ÑƒÑ‡Ð°Ð¹, ÐµÑÐ»Ð¸ Ð¿ÐµÑ€ÐµÐ´Ð°Ð´ÑƒÑ‚ Ð±ÑÐºÑƒ
 	gr7 >>= 27;		//	gr7 = param * 4
 	ar5 = gr7;
 	delayed goto ar5 + ccr_switch;

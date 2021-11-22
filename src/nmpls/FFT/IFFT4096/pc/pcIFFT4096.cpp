@@ -26,23 +26,23 @@
 const unsigned int N = 4096;
 const double Pi = 3.14159265359;
 
-Cplx_float IW1_4096_float[N * 16], IW2_4096_float[N * 16], IW3_4096_float[N * 16]; //Плавающие коэффициенты
+Cplx_float IW1_4096_float[N * 16], IW2_4096_float[N * 16], IW3_4096_float[N * 16]; //РџР»Р°РІР°СЋС‰РёРµ РєРѕСЌС„С„РёС†РёРµРЅС‚С‹
 
-Wi_4096_fixed IW1_4096_fixed[N * 16], IW2_4096_fixed[N * 16], IW3_4096_fixed[N * 16]; //Фиксированные коэффициенты
+Wi_4096_fixed IW1_4096_fixed[N * 16], IW2_4096_fixed[N * 16], IW3_4096_fixed[N * 16]; //Р¤РёРєСЃРёСЂРѕРІР°РЅРЅС‹Рµ РєРѕСЌС„С„РёС†РёРµРЅС‚С‹
 
 Cplx_float IW4096(unsigned int power) //power = n * k
 {
 	Cplx_float IW;
 	IW.Re = cos(2 * Pi * power / N);
-	IW.Im = sin(2 * Pi * power / N); //Отличается от прямого отсутствием знака минус
+	IW.Im = sin(2 * Pi * power / N); //РћС‚Р»РёС‡Р°РµС‚СЃСЏ РѕС‚ РїСЂСЏРјРѕРіРѕ РѕС‚СЃСѓС‚СЃС‚РІРёРµРј Р·РЅР°РєР° РјРёРЅСѓСЃ
 	return IW;
 }
 
-void FFT_Inv4096_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффициенты вычисляются в цикле (не заранее))
+void FFT_Inv4096_float1(Cplx_float *X, Cplx_float *Y) //РџР»Р°РІР°СЋС‰Р°СЏ С‚РѕС‡РєР° (РєРѕСЌС„С„РёС†РёРµРЅС‚С‹ РІС‹С‡РёСЃР»СЏСЋС‚СЃСЏ РІ С†РёРєР»Рµ (РЅРµ Р·Р°СЂР°РЅРµРµ))
 {
 	Cplx_float S[N], T[N], Summ;
 
-//Вычисление S
+//Р’С‹С‡РёСЃР»РµРЅРёРµ S
 
 	for (int k = 0; k < 16; k++)
 		for (int j = 0; j < 16; j++)
@@ -52,7 +52,7 @@ void FFT_Inv4096_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 					Summ.Im = 0;
 					for (int n = 0; n < 16; n++)
 						{
-							//Summ += W(256kn) * X(256n + 16j + i) (Комплексное умножение)
+							//Summ += W(256kn) * X(256n + 16j + i) (РљРѕРјРїР»РµРєСЃРЅРѕРµ СѓРјРЅРѕР¶РµРЅРёРµ)
 							Summ.Re += X[256 * n + 16 * j + i].Re * IW4096(256 * k * n).Re - X[256 * n + 16 * j + i].Im * IW4096(256 * k * n).Im;
 							Summ.Im += X[256 * n + 16 * j + i].Im * IW4096(256 * k * n).Re + X[256 * n + 16 * j + i].Re * IW4096(256 * k * n).Im;
 						}
@@ -60,7 +60,7 @@ void FFT_Inv4096_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 					S[k * 256 + j * 16 + i].Im = Summ.Im;
 				}
 
-//Вычисление T
+//Р’С‹С‡РёСЃР»РµРЅРёРµ T
 
 	for (int k2 = 0; k2 < 16; k2++)
 		for (int k1 = 0; k1 < 16; k1++)
@@ -74,11 +74,11 @@ void FFT_Inv4096_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 							Summ.Re += S[256 * k1 + 16 * j + i].Re * IW4096(16 * ((k2 * 16) + k1) * j).Re - S[256 * k1 + 16 * j + i].Im * IW4096(16 * ((k2 * 16) + k1) * j).Im;
 							Summ.Im += S[256 * k1 + 16 * j + i].Im * IW4096(16 * ((k2 * 16) + k1) * j).Re + S[256 * k1 + 16 * j + i].Re * IW4096(16 * ((k2 * 16) + k1) * j).Im;
 						}
-					T[((k2 * 16) + k1) * 16 + i].Re = Summ.Re; //Эти формы записи тождественны
-					T[k2 * 256 + k1 * 16 + i].Im = Summ.Im; //Эти формы записи тождественны
+					T[((k2 * 16) + k1) * 16 + i].Re = Summ.Re; //Р­С‚Рё С„РѕСЂРјС‹ Р·Р°РїРёСЃРё С‚РѕР¶РґРµСЃС‚РІРµРЅРЅС‹
+					T[k2 * 256 + k1 * 16 + i].Im = Summ.Im; //Р­С‚Рё С„РѕСЂРјС‹ Р·Р°РїРёСЃРё С‚РѕР¶РґРµСЃС‚РІРµРЅРЅС‹
 				}
 
-//Вычисление Y
+//Р’С‹С‡РёСЃР»РµРЅРёРµ Y
 
 	for (int k3 = 0; k3 < 16; k3++)
 		for (int k2 = 0; k2 < 16; k2++)
@@ -96,7 +96,7 @@ void FFT_Inv4096_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 					Y[k3 * 256 + k2 * 16 + k1].Im = Summ.Im;
 				}
 
-//Деление на N (4096=2^12)
+//Р”РµР»РµРЅРёРµ РЅР° N (4096=2^12)
 
 	for (int i = 0; i < N; i++)
 		{
@@ -105,39 +105,39 @@ void FFT_Inv4096_float1(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 		}
 }
 
-void IMakeTable4096W1W2W3_float(void) //Вычисление коэффициентов (плавающих)
+void IMakeTable4096W1W2W3_float(void) //Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ (РїР»Р°РІР°СЋС‰РёС…)
 {
 	int idx = 0;
 	for (int k = 0; k < 16; k++)
 		for (int j = 0; j < 16; j++)
 			for (int i = 0; i < 16; i++)
 				for (int n = 0; n < 16; n++)
-					IW1_4096_float[idx++] = IW4096(256 * k * n); //Для S
+					IW1_4096_float[idx++] = IW4096(256 * k * n); //Р”Р»СЏ S
 
 	idx = 0;
 	for (int k2 = 0; k2 < 16; k2++)
 		for (int k1 = 0; k1 < 16; k1++)
 			for (int i = 0; i < 16; i++)
 				for (int j = 0; j < 16; j++)
-					IW2_4096_float[idx++] = IW4096(16 * ((k2 * 16) + k1) * j); //Для T
+					IW2_4096_float[idx++] = IW4096(16 * ((k2 * 16) + k1) * j); //Р”Р»СЏ T
 
 	idx = 0;
 	for (int k3 = 0; k3 < 16; k3++)
 		for (int k2 = 0; k2 < 16; k2++)
 			for (int k1 = 0; k1 < 16; k1++)
 				for (int i = 0; i < 16; i++)
-					IW3_4096_float[idx++] = IW4096((k3 * 256 + k2 * 16 + k1) * i); //Для Y
+					IW3_4096_float[idx++] = IW4096((k3 * 256 + k2 * 16 + k1) * i); //Р”Р»СЏ Y
 }
 
-void FFT_Inv4096_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффициенты вычисляются заранее)
+void FFT_Inv4096_float2(Cplx_float *X, Cplx_float *Y) //РџР»Р°РІР°СЋС‰Р°СЏ С‚РѕС‡РєР° (РєРѕСЌС„С„РёС†РёРµРЅС‚С‹ РІС‹С‡РёСЃР»СЏСЋС‚СЃСЏ Р·Р°СЂР°РЅРµРµ)
 {
 	Cplx_float S[N], T[N], Summ;
 
-//Вычисление коэффициентов
+//Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ
 
 	IMakeTable4096W1W2W3_float();
 
-//Вычисление S
+//Р’С‹С‡РёСЃР»РµРЅРёРµ S
 
 	int idx = 0;
 	for (int k = 0; k < 16; k++)
@@ -148,7 +148,7 @@ void FFT_Inv4096_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 					Summ.Im = 0;
 					for (int n = 0; n < 16; n++)
 						{
-							//Summ += W(256kn) * X(256n + 16j + i) (Комплексное умножение)
+							//Summ += W(256kn) * X(256n + 16j + i) (РљРѕРјРїР»РµРєСЃРЅРѕРµ СѓРјРЅРѕР¶РµРЅРёРµ)
 							Summ.Re += X[256 * n + 16 * j + i].Re * IW1_4096_float[idx].Re - X[256 * n + 16 * j + i].Im * IW1_4096_float[idx].Im;
 							Summ.Im += X[256 * n + 16 * j + i].Im * IW1_4096_float[idx].Re + X[256 * n + 16 * j + i].Re * IW1_4096_float[idx].Im;
 							idx++;
@@ -157,7 +157,7 @@ void FFT_Inv4096_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 					S[k * 256 + j * 16 + i].Im = Summ.Im;
 				}
 
-//Вычисление T
+//Р’С‹С‡РёСЃР»РµРЅРёРµ T
 
 	idx = 0;
 	for (int k2 = 0; k2 < 16; k2++)
@@ -173,11 +173,11 @@ void FFT_Inv4096_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 							Summ.Im += S[256 * k1 + 16 * j + i].Im * IW2_4096_float[idx].Re + S[256 * k1 + 16 * j + i].Re * IW2_4096_float[idx].Im;
 							idx++;
 						}
-					T[((k2 * 16) + k1) * 16 + i].Re = Summ.Re; //Эти формы записи тождественны
-					T[k2 * 256 + k1 * 16 + i].Im = Summ.Im; //Эти формы записи тождественны
+					T[((k2 * 16) + k1) * 16 + i].Re = Summ.Re; //Р­С‚Рё С„РѕСЂРјС‹ Р·Р°РїРёСЃРё С‚РѕР¶РґРµСЃС‚РІРµРЅРЅС‹
+					T[k2 * 256 + k1 * 16 + i].Im = Summ.Im; //Р­С‚Рё С„РѕСЂРјС‹ Р·Р°РїРёСЃРё С‚РѕР¶РґРµСЃС‚РІРµРЅРЅС‹
 				}
 
-//Вычисление Y
+//Р’С‹С‡РёСЃР»РµРЅРёРµ Y
 
 	idx = 0;
 	for (int k3 = 0; k3 < 16; k3++)
@@ -197,7 +197,7 @@ void FFT_Inv4096_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 					Y[k3 * 256 + k2 * 16 + k1].Im = Summ.Im;
 				}
 
-//Деление на N (4096=2^12)
+//Р”РµР»РµРЅРёРµ РЅР° N (4096=2^12)
 
 	for (int i = 0; i < N; i++)
 		{
@@ -206,7 +206,7 @@ void FFT_Inv4096_float2(Cplx_float *X, Cplx_float *Y) //Плавающая точка (коэффиц
 		}
 }
 
-void IMakeTable4096W1W2W3_fixed(void) //Вычисление коэффициентов (фиксированных) (Фактически просто копирование плавающих в фиксированные с учётом точности)
+void IMakeTable4096W1W2W3_fixed(void) //Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ (С„РёРєСЃРёСЂРѕРІР°РЅРЅС‹С…) (Р¤Р°РєС‚РёС‡РµСЃРєРё РїСЂРѕСЃС‚Рѕ РєРѕРїРёСЂРѕРІР°РЅРёРµ РїР»Р°РІР°СЋС‰РёС… РІ С„РёРєСЃРёСЂРѕРІР°РЅРЅС‹Рµ СЃ СѓС‡С‘С‚РѕРј С‚РѕС‡РЅРѕСЃС‚Рё)
 {
 	for (int idx = 0; idx < N * 16; idx++)
 		{
@@ -220,7 +220,7 @@ void IMakeTable4096W1W2W3_fixed(void) //Вычисление коэффициентов (фиксированных)
 }
 
 extern "C" {
-void FFT_Inv4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GBuffer) //Аналог ассемблерной функции
+void FFT_Inv4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GBuffer) //РђРЅР°Р»РѕРі Р°СЃСЃРµРјР±Р»РµСЂРЅРѕР№ С„СѓРЅРєС†РёРё
 {
 	class Cplx_fixed
 		{
@@ -231,12 +231,12 @@ void FFT_Inv4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GB
 
 	unsigned int Half = 1 << 6;
 
-//Вычисление коэффициентов
+//Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ
 
 	IMakeTable4096W1W2W3_float();
 	IMakeTable4096W1W2W3_fixed();
 
-//Вычисление S
+//Р’С‹С‡РёСЃР»РµРЅРёРµ S
 
 	int idx = 0;
 	for (int k = 0; k < 16; k++)
@@ -247,7 +247,7 @@ void FFT_Inv4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GB
 					Summ_fixed.Im = 0;
 					for (int n = 0; n < 16; n++)
 						{
-							//Summ += W(256kn) * X(256n + 16j + i) (Комплексное умножение)
+							//Summ += W(256kn) * X(256n + 16j + i) (РљРѕРјРїР»РµРєСЃРЅРѕРµ СѓРјРЅРѕР¶РµРЅРёРµ)
 							Summ_fixed.Re += GSrcBuffer[256 * n + 16 * j + i].re * IW1_4096_fixed[idx].Re - GSrcBuffer[256 * n + 16 * j + i].im * IW1_4096_fixed[idx].Im;
 							Summ_fixed.Im += GSrcBuffer[256 * n + 16 * j + i].im * IW1_4096_fixed[idx].Re + GSrcBuffer[256 * n + 16 * j + i].re * IW1_4096_fixed[idx].Im;
 							idx++;
@@ -256,7 +256,7 @@ void FFT_Inv4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GB
 					S_fixed[k * 256 + j * 16 + i].Im = Summ_fixed.Im;
 				}
 
-//Нормализация S
+//РќРѕСЂРјР°Р»РёР·Р°С†РёСЏ S
 
 	for (int i = 0; i < N; i++)
 		{
@@ -266,7 +266,7 @@ void FFT_Inv4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GB
 			S_fixed[i].Im >>= 7;
 		}
 
-//Вычисление T
+//Р’С‹С‡РёСЃР»РµРЅРёРµ T
 
 	idx = 0;
 	for (int k2 = 0; k2 < 16; k2++)
@@ -282,11 +282,11 @@ void FFT_Inv4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GB
 							Summ_fixed.Im += S_fixed[256 * k1 + 16 * j + i].Im * IW2_4096_fixed[idx].Re + S_fixed[256 * k1 + 16 * j + i].Re * IW2_4096_fixed[idx].Im;
 							idx++;
 						}
-					T_fixed[((k2 * 16) + k1) * 16 + i].Re = Summ_fixed.Re; //Эти формы записи тождественны
-					T_fixed[k2 * 256 + k1 * 16 + i].Im = Summ_fixed.Im; //Эти формы записи тождественны
+					T_fixed[((k2 * 16) + k1) * 16 + i].Re = Summ_fixed.Re; //Р­С‚Рё С„РѕСЂРјС‹ Р·Р°РїРёСЃРё С‚РѕР¶РґРµСЃС‚РІРµРЅРЅС‹
+					T_fixed[k2 * 256 + k1 * 16 + i].Im = Summ_fixed.Im; //Р­С‚Рё С„РѕСЂРјС‹ Р·Р°РїРёСЃРё С‚РѕР¶РґРµСЃС‚РІРµРЅРЅС‹
 				}
 
-//Нормализация T
+//РќРѕСЂРјР°Р»РёР·Р°С†РёСЏ T
 
 	for (int i = 0; i < N; i++)
 		{
@@ -296,7 +296,7 @@ void FFT_Inv4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GB
 			T_fixed[i].Im >>= 7;
 		}
 
-//Вычисление Y
+//Р’С‹С‡РёСЃР»РµРЅРёРµ Y
 
 	idx = 0;
 	for (int k3 = 0; k3 < 16; k3++)
@@ -316,7 +316,7 @@ void FFT_Inv4096(nm32sc* GSrcBuffer, nm32sc* GDstBuffer, void* LBuffer, void* GB
 					GDstBuffer[k3 * 256 + k2 * 16 + k1].im = Summ_fixed.Im;
 				}
 
-//Нормализация Y (с делением на N)
+//РќРѕСЂРјР°Р»РёР·Р°С†РёСЏ Y (СЃ РґРµР»РµРЅРёРµРј РЅР° N)
 
 	Half = 1 << 18;
 	for (int i = 0; i < N; i++)

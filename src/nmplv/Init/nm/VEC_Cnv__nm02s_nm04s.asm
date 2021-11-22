@@ -1,4 +1,4 @@
-global _nmppsConvert_2s4s: label;// объ¤вление глобальной метки
+global _nmppsConvert_2s4s: label;// РѕР±СЉВ¤РІР»РµРЅРёРµ РіР»РѕР±Р°Р»СЊРЅРѕР№ РјРµС‚РєРё
 extern vec_vsum_data_0:label;
 data ".MyData"
 	local matr1: long[64]=(0000000000000001hl,

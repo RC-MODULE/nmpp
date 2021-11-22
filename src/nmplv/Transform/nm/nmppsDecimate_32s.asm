@@ -2,7 +2,7 @@
 //
 //  $Workfile:: QuickSort.as $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,7 +11,7 @@
 //! \if file_doc
 //!
 //! \file   nmppsDecimate.asm
-//! \author Иван Жиленков
+//! \author РРІР°РЅ Р–РёР»РµРЅРєРѕРІ
 //! \brief  
 //!
 //! \endif

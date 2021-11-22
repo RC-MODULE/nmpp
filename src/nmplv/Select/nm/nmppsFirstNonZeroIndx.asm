@@ -2,7 +2,7 @@
 //
 //  $Workfile:: Find_First_Zero_Fwd.asm             $
 //
-//  <Õ‡Á‚‡ÌËÂ ·Ë·ÎËÓÚÂÍË>
+//  <–ù–∞–∑–≤–∞–Ω–∏–µ –±–∏–±–ª–∏–æ—Ç–µ–∫–∏>
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -12,7 +12,7 @@
 //!
 //! \file   Find_First_Zero_Fwd.asm
 //! \author S. Mushkaev
-//! \brief  < ‡ÚÍÓÂ ÓÔËÒ‡ÌËÂ>
+//! \brief  <–ö—Ä–∞—Ç–∫–æ–µ –æ–ø–∏—Å–∞–Ω–∏–µ>
 //!
 //! \endif
 //!
@@ -43,16 +43,16 @@ Loop:label;
 		gr2=[ar0++] with gr7-- noflags;
  	if >= delayed goto ar1 with -gr2	;	// if gr2==0 carry=1
  		with gr2 C>>=1;					// if gr2==0 gr2=80000000 else gr2=000000000 
-		with gr7 or not gr2;			// if > ‰‡ÒÚ ‚˚ıÓ‰ ÔË gr7=-1 ËÎË gr2!=0
+		with gr7 or not gr2;			// if > –¥–∞—Å—Ç –≤—ã—Ö–æ–¥ –ø—Ä–∏ gr7=-1 –∏–ª–∏ gr2!=0
  	
- 	// gr7 = -2 ÂÒÎË ÍÓÌ˜ËÎÒˇ Ï‡ÒÒË‚ ËÎË ÂÒÎË ÌÂ ÌÓÎ¸ ‚ ÍÓˆÌÂ
- 	// gr7+2 - ËÌ‰ÂÍc ÌÛÎˇ ÓÚÌÓÒËÚÂÎ¸ÌÓ ÍÓÌˆ‡ Ï‡ÒÒË‚‡
- 	// ar5 = - ËÌ‰ÂÍÒ ÔÂÔÓÒÎÂ‰ÌÂ„Ó ˝ÎÂÏÂÌÚ‡ ‚ Ï‡ÒÒË‚Â
+ 	// gr7 = -2 –µ—Å–ª–∏ –∫–æ–Ω—á–∏–ª—Å—è –º–∞—Å—Å–∏–≤ –∏–ª–∏ –µ—Å–ª–∏ –Ω–µ –Ω–æ–ª—å –≤ –∫–æ—Ü–Ω–µ
+ 	// gr7+2 - –∏–Ω–¥–µ–∫c –Ω—É–ª—è –æ—Ç–Ω–æ—Å–∏—Ç–µ–ª—å–Ω–æ –∫–æ–Ω—Ü–∞ –º–∞—Å—Å–∏–≤–∞
+ 	// ar5 = - –∏–Ω–¥–µ–∫—Å –ø—Ä–µ–ø–æ—Å–ª–µ–¥–Ω–µ–≥–æ —ç–ª–µ–º–µ–Ω—Ç–∞ –≤ –º–∞—Å—Å–∏–≤–µ
 	gr1 = ar5		with gr7++;
 	gr0 =[ar0+=gr0] with gr7 = gr1-gr7;
 					with gr0 = -gr0;
 	pop ar2,gr2 	with gr0 = gr0 C>>1;
-  	pop ar1,gr1 	with gr0 A>>= 31;	// gr0=FFFFFFFF ÂÒÎË gr0=0
+  	pop ar1,gr1 	with gr0 A>>= 31;	// gr0=FFFFFFFF –µ—Å–ª–∏ gr0=0
   	pop ar0,gr0 	with gr7 = gr7 or gr0;
 return;
 end ".text_nmplv";

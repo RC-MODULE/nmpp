@@ -11,13 +11,13 @@ int btnum( void *src, int n)
    pop ebx
 }}
 
-int s2(int *Q, int j) // 2х битное число со знаком, начиная с номера бита=j
-{ if (btnum(Q,j++)) // интерфейс команды bt [ptr],reg
+int s2(int *Q, int j) // 2С… Р±РёС‚РЅРѕРµ С‡РёСЃР»Рѕ СЃРѕ Р·РЅР°РєРѕРј, РЅР°С‡РёРЅР°СЏ СЃ РЅРѕРјРµСЂР° Р±РёС‚Р°=j
+{ if (btnum(Q,j++)) // РёРЅС‚РµСЂС„РµР№СЃ РєРѕРјР°РЅРґС‹ bt [ptr],reg
    { if (btnum(Q,j))return -1; else return 1;
    } else
    { if (btnum(Q,j)) return -2; else return 0;
    }
-} // s2 = 2х разрядное число
+} // s2 = 2С… СЂР°Р·СЂСЏРґРЅРѕРµ С‡РёСЃР»Рѕ
 
 void nmppsMulC_AddC_2s16s(const nm2s* pSrcVec, int32b nMulC, int  nAddC, nm16s* pDstVec, int nSize)
 //int MulC_2s16s (int *psrc, short C, short *pdst, int N2s, short vr)

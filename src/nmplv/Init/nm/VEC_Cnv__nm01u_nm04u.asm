@@ -1,7 +1,7 @@
 
 
 
-global _nmppsConvert_1u4u: label;// объ¤вление глобальной метки
+global _nmppsConvert_1u4u: label;// РѕР±СЉВ¤РІР»РµРЅРёРµ РіР»РѕР±Р°Р»СЊРЅРѕР№ РјРµС‚РєРё
 
 data ".data_cnv_matr_1u4u"
 	local matr1: long[256]=	(	1hl,100hl,10000hl,1000000hl,

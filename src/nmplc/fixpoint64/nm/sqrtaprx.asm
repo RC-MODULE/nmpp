@@ -4,8 +4,8 @@
 //*                                                                         */
 //*				Signed Fixed Point 32-bit Routine                           */
 //*                                                                         */
-//*             Выделение экспоненты и мантиссы из числа                    */
-//*                  с плаваюющей запятой типа double                       */
+//*             Р’С‹РґРµР»РµРЅРёРµ СЌРєСЃРїРѕРЅРµРЅС‚С‹ Рё РјР°РЅС‚РёСЃСЃС‹ РёР· С‡РёСЃР»Р°                    */
+//*                  СЃ РїР»Р°РІР°СЋСЋС‰РµР№ Р·Р°РїСЏС‚РѕР№ С‚РёРїР° double                       */
 //*                                                                         */
 //*                                                                         */
 //*                1999 (c) RC Module Inc., Moscow, Russia                  */
@@ -18,7 +18,7 @@
 //                                                                          //
 //////////////////////////////////////////////////////////////////////////////
 
-begin ".text_nmplс"
+begin ".text_nmplСЃ"
 global _nmppcFrExp :label;
 <_nmppcFrExp>
 .branch;
@@ -27,7 +27,7 @@ global _nmppcFrExp :label;
 	push ar1,gr1;
 	push ar2,gr2;
 	push ar6,gr6;
-	ar0,gr0=[--ar5];		// аргумент 
+	ar0,gr0=[--ar5];		// Р°СЂРіСѓРјРµРЅС‚ 
 	gr1=7FF00000h;
 	gr2=gr0 and gr1;
 	gr5=00100000h;
@@ -57,10 +57,10 @@ global _nmppcFrExp :label;
 	gr6=gr0;
 	gr7=ar0;
 	pop ar6,gr6;
-	pop ar2,gr2 with gr6=gr0;	// gr0 - мантисса  операнда
+	pop ar2,gr2 with gr6=gr0;	// gr0 - РјР°РЅС‚РёСЃСЃР°  РѕРїРµСЂР°РЅРґР°
 	pop ar1,gr1;
 	pop ar0,gr0;
 	
 	return;	
 .wait;
-end ".text_nmplс";
+end ".text_nmplСЃ";

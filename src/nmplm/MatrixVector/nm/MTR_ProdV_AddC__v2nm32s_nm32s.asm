@@ -2,7 +2,7 @@
 //
 //  $Workfile:: mtrMulV2_AddV2_nm32s.asm             $
 //
-//  <Íàçâàíèå áèáëèîòåêè>
+//  <ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸>
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -12,7 +12,7 @@
 //!
 //! \file   mtrMulV2_AddV2_nm32s.asm
 //! \author Sergey Landyshev
-//! \brief  <Êðàòêîå îïèñàíèå>
+//! \brief  <ÐšÑ€Ð°Ñ‚ÐºÐ¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ>
 //!
 //! \endif
 //!

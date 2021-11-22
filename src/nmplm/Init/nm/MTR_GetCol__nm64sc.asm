@@ -2,7 +2,7 @@ import from macros.mlb;
 begin ".text_nmplm"
 //------------------------------------------------------------------------------
 //
-//	Вынимает из матрицы один столбец.
+//	Р’С‹РЅРёРјР°РµС‚ РёР· РјР°С‚СЂРёС†С‹ РѕРґРёРЅ СЃС‚РѕР»Р±РµС†.
 // .
 //------------------------------------------------------------------------------------------------
 //! \fn void MTR_GetCol( nm64sc *pSrcMtr, nm64sc *pDstVec, int nCol, int nHeight, int nWidth);
@@ -30,7 +30,7 @@ wtw;.branch;
     
 Extr0:label;gr7=Extr0 with gr6--;
 <Extr0> if > delayed goto gr7 with gr6--;
-   rep 2 data=[ar2++]with data;  // 1компл. число
+   rep 2 data=[ar2++]with data;  // 1РєРѕРјРїР». С‡РёСЃР»Рѕ
    rep 2 [ar6++]=afifo;
    ar2=ar2+gr2;
    pop ar6,gr6;

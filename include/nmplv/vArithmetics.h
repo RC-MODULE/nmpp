@@ -1054,6 +1054,63 @@ void nmppsAbsDiff_32s(const nm32s* pSrcVec1, nm32s* pSrcVec2, nm32s* pDstVec, in
 void nmppsAbsDiff_64s(const nm64s* pSrcVec1, nm64s* pSrcVec2, nm64s* pDstVec, int nSize);
     //! \}
 
+
+	/**
+	\defgroup nmppsAbsDiff_f nmppsAbsDiff_f
+	\ingroup vArithmetics
+	\brief
+	\ru Вычисление вектора модулей разности элементов двух векторов.
+	\en Calculation of the vec of modules of two vectors difference.
+	\~
+
+	\f[
+	pDstVec[i]  =  abs \{ pSrcVec1[i]  -  pSrcVec2[i]\},
+	\f]
+
+	\f[
+	i = \overline{0 \ldots nSize-1}
+	\f]
+
+	\param pSrcVec1
+	\ru Входной вектор.
+	\en Input vec.
+	\~
+	\param pSrcVec2
+	\ru Вычитаемый вектор.
+	\en The deducted vec.
+	\~
+	\param nSize
+	\ru Размер векторов в элементах.
+	\en Vector size in elements.
+	\~
+	\retval pDstVec
+	\ru Результирующий вектор.
+	\en The result vec.
+	\~
+	\return \e void
+
+	\~
+	\par
+	\xmlonly
+	<testperf>
+	<param name="pSrcVec1"> im0 im1 </param>
+	<param name="pSrcVec2"> im0 im1 </param>
+	<param name="pDstVec"> im2 im3 </param>
+	<param name="nSize"> 2048 </param>
+	</testperf>
+	<testperf>
+	<param name="pSrcVec1"> im0 </param>
+	<param name="pSrcVec2"> im1 </param>
+	<param name="pDstVec"> im2 </param>
+	<param name="nSize"> 8 128 1024 2048 </param>
+	</testperf>
+	\endxmlonly
+
+
+	*/
+	//! \{
+void nmppsAbsDiff_32f(const nm32f* pSrcVec1, nm32f* pSrcVec2, nm32f* pDstVec, int nSize);
+//! \}
 //*****************************************************************************
 
     /**

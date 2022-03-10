@@ -12,7 +12,7 @@
 //!
 //! \file   nmppirgb_y.asm
 //! \author S. Svechnikov
-//! \brief  Преобразование из RGB в Gray
+//! \brief  РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РёР· RGB РІ Gray
 //!
 //! \endif
 //!

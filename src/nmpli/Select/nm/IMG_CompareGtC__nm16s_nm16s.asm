@@ -2,7 +2,7 @@
 //
 //  $Workfile:: compare_gtc16. $
 //
-//  Библиотека обработки изображений
+//  Р‘РёР±Р»РёРѕС‚РµРєР° РѕР±СЂР°Р±РѕС‚РєРё РёР·РѕР±СЂР°Р¶РµРЅРёР№
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   Add36_16.asm
-//! \author Сергей Свечников
-//! \brief  Сравнение с порогом 16-разрядных пикселей. С ROI.
+//! \author РЎРµСЂРіРµР№ РЎРІРµС‡РЅРёРєРѕРІ
+//! \brief  РЎСЂР°РІРЅРµРЅРёРµ СЃ РїРѕСЂРѕРіРѕРј 16-СЂР°Р·СЂСЏРґРЅС‹С… РїРёРєСЃРµР»РµР№. РЎ ROI.
 //!
 //! \endif
 //!
@@ -47,12 +47,12 @@ no_remainder: label;
    gr5=[--ar5];  // W width	(pixels)
    gr6=[--ar5]with gr2=gr5>>7;    // gr6=H height, gr2=width/128
 
-ar2=80000c00h;//!!  для отладки
+ar2=80000c00h;//!!  РґР»СЏ РѕС‚Р»Р°РґРєРё
    sb=20002h;
    ar5=80008000h with gr1=gr2<<6; 
    nb1=ar5 with gr0-=gr1;
    wtw;
-   gr3=31 with gr5=gr5>>2;  // W в четвёрках пикселей
+   gr3=31 with gr5=gr5>>2;  // W РІ С‡РµС‚РІС‘СЂРєР°С… РїРёРєСЃРµР»РµР№
    ar3=CC with gr3=gr5 and gr3;  // new rep count
    f1cr=80008000h with gr4-=gr1;
    if <>0 goto with_remainder with gr3--;

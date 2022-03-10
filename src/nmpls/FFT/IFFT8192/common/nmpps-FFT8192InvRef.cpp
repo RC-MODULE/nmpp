@@ -78,7 +78,7 @@ int nmppsFFT8192Inv28888Ref_f(const nm32sc* src, nm32sc* dst)
 		X[i].re=src[i].re;
 		X[i].im=src[i].im;
 	}
-	// Вывод:
+	// Р’С‹РІРѕРґ:
 	//----------------- 0 -----------------
 	//for(int k=0; k<8192; k++){
 	//	y[k]=expIFFT<8192>(0)*x[0];

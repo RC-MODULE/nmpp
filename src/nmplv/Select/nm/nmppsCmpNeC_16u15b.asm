@@ -25,7 +25,7 @@ global _nmppsCmpNeC_16u15b:label;
     gr1 = [--ar5] with gr5 >>= 2;   // shTrueFlag.
 
         //--------------------------------
-        // Заполнение матрицы и векторов.
+        // Р—Р°РїРѕР»РЅРµРЅРёРµ РјР°С‚СЂРёС†С‹ Рё РІРµРєС‚РѕСЂРѕРІ.
     ar1 = _nmppsTmpBuffer64_L_;
     call nmppsBuildDiagWeights16_;
     call nmppsDupValueInVector16_ with gr1 = gr7;

@@ -2,7 +2,7 @@
 //
 //  $Workfile:: iResampleDown2_cn.cp $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   ResampleDown2X_C7.cpp
-//! \author Павел Лукашевич
-//! \brief  Функции изменения размеров изображения.
+//! \author РџР°РІРµР» Р›СѓРєР°С€РµРІРёС‡
+//! \brief  Р¤СѓРЅРєС†РёРё РёР·РјРµРЅРµРЅРёСЏ СЂР°Р·РјРµСЂРѕРІ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ.
 //!
 //! \endif
 //!
@@ -74,7 +74,7 @@ void nmppiResampleDown2X_8u16u(
 
 //!
 //! \restr 
-//!		\ru Высота должна делиться на 4.
+//!		\ru Р’С‹СЃРѕС‚Р° РґРѕР»Р¶РЅР° РґРµР»РёС‚СЊСЃСЏ РЅР° 4.
 //!     \en height should be devisable by 4.
 //!
 //! \perfinclude _nmppiResampleDown2Y__FPUcPUsiiPv.html
@@ -96,7 +96,7 @@ void nmppiResampleDown2Y_8u16u_tmp(
 
 //!
 //! \restr 
-//!		\ru Высота должна делиться на 4. 
+//!		\ru Р’С‹СЃРѕС‚Р° РґРѕР»Р¶РЅР° РґРµР»РёС‚СЊСЃСЏ РЅР° 4. 
 //!     \en height should be devisable by 4.
 //!
 //! \perfinclude _nmppiResampleDown2XY__FPUcPUsiiPlPv.html
@@ -118,7 +118,7 @@ void nmppiResampleDown2XY_8u16u_tmp(
 
 //!
 //! \restr 
-//!		\ru Высота должна делиться на 8.
+//!		\ru Р’С‹СЃРѕС‚Р° РґРѕР»Р¶РЅР° РґРµР»РёС‚СЊСЃСЏ РЅР° 8.
 //!     \en height should be devisable by 8.
 //!
 //! \perfinclude _nmppiResampleDown2XY__FPUcPUciiPlPv.html
@@ -139,7 +139,7 @@ void nmppiResampleDown2XY_8u8u_tmp(
 
 //!
 //! \restr 
-//!		\ru Высота должна делиться на 4. 
+//!		\ru Р’С‹СЃРѕС‚Р° РґРѕР»Р¶РЅР° РґРµР»РёС‚СЊСЃСЏ РЅР° 4. 
 //!     \en height should be devisable by 4.
 //!
 //! \perfinclude _nmppiResampleDown2XY__FPUsPUsiiPlPv.html

@@ -1,4 +1,4 @@
-global _nmppsConvert_4s2s: label;// объ¤вление глобальной метки
+global _nmppsConvert_4s2s: label;// РѕР±СЉВ¤РІР»РµРЅРёРµ РіР»РѕР±Р°Р»СЊРЅРѕР№ РјРµС‚РєРё
 data ".data_matr_4s2s"
 	local matr1: long[32]=(0000000100000000hl,0000000400000000hl,
 						   0000001000000000hl,0000004000000000hl,

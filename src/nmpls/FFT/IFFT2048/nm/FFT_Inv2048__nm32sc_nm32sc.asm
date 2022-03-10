@@ -118,7 +118,7 @@ begin ".text_fft"
 //                                                                          //
 //////////////////////////////////////////////////////////////////////////////
 
-// Ticks:52637 (с вызовом из СИ c двумя нормализациями)
+// Ticks:52637 (СЃ РІС‹Р·РѕРІРѕРј РёР· РЎР c РґРІСѓРјСЏ РЅРѕСЂРјР°Р»РёР·Р°С†РёСЏРјРё)
 
 <_FFT_Inv2048>
 .branch;
@@ -171,7 +171,7 @@ begin ".text_fft"
 	//	First radix-2 FFT
 	//--------------------------------------
 	// transforms input array X[i] ,where i=0..2047 (X[i]=[X[i].imag|X[i].real]), 
-	// в array S[i],where i=0..4095 (S[i]=[S[i].imag|S[i].real]), 
+	// РІ array S[i],where i=0..4095 (S[i]=[S[i].imag|S[i].real]), 
 	// array X begins from address GSrcBuffer
 	// array S begins from address LBuffer
 	// array S consists two subarrays S[0]..S[2047],conjg(S[0])..conjg(S[2047])
@@ -214,7 +214,7 @@ begin ".text_fft"
 
 	//////////////////////////////////////////////////////////////////
 	//------- Second radix-32 FFT ----------------
-	// transforms input array S[i],where i=0..2047 с conjg(S[]) 
+	// transforms input array S[i],where i=0..2047 СЃ conjg(S[]) 
 	// into array T[i],where i=0..2047 (T[i]=[T[i].imag|T[i].real]), 
 	// input  array S begins from address LBuffer1
 	// output array T begins from address LBuffer2

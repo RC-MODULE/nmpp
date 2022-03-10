@@ -279,8 +279,8 @@ gr4=15;
 	//////////////////////////////////////////////////////////////////
 	//------- third radix-16 FFT ----------------
 	// transforms input array T[i],where i=0..1023 (S[i]=[S[i].imag|S[i].real]), 
-	// at I stageå into temporary array YY[i],where i=0..2047 (YY[i]=[YY[i].imag|YY[i].real]), 
-	// and then at II stageå array YY transformed into result array Y
+	// at I stageĞµ into temporary array YY[i],where i=0..2047 (YY[i]=[YY[i].imag|YY[i].real]), 
+	// and then at II stageĞµ array YY transformed into result array Y
 	// Y[i],where i=0..1023 (Y[i]=[Y[i].imag|Y[i].real]), 
 	// array T  begins from address	LBuffer1
 	// array YY begins from address LBuffer2

@@ -42,7 +42,7 @@ global _void._.8.8nmppsMinNV_.1int._.0.0.9._int.9._int._.0.9._int.2 :label;
 	gr4 = [--ar5];						// numVecs
 	
 								
-	ar0=ar7 with gr7=gr4>>1;			// копируем массив pSrcVec1 в стек, потому что мы его затрем
+	ar0=ar7 with gr7=gr4>>1;			// РєРѕРїРёСЂСѓРµРј РјР°СЃСЃРёРІ pSrcVec1 РІ СЃС‚РµРє, РїРѕС‚РѕРјСѓ С‡С‚Рѕ РјС‹ РµРіРѕ Р·Р°С‚СЂРµРј
 
 	<CopyPtr>
 	if > delayed goto CopyPtr with gr7--;

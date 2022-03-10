@@ -16,7 +16,7 @@ void nmppsExp_64f(const nm64f *pSrcVec, nm64f *pDstVec, int nSize)
 		int i;
 		for (i=0;i<nSize;i++)
 			b4[i]=pSrcVec[i];
-		nmppsExp_64f( o4, b4, 4 );//	рекурсия!
+		nmppsExp_64f( o4, b4, 4 );//	СЂРµРєСѓСЂСЃРёСЏ!
 		for (i=0;i<nSize;i++)
 			pDstVec[i]=o4[i];
 		return;
@@ -130,19 +130,19 @@ void nmppsExp_64f(const nm64f *pSrcVec, nm64f *pDstVec, int nSize)
 		//			}
 		//		}
 		int i;
-		for (i=0; i<3; i++){	//	брать константы из vreg5
+		for (i=0; i<3; i++){	//	Р±СЂР°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚С‹ РёР· vreg5
 			asm ( 	ALL_FPU (".double vreg2 - .retrive(vreg5), set mask if >;")
 					ALL_FPU (".double vreg2= mask ?   vreg2 - .retrive(vreg5) : vreg2;")
 					ALL_FPU (".double vreg0= mask ?   vreg0 * .retrive(vreg5) : vreg0;")
 					ALL_FPU (".double vreg4= mask ?   vreg4 * .retrive(vreg5) : vreg4;")
-						: "+a" (cfs) );	//	провязываем инструкции зависимостями
+						: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		}
-		for (i=0; i<7; i++){	//	брать константы из vreg6
+		for (i=0; i<7; i++){	//	Р±СЂР°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚С‹ РёР· vreg6
 			asm ( 	ALL_FPU (".double vreg2 - .retrive(vreg6), set mask if >;")
 					ALL_FPU (".double vreg2= mask ?   vreg2 - .retrive(vreg6) : vreg2;")
 					ALL_FPU (".double vreg0= mask ?   vreg0 * .retrive(vreg6) : vreg0;")
 					ALL_FPU (".double vreg4= mask ?   vreg4 * .retrive(vreg6) : vreg4;")
-						: "+a" (cfs) );	//	провязываем инструкции зависимостями
+						: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		}
 		//		if (x<0){
 		//			x= -xx;

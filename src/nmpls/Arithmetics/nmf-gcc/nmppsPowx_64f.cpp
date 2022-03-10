@@ -10,7 +10,7 @@ void nmppsPowx_64f(const nm64f *pSrcVec, nm64f *pDstVec, nm32u Deg, int nSize)
 		int i;
 		for (i=0;i<nSize;i++)
 			b4[i]=pSrcVec[i];
-		nmppsPowx_64f( o4, b4, Deg, 4 );//	ðåêóðñèÿ!
+		nmppsPowx_64f( o4, b4, Deg, 4 );//	Ñ€ÐµÐºÑƒÑ€ÑÐ¸Ñ!
 		for (i=0;i<nSize;i++)
 			pDstVec[i]=o4[i];
 		return;
@@ -75,7 +75,7 @@ void nmppsPowx_64f(const nm64f *pSrcVec, nm64f *pDstVec, nm32u Deg, int nSize)
 				"fpu 1  .double vreg0= vreg1 * .retrive(vreg5) + .retrive(vreg6);\n\t"
 				"fpu 2  .double vreg0= vreg1 * .retrive(vreg5) + .retrive(vreg6);\n\t"
 				"fpu 3  .double vreg0= vreg1 * .retrive(vreg5) + .retrive(vreg6);\n\t"
-					: "+a" (cfs) );	//	ïðîâÿçûâàåì èíñòðóêöèè çàâèñèìîñòÿìè
+					: "+a" (cfs) );	//	Ð¿Ñ€Ð¾Ð²ÑÐ·Ñ‹Ð²Ð°ÐµÐ¼ Ð¸Ð½ÑÑ‚Ñ€ÑƒÐºÑ†Ð¸Ð¸ Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚ÑÐ¼Ð¸
 
 		while ( pp!=0 ){
 			if ( pp&1 ){
@@ -84,7 +84,7 @@ void nmppsPowx_64f(const nm64f *pSrcVec, nm64f *pDstVec, nm32u Deg, int nSize)
 						"fpu 1  .double vreg0= vreg0 * vreg1;\n\t"
 						"fpu 2  .double vreg0= vreg0 * vreg1;\n\t"
 						"fpu 3  .double vreg0= vreg0 * vreg1;\n\t"
-							: "+a" (cfs) );	//	ïðîâÿçûâàåì èíñòðóêöèè çàâèñèìîñòÿìè
+							: "+a" (cfs) );	//	Ð¿Ñ€Ð¾Ð²ÑÐ·Ñ‹Ð²Ð°ÐµÐ¼ Ð¸Ð½ÑÑ‚Ñ€ÑƒÐºÑ†Ð¸Ð¸ Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚ÑÐ¼Ð¸
 			}
 			//  x^2, x^4, x^8,...
 			pp /=2;
@@ -94,7 +94,7 @@ void nmppsPowx_64f(const nm64f *pSrcVec, nm64f *pDstVec, nm32u Deg, int nSize)
 					"fpu 1  .double vreg1= vreg1 * vreg1;\n\t"
 					"fpu 2  .double vreg1= vreg1 * vreg1;\n\t"
 					"fpu 3  .double vreg1= vreg1 * vreg1;\n\t"
-						: "+a" (cfs) );	//	ïðîâÿçûâàåì èíñòðóêöèè çàâèñèìîñòÿìè
+						: "+a" (cfs) );	//	Ð¿Ñ€Ð¾Ð²ÑÐ·Ñ‹Ð²Ð°ÐµÐ¼ Ð¸Ð½ÑÑ‚Ñ€ÑƒÐºÑ†Ð¸Ð¸ Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚ÑÐ¼Ð¸
 		}
 
 

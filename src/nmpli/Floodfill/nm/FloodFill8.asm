@@ -14,15 +14,15 @@ const NHEIGHT = 1080;
 //	// size of spot should be						//
 //	// 	8 * ( (nHeight-2)*(nWidth-2)/2 + nSpotFict )  of int		//
 // 	//	nSpotFict = 1 + [((nHeight-2)*(nWidth-2)/2-1)/255] (???)	//
-//		– количество фиктивных пятен					//
+//		вЂ“ РєРѕР»РёС‡РµСЃС‚РІРѕ С„РёРєС‚РёРІРЅС‹С… РїСЏС‚РµРЅ					//
 //										//
 //	return value:	nSpot - number of spots (>0)				//
 //			or nError - error-code (<0)				//
 //										//
 //typedef struct spot_struct{							//
-//	int xMin, yMin, xMax, yMax;  // коородинаты минимального прямоугольника, содержащего пятно
-//	int noPxl;  // номер начального пиксела следующего пятна в массиве  pixels
-//	int dtSpot;     // время обработки пятна (в тактах процессора)		//
+//	int xMin, yMin, xMax, yMax;  // РєРѕРѕСЂРѕРґРёРЅР°С‚С‹ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°, СЃРѕРґРµСЂР¶Р°С‰РµРіРѕ РїСЏС‚РЅРѕ
+//	int noPxl;  // РЅРѕРјРµСЂ РЅР°С‡Р°Р»СЊРЅРѕРіРѕ РїРёРєСЃРµР»Р° СЃР»РµРґСѓСЋС‰РµРіРѕ РїСЏС‚РЅР° РІ РјР°СЃСЃРёРІРµ  pixels
+//	int dtSpot;     // РІСЂРµРјСЏ РѕР±СЂР°Р±РѕС‚РєРё РїСЏС‚РЅР° (РІ С‚Р°РєС‚Р°С… РїСЂРѕС†РµСЃСЃРѕСЂР°)		//
 //	} spot_struct;								//
 //										//
 //										//
@@ -87,14 +87,14 @@ begin ".text"
 ar5=sp-2;
 PUSH_REGS();
 
-// Засечь начальное время
+// Р—Р°СЃРµС‡СЊ РЅР°С‡Р°Р»СЊРЅРѕРµ РІСЂРµРјСЏ
 ////////////////////////////////////////////////
         call _clock;                        //
         [T0]=gr7;                          //
 ////////////////////////////////////////////////
 
 
-// Считать входные параметры
+// РЎС‡РёС‚Р°С‚СЊ РІС…РѕРґРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹
 //  int FloodFill8(void* src, void *dst, int nWidth, int nHeight, spot_struct *spot, unsigned *pixels,
 //
 ar0 = [--ar5];  // src
@@ -534,7 +534,7 @@ if < goto whileFIFO;						//
 gr2=[pixels];
 gr1=[nPxlMin]		with gr7=gr6-gr2;  //gr7=nPxlSpot
 
-// если (lDropSpot==0), то обход l_dropSpot
+// РµСЃР»Рё (lDropSpot==0), С‚Рѕ РѕР±С…РѕРґ l_dropSpot
 gr3 = [lDropSpot];
 gr5=[nPxlMax]		with gr3;
 if =0 delayed goto calcRect1	with gr7-gr1; 
@@ -582,7 +582,7 @@ if < goto noXmax	with gr7--;
 <noXmax>
 if > goto calcRect;
 
-// если (lDropSpot==0), то обход l_dropSpot
+// РµСЃР»Рё (lDropSpot==0), С‚Рѕ РѕР±С…РѕРґ l_dropSpot
 gr3 = [lDropSpot];
 gr5=[dXYmin1]		with gr3;
 if =0 delayed goto theSpot	with gr1=gr2-gr0; // gr1=dY
@@ -680,21 +680,21 @@ if =0 delayed goto if_mSpot with gr7-gr0;  // (dtRest-dtSpot)	//
   [ar0++]=gr7;  // spot[0].dtRest			//
   nul;							//
 							//
-// если НЕ осталось предполагаемое время dtSpot, то выход из программы
+// РµСЃР»Рё РќР• РѕСЃС‚Р°Р»РѕСЃСЊ РїСЂРµРґРїРѕР»Р°РіР°РµРјРѕРµ РІСЂРµРјСЏ dtSpot, С‚Рѕ РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹
 if < delayed goto exitProg	with gr0 = false; // dtRest-dtSpot<0  gr0=1
 				with gr0++;		//
   nul;							//
   nul;							//
 							//
 <if_mSpot>						//
-// если уже найдено mSpot (>0) пятен, то выход из программы
+// РµСЃР»Рё СѓР¶Рµ РЅР°Р№РґРµРЅРѕ mSpot (>0) РїСЏС‚РµРЅ, С‚Рѕ РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹
 gr1=[mSpot];						//
 gr3=[nSpot]	with gr1;				//
 							//
-// если mSpot==0, то проверка на nSpot не нужна		//
+// РµСЃР»Рё mSpot==0, С‚Рѕ РїСЂРѕРІРµСЂРєР° РЅР° nSpot РЅРµ РЅСѓР¶РЅР°		//
 if =0 goto nextJPP	with gr3-gr1;			//
 							//
-// если уже найдено mSpot (>0) пятен, то выход из программы
+// РµСЃР»Рё СѓР¶Рµ РЅР°Р№РґРµРЅРѕ mSpot (>0) РїСЏС‚РµРЅ, С‚Рѕ РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹
 if >= delayed goto exitProg	with gr0=false;  // nSpot >= mSpot  gr0=2
 			with gr0++;			//
 			with gr0++;			//
@@ -708,7 +708,7 @@ gr2=[jFF]	with gr3=true;
 gr4=[jPxl]	with gr3 >>= 30;
 ar0=[srcIJ]	with gr2 R<<= 8;
 gr5=[j]		with gr4++;
-gr1=[i]		with gr5++;  // gr5=j+2 - след пятно м.б. только через 1 пиксел
+gr1=[i]		with gr5++;  // gr5=j+2 - СЃР»РµРґ РїСЏС‚РЅРѕ Рј.Р±. С‚РѕР»СЊРєРѕ С‡РµСЂРµР· 1 РїРёРєСЃРµР»
 
 //--------------------------------------------------------
 <nextJ>
@@ -735,7 +735,7 @@ call _clock;			// gr7=clock		//
 gr0=[dtSpot]	with gr7=gr3-gr7;	// gr0=dtSpot  gr7=dtRest=dtFull-(clock-T0)
 		with gr7-gr0;		// (dtRest-dtSpot)
 							//
-// если НЕ осталось предполагаемое время dtSpot, то выход из программы
+// РµСЃР»Рё РќР• РѕСЃС‚Р°Р»РѕСЃСЊ РїСЂРµРґРїРѕР»Р°РіР°РµРјРѕРµ РІСЂРµРјСЏ dtSpot, С‚Рѕ РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹
 if < delayed goto exitProg	with gr0 = false; // dtRest-dtSpot<0  gr0=ExitCode
   nul				with gr0++;	  // gr0=ExitCode=1
   nul;							//
@@ -794,7 +794,7 @@ if =0 delayed goto nextJPP with gr7-gr0;  // (dtRest-dtSpot)	//
   [ar0++]=gr7;  // spot[0].dtRest				//
   nul;							//
 
-// если осталось предполагаемое время dtSpot идем на новое пятно
+// РµСЃР»Рё РѕСЃС‚Р°Р»РѕСЃСЊ РїСЂРµРґРїРѕР»Р°РіР°РµРјРѕРµ РІСЂРµРјСЏ dtSpot РёРґРµРј РЅР° РЅРѕРІРѕРµ РїСЏС‚РЅРѕ
 if >= goto nextJPP	with gr0=false;  // dtRest-dtSpot>=0
 							//
 goto exitProg		with gr0++;  // gr0=1		//

@@ -16,21 +16,21 @@ void nmppsLn_64f(const nm64f *pSrcVec, nm64f *pDstVec, int nSize)
 		int i;
 		for (i=0;i<nSize;i++)
 			b4[i]=pSrcVec[i];
-		nmppsLn_64f( o4, b4, 4 );//	рекурсия!
+		nmppsLn_64f( o4, b4, 4 );//	СЂРµРєСѓСЂСЃРёСЏ!
 		for (i=0;i<nSize;i++)
 			pDstVec[i]=o4[i];
 		return;
 	}
 
 	static const double coeffs[65]= { double( 0.7), pow(2.0, 1022),  double( -1022.0),
-           //  константы для
+           //  РєРѕРЅСЃС‚Р°РЅС‚С‹ РґР»СЏ
            //
            //    for (i=11;i>=0;i--){
            //        int pw=1<<i;
            //        double tr_h= pow( 2.0, pw );
-           //        if ( x>tr_h ){            константа 1 - tr_h
-           //            x /= tr_h;            константа 2 - 1/tr_h
-           //            res += pw;            константа 3 - pw
+           //        if ( x>tr_h ){            РєРѕРЅСЃС‚Р°РЅС‚Р° 1 - tr_h
+           //            x /= tr_h;            РєРѕРЅСЃС‚Р°РЅС‚Р° 2 - 1/tr_h
+           //            res += pw;            РєРѕРЅСЃС‚Р°РЅС‚Р° 3 - pw
            //        }
            //    }
 			pow(2.0, 512), pow(2.0, -512), double( 512.0), //     2^9 = 512
@@ -126,8 +126,8 @@ void nmppsLn_64f(const nm64f *pSrcVec, nm64f *pDstVec, int nSize)
 
 		nSize -= len*4;
 
-		//	Чтобы понять, что происходит, см. test.cpp, там реализация того же алгоритма
-		//	на чистом С
+		//	Р§С‚РѕР±С‹ РїРѕРЅСЏС‚СЊ, С‡С‚Рѕ РїСЂРѕРёСЃС…РѕРґРёС‚, СЃРј. test.cpp, С‚Р°Рј СЂРµР°Р»РёР·Р°С†РёСЏ С‚РѕРіРѕ Р¶Рµ Р°Р»РіРѕСЂРёС‚РјР°
+		//	РЅР° С‡РёСЃС‚РѕРј РЎ
 		//	READ
 		asm ( 	"vlen = %1;  							\n\t"
 				"fpu 0 rep vlen vreg1= [%0++]; 			\n\t"
@@ -144,45 +144,45 @@ void nmppsLn_64f(const nm64f *pSrcVec, nm64f *pDstVec, int nSize)
 		//	NaN
 		asm ( 	ALL_FPU (".float vreg1 + vreg1, set mask if >;")
 				ALL_FPU (".float vreg7= not mask ?  vreg1 * .retrive(vreg6) : vreg7;")
-					: "+a" (cfs) );	//	провязываем инструкции зависимостями
+					: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 
-		//	Если аргумент мал (0.7 > х), домножаем на 2^1022
+		//	Р•СЃР»Рё Р°СЂРіСѓРјРµРЅС‚ РјР°Р» (0.7 > С…), РґРѕРјРЅРѕР¶Р°РµРј РЅР° 2^1022
 		asm ( 	ALL_FPU (".double vreg1 - .retrive(vreg5), set mask if <;")
 				ALL_FPU (".double vreg1= mask ?   vreg1 * .retrive(vreg5) : vreg1;")
 				ALL_FPU (".double vreg7= mask ?   vreg7 + .retrive(vreg5) : vreg7;")
-					: "+a" (cfs) );	//	провязываем инструкции зависимостями
+					: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		int i;
-		//	Двигаем аргумент к единице (сверху)
-		//	Было бы достаточно (i=0; i<13; i++), но в vreg5 не хватает места
+		//	Р”РІРёРіР°РµРј Р°СЂРіСѓРјРµРЅС‚ Рє РµРґРёРЅРёС†Рµ (СЃРІРµСЂС…Сѓ)
+		//	Р‘С‹Р»Рѕ Р±С‹ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ (i=0; i<13; i++), РЅРѕ РІ vreg5 РЅРµ С…РІР°С‚Р°РµС‚ РјРµСЃС‚Р°
 		for (i=0; i<9; i++){
 			asm ( 	ALL_FPU (".double vreg1 - .retrive(vreg5), set mask if >;")
 					ALL_FPU (".double vreg1= mask ?   vreg1 * .retrive(vreg5) : vreg1;")
 					ALL_FPU (".double vreg7= mask ?   vreg7 + .retrive(vreg5) : vreg7;")
-						: "+a" (cfs) );	//	провязываем инструкции зависимостями
+						: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		}
 		asm ( 	ALL_FPU (".double vreg1 - .retrive(vreg5), set mask if >;")
 				ALL_FPU (".double vreg1= mask ?   vreg1 * .retrive(vreg5) : vreg1;")
 				ALL_FPU (".double vreg7= mask ?   vreg7 + .retrive(vreg6) : vreg7;")
-					: "+a" (cfs) );	//	провязываем инструкции зависимостями
+					: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		for (i=0; i<3; i++){
 			asm ( 	ALL_FPU (".double vreg1 - .retrive(vreg6), set mask if >;")
 					ALL_FPU (".double vreg1= mask ?   vreg1 * .retrive(vreg6) : vreg1;")
 					ALL_FPU (".double vreg7= mask ?   vreg7 + .retrive(vreg6) : vreg7;")
-						: "+a" (cfs) );	//	провязываем инструкции зависимостями
+						: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		}
-		//	Двигаем аргумент к единице, теперь снизу (для 0.7 < х < 1)
+		//	Р”РІРёРіР°РµРј Р°СЂРіСѓРјРµРЅС‚ Рє РµРґРёРЅРёС†Рµ, С‚РµРїРµСЂСЊ СЃРЅРёР·Сѓ (РґР»СЏ 0.7 < С… < 1)
 		for (i=0; i<2; i++){
 			asm ( 	ALL_FPU (".double vreg1 - .retrive(vreg6), set mask if <;")
 					ALL_FPU (".double vreg1= mask ?   vreg1 * .retrive(vreg6) : vreg1;")
 					ALL_FPU (".double vreg7= mask ?   vreg7 + .retrive(vreg6) : vreg7;")
-						: "+a" (cfs) );	//	провязываем инструкции зависимостями
+						: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		}
 
 		asm ( 	ALL_FPU (".double vreg7= vreg7 * .retrive(vreg6);")//  res * log(2)
 				ALL_FPU (".double vreg1= vreg1 - .retrive(vreg6);")//  x = x-1;
 			    //  Taylor
-			    //  x^2 x^3 и т.д. не прибавляем сразу, а придерживаем,
-			    //  чтобы складывать от меньших к большим,- для лучшей точности
+			    //  x^2 x^3 Рё С‚.Рґ. РЅРµ РїСЂРёР±Р°РІР»СЏРµРј СЃСЂР°Р·Сѓ, Р° РїСЂРёРґРµСЂР¶РёРІР°РµРј,
+			    //  С‡С‚РѕР±С‹ СЃРєР»Р°РґС‹РІР°С‚СЊ РѕС‚ РјРµРЅСЊС€РёС… Рє Р±РѕР»СЊС€РёРј,- РґР»СЏ Р»СѓС‡С€РµР№ С‚РѕС‡РЅРѕСЃС‚Рё
 				ALL_FPU (".double vreg2= vreg1 * vreg1;")    // 2
 			    ALL_FPU (".double vreg3= vreg2 * vreg1;")    // 3
 			    ALL_FPU (".double vreg4= vreg2 * vreg2;")    // 4
@@ -210,7 +210,7 @@ void nmppsLn_64f(const nm64f *pSrcVec, nm64f *pDstVec, int nSize)
 			    ALL_FPU (".double vreg7= vreg3 * .retrive(vreg6) + vreg7;")
 			    ALL_FPU (".double vreg7= vreg2 * .retrive(vreg6) + vreg7;")
 			    ALL_FPU (".double vreg7= vreg1 + vreg7;")
-					: "+a" (cfs) );	//	провязываем инструкции зависимостями
+					: "+a" (cfs) );	//	РїСЂРѕРІСЏР·С‹РІР°РµРј РёРЅСЃС‚СЂСѓРєС†РёРё Р·Р°РІРёСЃРёРјРѕСЃС‚СЏРјРё
 		//	WRITE
 		asm ( 	"vlen = %2;  \n\t"
 				"fpu 0 rep vlen [%0++] = vreg7; 	\n\t"

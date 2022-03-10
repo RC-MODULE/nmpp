@@ -12,7 +12,7 @@
 //!
 //! \file  nmppsClipRShiftConvert_AddC_Ext_.asm
 //! \author Sergey Landyshev
-//! \brief  \ru Функции преобразования елементов вектора.
+//! \brief  \ru Р¤СѓРЅРєС†РёРё РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ РµР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°.
 //!			\en Element conversion functions
 //!
 //! \endif

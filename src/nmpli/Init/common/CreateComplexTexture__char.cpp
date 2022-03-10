@@ -2,7 +2,7 @@
 //
 //  $Workfile:: CellTexture.cpp             $
 //
-//  <Íàçâàíèå áèáëèîòåêè>
+//  <ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸>
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -12,7 +12,7 @@
 //!
 //! \file   CellTexture.cpp
 //! \author Sergey V. Vaganov esq.
-//! \brief  <Êðàòêîå îïèñàíèå>
+//! \brief  <ÐšÑ€Ð°Ñ‚ÐºÐ¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ>
 //!
 //! \endif
 //!

@@ -33,11 +33,11 @@ global _nmppsCmpEqC_4u3b:label;
     gr1 = [--ar5] with gr5 >>= 4;   // shTrueFlag.
 
         //--------------------------------
-        // Заполнение матрицы и векторов.
+        // Р—Р°РїРѕР»РЅРµРЅРёРµ РјР°С‚СЂРёС†С‹ Рё РІРµРєС‚РѕСЂРѕРІ.
     ar1 = _nmppsTmpBuffer64_L_;
-    call nmppsBuildDiagWeights4_;     			//      ar1 - Буфер весов.   	//      gr1 - значение (8 бит) (shTrueFlag)	// Изменяет регистры: ar1.
-    call nmppsDupValueInVector4_;     			//      ar1 - Вектор.   		//      gr1 - значение (8 бит) (shTrueFlag)	// Изменяет регистры: ar1, 
-    call nmppsDupValueInVector4_ with gr1 = gr7;//      ar1 - Вектор.   		//      gr1 - значение (8 бит) (shCmpVal)   // Изменяет регистры: ar1, 
+    call nmppsBuildDiagWeights4_;     			//      ar1 - Р‘СѓС„РµСЂ РІРµСЃРѕРІ.   	//      gr1 - Р·РЅР°С‡РµРЅРёРµ (8 Р±РёС‚) (shTrueFlag)	// РР·РјРµРЅСЏРµС‚ СЂРµРіРёСЃС‚СЂС‹: ar1.
+    call nmppsDupValueInVector4_;     			//      ar1 - Р’РµРєС‚РѕСЂ.   		//      gr1 - Р·РЅР°С‡РµРЅРёРµ (8 Р±РёС‚) (shTrueFlag)	// РР·РјРµРЅСЏРµС‚ СЂРµРіРёСЃС‚СЂС‹: ar1, 
+    call nmppsDupValueInVector4_ with gr1 = gr7;//      ar1 - Р’РµРєС‚РѕСЂ.   		//      gr1 - Р·РЅР°С‡РµРЅРёРµ (8 Р±РёС‚) (shCmpVal)   // РР·РјРµРЅСЏРµС‚ СЂРµРіРёСЃС‚СЂС‹: ar1, 
         //--------------------------------
     
     ar1 = _nmppsTmpBuffer64_L_;

@@ -70,7 +70,7 @@ void nmppsDFT16Fwd_RefFloat(const nm32sc* src, nm32sc* dst)
 }
 
 
-// разделение по частоте 
+// СЂР°Р·РґРµР»РµРЅРёРµ РїРѕ С‡Р°СЃС‚РѕС‚Рµ 
 void nmppsFFT16Fwd2x8_RefFloat(const nm32sc* src, nm32sc* dst)
 {
 	vec<cmplx<double> > X(16);
@@ -96,7 +96,7 @@ void nmppsFFT16Fwd2x8_RefFloat(const nm32sc* src, nm32sc* dst)
 	//for (int i = 0; i < 16; i++)
 	//	for (int j = 0; j < 8; j++)
 	//		for (int k = 0; k < 2; k++)
-	//			Y[i] += expFFT<16>(i*(j+8*k))*X[j+8*k]; // разделение по частоте : бабочки через 8 отсчетов 
+	//			Y[i] += expFFT<16>(i*(j+8*k))*X[j+8*k]; // СЂР°Р·РґРµР»РµРЅРёРµ РїРѕ С‡Р°СЃС‚РѕС‚Рµ : Р±Р°Р±РѕС‡РєРё С‡РµСЂРµР· 8 РѕС‚СЃС‡РµС‚РѕРІ 
 	//------------- 1.1 ---------------
 	//for (int i = 0; i < 16; i++)
 	//	for (int j = 0; j < 8; j++)
@@ -260,7 +260,7 @@ void nmppsFFT16Fwd2x8_RefInt(const nm32sc* src, nm32sc* dst)
 
 
 // http://ru.dsplib.org/content/fft_dec_in_time/fft_dec_in_time.html
-// алогритм БПФ с прореживанием по времени
+// Р°Р»РѕРіСЂРёС‚Рј Р‘РџР¤ СЃ РїСЂРѕСЂРµР¶РёРІР°РЅРёРµРј РїРѕ РІСЂРµРјРµРЅРё
 void nmppsFFT16Fwd8x2Time_RefFloat(const nm32sc* src, nm32sc* dst)
 {
 	vec<cmplx<double> > X(16);
@@ -284,11 +284,11 @@ void nmppsFFT16Fwd8x2Time_RefFloat(const nm32sc* src, nm32sc* dst)
 	//	for (int j = 0; j < 16; j++)
 	//		Y[i] += expFFT<16>(i*j)*X[j];
 	//------------- 1.0 ---------------
-	// j:= 2*j+k j=[0..7], k=[0,1]		// разделение по времени: бабочки через 2 отсчета
+	// j:= 2*j+k j=[0..7], k=[0,1]		// СЂР°Р·РґРµР»РµРЅРёРµ РїРѕ РІСЂРµРјРµРЅРё: Р±Р°Р±РѕС‡РєРё С‡РµСЂРµР· 2 РѕС‚СЃС‡РµС‚Р°
 	//for (int i = 0; i < 16; i++)
 	//	for (int j = 0; j < 8; j++)
 	//		for (int k = 0; k < 2; k++)
-	//			Y[i] += expFFT<16>(i*(2 * j + k))*X[2 * j + k];  // разделение по времени: бабочки через 2 отсчета
+	//			Y[i] += expFFT<16>(i*(2 * j + k))*X[2 * j + k];  // СЂР°Р·РґРµР»РµРЅРёРµ РїРѕ РІСЂРµРјРµРЅРё: Р±Р°Р±РѕС‡РєРё С‡РµСЂРµР· 2 РѕС‚СЃС‡РµС‚Р°
 	//------------- 1.1 ---------------
 	//for (int i = 0; i < 16; i++)
 	//	for (int j = 0; j < 8; j++)
@@ -388,7 +388,7 @@ void nmppsFFT16Fwd8x2Time_RefFloat(const nm32sc* src, nm32sc* dst)
 }
 
 
-// алогритм БПФ с прореживанием по времени и частоте
+// Р°Р»РѕРіСЂРёС‚Рј Р‘РџР¤ СЃ РїСЂРѕСЂРµР¶РёРІР°РЅРёРµРј РїРѕ РІСЂРµРјРµРЅРё Рё С‡Р°СЃС‚РѕС‚Рµ
 
 void nmppsFFT16Fwd242_RefFloat(const nm32sc* src, nm32fc* dst)
 {
@@ -410,7 +410,7 @@ void nmppsFFT16Fwd242_RefFloat(const nm32sc* src, nm32fc* dst)
 	A.reset();
 	B.reset();
 
-	// предыдущий вывод в предыдущей функции
+	// РїСЂРµРґС‹РґСѓС‰РёР№ РІС‹РІРѕРґ РІ РїСЂРµРґС‹РґСѓС‰РµР№ С„СѓРЅРєС†РёРё
 	//------------- 10 ---------------
 	//for (int i = 0; i < 8; i++)
 	//	for (int j = 0; j < 8; j++)
@@ -810,7 +810,7 @@ void nmppsFFT16Fwd242_RefNmc(const nm32sc* src, nm32sc* dst)
 // [8x2]	8-bit  scheme: 2*16+16+16+16 = 80 ?
 
 // http://ru.dsplib.org/content/fft_dec_in_freq/fft_dec_in_freq.html
-// алогритм бпф с прореживанием по частоте 
+// Р°Р»РѕРіСЂРёС‚Рј Р±РїС„ СЃ РїСЂРѕСЂРµР¶РёРІР°РЅРёРµРј РїРѕ С‡Р°СЃС‚РѕС‚Рµ 
 void nmppsFFT16Fwd2x8Freq_RefFloat(const nm32sc* src, nm32sc* dst)
 {
 	vec<cmplx<double> > X(16);
@@ -838,7 +838,7 @@ void nmppsFFT16Fwd2x8Freq_RefFloat(const nm32sc* src, nm32sc* dst)
 	//for (int i = 0; i < 16; i++)
 	//	for (int j = 0; j < 8; j++)
 	//		for (int k = 0; k < 2; k++)
-	//			Y[i] += expFFT<16>(i*j)*expFFT<16>(i* 8 * k)*X[j+8*k]; // разделение по частоте : бабочки через 8 отсчетов
+	//			Y[i] += expFFT<16>(i*j)*expFFT<16>(i* 8 * k)*X[j+8*k]; // СЂР°Р·РґРµР»РµРЅРёРµ РїРѕ С‡Р°СЃС‚РѕС‚Рµ : Р±Р°Р±РѕС‡РєРё С‡РµСЂРµР· 8 РѕС‚СЃС‡РµС‚РѕРІ
 	//																  
 	//-------------------------------
 	//i:=2*i+ii i=[0..7] ii=[0,1]

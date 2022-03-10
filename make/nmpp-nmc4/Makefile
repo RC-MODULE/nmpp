@@ -54,9 +54,9 @@ PROJECT          = libnmpp-$(ARCH)
 TMP_DIR          = Release
 OUT_DIR          = $(ROOT)/lib
 TARGET_LIB       = $(OUT_DIR)/$(PROJECT).a
-#INC_DIRS        =
-#SRC_DIRS        =
-include          $(ROOT)/make/src-nmc-int.mk
+INC_DIRS         = -I$(ROOT)/include
+SRC_DIRS         =
+
 #------------------------------------------------
 CC               = nmc-g++
 LD               = nmc-ld
@@ -66,7 +66,7 @@ ASM              = asm
 
 CXXFLAGS         = -m$(ARCH) $(INC_DIRS)  -std=c++11 -c -O2
 ARFLAGS          = rcs $(TARGET_LIB)
-ASFLAGS          = -m$(ARCH) -mgas -c $(INC_DIRS)
+ASFLAGS          = -m$(ARCH) -mgas -c $(INC_DIRS) -g
 ASMFLAGS         =-$(ARCH) -nmc4_fixed -nm2ms  -split_sir -W-111 -W-109 $(INC_DIRS) 
 
 ifdef DEBUG      
@@ -79,6 +79,14 @@ endif
 
 #=================== SOURCE & OBJECTS COLLECTION ===========================
 .SUFFIXES:
+
+DIRS        =
+include          $(ROOT)/make/src-nmc-fixed.mk
+include          $(ROOT)/make/src-nmc-risc.mk
+
+SRC_DIRS = $(DIRS)+ $(addsuffix /nm,$(DIRS)) + $(addsuffix /common,$(DIRS))
+
+
 # regular search of *.c *.cpp,*.asm,*.s *.S sources in all $(SRC_DIRS)
 ALL_CPP =$(notdir $(wildcard $(addsuffix /*.cpp,$(SRC_DIRS))))
 ALL_ASM =$(notdir $(wildcard $(addsuffix /*.asm,$(SRC_DIRS))))

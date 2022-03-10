@@ -32,22 +32,22 @@
 		\~
 
 	\f[
-        pVec[i]  =  nVal,
+        pDst[i]  =  val,
     \f]
 
 	\f[
-        i = \overline{0 \ldots nSize-1}
+        i = \overline{0 \ldots len-1}
     \f]
 
-    \param nSize
+    \param len
         \ru Размер вектора в элементах.
         \en Size of vec in elements.
 		\~
-    \param nVal
-        \ru Константа. Диапазон значений nVal должен соответсвовать типу результирующего вектора.
-        \en A constant. Range of nVal must correspond to type of result vec
+    \param val
+        \ru Константа. Диапазон значений val должен соответсвовать типу результирующего вектора.
+        \en A constant. Range of val must correspond to type of result vec
 		\~
-    \retval pVec
+    \retval pDst
         \ru Результирующий вектор.
         \en The result vec.
 		\~
@@ -57,30 +57,37 @@
     \par
     \xmlonly
         <testperf>
-	        <param name="pVec"> im0 im1 </param>
-	        <param name="nVal"> 555 </param>
-	        <param name="nSize"> 2048 </param>
+	        <param name="pDst"> im0 im1 </param>
+	        <param name="val"> 555 </param>
+	        <param name="len"> 2048 </param>
         </testperf>
         <testperf>
-	        <param name="pVec"> im0 </param>
-	        <param name="nVal"> 555 </param>
-	        <param name="nSize"> 8 128 1024 2048 </param>
+	        <param name="pDst"> im0 </param>
+	        <param name="val"> 555 </param>
+	        <param name="len"> 8 128 1024 2048 </param>
         </testperf>
     \endxmlonly
     */
     //! \{
 
-void nmppsSet_8s(nm8s* pVec,  int8b nVal, int nSize);
-void nmppsSet_16s(nm16s* pVec, int16b nVal, int nSize);
-void nmppsSet_32s(nm32s* pVec, int32b nVal, int nSize);
-void nmppsSet_64sp(nm64s* pVec, int64b* nVal, int nSize);
-__INLINE__ void nmppsSet_64s(nm64s* pVec, int64b  nVal, int nSize)  {nmppsSet_64sp((nm64s*) pVec, (int64b*)&nVal, nSize);}
+void nmppsSet_8s  (  int8b  val, nm8s*   pDst, int len);
+void nmppsSet_16s ( int16b  val, nm16s*  pDst, int len);
+void nmppsSet_32s ( int32b  val, nm32s*  pDst, int len);
+void nmppsSet_64s ( int64b  val, nm64s*  pDst, int len);
+void nmppsSet_64sc(int64sc  val, nm64sc* pDst, int len);
+//void nmppsSet_64sp( int64b* pVal,nm64s* pDst, int len);
+//__INLINE__ void nmppsSet_64s(nm64s* pDst, int64b  val, int len)  {nmppsSet_64sp((nm64s*) pDst, (int64b*)&val, len);}
 
-__INLINE__ void nmppsSet_8u(nm8u* pVec,  uint8b nVal, int nSize)	{nmppsSet_8s((nm8s*) pVec,  (int8b)nVal, nSize);}
-__INLINE__ void nmppsSet_16u(nm16u* pVec, uint16b nVal, int nSize)	{nmppsSet_16s((nm16s*) pVec, (int16b)nVal, nSize);}
-__INLINE__ void nmppsSet_32u(nm32u* pVec, uint32b nVal, int nSize)	{nmppsSet_32s((nm32s*) pVec, (int32b)nVal, nSize);}
-__INLINE__ void nmppsSet_64u(nm64u* pVec, uint64b  nVal, int nSize)	{nmppsSet_64s((nm64s*) pVec, (int64b)nVal, nSize);}
-__INLINE__ void nmppsSet_64up(nm64u* pVec, uint64b* nVal, int nSize){nmppsSet_64sp((nm64s*) pVec, (int64b*)nVal, nSize);}
+__INLINE__ void nmppsSet_8u ( uint8b val, nm8u*  pDst, int len) {nmppsSet_8s ( (int8b)val,  (nm8s*) pDst, len);}
+__INLINE__ void nmppsSet_16u(uint16b val, nm16u* pDst, int len) {nmppsSet_16s((int16b)val, (nm16s*) pDst, len);}
+__INLINE__ void nmppsSet_32u(uint32b val, nm32u* pDst, int len) {nmppsSet_32s((int32b)val, (nm32s*) pDst, len);}
+__INLINE__ void nmppsSet_64u(uint64b val, nm64u* pDst, int len) {nmppsSet_64s((int64b)val, (nm64s*) pDst, len);}
+
+//__INLINE__ void nmppsSet_16sc (nm16sc val, nm16sc* pDst, int len);
+//__INLINE__ void nmppsSet_32sc (nm32sc val, nm32sc* pDst, int len);
+
+
+//__INLINE__ void nmppsSet_64up(nm64u* pDst, uint64b* val, int len){nmppsSet_64sp((nm64s*) pDst, (int64b*)val, len);}
 
 
     //! \}

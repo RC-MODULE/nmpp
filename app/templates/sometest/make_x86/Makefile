@@ -6,7 +6,7 @@ PROJECT = test-x86
 #TARGET  = $(call OSX,bin/x64/Release/$(PROJECT))
 
 ifeq ($(OS),Windows_NT)
-  TARGET  = bin\x64\Release\$(PROJECT)
+  TARGET  = bin\x86\Release\$(PROJECT)
   .DEFAULT_GOAL := vs2015
   SHELL = cmd
   OS_RD    = rd /Q /S 
@@ -15,7 +15,7 @@ ifeq ($(OS),Windows_NT)
   OS_MKDIR = mkdir  
   export CC = gcc
 else
-  TARGET  = bin/x64/Release/$(PROJECT)
+  TARGET  = bin/x86/Release/$(PROJECT)
   .DEFAULT_GOAL := gmake
   OS_RM    = rm -f -r
   OS_RD    = rm -d -r
@@ -25,7 +25,7 @@ endif
 
 
 
-vs2015:
+$(TARGET) vs2015:
 	premake5 vs2015
 	"$(VS140COMNTOOLS)vsvars32" && msbuild $(PROJECT).vcxproj /p:Configuration=Release /property:Platform=Win32
 	

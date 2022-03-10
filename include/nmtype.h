@@ -865,6 +865,8 @@ typedef UINT64 uint63b;
 typedef nm64u uint64b;
 
 
+
+
 //=============================================================================
 
 //================= nmget ===========================================
@@ -1389,7 +1391,7 @@ typedef unsigned long long uint64;
 typedef unsigned int uint32;
 #endif
 
-
+typedef nm64sc int64sc;
 typedef uint64 fifo64;
 typedef uint32 fseq32;
 

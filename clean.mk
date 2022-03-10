@@ -4,12 +4,12 @@ ifndef OS_RM
 endif
 
 kill: clean
-	-$(OS_RM) *.vcproj *.sln *.vcxproj *.db $(TARGET_LIB)
+	-$(OS_RM) *.vcproj *.sln *.vcxproj *.db $(TARGET_LIB) 
 
 clean:
 	-$(OS_RM) Release/*.o 
 	-$(OS_RM) Debug/*.o 
-	-$(OS_RM) $(TARGET) $(TARGET)_qemu *.abs *.elf *.ncb *.map *.elf *.suo *.user *.filters *.db *.make  *.opendb .objects nmc4vars_win.mk
+	-$(OS_RM) $(TARGET) $(TARGET)_qemu *.abs *.elf *.ncb *.map *.elf *.suo *.user *.filters *.db *.make  *.opendb .objects nmc4vars_win.mk .*
 	-$(OS_RD) Debug Release bin obj .vs
 	
 #	$(MAKE) del_files

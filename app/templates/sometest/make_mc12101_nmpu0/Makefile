@@ -34,18 +34,21 @@ SRC_ALL  = $(SRC_CPP) $(SRC_ASM) $(SRC_C)
 
 .DEFAULT_GOAL := $(TARGET)
 
-$(TARGET): $(SRC_ALL) Makefile
+$(TARGET): $(SRC_ALL) Makefile $(NMPP)/lib/libnmpp-nmc4f.a
 	$(CC) -o$(TARGET) $(CXXFLAGS) $(LDFLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS)
 
 #PATH:=$(BSP)/bin;$(PATH)
 
 run: 	$(TARGET)
-	$(BOARD)run $(TARGET)
+	$(BOARD)run -v $(TARGET)
 
 qemu:	
-	$(MAKE) LIBS="-lnmpp-nmc4f -lc " -B
 	nmc-qemu $(TARGET)
-	$(OS_RM) $(TARGET)
+
+gdb :	
+	nmc-gdb  $(TARGET)
+
+$(MAKE) LIBS="-lnmpp-nmc4 -lc " -B TARGET=$(TARGET)_qemu
 
 	
 nmc4vars_win.mk:
@@ -56,3 +59,13 @@ vs2015:
 	
 vs2008:
 	premake5 vs2008		
+	
+test: .exitcode
+	
+.exitcode: $(TARGET) .test.bat
+	.test.bat 
+	
+.test.bat: 
+	@echo mc12101run $(TARGET) -v >.test.bat
+	@echo @echo %%errorlevel%% ^>.exitcode >>.test.bat
+		

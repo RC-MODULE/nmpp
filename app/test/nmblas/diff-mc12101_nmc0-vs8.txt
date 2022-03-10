@@ -1,3 +1,0 @@
-d:/git/nmblas/app/test/level2/sger
-d:/git/nmblas/app/test/level1/nmblas_dasum
-d:/git/nmblas/app/test/level1/nmblas_dasum

@@ -25,7 +25,7 @@ endif
 
 
 
-vs2015:
+$(TARGET) vs2015:
 	premake5 vs2015
 	"$(VS140COMNTOOLS)vsvars32" && msbuild $(PROJECT).vcxproj /p:Configuration=Release /property:Platform=x64
 	

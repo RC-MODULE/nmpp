@@ -17,6 +17,7 @@ LIBS     = nmpp-nmc3.lib libint05.lib
 TARGET   = main.abs
 CFG      = emu6405.cfg
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,..))
+SRC_CPP += $(wildcard $(addsuffix /*.cpp,.))
 SRC_ASM  = $(wildcard $(addsuffix /*.asm,..))
 
 

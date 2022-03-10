@@ -257,26 +257,26 @@ extern struct NmppsMallocSpec nmppsMallocSpec;
 		\~
     */
     //! \{
-void*  nmppsMalloc32  (unsigned sizeInt32);
-nm64s* nmppsMalloc_64s(unsigned nSize);
-nm1*   nmppsMalloc_1  (unsigned nSize) ;//{return  (nm1*  )nmppsMalloc_64s((nSize>>6) +1);}
-nm2s*  nmppsMalloc_2s (unsigned nSize) ;//{return  (nm2s* )nmppsMalloc_64s((nSize>>5) +1);}
-nm2u*  nmppsMalloc_2u (unsigned nSize) ;//{return  (nm2u* )nmppsMalloc_64s((nSize>>5) +1);}
-nm4s*  nmppsMalloc_4s (unsigned nSize) ;//{return  (nm4s* )nmppsMalloc_64s((nSize>>4) +1);}
-nm4u*  nmppsMalloc_4u (unsigned nSize) ;//{return  (nm4u* )nmppsMalloc_64s((nSize>>4) +1);}
-nm8u*  nmppsMalloc_8u (unsigned nSize) ;//{return  (nm8u* )nmppsMalloc_64s((nSize>>3) +1);}
-nm8s*  nmppsMalloc_8s (unsigned nSize) ;//{return  (nm8s* )nmppsMalloc_64s((nSize>>3) +1);}
-nm16u* nmppsMalloc_16u(unsigned nSize) ;//{return  (nm16u*)nmppsMalloc_64s((nSize>>2) +1);}
-nm16s* nmppsMalloc_16s(unsigned nSize) ;//{return  (nm16s*)nmppsMalloc_64s((nSize>>2) +1);}
-nm32u* nmppsMalloc_32u(unsigned nSize) ;//{return  (nm32u*)nmppsMalloc_64s((nSize>>1) +1);}
-nm32s* nmppsMalloc_32s(unsigned nSize) ;//{return  (nm32s*)nmppsMalloc_64s((nSize>>1) +1);}
-nm64u* nmppsMalloc_64u(unsigned nSize) ;//{return  (nm64u*)nmppsMalloc_64s(nSize);}
-
-nm32sc*  nmppsMalloc_32sc(unsigned sizeCmplxInt32);
-nm32fc*  nmppsMalloc_32fc(unsigned sizeCmplxFloat);
+void*  	 nmppsMalloc32    (unsigned sizeInt32);
+nm64s* 	 nmppsMalloc_64s  (unsigned nSize);
+nm1*   	 nmppsMalloc_1    (unsigned nSize) ;//{return  (nm1*  )nmppsMalloc_64s((nSize>>6) +1);}
+nm2s*  	 nmppsMalloc_2s   (unsigned nSize) ;//{return  (nm2s* )nmppsMalloc_64s((nSize>>5) +1);}
+nm2u*  	 nmppsMalloc_2u   (unsigned nSize) ;//{return  (nm2u* )nmppsMalloc_64s((nSize>>5) +1);}
+nm4s*  	 nmppsMalloc_4s   (unsigned nSize) ;//{return  (nm4s* )nmppsMalloc_64s((nSize>>4) +1);}
+nm4u*  	 nmppsMalloc_4u   (unsigned nSize) ;//{return  (nm4u* )nmppsMalloc_64s((nSize>>4) +1);}
+nm8u*  	 nmppsMalloc_8u   (unsigned nSize) ;//{return  (nm8u* )nmppsMalloc_64s((nSize>>3) +1);}
+nm8s*  	 nmppsMalloc_8s   (unsigned nSize) ;//{return  (nm8s* )nmppsMalloc_64s((nSize>>3) +1);}
+nm16u* 	 nmppsMalloc_16u  (unsigned nSize) ;//{return  (nm16u*)nmppsMalloc_64s((nSize>>2) +1);}
+nm16s* 	 nmppsMalloc_16s  (unsigned nSize) ;//{return  (nm16s*)nmppsMalloc_64s((nSize>>2) +1);}
+nm32u* 	 nmppsMalloc_32u  (unsigned nSize) ;//{return  (nm32u*)nmppsMalloc_64s((nSize>>1) +1);}
+nm32s* 	 nmppsMalloc_32s  (unsigned nSize) ;//{return  (nm32s*)nmppsMalloc_64s((nSize>>1) +1);}
+nm64u* 	 nmppsMalloc_64u  (unsigned nSize) ;//{return  (nm64u*)nmppsMalloc_64s(nSize);}
+nm64sc*  nmppsMalloc_64sc (unsigned nSize) ;//{return  (nm64u*)nmppsMalloc_64s(nSize);}
+nm32sc*  nmppsMalloc_32sc (unsigned sizeCmplxInt32);
+nm32fc*  nmppsMalloc_32fc (unsigned sizeCmplxFloat);
 nm32fcr* nmppsMalloc_32fcr(unsigned sizeCmplxFloat);
-float*   nmppsMalloc_32f(unsigned sizeFloat);
-double* nmppsMalloc_64f(unsigned sizeDouble);
+float*   nmppsMalloc_32f  (unsigned sizeFloat);
+double*  nmppsMalloc_64f  (unsigned sizeDouble);
 
 
 /*

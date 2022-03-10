@@ -871,6 +871,61 @@ void nmblas_dgemv(
 );
 //! \}
 
+
+   /**
+	*  \defgroup sger nmblas_sger
+    *  \brief perform the rank 1 operation   A := alpha*x*y' + A, where alpha is a scalar, x is an m element vector, y is an n element
+ vector and A is an m by n matrix.
+    *  
+    *  \param [in] M  M is INTEGER
+           On entry, M specifies the number of rows of the matrix A.
+           M must be at least zero.
+    *  \param [in] N  N is INTEGER
+           On entry, N specifies the number of columns of the matrix A.
+           N must be at least zero.
+    *  \param [in] ALPHA ALPHA is REAL
+           On entry, ALPHA specifies the scalar alpha.
+    *  \param [in] X X is REAL array, dimension at least
+           ( 1 + ( m - 1 )*abs( INCX ) ).
+           Before entry, the incremented array X must contain the m
+           element vector x.
+    *  \param [in] INCX  INCX is INTEGER
+           On entry, INCX specifies the increment for the elements of
+           X. INCX must not be zero.
+    *  \param [in] Y Y is REAL array, dimension at least
+           ( 1 + ( n - 1 )*abs( INCY ) ).
+           Before entry, the incremented array Y must contain the n
+           element vector y.
+    *  \param [in] INCY INCY is INTEGER
+           On entry, INCY specifies the increment for the elements of
+           Y. INCY must not be zero.
+    *  \param [in] INCX INCX specifies the increment for the elements of X. INCX must not be zero.
+    *  \param [in,out] A   A is REAL array, dimension ( LDA, N )
+           Before entry, the leading m by n part of the array A must
+           contain the matrix of coefficients. On exit, A is
+           overwritten by the updated matrix. 
+    *  \param [in] LDA   LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the calling (sub) program. LDA must be at least
+           max( 1, m ).
+    *  
+    *  \return 
+    *  
+    *  \details 
+    */
+//! \{
+void nmblas_sger( 
+	const int                  M,//row
+   const int                  N,//coullum
+   const float                ALPHA,
+   const float                * X,
+   const int                  INCX,
+   const float                * Y,
+   const int                  INCY,
+   float                      * A,
+   const int                  LDA
+);
+//! \}
 #include<nmblas/nmblas_sgemm.h>
 
 void MullMatrix_f( 

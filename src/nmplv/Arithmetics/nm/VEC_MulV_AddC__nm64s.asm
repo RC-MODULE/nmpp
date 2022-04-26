@@ -23,7 +23,6 @@
 
 begin ".text_nmplv"
 
-.if .nm64revision == 5;
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -72,6 +71,5 @@ global _nmppsMul_AddC_64s:label;
 return;
 .wait;
 
-.endif;
 end ".text_nmplv";
 

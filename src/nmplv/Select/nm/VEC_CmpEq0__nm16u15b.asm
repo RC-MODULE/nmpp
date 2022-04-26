@@ -106,6 +106,7 @@ global _nmppsCmpEq0_16u15b:label;
 .repeat 6;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
 	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=1022;
 .endrepeat;
 	rep 32 wfifo = [ar4++], ftw;

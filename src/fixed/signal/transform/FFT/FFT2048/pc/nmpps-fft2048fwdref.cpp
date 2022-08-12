@@ -155,7 +155,7 @@ void nmppsFFT2048Fwd2x32x32_RefFloat(const nm32sc* src, nm32sc* dst)
 // 				for(int j=0; j<32; j++){
 // 					cmplx<double> sumj;
 // 					for(int n=0; n<2048/32/32; n++){
-// 						sumj+=expFFT<2048>(1024*n*kk)*x[32*(32*n+j)+i]; // не завист от k
+// 						sumj+=expFFT<2048>(1024*n*kk)*x[32*(32*n+j)+i]; // РЅРµ Р·Р°РІРёСЃС‚ РѕС‚ k
 // 					}
 // 					sum+=sumj*expFFT<2048>(32*j*(2*k+kk));
 // 				}
@@ -173,7 +173,7 @@ void nmppsFFT2048Fwd2x32x32_RefFloat(const nm32sc* src, nm32sc* dst)
 // 				//cmplx<double> sum;
 // 				for(int j=0; j<32; j++){
 // 					for(int n=0; n<2048/32/32; n++){
-// 						N[1024*kk+32*j+i]+=expFFT<2048>(1024*n*kk)*x[1024*n+32*j+i]; // не завист от k
+// 						N[1024*kk+32*j+i]+=expFFT<2048>(1024*n*kk)*x[1024*n+32*j+i]; // РЅРµ Р·Р°РІРёСЃС‚ РѕС‚ k
 // 					}
 // 					//sum+=N[1024*kk+32*j+i]*expFFT<2048>(32*j*(2*k+kk));
 // 				}
@@ -201,7 +201,7 @@ void nmppsFFT2048Fwd2x32x32_RefFloat(const nm32sc* src, nm32sc* dst)
 // 		for(int i=0; i<32; i++){
 // 			for(int j=0; j<32; j++){
 // 				for(int n=0; n<2048/32/32; n++){
-// 					N[1024*kk+32*j+i]+=expFFT<2048>(1024*n*kk)*x[1024*n+32*j+i]; // не завист от k
+// 					N[1024*kk+32*j+i]+=expFFT<2048>(1024*n*kk)*x[1024*n+32*j+i]; // РЅРµ Р·Р°РІРёСЃС‚ РѕС‚ k
 // 				}
 // 			}
 // 		}
@@ -225,7 +225,7 @@ void nmppsFFT2048Fwd2x32x32_RefFloat(const nm32sc* src, nm32sc* dst)
 // 	for(int i=0; i<32; i++){
 // 		for(int j=0; j<32; j++){
 // 			for(int n=0; n<2048/32/32; n++){
-// 				N[1024*kk+32*j+i]+=expFFT<2048>(1024*n*kk)*x[1024*n+32*j+i]; // не завист от k
+// 				N[1024*kk+32*j+i]+=expFFT<2048>(1024*n*kk)*x[1024*n+32*j+i]; // РЅРµ Р·Р°РІРёСЃС‚ РѕС‚ k
 // 			}
 // 		}
 // 	}
@@ -237,7 +237,7 @@ void nmppsFFT2048Fwd2x32x32_RefFloat(const nm32sc* src, nm32sc* dst)
 // 		for(int i=0; i<32; i++){
 // 			cmplx<double> sum;
 // 			for(int j=0; j<32; j++){
-// 				sum+=N[1024*(kk%2)+32*j+i]*expFFT<2048>(32*j*kk); // не завист от k
+// 				sum+=N[1024*(kk%2)+32*j+i]*expFFT<2048>(32*j*kk); // РЅРµ Р·Р°РІРёСЃС‚ РѕС‚ k
 // 			}
 // 			y[64*k+kk]+=sum*expFFT<2048>(i*(64*k+kk));
 // 		}
@@ -249,12 +249,12 @@ void nmppsFFT2048Fwd2x32x32_RefFloat(const nm32sc* src, nm32sc* dst)
 // 	for(int i=0; i<32; i++)
 // 		for(int j=0; j<32; j++)
 // 			for(int n=0; n<2048/32/32; n++)
-// 				N[1024*kk+32*j+i]+=expFFT<2048>(1024*n*kk)*x[1024*n+32*j+i]; // не завист от k
+// 				N[1024*kk+32*j+i]+=expFFT<2048>(1024*n*kk)*x[1024*n+32*j+i]; // РЅРµ Р·Р°РІРёСЃС‚ РѕС‚ k
 // 
 // 	for(int kk=0; kk<64; kk++){ 
 // 		for(int i=0; i<32; i++){
 // 			for(int j=0; j<32; j++){
-// 				vI[32*kk+i]+=N[1024*(kk%2)+32*j+i]*expFFT<2048>(32*j*kk); // не завист от k
+// 				vI[32*kk+i]+=N[1024*(kk%2)+32*j+i]*expFFT<2048>(32*j*kk); // РЅРµ Р·Р°РІРёСЃС‚ РѕС‚ k
 // 			}
 // 		}
 // 	}
@@ -273,12 +273,12 @@ for(int kk=0; kk<2; kk++)
 	for(int i=0; i<32; i++)
 		for(int j=0; j<32; j++)
 			for(int n=0; n<2048/32/32; n++)
-				N[1024*kk+32*j+i]+=expFFT<2048>(1024*n*kk)*x[1024*n+32*j+i]; // не завист от k
+				N[1024*kk+32*j+i]+=expFFT<2048>(1024*n*kk)*x[1024*n+32*j+i]; // РЅРµ Р·Р°РІРёСЃС‚ РѕС‚ k
 
 for(int kk=0; kk<64; kk++) 
 	for(int i=0; i<32; i++)
 		for(int j=0; j<32; j++)
-			vI[32*kk+i]+=N[1024*(kk%2)+32*j+i]*expFFT<2048>(32*j*kk); // не завист от k
+			vI[32*kk+i]+=N[1024*(kk%2)+32*j+i]*expFFT<2048>(32*j*kk); // РЅРµ Р·Р°РІРёСЃС‚ РѕС‚ k
 
 
 for(int k=0; k<2048; k++)
@@ -800,5 +800,5 @@ void nmppsFFT2048Fwd4888_RefInt(const nm32sc* src, nm32sc* dst)
 		dst[i].im=vY[i].im;
 	}
 }
-//всего =  8192*2*2+2048*3=38912
+//РІСЃРµРіРѕ =  8192*2*2+2048*3=38912
 

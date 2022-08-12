@@ -2,7 +2,7 @@
 //
 //  $Workfile:: Sub.cpp  $
 //
-//  Âåêòîðíî-ìàòðè÷íàÿ áèáëèîòåêà
+//  Ð’ÐµÐºÑ‚Ð¾Ñ€Ð½Ð¾-Ð¼Ð°Ñ‚Ñ€Ð¸Ñ‡Ð½Ð°Ñ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   Sub.cpp
-//! \author Ñåðãåé Ìóøêàåâ
-//! \brief  Àðèôìåòè÷åñêèå ôóíêöèè 
+//! \author Ð¡ÐµÑ€Ð³ÐµÐ¹ ÐœÑƒÑˆÐºÐ°ÐµÐ²
+//! \brief  ÐÑ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ðµ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ 
 //!
 //! \endif
 //!
@@ -22,13 +22,6 @@
 #include "nmtype.h"
 /////////////////////////////////////////////////////////////////////////////////////////
 // Subtraction of two char buffers
-// 2826 ticks per 10240 elements with C++ call (0.276 clocks per element)
-// The order of intermediate data transmissions in function is:
-//		Buf1[],Buf2			=> pDstVec[]				- Subtraction	(in-place is supported)
-
-
-//////////////////////////////////////////////////////////////////////////////////////
-// Subtraction of two short vectors
 void nmppsSub_8s(
 		const nm8s*			pSrcVec1,		// input buffer		:long Local [VecSize/4]
 		const nm8s*			pSrcVec2,		// input buffer		:long Local [VecSize/4]

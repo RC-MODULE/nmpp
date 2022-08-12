@@ -35,7 +35,7 @@ int main()
 
 	for(int nSize=0;nSize<=intMaxSize;nSize+=2*NMPP_MIN_REP)
 	{
-		nmppsRandUniform_32u((nm32u*)L0,nSize,unsigned(nSize+1));	
+		nmppsRandUniform_32u((nm32u*)L0,nSize);	
 		nmppsCrcAcc_32u((nm32u*)L0,MIN(int2INT(nSize)+128,LONG2INT(SizeG0)),&crc);
 	}
 

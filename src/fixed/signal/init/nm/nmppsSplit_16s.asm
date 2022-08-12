@@ -2,7 +2,7 @@
 //
 //  $Workfile:: Swap.as $
 //
-//  чЕЛФПТОП-НБФТЙЮОБС ВЙВМЙПФЕЛБ
+//  Векторно-матричная библиотека
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   Split.asm
-//! \author уЕТЗЕК уЧЕЮОЙЛПЧ
-//! \brief  жХОЛГЙЙ ЙОЙГЙБМЙЪБГЙЙ Й ЛПРЙТПЧБОЙС.
+//! \author Сергей Свечников
+//! \brief  Функции инициализации и копирования.
 //!
 //! \endif
 //!
@@ -44,8 +44,8 @@ extern vec_Mul2D2W4_AddVr: label;
 global _nmppsSplit_16s: label;
 <_nmppsSplit_16s>
 .branch;
-   nb1=80008000h;  // 4 РП 16 ОБ afifo
-   sb=20002h;     // 4 РП 16 ОБ ЧИПДЕ X
+   nb1=80008000h; // 4 по 16 на afifo
+   sb=20002h; // 4 по 16 на входе X
    vr=0;
    f1cr=0;
    ar5 = ar7-2;
@@ -58,8 +58,8 @@ global _nmppsSplit_16s: label;
    push ar4,gr4 with gr6=gr0>>1; // gr6=2
    ar0 = [--ar5]; // psrc
    gr3=ar0;
-   ar6 = [--ar5]with gr4=gr3+1; // pdst0 ( ЮЈФОЩЕ )
-   ar3 = [--ar5]with gr4++; // pdst1 ( ОЕЮЈФОЩЕ )
+   ar6 = [--ar5]with gr4=gr3+1; // pdst0 ( чётные )
+   ar3 = [--ar5]with gr4++; // pdst1 ( нечётные )
    gr5 = [--ar5]; // src size (bytes)
    ar1=gr4 with gr5>>=3;
    delayed call vec_Mul2D2W4_AddVr;
@@ -89,5 +89,5 @@ size     ticks   for 1 dbl
 4000     5065    1.237
 8000     9927    1.212
 10000    19656   1.200
-ticks=198+1.188*N ЗДЕ N ЮЙУМП dbl ОБ ЧИПДЕ
+ticks=198+1.188*N где N число dbl на входе
 */

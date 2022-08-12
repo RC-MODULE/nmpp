@@ -2,7 +2,7 @@
 //
 //  $Workfile:: Convolution.cp $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -12,7 +12,7 @@
 //!
 //! \file   Convolution.cpp
 //! \author Mushkaev S.
-//! \brief  Функции свертки для векторов.
+//! \brief  Р¤СѓРЅРєС†РёРё СЃРІРµСЂС‚РєРё РґР»СЏ РІРµРєС‚РѕСЂРѕРІ.
 //!
 //! \endif
 //!
@@ -23,7 +23,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 // Convolution calculation
 // pDstVec[i]=pSrcVec[i]*pKernel[i]+pSrcVec[i+1]*pKernel[i%n+1]+...+pSrcVec[i+n]*pKernel[i%n+n]
-void SIG_XCorr(
+void nmppsXCorr_32s(
 		nm32s*			 pSrcVec,		// input buffer			:long Local	[nSrcVecSize/2]
 		int				 nSrcVecSize,	// size of input buffer in 32 bit elements. nSize=[2,4,6...]
 		nm32s*			 pKernel,		// input buffer			:long Any   [nKernelSize/2]
@@ -46,7 +46,7 @@ void SIG_XCorr(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Convolution calculation
 // pDstVec[i]=pSrcVec[i]*pKernel[i]+pSrcVec[i+1]*pKernel[i%n+1]+...+pSrcVec[i+n]*pKernel[i%n+n]
-void SIG_XCorr(
+void nmppsXCorr_32s(
 		nm16s*			 pSrcVec,		// input buffer		:long Local	[nSrcVecSize/2]
 		int				 nSrcVecSize,	// size of input buffer in 32 bit elements. nSize=[4,8...]
 		nm32s*			 pKernel,		// input buffer		:long Any   [nKernelSize/2]
@@ -68,7 +68,7 @@ void SIG_XCorr(
 /////////////////////////////////////////////////////////////////////////////////////////
 // Convolution calculation
 // pDstVec[i]=pSrcVec[i]*pKernel[i]+pSrcVec[i+1]*pKernel[i%n+1]+...+pSrcVec[i+n]*pKernel[i%n+n]
-void SIG_XCorr(
+void nmppsXCorr_32s(
 		nm8s*			 pSrcVec,			// input buffer		:long Local	[nSrcVecSize/2]
 		int				 nSrcVecSize,		// size of input buffer in 32 bit elements. nSize=[8,16,..]
 		nm32s*			 pKernel,			// input buffer		:long Any   [nKernelSize/2]

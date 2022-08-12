@@ -11,7 +11,7 @@
 //! \if file_doc
 //!
 //! \file   CompareMinV_8s.asm
-//! \author Сергей Свечников
+//! \author РЎРµСЂРіРµР№ РЎРІРµС‡РЅРёРєРѕРІ
 //! \brief  Elementwise min/max comparision
 //!
 //! \endif

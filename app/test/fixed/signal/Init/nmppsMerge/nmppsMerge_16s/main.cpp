@@ -19,7 +19,7 @@ int main()
 	
 	nmppsRandUniform(BITS, L0, maxSize/2);
 	nmppsRandUniform(BITS, L1, maxSize/2);
-	nmppsSet(BITS, G0, -1, maxSize + 128);
+	nmppsSet(BITS, -1, G0, maxSize + 128);
 	
 
 	int dim = DIM(BITS);

@@ -2,7 +2,7 @@
 //
 //  $Workfile:: mtrCopyMatrix08.as $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   mtrCopyMatrix08.asm
-//! \author Павел Лукашевич
-//! \brief  Функции инициализации и копирования для матриц.
+//! \author РџР°РІРµР» Р›СѓРєР°С€РµРІРёС‡
+//! \brief  Р¤СѓРЅРєС†РёРё РёРЅРёС†РёР°Р»РёР·Р°С†РёРё Рё РєРѕРїРёСЂРѕРІР°РЅРёСЏ РґР»СЏ РјР°С‚СЂРёС†.
 //!
 //! \endif
 //!
@@ -28,9 +28,7 @@ begin ".text_nmplm"
 //!
 //! \perfinclude _nmppmCopy_1.html
 //--------------------------------------------------------------------
-global _void._.8.8nmppmCopy_1.1class._s_nm1._.0.9._int.9._class._s_nm1._.0.9._int.9._int.9._int.2: label;
 global _nmppmCopy_1:label;
-<_void._.8.8nmppmCopy_1.1class._s_nm1._.0.9._int.9._class._s_nm1._.0.9._int.9._int.9._int.2>
 <_nmppmCopy_1>
 .branch;
 

@@ -2,9 +2,9 @@ import from macros.mlb;
 begin ".text_nmplm"
 
 //-----------------------------------------------------------------
-// Умножение матрицы на вектор, оба комплексные, оба nm64s
-// как и результат.
-// time=W*H*16 тактов
+// РЈРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° РІРµРєС‚РѕСЂ, РѕР±Р° РєРѕРјРїР»РµРєСЃРЅС‹Рµ, РѕР±Р° nm64s
+// РєР°Рє Рё СЂРµР·СѓР»СЊС‚Р°С‚.
+// time=W*H*16 С‚Р°РєС‚РѕРІ
 
 //------------------------------------------------------------------------------------------------
 //! \fn void  nmppmMul_mv_64sc ( nm64sc *pSrcMtr,  nm64sc *pSrcVec, nm64sc *pDstVec, int nHeight, int nWidth, void * tmp) 
@@ -48,7 +48,7 @@ Ls4:      label;
 Ls5:      label;
 smplVsum0:label;  
 LsRet0:   label;
-LsTbl: word[18]=(// таблица модифицируемых кодов:
+LsTbl: word[18]=(// С‚Р°Р±Р»РёС†Р° РјРѕРґРёС„РёС†РёСЂСѓРµРјС‹С… РєРѕРґРѕРІ:
   Ls0,  944fe018h, //rep data=[ar1++gr1]with vsum,data,0;
   Ls2,  9c4ff518h, //rep data=[ar1++]with data
   Ls2+1,9c8ff816h, //rep data=[ar2++]with afifo-data
@@ -88,8 +88,8 @@ global ProdVjobStart:label;
    ar2=gr4 with gr0=gr4-1;
    gr0<<=27;
    gr0>>=27;gr0++;
-   gr5=9 with gr4-=gr0;//if gr4=0 работает только модиф. код,который работает всегда
-   if <>0 delayed skip CodeModify;//Там будем в любом случае
+   gr5=9 with gr4-=gr0;//if gr4=0 СЂР°Р±РѕС‚Р°РµС‚ С‚РѕР»СЊРєРѕ РјРѕРґРёС„. РєРѕРґ,РєРѕС‚РѕСЂС‹Р№ СЂР°Р±РѕС‚Р°РµС‚ РІСЃРµРіРґР°
+   if <>0 delayed skip CodeModify;//РўР°Рј Р±СѓРґРµРј РІ Р»СЋР±РѕРј СЃР»СѓС‡Р°Рµ
    ar4=LsTbl with gr0<<=13; //  << Cnt 13
    ar5=LsRet0; // skip main loop at smplVsum0
 //====== modify 9 word of code ===========
@@ -108,12 +108,12 @@ global ProdVjobStart:label;
 
     sb=gr7 with gr0=gr7+1; // gr0=1;
     
-//==вектор X=iY, матр. A+iB
+//==РІРµРєС‚РѕСЂ X=iY, РјР°С‚СЂ. A+iB
     ar4=[MTRtmpArray] with gr0++;  // gr0=2;    
 .branch;
-// Почленное умножение матрицы на эл-ты вектора:
-// На i-й эл-т вектора множатся все эл-ты i-го столбца.
-// Складывать будем после, на след. итерации (V2).
+// РџРѕС‡Р»РµРЅРЅРѕРµ СѓРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° СЌР»-С‚С‹ РІРµРєС‚РѕСЂР°:
+// РќР° i-Р№ СЌР»-С‚ РІРµРєС‚РѕСЂР° РјРЅРѕР¶Р°С‚СЃСЏ РІСЃРµ СЌР»-С‚С‹ i-РіРѕ СЃС‚РѕР»Р±С†Р°.
+// РЎРєР»Р°РґС‹РІР°С‚СЊ Р±СѓРґРµРј РїРѕСЃР»Рµ, РЅР° СЃР»РµРґ. РёС‚РµСЂР°С†РёРё (V2).
 
 <V1>
       Load_Vector_Item(ar0);                    //      X
@@ -131,7 +131,7 @@ global ProdVjobStart:label;
   delayed call ar5 with gr5=gr4>>5;
       ar1=gr2 with gr2+=gr0;gr5--;    //  B*Y
       nul;nul;
-   gr3--; // цикл по строке
+   gr3--; // С†РёРєР» РїРѕ СЃС‚СЂРѕРєРµ
    if > skip V1;
 //===========================================
    gr2=ar2 with gr6=gr0<<1; // gr2=H, gr6=4
@@ -139,13 +139,13 @@ global ProdVjobStart:label;
    gr3=ar3 with gr5=gr1<<1;       // gr5=4*H 
    [MTRtmpArray+1]=ar6 with gr1+=gr5;    // gr1=6*H
    gr2=gr5<<1;  // gr2=8*H
-   gr7=gr4>>5;  // параметр цикла <V2>
-   if =0 skip _Ls2 with gr5=gr0; // хвост only
+   gr7=gr4>>5;  // РїР°СЂР°РјРµС‚СЂ С†РёРєР»Р° <V2>
+   if =0 skip _Ls2 with gr5=gr0; // С…РІРѕСЃС‚ only
 //=================================================
 // Begin butterfly and addition 
 // REAL PART OF THE RESULT:
-// цикл делает по 32 эл-та результата за проход
-// gr4>>5 раз,где gr4 остаток H без хвоста N=((H-1)&31)+1
+// С†РёРєР» РґРµР»Р°РµС‚ РїРѕ 32 СЌР»-С‚Р° СЂРµР·СѓР»СЊС‚Р°С‚Р° Р·Р° РїСЂРѕС…РѕРґ
+// gr4>>5 СЂР°Р·,РіРґРµ gr4 РѕСЃС‚Р°С‚РѕРє H Р±РµР· С…РІРѕСЃС‚Р° N=((H-1)&31)+1
 <V2>   ar1=gr0 with gr0+=gr2;  // gr0 for next addition
        ar2=ar1+gr1 with gr3--; // ar2=addr of B*Y, gr3=W-1   
        rep 32 data=[ar1++]with data;
@@ -158,16 +158,16 @@ global ProdVjobStart:label;
        rep 32 data=[ar1++]with afifo+data;
        rep 32 data=[ar2++]with afifo-data;
        rep 32 [ar6++gr6]=afifo;
-//повтор для след. группы из 32:
+//РїРѕРІС‚РѕСЂ РґР»СЏ СЃР»РµРґ. РіСЂСѓРїРїС‹ РёР· 32:
       gr3=ar3 with gr7--;  // W
       if > delayed skip V2;
       gr0=gr5;
 <_Ls2> 
-// цикл делает N эл-тов результата за проход:N=((H-1)&31)+1
+// С†РёРєР» РґРµР»Р°РµС‚ N СЌР»-С‚РѕРІ СЂРµР·СѓР»СЊС‚Р°С‚Р° Р·Р° РїСЂРѕС…РѕРґ:N=((H-1)&31)+1
       ar1=gr0 with gr0+=gr2;   // gr0+=8*H
       ar2=ar1+gr1 with gr3--;  // original gr3=W
 
-// модифицированный код: 
+// РјРѕРґРёС„РёС†РёСЂРѕРІР°РЅРЅС‹Р№ РєРѕРґ: 
 <Ls2> rep 4 data=[ar1++]with data;
       rep 4 data=[ar2++]with afifo-data;
 
@@ -182,12 +182,12 @@ global ProdVjobStart:label;
 // IMAGINE PART OF THE RESULT:
    gr0=[MTRtmpArray] with gr1=gr2>>2;  // gr1=2H
    gr3=ar3 with gr0+=gr1; // gr3=W; gr0=addr of A*Y
-   ar6=[MTRtmpArray+1] with gr7=gr4>>5;  // параметр цикла <V3> 
-   if =0 delayed skip _Ls4; // хвост only
+   ar6=[MTRtmpArray+1] with gr7=gr4>>5;  // РїР°СЂР°РјРµС‚СЂ С†РёРєР»Р° <V3> 
+   if =0 delayed skip _Ls4; // С…РІРѕСЃС‚ only
    ar6=ar6+2;
 //===========================================
-// цикл делает по 32 эл-та результата за проход
-// gr4>>5 раз,где gr4 остаток H без хвоста N=((H-1)&31)+1
+// С†РёРєР» РґРµР»Р°РµС‚ РїРѕ 32 СЌР»-С‚Р° СЂРµР·СѓР»СЊС‚Р°С‚Р° Р·Р° РїСЂРѕС…РѕРґ
+// gr4>>5 СЂР°Р·,РіРґРµ gr4 РѕСЃС‚Р°С‚РѕРє H Р±РµР· С…РІРѕСЃС‚Р° N=((H-1)&31)+1
 <V3>   ar1=gr0 with gr0+=gr2;  // gr0 for next addition
        ar2=ar1+gr1 with gr3--; // ar2=addr of B*X, gr3=W-1   
        rep 32 data=[ar1++]with data;
@@ -200,16 +200,16 @@ global ProdVjobStart:label;
        rep 32 data=[ar1++]with afifo+data;
        rep 32 data=[ar2++]with afifo+data;
        rep 32 [ar6++gr6]=afifo;
-//повтор для след. группы из 32:
+//РїРѕРІС‚РѕСЂ РґР»СЏ СЃР»РµРґ. РіСЂСѓРїРїС‹ РёР· 32:
       gr3=ar3 with gr7--;  // W
       if > delayed skip V3;
       gr0=gr5;
 <_Ls4> 
-// цикл делает N эл-тов результата за проход:N=((H-1)&31)+1
+// С†РёРєР» РґРµР»Р°РµС‚ N СЌР»-С‚РѕРІ СЂРµР·СѓР»СЊС‚Р°С‚Р° Р·Р° РїСЂРѕС…РѕРґ:N=((H-1)&31)+1
       ar1=gr0 with gr0+=gr2;   // gr0+=8*H
       ar2=ar1+gr1 with gr3--;  // original gr3=W
 
-// модифицированный код: 
+// РјРѕРґРёС„РёС†РёСЂРѕРІР°РЅРЅС‹Р№ РєРѕРґ: 
 <Ls4> rep 4 data=[ar1++]with data;
       rep 4 data=[ar2++]with afifo+data;
 <I2loop>
@@ -229,9 +229,9 @@ global ProdVjobStart:label;
 	pop ar0,gr0;
  
       return;
-// Предполагается, что одна инструкция gr5-- уже сделана 
-// последней из отложенных команд call smplVsum0
-<smplVsum0>// Цикл по столбу (почленного mul)
+// РџСЂРµРґРїРѕР»Р°РіР°РµС‚СЃСЏ, С‡С‚Рѕ РѕРґРЅР° РёРЅСЃС‚СЂСѓРєС†РёСЏ gr5-- СѓР¶Рµ СЃРґРµР»Р°РЅР° 
+// РїРѕСЃР»РµРґРЅРµР№ РёР· РѕС‚Р»РѕР¶РµРЅРЅС‹С… РєРѕРјР°РЅРґ call smplVsum0
+<smplVsum0>// Р¦РёРєР» РїРѕ СЃС‚РѕР»Р±Сѓ (РїРѕС‡Р»РµРЅРЅРѕРіРѕ mul)
 <loop0>if > delayed skip loop0 with gr5--;
       Vsum0(32);
 <LsRet0> delayed return;

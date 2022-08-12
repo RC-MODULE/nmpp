@@ -5,10 +5,11 @@
 
 int main()
 {
+	//printf("----");
 	float* src0 = (float *) nmppsMalloc_32f(1024);
 	float* dst  = (float *) nmppsMalloc_32f(1024 + 11);
 	unsigned crc=0;
-	clock_t t0,t1;
+	//clock_t t0,t1;
 	for(int i = 0; i < 1024; i++) {
 		src0[i] = i;
 	}
@@ -19,14 +20,15 @@ int main()
 
 
 	for(int size=2; size<=1024; size+=2){
-		t0 = clock();
+		//t0 = clock();
 		nmppsMulC_AddC_32f(src0,5,10,dst,size);
-		t1 = clock();
+		//t1 = clock();
 		nmppsCrcAcc_32f(dst,0,size + 11,&crc);
 	}
 
 	free(src0);
 	free(dst);
-	return t1-t0;
+	//return t1-t0;
+	return crc >>2;
 }
 

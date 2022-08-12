@@ -2,7 +2,7 @@
 //
 //  $Workfile:: BoolConvert16to1.as $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   BoolConvert16to1.asm
-//! \author Сергей Ландышев
-//! \brief  Функции преобразования елементов вектора. 
+//! \author РЎРµСЂРіРµР№ Р›Р°РЅРґС‹С€РµРІ
+//! \brief  Р¤СѓРЅРєС†РёРё РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ РµР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°. 
 //!
 //! \endif
 //!
@@ -106,6 +106,7 @@ global _nmppsCmpEq0_16u15b:label;
 .repeat 6;
 	rep 32 data = [ar0++gr0], ftw with vsum, activate data, afifo;
 	//WTW_REG_DEPRICATED(gr5);
+	wtw;
 	ar0-=1022;
 .endrepeat;
 	rep 32 wfifo = [ar4++], ftw;

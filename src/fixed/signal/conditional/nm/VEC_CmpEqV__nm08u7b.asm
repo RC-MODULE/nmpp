@@ -25,7 +25,7 @@ global _nmppsCmpEqV_8u7b:label;
     gr1 = [--ar5] with gr5 >>= 3;   // shTrueFlag.
 
         //--------------------------------
-        // Заполнение матрицы и векторов.
+        // Р—Р°РїРѕР»РЅРµРЅРёРµ РјР°С‚СЂРёС†С‹ Рё РІРµРєС‚РѕСЂРѕРІ.
     ar1 = _nmppsTmpBuffer64_L_;
     call nmppsBuildDiagWeights8_;
     call nmppsDupValueInVector8_;

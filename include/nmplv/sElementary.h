@@ -99,12 +99,11 @@ void nmppsPowx_64f(const nm64f *pSrcVec, nm64f *pDstVec, nm32u Deg, int nSize);
    	\brief Функция вычисляет квадратный корень от каждого элемента входного вектора чисел с плавающей точкой
 	\param [in] pSrcVec входной вектор чисел с плавающей точкой
 	\retval [out] pDstVec выходной вектор чисел с плавающей точкой
-	\param [in] pTmpBuf дополнительный буфер, необходимый для ускорения работы функции (размер равен размеру pDstVec). Ускорение произойдет только при условии, что pDstVec и pTmpBuf лежат в разных банках.
 	\param [in] nSize число элементов в векторе
     \details Функция совместима ТОЛЬКО с NMC-GCC-SDK и входит в состав библиотеки libnmpp-nmc4f.a
  */
 //! \{
-void nmppsSqrt_32f(const nm32f* pSrcVec, nm32f* pDstVec, nm32f* pTmpBuf, int nSize);
+void nmppsSqrt_32f(const nm32f* pSrcVec, nm32f* pDstVec,  int nSize);
 //! \}
 
 #ifdef __cplusplus

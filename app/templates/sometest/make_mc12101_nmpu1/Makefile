@@ -1,4 +1,5 @@
 
+
 ifeq ($(OS),Windows_NT)
 SHELL=cmd
 -include nmc4vars_win.mk
@@ -19,13 +20,14 @@ TARGET   = $(PROJECT)
 CC       = nmc-g++
 AS       = nmc-gcc
 CXXFLAGS = -std=c++11 -O2 -Wall -mnmc4 -g
-LIBS     = -lnmpp-nmc4 -lhal-$(BOARD) -lc  -Wl,--whole-archive -l$(BOARD) -Wl,--no-whole-archive
+LIBS     = -lnmpp-nmc4 -ltimes -lint     -Wl,--whole-archive -lnm6407_io_nmc -l$(BOARD)load_nm -Wl,--no-whole-archive  
 CFG      = $(BOARD)-nmpu1.lds
 MAP      = $(PROJECT).map
-LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-T$(CFG)
+LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-T$(CFG) 
 
-INC_DIRS = -I"$(BSP)/include" -I"$(NMPP)/include" -I"$(HAL)/include"
-LIB_DIRS = -L"$(BSP)/lib"     -L"$(NMPP)/lib"     -L"$(HAL)/lib" -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4"
+
+INC_DIRS = -I"$(BSP)/include" -I"$(NMPP)/include" 
+LIB_DIRS = -L"$(BSP)/lib" -L"$(NMPP)/lib"    -L"$(NMCGCC)/lib" -L.
 SRC_DIRS = ..
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
 SRC_ASM  = $(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
@@ -35,12 +37,14 @@ SRC_ALL  = $(SRC_CPP) $(SRC_ASM) $(SRC_C)
 .DEFAULT_GOAL := $(TARGET)
 
 $(TARGET): $(SRC_ALL) Makefile $(NMPP)/lib/libnmpp-nmc4.a
-	$(CC) -o$(TARGET) $(CXXFLAGS) $(LDFLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS)
+	$(CC)  -o$(TARGET) $(CXXFLAGS) $(LDFLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS)
 
 #PATH:=$(BSP)/bin;$(PATH)
 
-run: 	$(TARGET)
-	$(BOARD)run -p -v $(TARGET)
+run: .exitcode
+	
+.exitcode: 	$(TARGET)
+	$(BOARD)run -p -v $(TARGET) -R -a1 & exitcode
 
 qemu:	
 	nmc-qemu $(TARGET)
@@ -60,12 +64,3 @@ vs2015:
 vs2008:
 	premake5 vs2008		
 	
-test: .exitcode
-	
-.exitcode: $(TARGET) .test.bat
-	.test.bat 
-	
-.test.bat: 
-	@echo mc12101run $(TARGET) -p -v >.test.bat
-	@echo @echo %%errorlevel%% ^>.exitcode >>.test.bat
-		

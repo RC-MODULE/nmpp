@@ -19,16 +19,15 @@ int main()
 	
 	nmppsRandUniform(BITS, L0, maxSize/2);
 	nmppsRandUniform(BITS, L1, maxSize/2);
-	nmppsSet(BITS, G0, -1, maxSize + 128);
+	nmppsSet(BITS, -1, G0, maxSize + 128);
 	
 
 	int dim = DIM(BITS);
 	unsigned int crc = 0;
 	for(int size=dim; size<maxSize/2; size+=dim*NMPP_MIN_REP)
-	//int size=32;
 	{
 		nmppsMerge (BITS, L0,L1,G0,  size);
-		nmppsCrcAcc(BITS, G0,size*2 + 128, &crc);
+		nmppsCrcAcc(BITS, G0,2*size + 128, &crc);
 		
 	}
 		

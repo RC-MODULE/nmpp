@@ -25,7 +25,7 @@
 //*****************************************************************************
 
     /**
-    \defgroup SIG_XCorr SIG_XCorr
+    \defgroup nmppsXCorr_32s nmppsXCorr_32s
     \ingroup sConvolution
     \brief
         \ru Свертка двух векторов. 
@@ -83,9 +83,9 @@
     \endxmlonly
     */
     //! \{
-void SIG_XCorr_32s(nm32s* pSrcVec, int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
-void SIG_XCorr_16s32s(nm16s* pSrcVec, int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
-void SIG_XCorr_8s32s(nm8s* pSrcVec,  int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
+void nmppsXCorr_32s_32s(nm32s* pSrcVec, int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
+void nmppsXCorr_32s_16s32s(nm16s* pSrcVec, int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
+void nmppsXCorr_32s_8s32s(nm8s* pSrcVec,  int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
     //! \}
 
 

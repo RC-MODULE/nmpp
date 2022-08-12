@@ -1,6 +1,6 @@
 #include "nmpli.h"
 
-void nmppiAddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight)
+void nmppiAdd_16s(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight)
 {
 	int sstep=nSrcStride<<1;
 	int dstep=nSrcDstStride<<1;
@@ -11,7 +11,7 @@ void nmppiAddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcSt
 
 }
 
-void nmppiSubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStride,  int nWidth, int nHeight)
+void nmppiSub_16s(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStride,  int nWidth, int nHeight)
 {
 	int sstep=nSrcStride<<1;
 	int dstep=nSrcDstStride<<1;

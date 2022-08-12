@@ -19,8 +19,8 @@ int main()
 	
 	//nmppsRandUniform(BITS, L0, maxSize);
 	nmppsRamp_16s(L0, 0, 1 , maxSize);
-	nmppsSet(BITS, G0, -1, maxSize + 128);
-	nmppsSet(BITS, G1, -1, maxSize + 128);
+	nmppsSet(BITS, -1, G0, maxSize + 128);
+	nmppsSet(BITS, -1, G1, maxSize + 128);
 	
 
 	int dim = DIM(BITS);

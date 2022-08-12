@@ -18,8 +18,8 @@ int main()
 	if ((L0==0)||(G0==0)||(G1==0)) return -1;
 	
 	nmppsRandUniform(BITS, L0, maxSize);
-	nmppsSet(BITS, G0, -1, maxSize/2 + 128);
-	nmppsSet(BITS, G1, -1, maxSize/2 + 128);
+	nmppsSet(BITS, -1, G0, maxSize/2 + 128);
+	nmppsSet(BITS, -1, G1, maxSize/2 + 128);
 	
 
 	int dim = DIM(BITS);

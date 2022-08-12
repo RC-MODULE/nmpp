@@ -32,15 +32,23 @@ int main()
 	}
 
 	for(int i = 0; i < SIZE + 10; i++) {
-		dst[i] = 777;
-		dst_ethalon[i] = 777;
+		dst[i] = 1;
+		dst_ethalon[i] = 1;
 	}
 
-	nmppsSqrt_32f(src, dst, tmp, SIZE);
-	SqrtEthalon(src, dst_ethalon, SIZE);
 
-	float norm;
-	nmppsNormDiff_L2_32f(dst_ethalon, dst, SIZE + 10, &norm);
-	printf("norm = %f\n", norm);
-	return 0;
+	unsigned crc=0;
+	for(int i=2; i<SIZE; i+=2){
+		nmppsSqrt_32f(src, dst, 32);
+		SqrtEthalon(src, dst_ethalon, SIZE);
+		nmppsCrcAcc_32f(dst,3,SIZE+2,&crc);
+	}
+	//	printf("%f %f %f\n",src[i], dst[i], dst_ethalon[i]);
+	//float norm;
+	//nmppsNormDiff_L2_32f(dst_ethalon, dst, SIZE, &norm);
+	//printf("norm = %f\n", norm);
+	
+	
+	//return norm*1000000;
+	return crc>>2;
 }

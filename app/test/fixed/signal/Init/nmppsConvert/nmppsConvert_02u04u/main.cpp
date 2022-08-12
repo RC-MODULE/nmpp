@@ -19,7 +19,8 @@ int main()
 	unsigned int crc = 0;
 	nmppsRandUniform_64u((nm64u*)src,maxSize/32);
 	nmppsSet_32s((0xCCCCCCCC),(nm32s*)dst,maxSize/16*2);
-	for(int testSize=0;testSize<maxSize-16;testSize+=32)
+	//for(int testSize=0;testSize<maxSize-16;testSize+=32)
+	for(int testSize=0;testSize<16000;testSize+=32)
 	{
 		t0=clock();
 		nmppsConvert_2u4u((nm2u*)src,(nm4u*)dst,testSize);	
@@ -28,11 +29,12 @@ int main()
 		if ((testSize&(testSize-1)) == 0 && testSize)
 			printf("size=%8d %f\n",testSize, (t1-t0)*1.0/testSize);
 	}
+		printf("size=%x \n",crc);
 	//! \fn void nmppsConvert_8u(nm8u* pSrc,nm16u* pDst,int)	
 
 
-	nmppsFree(src);
-	nmppsFree(dst);
+	//nmppsFree(src);
+	//nmppsFree(dst);
 	
 
 	return crc>>2;

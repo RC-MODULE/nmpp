@@ -4,7 +4,7 @@
 //*                                                                         */
 //*				Signed Fixed Point 64-bit Routines                          */
 //*                                                                         */
-//*             Вычисление квадратного корня в Fixed Point 64               */
+//*             Р’С‹С‡РёСЃР»РµРЅРёРµ РєРІР°РґСЂР°С‚РЅРѕРіРѕ РєРѕСЂРЅСЏ РІ Fixed Point 64               */
 //*                                                                         */
 //*                1999 (c) RC Module Inc., Moscow, Russia                  */
 //***************************************************************************/
@@ -67,7 +67,7 @@ macro SQRTNEG(JumpPos)
 		nul;
 end SQRTNEG;
 
-begin ".text_nmplс"
+begin ".text_nmplСЃ"
 
 //! \fn unsigned long nmppcFixSqrt64(unsigned long x);
 //!
@@ -290,6 +290,6 @@ global _nmppcFixSqrt64 :label;
 return;	
 .wait;
 
-end ".text_nmplс";
+end ".text_nmplСЃ";
 
 

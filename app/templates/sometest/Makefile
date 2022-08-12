@@ -1,80 +1,65 @@
-include $(ROOT)/global.mk
--include $(PATH2LOCAL)/local.mk
-# TEST-MAKEFILE
-# This Makefile is for testing purpose
-# It builds and runs two applications built from common cpp-source but for different platforms and compares their exit codes
-# It also generates makefile for given platform using $(TEMPLATES)\make_$(platform) template
-# USAGE:
-# make                    : generates projects and builds apps for all (from $(PLATFORMS)) platforms
-# make mc5103             : generates project and builds test app for mc5103 or any other from $(PLATFORMS)
-# make test-win32-mc5103  : run applications under win32 and mc5103 platforms or any pair from $(PLATFORMS) and compare thier exit codes
-# make clean              : clean up in all make_$(PLATFORMS)
-# make delete             : delete all make_$(PLATFORMS) folder
-#
-# Used global variables: TOP_LEVEL,TEMPLATES,PLATFORMS should be exported from parent Makefile or set manualy in global.mk (for local usage)
-# TOP_LEVEL :points to root directory of NMPP   
-# TEMPLATES :points to automake template folder 
-# PLATFORMS :set of available platforms: win32 mc5103 mb7707 emu ...
+ROOT = ..\..\..\..\..\..\..\..
+
+ifeq ($(OS),Windows_NT)
+SHELL=cmd
+-include nmc4vars_win.mk
+endif
+-include $(ROOT)/clean.mk
+NMPP?=$(ROOT)
+.SUFFIXES:
 
 
+BOARD = mc12101
+BSIO = $(MC12101)
+ifndef MC12101
+$(warning *** WARNING: 'MC12101' environment variable is not defined! Board SDK might not have installed correctly. )
+endif 
 
+PROJECT  = main
+TARGET   = $(PROJECT)
 
-#all: $(addsuffix /Makefile,$(addprefix make_,$(PLATFORMS))) $(addprefix build_,$(PLATFORMS))
-#	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) 					$(newline))
-all: configure
-	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) 					$(newline))
+CC       = nmc-g++
+AS       = nmc-gcc
+CXXFLAGS = -std=c++11 -O2 -Wall -mnmc4 -g
+LIBS     = -lnmpp-nmc4 -ltimes -lint     -Wl,--whole-archive -lnm6407_io_nmc -l$(BOARD)load_nm -Wl,--no-whole-archive  
+CFG      = $(BOARD)-nmpu1.lds
+MAP      = $(PROJECT).map
+LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-T$(CFG) 
+#,--defsym,_printf=_nmc_printf
 
-configure: $(addsuffix /Makefile,$(addprefix make_,$(PLATFORMS))) 
+INC_DIRS = -I"$(BSIO)/include" -I"$(NMPP)/include" 
+LIB_DIRS = -L"$(BSIO)/lib" -L"$(NMPP)/lib"    -L"$(NMCGCC)/lib" -L.
+SRC_DIRS = ..
+SRC_CPP  = $(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
+SRC_ASM  = $(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
+SRC_C    = $(wildcard $(addsuffix /*.c,$(SRC_DIRS)))
+SRC_ALL  = $(SRC_CPP) $(SRC_ASM) $(SRC_C)
+
+.DEFAULT_GOAL := $(TARGET)
+
+$(TARGET): $(SRC_ALL) Makefile $(NMPP)/lib/libnmpp-nmc4.a
+	$(CC)  -o$(TARGET) $(CXXFLAGS) $(LDFLAGS) $(SRC_ALL) $(INC_DIRS) $(LIB_DIRS) $(LIBS)
+
+#PATH:=$(BSP)/bin;$(PATH)
+
+run .exitcode: 	$(TARGET)
+	$(BOARD)run -p -v $(TARGET) -R -a1 & exitcode
+
+qemu:	
+	nmc-qemu $(TARGET)
+
+gdb :	
+	nmc-gdb  $(TARGET)
+
+$(MAKE) LIBS="-lnmpp-nmc4 -lc " -B TARGET=$(TARGET)_qemu
+
 	
-clean:
-	$(foreach make_platform,$(wildcard make_*), -$(MAKE) -C./$(make_platform) clean 	$(newline))
-
-#	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) clean 			$(newline))
-
-run:	all
-	$(foreach platform,$(PLATFORMS), -$(MAKE) -C./make_$(platform) run 				$(newline))
-
-kill: 
-	-$(OS_RD) $(wildcard make_*)
+nmc4vars_win.mk:
+	copy "$(NMC_GCC_TOOLPATH)\nmc4-ide\include\nmc4vars_win.mk" nmc4vars_win.mk
 	
-
-test: make_$(TARGET1)/Makefile make_$(TARGET2)/Makefile
-	$(MAKE) -C./make_$(TARGET1) test 
-	$(MAKE) -C./make_$(TARGET2) test
-	@echo $(CURDIR)>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
-	$(OS_DIFF) make_$(TARGET1)/.exitcode make_$(TARGET2)/.exitcode
-	@echo TEST-OK!
-	@echo OK>> $(ROOT)/app/test/diff-$(TARGET1)-$(TARGET2).txt
-
+vs2015:
+	premake5 vs2015
 	
-########### Produces automake rule for all platforms like ############################
-# 
-# mc5103: make_mc5103
-# make_mc5103:
-#   mkdir make_mc5103
-#	cp $(TEMPLATES)/make_mc5103/*.* ./make_mc5103
-#
-# build_mc5103:
-#	$(MAKE) -C./make_mc5103 
-#
-define automake_platform
-$(1):make_$(1)/Makefile
-
-make_$(1)/Makefile: make_$(1)
-	-cp $(ROOT)/app/templates/sometest/make_$(1)/* make_$(1)
-	-rm make_$(1)/Makefile
-	echo ROOT=../$(ROOT)| $(OS_CAT) - $(ROOT)/app/templates/sometest/make_$(1)/Makefile > make_$(1)/Makefile
+vs2008:
+	premake5 vs2008		
 	
-
-make_$(1): 
-	-mkdir make_$(1)
-
-endef	
-
-$(foreach platform, $(PLATFORMS),$(eval $(call automake_platform,$(platform))))
-#######################################################################################
-
-define newline
-
-
-endef

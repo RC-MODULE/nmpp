@@ -79,7 +79,7 @@ begin ".text_fft"
 	[Param.LBuffer1]  = ar2;										// LBuffer1
 	[Param.GBuffer2]  = ar3;										// GBuffer2
 
-	vr = gr4;														// vr=2^6 (добавляется для нормализации)
+	vr = gr4;														// vr=2^6 (РґРѕР±Р°РІР»СЏРµС‚СЃСЏ РґР»СЏ РЅРѕСЂРјР°Р»РёР·Р°С†РёРё)
 
 	//////////////////////////////////////////////////////////////////////////
 	//        First radix-2 FFT
@@ -89,7 +89,7 @@ begin ".text_fft"
 	// ar0=[Param.LSrcBuffer]
 	// ar3=[Param.GBuffer2]
 
-	nb1 = gr3;														// 2 столбца
+	nb1 = gr3;														// 2 СЃС‚РѕР»Р±С†Р°
 	WTW_REG_DEPRICATED(gr3);
 
 	ar1 = ar0;
@@ -102,79 +102,79 @@ begin ".text_fft"
 .repeat 128;
 	rep 32 ram = [ar0++];											// [L] ram=X[0..4095]  
 	rep 32 data = [ar1++] with ram + data;							// [L] data=X[4096..8191]
-	rep 32 [ar2++] = afifo;											// [G] S[0..4095]=X[0..4095]+X[4096..8191] (Запись S в GBuffer2)
+	rep 32 [ar2++] = afifo;											// [G] S[0..4095]=X[0..4095]+X[4096..8191] (Р—Р°РїРёСЃСЊ S РІ GBuffer2)
 	rep 32 data = [ar4++] with ram - data;							// [L] data=X[4096..8191]
-	rep 32 [ar3++] = afifo;											// [G] S[4096..8191]=X[0..4095]-X[4096..8191] (Запись S в GBuffer2)
+	rep 32 [ar3++] = afifo;											// [G] S[4096..8191]=X[0..4095]-X[4096..8191] (Р—Р°РїРёСЃСЊ S РІ GBuffer2)
 .endrepeat;
 
 	//////////////////////////////////////////////////////////////////////////
 	//        Second radix-16 FFT
 	//------------------------------------------------------------------------
-	// S->SABCD (GBuffer2->GBuffer2 (2-я половина))
+	// S->SABCD (GBuffer2->GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°))
 	// gr1=4096*2
 	// gr2=2 (CONST)
 	// gr6=256*2
 
-	sb = 02020202h;													// 8 строк
+	sb = 02020202h;													// 8 СЃС‚СЂРѕРє
 	gr4 = [Param.GBuffer2];											// S
 	ar5 = gr4;
-	ar5 += 8192 * 2;												// GBuffer2 (2-я половина)
+	ar5 += 8192 * 2;												// GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 
 	ar2 = IW1_8192;
 
 	gr5 = gr4 with gr4 += gr1;
 	ar6 = gr5 with gr5 += gr2;
-	rep 16 wfifo = [ar6++gr6], ftw;									// [G] S (8 + 8 т.)
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
+	rep 16 wfifo = [ar6++gr6], ftw;									// [G] S (8 + 8 С‚.)
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
 .repeat 255;
-	ar1 = ar2;														// Возврат к началу нужного фрагмента таблицы коэффициентов (т. к. они повторяются)
+	ar1 = ar2;														// Р’РѕР·РІСЂР°С‚ Рє РЅР°С‡Р°Р»Сѓ РЅСѓР¶РЅРѕРіРѕ С„СЂР°РіРјРµРЅС‚Р° С‚Р°Р±Р»РёС†С‹ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ (С‚. Рє. РѕРЅРё РїРѕРІС‚РѕСЂСЏСЋС‚СЃСЏ)
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] IW1_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 	ar6 = gr5 with gr5 += gr2;
-	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 С‚.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;				// [L] IW1_8192
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 .endrepeat;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] IW1_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 С‚.)
 
 	rep 32 data = [ar2++], ftw with vsum, data, afifo;				// [L] IW1_8192
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
 .repeat 255;
-	ar1 = ar2;														// Возврат к началу нужного фрагмента таблицы коэффициентов (т. к. они повторяются)
+	ar1 = ar2;														// Р’РѕР·РІСЂР°С‚ Рє РЅР°С‡Р°Р»Сѓ РЅСѓР¶РЅРѕРіРѕ С„СЂР°РіРјРµРЅС‚Р° С‚Р°Р±Р»РёС†С‹ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ (С‚. Рє. РѕРЅРё РїРѕРІС‚РѕСЂСЏСЋС‚СЃСЏ)
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] IW1_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 С‚.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;				// [L] IW1_8192
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 .endrepeat;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] IW1_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 
-	sb = gr2;														// 2 строки
+	sb = gr2;														// 2 СЃС‚СЂРѕРєРё
 	ar6 = GAddCmplxMask;
 	rep 2 wfifo = [ar6++];											// [G] [1|0][0|-1] => wfifo
 
 	rep 32 data = [ar2++], ftw with vsum, data, afifo;				// [L] IW1_8192
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 
 	//////////////////////////////////////////////////////////////////////////
 	//        Second Summation [re*im+im*re | re*re-im*im]
 	//------------------------------------------------------------------------
-	// SABCD->T (не нормализованное) (GBuffer2 (2-я половина)->LBuffer1)
+	// SABCD->T (РЅРµ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ) (GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)->LBuffer1)
 	// gr7=1
 
 	WTW_REG_DEPRICATED(gr3);
 	ar6 = [Param.GBuffer2] with gr4 = gr7 << 2;						// gr4=4
-	ar6 += 8192 * 2;												// GBuffer2 (2-я половина)
+	ar6 += 8192 * 2;												// GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 	ar0 = [Param.LBuffer1] with gr6 = gr7 << 1;
 	ar4 = ar6 + gr6 with gr6 = gr4;									// gr6=4
 .repeat 256;
@@ -186,192 +186,192 @@ begin ".text_fft"
 	//////////////////////////////////////////////////////////////////////////
 	//        Second Right Shift Normalization
 	//------------------------------------------------------------------------
-	// T (не нормализованное)->T (LBuffer1->GBuffer2)
+	// T (РЅРµ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ)->T (LBuffer1->GBuffer2)
 
-	ar0 = [Param.LBuffer1];											// [L] LBuffer1 (не нормализованное T)
+	ar0 = [Param.LBuffer1];											// [L] LBuffer1 (РЅРµ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ T)
 	gr5 = 7;
-	ar6 = [Param.GBuffer2];											// [G] GBuffer2 (будет нормализованное T)
+	ar6 = [Param.GBuffer2];											// [G] GBuffer2 (Р±СѓРґРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ T)
 	VEC_ARSH32_aaCG(ar0, ar6, 8192 * 2, gr5);
 
 	//////////////////////////////////////////////////////////////////////////
 	//        Third radix-16 FFT
 	//------------------------------------------------------------------------
-	// T->TABCD (GBuffer2->GBuffer2 (2-я половина))
+	// T->TABCD (GBuffer2->GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°))
 	// gr3=80000000h (CONST)
 	// gr1=4096*2
 	// gr2=2 (CONST)
 
-	nb1 = gr3;														// 2 столбца
-	sb = 02020202h;													// 8 строк
+	nb1 = gr3;														// 2 СЃС‚РѕР»Р±С†Р°
+	sb = 02020202h;													// 8 СЃС‚СЂРѕРє
 	gr4 = [Param.GBuffer2] with gr7 = false;						// T
 	ar5 = gr4 with gr7++;											// gr7=1
-	ar5 += 8192 * 2;												// GBuffer2 (2-я половина)
+	ar5 += 8192 * 2;												// GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 	gr6 = gr7 << 9;													// gr6=256*2
 
 	ar2 = IW2_8192;
 
 	gr5 = gr4 with gr4 += gr1;
 	ar6 = gr5 with gr5 += gr2;
-	rep 16 wfifo = [ar6++gr6], ftw;									// [G] T (8 + 8 т.)
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
+	rep 16 wfifo = [ar6++gr6], ftw;									// [G] T (8 + 8 С‚.)
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
 .repeat 15;
-	ar1 = ar2;														// Возврат к началу нужного фрагмента таблицы коэффициентов (т. к. они повторяются)
+	ar1 = ar2;														// Р’РѕР·РІСЂР°С‚ Рє РЅР°С‡Р°Р»Сѓ РЅСѓР¶РЅРѕРіРѕ С„СЂР°РіРјРµРЅС‚Р° С‚Р°Р±Р»РёС†С‹ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ (С‚. Рє. РѕРЅРё РїРѕРІС‚РѕСЂСЏСЋС‚СЃСЏ)
 		.repeat 16;
 			rep 32 data = [ar1++], ftw with vsum, data, 0;			// [L] IW2_8192
-			WTW_REG_DEPRICATED(gr3);													// 2-е 8 т.
+			WTW_REG_DEPRICATED(gr3);													// 2-Рµ 8 С‚.
 			ar6 = gr5 with gr5 += gr2;
-			rep 16 wfifo = [ar6++gr6];								// [G] S (8 + 8 т.)
+			rep 16 wfifo = [ar6++gr6];								// [G] S (8 + 8 С‚.)
 			rep 32 data = [ar1++], ftw with vsum, data, afifo;		// [L] IW2_8192
-			WTW_REG_DEPRICATED(gr3);													// 1-е 8 т.
-			rep 32 [ar5++] = afifo;									// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+			WTW_REG_DEPRICATED(gr3);													// 1-Рµ 8 С‚.
+			rep 32 [ar5++] = afifo;									// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 		.endrepeat;
 .endrepeat;
 .repeat 15;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] IW2_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 	ar6 = gr5 with gr5 += gr2;
-	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];										// [G] S (8 + 8 С‚.)
 	rep 32 data = [ar2++], ftw with vsum, data, afifo;				// [L] IW2_8192
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 .endrepeat;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] IW2_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6];										// [G] T (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];										// [G] T (8 + 8 С‚.)
 
 	rep 32 data = [ar2++], ftw with vsum, data, afifo;				// [L] IW2_8192
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
 .repeat 15;
-	ar1 = ar2;														// Возврат к началу нужного фрагмента таблицы коэффициентов (т. к. они повторяются)
+	ar1 = ar2;														// Р’РѕР·РІСЂР°С‚ Рє РЅР°С‡Р°Р»Сѓ РЅСѓР¶РЅРѕРіРѕ С„СЂР°РіРјРµРЅС‚Р° С‚Р°Р±Р»РёС†С‹ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ (С‚. Рє. РѕРЅРё РїРѕРІС‚РѕСЂСЏСЋС‚СЃСЏ)
 		.repeat 16;
 			rep 32 data = [ar1++], ftw with vsum, data, 0;			// [L] IW2_8192
-			WTW_REG_DEPRICATED(gr3);													// 2-е 8 т.
+			WTW_REG_DEPRICATED(gr3);													// 2-Рµ 8 С‚.
 			ar6 = gr4 with gr4 += gr2;
-			rep 16 wfifo = [ar6++gr6];								// [G] T (8 + 8 т.)
+			rep 16 wfifo = [ar6++gr6];								// [G] T (8 + 8 С‚.)
 			rep 32 data = [ar1++], ftw with vsum, data, afifo;		// [L] IW2_8192
-			WTW_REG_DEPRICATED(gr3);													// 1-е 8 т.
-			rep 32 [ar5++] = afifo;									// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+			WTW_REG_DEPRICATED(gr3);													// 1-Рµ 8 С‚.
+			rep 32 [ar5++] = afifo;									// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 		.endrepeat;
 .endrepeat;
 .repeat 15;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] IW2_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6];										// [G] T (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];										// [G] T (8 + 8 С‚.)
 	rep 32 data = [ar2++], ftw with vsum, data, afifo;				// [L] IW2_8192
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 .endrepeat;
 	rep 32 data = [ar2++], ftw with vsum, data, 0;					// [L] IW2_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 
-	sb = gr2;														// 2 строки
+	sb = gr2;														// 2 СЃС‚СЂРѕРєРё
 	ar6 = GAddCmplxMask;
 	rep 2 wfifo = [ar6++];											// [G] [1|0][0|-1] => wfifo
 
 	rep 32 data = [ar2++], ftw with vsum, data, afifo;				// [L] IW2_8192
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 
 	//////////////////////////////////////////////////////////////////////////
 	//        Third Summation [re*im+im*re | re*re-im*im]
 	//------------------------------------------------------------------------
-	// TABCD->P (не нормализованное) (GBuffer2 (2-я половина)->LBuffer1)
+	// TABCD->P (РЅРµ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ) (GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)->LBuffer1)
 	// gr7=1
 
 	WTW_REG_DEPRICATED(gr3);
 	ar6 = [Param.GBuffer2] with gr4 = gr7 << 2;						// gr4=4
-	ar6 += 8192 * 2;												// GBuffer2 (2-я половина)
+	ar6 += 8192 * 2;												// GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 	ar0 = [Param.LBuffer1] with gr6 = gr7 << 1;
 	ar4 = ar6 + gr6 with gr6 = gr4;									// gr6=4
 .repeat 256;
-	rep 32 data = [ar4++gr4] with vsum, data, vr;					// [G] GBuffer2 (2-я половина) (Im)
-	rep 32 data = [ar6++gr6] with data + afifo;						// [G] GBuffer2 (2-я половина) (Re)
+	rep 32 data = [ar4++gr4] with vsum, data, vr;					// [G] GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°) (Im)
+	rep 32 data = [ar6++gr6] with data + afifo;						// [G] GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°) (Re)
 	rep 32 [ar0++] = afifo;											// [L] LBuffer1
 .endrepeat;
 
 	//////////////////////////////////////////////////////////////////////////
 	//        Third Right Shift Normalization
 	//------------------------------------------------------------------------
-	// P (не нормализованное)->P (LBuffer1->GBuffer2)
+	// P (РЅРµ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ)->P (LBuffer1->GBuffer2)
 
-	ar0 = [Param.LBuffer1];											// [L] LBuffer1 (не нормализованное P)
+	ar0 = [Param.LBuffer1];											// [L] LBuffer1 (РЅРµ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ P)
 	gr5 = 7;
-	ar6 = [Param.GBuffer2];											// [G] GBuffer2 (будет нормализованное P)
+	ar6 = [Param.GBuffer2];											// [G] GBuffer2 (Р±СѓРґРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ P)
 	VEC_ARSH32_aaCG(ar0, ar6, 8192 * 2, gr5);
 
 	//////////////////////////////////////////////////////////////////////////
 	//        Fourth radix-16 FFT
 	//------------------------------------------------------------------------
-	// P->PABCD (GBuffer2->GBuffer2 (2-я половина))
+	// P->PABCD (GBuffer2->GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°))
 	// gr3=80000000h (CONST)
 	// gr1=4096*2
 	// gr2=2 (CONST)
 
-	nb1 = gr3;														// 2 столбца
-	sb = 02020202h;													// 8 строк
+	nb1 = gr3;														// 2 СЃС‚РѕР»Р±С†Р°
+	sb = 02020202h;													// 8 СЃС‚СЂРѕРє
 	gr4 = [Param.GBuffer2] with gr7 = false;						// P
 	ar5 = gr4 with gr7++;											// gr7=1
-	ar5 += 8192 * 2;												// GBuffer2 (2-я половина)
+	ar5 += 8192 * 2;												// GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 	gr6 = gr7 << 9;													// gr6=256*2
 
 	ar1 = IW3_8192;
 
 	gr5 = gr4 with gr4 += gr1;
 	ar6 = gr5 with gr5 += gr2;
-	rep 16 wfifo = [ar6++gr6], ftw;									// [G] P (8 + 8 т.)
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
+	rep 16 wfifo = [ar6++gr6], ftw;									// [G] P (8 + 8 С‚.)
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
 .repeat 255;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] IW3_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 	ar6 = gr5 with gr5 += gr2;
-	rep 16 wfifo = [ar6++gr6];										// [G] P (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];										// [G] P (8 + 8 С‚.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;				// [L] IW3_8192
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 .endrepeat;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] IW3_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6];										// [G] P (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];										// [G] P (8 + 8 С‚.)
 
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;				// [L] IW3_8192
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
 .repeat 255;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] IW3_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 	ar6 = gr4 with gr4 += gr2;
-	rep 16 wfifo = [ar6++gr6];										// [G] P (8 + 8 т.)
+	rep 16 wfifo = [ar6++gr6];										// [G] P (8 + 8 С‚.)
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;				// [L] IW3_8192
-	WTW_REG_DEPRICATED(gr3);															// 1-е 8 т.
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	WTW_REG_DEPRICATED(gr3);															// 1-Рµ 8 С‚.
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 .endrepeat;
 	rep 32 data = [ar1++], ftw with vsum, data, 0;					// [L] IW3_8192
-	WTW_REG_DEPRICATED(gr3);															// 2-е 8 т.
+	WTW_REG_DEPRICATED(gr3);															// 2-Рµ 8 С‚.
 
-	sb = gr2;														// 2 строки
+	sb = gr2;														// 2 СЃС‚СЂРѕРєРё
 	ar6 = GAddCmplxMask;
 	rep 2 wfifo = [ar6++];											// [G] [1|0][0|-1] => wfifo
 
 	rep 32 data = [ar1++], ftw with vsum, data, afifo;				// [L] IW3_8192
-	rep 32 [ar5++] = afifo;											// [G] Запись A, B, C, D в GBuffer2 (2-я половина)
+	rep 32 [ar5++] = afifo;											// [G] Р—Р°РїРёСЃСЊ A, B, C, D РІ GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 
 	//////////////////////////////////////////////////////////////////////////
 	//        Fourth Summation [re*im+im*re | re*re-im*im]
 	//------------------------------------------------------------------------
-	// PABCD->Y (GBuffer2 (2-я половина)->LBuffer1)
-	// (с расстановкой Y в правильном порядке)
+	// PABCD->Y (GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)->LBuffer1)
+	// (СЃ СЂР°СЃСЃС‚Р°РЅРѕРІРєРѕР№ Y РІ РїСЂР°РІРёР»СЊРЅРѕРј РїРѕСЂСЏРґРєРµ)
 	// gr7=1
 
 	WTW_REG_DEPRICATED(gr3);
 	ar6 = [Param.GBuffer2] with gr4 = gr7 << 2;						// gr4=4
-	ar6 += 8192 * 2;												// GBuffer2 (2-я половина)
+	ar6 += 8192 * 2;												// GBuffer2 (2-СЏ РїРѕР»РѕРІРёРЅР°)
 	gr0 = [Param.LBuffer1] with gr6 = gr7 << 1;
 	ar4 = ar6 + gr6 with gr6 = gr4;									// gr6=4
 
@@ -397,11 +397,11 @@ begin ".text_fft"
 	//////////////////////////////////////////////////////////////////////////
 	//        Fourth Right Shift Normalization
 	//------------------------------------------------------------------------
-	// Y (не нормализованный)->Y (LBuffer1->GDstBuffer)
+	// Y (РЅРµ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Р№)->Y (LBuffer1->GDstBuffer)
 
-	ar0 = [Param.LBuffer1];											// [L] LBuffer1 (не нормализованное Y)
+	ar0 = [Param.LBuffer1];											// [L] LBuffer1 (РЅРµ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ Y)
 	gr5 = 20;														// 7+13
-	ar6 = [Param.GDstBuffer];										// [G] Y (будет нормализованное Y)
+	ar6 = [Param.GDstBuffer];										// [G] Y (Р±СѓРґРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРµ Y)
 	VEC_ARSH32_aaCG(ar0, ar6, 8192 * 2, gr5);
 
 //////////////////////////////////////////////////////////////////////////////

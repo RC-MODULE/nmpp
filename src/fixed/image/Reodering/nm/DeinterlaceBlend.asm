@@ -19,7 +19,6 @@
 //
 //==============================================================================
 
-//global _void._.8.8nmppiDeinterlaceBlend.1unsigned._char._.0.9._unsigned._char._.0.9._int.9._int.9._unsigned._char._.0.2: label;
 global _nmppiDeinterlaceBlend: label;
 
 extern vec_data: label;
@@ -27,7 +26,6 @@ extern vec_data: label;
 begin ".textDeinterlacer"
 .branch;
 
-//<_void._.8.8nmppiDeinterlaceBlend.1unsigned._char._.0.9._unsigned._char._.0.9._int.9._int.9._unsigned._char._.0.2>
 <_nmppiDeinterlaceBlend>
 
 	ar5 = ar7 - 2	with gr7=false;

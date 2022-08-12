@@ -23,12 +23,12 @@ int main(){
 	nmppsCrcAcc_64f((nm64f*)src3, 0, MAX_SIZE, &crc);
 	//nmppsSet_32s(0xCDCDCDCD,(nm32s*)dst,MAX_SIZE);
 
-	clock_t t1,t0;
+	//clock_t t1,t0;
 	for (int size = 1; size < MAX_SIZE; size++) {
-		t0 = clock();
+		//t0 = clock();
 		nmppsMul_Add_64f(src1, src2, src3, dst, size);
-		t1 = clock();
+		//t1 = clock();
 		nmppsCrcAcc_64f((nm64f*)dst, 0, size+1 , &crc);
 	}
-	return t1-t0;
+	return crc>>2;
 }

@@ -2,7 +2,7 @@
 //
 //  $Workfile:: Convolution32to32.as $
 //
-//  Âåêòîðíî-ìàòðè÷íàÿ áèáëèîòåêà
+//  Ð’ÐµÐºÑ‚Ð¾Ñ€Ð½Ð¾-Ð¼Ð°Ñ‚Ñ€Ð¸Ñ‡Ð½Ð°Ñ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   Convolution32to32.asm
-//! \author Ñåðãåé Ìóøêàåâ
-//! \brief  Ôóíêöèè ñâåðòêè äëÿ âåêòîðîâ.
+//! \author Ð¡ÐµÑ€Ð³ÐµÐ¹ ÐœÑƒÑˆÐºÐ°ÐµÐ²
+//! \brief  Ð¤ÑƒÐ½ÐºÑ†Ð¸Ð¸ ÑÐ²ÐµÑ€Ñ‚ÐºÐ¸ Ð´Ð»Ñ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð¾Ð².
 //!
 //! \endif
 //!
@@ -50,7 +50,7 @@ begin ".text_nmpls"
 /////////////////////////////////////////////////////////////////////////////////////////
 // Convolution calculation
 // pDstVec[i]=pSrcVec[i]*pKernel[i]+pSrcVec[i+1]*pKernel[i%n+1]+...+pSrcVec[i+n]*pKernel[i%n+n]
-//void SIG_XCorr(
+//void nmppsXCorr_32s(
 //		nm32s*			pSrcVec			// input buffer		:long Local	[nSrcVecSize/2]
 //		nm32s*			pKernel		// input buffer		:long Any   [nKernelSize/2]	//If = -1 => Use Existing pTmpBuff matrix
 //		nm64s*			pTmpBuff		// output buffer	:long Global[nKernelSize + 2]
@@ -66,15 +66,13 @@ begin ".text_nmpls"
 //
 
 //
-//! \fn void SIG_XCorr(nm32s* pSrcVec, int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
+//! \fn void nmppsXCorr_32s(nm32s* pSrcVec, int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
 //!
 //! \n
 
-//void SIG_XCorr(nm32s* pSrcVec, int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
-global _SIG_XCorr__FPiiPiiPiPv:label;
-global _void._.8.8SIG_XCorr.1int._.0.9._int.9._int._.0.9._int.9._int._.0.9._void._.0.2 :label;
-<_SIG_XCorr__FPiiPiiPiPv>
-<_void._.8.8SIG_XCorr.1int._.0.9._int.9._int._.0.9._int.9._int._.0.9._void._.0.2>
+//void nmppsXCorr_32s(nm32s* pSrcVec, int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
+global _nmppsXCorr_32s:label;
+<_nmppsXCorr_32s>
 .branch;
 	ar5 = sp - 2;
 

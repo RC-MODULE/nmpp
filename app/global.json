@@ -4,7 +4,8 @@
     "exclude_dirs": ["d"],
     "include_dirs": ["examples","test","examples-float"],
     "targets"  : ["x86","emu6405","mc12101_nmpu0-gcc-ld" ],
-    "test": ["x86","emu6405"],
+	"ethalon" :"x64",
+    
     "log": "build.log",
     "root_dir": ".."
 }

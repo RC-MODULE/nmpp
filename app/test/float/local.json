@@ -1,0 +1,10 @@
+{   
+    "_root_dir": "..",
+    "_template_dir": "templates/sometest",
+    "_exclude_dirs": ["d"],
+    "include_dirs_": ["arithmetic_","conditional_","matrix"],
+    "target_index": "make_",
+    "targets"  : ["x64","mc12101_nmpu0"],
+    "test": ["x64","mc12101_nmpu0"],
+    "_log": "nmcmake.log"
+}

@@ -1,13 +1,14 @@
 
 
+
 #include $(ROOT)/global.mk
 	   
 PROJECT = test-x64
 #TARGET  = $(call OSX,bin/x64/Release/$(PROJECT))
 
 ifeq ($(OS),Windows_NT)
-  TARGET  = bin\x64\Release\$(PROJECT)
-  .DEFAULT_GOAL := vs2015
+  TARGET  = bin\x64\Release\$(PROJECT).exe
+  #.DEFAULT_GOAL := vs2017
   SHELL = cmd
   OS_RD    = rd /Q /S 
   OS_RM    = del /Q
@@ -23,11 +24,24 @@ else
   OS_MKDIR = mkdir -p  
 endif
 
+.PHONY: run vs2017 
 
 
-$(TARGET) vs2015:
+#$(info ----- $(TARGET))
+
+$(TARGET): ../main.cpp
+	premake5 vs2017
+	msbuild $(PROJECT).vcxproj /p:Configuration=Release /property:Platform=x64
+
+#FORCE: 
+
+vs2015:
 	premake5 vs2015
 	"$(VS140COMNTOOLS)vsvars32" && msbuild $(PROJECT).vcxproj /p:Configuration=Release /property:Platform=x64
+
+vs2017:
+	premake5 vs2017
+	"$(VS150COMNTOOLS)VsDevCmd.bat" && msbuild $(PROJECT).vcxproj /p:Configuration=Release /property:Platform=x64
 	
 vs2005:
 	premake5 vs2005	
@@ -42,25 +56,17 @@ gmake:
 	
 	
 	
-.PHONY: run 
+run: .exitcode
 	
-run:	
-	$(TARGET)
+		
+.exitcode: $(TARGET)
+	$(TARGET) & exitcode
+ 
+	
 
 qemu:
 	
-test: .exitcode
-	
-.exitcode: $(TARGET) .test.bat
-	.test.bat 
-	
-.test.bat: 
-	@echo $(TARGET) >.test.bat
-	@echo @echo %%errorlevel%% ^>.exitcode >>.test.bat
 
-
-
-	
 	
 	
 include $(ROOT)/clean.mk	

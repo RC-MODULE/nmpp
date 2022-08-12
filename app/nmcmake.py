@@ -279,8 +279,9 @@ def configure():
                     try:
                         os.mkdir(os.path.join(i[0], data['target_index'] + cfg))  # Создание папки make..
                     except FileExistsError:
-                        shutil.rmtree(os.path.join(i[0], data['target_index'] + cfg))  # Удаление папки make.. и её содержимого
-                        os.mkdir(os.path.join(i[0], data['target_index'] + cfg))
+                        #shutil.rmtree(os.path.join(i[0], data['target_index'] + cfg))  # Удаление папки make.. и её содержимого
+                        #os.mkdir(os.path.join(i[0], data['target_index'] + cfg))
+                        pass
                     copytree(os.path.join(os.getcwd(), data['target_index'] + cfg), os.path.join(i[0], data['target_index'] + cfg))
                 add_ROOT(i[0], settings, path_to_global)
     print('\nAll files were configured')
@@ -397,7 +398,53 @@ def wipe():
 
 
 @timer
-def test():
+def match(checksumfile):
+
+    test_logger = setup_logger('test_logger','test.log', '%(filename)s[LINE:%(lineno)d]# %(levelname)-8s [%(asctime)s]  %(message)s')
+    #short_logger = setup_logger('short_logger', log_path + '_S.log', '%(message)s')
+    
+                                
+    
+    folders = []
+    for i in os.walk(os.getcwd()):  # Проход по древу дочерних элементов папки, из которой вызван метод
+        folders.append(i)
+    #print (folders[3])
+    if 'main.cpp' not in folders[0][2]:
+        folders.pop(0)
+       
+    for folder in folders:
+        if 'main.cpp' in folder[2]:
+            #print(0,folder[0])
+            #print(1,folder[1])
+            #print(2,folder[2])
+            if folder[1] == []:
+                continue
+            else:
+                exitcode=''
+                errors=0
+                for element in folder[1]:
+                    path=folder[0]+'\\'+element+'\\'+checksumfile
+                    file_exists = os.path.exists(path)
+                    #print(path,file_exists)
+                    f = open(path, 'rt')
+                    cur_exitcode = f.readline().rstrip('\n').rstrip(' ')
+                    
+                    if exitcode=='':
+                        exitcode=cur_exitcode
+                    elif exitcode!=cur_exitcode:
+                        print(path) 
+                        print("crc pair not matched "+exitcode+':'+cur_exitcode) 
+                        test_logger.error(u'{test_folder} - [FAILED]'.format(test_folder=folder[0]))
+                        errors+=1
+                if errors==0:
+                    test_logger.info(u'{test_folder} - [PASSED]'.format(test_folder=folder[0]))
+    
+                print        
+                    #print (exitcode)
+            #        shutil.rmtree(os.path.join(folder[0], element))  # Удаление папки и всего внутреннего контента
+            #print(folder[0] + ' [KILLED]')
+    #print('\nAll configures were deleted')
+
     pass
 
 
@@ -523,7 +570,7 @@ if __name__ == "__main__":
         elif op == 'wipe':
             wipe()
         elif op == 'test':
-            print('test')
+            test()
         else:
             run_external_app(args[1:])
     except IndexError:

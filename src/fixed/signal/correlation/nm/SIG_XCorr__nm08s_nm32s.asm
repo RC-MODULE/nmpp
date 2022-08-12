@@ -2,7 +2,7 @@
 //
 //  $Workfile:: Convolution8to32.as $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   Convolution8to32.asm
-//! \author Сергей Мушкаев
-//! \brief  Функции свертки для векторов.
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  Р¤СѓРЅРєС†РёРё СЃРІРµСЂС‚РєРё РґР»СЏ РІРµРєС‚РѕСЂРѕРІ.
 //!
 //! \endif
 //!
@@ -20,32 +20,13 @@
 
 
 begin ".text_nmpls"
-/////////////////////////////////////////////////////////////////////////////////////////
-// Convolution calculation
-// pDstVec[i]=pSrcVec[i]*pKernel[i]+pSrcVec[i+1]*pKernel[i%n+1]+...+pSrcVec[i+n]*pKernel[i%n+n]
-//void SIG_XCorr(
-//		nm32s*			pSrcVec			// input buffer		:long Local	[nSrcVecSize/2]
-//		nm32s*			pKernel			// input buffer		:long Any   [pKernelSize/2]
-//		nm64s*			pTmpBuff		// output buffer	:long Global[pKernelSize + 14]
-//		nm32s*			pDstVec			// output buffer	:long Local	[(nSrcVecSize - pKernelSize)/2]
-//		int				pKernelSize		// size of input buffer in 32 bit elements. nSize=[1,2,3...]
-//		int				nSrcVecSize		// size of input buffer in 16 bit elements. nSize=[0,4,8...]
-//		);
-//
-//  STATUS:
-//		Test						: 
-//		Core low level optimization : 
-//		Function code  optimization	: 
-//
 
 
-//! \fn void SIG_XCorr(nm8s* pSrcVec,  int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
+//! \fn void nmppsXCorr_8s(nm8s* pSrcVec,  int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
 //!
 //! \n
-global _SIG_XCorr__FPciPiiPiPv:label;
-global _void._.8.8SIG_XCorr.1char._.0.9._int.9._int._.0.9._int.9._int._.0.9._void._.0.2 :label;
-<_SIG_XCorr__FPciPiiPiPv>
-<_void._.8.8SIG_XCorr.1char._.0.9._int.9._int._.0.9._int.9._int._.0.9._void._.0.2>
+global _nmppsXCorr_8s:label;
+<_nmppsXCorr_8s>
 .branch;
 	ar5 = sp - 2;
 
@@ -61,7 +42,7 @@ global _void._.8.8SIG_XCorr.1char._.0.9._int.9._int._.0.9._int.9._int._.0.9._voi
 	ar0 = [--ar5];	// pSrcVec
 	gr3 = [--ar5];	// nSrcVecSize
 	ar1 = [--ar5];	// pKernel
-	gr1 = [--ar5];	// pKernelSize
+	gr1 = [--ar5];	// nKernelSize
 	ar6 = [--ar5];	// pDstVec
 	ar4 = [--ar5];	// pTmpBuff
 
@@ -123,7 +104,7 @@ global _void._.8.8SIG_XCorr.1char._.0.9._int.9._int._.0.9._int.9._int._.0.9._voi
 	
 	push ar0,gr0;
 	push ar6,gr6;
-		call SIG_XCorr_8to32;
+		call nmppsXCorr_8to32;
 .repeat 2;
 	pop ar6,gr6;
 	pop ar0,gr0;
@@ -138,7 +119,7 @@ global _void._.8.8SIG_XCorr.1char._.0.9._int.9._int._.0.9._int.9._int._.0.9._voi
 	push ar0,gr0;
 	push ar6,gr6;
 		
-		call SIG_XCorr_8to32;
+		call nmppsXCorr_8to32;
 .endrepeat;
 
 	pop ar6,gr6;
@@ -150,7 +131,7 @@ global _void._.8.8SIG_XCorr.1char._.0.9._int.9._int._.0.9._int.9._int._.0.9._voi
 		ar6 += 2;
 		ar4 -= 4;
 
-		call SIG_XCorr_8to32;
+		call nmppsXCorr_8to32;
 
 //Convolution calculation end
 
@@ -203,7 +184,7 @@ end ConvolutionN;
 //		gr3			nDstVecSize		//Not Changed
 //		gr6			SpacingSize		//Not Changed
 /////////////////////////////////////////////////////////////////////////////////////////
-<SIG_XCorr_8to32>
+<nmppsXCorr_8to32>
 .branch;
 //Convolution calculation start
 	gr0 = 64;
@@ -249,7 +230,7 @@ end ConvolutionN;
 	gr5 = gr3;
 	gr5 >>=5;
 	gr5 <<=5;
-	gr5 = gr3-gr5;	// столько осталось необработнных после rep 32
+	gr5 = gr3-gr5;	// СЃС‚РѕР»СЊРєРѕ РѕСЃС‚Р°Р»РѕСЃСЊ РЅРµРѕР±СЂР°Р±РѕС‚РЅРЅС‹С… РїРѕСЃР»Рµ rep 32
 	//gr4 = 7;
 	//gr5+= gr4;
 	//gr5>>=3;

@@ -2,7 +2,7 @@
 //
 //  $Workfile:: ClipPowCRShiftConvertAddC.asm    $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file  ClipPowCRShiftConvertAddC.asm
-//! \author Сергей Свечников
-//! \brief  Функции преобразования елементов вектора.
+//! \author РЎРµСЂРіРµР№ РЎРІРµС‡РЅРёРєРѕРІ
+//! \brief  Р¤СѓРЅРєС†РёРё РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ РµР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°.
 //!
 //! \endif
 //!
@@ -73,7 +73,7 @@ global _nmppsClipRShiftConvertAddC_32s8s:label;
 	vr  = gr7 with gr0=gr1;  //   gr0=8;
 	
 	
-	ar0=gr5 with gr7=gr5; // Где банка из
+	ar0=gr5 with gr7=gr5; // Р“РґРµ Р±Р°РЅРєР° РёР·
 	if < delayed skip L0 with gr7+=gr6;  // gr7=src+2
 		ar4 = LWRShiftConvert32to8; ar4 = GWRShiftConvert32to8;
 	<L0>

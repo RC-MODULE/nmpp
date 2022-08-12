@@ -41,7 +41,7 @@ int64b SIG_Median_V9(nm64s* pVec);
 //*****************************************************************************
 
 	/**
-	\defgroup SIG_Median3 SIG_Median3
+	\defgroup nmppcMedian3_32u nmppcMedian3_32u
 	\ingroup sFiltration
 	\brief
 		\ru Вычисление медианы трех чисел
@@ -75,8 +75,8 @@ int64b SIG_Median_V9(nm64s* pVec);
     \endxmlonly
 	*/
     //! \{
-int SIG_Median3(int a,int b, int c);
-uint32b SIG_Median3(uint32b a, uint32b b, uint32b c);
+int nmppcMedian3_32u(int a,int b, int c);
+uint32b nmppcMedian3_32u(uint32b a, uint32b b, uint32b c);
     //! \}
 
 #endif // _SFILTRATION_H_INCLUDED_

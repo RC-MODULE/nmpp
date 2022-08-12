@@ -19,14 +19,12 @@
 //
 //==============================================================================
 
-//global _void._.8.8nmppiDeinterlaceSplit.1unsigned._char._.0.9._int.9._int.9._unsigned._char._.0.9._unsigned._char._.0.2: label;
 global _nmppiDeinterlaceSplit: label;
 extern vec_data: label;
 
 begin ".textDeinterlacer"
 .branch;
 
-//<_void._.8.8nmppiDeinterlaceSplit.1unsigned._char._.0.9._int.9._int.9._unsigned._char._.0.9._unsigned._char._.0.2>
 <_nmppiDeinterlaceSplit>
 	ar5 = ar7 - 2	with gr7=false;
 	push ar0, gr0	with gr7++;

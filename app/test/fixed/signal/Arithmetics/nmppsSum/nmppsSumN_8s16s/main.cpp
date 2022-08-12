@@ -1,7 +1,7 @@
 #include "nmpp.h"
 #include "minrep.h"
 
-
+#include "stdio.h"
 /////////////////////////////////////////////////////////////////////////////////////////
 nm64s *L0;
 nm64s *L1;
@@ -32,19 +32,24 @@ int main()
 	if ((L0==0)||(L1==0)||(G0==0)||(G1==0)) return -1;
 
 
+
 	unsigned int crc = 0;
 	int	charMaxSize=4096;
-	charMaxSize=MIN(charMaxSize,LONG2char(SizeL1));
-	charMaxSize=MIN(charMaxSize,LONG2char(SizeG0)/2);
+	charMaxSize=MIN(charMaxSize,SizeL1*8);
+	charMaxSize=MIN(charMaxSize,SizeG0*4);
 
+	
 	for(int i=0;i<100;i++)
-		((nm32s*)L0)[i]=(int)nmppsAddr_8s((nm8s*)L1,i*8);
+		((nm8s**)L0)[i]=nmppsAddr_8s((nm8s*)L1,i*8);
 	nmppsRandUniform_64s((nm64s*)L1,SizeL1);
 	nm64s Fill=0xCCCCCCCCAAAAAAAAl;
-	nmppsSet_64s(Fill,(nm64s*)G0,(SizeG0));
+	nmppsSet_64s(Fill,(nm64s*)G0,SizeG0);
+	
+	printf("%d %x\n,",charMaxSize, crc);
 	
 	for(int nSize=32*8;nSize<=charMaxSize;nSize+=32*8)
 	{
+		printf("%d %x\n,",nSize, crc);
 		int n=nmppcRandMinMax(2,100);
 		nmppsSumN_8s16s((nm8s**)L0,(nm16s*)G0,nSize,n);	
 		nmppsCrcAcc_32u((nm32u*)G0,MIN(short2INT(nSize)+128,LONG2INT(SizeG0)),&crc);

@@ -2,7 +2,7 @@
 //
 //  $Workfile:: Convolution16to32.as $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   Convolution16to32.asm
-//! \author Сергей Мушкаев
-//! \brief  Функции свертки для векторов.
+//! \author РЎРµСЂРіРµР№ РњСѓС€РєР°РµРІ
+//! \brief  Р¤СѓРЅРєС†РёРё СЃРІРµСЂС‚РєРё РґР»СЏ РІРµРєС‚РѕСЂРѕРІ.
 //!
 //! \endif
 //!
@@ -20,34 +20,16 @@
 
 
 begin ".text_nmpls"
-/////////////////////////////////////////////////////////////////////////////////////////
-// Convolution calculation
-// pDstVec[i]=pSrcVec[i]*pKernel[i]+pSrcVec[i+1]*pKernel[i%n+1]+...+pSrcVec[i+n]*pKernel[i%n+n]
-//void SIG_XCorr(
-//		nm32s*			pSrcVec			// input buffer		:long Local	[nSrcVecSize/2]
-//		nm32s*			pKernel		// input buffer		:long Any   [nKernelSize/2]
-//		nm64s*			pTmpBuff		// output buffer	:long Global[nKernelSize + 6]
-//		nm32s*			pDstVec				// output buffer	:long Local	[(nSrcVecSize - nKernelSize)/2]
-//		int				nKernelSize		// size of input buffer in 32 bit elements. nSize=[1,2,3...]
-//		int				nSrcVecSize			// size of input buffer in 16 bit elements. nSize=[0,4,8...]
-//		);
-//
-//  STATUS:
-//		Test						: 
-//		Core low level optimization : 
-//		Function code  optimization	: 
-//
+
 
 //
-//! \fn void SIG_XCorr(nm16s* pSrcVec, int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
+//! \fn void nmppsXCorr_16s(nm16s* pSrcVec, int nSrcVecSize,nm32s* pKernel, int nKernelSize, nm32s* pDstVec, void* pTmpBuf);
 //!
 //! \n
 
 
-global _SIG_XCorr__FPSsiPiiPiPv:label;
-global _void._.8.8SIG_XCorr.1short._.0.9._int.9._int._.0.9._int.9._int._.0.9._void._.0.2 :label;
-<_SIG_XCorr__FPSsiPiiPiPv>
-<_void._.8.8SIG_XCorr.1short._.0.9._int.9._int._.0.9._int.9._int._.0.9._void._.0.2>
+global nmppsXCorr_16s:label;
+<nmppsXCorr_16s>
 .branch;
 	ar5 = sp - 2;
 
@@ -127,7 +109,7 @@ global _void._.8.8SIG_XCorr.1short._.0.9._int.9._int._.0.9._int.9._int._.0.9._vo
 	push ar0,gr0;
 	push ar6,gr6;
 
-call SIG_XCorr_16to32;
+call nmppsXCorr_16to32;
 
 	pop ar6,gr6;
 	pop ar0,gr0;
@@ -138,7 +120,7 @@ call SIG_XCorr_16to32;
 	ar4 -= 4;
 	ar6 += 2;
 
-call SIG_XCorr_16to32;
+call nmppsXCorr_16to32;
 //Convolution calculation end
 
     pop ar6, gr6;
@@ -190,7 +172,7 @@ end ConvolutionN;
 //		gr3			nSrcVecSize		//Not Changed
 //		gr6			SpacingSize		//Not Changed
 /////////////////////////////////////////////////////////////////////////////////////////
-<SIG_XCorr_16to32>
+<nmppsXCorr_16to32>
 .branch;
 //Convolution calculation start
 	gr0 = 64;
@@ -236,7 +218,7 @@ end ConvolutionN;
 	gr5 = gr3;
 	gr5 >>=5;
 	gr5 <<=5;
-	gr5 = gr3-gr5;	// столько осталось необработнных после rep 32
+	gr5 = gr3-gr5;	// СЃС‚РѕР»СЊРєРѕ РѕСЃС‚Р°Р»РѕСЃСЊ РЅРµРѕР±СЂР°Р±РѕС‚РЅРЅС‹С… РїРѕСЃР»Рµ rep 32
 	
 	
 	//gr5 = gr3;

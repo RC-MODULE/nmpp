@@ -13,7 +13,7 @@
 //!
 //! \file    sig003.asm
 //! \author S.Muskaev
-//! \brief  Вычисление Медиана 3
+//! \brief  Р’С‹С‡РёСЃР»РµРЅРёРµ РњРµРґРёР°РЅР° 3
 //!
 //! \endif
 //!
@@ -38,12 +38,10 @@ end ".data_nmpls_G";
 
 
 begin ".text_nmpls"
-//! \fn int SIG_Median3(int a, int b, int c);
-//! \perfinclude _SIG_Median3__Fiii.html
-global _SIG_Median3__Fiii:label;
-global _int._.8.8SIG_Median3.1int.9._int.9._int.2 :label;
-<_SIG_Median3__Fiii>
-<_int._.8.8SIG_Median3.1int.9._int.9._int.2>
+//! \fn int nmppcMedian3_32u(int a, int b, int c);
+//! \perfinclude _nmppcMedian3_32u__Fiii.html
+global _nmppcMedian3_32s:label;
+<_nmppcMedian3_32s>
 .branch;
     ar5 = ar7 - 2			with gr7=true;
 	push ar0,gr0			with gr7<<=31;

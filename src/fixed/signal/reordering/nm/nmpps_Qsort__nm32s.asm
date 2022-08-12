@@ -2,7 +2,7 @@
 //
 //  $Workfile:: QuickSort.as $
 //
-//  Векторно-матричная библиотека
+//  Р’РµРєС‚РѕСЂРЅРѕ-РјР°С‚СЂРёС‡РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР°
 //
 //  Copyright (c) RC Module Inc.
 //
@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   QuickSort.asm
-//! \author Павел Лукашевич
-//! \brief  Функции сортировки.
+//! \author РџР°РІРµР» Р›СѓРєР°С€РµРІРёС‡
+//! \brief  Р¤СѓРЅРєС†РёРё СЃРѕСЂС‚РёСЂРѕРІРєРё.
 //!
 //! \endif
 //!
@@ -23,13 +23,8 @@ begin ".text_nmplv"
 ////////////////////////////////////////////////////////////////////////////
 //! \fn void nmppsQSort_32s(nm32s *pSrcDstVec, int nSize) 
 //!
-//! \perfinclude _VEC_QSort__FPii.html
 
-global _VEC_QSort__FPii : label;
 global _nmppsQSort_32s : label;
-global _void._.8.8VEC_QSort.1int._.0.9._int.2 :label;
-<_VEC_QSort__FPii>
-<_void._.8.8VEC_QSort.1int._.0.9._int.2>
 <_nmppsQSort_32s>
 .branch;  
 

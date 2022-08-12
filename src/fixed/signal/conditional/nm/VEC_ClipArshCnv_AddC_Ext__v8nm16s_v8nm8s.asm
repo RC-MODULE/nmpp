@@ -12,7 +12,7 @@
 //!
 //! \file  nmppsClipRShiftConvert_AddC_Ext_.asm
 //! \author Sergey Landyshev
-//! \brief  \ru Функции преобразования елементов вектора.
+//! \brief  \ru Р¤СѓРЅРєС†РёРё РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ РµР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР°.
 //!			\en Element conversion functions
 //!
 //! \endif
@@ -69,12 +69,11 @@ pnShift: word;
 pnC: word;
 Params: long[21];
 //------------------------------------------------------------------------
-//! \fn void nmppsClipRShiftConvert_AddC_Ext_(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v8nm32s* pnShift, v8nm8s* pnAdd,  v8nm8s* pDstVec, int nSize);
+//! \fn void nmppsClipRShiftConvert_AddC_Ext(v8nm16s* pSrcVec, v8nm32s* pnClipFactor, v8nm32s* pnShift, v8nm8s* pnAdd,  v8nm8s* pDstVec, int nSize);
 //! \
-//! \perfinclude _nmppsClipRShiftConvert_AddC_Ext__F7v8nm16sP7v8nm32sP7v8nm32sP6v8nm8sP6v8nm8sPi_.html
 //------------------------------------------------------------------------
-global _void._.8.8nmppsClipRShiftConvert_AddC_Ext_.1class._v8nm16s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm8s._.0.9._int.2 :label;
-<_void._.8.8nmppsClipRShiftConvert_AddC_Ext_.1class._v8nm16s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm32s._.0.9._class._v8nm8s._.0.9._int.2>
+global _nmppsClipRShiftConvert_AddC_Ext_16s8s :label;
+<_nmppsClipRShiftConvert_AddC_Ext_16s8s>
 .branch;
     ar5 = ar7 - 2;
     push ar0, gr0;

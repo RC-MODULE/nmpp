@@ -26,8 +26,7 @@ begin ".text_nmpli"
     //--------------------------------------------------------------------
     //! \fn void nmppiSplitIntoBlocks8x8(	nm8s*	Src, nm8s* Dst, int Width, int Height);
     //!
-	//! \perfinclude _nmppiSplitIntoBlocks8x8__FPcPcii.html
-    //--------------------------------------------------------------------
+	//--------------------------------------------------------------------
 
 //  int nmppiSplitIntoBlocks8x8(
 //		nm8s*	Src,	// Source Image						:long Local[Width*Height/8]
@@ -82,9 +81,7 @@ begin ".text_nmpli"
 // nmppiSplitIntoBlocks8x8((nm8s*)LSrc,(nm8s*)LSrc,W,H);// 38809
 
 global _nmppiSplitIntoBlocks8x8:label;
-//global _void._.8.8nmppiSplitIntoBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2 :label;
 <_nmppiSplitIntoBlocks8x8>
-//<_void._.8.8nmppiSplitIntoBlocks8x8.1char._.0.9._char._.0.9._int.9._int.2>
 
 .branch;
 	ar5=ar7-2;

@@ -11,8 +11,8 @@
 //! \if file_doc
 //!
 //! \file   nmppsWadd2V_set8_.asm
-//! \author Сергей Свечников
-//! \brief  <Установка двух к-тов для nmppsWeightedSum_Exe(nm8s...>
+//! \author РЎРµСЂРіРµР№ РЎРІРµС‡РЅРёРєРѕРІ
+//! \brief  <РЈСЃС‚Р°РЅРѕРІРєР° РґРІСѓС… Рє-С‚РѕРІ РґР»СЏ nmppsWeightedSum_Exe(nm8s...>
 //!
 //! \endif
 //!

@@ -19,13 +19,13 @@ TARGET   = $(PROJECT)
 CC       = nmc-g++
 AS       = nmc-gcc
 CXXFLAGS = -std=c++11 -O2 -Wall -mnmc4-float
-LIBS     = -lnmpp-nmc4f -lhal-$(BOARD) -lc  -Wl,--whole-archive -l$(BOARD) -Wl,--no-whole-archive
+LIBS     = -lnmpp-nmc4f -ltimes -lint -Wl,--whole-archive -l$(BOARD)load_nm -lnm6407_io_nmc -Wl,--no-whole-archive
 CFG      = $(BOARD)-nmpu0.lds
 MAP      = $(PROJECT).map
 LDFLAGS  = -Wl,-Map=$(MAP) -Wl,-T$(CFG)
 
-INC_DIRS = -I"$(BSP)/include" -I"$(NMPP)/include" -I"$(HAL)/include"
-LIB_DIRS = -L"$(BSP)/lib"     -L"$(NMPP)/lib"     -L"$(HAL)/lib" -L"$(NMCGCC)/lib" -L"$(NMCGCC)/nmc/lib/nmc4"
+INC_DIRS = -I"$(BSP)/include" -I"$(NMPP)/include" 
+LIB_DIRS = -L"$(BSP)/lib"     -L"$(NMPP)/lib"     -L"$(NMCGCC)/lib" -L.
 SRC_DIRS = ..
 SRC_CPP  = $(wildcard $(addsuffix /*.cpp,$(SRC_DIRS)))
 SRC_ASM  = $(wildcard $(addsuffix /*.asm,$(SRC_DIRS)))
@@ -39,16 +39,17 @@ $(TARGET): $(SRC_ALL) Makefile $(NMPP)/lib/libnmpp-nmc4f.a
 
 #PATH:=$(BSP)/bin;$(PATH)
 
-run: 	$(TARGET)
-	$(BOARD)run -v $(TARGET)
+run: .exitcode
+	
+.exitcode: $(TARGET)
+	$(BOARD)run -v $(TARGET) -p -R & exitcode
 
 qemu:	
 	nmc-qemu $(TARGET)
 
 gdb :	
 	nmc-gdb  $(TARGET)
-
-$(MAKE) LIBS="-lnmpp-nmc4 -lc " -B TARGET=$(TARGET)_qemu
+	$(MAKE) LIBS="-lnmpp-nmc4 -lc " -B TARGET=$(TARGET)_qemu
 
 	
 nmc4vars_win.mk:
@@ -57,15 +58,4 @@ nmc4vars_win.mk:
 vs2015:
 	premake5 vs2015
 	
-vs2008:
-	premake5 vs2008		
-	
-test: .exitcode
-	
-.exitcode: $(TARGET) .test.bat
-	.test.bat 
-	
-.test.bat: 
-	@echo mc12101run $(TARGET) -v >.test.bat
-	@echo @echo %%errorlevel%% ^>.exitcode >>.test.bat
 		

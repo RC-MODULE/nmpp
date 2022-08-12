@@ -179,6 +179,7 @@ public:
 	nmint<T>& operator*=	(const nmint<T>& val)
 	{
 		m_value*=val.m_value;
+		return (*this);
 	}	
 
 	template <class T2> nmint<T2>	operator*	(const nmint<T2>& val) const	

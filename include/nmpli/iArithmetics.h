@@ -201,7 +201,7 @@ void nmppiSubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSr
 
     /**
 	\internal
-    \defgroup nmppiAddI nmppiAddI
+    \defgroup nmppiAdd_16s nmppiAdd_16s
     \ingroup iArithmetics
     \brief
         \ru Поэлементное сложение двух изображений. 
@@ -280,14 +280,14 @@ void nmppiSubConvertRShiftI(nm16s * pSrcDstImg,  int nSrcDstStride,  nm32s * pSr
     */
     //! \{
 
-void nmppiAddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight);
+void nmppiAdd_16s(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcStride, int nWidth, int nHeight);
     //! \}
 
 //*****************************************************************************
 
     /**
 	\internal
-    \defgroup nmppiSubI nmppiSubI
+    \defgroup nmppiSub_16s nmppiSub_16s
     \ingroup iArithmetics
     \brief
         \ru Поэлементное вычитание двух изображений. 
@@ -369,7 +369,7 @@ void nmppiAddI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg,  int nSrcSt
     */
     //! \{
 
-void nmppiSubI(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStride,  int nWidth, int nHeight);
+void nmppiSub_16s(nm16s* pSrcDstImg, int nSrcDstStride, nm16s *pSrcImg, int nSrcStride,  int nWidth, int nHeight);
 
     //! \}
 

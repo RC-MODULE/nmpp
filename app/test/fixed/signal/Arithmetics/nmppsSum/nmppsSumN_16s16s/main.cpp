@@ -31,7 +31,7 @@ int main()
 	shortMaxSize=MIN(shortMaxSize,SizeL1*4);
 	shortMaxSize=MIN(shortMaxSize,SizeG0*4);
 	for(int i=0;i<100;i++)
-		((nm32s*)L0)[i]=(int)nmppsAddr_16s((nm16s*)L1,i*4);
+		((nm16s**)L0)[i]=nmppsAddr_16s((nm16s*)L1,i*4);
 	
 	nmppsRandUniform_64s((nm64s*)L1,SizeL1);
 	nm64s val=0xCCCCCCCCAAAAAAAAl;

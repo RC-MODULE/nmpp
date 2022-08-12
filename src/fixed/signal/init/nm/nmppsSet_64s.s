@@ -21,7 +21,7 @@
 //#include "vMinMax.h"
 
 .extern vec_ram;
-
+.extern asdasd;
 
 //begin ".text_nmplv"
 .text

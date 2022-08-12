@@ -27,7 +27,7 @@ template<class T>  __INLINE__ void Min(T& a,T &b)
 }
 
 
-int SIG_Median3(int a,int b, int c)
+int nmppcMedian3_32u(int a,int b, int c)
 {
 	CompareSwap(a,b);
 	Min(b,c);
@@ -35,7 +35,7 @@ int SIG_Median3(int a,int b, int c)
 	return a;
 }
 
-unsigned int SIG_Median3(unsigned int a, unsigned int b, unsigned int c)
+unsigned int nmppcMedian3_32u(unsigned int a, unsigned int b, unsigned int c)
 {
 	CompareSwap(a,b);
 	Min(b,c);

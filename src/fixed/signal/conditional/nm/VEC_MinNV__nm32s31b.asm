@@ -27,8 +27,8 @@ extern vec_CompareMinNV:label;
 //!
 //! \perfinclude _nmppsMinEvery_32s.html
 
-global _void._.8.8nmppsMinNV_.1int._.0.0.9._int.9._int._.0.9._int.2 :label;
-<_void._.8.8nmppsMinNV_.1int._.0.0.9._int.9._int._.0.9._int.2>
+global _nmppsMinNV_32s :label;
+<_nmppsMinNV_32s>
 .branch;
 	ar5=sp-2;
 	push ar0,gr0	with gr0=false;
@@ -42,7 +42,7 @@ global _void._.8.8nmppsMinNV_.1int._.0.0.9._int.9._int._.0.9._int.2 :label;
 	gr4 = [--ar5];						// numVecs
 	
 								
-	ar0=ar7 with gr7=gr4>>1;			// копируем массив pSrcVec1 в стек, потому что мы его затрем
+	ar0=ar7 with gr7=gr4>>1;			// РєРѕРїРёСЂСѓРµРј РјР°СЃСЃРёРІ pSrcVec1 РІ СЃС‚РµРє, РїРѕС‚РѕРјСѓ С‡С‚Рѕ РјС‹ РµРіРѕ Р·Р°С‚СЂРµРј
 
 	<CopyPtr>
 	if > delayed goto CopyPtr with gr7--;

@@ -1,24 +1,21 @@
 import from macros.mlb;
 begin ".text_nmplv"
 //------------------------------------------------------------------------------------------------
-//  Скалярное умножение комплексных векторов сопр.V1*V2
-//  time=70 тактов на комрлексное число.
+//  РЎРєР°Р»СЏСЂРЅРѕРµ СѓРјРЅРѕР¶РµРЅРёРµ РєРѕРјРїР»РµРєСЃРЅС‹С… РІРµРєС‚РѕСЂРѕРІ СЃРѕРїСЂ.V1*V2
+//  time=70 С‚Р°РєС‚РѕРІ РЅР° РєРѕРјСЂР»РµРєСЃРЅРѕРµ С‡РёСЃР»Рѕ.
 //------------------------------------------------------------------------------------------------
-//! \fn void nmppsDotProd(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize,  nm64sc *pnRes);
+//! \fn void nmppsDotProd_64sc(nm64sc *pSrcVec1, nm64sc *pSrcVec2, int nSize,  nm64sc *pnRes);
 //! 
-//! \perfinclude _nmppsDotProd__F6nm64scP6nm64scPi6nm64scP.html 
 //------------------------------------------------------------------------------------------------
-global _nmppsDotProd__F6nm64scP6nm64scPi6nm64scP:label;
-global _void._.8.8nmppsDotProd.1class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._class._nm64sc._.0.2 :label;
+global _nmppsDotProd_64sc:label;
 tmp: word[16];
-      <_nmppsDotProd__F6nm64scP6nm64scPi6nm64scP>
-<_void._.8.8nmppsDotProd.1class._nm64sc._.0.9._class._nm64sc._.0.9._int.9._class._nm64sc._.0.2>
+<_nmppsDotProd_64sc>
    ar5=ar7-2 with gr7=false;
    PUSH_REGS();
    ar0=[--ar5];  // Vec1
    ar2=[--ar5];  // Vec2
    gr6=[--ar5];  // L=Length
-   ar6=[--ar5];  // Dst результат
+   ar6=[--ar5];  // Dst СЂРµР·СѓР»СЊС‚Р°С‚
 .wait;  nb1=gr7; wtw;ar5=ar6;
    rep 2 data=[ar6] with data-data;
    rep 2 [ar6++]=afifo;  // dts=0;

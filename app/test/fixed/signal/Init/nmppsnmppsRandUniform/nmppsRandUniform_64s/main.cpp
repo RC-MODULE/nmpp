@@ -34,7 +34,7 @@ int main()
 	nmppsSet_32s((int)0xCCCCCCCC,(nm32s*)L0,(SizeL0*2));
 	for(int nSize=0;nSize<=longMaxSize;nSize++)
 	{
-		nmppsRandUniform_64s((nm64s*)L0,nSize,nSize+1);	
+		nmppsRandUniform_64s((nm64s*)L0,nSize);	
 		nmppsCrcAcc_32u((nm32u*)L0,MIN(long2INT(nSize)+128,LONG2INT(SizeG0)),&crc);
 	}
 

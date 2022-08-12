@@ -6,20 +6,26 @@ else
 	PYTHON = python3
 endif
 
+
+default: kill configure build run match 
+
 configure:
-	$(PYTHON) $(ROOT)/app/nmcmake.py configure 
+	autotest configure 
 
 build:
-	$(PYTHON) $(ROOT)/app/nmcmake.py make 
+	autotest make 
 	
 kill:
-	$(PYTHON) $(ROOT)/app/nmcmake.py kill
-	
+	autotest kill
+
 run :
-	$(PYTHON) $(ROOT)/app/nmcmake.py make run
+	autotest make run
+
+match:
+	autotest match .exitcode
 
 qemu:
-	$(PYTHON) $(ROOT)/app/nmcmake.py make qemu
+	autotest make qemu
 
 clean :
-	$(PYTHON) $(ROOT)/app/nmcmake.py make clean
+	autotest make clean

@@ -34,7 +34,6 @@ int main()
 	MaxcharSize=MIN(MaxcharSize,SizeG0*8);
 
 	nmppsRandUniform_32u((nm32u*)L0,SizeL0*2);
-	return 1;
 	nmppsSet_32s((int)0xCCCCCCCC,(nm32s*)G0,(SizeG0*2));
 	
 	for(int charSize=0;charSize<=MaxcharSize;charSize+=8*NMPP_MIN_REP)

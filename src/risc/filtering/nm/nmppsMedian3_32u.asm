@@ -13,7 +13,7 @@
 //!
 //! \file    sig003.asm
 //! \author S.Muskaev
-//! \brief  Вычисление Медиана 3
+//! \brief  Р’С‹С‡РёСЃР»РµРЅРёРµ РњРµРґРёР°РЅР° 3
 //!
 //! \endif
 //!
@@ -25,12 +25,10 @@ extern 	tbl_LUT_Median3:word[8];
 
 begin ".text_nmpls"
 
-//! \fn uint32b SIG_Median3(uint32b a, uint32b b, uint32b c)
-//! \perfinclude _SIG_Median3__FUiUiUi.html
-global _SIG_Median3__FUiUiUi:label;
-global _unsigned._int._.8.8SIG_Median3.1unsigned.9._unsigned.9._unsigned.2 :label;
-<_SIG_Median3__FUiUiUi>
-<_unsigned._int._.8.8SIG_Median3.1unsigned.9._unsigned.9._unsigned.2>
+//! \fn uint32b nmppcMedian3_32u(uint32b a, uint32b b, uint32b c)
+//! \perfinclude _nmppcMedian3_32u__FUiUiUi.html
+global _nmppcMedian3_32u:label;
+<_nmppcMedian3_32u>
 .branch;
     ar5 = ar7 - 2;
 	push ar0,gr0;

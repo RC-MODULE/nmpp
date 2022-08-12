@@ -16,7 +16,9 @@ int main()
 	}
 	float norm;
 	for(int size=0; size<64; size+=2){
+		#ifdef NEURO 
 		nmppsNormDiff_Inf_32f(src0,src1,size,&norm);
+		#endif
 		nmppsCrcAcc_32f(&norm,0,1,&crc);
 	}
 	free(src0);

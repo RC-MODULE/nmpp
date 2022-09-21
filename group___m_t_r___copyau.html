@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: MTR_Copyau</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">MTR_Copyau<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___m_t_r___group__.html">Матричные функции</a> &raquo; <a class="el" href="group__m_init.html">Инициализация и копирование</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Копирование подматрицы с выровненной по границе 64-х разрядных слов позиции в невыровненную позицию.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga057b522f09d2447f02555eef9b9bf485"><td class="memItemLeft" align="right" valign="top"><a id="ga057b522f09d2447f02555eef9b9bf485" name="ga057b522f09d2447f02555eef9b9bf485"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppmCopyau_8s</b> (<a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pSrcMtr, int nSrcStride, <a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pDstMtr, int nDstStride, int nDstOffset, int nHeight, int nWidth)</td></tr>
+<tr class="separator:ga057b522f09d2447f02555eef9b9bf485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0a54ac3ff574b3d49b7dda0237aecda7"><td class="memItemLeft" align="right" valign="top"><a id="ga0a54ac3ff574b3d49b7dda0237aecda7" name="ga0a54ac3ff574b3d49b7dda0237aecda7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppmCopyau_16s</b> (<a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pSrcMtr, int nSrcStride, <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pDstMtr, int nDstStride, int nDstOffset, int nHeight, int nWidth)</td></tr>
+<tr class="separator:ga0a54ac3ff574b3d49b7dda0237aecda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga539324d4bd9c7e8613cec3434f915225"><td class="memItemLeft" align="right" valign="top"><a id="ga539324d4bd9c7e8613cec3434f915225" name="ga539324d4bd9c7e8613cec3434f915225"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppmCopyau_32s</b> (<a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pSrcMtr, int nSrcStride, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstMtr, int nDstStride, int nDstOffset, int nHeight, int nWidth)</td></tr>
+<tr class="separator:ga539324d4bd9c7e8613cec3434f915225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Копирование подматрицы с выровненной по границе 64-х разрядных слов позиции в невыровненную позицию. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcMtr</td><td>Исходная матрица.</td></tr>
+    <tr><td class="paramname">nSrcStride</td><td>Ширина исходной матрицы в элементах.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstMtr</td><td>Результирующая матрица.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nDstStride</td><td>Ширина результирующей матрицы в элементах.</td></tr>
+    <tr><td class="paramname">nDstOffset</td><td>Индекс столбца (в элементах) куда производится вставка.</td></tr>
+    <tr><td class="paramname">nHeight</td><td>Число строк подматрицы.</td></tr>
+    <tr><td class="paramname">nWidth</td><td>Число столбцов подматрицы.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<p><br  />
+ </p><dl class="section user"><dt>Restrictions:</dt><dd></dd></dl>
+<ul>
+<li>Входная и выходная матрицы не должны перекрываться в памяти</li>
+<li>Число столбцов копируемой подматрицы nWidth должна быть кратной 64-битам.</li>
+</ul>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

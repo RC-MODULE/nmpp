@@ -1,0 +1,331 @@
+\_form#0=134x14:\[ 
+    Res  =  2^nFixpoint/nVal
+\]
+\_form#1=49x10:\[
+    A \cdot x = b
+\]
+\_form#2=56x10:\[
+    A \cdot X = B
+\]
+\_form#3=178x39:\[
+    pDstVec(i) = \sum_{j=0}^{w-1} pSrcMtr(i, j)
+\]
+\_form#4=125x14:\[
+    pMtr[nY][nX] =  nVal
+\]
+\_form#5=125x14:\[
+    nVal=pMtr[nY][nX]
+\]
+\_form#6=284x40:\[
+    DstVec_i  = \sum \limits_{j = 0}^{nKernelSize - 1} pSrcVec[i + j]  \cdot pKernel[j] 
+\]
+\_form#7=230x13:\[
+    i = \overline{0 \ldots nSrcVecSize-nKernelSize+1}
+\]
+\_form#8=288x26:\[
+    pDstVec  = \frac{1}{2} \left( pSrcVec(2*x) + pSrcVec(2*x+1) \right)
+\]
+\_form#9=170x14:\[
+    pDstVec[i]  =  abs \{  pSrcVec[i] \},
+\]
+\_form#10=100x11:\[
+    i = \overline{0 \ldots nSize-1}
+\]
+\_form#11=301x29:\[
+    pDstVec[i]  =  \{ \begin{array}{lcl}
+        pSrcVec[i],    &  if &  pSrcVec[i] \ge 0  \\
+        -pSrcVec[i]-1,     &  if &  pSrcVec[i] < 0  \\
+    \end{array}
+\]
+\_form#12=100x11:\[ i = \overline{0 \ldots nSize-1} \]
+\_form#13=146x14:\[
+    pDstVec[i]  =  - pDstVec[i]
+\]
+\_form#14=183x14:\[
+    pDstVec[i]  =  pSrcVec[i]  +  nVal,
+\]
+\_form#15=225x14:\[
+    pDstVec[i]  =  pSrcVec1[i]  +  pSrcVec2[i],
+\]
+\_form#16=179x14:\[
+    pDstVec[i]  =  pSrcVec[i]  +  nVal
+\]
+\_form#17=268x14:\[
+    pDstVec[i]  =  pSrcVec1[i]  +  pSrcVec2[i]  +  nVal,
+\]
+\_form#18=179x14:\[
+    pDstVec[i]  =  pSrcVec[i]  -  nVal
+\]
+\_form#19=183x14:\[
+    pDstVec[i]  =  nVal - pSrcVec[i],
+\]
+\_form#20=160x14:\[
+    pDstVec[i]  = C -  pSrcVec[i]
+\]
+\_form#21=221x14:\[
+    pDstVec[i] = pSrcVec1[i] - pSrcVec2[i]
+\]
+\_form#22=255x14:\[
+    pDstVec[i]  =  abs \{ pSrcVec1[i]  -  pSrcVec2[i]\},
+\]
+\_form#23=255x14:\[
+pDstVec[i]  =  abs \{ pSrcVec1[i]  -  pSrcVec2[i]\},
+\]
+\_form#24=100x11:\[
+i = \overline{0 \ldots nSize-1}
+\]
+\_form#25=464x29:\[
+    pDstVec[i]  =  \{ \begin{array}{lcl}
+    pSrcVec1[i] - pSrcVec2[i] ,    &  if &  pSrcVec1[i] - pSrcVec2[i] \ge 0  \\
+    pSrcVec1[i] - pSrcVec2[i]-1,     &  if &  pSrcVec1[i] - pSrcVec2[i] < 0  \\
+    \end{array}
+\]
+\_form#26=175x14:\[
+    pDstVec[i] = nVal \cdot pSrcVec[i],
+\]
+\_form#27=263x14:\[
+    pDstVec[i] = pSrcVec1[i] \cdot pSrcVec2[i] + nVal,
+\]
+\_form#28=266x14:\[
+    pDstVec[i]  =  nMulVal \cdot pSrcVec[i] + nAddVal,
+\]
+\_form#29=100x11:\[
+    \quad i = \overline{0 \ldots nSize-1}
+\]
+\_form#30=533x14:\[
+     dataSparseDst[i \cdot stepSparseDst][k]  =  dataSparseSrc[i \cdot stepSparseSrc][k]\cdot mulArg[k] + addArg[k],
+\]
+\_form#31=180x14:\[
+     i = \overline{0 \ldots size-1}; k = \overline{0 \ldots K-1},
+\]
+\_form#32=598x14:\[
+     dataSparseDst[i \cdot stepSparseDst][k]  =  (dataSparseSrc[i \cdot stepSparseSrc][k]>>preshiftArg[k])\cdot mulArg[k] + addArg[k],
+\]
+\_form#33=353x14:\[
+    pDstVec[i]  =  nMulVal \cdot pSrcVec1[i] + pSrcVec2[i] +  nAddVal,
+\]
+\_form#34=275x41:\[
+    pDstVec[i]  =  \sum\limits_{j = 0}^{(nNumberOfVectors - 1)} {ppSrcVec(j)(i)}
+\]
+\_form#35=143x28:\[
+    pDstVec[i]  =  \frac {pSrcVec[i]}{Divisor},
+\]
+\_form#36=160x40:\[
+    return  =  \sum\limits_{i = 0}^{(nSize - 1)} {pSrcVec[i]}
+\]
+\_form#37=224x38:\[
+    nRes = \sum_{i=}^{nSize-1} pSrcVec1[i] \cdot pSrcVec2[i]
+\]
+\_form#38=298x14:\[
+      pDstVec[i]  =  nW1 \cdot pSrcVec1[i] + nW2 \cdot pSrcVec2[i],
+  \]
+\_form#39=93x11:\[  = \overline{0 \ldots nSize-1}    \]
+\_form#40=140x16:\[
+    pDstVec[i]  =  \overline {pSrcVec[i]},
+\]
+\_form#41=181x14:\[
+    pDstVec[i]  =  pSrcVec[i]  \wedge  nVal,
+\]
+\_form#42=220x14:\[
+    pDstVec[i]  =  pSrcVec1[i]  \wedge  pSrcVec2[i]
+\]
+\_form#43=378x14:\[
+     pDstVec[i]  =  pSrcVec1[i]  \wedge  pSrcVec2[i] \wedge  pSrcVec3[i] \wedge  pSrcVec4[i]
+\]
+\_form#44=238x14:\[
+    pDstVec[i]  =  pSrcVec1[i]  \wedge  not pSrcVec2[i]
+\]
+\_form#45=178x14:\[
+     pDstVec[i]  =  pSrcVec[i]  \vee  nVal
+\]
+\_form#46=220x14:\[
+     pDstVec[i]  =  pSrcVec1[i]  \vee  pSrcVec2[i]
+\]
+\_form#47=298x14:\[
+     pDstVec[i]  =  pSrcVec1[i]  \vee  pSrcVec2[i] \vee  pSrcVec3[i]
+\]
+\_form#48=378x14:\[
+     pDstVec[i]  =  pSrcVec1[i]  \vee  pSrcVec2[i] \vee  pSrcVec3[i] \vee  pSrcVec4[i]
+\]
+\_form#49=570x16:\[
+     pDstVec[i]  =  (pSrcVec1[i] \qquad and \qquad pMaskVec[i])
+     \qquad or \qquad (pSrcVec2[i] \qquad and \qquad \overline { pMaskVec[i]} )
+\]
+\_form#50=205x14:\[
+    pDstVec[i]  =  pSrcVec[i] >> nShift,
+\]
+\_form#51=280x14:\[
+    pDstVec[i]  =  (pSrcVec[i] >> nShift) + nAddVal,
+\]
+\_form#52=76x14:\[
+    pDst[i]  =  val,
+\]
+\_form#53=85x11:\[
+    i = \overline{0 \ldots len-1}
+\]
+\_form#54=171x14:\[
+    pVec[i] = nOffset + nSlope \cdot i
+\]
+\_form#55=140x14:\[
+    pDstVec[i]  =  pSrcVec[i],
+\]
+\_form#56=218x14:\[
+    pDstVec[i] = pSrcVec[nSrcOffset+i]
+\]
+\_form#57=180x19:\[
+     nMaxValue  =  \mathop {max}\limits_{i} \left({pSrcVec[i]} \right)
+\]
+\_form#58=175x19:\[
+     nMinValue  =  \mathop {min}\limits_{i} \left({pSrcVec[i]} \right)
+\]
+\_form#59=180x19:\[
+     nMaxValue  =  \mathop {max} \limits_{i} \left(pSrcVec[i] \right)
+\]
+\_form#60=175x19:\[
+     nMinValue  =  \mathop {min} \limits_{i} \left(pSrcVec[i] \right)
+\]
+\_form#61=268x14:\[ pDstMinVec[i] = \min (pSrcVec1[i], pSrcVec2[i]) \]
+\_form#62=38x11:$ 2^{15}-1 $
+\_form#63=273x14:\[ pDstMaxVec[i] = \max (pSrcVec1[i], pSrcVec2[i]) \]
+\_form#64=245x14:\[ pDstMin[i] = \min (pSrcVec1[i], pSrcVec2[i]) \]
+\_form#65=345x31:\[
+    pDstSignMask[i] = \left\{
+        \begin{array}{ll}
+            11 \ldots 1b,  & pSrcVec1[i] < pSrcVec2[i] \\
+            00 \ldots 0b,  & pSrcVec1[i] <= pSrcVec2[i] \\
+        \end{array}
+    \right.
+\]
+\_form#66=260x29:\[
+ pDstVec(i)  =  \{ \begin{array}{lcl}
+    11 \ldots 1b,   &  if &  pSrcVec(i) < 0  \\
+    00 \ldots 0b,   &  if &  pSrcVec(i) \ge 0  \\
+ \end{array}
+\]
+\_form#67=335x29:\[
+    pDstVec(i)  =  \{ \begin{array}{lcl}
+        1,    &  if &  pSrcVec(i) = 0  \\
+        0,    &  if &  pSrcVec(i) \neq 0\\
+    \end{array}, if~ nTrueFlag=1
+\]
+\_form#68=335x29:\[
+    pDstVec(i)  =  \{ \begin{array}{lcl}
+        0,    &  if &  pSrcVec(i) = 0  \\
+        1,    &  if &  pSrcVec(i) \neq 0\\
+    \end{array}, if~ nTrueFlag=0
+\]
+\_form#69=260x29:\[
+ pDstVec(i)  =  \{ \begin{array}{lcl}
+    11 \ldots 1b,   &  if &  pSrcVec(i) > 0  \\
+    00 \ldots 0b,   &  if &  pSrcVec(i) \le 0  \\
+ \end{array}
+\]
+\_form#70=250x14:\[ pDstMax[i] = \max (pSrcVec1[i], pSrcVec2[i]) \]
+\_form#71=470x46:\[
+    pDstVec[i]  =  \left \{ \begin{array}{lcl}
+        -2^{nClipFactor},  & if & pSrcVec[i] < -2^{nClipFactor}  \\
+        pSrcVec[i],        & if & -2^{nClipFactor} \le pSrcVec[i] \le 2^{nClipFactor}-1  \\
+        2^{nClipFactor}-1, & if & pSrcVec[i] > 2^{nClipFactor}-1 \\
+    \end{array} \right.
+\]
+\_form#72=440x46:\[
+    pDstVec[i]  =  \left \{ \begin{array}{lcl}
+        nPosThresh,   & if & pSrcVec[i] > nPosThresh \\
+        pSrcVec[i],   & if & nNegThresh \le pSrcVec[i] \le nPosThresh  \\
+        nNegThresh,   & if & pSrcVec[i] < nNegThresh  \\
+    \end{array} \right.
+\]
+\_form#73=156x15:$ nPosThresh \subset [0 \ldots 2^{30}-1] $
+\_form#74=148x15:$ nNegThresh \subset [-2^{30} \ldots 0] $
+\_form#75=333x46:\[
+    pDstVec[i]  =  \left \{ \begin{array}{lcl}
+        max,   & if & pSrcVec[i] > max \\
+        pSrcVec[i],   & if & min \le pSrcVec[i] \le max  \\
+        min,   & if & pSrcVec[i] < min  \\
+    \end{array} \right.
+\]
+\_form#76=440x14:\[
+    pDstVec[i] = Convert(Clip(pSrcVec[i],nClipFactor) >> nShift) + nAddValue
+\]
+\_form#77=380x14:\[
+        pDstVec[i] = Convert(Clip(pSrcVec[i],nClipFactor)) + nAddValue
+    \]
+\_form#78=328x29:\[
+    pDstVec(i)  =  \{ \begin{array}{lcl}
+        nTrueFlag,      &  if &  pSrcVec(i) = nCmpVal  \\
+        0,              &  if &  pSrcVec(i) \neq nCmpVal   \\
+    \end{array}
+\]
+\_form#79=233x29:\[
+    pDstVec(i)  =  \{ \begin{array}{lcl}
+        -1,     &  if &  pSrcVec(i) \neq 0  \\
+        0,      &  if &  pSrcVec(i) = 0   \\
+    \end{array}
+\]
+\_form#80=233x29:\[
+    pDstVec(i)  =  \{ \begin{array}{lcl}
+        -1, &   if  &   pSrcVec(i) = 0  \\
+        0,      &   if  &   pSrcVec(i) \neq 0       \\
+    \end{array}
+\]
+\_form#81=328x29:\[
+    pDstVec(i)  =  \{ \begin{array}{lcl}
+    nTrueFlag,      &  if &  pSrcVec(i) \neq nCmpVal  \\
+    0,              &  if &  pSrcVec(i) = nCmpVal   \\
+    \end{array}
+    \]
+\_form#82=328x29:\[
+      pDstVec(i)  =  \{ \begin{array}{lcl}
+          nTrueFlag,        &  if &  pSrcVec(i) \neq nCmpVal  \\
+          0,                &  if &  pSrcVec(i) = nCmpVal   \\
+      \end{array}
+  \]
+\_form#83=328x29:\[
+    pDstVec(i)  =  \{ \begin{array}{lcl}
+        nTrueFlag,      &  if &  pSrcVec(i) \neq nCmpVal  \\
+        0,              &  if &  pSrcVec(i) = nCmpVal   \\
+    \end{array}
+\]
+\_form#84=116x14:\[
+    pVec(nIndex)  =  Val
+\]
+\_form#85=223x14:\[
+    pDstVec[i]=pSrcVec[pRemapTable[i]],
+\]
+\_form#86=34x14:$[-1,0]$
+\_form#87=181x15:$[-2^1,\ldots,+2^1-1]=[-2,\ldots,+1]$
+\_form#88=181x15:$[-2^3,\ldots,+2^3-1]=[-8,\ldots,+7]$
+\_form#89=206x15:$[-2^7,\ldots,+2^7-1]=[-128,\ldots,+127]$
+\_form#90=194x15:$[-2^6,\ldots,+2^6-1]=[-64,\ldots,+63]$
+\_form#91=106x15:$[-2^{15},\ldots,^+2^{15}-1]$
+\_form#92=108x15:$[-2^{14},\ldots,+2^{14}-1]$
+\_form#93=108x15:$[-2^{31},\ldots,+2^{31}-1]$
+\_form#94=99x15:$[-2^{30},\ldots,2^{30}-1]$
+\_form#95=99x15:$[-2^{29},\ldots,2^{29}-1]$
+\_form#96=106x15:$[-2^{63},\ldots,^+2^{63}-1]$
+\_form#97=108x15:$[-2^{62},\ldots,+2^{62}-1]$
+\_form#98=146x15:$[0,\ldots,+2^2-1]=[0,\ldots,3]$
+\_form#99=153x15:$[0,\ldots,+2^4-1]=[0,\ldots,15]$
+\_form#100=146x15:$[0,\ldots,+2^3-1]=[0,\ldots,7]$
+\_form#101=159x15:$[0,\ldots,+2^8-1]=[0,\ldots,255]$
+\_form#102=159x15:$[0,\ldots,+2^7-1]=[0,\ldots,127]$
+\_form#103=78x15:$[0,\ldots,2^{16}-1]$
+\_form#104=106x15:$[-2^{14},\ldots,^+2^{14}-1]$
+\_form#105=78x15:$[0,\ldots,2^{32}-1]$
+\_form#106=78x15:$[0,\ldots,2^{31}-1]$
+\_form#107=78x15:$[0,\ldots,2^{64}-1]$
+\_form#108=181x15:$[-2^2,\ldots,+2^2-1]=[-4,\ldots,+3]$
+\_form#109=108x15:$[-2^{15},\ldots,+2^{15}-1]$
+\_form#110=108x15:$[-2^{29},\ldots,+2^{29}-1]$
+\_form#111=108x15:$[-2^{30},\ldots,+2^{30}-1]$
+\_form#112=108x15:$[-2^{63},\ldots,+2^{63}-1]$
+\_form#113=65x14:$[0,1]=[0,1]$
+\_form#114=136x15:$[0,\ldots,2^2-1]=[0,\ldots,3]$
+\_form#115=136x15:$[0,\ldots,2^3-1]=[0,\ldots,7]$
+\_form#116=143x15:$[0,\ldots,2^4-1]=[0,\ldots,15]$
+\_form#117=149x15:$[0,\ldots,2^7-1]=[0,\ldots,127]$
+\_form#118=149x15:$[0,\ldots,2^8-1]=[0,\ldots,255]$
+\_form#119=78x15:$[0,\ldots,2^{15}-1]$
+\_form#120=78x15:$[0,\ldots,2^{63}-1]$
+\_form#121=78x14:$[-64,\ldots,+63]$
+\_form#122=46x14:$[0,\ldots,7]$

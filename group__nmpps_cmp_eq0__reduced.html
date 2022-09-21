@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsCmpEq0(Reduced)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">nmppsCmpEq0(Reduced)<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_select.html">Операции сравнения</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Сравнивает элементы массива неполной разрядности на признак равенства нулю.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gaf467723e1515bab2c7d1350d2c362dea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_cmp_eq0__reduced.html#gaf467723e1515bab2c7d1350d2c362dea">nmppsCmpEq0_8u7b</a> (<a class="el" href="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5">nm8u7b</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *pDstVec, int nSize, int nTrueFlag)</td></tr>
+<tr class="separator:gaf467723e1515bab2c7d1350d2c362dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ae16a394f9950201254de3e9ec829ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_cmp_eq0__reduced.html#ga0ae16a394f9950201254de3e9ec829ad">nmppsCmpEq0_16u15b</a> (<a class="el" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *pDstVec, int nSize, int nTrueFlag)</td></tr>
+<tr class="separator:ga0ae16a394f9950201254de3e9ec829ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac8bbc53691527cc8312cbaa8253d1d8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_cmp_eq0__reduced.html#gac8bbc53691527cc8312cbaa8253d1d8d">nmppsCmpEq0_32u31b</a> (<a class="el" href="group__nmvectype.html#gac28e7df271aa671e0e4a8512a310f569">nm32u31b</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *pDstVec, int nSize, int nTrueFlag)</td></tr>
+<tr class="separator:gac8bbc53691527cc8312cbaa8253d1d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Сравнивает элементы массива неполной разрядности на признак равенства нулю. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[
+    pDstVec(i)  =  \{ \begin{array}{lcl}
+        1,    &amp;  if &amp;  pSrcVec(i) = 0  \\
+        0,    &amp;  if &amp;  pSrcVec(i) \neq 0\\
+    \end{array}, if~ nTrueFlag=1
+\]" src="form_67.png" width="335" height="29"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[
+    pDstVec(i)  =  \{ \begin{array}{lcl}
+        0,    &amp;  if &amp;  pSrcVec(i) = 0  \\
+        1,    &amp;  if &amp;  pSrcVec(i) \neq 0\\
+    \end{array}, if~ nTrueFlag=0
+\]" src="form_68.png" width="335" height="29"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ i = \overline{0 \ldots nSize-1} \]" src="form_12.png" width="100" height="11"/>
+</p>
+<pre class="fragment">\~
+</pre> <dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td>Входной вектор.</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер векторов в элементах. Vector size in elements. </td></tr>
+    <tr><td class="paramname">nTrueFlag</td><td>Младший бит nTrueFlag определяет значение выходного бита при выполнении условия.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td>Результирующий бинарный вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga0ae16a394f9950201254de3e9ec829ad" name="ga0ae16a394f9950201254de3e9ec829ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0ae16a394f9950201254de3e9ec829ad">&#9670;&#160;</a></span>nmppsCmpEq0_16u15b()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsCmpEq0_16u15b </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nTrueFlag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section note"><dt>Заметки</dt><dd>nSize =[1,2,3,4...] </dd></dl>
+
+</div>
+</div>
+<a id="gac8bbc53691527cc8312cbaa8253d1d8d" name="gac8bbc53691527cc8312cbaa8253d1d8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac8bbc53691527cc8312cbaa8253d1d8d">&#9670;&#160;</a></span>nmppsCmpEq0_32u31b()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsCmpEq0_32u31b </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#gac28e7df271aa671e0e4a8512a310f569">nm32u31b</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nTrueFlag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section note"><dt>Заметки</dt><dd>nSize =[1,2,3,4...] </dd></dl>
+
+</div>
+</div>
+<a id="gaf467723e1515bab2c7d1350d2c362dea" name="gaf467723e1515bab2c7d1350d2c362dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf467723e1515bab2c7d1350d2c362dea">&#9670;&#160;</a></span>nmppsCmpEq0_8u7b()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsCmpEq0_8u7b </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5">nm8u7b</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nTrueFlag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section note"><dt>Заметки</dt><dd>nSize =[1,2,3,4...] </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

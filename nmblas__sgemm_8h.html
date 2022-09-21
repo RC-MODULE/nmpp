@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Файл g:/nmpp/include/nmblas/nmblas_sgemm.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_eba4c1b73fe0070e2f4972434d168834.html">nmblas</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Файл nmblas_sgemm.h<div class="ingroups"><a class="el" href="group__float.html">Функции с плавающей точкой</a> &raquo; <a class="el" href="group___n_m_b_l_a_s.html">nmblas</a> &raquo; <a class="el" href="group___l_e_v_e_l3.html">BLASS-LEVEL3</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>part of nmblas library, sgemm function implementation  
+<a href="#details">Подробнее...</a></p>
+
+<p><a href="nmblas__sgemm_8h_source.html">См. исходные тексты.</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >part of nmblas library, sgemm function implementation </p>
+<p >single precision matrix multiplication implementation</p>
+<p >C = alpha*A*B + beta*C</p>
+<p >see blas\cblas docs for detailed description</p>
+<p >limitations: M, N, K, ld* must be all even, all matrix rows must be even aligned</p>
+<p >limitations: row major (C order, not Fortran) only</p>
+<p >limitations: TransA is not supported yet </p><dl class="section author"><dt>Автор</dt><dd>leshabirukov </dd></dl>
+<dl class="section version"><dt>Версия</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>2018-07-26 </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">TransA</td><td>transpose first multiplicand (A) flag </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">TransB</td><td>transpose second multiplicand (B) flag </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">M</td><td>number of rows of the matrix A and C </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>number of columns of the matrix B and C </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">K</td><td>number of rows of the matrix B and of columns of the matrix C </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">alpha</td><td>specifies the scalar alpha </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>pointer to the first multiplicand </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lda</td><td>A stride, first dimension of A holder </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>pointer to the second multiplicand </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ldb</td><td>B stride, first dimension of B holder </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">beta</td><td>specifies the scalar beta </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">C</td><td>pointer to accumulator matrix </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ldc</td><td>C stride, first dimension of C holder </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd></dd></dl>
+<dl class="section copyright"><dt>Авторство</dt><dd>(c) RC Module Inc. </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

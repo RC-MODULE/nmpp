@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл g:/nmpp/include/nmpls/sResample.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6e6a648b8b7c120130a3d831b9450e3a.html">nmpls</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">sResample.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//  $Workfile:: sResampl $</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//  Векторно-матричная библиотека</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//  Copyright (c) RC Module Inc.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//  $Revision: 1.1 $      $Date: 2005/01/12 14:09:07 $</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span><span class="comment">//------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="nmtype_8h.html">nmtype.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#ifndef _S_RESAMPLE_H_INCLUDED_</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define _S_RESAMPLE_H_INCLUDED_</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordtype">void</span> nmppsResampleDown2_8u8u(<a class="code hl_typedef" href="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5">nm8u7b</a>* pSrcVec, <a class="code hl_typedef" href="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5">nm8u7b</a>* pDstVec, <span class="keywordtype">int</span> nSrcVecSize, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> nmppsResampleDown2_16u16u(<a class="code hl_typedef" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a>* pSrcVec, <a class="code hl_typedef" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a>* pDstVec, <span class="keywordtype">int</span> nSrcVecSize, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">//\param    pTmpBuf     </span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">//    \ru Временный буффер размера 2*nSize. </span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">//    \en Temporary buffer with size 2*nSize. </span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">//void nmppsResampleDown2(nm8u* pSrcVec, nm16u* pDstVec, int nSrcVecSize, nm64s* pKernel, void* pTmpBuf);</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">void</span> nmppsResampleDown2_8u16u(<a class="code hl_typedef" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a>* pSrcVec,<a class="code hl_typedef" href="group__nmvectype.html#ga415870b91ecea223de4041c233e62cd5">nm16u</a>*  pDstVec,<span class="keywordtype">void</span>*   pTmpBuf,<span class="keywordtype">int</span> nSize);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">//*****************************************************************************</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keywordtype">void</span> nmppsResampleUp3Down2_8s16s(<a class="code hl_typedef" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a>* pSrcVec, <a class="code hl_typedef" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a>* pDstVec, <span class="keywordtype">int</span> nSrcVecSize, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">//*****************************************************************************</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keywordtype">void</span> nmppsCreateResampleUp3Down2_8s16s(<a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>** pKernel, <span class="keywordtype">int</span> nHint);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="keywordtype">void</span> nmppsCreateResampleDown2_8u8u(<a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>** pKernel, <span class="keywordtype">int</span> nHint);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keywordtype">void</span> nmppsCreateResampleDown2_16u16u(<a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>** pKernel, <span class="keywordtype">int</span> nHint);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">//*****************************************************************************</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="keywordtype">int</span> nmppsSetResampleUp3Down2_8s16s(<a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="keywordtype">int</span> nmppsSetResampleDown2_8u8u(<a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="keywordtype">int</span> nmppsSetResampleDown2_16u16u(<a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">//*****************************************************************************</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="keywordtype">void</span> nmppsDecimate16_8s(<a class="code hl_typedef" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a>* pSrcVec,<a class="code hl_typedef" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a>* pDstVec,<span class="keywordtype">int</span> nDstSize);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="keywordtype">void</span> nmppsDecimate16_16s(<a class="code hl_typedef" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a>* pSrcVec,<a class="code hl_typedef" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a>* pDstVec,<span class="keywordtype">int</span> nDstSize);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="keywordtype">void</span> nmppsDecimate16_32s(<a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pSrcVec,<a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pDstVec,<span class="keywordtype">int</span> nDstSize);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="keywordtype">void</span> nmppsDecimate16_64s(<a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pSrcVec,<a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pDstVec,<span class="keywordtype">int</span> nDstSize);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">//*****************************************************************************</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="keywordtype">void</span> nmppsResampleUp3Down2_perf(<a class="code hl_typedef" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a>* pSrcVec, <a class="code hl_typedef" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a>* pDstVec, <span class="keywordtype">int</span> nSrcVecSize, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="keywordtype">void</span> nmppsResampleDown2_perf_8u(<a class="code hl_typedef" href="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5">nm8u7b</a>* pSrcVec, <a class="code hl_typedef" href="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5">nm8u7b</a>* pDstVec, <span class="keywordtype">int</span> nSrcVecSize, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="keywordtype">void</span> nmppsResampleDown2_perf_16u(<a class="code hl_typedef" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a>* pSrcVec, <a class="code hl_typedef" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a>* pDstVec, <span class="keywordtype">int</span> nSrcVecSize, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="preprocessor">#ifdef EEE</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> nmbits_in, <span class="keyword">class</span> nmbits_out&gt; <span class="keyword">class </span>CnmppsResampleUp3Down2</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>{</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    void (*pfFree32)(<span class="keywordtype">void</span>*);    </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <span class="keywordtype">int</span> nWeights;               </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel;             </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keywordtype">int</span> nKernelSize;            </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    CSIG_ResampleUp3Down2(<span class="keywordtype">void</span>* (*malloc32_func)(<span class="keywordtype">unsigned</span>),<span class="keywordtype">void</span> (*free32_func)(<span class="keywordtype">void</span>*));</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    <span class="keywordtype">void</span>  Eval(nmbits_in* pSrcVec, nmbits_out* pDstVec, <span class="keywordtype">int</span> nSize);</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    ~CSIG_ResampleUp3Down2(){</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <span class="keywordflow">if</span> (pKernel) </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>            pfFree32(pKernel);</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    }</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>};</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    </div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    </div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    </div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        };</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="preprocessor">#endif </span><span class="comment">// </span></div>
+<div class="ttc" id="agroup__nmvectype_html_ga112cca25519f88ad8aa9950b5545132c"><div class="ttname"><a href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a></div><div class="ttdeci">unsigned char nm8u</div><div class="ttdef"><b>Definition:</b> nmtype.h:448</div></div>
+<div class="ttc" id="agroup__nmvectype_html_ga340133c964d0ae670f3bd3ff3a6b172a"><div class="ttname"><a href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a></div><div class="ttdeci">int nm32s</div><div class="ttdef"><b>Definition:</b> nmtype.h:292</div></div>
+<div class="ttc" id="agroup__nmvectype_html_ga415870b91ecea223de4041c233e62cd5"><div class="ttname"><a href="group__nmvectype.html#ga415870b91ecea223de4041c233e62cd5">nm16u</a></div><div class="ttdeci">unsigned short nm16u</div><div class="ttdef"><b>Definition:</b> nmtype.h:481</div></div>
+<div class="ttc" id="agroup__nmvectype_html_ga455936568bcda359ddb91a8c058748f5"><div class="ttname"><a href="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5">nm8u7b</a></div><div class="ttdeci">nm8u nm8u7b</div><div class="ttdef"><b>Definition:</b> nmtype.h:463</div></div>
+<div class="ttc" id="agroup__nmvectype_html_ga4e59c2dc9731ba8592b0991bf71c7af3"><div class="ttname"><a href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a></div><div class="ttdeci">long long nm64s</div><div class="ttdef"><b>Definition:</b> nmtype.h:375</div></div>
+<div class="ttc" id="agroup__nmvectype_html_gac7e3460b4b4f074cf4a75a3071bf04c8"><div class="ttname"><a href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a></div><div class="ttdeci">short nm16s</div><div class="ttdef"><b>Definition:</b> nmtype.h:243</div></div>
+<div class="ttc" id="agroup__nmvectype_html_gae72f2b9432062ccd3940ddea7c7e98df"><div class="ttname"><a href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a></div><div class="ttdeci">char nm8s</div><div class="ttdef"><b>Definition:</b> nmtype.h:167</div></div>
+<div class="ttc" id="agroup__nmvectype_html_gaea982edb835e53315b10fae6a12e53b5"><div class="ttname"><a href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a></div><div class="ttdeci">nm16u nm16u15b</div><div class="ttdef"><b>Definition:</b> nmtype.h:495</div></div>
+<div class="ttc" id="anmtype_8h_html"><div class="ttname"><a href="nmtype_8h.html">nmtype.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

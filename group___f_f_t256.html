@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: FFT-256</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">FFT-256<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___s_i_g___group.html">Функции обработки сигналов</a> &raquo; <a class="el" href="group__s_f_f_t.html">Быстрое преобразование Фурье</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gae596ac7611b0355299eecf9821a3b361"><td class="memItemLeft" align="right" valign="top"><a id="gae596ac7611b0355299eecf9821a3b361" name="gae596ac7611b0355299eecf9821a3b361"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_Fwd256Set6bit</b> ()</td></tr>
+<tr class="memdesc:gae596ac7611b0355299eecf9821a3b361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает 6-битную точность вычислений <br /></td></tr>
+<tr class="separator:gae596ac7611b0355299eecf9821a3b361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78dbfcd2134bfb7052025a155c3212ce"><td class="memItemLeft" align="right" valign="top"><a id="ga78dbfcd2134bfb7052025a155c3212ce" name="ga78dbfcd2134bfb7052025a155c3212ce"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_Fwd256Set7bit</b> ()</td></tr>
+<tr class="memdesc:ga78dbfcd2134bfb7052025a155c3212ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает 7-битную точность вычислений <br /></td></tr>
+<tr class="separator:ga78dbfcd2134bfb7052025a155c3212ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1347e436142ede2e5e70e6b7add61911"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_f_t256.html#ga1347e436142ede2e5e70e6b7add61911">FFT_Fwd256</a> (<a class="el" href="structs__nm32sc.html">nm32sc</a> *GSrcBuffer, <a class="el" href="structs__nm32sc.html">nm32sc</a> *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR=-1)</td></tr>
+<tr class="memdesc:ga1347e436142ede2e5e70e6b7add61911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прямое быстрое преобразование Фурье-256.  <a href="group___f_f_t256.html#ga1347e436142ede2e5e70e6b7add61911">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga1347e436142ede2e5e70e6b7add61911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<h2 class="groupheader">Функции</h2>
+<a id="ga1347e436142ede2e5e70e6b7add61911" name="ga1347e436142ede2e5e70e6b7add61911"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1347e436142ede2e5e70e6b7add61911">&#9670;&#160;</a></span>FFT_Fwd256()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FFT_Fwd256 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__nm32sc.html">nm32sc</a> *&#160;</td>
+          <td class="paramname"><em>GSrcBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structs__nm32sc.html">nm32sc</a> *&#160;</td>
+          <td class="paramname"><em>LDstBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>LBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>GBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ShiftR</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Прямое быстрое преобразование Фурье-256. </p>
+<pre class="fragment">\~russian   Функция выполняет дискретное комплексное 256-точечное преобразовние Фурье  на базе алгоритма БПФ по основанию 16-16
+</pre> <dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">GSrcBuffer</td><td>Входной массив размером 256 64-р. слов </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">LDstBuffer</td><td>Результирующий массив размером 256*3 64-р. слов </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">LBuffer</td><td>Временный массив на локальной шине (Local Bus) размером 256*3 64-р. слов </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">GBuffer</td><td>Временный массив на глобальной шине (Global Bus) размером 256*2 64-р. слов </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ShiftR</td><td>Коэффициент нормализации, выполняет арифметический сдвиг результирующего массива на ShiftR бит вправо для получения нормализованного массива LDstBuffer. При передаче значения по умолчанию (-1) ShiftR автоматически принимается равным 14 если ранее установленна точность 7-бит функцией <a class="el" href="group___f_f_t256.html#ga78dbfcd2134bfb7052025a155c3212ce" title="Устанавливает 7-битную точность вычислений">FFT_Fwd256Set7bit()</a> и 12 - если ранее установлена точность 6-бит функцией <a class="el" href="group___f_f_t256.html#gae596ac7611b0355299eecf9821a3b361" title="Устанавливает 6-битную точность вычислений">FFT_Fwd256Set6bit()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>void </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Использование inplace параметров не допускается ( все указатели должны быть разными)</dd></dl>
+<p>\perf </p><pre class="fragment">   GSrcBuffer| LDstBuffer| LBuffer   | GBuffer   |   ShiftR  |   clocks
+   --------------------------------------------------------------------------
+       L     |     L     |     L     |     L     |     -1    |     21.54
+       L     |     L     |     L     |     G     |     -1    |     16.60
+       L     |     L     |     G     |     L     |     -1    |     22.17
+       L     |     L     |     G     |     G     |     -1    |     20.98
+       L     |     G     |     L     |     L     |     -1    |     20.53
+       L     |     G     |     L     |     G     |     -1    |     17.56
+       L     |     G     |     G     |     L     |     -1    |     21.17
+       L     |     G     |     G     |     G     |     -1    |     21.94
+       G     |     L     |     L     |     L     |     -1    |     20.57
+       G     |     L     |     L     |     G     |     -1    |     15.64
+       G     |     L     |     G     |     L     |     -1    |     21.21
+       G     |     L     |     G     |     G     |     -1    |     20.02
+       G     |     G     |     L     |     L     |     -1    |     19.57
+       G     |     G     |     L     |     G     |     -1    |     16.59
+       G     |     G     |     G     |     L     |     -1    |     20.20
+       G     |     G     |     G     |     G     |     -1    |     20.97
+       L     |     L     |     L     |     L     |     0     |     21.51
+       L     |     L     |     L     |     G     |     0     |     16.58
+       L     |     L     |     G     |     L     |     0     |     22.15
+       L     |     L     |     G     |     G     |     0     |     20.96
+       L     |     G     |     L     |     L     |     0     |     20.51
+       L     |     G     |     L     |     G     |     0     |     17.53
+       L     |     G     |     G     |     L     |     0     |     21.14
+       L     |     G     |     G     |     G     |     0     |     21.91
+       G     |     L     |     L     |     L     |     0     |     20.55
+       G     |     L     |     L     |     G     |     0     |     15.62
+       G     |     L     |     G     |     L     |     0     |     21.19
+       G     |     L     |     G     |     G     |     0     |     20.00
+       G     |     G     |     L     |     L     |     0     |     19.54
+       G     |     G     |     L     |     G     |     0     |     16.57
+       G     |     G     |     G     |     L     |     0     |     20.18
+       G     |     G     |     G     |     G     |     0     |     20.95
+</pre><p > </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

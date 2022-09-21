@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл g:/nmpp/include/nmpls/fftref.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6e6a648b8b7c120130a3d831b9450e3a.html">nmpls</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">fftref.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef FFTREF_H_INCLUDED</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define FFTREF_H_INCLUDED</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="nmtype_8h.html">nmtype.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keywordtype">void</span> nmppsDFT16Fwd_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keywordtype">void</span> nmppsFFT16Fwd2x8_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">void</span> nmppsFFT16Fwd2x8_RefInt(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> nmppsFFT16Fwd8x2_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordtype">void</span> nmppsFFT16Fwd2x8Time_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keywordtype">void</span> nmppsFFT16Fwd2x8Freq_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">void</span> nmppsFFT16Fwd242_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">void</span> nmppsFFT16Fwd242_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32fc.html">nm32fc</a>* dst);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span> nmppsFFT16Fwd242_RefInt(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keywordtype">void</span> nmppsFFT16Fwd242_RefNmc(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">void</span> nmppsDFT32Fwd_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> nmppsFFT32Fwd282_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> nmppsDFT64Fwd_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> nmppsFFT64Fwd88_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> nmppsDFT128Fwd_RefFlt   (<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> nmppsFFT128Fwd882_RefFlt(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> nmppsFFT128Fwd828_RefFlt(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> nmppsFFT128Fwd828_RefInt(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> nmppsFFT128Fwd828_RefNmc(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> nmppsDFT256Fwd_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> nmppsFFT256Fwd2882_RefFloat(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* src, <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* dst);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">template &lt;int rep, int nb_bits, int sb_bits&gt; load_wfifo(void *wfifo) {</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"></span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">}</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">template&lt;int rep&gt; void load_data_vsum_data_vr(void *data, int vr) {</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">    </span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">}</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">template&lt;int rep&gt; void save_afifo(void *dst) {</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"></span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">}*/</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anmtype_8h_html"><div class="ttname"><a href="nmtype_8h.html">nmtype.h</a></div></div>
+<div class="ttc" id="astructs__nm32fc_html"><div class="ttname"><a href="structs__nm32fc.html">s_nm32fc</a></div><div class="ttdef"><b>Definition:</b> nmtype.h:1328</div></div>
+<div class="ttc" id="astructs__nm32sc_html"><div class="ttname"><a href="structs__nm32sc.html">s_nm32sc</a></div><div class="ttdef"><b>Definition:</b> nmtype.h:1301</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

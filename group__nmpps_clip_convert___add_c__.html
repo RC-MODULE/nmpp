@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsClipConvert_AddC_</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#typedef-members">Определения типов</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">nmppsClipConvert_AddC_<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_select.html">Операции сравнения</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Сокращение разрядности данных c предварительной их обработкой.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Определения типов</h2></td></tr>
+<tr class="memitem:ga3ddb246ccb08d31e5e6c495f5ad6d482"><td class="memItemLeft" align="right" valign="top"><a id="ga3ddb246ccb08d31e5e6c495f5ad6d482" name="ga3ddb246ccb08d31e5e6c495f5ad6d482"></a>
+typedef <a class="el" href="group__nmvectype.html#gacffc3cf301915bbe094bbb1d39e9a8c0">nm64u</a>&#160;</td><td class="memItemRight" valign="bottom"><b>NmppsWeightState</b></td></tr>
+<tr class="separator:ga3ddb246ccb08d31e5e6c495f5ad6d482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga0b19cdfa97dcb391366ac59896aad6f1"><td class="memItemLeft" align="right" valign="top"><a id="ga0b19cdfa97dcb391366ac59896aad6f1" name="ga0b19cdfa97dcb391366ac59896aad6f1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsClipConvertAddCInitAlloc_16s8s</b> (NmppsWeightState **ppState)</td></tr>
+<tr class="separator:ga0b19cdfa97dcb391366ac59896aad6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5eff79b671700cdac4a32bcda7a741d"><td class="memItemLeft" align="right" valign="top"><a id="gae5eff79b671700cdac4a32bcda7a741d" name="gae5eff79b671700cdac4a32bcda7a741d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsClipConvertAddC_16s8s</b> (<a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pSrcVec, int nClipFactor, <a class="el" href="group__nmtype.html#ga76ec3af99402ffbf69b57b18f11defad">int8b</a> nAddValue, <a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pDstVec, int nSize, NmppsWeightState *pState)</td></tr>
+<tr class="separator:gae5eff79b671700cdac4a32bcda7a741d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga043a6e4247f28e6df0273462beaa1853"><td class="memItemLeft" align="right" valign="top"><a id="ga043a6e4247f28e6df0273462beaa1853" name="ga043a6e4247f28e6df0273462beaa1853"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsClipConvertAddCFree</b> (NmppsWeightState *pState)</td></tr>
+<tr class="separator:ga043a6e4247f28e6df0273462beaa1853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Сокращение разрядности данных c предварительной их обработкой. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[
+        pDstVec[i] = Convert(Clip(pSrcVec[i],nClipFactor)) + nAddValue
+    \]" src="form_77.png" width="380" height="14"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ i = \overline{0 \ldots nSize-1} \]" src="form_12.png" width="100" height="11"/>
+</p>
+<p >Сокращение разрядности данных выполняется после предварительной обработки и осуществляется путем отбрасывания старших битов.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td>Входной вектор.</td></tr>
+    <tr><td class="paramname">nClipFactor</td><td>Показатель степени, определяющий верхний и нижний пороги насыщения. =[1,2,3...15]</td></tr>
+    <tr><td class="paramname">nAddValue</td><td>Добавляемая константа.</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер векторов в элементах. указатель на матрицу коэфициентов для векторного умножителя. Для ускорения.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td>Результирующий вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt></dt><dd></dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

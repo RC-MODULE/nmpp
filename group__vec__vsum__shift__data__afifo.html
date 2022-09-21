@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Vec_vsum_shift_data_afifo</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Vec_vsum_shift_data_afifo<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___c_o_r_e___group.html">Базовые регистровые функции библиотеки</a> &raquo; <a class="el" href="group__vsum.html">функции взвешенного суммирования</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga8b8e4a57fa1cb3ebffb59a4d7fce7f04"><td class="memItemLeft" align="right" valign="top"><a id="ga8b8e4a57fa1cb3ebffb59a4d7fce7f04" name="ga8b8e4a57fa1cb3ebffb59a4d7fce7f04"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>vec_vsum_shift_data_afifo</b> (<a class="el" href="structnmreg.html">nmreg</a> nb1, <a class="el" href="structnmreg.html">nmreg</a> sb, <a class="el" href="structnmreg.html">nmreg</a> f1cr, <a class="el" href="structnmreg.html">nmreg</a> woper, <a class="el" href="structnmreg.html">nmreg</a> ar0, <a class="el" href="structnmreg.html">nmreg</a> gr0, <a class="el" href="structnmreg.html">nmreg</a> gr5, <a class="el" href="structnmreg.html">nmreg</a> ar6)</td></tr>
+<tr class="separator:ga8b8e4a57fa1cb3ebffb59a4d7fce7f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<pre class="fragment">\~
+</pre><pre class="fragment"> \~russian Действие функции эквивалентно следующим псевдоинструкциям: 
+ \~english The function operation is equivalent to the following pseudoinstructions:   
+\~
+\~
+</pre> <div class="fragment"><div class="line">rep 1   data=vfalse; </div>
+<div class="line">rep 1*N data=[ar0++gr0] with vsum , shift data,afifo; (rep1 N times)</div>
+<div class="line">rep 1   [ar6]=afifo;</div>
+</div><!-- fragment --><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb1</td><td><br  />
+ задает разбиение на колонки (необходимо wtw)</td></tr>
+    <tr><td class="paramname">sb</td><td><br  />
+ задает разбиение на 8 строк</td></tr>
+    <tr><td class="paramname">f1cr</td><td>задает функцию активации</td></tr>
+    <tr><td class="paramname">woper</td><td>в рабочей матрице должны быть загружены весовые коэффициенты</td></tr>
+    <tr><td class="paramname">ar0</td><td><br  />
+ указатель на столбец SrcMtr</td></tr>
+    <tr><td class="paramname">gr0</td><td>SrcMtr stride</td></tr>
+    <tr><td class="paramname">gr5</td><td><br  />
+ Высота матриц N = [0,1,2...31,32,33,...]</td></tr>
+    <tr><td class="paramname">ar6</td><td><br  />
+ указатель на столбец DstMtr</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><br  />
+ </p><dl class="section user"><dt>Restrictions: &lt;br&gt;</dt><dd>При выходе из функции изменяется содержимое регистров: ar0. </dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsXCorr_32s</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">nmppsXCorr_32s<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___s_i_g___group.html">Функции обработки сигналов</a> &raquo; <a class="el" href="group__s_convolution.html">Свертка</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Свертка двух векторов.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gab9dcc62b0b7ffe7044c3bb8dec616509"><td class="memItemLeft" align="right" valign="top"><a id="gab9dcc62b0b7ffe7044c3bb8dec616509" name="gab9dcc62b0b7ffe7044c3bb8dec616509"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsXCorr_32s_32s</b> (<a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pSrcVec, int nSrcVecSize, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pKernel, int nKernelSize, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, void *pTmpBuf)</td></tr>
+<tr class="separator:gab9dcc62b0b7ffe7044c3bb8dec616509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae256500b214923ec91a1c9947c834feb"><td class="memItemLeft" align="right" valign="top"><a id="gae256500b214923ec91a1c9947c834feb" name="gae256500b214923ec91a1c9947c834feb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsXCorr_32s_16s32s</b> (<a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pSrcVec, int nSrcVecSize, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pKernel, int nKernelSize, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, void *pTmpBuf)</td></tr>
+<tr class="separator:gae256500b214923ec91a1c9947c834feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0af0596edfd7ef778aa75d0a266580f6"><td class="memItemLeft" align="right" valign="top"><a id="ga0af0596edfd7ef778aa75d0a266580f6" name="ga0af0596edfd7ef778aa75d0a266580f6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsXCorr_32s_8s32s</b> (<a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pSrcVec, int nSrcVecSize, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pKernel, int nKernelSize, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, void *pTmpBuf)</td></tr>
+<tr class="separator:ga0af0596edfd7ef778aa75d0a266580f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Свертка двух векторов. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[
+    DstVec_i  = \sum \limits_{j = 0}^{nKernelSize - 1} pSrcVec[i + j]  \cdot pKernel[j] 
+\]" src="form_6.png" width="284" height="40"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[
+    i = \overline{0 \ldots nSrcVecSize-nKernelSize+1}
+\]" src="form_7.png" width="230" height="13"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td><br  />
+ Входной вектор.</td></tr>
+    <tr><td class="paramname">pKernel</td><td><br  />
+ Вектор коэффициентов окна свертки.</td></tr>
+    <tr><td class="paramname">pTmpBuf</td><td>Указатель на временный буффер размера 2*nKernelSize + 32 32-битных слов;<br  />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>2*nKernelSize + 32 32-bit words;<br  />
+ </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nKernelSize</td><td>Размер окна свертки [1,2,3,4...nSrcVecSize-1].</td></tr>
+    <tr><td class="paramname">nSrcVecSize</td><td>Размер входного вектора в элементах .Размер кратен 8,4 или 2 согласно типу данных.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td><br  />
+ Результирующий вектор, размером nSrcVecSize-nKernelSize+1. после которого могут записыватсья еще до 7 незначачих 32р слова.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>По сути функции осушествляют фильтрацию данных окном свертки. </dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

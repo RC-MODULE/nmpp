@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsResample_perf</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">nmppsResample_perf<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___s_i_g___group.html">Функции обработки сигналов</a> &raquo; <a class="el" href="group__s_resample.html">Изменение размеров</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Функции для оценки производительности функций фильтрации nmppsResample()Функция эквивалентно следующим псевдоинструкциям:  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga75684be5facbe6afb9affd429ad0b5e7"><td class="memItemLeft" align="right" valign="top"><a id="ga75684be5facbe6afb9affd429ad0b5e7" name="ga75684be5facbe6afb9affd429ad0b5e7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsResampleUp3Down2_perf</b> (<a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pDstVec, int nSrcVecSize, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pKernel)</td></tr>
+<tr class="separator:ga75684be5facbe6afb9affd429ad0b5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b0d78fb7a086a1c728fde2b4095582e"><td class="memItemLeft" align="right" valign="top"><a id="ga0b0d78fb7a086a1c728fde2b4095582e" name="ga0b0d78fb7a086a1c728fde2b4095582e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsResampleDown2_perf_8u</b> (<a class="el" href="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5">nm8u7b</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5">nm8u7b</a> *pDstVec, int nSrcVecSize, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pKernel)</td></tr>
+<tr class="separator:ga0b0d78fb7a086a1c728fde2b4095582e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe4a0e88fd0f997b39f44d7331741c71"><td class="memItemLeft" align="right" valign="top"><a id="gabe4a0e88fd0f997b39f44d7331741c71" name="gabe4a0e88fd0f997b39f44d7331741c71"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsResampleDown2_perf_16u</b> (<a class="el" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a> *pDstVec, int nSrcVecSize, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pKernel)</td></tr>
+<tr class="separator:gabe4a0e88fd0f997b39f44d7331741c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Функции для оценки производительности функций фильтрации nmppsResample()</p>
+<p >Функция эквивалентно следующим псевдоинструкциям: </p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> nmppsResample***_perf(<a class="code hl_typedef" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a>* pSrcVec, <a class="code hl_typedef" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a>* pDstVec, <span class="keywordtype">int</span> nSrcVecSize, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line">{</div>
+<div class="line">    nmppsSetResample***_***(pKernel); </div>
+<div class="line">    clock_t t0,t1;  </div>
+<div class="line">    t0=clock();</div>
+<div class="line">    nmppsResample***(pSrcVec, pDstVec, nSize,pKernel);</div>
+<div class="line">    t1=clock();</div>
+<div class="line">    exit(t1-t0);</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__nmvectype_html_ga4e59c2dc9731ba8592b0991bf71c7af3"><div class="ttname"><a href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a></div><div class="ttdeci">long long nm64s</div><div class="ttdef"><b>Definition:</b> nmtype.h:375</div></div>
+<div class="ttc" id="agroup__nmvectype_html_gaea982edb835e53315b10fae6a12e53b5"><div class="ttname"><a href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a></div><div class="ttdeci">nm16u nm16u15b</div><div class="ttdef"><b>Definition:</b> nmtype.h:495</div></div>
+</div><!-- fragment --><pre class="fragment">\~
+</pre> <dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pKernel</td><td>Указатель на служебную структуру, содержащую весовые коэффиценты фильтра во внутреннем формате.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td><br  />
+ Входной вектор.</td></tr>
+    <tr><td class="paramname">nSrcVecSize</td><td><br  />
+ Размер входного вектора в элементах.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td><br  />
+ Результирующий вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Инициализация служебной структуры производится соответсвующей функцией nmppsSetFilter() и nmppsCreateFilter().</dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

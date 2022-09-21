@@ -1,0 +1,1482 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML><HEAD></HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="FrameName" value="right">
+</OBJECT>
+<UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___add___v_v__shift.html"><param name="Name" value="&lt;br&gt;"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a284ec0853878d74c92347882bae7fcc6"><param name="Name" value="Allocate(size_t32 size32Buffer)"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a284ec0853878d74c92347882bae7fcc6"><param name="Name" value="C_Heap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#aaec896dd1403776dbbe2998f62c2b099"><param name="Name" value="Allocate(size_t32 size32Buffer)"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#aaec896dd1403776dbbe2998f62c2b099"><param name="Name" value="C_MultiHeap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#ad7f80bdb5d8c49742c2831b80ded5f3e"><param name="Name" value="Allocate(size_t32 size32Buffer, int nPriorHeap0, int nPriorHeap1=-1, int nPriorHeap2=-1, int nPriorHeap3=-1, int nPriorHeap4=-1, int nPriorHeap5=-1)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#abc0a225de211d115c15b629db738978a"><param name="Name" value="AllocateMaxAvail()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a5abc0d0a8e5b51c17a2671cc12126716"><param name="Name" value="AllocateMode"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#adb448cb592ee91c6582889852b6f61ca"><param name="Name" value="AllocateWith(size_t32 size32Buffer, void *addrInTheSameHeap)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="BLASS-LEVEL1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l2.html"><param name="Name" value="BLASS-LEVEL2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l3.html"><param name="Name" value="BLASS-LEVEL3"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="nmtype_8h.html#a4009d0a6b2574344aca76bfef765adc3"><param name="Name" value="CAPACITY_nm64s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c__2_d_sub_pixel_min_position.html"><param name="Name" value="C_2DSubPixelMinPosition"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c__2_d_trig_sub_pixel_min_position.html"><param name="Name" value="C_2DTrigSubPixelMinPosition"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___allocator32.html"><param name="Name" value="C_Allocator32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___box_img.html"><param name="Name" value="C_BoxImg"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___box_vec.html"><param name="Name" value="C_BoxVec"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a2e32adab02bdcba0d350b8da3bb6bb0b"><param name="Name" value="C_Heap(void *addrHeap, size_t32 size32Heap)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a284ec0853878d74c92347882bae7fcc6"><param name="Name" value="Allocate(size_t32 size32Buffer)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#abc0a225de211d115c15b629db738978a"><param name="Name" value="AllocateMaxAvail()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a2e32adab02bdcba0d350b8da3bb6bb0b"><param name="Name" value="C_Heap(void *addrHeap, size_t32 size32Heap)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#adb1a7e169ea94746c23e1b6b4f26d1e4"><param name="Name" value="Create(void *addrHeap, size_t32 size32Heap)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a66c56f0479de1976ba97077c59287217"><param name="Name" value="IsMine(void *addr)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#aa1ea2b400812916f6771409ae9d637cf"><param name="Name" value="Lock(void *p)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#ad8d2efc26a2b5349ee3e175e75ebb59b"><param name="Name" value="LockAll()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#aa123bf1d69a7f122e082f38f866b99f6"><param name="Name" value="LockHeap()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#aae8fe4580b7918e5f9af9afffdf9ae76"><param name="Name" value="Release(void *p)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a760306f3c418d1c43f4b121b774a0def"><param name="Name" value="ReleaseAll()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#ac48136c63f876bcc96f5fa9ddc11add3"><param name="Name" value="ReleaseBuffer(S_BufferInfo *pDelBuffer)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a475de49ed9b73caf4a1014aa17d0c0d9"><param name="Name" value="Unlock(void *p)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a408a2277cf1d7bec7161667dcc072698"><param name="Name" value="UnlockAll()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#af03c36a333a10bae73d4d29e23cc919c"><param name="Name" value="UnlockHeap()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#afec27c85bef84be6b7c1c34e56d05bea"><param name="Name" value="isHeapLocked"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#afe19b59144d2378515a62acbcc265c8a"><param name="Name" value="pHeapEnd"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#ace13eaa91e838dc0e769699c497c2c91"><param name="Name" value="pZeroBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html"><param name="Name" value="C_Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#aa4214da1e61ba76845a72031be28728d"><param name="Name" value="size32HeapAvail"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___img.html"><param name="Name" value="C_Img"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#aaec896dd1403776dbbe2998f62c2b099"><param name="Name" value="Allocate(size_t32 size32Buffer)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#ad7f80bdb5d8c49742c2831b80ded5f3e"><param name="Name" value="Allocate(size_t32 size32Buffer, int nPriorHeap0, int nPriorHeap1=-1, int nPriorHeap2=-1, int nPriorHeap3=-1, int nPriorHeap4=-1, int nPriorHeap5=-1)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a5abc0d0a8e5b51c17a2671cc12126716"><param name="Name" value="AllocateMode"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#adb448cb592ee91c6582889852b6f61ca"><param name="Name" value="AllocateWith(size_t32 size32Buffer, void *addrInTheSameHeap)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a252c4f94708c05ab692637430abf4aad"><param name="Name" value="CreateHeap(void *addrHeap, size_t32 size32Heap)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#aa45d0b30b1db7d506a867c20b05e6df3"><param name="Name" value="LockHeap(int idxHeap)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#ab9876e28a2953d48d16f444d965df3f5"><param name="Name" value="Rand()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a0fc7f076d3c16f9079d3f1fd8082025a"><param name="Name" value="ReleaseAll()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a88630ea015ac3fb9125890da9a3374f7"><param name="Name" value="UnlockHeap(int idxHeap)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a3010e5ab14c75fe6b9df450df6d62dad"><param name="Name" value="Which(void *addr)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#aa39631911e4e8d09be60594e16d580c5"><param name="Name" value="numAllocateFails"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#af472428420adef964e283a302bdeaa43"><param name="Name" value="numHeaps"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a30fe21f03fd5bfd89d8a1365c55bea67"><param name="Name" value="pAllocateLegend"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html"><param name="Name" value="C_MultiHeap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#acb7c9c8b93490527820822d0b38ad942"><param name="Name" value="pHeap[MAX_NUM_BANKS]"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___plessy_corner_detector.html"><param name="Name" value="C_PlessyCornerDetector"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___plessy_corner_detector__16s.html"><param name="Name" value="C_PlessyCornerDetector_16s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___plessy_corner_detector__32f.html"><param name="Name" value="C_PlessyCornerDetector_32f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html"><param name="Name" value="C_RingBuffer"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html"><param name="Name" value="C_RingBuffer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#a525fcc5b507a26eefa36e31feb0abe5e"><param name="Name" value="PushRequest(T *pSrcElements, size_t numElements)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html"><param name="Name" value="C_RingBuffer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#ae58d0d7ef255476a7b54a6647ada4415"><param name="Name" value="data"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html"><param name="Name" value="C_RingBuffer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#ad05c9a2536137a01e36ce5d91cd346fe"><param name="Name" value="head"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html"><param name="Name" value="C_RingBuffer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#a354f45146e81b8e7102bb8e5f00eae2f"><param name="Name" value="pad[16-3-5 *sizeof(memcpy_ptr)/sizeof(int)]"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html"><param name="Name" value="C_RingBuffer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#a76d6b48a1993832aed9770d9f0855723"><param name="Name" value="size"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html"><param name="Name" value="C_RingBuffer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#aa2625ed42d691ed3ec8d1b27d666724e"><param name="Name" value="tail"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a45df17f3503c5e139dc003f91ca9e646"><param name="Name" value="data_addr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a2185b9c55a2f7635d6f718aa561240bf"><param name="Name" value="head"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a7dfc22e1d144d6971ab96413a4137bb5"><param name="Name" value="head_addr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a856351c2b990f7e29434939f2c601ce9"><param name="Name" value="id"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a9a4e36d9cb7adc5896fa815282e38424"><param name="Name" value="pad[16-3-5 *sizeof(t_bytecpy)/sizeof(int)]"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a8ec44468230daef30d635d13f1c063db"><param name="Name" value="size"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a2f9b68e9d501c62958820741fbfe5abd"><param name="Name" value="tail"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a9c62f9c2f22d7db5b1d543550b40a6b9"><param name="Name" value="tail_addr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_cplx__float.html"><param name="Name" value="Cplx_float"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#adb1a7e169ea94746c23e1b6b4f26d1e4"><param name="Name" value="Create(void *addrHeap, size_t32 size32Heap)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a252c4f94708c05ab692637430abf4aad"><param name="Name" value="CreateHeap(void *addrHeap, size_t32 size32Heap)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_d_f_t-8.html"><param name="Name" value="DFT-8"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a42188b07f3e370b4d26a3b6f46b36284"><param name="Name" value="DataBegin()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a5e7836fa353f6501464ea2813f5a2e12"><param name="Name" value="DataEnd()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a2e9bb6d2944e95f9459f038d58013986"><param name="Name" value="EndGuardBits()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_enter_hard_mode.html"><param name="Name" value="EnterHardMode"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t-1024.html"><param name="Name" value="FFT-1024"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t-128.html"><param name="Name" value="FFT-128"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t-16.html"><param name="Name" value="FFT-16"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t-2048.html"><param name="Name" value="FFT-2048"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t-256.html"><param name="Name" value="FFT-256"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t-32.html"><param name="Name" value="FFT-32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t-4096.html"><param name="Name" value="FFT-4096"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t-512.html"><param name="Name" value="FFT-512"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t-64.html"><param name="Name" value="FFT-64"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t8192.html"><param name="Name" value="FFT-8192"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t-_common.html"><param name="Name" value="FFT-Common"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t1024.html"><param name="Name" value="FFT1024"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t1024.html#gaacb11df7725ef91399c6e9d1ae70bca5"><param name="Name" value="FFT_Fwd1024(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR=-1)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t1024.html"><param name="Name" value="FFT1024"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t1024.html#ga03b032067cfccbebbd7b6929f157b168"><param name="Name" value="FFT_Fwd1024Set6bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t1024.html"><param name="Name" value="FFT1024"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t1024.html#gaa88c7a0af1ebbdd1fb691784df7be770"><param name="Name" value="FFT_Fwd1024Set7bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t2048.html"><param name="Name" value="FFT2048"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t2048.html#gadea88f164eacfc9381f49886f16c7779"><param name="Name" value="FFT_Fwd2048(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, int ShiftR=-1)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t2048.html"><param name="Name" value="FFT2048"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t2048.html#ga6573079a7df2d302814dfd68cb7234ab"><param name="Name" value="FFT_Fwd2048Set6bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t2048.html"><param name="Name" value="FFT2048"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t2048.html#ga34f87327c4b6f472ed18166fb9d9bb84"><param name="Name" value="FFT_Fwd2048Set7bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t256.html"><param name="Name" value="FFT256"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t256.html#ga1347e436142ede2e5e70e6b7add61911"><param name="Name" value="FFT_Fwd256(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR=-1)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t256.html"><param name="Name" value="FFT256"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t256.html#gae596ac7611b0355299eecf9821a3b361"><param name="Name" value="FFT_Fwd256Set6bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t256.html"><param name="Name" value="FFT256"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t256.html#ga78dbfcd2134bfb7052025a155c3212ce"><param name="Name" value="FFT_Fwd256Set7bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t4096.html#gaba3d24530b39fb448ed54494d98691c8"><param name="Name" value="FFT4096"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t512.html"><param name="Name" value="FFT512"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t512.html#gad8b3eae1a559f745242b8cb9ed8fe750"><param name="Name" value="FFT_Fwd512(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer, int ShiftR=-1)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t512.html"><param name="Name" value="FFT512"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t512.html#gaf5f01bd5b3379dccc3ce47e429d2a21d"><param name="Name" value="FFT_Fwd512Set6bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t512.html"><param name="Name" value="FFT512"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t512.html#gab03810a3a24efd8b029a2068c219890b"><param name="Name" value="FFT_Fwd512Set7bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t8192.html#ga5276bdce146878baf9f752509a8e85c7"><param name="Name" value="FFT8192"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t_fwd_init_alloc.html"><param name="Name" value="FFTFwdInitAlloc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t_inv_init_alloc.html"><param name="Name" value="FFTInvInitAlloc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t1024.html#gaacb11df7725ef91399c6e9d1ae70bca5"><param name="Name" value="FFT_Fwd1024(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR=-1)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t1024.html#ga03b032067cfccbebbd7b6929f157b168"><param name="Name" value="FFT_Fwd1024Set6bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t1024.html#gaa88c7a0af1ebbdd1fb691784df7be770"><param name="Name" value="FFT_Fwd1024Set7bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t2048.html#gadea88f164eacfc9381f49886f16c7779"><param name="Name" value="FFT_Fwd2048(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, int ShiftR=-1)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t2048.html#ga6573079a7df2d302814dfd68cb7234ab"><param name="Name" value="FFT_Fwd2048Set6bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t2048.html#ga34f87327c4b6f472ed18166fb9d9bb84"><param name="Name" value="FFT_Fwd2048Set7bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t256.html#ga1347e436142ede2e5e70e6b7add61911"><param name="Name" value="FFT_Fwd256(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR=-1)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t256.html#gae596ac7611b0355299eecf9821a3b361"><param name="Name" value="FFT_Fwd256Set6bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t256.html#ga78dbfcd2134bfb7052025a155c3212ce"><param name="Name" value="FFT_Fwd256Set7bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t4096.html#gaba3d24530b39fb448ed54494d98691c8"><param name="Name" value="FFT_Fwd4096(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t512.html#gad8b3eae1a559f745242b8cb9ed8fe750"><param name="Name" value="FFT_Fwd512(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer, int ShiftR=-1)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t512.html#gaf5f01bd5b3379dccc3ce47e429d2a21d"><param name="Name" value="FFT_Fwd512Set6bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t512.html#gab03810a3a24efd8b029a2068c219890b"><param name="Name" value="FFT_Fwd512Set7bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___f_f_t8192.html#ga5276bdce146878baf9f752509a8e85c7"><param name="Name" value="FFT_Fwd8192(nm32sc *LSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t1024.html#gabce0ff3f2f0792567de41b147544a845"><param name="Name" value="FFT_Inv1024(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=10, int ShiftR2=-1)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t1024.html#ga21057138195e8e833d5a59778747c98d"><param name="Name" value="FFT_Inv1024Set6bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t1024.html#gaf50d48bd2d5838575c3741462e674d6a"><param name="Name" value="FFT_Inv1024Set7bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t2048.html#ga3c6033d1a353f0e9236492bf68880803"><param name="Name" value="FFT_Inv2048(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=11, int ShiftR2=-1)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t2048.html#ga81ce19cd0589ba1e8d68754a740c028e"><param name="Name" value="FFT_Inv2048Set6bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t2048.html#ga387e03ce2cd2acdca47219e5177ee761"><param name="Name" value="FFT_Inv2048Set7bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t256.html#ga481de427b4a28ae163fbae32a64cd757"><param name="Name" value="FFT_Inv256(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=8, int ShiftR2=-1)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t256.html#ga310c4092bb03d98906e1983ca6a03a2b"><param name="Name" value="FFT_Inv256Set6bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t256.html#gaec72e2a67e73c3c0fac4c84756050326"><param name="Name" value="FFT_Inv256Set7bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t4096.html#ga51f06ae88b08ccf7dcf5b69c4c69e2fd"><param name="Name" value="FFT_Inv4096(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t512.html#ga5dd564b0de9aded29f945159476390d6"><param name="Name" value="FFT_Inv512(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=9, int ShiftR2=-1)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t512.html#ga12e3c44dc820f39dc1ba92c3e511d46f"><param name="Name" value="FFT_Inv512Set6bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t512.html#ga7378a47a50f6fa5e84e4a322b8f09718"><param name="Name" value="FFT_Inv512Set7bit()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t8192.html#gab0b3af41c728e390736c298e1e4e8c81"><param name="Name" value="FFT_Inv8192(nm32sc *LSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__c_fixpoint32.html"><param name="Name" value="Fix-point 32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__c_fixpoint64.html"><param name="Name" value="Fix-point 64"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___floodfill.html#gab02c1bdd32988608717cb98073928894"><param name="Name" value="FloodFill8(void *src, void *dst, int nWidth, int nHeight, spot_struct *spot, int lenSpot, unsigned *pixels, int mSpot, int dtFull, int dtSpot, int lDiag, int lDropSpot, ds_struct *dropSpot, int nPxlMin, int nPxlMax, int dXYmin, int dXYmax)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___floodfill.html"><param name="Name" value="Floodfill"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___floodfill.html"><param name="Name" value="Floodfill"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___floodfill.html#gab02c1bdd32988608717cb98073928894"><param name="Name" value="FloodFill8(void *src, void *dst, int nWidth, int nHeight, spot_struct *spot, int lenSpot, unsigned *pixels, int mSpot, int dtFull, int dtSpot, int lDiag, int lDropSpot, ds_struct *dropSpot, int nPxlMin, int nPxlMax, int dXYmin, int dXYmax)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtl.html#gae52d1b3e5fc0f94df002b637da74195f"><param name="Name" value="GetVec"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_d_f_t-8.html"><param name="Name" value="IDFT-8"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-1024.html"><param name="Name" value="IFFT-1024"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-128.html"><param name="Name" value="IFFT-128"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-16.html"><param name="Name" value="IFFT-16"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-2048.html"><param name="Name" value="IFFT-2048"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-256.html"><param name="Name" value="IFFT-256"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-32.html"><param name="Name" value="IFFT-32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-4096.html"><param name="Name" value="IFFT-4096"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-512.html"><param name="Name" value="IFFT-512"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-64.html"><param name="Name" value="IFFT-64"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t8192.html"><param name="Name" value="IFFT-8192"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-_common.html"><param name="Name" value="IFFT-Common"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t1024.html"><param name="Name" value="IFFT1024"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t1024.html#gabce0ff3f2f0792567de41b147544a845"><param name="Name" value="FFT_Inv1024(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=10, int ShiftR2=-1)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t1024.html"><param name="Name" value="IFFT1024"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t1024.html#ga21057138195e8e833d5a59778747c98d"><param name="Name" value="FFT_Inv1024Set6bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t1024.html"><param name="Name" value="IFFT1024"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t1024.html#gaf50d48bd2d5838575c3741462e674d6a"><param name="Name" value="FFT_Inv1024Set7bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t2048.html"><param name="Name" value="IFFT2048"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t2048.html#ga3c6033d1a353f0e9236492bf68880803"><param name="Name" value="FFT_Inv2048(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=11, int ShiftR2=-1)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t2048.html"><param name="Name" value="IFFT2048"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t2048.html#ga81ce19cd0589ba1e8d68754a740c028e"><param name="Name" value="FFT_Inv2048Set6bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t2048.html"><param name="Name" value="IFFT2048"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t2048.html#ga387e03ce2cd2acdca47219e5177ee761"><param name="Name" value="FFT_Inv2048Set7bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t256.html"><param name="Name" value="IFFT256"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t256.html#ga481de427b4a28ae163fbae32a64cd757"><param name="Name" value="FFT_Inv256(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=8, int ShiftR2=-1)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t256.html"><param name="Name" value="IFFT256"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t256.html#ga310c4092bb03d98906e1983ca6a03a2b"><param name="Name" value="FFT_Inv256Set6bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t256.html"><param name="Name" value="IFFT256"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t256.html#gaec72e2a67e73c3c0fac4c84756050326"><param name="Name" value="FFT_Inv256Set7bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t4096.html#ga51f06ae88b08ccf7dcf5b69c4c69e2fd"><param name="Name" value="IFFT4096"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t512.html"><param name="Name" value="IFFT512"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t512.html#ga5dd564b0de9aded29f945159476390d6"><param name="Name" value="FFT_Inv512(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=9, int ShiftR2=-1)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t512.html"><param name="Name" value="IFFT512"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t512.html#ga12e3c44dc820f39dc1ba92c3e511d46f"><param name="Name" value="FFT_Inv512Set6bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t512.html"><param name="Name" value="IFFT512"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t512.html#ga7378a47a50f6fa5e84e4a322b8f09718"><param name="Name" value="FFT_Inv512Set7bit()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___i_f_f_t8192.html#gab0b3af41c728e390736c298e1e4e8c81"><param name="Name" value="IFFT8192"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_i__2_d_sub_pixel_min_position.html"><param name="Name" value="I_2DSubPixelMinPosition"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_i___plessy_corner_detector.html"><param name="Name" value="I_PlessyCornerDetector"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__c_integer.html"><param name="Name" value="Integer operations"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a66c56f0479de1976ba97077c59287217"><param name="Name" value="IsMine(void *addr)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gac0e65520680ba049076b1aa8707d96eb"><param name="Name" value="nmblas_dasum(const int N, const double *X, const int INCX)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gaae60f03bdda1224ee3533a7296eadbd6"><param name="Name" value="nmblas_daxpy(const int N, const double A, const double *X, const int INCX, double *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gaf7e6fe1144d7cf4e3a873734f611dd86"><param name="Name" value="nmblas_dcopy(const int N, const double *X, const int INCX, double *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga2cf1154b8db277c218dfaad8fc09ed61"><param name="Name" value="nmblas_ddot(const int N, const double *X, const int INCX, const double *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gad2424456e1ef9c379af8b8f7b96cc250"><param name="Name" value="nmblas_dnrm2(const int N, const double *x, const int INCX)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga2500f51a3842e3d4de3cfaa517fe3f73"><param name="Name" value="nmblas_drot(const int N, double *X, const int INCX, double *Y, const int INCY, const double C, const double S)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga9e714feec2cec88b21672a7c512d8618"><param name="Name" value="nmblas_drotg(double *A, double *B, double *C, double *S)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gae6eadffd429080770d379fbe5da2e04b"><param name="Name" value="nmblas_drotm(const int N, double *X, const int INCX, double *Y, const int INCY, double *param)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga234c0986a80c576bdf124e47811a5606"><param name="Name" value="nmblas_dscal(const int N, const double ALPHA, double *X, const int INCX)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga7fb41510d592f5163dbe29b8b567fe54"><param name="Name" value="nmblas_dsdot(const int N, const float *X, const int INCX, const float *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga1a53e921a188cd2e18965c620a3f3dd8"><param name="Name" value="nmblas_dswap(const int N, double *X, const int INCX, double *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gaab151332129ddf252fd947909356cf55"><param name="Name" value="nmblas_dznrm2(const int N, const double *X, const int INCX)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga081a23706fdf6e923062b20b22cfcc3f"><param name="Name" value="nmblas_idamax(const int N, const double *X, const int INCX)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga5fec217133545a87cf75c10c093d6431"><param name="Name" value="nmblas_isamax(const int N, const float *X, const int INCX)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga810691baf7642d83c2102fe7553bdb94"><param name="Name" value="nmblas_sasum(const int N, const float *X, const int INCX)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gafa7e082610bf38097dda7b613670799d"><param name="Name" value="nmblas_saxpy(int N, const float A, const float *X, const int INCX, float *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga3401ba39d7898ac3ff9fd4ef7d60c31a"><param name="Name" value="nmblas_scnrm2(const int N, const float *X, const int INCX)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga508cbe1c6e07fc32622c60a3882615e0"><param name="Name" value="nmblas_scopy(const int N, const float *X, const int INCX, float *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga69f0ba320a26105546c3a1b9124fa9d0"><param name="Name" value="nmblas_sdot(const int N, const float *X, const int INCX, const float *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gaa353ef1c8a2660bf19a8b028d619e828"><param name="Name" value="nmblas_sdsdot(const int N, const float B, const float *X, const int INCX, const float *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga1394f7eb77f9a9651d0c4d38c7de6224"><param name="Name" value="nmblas_snrm2(const int N, const float *X, const int INCX)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga9f0159585ac4720e6856cdd2a35806db"><param name="Name" value="nmblas_srot(const int N, float *X, const int INCX, float *Y, const int INCY, const float C, const float S)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga4a08635c1395521d20332d3d19db5943"><param name="Name" value="nmblas_srotm(const int N, float *X, const int INCX, float *Y, const int INCY, float *param)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gae8357185b97ea6eb63e55d2b5b8e2150"><param name="Name" value="nmblas_sscal(const int N, const float A, const float *X, const int INCX)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html"><param name="Name" value="LEVEL1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga692b50b31beebe79029f5e4c33a2c03c"><param name="Name" value="nmblas_sswap(const int N, const float *X, const int INCX, const float *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l2.html"><param name="Name" value="LEVEL2"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l2.html#ga8233664a47bca47df85be957b7945f8e"><param name="Name" value="nmblas_dgemv(const enum nm_trans TRANS, const int M, const int N, const double ALPHA, const double *A, const int LDA, const double *X, const int INCX, const double BETA, double *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l2.html"><param name="Name" value="LEVEL2"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l2.html#ga5436e2321440adc5f5946bc289678e99"><param name="Name" value="nmblas_sgemv(const enum nm_trans TRANS, const int M, const int N, const float ALPHA, const float *A, const int LDA, const float *X, const int INCX, const float BETA, float *Y, const int INCY)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l2.html"><param name="Name" value="LEVEL2"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l2.html#ga307f73ba2262d817acc3b8f80eb3ebbf"><param name="Name" value="nmblas_sger(const int M, const int N, const float ALPHA, const float *X, const int INCX, const float *Y, const int INCY, float *A, const int LDA)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#aa1ea2b400812916f6771409ae9d637cf"><param name="Name" value="Lock(void *p)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#ad8d2efc26a2b5349ee3e175e75ebb59b"><param name="Name" value="LockAll()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#aa123bf1d69a7f122e082f38f866b99f6"><param name="Name" value="LockHeap()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#aa45d0b30b1db7d506a867c20b05e6df3"><param name="Name" value="LockHeap(int idxHeap)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___m_t_r___addr.html"><param name="Name" value="MTR_Addr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___m_t_r___copy.html"><param name="Name" value="MTR_Copy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___m_t_r___copyau.html"><param name="Name" value="MTR_Copyau"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___m_t_r___free.html"><param name="Name" value="MTR_Free"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___m_t_r___get_val.html"><param name="Name" value="MTR_GetVal"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___m_t_r___malloc.html"><param name="Name" value="MTR_Malloc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___m_t_r___prod_unit_v.html"><param name="Name" value="MTR_ProdUnitV"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___m_t_r___set_val.html"><param name="Name" value="MTR_SetVal"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___m_t_r__fp_resolve___gauss.html"><param name="Name" value="MTR_fpResolve_Gauss"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___m_t_r__fp_resolve___pivot_gauss.html"><param name="Name" value="MTR_fpResolve_PivotGauss"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_f_f_t_spec.html"><param name="Name" value="NmppsFFTSpec"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_f_f_t_spec__32fcr.html"><param name="Name" value="NmppsFFTSpec_32fcr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_frame__16s.html"><param name="Name" value="NmppsFrame_16s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_frame__16u.html"><param name="Name" value="NmppsFrame_16u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_frame__32s.html"><param name="Name" value="NmppsFrame_32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_frame__32u.html"><param name="Name" value="NmppsFrame_32u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_frame__64s.html"><param name="Name" value="NmppsFrame_64s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_frame__64u.html"><param name="Name" value="NmppsFrame_64u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_frame__8s.html"><param name="Name" value="NmppsFrame_8s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_frame__8u.html"><param name="Name" value="NmppsFrame_8u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_malloc_spec.html"><param name="Name" value="NmppsMallocSpec"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_nmpps_tmp_spec.html"><param name="Name" value="NmppsTmpSpec"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#a525fcc5b507a26eefa36e31feb0abe5e"><param name="Name" value="PushRequest(T *pSrcElements, size_t numElements)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_r_g_b24__nm8u.html"><param name="Name" value="RGB24_nm8u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_r_g_b32__nm10s.html"><param name="Name" value="RGB32_nm10s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_r_g_b32__nm10u.html"><param name="Name" value="RGB32_nm10u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_r_g_b32__nm8s.html"><param name="Name" value="RGB32_nm8s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_r_g_b32__nm8u.html"><param name="Name" value="RGB32_nm8u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_point.html"><param name="Name" value="RPoint"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#ab9876e28a2953d48d16f444d965df3f5"><param name="Name" value="Rand()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#aae8fe4580b7918e5f9af9afffdf9ae76"><param name="Name" value="Release(void *p)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a760306f3c418d1c43f4b121b774a0def"><param name="Name" value="ReleaseAll()"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a760306f3c418d1c43f4b121b774a0def"><param name="Name" value="C_Heap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a0fc7f076d3c16f9079d3f1fd8082025a"><param name="Name" value="ReleaseAll()"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a0fc7f076d3c16f9079d3f1fd8082025a"><param name="Name" value="C_MultiHeap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#ac48136c63f876bcc96f5fa9ddc11add3"><param name="Name" value="ReleaseBuffer(S_BufferInfo *pDelBuffer)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_round_shift.html"><param name="Name" value="RoundShift"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html"><param name="Name" value="S_BufferInfo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html"><param name="Name" value="S_BufferInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a42188b07f3e370b4d26a3b6f46b36284"><param name="Name" value="DataBegin()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html"><param name="Name" value="S_BufferInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a5e7836fa353f6501464ea2813f5a2e12"><param name="Name" value="DataEnd()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html"><param name="Name" value="S_BufferInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a2e9bb6d2944e95f9459f038d58013986"><param name="Name" value="EndGuardBits()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html"><param name="Name" value="S_BufferInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a8ee321e84d6eaa0936a75d4d1154e4de"><param name="Name" value="isLocked"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html"><param name="Name" value="S_BufferInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a2eccbe7ae8655084de931866809e4f1b"><param name="Name" value="pNextBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html"><param name="Name" value="S_BufferInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a1408f412fca5e748e37bb2131adc4ccc"><param name="Name" value="pPrevBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html"><param name="Name" value="S_BufferInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#ac4a3bf87a8216fe58c73db373dbf205a"><param name="Name" value="size32Buffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s__nmppi_filter_kernel.html"><param name="Name" value="S_nmppiFilterKernel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s__nmppi_filter_kernel__32s32s.html"><param name="Name" value="S_nmppiFilterKernel_32s32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_spec_tmp1.html"><param name="Name" value="SpecTmp1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_tmp2_buff_spec.html"><param name="Name" value="Tmp2BuffSpec"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a475de49ed9b73caf4a1014aa17d0c0d9"><param name="Name" value="Unlock(void *p)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#a408a2277cf1d7bec7161667dcc072698"><param name="Name" value="UnlockAll()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#af03c36a333a10bae73d4d29e23cc919c"><param name="Name" value="UnlockHeap()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a88630ea015ac3fb9125890da9a3374f7"><param name="Name" value="UnlockHeap(int idxHeap)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___v_e_c___q_sort.html"><param name="Name" value="VEC_QSort"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__0__sub__data.html"><param name="Name" value="Vec_0_sub_data"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___abs.html"><param name="Name" value="Vec_Abs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___acc_mul1_d1_w32___add_vr.html"><param name="Name" value="Vec_AccMul1D1W32_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___add.html"><param name="Name" value="Vec_Add"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___and.html"><param name="Name" value="Vec_And"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___build_diag_weights16.html"><param name="Name" value="Vec_BuildDiagWeights16"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___build_diag_weights8.html"><param name="Name" value="Vec_BuildDiagWeights8"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___clip_ext.html"><param name="Name" value="Vec_ClipExt"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___clip_mul2_d2_w8___add_vr.html"><param name="Name" value="Vec_ClipMul2D2W8_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___clip_mul_n_d_n_w2___add_vr.html"><param name="Name" value="Vec_ClipMulNDNW2_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___clip_mul_n_d_n_w4___add_vr.html"><param name="Name" value="Vec_ClipMulNDNW4_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___clip_mul_n_d_n_w8___add_vr.html"><param name="Name" value="Vec_ClipMulNDNW8_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___vec___clip_r_shift_convert___add_c.html"><param name="Name" value="Vec_ClipRShiftConvert_AddC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___compare_max_v.html"><param name="Name" value="Vec_CompareMaxV"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___compare_min_v.html"><param name="Name" value="Vec_CompareMinV"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___copy_odd_to_even__32f.html"><param name="Name" value="Vec_CopyOddToEven_32f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___dup_value_in_vector16.html"><param name="Name" value="Vec_DupValueInVector16"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___dup_value_in_vector8.html"><param name="Name" value="Vec_DupValueInVector8"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___filter_core_row2.html"><param name="Name" value="Vec_FilterCoreRow2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___filter_core_row4.html"><param name="Name" value="Vec_FilterCoreRow4"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___filter_core_row8.html"><param name="Name" value="Vec_FilterCoreRow8"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___inc_neg.html"><param name="Name" value="Vec_IncNeg"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___m_u_l__2_v4to_w8__shift.html"><param name="Name" value="Vec_MUL_2V4toW8_shift"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___m_u_l__2_v8to_w16__shift.html"><param name="Name" value="Vec_MUL_2V8toW16_shift"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___max_val.html"><param name="Name" value="Vec_MaxVal"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___max_val__v4nm16s.html"><param name="Name" value="Vec_MaxVal_v4nm16s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___max_val__v8nm8s.html"><param name="Name" value="Vec_MaxVal_v8nm8s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___min_val.html"><param name="Name" value="Vec_MinVal"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___min_val__v4nm16s.html"><param name="Name" value="Vec_MinVal_v4nm16s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___min_val__v8nm8s.html"><param name="Name" value="Vec_MinVal_v8nm8s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___mul2_d2_w1___add_vr.html"><param name="Name" value="Vec_Mul2D2W1_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___mul2_d2_w2___add_vr.html"><param name="Name" value="Vec_Mul2D2W2_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___mul2_d2_w4___add_vr.html"><param name="Name" value="Vec_Mul2D2W4_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___mul2_d2_w8___add_vr.html"><param name="Name" value="Vec_Mul2D2W8_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___mul3_d3_w2___add_vr.html"><param name="Name" value="Vec_Mul3D3W2_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___mul3_d3_w8___add_vr.html"><param name="Name" value="Vec_Mul3D3W8_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___mul4_d4_w2___add_vr.html"><param name="Name" value="Vec_Mul4D4W2_AddVr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___mul_v_n___add_v_n.html"><param name="Name" value="Vec_MulVN_AddVN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___or.html"><param name="Name" value="Vec_Or"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___sub.html"><param name="Name" value="Vec_Sub"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___sub_abs.html"><param name="Name" value="Vec_SubAbs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___sub_v_n___abs.html"><param name="Name" value="Vec_SubVN_Abs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___swap.html"><param name="Name" value="Vec_Swap"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec___xor.html"><param name="Name" value="Vec_Xor"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__activate__data.html"><param name="Name" value="Vec_activate_data"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__activate__data__add__0.html"><param name="Name" value="Vec_activate_data_add_0"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__activate__data__add__ram.html"><param name="Name" value="Vec_activate_data_add_ram"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__activate__data__xor__data.html"><param name="Name" value="Vec_activate_data_xor_data"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__afifo.html"><param name="Name" value="Vec_afifo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__copy_even_to_even__32f.html"><param name="Name" value="Vec_copyEvenToEven_32f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__data.html"><param name="Name" value="Vec_data"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__data__add__afifo.html"><param name="Name" value="Vec_data_add_afifo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__data__add__ram.html"><param name="Name" value="Vec_data_add_ram"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__data__and__ram.html"><param name="Name" value="Vec_data_and_ram"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__data__or__ram.html"><param name="Name" value="Vec_data_or_ram"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__data__sub__ram.html"><param name="Name" value="Vec_data_sub_ram"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__data__xor__ram.html"><param name="Name" value="Vec_data_xor_ram"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__not__data.html"><param name="Name" value="Vec_not_data"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__ram.html"><param name="Name" value="Vec_ram"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__ram__sub__data.html"><param name="Name" value="Vec_ram_sub_data"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__vsum__activate__data__0.html"><param name="Name" value="Vec_vsum_activate_data_0"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__vsum__data__0.html"><param name="Name" value="Vec_vsum_data_0"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__vsum__data__afifo.html"><param name="Name" value="Vec_vsum_data_afifo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__vsum__data__vr.html"><param name="Name" value="Vec_vsum_data_vr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__vsum__shift__data__0.html"><param name="Name" value="Vec_vsum_shift_data_0"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__vsum__shift__data__afifo.html"><param name="Name" value="Vec_vsum_shift_data_afifo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vec__vsum__shift__data__vr.html"><param name="Name" value="Vec_vsum_shift_data_vr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a3010e5ab14c75fe6b9df450df6d62dad"><param name="Name" value="Which(void *addr)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_wi__4096__fixed.html"><param name="Name" value="Wi_4096_fixed"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#ab72e823cfd1f7644c06cd00777f97919"><param name="Name" value="Xmax"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#af03ae88338880269e1f795f63f171ad2"><param name="Name" value="Xmin"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#a528d61a11d61aeab591d16e55554a27a"><param name="Name" value="Ymax"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#a1d48e782d2899e61508624a89917606b"><param name="Name" value="Ymin"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#ae58d0d7ef255476a7b54a6647ada4415"><param name="Name" value="data"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a45df17f3503c5e139dc003f91ca9e646"><param name="Name" value="data_addr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds__struct.html"><param name="Name" value="ds_struct"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds__struct.html"><param name="Name" value="ds_struct"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structds__struct.html#ad67e6509494fc88446f12cd09cde0603"><param name="Name" value="dttSpot"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds__struct.html"><param name="Name" value="ds_struct"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structds__struct.html#a410a64378555a8cb8a85b705a00b140d"><param name="Name" value="nnPxl"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds__struct.html"><param name="Name" value="ds_struct"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structds__struct.html#a7ff7e992c94061b569fabcf1f3412d40"><param name="Name" value="nnSpot"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#a5652eb38de95fe7c71d40dd93218b121"><param name="Name" value="dtSpot"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds__struct.html#ad67e6509494fc88446f12cd09cde0603"><param name="Name" value="dttSpot"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__funcs.html"><param name="Name" value="funcs"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__funcs.html#ga51bc11602a52fbe47fab2a41cbacca2a"><param name="Name" value="nmppiDeinterlaceBlend(nm8u *pSrcEven, nm8u *pSrcOdd, int nSrcWidth, int nSrcHeight, nm8u *pDst)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__funcs.html"><param name="Name" value="funcs"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__funcs.html#ga84fb6be0ffd403e4b02dc50269b4aa35"><param name="Name" value="nmppiDeinterlaceSplit(nm8u *pSrcImg, int nSrcWidth, int nSrcHeight, nm8u *pDstEven, nm8u *pDstOdd)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#ad05c9a2536137a01e36ce5d91cd346fe"><param name="Name" value="head"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#ad05c9a2536137a01e36ce5d91cd346fe"><param name="Name" value="C_RingBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a2185b9c55a2f7635d6f718aa561240bf"><param name="Name" value="head"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a2185b9c55a2f7635d6f718aa561240bf"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a7dfc22e1d144d6971ab96413a4137bb5"><param name="Name" value="head_addr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a856351c2b990f7e29434939f2c601ce9"><param name="Name" value="id"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__nm64sc.html#a5a6a60e356d5e548e5f84ec3870bf11b"><param name="Name" value="im"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__implement.html"><param name="Name" value="implement"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga8a29e9e4bed2e30bd02172a962799053"><param name="Name" value="int15b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structint15in16x4.html"><param name="Name" value="int15in16x4"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gac616dda8e00b5e305cd64c816cbd8ca2"><param name="Name" value="int16b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga9dc2f726c4dfcc3d14ddc3ea9b280d05"><param name="Name" value="int1b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga54fda78fa65e9d144146044db9c1febb"><param name="Name" value="int2b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga75d7580f888af963b47c588fb6064fbd"><param name="Name" value="int30b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structint30in32x2.html"><param name="Name" value="int30in32x2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga71a41003b0d29fadb9e819daddc699df"><param name="Name" value="int31b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structint31in32x2.html"><param name="Name" value="int31in32x2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gaa06da44f55c38bad96f0d3f45534cd2e"><param name="Name" value="int32b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga5647c398266351be6994393cc5a537a1"><param name="Name" value="int3b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga4bffa30d438a62c49b0f6091ac214df7"><param name="Name" value="int4b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga87c914a68d82fda9c6657a33d3986921"><param name="Name" value="int63b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gacfcc8b11955d655f67a28107748799ab"><param name="Name" value="int64b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gaca7cf10d39261db7cc2b3f1007c164b3"><param name="Name" value="int7b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga76ec3af99402ffbf69b57b18f11defad"><param name="Name" value="int8b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#afec27c85bef84be6b7c1c34e56d05bea"><param name="Name" value="isHeapLocked"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a8ee321e84d6eaa0936a75d4d1154e4de"><param name="Name" value="isLocked"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classmtr.html"><param name="Name" value="mtr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gad8babf625e9f2a3dddab71587bb87ca3"><param name="Name" value="nm16s15b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8"><param name="Name" value="nm16s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structnm16sc.html"><param name="Name" value="nm16sc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5"><param name="Name" value="nm16u15b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga415870b91ecea223de4041c233e62cd5"><param name="Name" value="nm16u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200"><param name="Name" value="nm1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga6ad9cb56e53e6a4673aa943c89864eef"><param name="Name" value="nm2s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga7b2ce6536e3c325ba4dd4241e13a276d"><param name="Name" value="nm2u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gab9ce843a64ad64413721134015653768"><param name="Name" value="nm32s30b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga40bd6583b76e1fd3078c89f2e09d7ff2"><param name="Name" value="nm32s31b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a"><param name="Name" value="nm32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gac28e7df271aa671e0e4a8512a310f569"><param name="Name" value="nm32u31b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gacb8af4747a1a1b39683e44fb7caff5b2"><param name="Name" value="nm32u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gaccdf010f2ed3b4ba94f52784f33a1bcb"><param name="Name" value="nm4s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga62ce4975a70b723416d4e247ac5c41ce"><param name="Name" value="nm4u3b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga35bef731e567018f25d3b9f355df8d42"><param name="Name" value="nm4u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga6fe5166cb8f115204337979b6e01dae6"><param name="Name" value="nm64s63b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3"><param name="Name" value="nm64s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gacffc3cf301915bbe094bbb1d39e9a8c0"><param name="Name" value="nm64u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga871a7c1018a70544e4ce34f440840b9c"><param name="Name" value="nm8s7b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df"><param name="Name" value="nm8s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5"><param name="Name" value="nm8u7b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c"><param name="Name" value="nm8u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___n_m_b_l_a_s.html"><param name="Name" value="nmblas"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gac0e65520680ba049076b1aa8707d96eb"><param name="Name" value="nmblas_dasum(const int N, const double *X, const int INCX)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gaae60f03bdda1224ee3533a7296eadbd6"><param name="Name" value="nmblas_daxpy(const int N, const double A, const double *X, const int INCX, double *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gaf7e6fe1144d7cf4e3a873734f611dd86"><param name="Name" value="nmblas_dcopy(const int N, const double *X, const int INCX, double *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga2cf1154b8db277c218dfaad8fc09ed61"><param name="Name" value="nmblas_ddot(const int N, const double *X, const int INCX, const double *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l2.html#ga8233664a47bca47df85be957b7945f8e"><param name="Name" value="nmblas_dgemv(const enum nm_trans TRANS, const int M, const int N, const double ALPHA, const double *A, const int LDA, const double *X, const int INCX, const double BETA, double *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gad2424456e1ef9c379af8b8f7b96cc250"><param name="Name" value="nmblas_dnrm2(const int N, const double *x, const int INCX)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga2500f51a3842e3d4de3cfaa517fe3f73"><param name="Name" value="nmblas_drot(const int N, double *X, const int INCX, double *Y, const int INCY, const double C, const double S)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga9e714feec2cec88b21672a7c512d8618"><param name="Name" value="nmblas_drotg(double *A, double *B, double *C, double *S)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gae6eadffd429080770d379fbe5da2e04b"><param name="Name" value="nmblas_drotm(const int N, double *X, const int INCX, double *Y, const int INCY, double *param)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga234c0986a80c576bdf124e47811a5606"><param name="Name" value="nmblas_dscal(const int N, const double ALPHA, double *X, const int INCX)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga7fb41510d592f5163dbe29b8b567fe54"><param name="Name" value="nmblas_dsdot(const int N, const float *X, const int INCX, const float *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga1a53e921a188cd2e18965c620a3f3dd8"><param name="Name" value="nmblas_dswap(const int N, double *X, const int INCX, double *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gaab151332129ddf252fd947909356cf55"><param name="Name" value="nmblas_dznrm2(const int N, const double *X, const int INCX)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga081a23706fdf6e923062b20b22cfcc3f"><param name="Name" value="nmblas_idamax(const int N, const double *X, const int INCX)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga5fec217133545a87cf75c10c093d6431"><param name="Name" value="nmblas_isamax(const int N, const float *X, const int INCX)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga810691baf7642d83c2102fe7553bdb94"><param name="Name" value="nmblas_sasum(const int N, const float *X, const int INCX)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gafa7e082610bf38097dda7b613670799d"><param name="Name" value="nmblas_saxpy(int N, const float A, const float *X, const int INCX, float *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga3401ba39d7898ac3ff9fd4ef7d60c31a"><param name="Name" value="nmblas_scnrm2(const int N, const float *X, const int INCX)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga508cbe1c6e07fc32622c60a3882615e0"><param name="Name" value="nmblas_scopy(const int N, const float *X, const int INCX, float *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga69f0ba320a26105546c3a1b9124fa9d0"><param name="Name" value="nmblas_sdot(const int N, const float *X, const int INCX, const float *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gaa353ef1c8a2660bf19a8b028d619e828"><param name="Name" value="nmblas_sdsdot(const int N, const float B, const float *X, const int INCX, const float *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l2.html#ga5436e2321440adc5f5946bc289678e99"><param name="Name" value="nmblas_sgemv(const enum nm_trans TRANS, const int M, const int N, const float ALPHA, const float *A, const int LDA, const float *X, const int INCX, const float BETA, float *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l2.html#ga307f73ba2262d817acc3b8f80eb3ebbf"><param name="Name" value="nmblas_sger(const int M, const int N, const float ALPHA, const float *X, const int INCX, const float *Y, const int INCY, float *A, const int LDA)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga1394f7eb77f9a9651d0c4d38c7de6224"><param name="Name" value="nmblas_snrm2(const int N, const float *X, const int INCX)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga9f0159585ac4720e6856cdd2a35806db"><param name="Name" value="nmblas_srot(const int N, float *X, const int INCX, float *Y, const int INCY, const float C, const float S)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga4a08635c1395521d20332d3d19db5943"><param name="Name" value="nmblas_srotm(const int N, float *X, const int INCX, float *Y, const int INCY, float *param)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#gae8357185b97ea6eb63e55d2b5b8e2150"><param name="Name" value="nmblas_sscal(const int N, const float A, const float *X, const int INCX)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___l_e_v_e_l1.html#ga692b50b31beebe79029f5e4c33a2c03c"><param name="Name" value="nmblas_sswap(const int N, const float *X, const int INCX, const float *Y, const int INCY)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classnmchar.html"><param name="Name" value="nmchar"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classnmchar1_d.html"><param name="Name" value="nmchar1D"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classnmchar2_d.html"><param name="Name" value="nmchar2D"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classnmintpack.html"><param name="Name" value="nmintpack"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classnmmtr.html"><param name="Name" value="nmmtr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classnmmtrpack.html"><param name="Name" value="nmmtrpack"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpp_merge.html"><param name="Name" value="nmppMerge"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpp_split.html"><param name="Name" value="nmppSplit"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpp_split_tmp.html"><param name="Name" value="nmppSplitTmp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpp_split__32fcr.html"><param name="Name" value="nmppSplit_32fcr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_div_c.html"><param name="Name" value="nmppcDivC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_double_to_fix32.html"><param name="Name" value="nmppcDoubleToFix32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_double_to_fix64.html"><param name="Name" value="nmppcDoubleToFix64"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix32_to_double.html"><param name="Name" value="nmppcFix32ToDouble"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix64_exp01.html"><param name="Name" value="nmppcFix64Exp01"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix64_to_double.html"><param name="Name" value="nmppcFix64ToDouble"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix_arc_tan32.html"><param name="Name" value="nmppcFixArcTan32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix_arc_tan64.html"><param name="Name" value="nmppcFixArcTan64"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix_div64.html"><param name="Name" value="nmppcFixDiv64"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix_div_mod32.html"><param name="Name" value="nmppcFixDivMod32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix_exp32.html"><param name="Name" value="nmppcFixExp32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix_inv32.html"><param name="Name" value="nmppcFixInv32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix_mul32.html"><param name="Name" value="nmppcFixMul32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix_sin_cos32.html"><param name="Name" value="nmppcFixSinCos32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix_sin_cos64.html"><param name="Name" value="nmppcFixSinCos64"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix_sqrt32.html"><param name="Name" value="nmppcFixSqrt32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_fix_sqrt64.html"><param name="Name" value="nmppcFixSqrt64"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_median3__32u.html"><param name="Name" value="nmppcMedian3_32u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_prod_c.html"><param name="Name" value="nmppcProdC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_sqrt.html"><param name="Name" value="nmppcSqrt"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_tbl_fix_arc_cos32.html"><param name="Name" value="nmppcTblFixArcCos32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_tbl_fix_arc_sin32.html"><param name="Name" value="nmppcTblFixArcSin32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_tbl_fix_cos32.html"><param name="Name" value="nmppcTblFixCos32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_tbl_fix_sin32.html"><param name="Name" value="nmppcTblFixSin32"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__funcs.html#ga51bc11602a52fbe47fab2a41cbacca2a"><param name="Name" value="nmppiDeinterlaceBlend(nm8u *pSrcEven, nm8u *pSrcOdd, int nSrcWidth, int nSrcHeight, nm8u *pDst)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__funcs.html#ga84fb6be0ffd403e4b02dc50269b4aa35"><param name="Name" value="nmppiDeinterlaceSplit(nm8u *pSrcImg, int nSrcWidth, int nSrcHeight, nm8u *pDstEven, nm8u *pDstOdd)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppi_merge_from_blocks.html"><param name="Name" value="nmppiMergeFromBlocks"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppi_release.html"><param name="Name" value="nmppiRelease"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppi_split_into_blocks.html"><param name="Name" value="nmppiSplitIntoBlocks"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppm_copyua.html"><param name="Name" value="nmppmCopyua"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppm_l_u_decomp.html"><param name="Name" value="nmppmLUDecomp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppm_l_u_resolve.html"><param name="Name" value="nmppmLUResolve"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppm_mul__mm.html"><param name="Name" value="nmppmMul_mm"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppm_mul__mv__.html"><param name="Name" value="nmppmMul_mv_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppm_mul__mv__8x_h.html"><param name="Name" value="nmppmMul_mv_8xH"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppm_mul__mv_____add_c.html"><param name="Name" value="nmppmMul_mv__AddC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_abs.html"><param name="Name" value="nmppsAbs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_abs1.html"><param name="Name" value="nmppsAbs1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_abs_diff.html"><param name="Name" value="nmppsAbsDiff"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_abs_diff1.html"><param name="Name" value="nmppsAbsDiff1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_abs_diff__f.html"><param name="Name" value="nmppsAbsDiff_f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_add.html"><param name="Name" value="nmppsAdd"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_add_c.html"><param name="Name" value="nmppsAddC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_add_c__p.html"><param name="Name" value="nmppsAddC_p"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_add___add_c.html"><param name="Name" value="nmppsAdd_AddC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_addr__.html"><param name="Name" value="nmppsAddr_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_and.html"><param name="Name" value="nmppsAnd"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_and4_v__.html"><param name="Name" value="nmppsAnd4V_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_and_c.html"><param name="Name" value="nmppsAndC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_and_not_v__.html"><param name="Name" value="nmppsAndNotV_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_clip_c_c__.html"><param name="Name" value="nmppsClipCC_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_clip_convert___add_c__.html"><param name="Name" value="nmppsClipConvert_AddC_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_clip_pow_c__.html"><param name="Name" value="nmppsClipPowC_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_clip_r_shift_convert___add_c__.html"><param name="Name" value="nmppsClipRShiftConvert_AddC_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq0.html"><param name="Name" value="nmppsCmpEq0"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq0__reduced.html"><param name="Name" value="nmppsCmpEq0(Reduced)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq0__reduced.html#ga0ae16a394f9950201254de3e9ec829ad"><param name="Name" value="nmppsCmpEq0_16u15b(nm16u15b *pSrcVec, nm1 *pDstVec, int nSize, int nTrueFlag)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq0__reduced.html#gac8bbc53691527cc8312cbaa8253d1d8d"><param name="Name" value="nmppsCmpEq0_32u31b(nm32u31b *pSrcVec, nm1 *pDstVec, int nSize, int nTrueFlag)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq0__reduced.html#gaf467723e1515bab2c7d1350d2c362dea"><param name="Name" value="nmppsCmpEq0_8u7b(nm8u7b *pSrcVec, nm1 *pDstVec, int nSize, int nTrueFlag)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq0__reduced.html"><param name="Name" value="nmppsCmpEq0_reduced"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq0__reduced.html#ga0ae16a394f9950201254de3e9ec829ad"><param name="Name" value="nmppsCmpEq0_16u15b(nm16u15b *pSrcVec, nm1 *pDstVec, int nSize, int nTrueFlag)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq0__reduced.html"><param name="Name" value="nmppsCmpEq0_reduced"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq0__reduced.html#gac8bbc53691527cc8312cbaa8253d1d8d"><param name="Name" value="nmppsCmpEq0_32u31b(nm32u31b *pSrcVec, nm1 *pDstVec, int nSize, int nTrueFlag)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq0__reduced.html"><param name="Name" value="nmppsCmpEq0_reduced"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq0__reduced.html#gaf467723e1515bab2c7d1350d2c362dea"><param name="Name" value="nmppsCmpEq0_8u7b(nm8u7b *pSrcVec, nm1 *pDstVec, int nSize, int nTrueFlag)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq_c.html"><param name="Name" value="nmppsCmpEqC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_eq_v__.html"><param name="Name" value="nmppsCmpEqV_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_gt0.html"><param name="Name" value="nmppsCmpGt0"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_gt_c.html"><param name="Name" value="nmppsCmpGtC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_gte_c.html"><param name="Name" value="nmppsCmpGteC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_lt.html"><param name="Name" value="nmppsCmpLt"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_lt0.html"><param name="Name" value="nmppsCmpLt0"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__snmpps_cmp_lt_c.html"><param name="Name" value="nmppsCmpLtC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__snmpps_cmp_lte_c.html"><param name="Name" value="nmppsCmpLteC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_ne.html"><param name="Name" value="nmppsCmpNe"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_ne0.html"><param name="Name" value="nmppsCmpNe0"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_ne_c.html"><param name="Name" value="nmppsCmpNeC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_ne_c__flag.html"><param name="Name" value="nmppsCmpNeC_flag"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_cmp_ne_v__.html"><param name="Name" value="nmppsCmpNeV_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_conj_mul__f.html"><param name="Name" value="nmppsConjMul"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_convert.html"><param name="Name" value="nmppsConvert"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_convert.html"><param name="Name" value="nmppsConvert"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_convert.html#ga28ed43602fd8d784dbfca08b48fa10f2"><param name="Name" value="nmppsConvert_1s2s(const nm1 *pSrcVec, nm2s *pDstVec, int nSize)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_convert.html"><param name="Name" value="nmppsConvert"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_convert.html#ga0316c1d968fc2092acbc572a9d3c02df"><param name="Name" value="nmppsConvert_1u2u(const nm1 *pSrcVec, nm2u *pDstVec, int nSize)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_convert_risc.html"><param name="Name" value="nmppsConvertRisc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_convert.html#ga28ed43602fd8d784dbfca08b48fa10f2"><param name="Name" value="nmppsConvert_1s2s(const nm1 *pSrcVec, nm2s *pDstVec, int nSize)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_convert.html#ga0316c1d968fc2092acbc572a9d3c02df"><param name="Name" value="nmppsConvert_1u2u(const nm1 *pSrcVec, nm2u *pDstVec, int nSize)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_convert__f__rounding.html"><param name="Name" value="nmppsConvert_rounding"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_copy__f.html"><param name="Name" value="nmppsCopy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_copy__f__even__even__address.html"><param name="Name" value="nmppsCopyEvenToEven_32f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_copy__f__even__odd__address.html"><param name="Name" value="nmppsCopyEvenToOdd_32f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_copy__f__odd__even__address.html"><param name="Name" value="nmppsCopyOddToEven_32f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_copy__f__odd__odd__address.html"><param name="Name" value="nmppsCopyOddToOdd_32f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_copy_risc.html"><param name="Name" value="nmppsCopyRisc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_copy__.html"><param name="Name" value="nmppsCopy_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_copyua__.html"><param name="Name" value="nmppsCopyua_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_create_resample.html"><param name="Name" value="nmppsCreateResample"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_d_f_t-8.html#ga51f618a9eee4f03aaf27425fe8771428"><param name="Name" value="nmppsDFT8Fwd_32fcr(const nm32fcr *pSrcVec, nm32fcr *pDstVec, NmppsFFTSpec_32fcr *spec)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_decimate.html"><param name="Name" value="nmppsDecimate"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_displace_bits.html"><param name="Name" value="nmppsDisplaceBits"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_div_c.html"><param name="Name" value="nmppsDivC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_dot_prod.html"><param name="Name" value="nmppsDotProd"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_dot_prod__sm.html"><param name="Name" value="nmppsDotProd_sm"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-1024.html#ga34c7acc07e1788235b51e9cb1cc73dde"><param name="Name" value="nmppsFFT1024Inv_32fcr(const nm32fcr *pSrcVec, nm32fcr *pDstVec, NmppsFFTSpec_32fcr *spec)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t__32fcr.html#ga8cce9ff7d28f7bcd32d8cc28a07e5a7c"><param name="Name" value="nmppsFFTFree_32fcr(NmppsFFTSpec_32fcr *spec)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_f_i_r_free.html"><param name="Name" value="nmppsFIRFree"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_f_i_r_get_state_size___xs.html"><param name="Name" value="nmppsFIRGetStateSize_Xs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_f_i_r_init_alloc___xs.html"><param name="Name" value="nmppsFIRInitAlloc_Xs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_f_i_r_init___xs.html"><param name="Name" value="nmppsFIRInit_Xs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_f_i_r___xs.html"><param name="Name" value="nmppsFIR_Xs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_first_non_zero_indx.html"><param name="Name" value="nmppsFirstNonZeroIndx"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_first_zero_indx.html"><param name="Name" value="nmppsFirstZeroIndx"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_free.html"><param name="Name" value="nmppsFree"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_get_val__.html"><param name="Name" value="nmppsGetVal_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_get_val__ret__.html"><param name="Name" value="nmppsGetVal_(return)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_last_non_zero_indx.html"><param name="Name" value="nmppsLastNonZeroIndx"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_last_zero_indx.html"><param name="Name" value="nmppsLastZeroIndx"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_malloc.html"><param name="Name" value="nmppsMalloc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mask_v__.html"><param name="Name" value="nmppsMaskV_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max_every__.html"><param name="Name" value="nmppsMaxEvery_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max_indx__.html"><param name="Name" value="nmppsMaxIndx_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max__.html"><param name="Name" value="nmppsMax_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max__.html#gad569a0b054c7b575ebb1a33855008123"><param name="Name" value="nmppsMax_16s15b(const nm16s15b *pSrcVec, int nSize, int16b *nMaxValue)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max__.html#gae2764977db76614571193a2e84b9e5ba"><param name="Name" value="nmppsMax_32s31b(const nm32s31b *pSrcVec, int nSize, int *nMaxValue)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max__.html#ga33964cbe545911f2e6dfdb41097a00dd"><param name="Name" value="nmppsMax_8s7b(const nm8s7b *pSrcVec, int nSize, int8b *nMaxValue)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max__.html"><param name="Name" value="nmppsMax_"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max__.html#gad569a0b054c7b575ebb1a33855008123"><param name="Name" value="nmppsMax_16s15b(const nm16s15b *pSrcVec, int nSize, int16b *nMaxValue)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max__.html"><param name="Name" value="nmppsMax_"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max__.html#gae2764977db76614571193a2e84b9e5ba"><param name="Name" value="nmppsMax_32s31b(const nm32s31b *pSrcVec, int nSize, int *nMaxValue)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max__.html"><param name="Name" value="nmppsMax_"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_max__.html#ga33964cbe545911f2e6dfdb41097a00dd"><param name="Name" value="nmppsMax_8s7b(const nm8s7b *pSrcVec, int nSize, int8b *nMaxValue)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_merge__f.html"><param name="Name" value="nmppsMerge"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min.html"><param name="Name" value="nmppsMin"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min.html"><param name="Name" value="nmppsMin"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min.html#gaa0b1a0dcb0a326f0ddbeee6aa3aac2c0"><param name="Name" value="nmppsMin_16s15b(const nm16s15b *pSrcVec, int nSize, int16b *nMinValue)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min.html"><param name="Name" value="nmppsMin"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min.html#gaf8418a960b385788a62fd2467a1c4e8e"><param name="Name" value="nmppsMin_32s31b(const nm32s31b *pSrcVec, int nSize, int *nMinValue)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min.html"><param name="Name" value="nmppsMin"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min.html#ga75bb1b718e86842e920f9de5e19ddac5"><param name="Name" value="nmppsMin_8s7b(const nm8s7b *pSrcVec, int nSize, int8b *nMinValue)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min_cmp_lt_v__.html"><param name="Name" value="nmppsMinCmpLtV_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min_every__.html"><param name="Name" value="nmppsMinEvery_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min_indx_v_n__.html"><param name="Name" value="nmppsMinIndxVN_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min_indx__.html"><param name="Name" value="nmppsMinIndx_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min_max_every__.html"><param name="Name" value="nmppsMinMaxEvery_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min.html#gaa0b1a0dcb0a326f0ddbeee6aa3aac2c0"><param name="Name" value="nmppsMin_16s15b(const nm16s15b *pSrcVec, int nSize, int16b *nMinValue)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min.html#gaf8418a960b385788a62fd2467a1c4e8e"><param name="Name" value="nmppsMin_32s31b(const nm32s31b *pSrcVec, int nSize, int *nMinValue)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_min.html#ga75bb1b718e86842e920f9de5e19ddac5"><param name="Name" value="nmppsMin_8s7b(const nm8s7b *pSrcVec, int nSize, int8b *nMinValue)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul__f.html"><param name="Name" value="nmppsMul"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul_c.html"><param name="Name" value="nmppsMulC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul_c___add_v__f.html"><param name="Name" value="nmppsMulC_Add"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul_c___add_c__32f.html"><param name="Name" value="nmppsMulC_AddC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul_c___add_c.html"><param name="Name" value="nmppsMulC_AddC"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul_c___add_c.html#gafb95e213fcc5a86dfd50e038a839e64c"><param name="Name" value="nmppsMulC_AddC_2x32s(int32x2 *dataSparseSrc, int32x2 *mulArg, int32x2 *addArg, int32x2 *dataSparseDst, int size, int stepSparseSrc, int stepSparseDst)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul_c___add_c.html#gafb95e213fcc5a86dfd50e038a839e64c"><param name="Name" value="nmppsMulC_AddC_2x32s(int32x2 *dataSparseSrc, int32x2 *mulArg, int32x2 *addArg, int32x2 *dataSparseDst, int size, int stepSparseSrc, int stepSparseDst)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul_c___add_v___add_c__32f.html"><param name="Name" value="nmppsMulC_AddV_AddC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul___add__f.html"><param name="Name" value="nmppsMul_Add"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul___add_c.html"><param name="Name" value="nmppsMul_AddC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul___conj_mul___add__f.html"><param name="Name" value="nmppsMul_ConjMul_Add"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul___mul___add.html"><param name="Name" value="nmppsMul_Mul_Add"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_mul___mul___sub__f.html"><param name="Name" value="nmppsMul_Mul_Sub"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_neg.html"><param name="Name" value="nmppsNeg"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_not__.html"><param name="Name" value="nmppsNot_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_or.html"><param name="Name" value="nmppsOr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_or3_v__.html"><param name="Name" value="nmppsOr3V_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_or4_v__.html"><param name="Name" value="nmppsOr4V_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_or_c.html"><param name="Name" value="nmppsOrC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_r_shift_c.html"><param name="Name" value="nmppsRShiftC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_r_shift_c__.html"><param name="Name" value="nmppsRShiftC_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_r_shift_c___add_c__.html"><param name="Name" value="nmppsRShiftC_AddC_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_r_shift_c___mul_c___add_c.html"><param name="Name" value="nmppsRShiftC_MulC_AddC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_ramp__.html"><param name="Name" value="nmppsRamp_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_rand.html"><param name="Name" value="nmppsRand"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_rand_uniform.html"><param name="Name" value="nmppsRandUniform"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_rand_uniform.html"><param name="Name" value="nmppsRandUniform"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_rand_uniform.html#gad47884313e994f64a18fd688a8848a43"><param name="Name" value="nmppsRandUniform_64s(nm64s *pDstVec, int nSize)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_rand_uniform__.html"><param name="Name" value="nmppsRandUniform_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_rand_uniform.html#gad47884313e994f64a18fd688a8848a43"><param name="Name" value="nmppsRandUniform_64s(nm64s *pDstVec, int nSize)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_remap__.html"><param name="Name" value="nmppsRemap_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_resample_down2.html"><param name="Name" value="nmppsResampleDown2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_resample_up3_down2.html"><param name="Name" value="nmppsResampleUp3Down2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_resample__perf.html"><param name="Name" value="nmppsResample_perf"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_set.html"><param name="Name" value="nmppsSet-инициализация"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_set_resample.html"><param name="Name" value="nmppsSetResample"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_set_val__.html"><param name="Name" value="nmppsSetVal_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_sub.html"><param name="Name" value="nmppsSub"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_sub_c.html"><param name="Name" value="nmppsSubC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_sub_c_rev.html"><param name="Name" value="nmppsSubCRev"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_sum.html"><param name="Name" value="nmppsSum"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_sum_n.html"><param name="Name" value="nmppsSumN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_sum__1.html"><param name="Name" value="nmppsSum_1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_swap__.html"><param name="Name" value="nmppsSwap_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_threshold___lt___gt__f.html"><param name="Name" value="nmppsThreshold_Lt_Gt_f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_weighted_sum.html"><param name="Name" value="nmppsWeightedSum"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_x_corr__32s.html"><param name="Name" value="nmppsXCorr_32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_xor.html"><param name="Name" value="nmppsXor"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_xor_c.html"><param name="Name" value="nmppsXorC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structnmreg.html"><param name="Name" value="nmreg"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classnmshort.html"><param name="Name" value="nmshort"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classnmshort2_d.html"><param name="Name" value="nmshort2D"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtl.html"><param name="Name" value="nmtl"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtl.html#gae52d1b3e5fc0f94df002b637da74195f"><param name="Name" value="GetVec"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtl.html"><param name="Name" value="nmtl"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtl.html#ga29f86af4f467cf2e7abaea62552d1726"><param name="Name" value="operator&lt;&lt;(ostream &amp;s, mtr&lt; unsigned char &gt; &amp;mtr)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="nmtype_8h.html#a4009d0a6b2574344aca76bfef765adc3"><param name="Name" value="nmtype.h"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga8a29e9e4bed2e30bd02172a962799053"><param name="Name" value="int15b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gac616dda8e00b5e305cd64c816cbd8ca2"><param name="Name" value="int16b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga9dc2f726c4dfcc3d14ddc3ea9b280d05"><param name="Name" value="int1b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga54fda78fa65e9d144146044db9c1febb"><param name="Name" value="int2b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga75d7580f888af963b47c588fb6064fbd"><param name="Name" value="int30b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga71a41003b0d29fadb9e819daddc699df"><param name="Name" value="int31b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gaa06da44f55c38bad96f0d3f45534cd2e"><param name="Name" value="int32b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga5647c398266351be6994393cc5a537a1"><param name="Name" value="int3b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga4bffa30d438a62c49b0f6091ac214df7"><param name="Name" value="int4b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga87c914a68d82fda9c6657a33d3986921"><param name="Name" value="int63b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gacfcc8b11955d655f67a28107748799ab"><param name="Name" value="int64b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gaca7cf10d39261db7cc2b3f1007c164b3"><param name="Name" value="int7b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga76ec3af99402ffbf69b57b18f11defad"><param name="Name" value="int8b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga21984864434e3e1352abc9ad526534f8"><param name="Name" value="uint15b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga8f9487c5312844de21396d0cef0f0b43"><param name="Name" value="uint16b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga9a2acfb8fedfa2cfdc7b0fea4e09a164"><param name="Name" value="uint1b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga384f9c6dc3adbda64307fe7448c48758"><param name="Name" value="uint2b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga955a2c24de74ed721988cfcf10eb5d03"><param name="Name" value="uint31b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga06d1f4697792a21c12856df091c3f858"><param name="Name" value="uint32b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga13c248c81e482789d60e720ed31a05d4"><param name="Name" value="uint3b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga5197d3af6df8a2e4a89498fb93928479"><param name="Name" value="uint4b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga764a73259cf5aa3bc5ed73701c2c73ff"><param name="Name" value="uint63b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gaf67b16f2635ae0b886d5510a8db25e78"><param name="Name" value="uint64b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gafa9f39e5621f856dc23294d5a736f3e3"><param name="Name" value="uint7b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="nmtype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gab3b2924602e5240f11d2a9451238370f"><param name="Name" value="uint8b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classnmvecpack.html"><param name="Name" value="nmvecpack"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200"><param name="Name" value="nm1"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8"><param name="Name" value="nm16s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gad8babf625e9f2a3dddab71587bb87ca3"><param name="Name" value="nm16s15b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga415870b91ecea223de4041c233e62cd5"><param name="Name" value="nm16u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5"><param name="Name" value="nm16u15b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga6ad9cb56e53e6a4673aa943c89864eef"><param name="Name" value="nm2s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga7b2ce6536e3c325ba4dd4241e13a276d"><param name="Name" value="nm2u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a"><param name="Name" value="nm32s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gab9ce843a64ad64413721134015653768"><param name="Name" value="nm32s30b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga40bd6583b76e1fd3078c89f2e09d7ff2"><param name="Name" value="nm32s31b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gacb8af4747a1a1b39683e44fb7caff5b2"><param name="Name" value="nm32u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gac28e7df271aa671e0e4a8512a310f569"><param name="Name" value="nm32u31b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gaccdf010f2ed3b4ba94f52784f33a1bcb"><param name="Name" value="nm4s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga35bef731e567018f25d3b9f355df8d42"><param name="Name" value="nm4u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga62ce4975a70b723416d4e247ac5c41ce"><param name="Name" value="nm4u3b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3"><param name="Name" value="nm64s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga6fe5166cb8f115204337979b6e01dae6"><param name="Name" value="nm64s63b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gacffc3cf301915bbe094bbb1d39e9a8c0"><param name="Name" value="nm64u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df"><param name="Name" value="nm8s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga871a7c1018a70544e4ce34f440840b9c"><param name="Name" value="nm8s7b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c"><param name="Name" value="nm8u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5"><param name="Name" value="nm8u7b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga85e46759ff4e89b0cd1bed28a24760cd"><param name="Name" value="v16nm16s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gab02a1ee6ef4199154e6c6b9a028faedf"><param name="Name" value="v16nm16u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gab64121054aee4b4c204bd0f2b8b8b93f"><param name="Name" value="v16nm32s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga30bc53e6337ac66f6be711939e980d7c"><param name="Name" value="v16nm32u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga92883258798340c70db34afec7257289"><param name="Name" value="v16nm4b3u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gae4b21883497717f80f3f74b8753f3728"><param name="Name" value="v16nm4u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga870129c24318e57fce205401dfd66c6b"><param name="Name" value="v16nm8s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga4e4a373198a421d6540ae1f86c693a0e"><param name="Name" value="v16nm8s7b"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gaf0f2c0d4eb2955283e7b1f15386a2dd1"><param name="Name" value="v16nm8u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gab965d367f9531c45ec614f1bb76d6e94"><param name="Name" value="v2nm32s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gaad5abcfe2f2c4119d3eee5f5b8d8efef"><param name="Name" value="v2nm32u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gaaacafe6d2d6403be1d94cad3dcf2c561"><param name="Name" value="v4nm16s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga2e2fbf9ead93256f78a1a45e285fd906"><param name="Name" value="v4nm16u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga84474c58f9896a8a96dabf9240c54d2a"><param name="Name" value="v4nm32s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga27efd909fe8a8e1f0f7897593d47fcdb"><param name="Name" value="v4nm32u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga3ab0f4ac02670c82869600ad215cc966"><param name="Name" value="v4nm8u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gab95ccb2352af6145f2f0722a8bdc142d"><param name="Name" value="v8nm16s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga5970d3161175e26faf84d787d8138756"><param name="Name" value="v8nm16u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga721865124b6104c59a2b20363ed48e16"><param name="Name" value="v8nm32s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga25e4058f4b99216832f18e6091d4c801"><param name="Name" value="v8nm32u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga7d33d0659d1c5a3244dda299936dc88e"><param name="Name" value="v8nm8s"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="nmvectype"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga14993fddfde49085f97cf72b86ec748e"><param name="Name" value="v8nm8u"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds__struct.html#a410a64378555a8cb8a85b705a00b140d"><param name="Name" value="nnPxl"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds__struct.html#a7ff7e992c94061b569fabcf1f3412d40"><param name="Name" value="nnSpot"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#a40fc05a079d585e64e77cdcb73634b9d"><param name="Name" value="noPxl"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#aa39631911e4e8d09be60594e16d580c5"><param name="Name" value="numAllocateFails"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#af472428420adef964e283a302bdeaa43"><param name="Name" value="numHeaps"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtl.html#ga29f86af4f467cf2e7abaea62552d1726"><param name="Name" value="operator&lt;&lt;(ostream &amp;s, mtr&lt; unsigned char &gt; &amp;mtr)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#a30fe21f03fd5bfd89d8a1365c55bea67"><param name="Name" value="pAllocateLegend"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#afe19b59144d2378515a62acbcc265c8a"><param name="Name" value="pHeapEnd"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___multi_heap.html#acb7c9c8b93490527820822d0b38ad942"><param name="Name" value="pHeap[MAX_NUM_BANKS]"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a2eccbe7ae8655084de931866809e4f1b"><param name="Name" value="pNextBuffer"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#a1408f412fca5e748e37bb2131adc4ccc"><param name="Name" value="pPrevBuffer"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#ace13eaa91e838dc0e769699c497c2c91"><param name="Name" value="pZeroBuffer"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#a354f45146e81b8e7102bb8e5f00eae2f"><param name="Name" value="pad[16-3-5 *sizeof(memcpy_ptr)/sizeof(int)]"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a9a4e36d9cb7adc5896fa815282e38424"><param name="Name" value="pad[16-3-5 *sizeof(t_bytecpy)/sizeof(int)]"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__nm64sc.html#acb50945458c4ba6afa3c6c44beaed40d"><param name="Name" value="re"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_d_f_t-8.html#ga51f618a9eee4f03aaf27425fe8771428"><param name="Name" value="sDFT-8"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t__32fcr.html#ga8cce9ff7d28f7bcd32d8cc28a07e5a7c"><param name="Name" value="sFFT_32fcr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_i_f_f_t-1024.html#ga34c7acc07e1788235b51e9cb1cc73dde"><param name="Name" value="sIFFT-1024"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__int32x2.html"><param name="Name" value="s_int32x2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__nm32fc.html"><param name="Name" value="s_nm32fc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__nm32fcr.html"><param name="Name" value="s_nm32fcr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__nm32sc.html"><param name="Name" value="s_nm32sc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__nm64sc.html"><param name="Name" value="s_nm64sc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__nm64sc.html"><param name="Name" value="s_nm64sc"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__nm64sc.html#a5a6a60e356d5e548e5f84ec3870bf11b"><param name="Name" value="im"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__nm64sc.html"><param name="Name" value="s_nm64sc"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__nm64sc.html#acb50945458c4ba6afa3c6c44beaed40d"><param name="Name" value="re"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v16nm16s.html"><param name="Name" value="s_v16nm16s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v16nm16u.html"><param name="Name" value="s_v16nm16u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v16nm32s.html"><param name="Name" value="s_v16nm32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v16nm32u.html"><param name="Name" value="s_v16nm32u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v16nm4u.html"><param name="Name" value="s_v16nm4u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v16nm8s.html"><param name="Name" value="s_v16nm8s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v16nm8u.html"><param name="Name" value="s_v16nm8u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v2nm32f.html"><param name="Name" value="s_v2nm32f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v2nm32s.html"><param name="Name" value="s_v2nm32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v2nm32u.html"><param name="Name" value="s_v2nm32u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v4nm16s.html"><param name="Name" value="s_v4nm16s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v4nm16u.html"><param name="Name" value="s_v4nm16u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v4nm32f.html"><param name="Name" value="s_v4nm32f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v4nm32s.html"><param name="Name" value="s_v4nm32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v4nm32u.html"><param name="Name" value="s_v4nm32u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v4nm64f.html"><param name="Name" value="s_v4nm64f"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v4nm8u.html"><param name="Name" value="s_v4nm8u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v8nm16s.html"><param name="Name" value="s_v8nm16s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v8nm16u.html"><param name="Name" value="s_v8nm16u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v8nm32s.html"><param name="Name" value="s_v8nm32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v8nm32u.html"><param name="Name" value="s_v8nm32u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v8nm8s.html"><param name="Name" value="s_v8nm8s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structs__v8nm8u.html"><param name="Name" value="s_v8nm8u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___buffer_info.html#ac4a3bf87a8216fe58c73db373dbf205a"><param name="Name" value="size32Buffer"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___heap.html#aa4214da1e61ba76845a72031be28728d"><param name="Name" value="size32HeapAvail"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#a76d6b48a1993832aed9770d9f0855723"><param name="Name" value="size"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#a76d6b48a1993832aed9770d9f0855723"><param name="Name" value="C_RingBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a8ec44468230daef30d635d13f1c063db"><param name="Name" value="size"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a8ec44468230daef30d635d13f1c063db"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html"><param name="Name" value="spot_struct"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html"><param name="Name" value="spot_struct"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#ab72e823cfd1f7644c06cd00777f97919"><param name="Name" value="Xmax"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html"><param name="Name" value="spot_struct"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#af03ae88338880269e1f795f63f171ad2"><param name="Name" value="Xmin"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html"><param name="Name" value="spot_struct"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#a528d61a11d61aeab591d16e55554a27a"><param name="Name" value="Ymax"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html"><param name="Name" value="spot_struct"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#a1d48e782d2899e61508624a89917606b"><param name="Name" value="Ymin"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html"><param name="Name" value="spot_struct"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#a5652eb38de95fe7c71d40dd93218b121"><param name="Name" value="dtSpot"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html"><param name="Name" value="spot_struct"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structspot__struct.html#a40fc05a079d585e64e77cdcb73634b9d"><param name="Name" value="noPxl"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structtag_segment_info.html"><param name="Name" value="tagSegmentInfo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#aa2625ed42d691ed3ec8d1b27d666724e"><param name="Name" value="tail"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer.html#aa2625ed42d691ed3ec8d1b27d666724e"><param name="Name" value="C_RingBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a2f9b68e9d501c62958820741fbfe5abd"><param name="Name" value="tail"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a2f9b68e9d501c62958820741fbfe5abd"><param name="Name" value="C_RingBufferRemote"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_c___ring_buffer_remote.html#a9c62f9c2f22d7db5b1d543550b40a6b9"><param name="Name" value="tail_addr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classtcube.html"><param name="Name" value="tcube"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classtfixpoint.html"><param name="Name" value="tfixpoint"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classtmtr.html"><param name="Name" value="tmtr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga21984864434e3e1352abc9ad526534f8"><param name="Name" value="uint15b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga8f9487c5312844de21396d0cef0f0b43"><param name="Name" value="uint16b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classuint16ptr.html"><param name="Name" value="uint16ptr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga9a2acfb8fedfa2cfdc7b0fea4e09a164"><param name="Name" value="uint1b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga384f9c6dc3adbda64307fe7448c48758"><param name="Name" value="uint2b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga955a2c24de74ed721988cfcf10eb5d03"><param name="Name" value="uint31b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga06d1f4697792a21c12856df091c3f858"><param name="Name" value="uint32b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga13c248c81e482789d60e720ed31a05d4"><param name="Name" value="uint3b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga5197d3af6df8a2e4a89498fb93928479"><param name="Name" value="uint4b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#ga764a73259cf5aa3bc5ed73701c2c73ff"><param name="Name" value="uint63b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gaf67b16f2635ae0b886d5510a8db25e78"><param name="Name" value="uint64b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gafa9f39e5621f856dc23294d5a736f3e3"><param name="Name" value="uint7b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html#gab3b2924602e5240f11d2a9451238370f"><param name="Name" value="uint8b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classuint8ptr.html"><param name="Name" value="uint8ptr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga85e46759ff4e89b0cd1bed28a24760cd"><param name="Name" value="v16nm16s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gab02a1ee6ef4199154e6c6b9a028faedf"><param name="Name" value="v16nm16u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gab64121054aee4b4c204bd0f2b8b8b93f"><param name="Name" value="v16nm32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga30bc53e6337ac66f6be711939e980d7c"><param name="Name" value="v16nm32u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga92883258798340c70db34afec7257289"><param name="Name" value="v16nm4b3u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structv16nm4s.html"><param name="Name" value="v16nm4s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gae4b21883497717f80f3f74b8753f3728"><param name="Name" value="v16nm4u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga4e4a373198a421d6540ae1f86c693a0e"><param name="Name" value="v16nm8s7b"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga870129c24318e57fce205401dfd66c6b"><param name="Name" value="v16nm8s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gaf0f2c0d4eb2955283e7b1f15386a2dd1"><param name="Name" value="v16nm8u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gab965d367f9531c45ec614f1bb76d6e94"><param name="Name" value="v2nm32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gaad5abcfe2f2c4119d3eee5f5b8d8efef"><param name="Name" value="v2nm32u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gaaacafe6d2d6403be1d94cad3dcf2c561"><param name="Name" value="v4nm16s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga2e2fbf9ead93256f78a1a45e285fd906"><param name="Name" value="v4nm16u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga84474c58f9896a8a96dabf9240c54d2a"><param name="Name" value="v4nm32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga27efd909fe8a8e1f0f7897593d47fcdb"><param name="Name" value="v4nm32u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structv4nm8s.html"><param name="Name" value="v4nm8s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga3ab0f4ac02670c82869600ad215cc966"><param name="Name" value="v4nm8u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#gab95ccb2352af6145f2f0722a8bdc142d"><param name="Name" value="v8nm16s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga5970d3161175e26faf84d787d8138756"><param name="Name" value="v8nm16u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga721865124b6104c59a2b20363ed48e16"><param name="Name" value="v8nm32s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga25e4058f4b99216832f18e6091d4c801"><param name="Name" value="v8nm32u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga7d33d0659d1c5a3244dda299936dc88e"><param name="Name" value="v8nm8s"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html#ga14993fddfde49085f97cf72b86ec748e"><param name="Name" value="v8nm8u"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__v_core.html#ga8981d12b31959115b3ad80c7c901c0a1"><param name="Name" value="vCore"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classvec.html"><param name="Name" value="vec"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__v_core.html#ga8981d12b31959115b3ad80c7c901c0a1"><param name="Name" value="vec_Mask(nmreg ar0, nmreg gr0, nmreg ar1, nmreg gr1, nmreg ar2, nmreg gr2, nmreg gr5, nmreg ar6, nmreg gr6)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__i_arithmetics.html"><param name="Name" value="Арифметические действия"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__c_arithmetic.html"><param name="Name" value="Арифметические операции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___c_o_r_e___group.html"><param name="Name" value="Базовые регистровые функции библиотеки"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__i_block_reodering.html"><param name="Name" value="Блочное переупорядочивание"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_f_f_t.html"><param name="Name" value="Быстрое преобразование Фурье"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_group.html"><param name="Name" value="Введение"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__m_matrix_vector.html"><param name="Name" value="Векторно-матричные операции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmpps_group__.html"><param name="Name" value="Векторные функции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___pow.html"><param name="Name" value="Возведение в степень"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___sqrt.html"><param name="Name" value="Вычисление квадратного корня"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__i_resample.html"><param name="Name" value="Изменение размеров"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__c_init.html"><param name="Name" value="Инициализация"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__i_convert.html"><param name="Name" value="Инициализация и копирование"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___cnmppi_f_i_r.html"><param name="Name" value="КИХ-фильтрация"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__v_bitwise.html"><param name="Name" value="Логические и бинарные операции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__i_filtration.html"><param name="Name" value="Масочная фильтрация"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___m_t_r___group__.html"><param name="Name" value="Матричные функции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___log.html"><param name="Name" value="Натуральный логарифм"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__m_inverse.html"><param name="Name" value="Обращение матрицы"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__i_select.html"><param name="Name" value="Операции выборки"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__v_select.html"><param name="Name" value="Операции сравнения"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__v_transform.html"><param name="Name" value="Переупорядочивание и сортировка"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__i_reodering.html"><param name="Name" value="Переупорядочивание изображений"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__s_convolution.html"><param name="Name" value="Свертка"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppc_group.html"><param name="Name" value="Скалярные функции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__v_stat.html"><param name="Name" value="Статистические функции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmvectype.html"><param name="Name" value="Типы векторных данных"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___t_y_p_e___group.html"><param name="Name" value="Типы данных"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtype.html"><param name="Name" value="Типы скалярных данных"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___sin_cos.html"><param name="Name" value="Тригонометрические функции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__funcs.html"><param name="Name" value="Функции деинтерлейсинга"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmppi_group.html"><param name="Name" value="Функции обработки изображений"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___s_i_g___group.html"><param name="Name" value="Функции обработки сигналов"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__i_support.html"><param name="Name" value="Функции поддержки"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__float.html"><param name="Name" value="Функции с плавающей точкой"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___div.html"><param name="Name" value="Функция деления векторов"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vcomplex.html"><param name="Name" value="Целевые функции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__integer.html"><param name="Name" value="Целочисленные функции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___exp.html"><param name="Name" value="Экспонента"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group___elementary__f.html"><param name="Name" value="Элементарные математические функции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__v_core.html"><param name="Name" value="Элементарные функции"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__nmtl.html"><param name="Name" value="контроль переполнения"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__vsum.html"><param name="Name" value="функции взвешенного суммирования"></OBJECT>
+</UL>
+</BODY>
+</HTML>

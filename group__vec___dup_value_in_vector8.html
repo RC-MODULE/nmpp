@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Vec_DupValueInVector8</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Vec_DupValueInVector8<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___c_o_r_e___group.html">Базовые регистровые функции библиотеки</a> &raquo; <a class="el" href="group__vcomplex.html">Целевые функции</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Размножение 8-ми битового значения по всему вектору.Действие функции эквивалентно следующим псевдоинструкциям:  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga5d6f1114f7ea1fd319c208c327730cc4"><td class="memItemLeft" align="right" valign="top"><a id="ga5d6f1114f7ea1fd319c208c327730cc4" name="ga5d6f1114f7ea1fd319c208c327730cc4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>vec_DupValueInVector8</b> (<a class="el" href="structnmreg.html">nmreg</a> ar1, <a class="el" href="structnmreg.html">nmreg</a> gr1)</td></tr>
+<tr class="separator:ga5d6f1114f7ea1fd319c208c327730cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Размножение 8-ми битового значения по всему вектору.</p>
+<p >Действие функции эквивалентно следующим псевдоинструкциям: </p>
+<pre class="fragment">\~
+</pre><div class="fragment"><div class="line">gr1 = gr1 and 0FFh;</div>
+<div class="line">[ar1] = gr1 + (gr1 &lt;&lt; 8) + (gr1 &lt;&lt; 16) + (gr1 &lt;&lt; 24) +</div>
+<div class="line">        (gr1 &lt;&lt; 32) + (gr1 &lt;&lt; 40) + (gr1 &lt;&lt; 48) + (gr1 &lt;&lt; 56).</div>
+<div class="line">ar1 += 2;</div>
+</div><!-- fragment --><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ar1</td><td>Адрес 64-х битового вектора.</td></tr>
+    <tr><td class="paramname">gr1</td><td>Значение (8 бит).</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><br  />
+ </p><dl class="section user"><dt>Restrictions: &lt;br&gt;</dt><dd>При выходе из функции изменяется содержимое регистров: ar1, gr1. </dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

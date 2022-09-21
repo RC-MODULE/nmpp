@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsConvert</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">nmppsConvert<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_init.html">Инициализация и копирование</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Изменение разрядности элементов вектора.Преобразование знаковых данных к меньшей разрядности осуществляется отбрасыванием старших битов. Преобразование знаковых данных к большей разрядности осуществляется c распространением влево старшего (знакового) бита. Преобразование беззнаковых данных к большей разрядности осуществляется добавлением слева старших нулевых битов.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga28ed43602fd8d784dbfca08b48fa10f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_convert.html#ga28ed43602fd8d784dbfca08b48fa10f2">nmppsConvert_1s2s</a> (const <a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga6ad9cb56e53e6a4673aa943c89864eef">nm2s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga28ed43602fd8d784dbfca08b48fa10f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0316c1d968fc2092acbc572a9d3c02df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nmpps_convert.html#ga0316c1d968fc2092acbc572a9d3c02df">nmppsConvert_1u2u</a> (const <a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga7b2ce6536e3c325ba4dd4241e13a276d">nm2u</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga0316c1d968fc2092acbc572a9d3c02df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab0905d85722f825abe8d4ab029beb3d"><td class="memItemLeft" align="right" valign="top"><a id="gaab0905d85722f825abe8d4ab029beb3d" name="gaab0905d85722f825abe8d4ab029beb3d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_1u4u</b> (const <a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga35bef731e567018f25d3b9f355df8d42">nm4u</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gaab0905d85722f825abe8d4ab029beb3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd820440e02adf3b3f56b4d8d1c3b72d"><td class="memItemLeft" align="right" valign="top"><a id="gabd820440e02adf3b3f56b4d8d1c3b72d" name="gabd820440e02adf3b3f56b4d8d1c3b72d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_2s1s</b> (const <a class="el" href="group__nmvectype.html#ga6ad9cb56e53e6a4673aa943c89864eef">nm2s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gabd820440e02adf3b3f56b4d8d1c3b72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7670e3cf179690ec84be816e4b24e6e1"><td class="memItemLeft" align="right" valign="top"><a id="ga7670e3cf179690ec84be816e4b24e6e1" name="ga7670e3cf179690ec84be816e4b24e6e1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_2s4s</b> (const <a class="el" href="group__nmvectype.html#ga6ad9cb56e53e6a4673aa943c89864eef">nm2s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gaccdf010f2ed3b4ba94f52784f33a1bcb">nm4s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga7670e3cf179690ec84be816e4b24e6e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9cd9c00b62cacaf6a9da3cb4ebc8ef1"><td class="memItemLeft" align="right" valign="top"><a id="gac9cd9c00b62cacaf6a9da3cb4ebc8ef1" name="gac9cd9c00b62cacaf6a9da3cb4ebc8ef1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_2u4u</b> (const <a class="el" href="group__nmvectype.html#ga7b2ce6536e3c325ba4dd4241e13a276d">nm2u</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga35bef731e567018f25d3b9f355df8d42">nm4u</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gac9cd9c00b62cacaf6a9da3cb4ebc8ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66015c8ff0359aa61be1cb4d7d4b6710"><td class="memItemLeft" align="right" valign="top"><a id="ga66015c8ff0359aa61be1cb4d7d4b6710" name="ga66015c8ff0359aa61be1cb4d7d4b6710"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_4s1s</b> (const <a class="el" href="group__nmvectype.html#gaccdf010f2ed3b4ba94f52784f33a1bcb">nm4s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga66015c8ff0359aa61be1cb4d7d4b6710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf27b8ded169e52bc2a05603deff4606e"><td class="memItemLeft" align="right" valign="top"><a id="gaf27b8ded169e52bc2a05603deff4606e" name="gaf27b8ded169e52bc2a05603deff4606e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_4s2s</b> (const <a class="el" href="group__nmvectype.html#gaccdf010f2ed3b4ba94f52784f33a1bcb">nm4s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga6ad9cb56e53e6a4673aa943c89864eef">nm2s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gaf27b8ded169e52bc2a05603deff4606e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb966371951c00c6d5bdb62c93742b7c"><td class="memItemLeft" align="right" valign="top"><a id="gafb966371951c00c6d5bdb62c93742b7c" name="gafb966371951c00c6d5bdb62c93742b7c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_4s8s</b> (const <a class="el" href="group__nmvectype.html#gaccdf010f2ed3b4ba94f52784f33a1bcb">nm4s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gafb966371951c00c6d5bdb62c93742b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99ea309c34eea5d3a647bf1f9e1968e1"><td class="memItemLeft" align="right" valign="top"><a id="ga99ea309c34eea5d3a647bf1f9e1968e1" name="ga99ea309c34eea5d3a647bf1f9e1968e1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_4u8u</b> (const <a class="el" href="group__nmvectype.html#ga35bef731e567018f25d3b9f355df8d42">nm4u</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga99ea309c34eea5d3a647bf1f9e1968e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44edbe1ea6bd1868cc3176eae9a84d0a"><td class="memItemLeft" align="right" valign="top"><a id="ga44edbe1ea6bd1868cc3176eae9a84d0a" name="ga44edbe1ea6bd1868cc3176eae9a84d0a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_8s4s</b> (const <a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gaccdf010f2ed3b4ba94f52784f33a1bcb">nm4s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga44edbe1ea6bd1868cc3176eae9a84d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77f6d9d0fd4855ae63e7cf2dceed7188"><td class="memItemLeft" align="right" valign="top"><a id="ga77f6d9d0fd4855ae63e7cf2dceed7188" name="ga77f6d9d0fd4855ae63e7cf2dceed7188"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_8s16s</b> (const <a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga77f6d9d0fd4855ae63e7cf2dceed7188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11fcdf2a0906abbcf8efdaf5abe45fde"><td class="memItemLeft" align="right" valign="top"><a id="ga11fcdf2a0906abbcf8efdaf5abe45fde" name="ga11fcdf2a0906abbcf8efdaf5abe45fde"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_8s32s</b> (const <a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga11fcdf2a0906abbcf8efdaf5abe45fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52abd027fc07c4ab34056f8f1c037fc0"><td class="memItemLeft" align="right" valign="top"><a id="ga52abd027fc07c4ab34056f8f1c037fc0" name="ga52abd027fc07c4ab34056f8f1c037fc0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_8s64s</b> (const <a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga52abd027fc07c4ab34056f8f1c037fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga54645d44545883f35c6b663db6f9278a"><td class="memItemLeft" align="right" valign="top"><a id="ga54645d44545883f35c6b663db6f9278a" name="ga54645d44545883f35c6b663db6f9278a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_8u16u</b> (const <a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga415870b91ecea223de4041c233e62cd5">nm16u</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga54645d44545883f35c6b663db6f9278a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35f6b1fa6729d7a959f564c1efc7e8e1"><td class="memItemLeft" align="right" valign="top"><a id="ga35f6b1fa6729d7a959f564c1efc7e8e1" name="ga35f6b1fa6729d7a959f564c1efc7e8e1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_8u32u</b> (const <a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gacb8af4747a1a1b39683e44fb7caff5b2">nm32u</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga35f6b1fa6729d7a959f564c1efc7e8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeaa952ad5ead166068f11aff8ae7918e"><td class="memItemLeft" align="right" valign="top"><a id="gaeaa952ad5ead166068f11aff8ae7918e" name="gaeaa952ad5ead166068f11aff8ae7918e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_8u64u</b> (const <a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gacffc3cf301915bbe094bbb1d39e9a8c0">nm64u</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gaeaa952ad5ead166068f11aff8ae7918e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7f19ebe58199d44a158452296edc2c2"><td class="memItemLeft" align="right" valign="top"><a id="gad7f19ebe58199d44a158452296edc2c2" name="gad7f19ebe58199d44a158452296edc2c2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_16s4s</b> (const <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gaccdf010f2ed3b4ba94f52784f33a1bcb">nm4s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gad7f19ebe58199d44a158452296edc2c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41117a4d2612ccfb80e5d2864dc40adf"><td class="memItemLeft" align="right" valign="top"><a id="ga41117a4d2612ccfb80e5d2864dc40adf" name="ga41117a4d2612ccfb80e5d2864dc40adf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_16s8s</b> (const <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga41117a4d2612ccfb80e5d2864dc40adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf75f134dee801a98bfe7d623f376043f"><td class="memItemLeft" align="right" valign="top"><a id="gaf75f134dee801a98bfe7d623f376043f" name="gaf75f134dee801a98bfe7d623f376043f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_16s32s</b> (const <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gaf75f134dee801a98bfe7d623f376043f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga22caacc43923d4d97fcabd09e2821e29"><td class="memItemLeft" align="right" valign="top"><a id="ga22caacc43923d4d97fcabd09e2821e29" name="ga22caacc43923d4d97fcabd09e2821e29"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_16s64s</b> (const <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga22caacc43923d4d97fcabd09e2821e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga404fe0a4ad208f63479a08c96838370b"><td class="memItemLeft" align="right" valign="top"><a id="ga404fe0a4ad208f63479a08c96838370b" name="ga404fe0a4ad208f63479a08c96838370b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_16u32u</b> (const <a class="el" href="group__nmvectype.html#ga415870b91ecea223de4041c233e62cd5">nm16u</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gacb8af4747a1a1b39683e44fb7caff5b2">nm32u</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga404fe0a4ad208f63479a08c96838370b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d86123ff7a3600c86186d8e1b099183"><td class="memItemLeft" align="right" valign="top"><a id="ga1d86123ff7a3600c86186d8e1b099183" name="ga1d86123ff7a3600c86186d8e1b099183"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_16u64u</b> (const <a class="el" href="group__nmvectype.html#ga415870b91ecea223de4041c233e62cd5">nm16u</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gacffc3cf301915bbe094bbb1d39e9a8c0">nm64u</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga1d86123ff7a3600c86186d8e1b099183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae008f58e851e11f21c63f946d7658e0a"><td class="memItemLeft" align="right" valign="top"><a id="gae008f58e851e11f21c63f946d7658e0a" name="gae008f58e851e11f21c63f946d7658e0a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_32s8s</b> (const <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gae008f58e851e11f21c63f946d7658e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb009c11a4edbea76066061ee47904b8"><td class="memItemLeft" align="right" valign="top"><a id="gaeb009c11a4edbea76066061ee47904b8" name="gaeb009c11a4edbea76066061ee47904b8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_32s16s</b> (const <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gaeb009c11a4edbea76066061ee47904b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c5e5508afa18127879b8bbfdd7e7e64"><td class="memItemLeft" align="right" valign="top"><a id="ga9c5e5508afa18127879b8bbfdd7e7e64" name="ga9c5e5508afa18127879b8bbfdd7e7e64"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_32s64s</b> (const <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga9c5e5508afa18127879b8bbfdd7e7e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacce808a406bfc8906aa0c8f56a35d824"><td class="memItemLeft" align="right" valign="top"><a id="gacce808a406bfc8906aa0c8f56a35d824" name="gacce808a406bfc8906aa0c8f56a35d824"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_32u64u</b> (const <a class="el" href="group__nmvectype.html#gacb8af4747a1a1b39683e44fb7caff5b2">nm32u</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gacffc3cf301915bbe094bbb1d39e9a8c0">nm64u</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:gacce808a406bfc8906aa0c8f56a35d824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga38ca0bf8c2cebd58c067a61d0df9fee3"><td class="memItemLeft" align="right" valign="top"><a id="ga38ca0bf8c2cebd58c067a61d0df9fee3" name="ga38ca0bf8c2cebd58c067a61d0df9fee3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_64s32s</b> (const <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga38ca0bf8c2cebd58c067a61d0df9fee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24833ec8157eb6e749001abd39927c70"><td class="memItemLeft" align="right" valign="top"><a id="ga24833ec8157eb6e749001abd39927c70" name="ga24833ec8157eb6e749001abd39927c70"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_64s16s</b> (const <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pDstVec, int nSize)</td></tr>
+<tr class="separator:ga24833ec8157eb6e749001abd39927c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Изменение разрядности элементов вектора.</p>
+<p >Преобразование знаковых данных к меньшей разрядности осуществляется отбрасыванием старших битов. Преобразование знаковых данных к большей разрядности осуществляется c распространением влево старшего (знакового) бита. Преобразование беззнаковых данных к большей разрядности осуществляется добавлением слева старших нулевых битов. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td>Входной вектор.</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер векторов в элементах.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td>Результирующий вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+<h2 class="groupheader">Функции</h2>
+<a id="ga28ed43602fd8d784dbfca08b48fa10f2" name="ga28ed43602fd8d784dbfca08b48fa10f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga28ed43602fd8d784dbfca08b48fa10f2">&#9670;&#160;</a></span>nmppsConvert_1s2s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsConvert_1s2s </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga6ad9cb56e53e6a4673aa943c89864eef">nm2s</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><br  />
+ </p><dl class="section user"><dt>Restrictions: nSize =[32*64,32*64*2,32*64*3,....]</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ga0316c1d968fc2092acbc572a9d3c02df" name="ga0316c1d968fc2092acbc572a9d3c02df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0316c1d968fc2092acbc572a9d3c02df">&#9670;&#160;</a></span>nmppsConvert_1u2u()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppsConvert_1u2u </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__nmvectype.html#ga86d699a4ea6d22f184e5a8427d4f9200">nm1</a> *&#160;</td>
+          <td class="paramname"><em>pSrcVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga7b2ce6536e3c325ba4dd4241e13a276d">nm2u</a> *&#160;</td>
+          <td class="paramname"><em>pDstVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><br  />
+ </p><dl class="section user"><dt>Restrictions: nSize =[32*64,32*64*2,32*64*3,....]</dt><dd></dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

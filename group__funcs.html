@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Функции деинтерлейсинга</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Функции деинтерлейсинга<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmppc_group.html">Скалярные функции</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga84fb6be0ffd403e4b02dc50269b4aa35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__funcs.html#ga84fb6be0ffd403e4b02dc50269b4aa35">nmppiDeinterlaceSplit</a> (<a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pSrcImg, int nSrcWidth, int nSrcHeight, <a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pDstEven, <a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pDstOdd)</td></tr>
+<tr class="separator:ga84fb6be0ffd403e4b02dc50269b4aa35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga51bc11602a52fbe47fab2a41cbacca2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__funcs.html#ga51bc11602a52fbe47fab2a41cbacca2a">nmppiDeinterlaceBlend</a> (<a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pSrcEven, <a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pSrcOdd, int nSrcWidth, int nSrcHeight, <a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pDst)</td></tr>
+<tr class="separator:ga51bc11602a52fbe47fab2a41cbacca2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<h2 class="groupheader">Функции</h2>
+<a id="ga51bc11602a52fbe47fab2a41cbacca2a" name="ga51bc11602a52fbe47fab2a41cbacca2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga51bc11602a52fbe47fab2a41cbacca2a">&#9670;&#160;</a></span>nmppiDeinterlaceBlend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppiDeinterlaceBlend </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *&#160;</td>
+          <td class="paramname"><em>pSrcEven</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *&#160;</td>
+          <td class="paramname"><em>pSrcOdd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSrcWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSrcHeight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *&#160;</td>
+          <td class="paramname"><em>pDst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Функция объединяет два полукдра в один полный кадр. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcEven</td><td>указатель на четный полукадр. </td></tr>
+    <tr><td class="paramname">nSrcOdd</td><td>указатель на нечетный полукадр. </td></tr>
+    <tr><td class="paramname">nSrcWidth</td><td>ширина исходых полукадров в пикселях. </td></tr>
+    <tr><td class="paramname">pSrcHeight</td><td>высота исходых полукадров в пикселях. </td></tr>
+    <tr><td class="paramname">pDst</td><td>указатель на буфер результирующего кадр </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+
+</div>
+</div>
+<a id="ga84fb6be0ffd403e4b02dc50269b4aa35" name="ga84fb6be0ffd403e4b02dc50269b4aa35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga84fb6be0ffd403e4b02dc50269b4aa35">&#9670;&#160;</a></span>nmppiDeinterlaceSplit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmppiDeinterlaceSplit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *&#160;</td>
+          <td class="paramname"><em>pSrcImg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSrcWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSrcHeight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *&#160;</td>
+          <td class="paramname"><em>pDstEven</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *&#160;</td>
+          <td class="paramname"><em>pDstOdd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Функция разделяет кадр на два полукадра. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcImg</td><td>указатель на исходный кадр. </td></tr>
+    <tr><td class="paramname">nSrcWidth</td><td>ширина исходного кадра в пикселях. </td></tr>
+    <tr><td class="paramname">nSrcHeight</td><td>высота исходого кадра в пикселях. </td></tr>
+    <tr><td class="paramname">pDstEven</td><td>указатель на буфер четного полукадра </td></tr>
+    <tr><td class="paramname">pDstOdd</td><td>указатель на буфер нечетного полукадра </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

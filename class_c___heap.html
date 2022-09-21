@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Класс C_Heap</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;структур&#160;данных</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Поля&#160;структур</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Поля данных</a>  </div>
+  <div class="headertitle"><div class="title">Класс C_Heap</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>класс - куча  
+ <a href="class_c___heap.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="multiheap_8h_source.html">multiheap.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a2e32adab02bdcba0d350b8da3bb6bb0b"><td class="memItemLeft" align="right" valign="top"><a id="a2e32adab02bdcba0d350b8da3bb6bb0b" name="a2e32adab02bdcba0d350b8da3bb6bb0b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>C_Heap</b> (void *addrHeap, size_t32 size32Heap)</td></tr>
+<tr class="memdesc:a2e32adab02bdcba0d350b8da3bb6bb0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">конструктор - создает кучу в указанной памяти <br /></td></tr>
+<tr class="separator:a2e32adab02bdcba0d350b8da3bb6bb0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb1a7e169ea94746c23e1b6b4f26d1e4"><td class="memItemLeft" align="right" valign="top"><a id="adb1a7e169ea94746c23e1b6b4f26d1e4" name="adb1a7e169ea94746c23e1b6b4f26d1e4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (void *addrHeap, size_t32 size32Heap)</td></tr>
+<tr class="memdesc:adb1a7e169ea94746c23e1b6b4f26d1e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">создает кучу в указанной памяти <br /></td></tr>
+<tr class="separator:adb1a7e169ea94746c23e1b6b4f26d1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66c56f0479de1976ba97077c59287217"><td class="memItemLeft" align="right" valign="top"><a id="a66c56f0479de1976ba97077c59287217" name="a66c56f0479de1976ba97077c59287217"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>IsMine</b> (void *addr)</td></tr>
+<tr class="memdesc:a66c56f0479de1976ba97077c59287217"><td class="mdescLeft">&#160;</td><td class="mdescRight">устанавливает принадлежность к куче <br /></td></tr>
+<tr class="separator:a66c56f0479de1976ba97077c59287217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc0a225de211d115c15b629db738978a"><td class="memItemLeft" align="right" valign="top">size_t32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___heap.html#abc0a225de211d115c15b629db738978a">AllocateMaxAvail</a> ()</td></tr>
+<tr class="memdesc:abc0a225de211d115c15b629db738978a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает объем свободной памяти в пуле в 32р. словах  <a href="class_c___heap.html#abc0a225de211d115c15b629db738978a">Подробнее...</a><br /></td></tr>
+<tr class="separator:abc0a225de211d115c15b629db738978a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a284ec0853878d74c92347882bae7fcc6"><td class="memItemLeft" align="right" valign="top"><a id="a284ec0853878d74c92347882bae7fcc6" name="a284ec0853878d74c92347882bae7fcc6"></a>
+int *&#160;</td><td class="memItemRight" valign="bottom"><b>Allocate</b> (size_t32 size32Buffer)</td></tr>
+<tr class="memdesc:a284ec0853878d74c92347882bae7fcc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выделяет буфер в куче <br /></td></tr>
+<tr class="separator:a284ec0853878d74c92347882bae7fcc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac48136c63f876bcc96f5fa9ddc11add3"><td class="memItemLeft" align="right" valign="top"><a id="ac48136c63f876bcc96f5fa9ddc11add3" name="ac48136c63f876bcc96f5fa9ddc11add3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ReleaseBuffer</b> (<a class="el" href="struct_s___buffer_info.html">S_BufferInfo</a> *pDelBuffer)</td></tr>
+<tr class="memdesc:ac48136c63f876bcc96f5fa9ddc11add3"><td class="mdescLeft">&#160;</td><td class="mdescRight">удаляет структуру буфера из списка <br /></td></tr>
+<tr class="separator:ac48136c63f876bcc96f5fa9ddc11add3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae8fe4580b7918e5f9af9afffdf9ae76"><td class="memItemLeft" align="right" valign="top"><a id="aae8fe4580b7918e5f9af9afffdf9ae76" name="aae8fe4580b7918e5f9af9afffdf9ae76"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Release</b> (void *p)</td></tr>
+<tr class="memdesc:aae8fe4580b7918e5f9af9afffdf9ae76"><td class="mdescLeft">&#160;</td><td class="mdescRight">осообождат память по адресу <br /></td></tr>
+<tr class="separator:aae8fe4580b7918e5f9af9afffdf9ae76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1ea2b400812916f6771409ae9d637cf"><td class="memItemLeft" align="right" valign="top"><a id="aa1ea2b400812916f6771409ae9d637cf" name="aa1ea2b400812916f6771409ae9d637cf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Lock</b> (void *p)</td></tr>
+<tr class="memdesc:aa1ea2b400812916f6771409ae9d637cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">блокирует указатель от удаления через Release <br /></td></tr>
+<tr class="separator:aa1ea2b400812916f6771409ae9d637cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8d2efc26a2b5349ee3e175e75ebb59b"><td class="memItemLeft" align="right" valign="top"><a id="ad8d2efc26a2b5349ee3e175e75ebb59b" name="ad8d2efc26a2b5349ee3e175e75ebb59b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>LockAll</b> ()</td></tr>
+<tr class="memdesc:ad8d2efc26a2b5349ee3e175e75ebb59b"><td class="mdescLeft">&#160;</td><td class="mdescRight">блокирует все указатели от удаления через Release <br /></td></tr>
+<tr class="separator:ad8d2efc26a2b5349ee3e175e75ebb59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a408a2277cf1d7bec7161667dcc072698"><td class="memItemLeft" align="right" valign="top"><a id="a408a2277cf1d7bec7161667dcc072698" name="a408a2277cf1d7bec7161667dcc072698"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>UnlockAll</b> ()</td></tr>
+<tr class="memdesc:a408a2277cf1d7bec7161667dcc072698"><td class="mdescLeft">&#160;</td><td class="mdescRight">разблокирует все указатели для удаления через Release <br /></td></tr>
+<tr class="separator:a408a2277cf1d7bec7161667dcc072698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a475de49ed9b73caf4a1014aa17d0c0d9"><td class="memItemLeft" align="right" valign="top"><a id="a475de49ed9b73caf4a1014aa17d0c0d9" name="a475de49ed9b73caf4a1014aa17d0c0d9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Unlock</b> (void *p)</td></tr>
+<tr class="memdesc:a475de49ed9b73caf4a1014aa17d0c0d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">разблокирует все указатели для удаления через Release <br /></td></tr>
+<tr class="separator:a475de49ed9b73caf4a1014aa17d0c0d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760306f3c418d1c43f4b121b774a0def"><td class="memItemLeft" align="right" valign="top"><a id="a760306f3c418d1c43f4b121b774a0def" name="a760306f3c418d1c43f4b121b774a0def"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ReleaseAll</b> ()</td></tr>
+<tr class="memdesc:a760306f3c418d1c43f4b121b774a0def"><td class="mdescLeft">&#160;</td><td class="mdescRight">удаляет все указатели из кучи <br /></td></tr>
+<tr class="separator:a760306f3c418d1c43f4b121b774a0def"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa123bf1d69a7f122e082f38f866b99f6"><td class="memItemLeft" align="right" valign="top"><a id="aa123bf1d69a7f122e082f38f866b99f6" name="aa123bf1d69a7f122e082f38f866b99f6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>LockHeap</b> ()</td></tr>
+<tr class="memdesc:aa123bf1d69a7f122e082f38f866b99f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запрещает операции с кучей <br /></td></tr>
+<tr class="separator:aa123bf1d69a7f122e082f38f866b99f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af03c36a333a10bae73d4d29e23cc919c"><td class="memItemLeft" align="right" valign="top"><a id="af03c36a333a10bae73d4d29e23cc919c" name="af03c36a333a10bae73d4d29e23cc919c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>UnlockHeap</b> ()</td></tr>
+<tr class="memdesc:af03c36a333a10bae73d4d29e23cc919c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Разрещает операции с кучей <br /></td></tr>
+<tr class="separator:af03c36a333a10bae73d4d29e23cc919c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad480ad3a993eb4d7bfbfc9a74a538368"><td class="memItemLeft" align="right" valign="top"><a id="ad480ad3a993eb4d7bfbfc9a74a538368" name="ad480ad3a993eb4d7bfbfc9a74a538368"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Check</b> ()</td></tr>
+<tr class="separator:ad480ad3a993eb4d7bfbfc9a74a538368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Поля данных</h2></td></tr>
+<tr class="memitem:ace13eaa91e838dc0e769699c497c2c91"><td class="memItemLeft" align="right" valign="top"><a id="ace13eaa91e838dc0e769699c497c2c91" name="ace13eaa91e838dc0e769699c497c2c91"></a>
+<a class="el" href="struct_s___buffer_info.html">S_BufferInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pZeroBuffer</b></td></tr>
+<tr class="memdesc:ace13eaa91e838dc0e769699c497c2c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; указатель на нулевой буфер в списке (c нулевым размером) <br /></td></tr>
+<tr class="separator:ace13eaa91e838dc0e769699c497c2c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe19b59144d2378515a62acbcc265c8a"><td class="memItemLeft" align="right" valign="top"><a id="afe19b59144d2378515a62acbcc265c8a" name="afe19b59144d2378515a62acbcc265c8a"></a>
+int *&#160;</td><td class="memItemRight" valign="bottom"><b>pHeapEnd</b></td></tr>
+<tr class="memdesc:afe19b59144d2378515a62acbcc265c8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; указатель на слово следуюшее за концом кучи <br /></td></tr>
+<tr class="separator:afe19b59144d2378515a62acbcc265c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4214da1e61ba76845a72031be28728d"><td class="memItemLeft" align="right" valign="top"><a id="aa4214da1e61ba76845a72031be28728d" name="aa4214da1e61ba76845a72031be28728d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>size32HeapAvail</b></td></tr>
+<tr class="memdesc:aa4214da1e61ba76845a72031be28728d"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; размер общей свободной памяти в куче <br /></td></tr>
+<tr class="separator:aa4214da1e61ba76845a72031be28728d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afec27c85bef84be6b7c1c34e56d05bea"><td class="memItemLeft" align="right" valign="top"><a id="afec27c85bef84be6b7c1c34e56d05bea" name="afec27c85bef84be6b7c1c34e56d05bea"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isHeapLocked</b></td></tr>
+<tr class="memdesc:afec27c85bef84be6b7c1c34e56d05bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; запрещает операции с кучей <br /></td></tr>
+<tr class="separator:afec27c85bef84be6b7c1c34e56d05bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc29aac5726abe50c0a8aec9dca69967"><td class="memItemLeft" align="right" valign="top"><a id="acc29aac5726abe50c0a8aec9dca69967" name="acc29aac5726abe50c0a8aec9dca69967"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>status</b></td></tr>
+<tr class="separator:acc29aac5726abe50c0a8aec9dca69967"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >класс - куча </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="abc0a225de211d115c15b629db738978a" name="abc0a225de211d115c15b629db738978a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc0a225de211d115c15b629db738978a">&#9670;&#160;</a></span>AllocateMaxAvail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t32 C_Heap::AllocateMaxAvail </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает объем свободной памяти в пуле в 32р. словах </p>
+<p >Возвращает максимальный размер буфера в 32р. словах, который можно выделить в куче </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>g:/nmpp/include/<a class="el" href="multiheap_8h_source.html">multiheap.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Файл g:/nmpp/include/nmblas.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#enum-members">Перечисления</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл nmblas.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>nmblas (NeuroMatrix Basic Linear Algebra Subroutines)  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="nmblas__sgemm_8h_source.html">nmblas/nmblas_sgemm.h</a>&gt;</code><br />
+</div>
+<p><a href="nmblas_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Перечисления</h2></td></tr>
+<tr class="memitem:a7d7de38fdc9e6f8cc5dab2d15d1d4a6d"><td class="memItemLeft" align="right" valign="top"><a id="a7d7de38fdc9e6f8cc5dab2d15d1d4a6d" name="a7d7de38fdc9e6f8cc5dab2d15d1d4a6d"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>nm_trans</b> { <b>nm_n</b> =0
+, <b>nm_t</b> =1
+ }</td></tr>
+<tr class="separator:a7d7de38fdc9e6f8cc5dab2d15d1d4a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gac0e65520680ba049076b1aa8707d96eb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#gac0e65520680ba049076b1aa8707d96eb">nmblas_dasum</a> (const int N, const double *X, const int INCX)</td></tr>
+<tr class="memdesc:gac0e65520680ba049076b1aa8707d96eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes the sum of the absolute values &lt;&gt;  <a href="group___l_e_v_e_l1.html#gac0e65520680ba049076b1aa8707d96eb">Подробнее...</a><br /></td></tr>
+<tr class="separator:gac0e65520680ba049076b1aa8707d96eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5db5e4728637d7d045a479967691dd8"><td class="memItemLeft" align="right" valign="top"><a id="ae5db5e4728637d7d045a479967691dd8" name="ae5db5e4728637d7d045a479967691dd8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MullMatrix_f</b> (void *A, int pI, int ldA, void *B, int pK, int ldB, void *C, int pJ, int ldC, int plusC)</td></tr>
+<tr class="separator:ae5db5e4728637d7d045a479967691dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gaae60f03bdda1224ee3533a7296eadbd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#gaae60f03bdda1224ee3533a7296eadbd6">nmblas_daxpy</a> (const int N, const double A, const double *X, const int INCX, double *Y, const int INCY)</td></tr>
+<tr class="memdesc:gaae60f03bdda1224ee3533a7296eadbd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">constant times a vector plus a vector &lt;&gt;  <a href="group___l_e_v_e_l1.html#gaae60f03bdda1224ee3533a7296eadbd6">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaae60f03bdda1224ee3533a7296eadbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gaf7e6fe1144d7cf4e3a873734f611dd86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#gaf7e6fe1144d7cf4e3a873734f611dd86">nmblas_dcopy</a> (const int N, const double *X, const int INCX, double *Y, const int INCY)</td></tr>
+<tr class="memdesc:gaf7e6fe1144d7cf4e3a873734f611dd86"><td class="mdescLeft">&#160;</td><td class="mdescRight">copies a vector, X, to a vector, Y  <a href="group___l_e_v_e_l1.html#gaf7e6fe1144d7cf4e3a873734f611dd86">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaf7e6fe1144d7cf4e3a873734f611dd86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga2cf1154b8db277c218dfaad8fc09ed61"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga2cf1154b8db277c218dfaad8fc09ed61">nmblas_ddot</a> (const int N, const double *X, const int INCX, const double *Y, const int INCY)</td></tr>
+<tr class="memdesc:ga2cf1154b8db277c218dfaad8fc09ed61"><td class="mdescLeft">&#160;</td><td class="mdescRight">forms the dot product of two vectors.  <a href="group___l_e_v_e_l1.html#ga2cf1154b8db277c218dfaad8fc09ed61">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga2cf1154b8db277c218dfaad8fc09ed61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gad2424456e1ef9c379af8b8f7b96cc250"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#gad2424456e1ef9c379af8b8f7b96cc250">nmblas_dnrm2</a> (const int N, const double *x, const int INCX)</td></tr>
+<tr class="memdesc:gad2424456e1ef9c379af8b8f7b96cc250"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the euclidean norm of a vector via the function name, so that SCNRM2 := sqrt( x**H*x )  <a href="group___l_e_v_e_l1.html#gad2424456e1ef9c379af8b8f7b96cc250">Подробнее...</a><br /></td></tr>
+<tr class="separator:gad2424456e1ef9c379af8b8f7b96cc250"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga2500f51a3842e3d4de3cfaa517fe3f73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga2500f51a3842e3d4de3cfaa517fe3f73">nmblas_drot</a> (const int N, double *X, const int INCX, double *Y, const int INCY, const double C, const double S)</td></tr>
+<tr class="memdesc:ga2500f51a3842e3d4de3cfaa517fe3f73"><td class="mdescLeft">&#160;</td><td class="mdescRight">applies a plane rotation &lt;&gt;  <a href="group___l_e_v_e_l1.html#ga2500f51a3842e3d4de3cfaa517fe3f73">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga2500f51a3842e3d4de3cfaa517fe3f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga9e714feec2cec88b21672a7c512d8618"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga9e714feec2cec88b21672a7c512d8618">nmblas_drotg</a> (double *A, double *B, double *C, double *S)</td></tr>
+<tr class="memdesc:ga9e714feec2cec88b21672a7c512d8618"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct givens plane rotation &lt;&gt;  <a href="group___l_e_v_e_l1.html#ga9e714feec2cec88b21672a7c512d8618">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga9e714feec2cec88b21672a7c512d8618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gae6eadffd429080770d379fbe5da2e04b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#gae6eadffd429080770d379fbe5da2e04b">nmblas_drotm</a> (const int N, double *X, const int INCX, double *Y, const int INCY, double *param)</td></tr>
+<tr class="memdesc:gae6eadffd429080770d379fbe5da2e04b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a Given's rotation constructed by DROTMG. &lt;&gt;  <a href="group___l_e_v_e_l1.html#gae6eadffd429080770d379fbe5da2e04b">Подробнее...</a><br /></td></tr>
+<tr class="separator:gae6eadffd429080770d379fbe5da2e04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga234c0986a80c576bdf124e47811a5606"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga234c0986a80c576bdf124e47811a5606">nmblas_dscal</a> (const int N, const double ALPHA, double *X, const int INCX)</td></tr>
+<tr class="memdesc:ga234c0986a80c576bdf124e47811a5606"><td class="mdescLeft">&#160;</td><td class="mdescRight">scales a vector by a constant &lt;&gt;  <a href="group___l_e_v_e_l1.html#ga234c0986a80c576bdf124e47811a5606">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga234c0986a80c576bdf124e47811a5606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga7fb41510d592f5163dbe29b8b567fe54"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga7fb41510d592f5163dbe29b8b567fe54">nmblas_dsdot</a> (const int N, const float *X, const int INCX, const float *Y, const int INCY)</td></tr>
+<tr class="memdesc:ga7fb41510d592f5163dbe29b8b567fe54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inner product of two vectors with double precision accumulation. &lt;&gt;  <a href="group___l_e_v_e_l1.html#ga7fb41510d592f5163dbe29b8b567fe54">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga7fb41510d592f5163dbe29b8b567fe54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga1a53e921a188cd2e18965c620a3f3dd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga1a53e921a188cd2e18965c620a3f3dd8">nmblas_dswap</a> (const int N, double *X, const int INCX, double *Y, const int INCY)</td></tr>
+<tr class="memdesc:ga1a53e921a188cd2e18965c620a3f3dd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">interchanges two vectors &lt;&gt;  <a href="group___l_e_v_e_l1.html#ga1a53e921a188cd2e18965c620a3f3dd8">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga1a53e921a188cd2e18965c620a3f3dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gaab151332129ddf252fd947909356cf55"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#gaab151332129ddf252fd947909356cf55">nmblas_dznrm2</a> (const int N, const double *X, const int INCX)</td></tr>
+<tr class="memdesc:gaab151332129ddf252fd947909356cf55"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the euclidean norm of a vector via the function name, so that DZNRM2 := sqrt( x**H*x ) &lt;&gt;  <a href="group___l_e_v_e_l1.html#gaab151332129ddf252fd947909356cf55">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaab151332129ddf252fd947909356cf55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga081a23706fdf6e923062b20b22cfcc3f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga081a23706fdf6e923062b20b22cfcc3f">nmblas_idamax</a> (const int N, const double *X, const int INCX)</td></tr>
+<tr class="memdesc:ga081a23706fdf6e923062b20b22cfcc3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">finds the index of the first element having maximum absolute value.  <a href="group___l_e_v_e_l1.html#ga081a23706fdf6e923062b20b22cfcc3f">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga081a23706fdf6e923062b20b22cfcc3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga5fec217133545a87cf75c10c093d6431"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga5fec217133545a87cf75c10c093d6431">nmblas_isamax</a> (const int N, const float *X, const int INCX)</td></tr>
+<tr class="memdesc:ga5fec217133545a87cf75c10c093d6431"><td class="mdescLeft">&#160;</td><td class="mdescRight">finds the index of the first element having maximum absolute value.  <a href="group___l_e_v_e_l1.html#ga5fec217133545a87cf75c10c093d6431">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga5fec217133545a87cf75c10c093d6431"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga810691baf7642d83c2102fe7553bdb94"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga810691baf7642d83c2102fe7553bdb94">nmblas_sasum</a> (const int N, const float *X, const int INCX)</td></tr>
+<tr class="memdesc:ga810691baf7642d83c2102fe7553bdb94"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes the sum of the absolute values  <a href="group___l_e_v_e_l1.html#ga810691baf7642d83c2102fe7553bdb94">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga810691baf7642d83c2102fe7553bdb94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gafa7e082610bf38097dda7b613670799d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#gafa7e082610bf38097dda7b613670799d">nmblas_saxpy</a> (int N, const float A, const float *X, const int INCX, float *Y, const int INCY)</td></tr>
+<tr class="memdesc:gafa7e082610bf38097dda7b613670799d"><td class="mdescLeft">&#160;</td><td class="mdescRight">constant times a vector plus a vector  <a href="group___l_e_v_e_l1.html#gafa7e082610bf38097dda7b613670799d">Подробнее...</a><br /></td></tr>
+<tr class="separator:gafa7e082610bf38097dda7b613670799d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga3401ba39d7898ac3ff9fd4ef7d60c31a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga3401ba39d7898ac3ff9fd4ef7d60c31a">nmblas_scnrm2</a> (const int N, const float *X, const int INCX)</td></tr>
+<tr class="memdesc:ga3401ba39d7898ac3ff9fd4ef7d60c31a"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the euclidean norm of a vector via the function name, so that SCNRM2 := sqrt( x**H*x )  <a href="group___l_e_v_e_l1.html#ga3401ba39d7898ac3ff9fd4ef7d60c31a">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga3401ba39d7898ac3ff9fd4ef7d60c31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga508cbe1c6e07fc32622c60a3882615e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga508cbe1c6e07fc32622c60a3882615e0">nmblas_scopy</a> (const int N, const float *X, const int INCX, float *Y, const int INCY)</td></tr>
+<tr class="memdesc:ga508cbe1c6e07fc32622c60a3882615e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">copies a vector, X, to a vector, Y  <a href="group___l_e_v_e_l1.html#ga508cbe1c6e07fc32622c60a3882615e0">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga508cbe1c6e07fc32622c60a3882615e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga69f0ba320a26105546c3a1b9124fa9d0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga69f0ba320a26105546c3a1b9124fa9d0">nmblas_sdot</a> (const int N, const float *X, const int INCX, const float *Y, const int INCY)</td></tr>
+<tr class="memdesc:ga69f0ba320a26105546c3a1b9124fa9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">SDOT forms the dot product of two vectors.  <a href="group___l_e_v_e_l1.html#ga69f0ba320a26105546c3a1b9124fa9d0">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga69f0ba320a26105546c3a1b9124fa9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gaa353ef1c8a2660bf19a8b028d619e828"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#gaa353ef1c8a2660bf19a8b028d619e828">nmblas_sdsdot</a> (const int N, const float B, const float *X, const int INCX, const float *Y, const int INCY)</td></tr>
+<tr class="memdesc:gaa353ef1c8a2660bf19a8b028d619e828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inner product of two vectors with double precision accumulation. &lt;&gt;  <a href="group___l_e_v_e_l1.html#gaa353ef1c8a2660bf19a8b028d619e828">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaa353ef1c8a2660bf19a8b028d619e828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga1394f7eb77f9a9651d0c4d38c7de6224"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga1394f7eb77f9a9651d0c4d38c7de6224">nmblas_snrm2</a> (const int N, const float *X, const int INCX)</td></tr>
+<tr class="memdesc:ga1394f7eb77f9a9651d0c4d38c7de6224"><td class="mdescLeft">&#160;</td><td class="mdescRight">SNRM2 returns the euclidean norm of a vector via the function name, so that SNRM2 := sqrt( x'*x ). &lt;&gt;  <a href="group___l_e_v_e_l1.html#ga1394f7eb77f9a9651d0c4d38c7de6224">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga1394f7eb77f9a9651d0c4d38c7de6224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga9f0159585ac4720e6856cdd2a35806db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga9f0159585ac4720e6856cdd2a35806db">nmblas_srot</a> (const int N, float *X, const int INCX, float *Y, const int INCY, const float C, const float S)</td></tr>
+<tr class="memdesc:ga9f0159585ac4720e6856cdd2a35806db"><td class="mdescLeft">&#160;</td><td class="mdescRight">applies a plane rotation &lt;&gt;  <a href="group___l_e_v_e_l1.html#ga9f0159585ac4720e6856cdd2a35806db">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga9f0159585ac4720e6856cdd2a35806db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga4a08635c1395521d20332d3d19db5943"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga4a08635c1395521d20332d3d19db5943">nmblas_srotm</a> (const int N, float *X, const int INCX, float *Y, const int INCY, float *param)</td></tr>
+<tr class="memdesc:ga4a08635c1395521d20332d3d19db5943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a Given's rotation constructed by SROTMG. &lt;&gt;  <a href="group___l_e_v_e_l1.html#ga4a08635c1395521d20332d3d19db5943">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga4a08635c1395521d20332d3d19db5943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gae8357185b97ea6eb63e55d2b5b8e2150"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#gae8357185b97ea6eb63e55d2b5b8e2150">nmblas_sscal</a> (const int N, const float A, const float *X, const int INCX)</td></tr>
+<tr class="memdesc:gae8357185b97ea6eb63e55d2b5b8e2150"><td class="mdescLeft">&#160;</td><td class="mdescRight">scales a vector by a constant &lt;&gt;  <a href="group___l_e_v_e_l1.html#gae8357185b97ea6eb63e55d2b5b8e2150">Подробнее...</a><br /></td></tr>
+<tr class="separator:gae8357185b97ea6eb63e55d2b5b8e2150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga692b50b31beebe79029f5e4c33a2c03c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l1.html#ga692b50b31beebe79029f5e4c33a2c03c">nmblas_sswap</a> (const int N, const float *X, const int INCX, const float *Y, const int INCY)</td></tr>
+<tr class="memdesc:ga692b50b31beebe79029f5e4c33a2c03c"><td class="mdescLeft">&#160;</td><td class="mdescRight">interchanges two vectors &lt;&gt;  <a href="group___l_e_v_e_l1.html#ga692b50b31beebe79029f5e4c33a2c03c">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga692b50b31beebe79029f5e4c33a2c03c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga5436e2321440adc5f5946bc289678e99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l2.html#ga5436e2321440adc5f5946bc289678e99">nmblas_sgemv</a> (const enum nm_trans TRANS, const int M, const int N, const float ALPHA, const float *A, const int LDA, const float *X, const int INCX, const float BETA, float *Y, const int INCY)</td></tr>
+<tr class="memdesc:ga5436e2321440adc5f5946bc289678e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">performs one of the matrix-vector operations y := alpha*A*x + beta*y, or y := alpha*A**T*x + beta*y, where alpha and beta are scalars, x and y are vectors and A is an m by n matrix.  <a href="group___l_e_v_e_l2.html#ga5436e2321440adc5f5946bc289678e99">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga5436e2321440adc5f5946bc289678e99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga8233664a47bca47df85be957b7945f8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l2.html#ga8233664a47bca47df85be957b7945f8e">nmblas_dgemv</a> (const enum nm_trans TRANS, const int M, const int N, const double ALPHA, const double *A, const int LDA, const double *X, const int INCX, const double BETA, double *Y, const int INCY)</td></tr>
+<tr class="memdesc:ga8233664a47bca47df85be957b7945f8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">performs one of the matrix-vector operations y := alpha*A*x + beta*y, or y := alpha*A**T*x + beta*y, where alpha and beta are scalars, x and y are vectors and A is an m by n matrix.  <a href="group___l_e_v_e_l2.html#ga8233664a47bca47df85be957b7945f8e">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga8233664a47bca47df85be957b7945f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga307f73ba2262d817acc3b8f80eb3ebbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l2.html#ga307f73ba2262d817acc3b8f80eb3ebbf">nmblas_sger</a> (const int M, const int N, const float ALPHA, const float *X, const int INCX, const float *Y, const int INCY, float *A, const int LDA)</td></tr>
+<tr class="memdesc:ga307f73ba2262d817acc3b8f80eb3ebbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform the rank 1 operation A := alpha*x*y' + A, where alpha is a scalar, x is an m element vector, y is an n element vector and A is an m by n matrix.  <a href="group___l_e_v_e_l2.html#ga307f73ba2262d817acc3b8f80eb3ebbf">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga307f73ba2262d817acc3b8f80eb3ebbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >nmblas (NeuroMatrix Basic Linear Algebra Subroutines) </p>
+<p >This class is used to demonstrate a number of section commands. </p><dl class="section author"><dt>Автор</dt><dd>Alexandr Bolotnikov </dd></dl>
+<dl class="section version"><dt>Версия</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>2017-05-23T15:13:13 </dd></dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd><br  />
+ </dd></dl>
+<dl class="section copyright"><dt>Авторство</dt><dd>(c) RC Module Inc. </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

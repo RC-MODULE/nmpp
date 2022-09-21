@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: MTR_ProdUnitV</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">MTR_ProdUnitV<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___m_t_r___group__.html">Матричные функции</a> &raquo; <a class="el" href="group__m_matrix_vector.html">Векторно-матричные операции</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Умножение матрицы на единичный вектор.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga20266ca0098edddd54c15730401c8876"><td class="memItemLeft" align="right" valign="top"><a id="ga20266ca0098edddd54c15730401c8876" name="ga20266ca0098edddd54c15730401c8876"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MTR_ProdUnitV_16s_4xH</b> (<a class="el" href="group__nmvectype.html#gaaacafe6d2d6403be1d94cad3dcf2c561">v4nm16s</a> *pSrcMtr, <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pDstVec, int nHeight)</td></tr>
+<tr class="separator:ga20266ca0098edddd54c15730401c8876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadfdcdd196297b9321b0d698473439026"><td class="memItemLeft" align="right" valign="top"><a id="gadfdcdd196297b9321b0d698473439026" name="gadfdcdd196297b9321b0d698473439026"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MTR_ProdUnitV_16s_16xH</b> (<a class="el" href="group__nmvectype.html#ga870129c24318e57fce205401dfd66c6b">v16nm8s</a> *pSrcMtr, <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pDstVec, int nHeight)</td></tr>
+<tr class="separator:gadfdcdd196297b9321b0d698473439026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Умножение матрицы на единичный вектор. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[
+    pDstVec(i) = \sum_{j=0}^{w-1} pSrcMtr(i, j)
+\]" src="form_3.png" width="178" height="39"/>
+</p>
+<p >Данная функция эквивалентна суммированию столбцов матрицы. Ширины матрицы, для которых имеется реализация данной функции указываются в ее названии.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcMtr</td><td>Матрица.</td></tr>
+    <tr><td class="paramname">nHeight</td><td>Число строк матрицы. nHeight=[128,256,....]</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td>Результирующий вектор.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

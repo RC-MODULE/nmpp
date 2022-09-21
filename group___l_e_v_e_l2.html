@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: BLASS-LEVEL2</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">BLASS-LEVEL2<div class="ingroups"><a class="el" href="group__float.html">Функции с плавающей точкой</a> &raquo; <a class="el" href="group___n_m_b_l_a_s.html">nmblas</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="memitem:ga5436e2321440adc5f5946bc289678e99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l2.html#ga5436e2321440adc5f5946bc289678e99">nmblas_sgemv</a> (const enum nm_trans TRANS, const int M, const int N, const float ALPHA, const float *A, const int LDA, const float *X, const int INCX, const float BETA, float *Y, const int INCY)</td></tr>
+<tr class="memdesc:ga5436e2321440adc5f5946bc289678e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">performs one of the matrix-vector operations y := alpha*A*x + beta*y, or y := alpha*A**T*x + beta*y, where alpha and beta are scalars, x and y are vectors and A is an m by n matrix.  <a href="group___l_e_v_e_l2.html#ga5436e2321440adc5f5946bc289678e99">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga5436e2321440adc5f5946bc289678e99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8233664a47bca47df85be957b7945f8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l2.html#ga8233664a47bca47df85be957b7945f8e">nmblas_dgemv</a> (const enum nm_trans TRANS, const int M, const int N, const double ALPHA, const double *A, const int LDA, const double *X, const int INCX, const double BETA, double *Y, const int INCY)</td></tr>
+<tr class="memdesc:ga8233664a47bca47df85be957b7945f8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">performs one of the matrix-vector operations y := alpha*A*x + beta*y, or y := alpha*A**T*x + beta*y, where alpha and beta are scalars, x and y are vectors and A is an m by n matrix.  <a href="group___l_e_v_e_l2.html#ga8233664a47bca47df85be957b7945f8e">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga8233664a47bca47df85be957b7945f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga307f73ba2262d817acc3b8f80eb3ebbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_e_v_e_l2.html#ga307f73ba2262d817acc3b8f80eb3ebbf">nmblas_sger</a> (const int M, const int N, const float ALPHA, const float *X, const int INCX, const float *Y, const int INCY, float *A, const int LDA)</td></tr>
+<tr class="memdesc:ga307f73ba2262d817acc3b8f80eb3ebbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform the rank 1 operation A := alpha*x*y' + A, where alpha is a scalar, x is an m element vector, y is an n element vector and A is an m by n matrix.  <a href="group___l_e_v_e_l2.html#ga307f73ba2262d817acc3b8f80eb3ebbf">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga307f73ba2262d817acc3b8f80eb3ebbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<h2 class="groupheader">Функции</h2>
+<a id="ga8233664a47bca47df85be957b7945f8e" name="ga8233664a47bca47df85be957b7945f8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8233664a47bca47df85be957b7945f8e">&#9670;&#160;</a></span>nmblas_dgemv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmblas_dgemv </td>
+          <td>(</td>
+          <td class="paramtype">const enum nm_trans&#160;</td>
+          <td class="paramname"><em>TRANS</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>M</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>N</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>ALPHA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>LDA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>INCX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>BETA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>Y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>INCY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>performs one of the matrix-vector operations y := alpha*A*x + beta*y, or y := alpha*A**T*x + beta*y, where alpha and beta are scalars, x and y are vectors and A is an m by n matrix. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">TRANS</td><td>is CHARACTER*1 On entry, TRANS specifies the operation to be performed as follows:</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>TRANS = 'N' or 'n' y := alpha*A*x + beta*y.</p>
+<p >TRANS = 'T' or 't' y := alpha*A**T*x + beta*y.</p>
+<p >TRANS = 'C' or 'c' y := alpha*A**T*x + beta*y. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">M</td><td>specifies the number of rows of the matrix A. M must be at least zero. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>specifies the number of columns of the matrix A. N must be at least zero. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ALPHA</td><td>LPHA specifies the scalar alpha </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>array, dimension ( LDA, N ) Before entry, the leading m by n part of the array A must contain the matrix of coefficients </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">LDA</td><td>specifies the first dimension of A as declared in the calling (sub) program. LDA must be at least max( 1, m ). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">X</td><td>array, dimension at least ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n' and at least ( 1 + ( m - 1 )*abs( INCX ) ) otherwise. Before entry, the incremented array X must contain the vector x. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">INCX</td><td>INCX specifies the increment for the elements of X. INCX must not be zero. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">BETA</td><td>specifies the scalar beta. When BETA is supplied as zero then Y need not be set on input. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">Y</td><td>is REAL array, dimension at least ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n' and at least ( 1 + ( n - 1 )*abs( INCY ) ) otherwise. Before entry with BETA non-zero, the incremented array Y must contain the vector y. On exit, Y is overwritten by the updated vector y. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">INCY</td><td>specifies the increment for the elements of Y. INCY must not be zero. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ga5436e2321440adc5f5946bc289678e99" name="ga5436e2321440adc5f5946bc289678e99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5436e2321440adc5f5946bc289678e99">&#9670;&#160;</a></span>nmblas_sgemv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmblas_sgemv </td>
+          <td>(</td>
+          <td class="paramtype">const enum nm_trans&#160;</td>
+          <td class="paramname"><em>TRANS</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>M</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>N</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>ALPHA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>LDA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>INCX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>BETA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>Y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>INCY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>performs one of the matrix-vector operations y := alpha*A*x + beta*y, or y := alpha*A**T*x + beta*y, where alpha and beta are scalars, x and y are vectors and A is an m by n matrix. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">TRANS</td><td>is CHARACTER*1 On entry, TRANS specifies the operation to be performed as follows:</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>TRANS = 'N' or 'n' y := alpha*A*x + beta*y.</p>
+<p >TRANS = 'T' or 't' y := alpha*A**T*x + beta*y.</p>
+<p >TRANS = 'C' or 'c' y := alpha*A**T*x + beta*y. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">M</td><td>specifies the number of rows of the matrix A. M must be at least zero. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>specifies the number of columns of the matrix A. N must be at least zero. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ALPHA</td><td>LPHA specifies the scalar alpha </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>array, dimension ( LDA, N ) Before entry, the leading m by n part of the array A must contain the matrix of coefficients </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">LDA</td><td>specifies the first dimension of A as declared in the calling (sub) program. LDA must be at least max( 1, m ). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">X</td><td>array, dimension at least ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n' and at least ( 1 + ( m - 1 )*abs( INCX ) ) otherwise. Before entry, the incremented array X must contain the vector x. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">INCX</td><td>INCX specifies the increment for the elements of X. INCX must not be zero. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">BETA</td><td>specifies the scalar beta. When BETA is supplied as zero then Y need not be set on input. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">Y</td><td>is REAL array, dimension at least ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n' and at least ( 1 + ( n - 1 )*abs( INCY ) ) otherwise. Before entry with BETA non-zero, the incremented array Y must contain the vector y. On exit, Y is overwritten by the updated vector y. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">INCY</td><td>specifies the increment for the elements of Y. INCY must not be zero. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ga307f73ba2262d817acc3b8f80eb3ebbf" name="ga307f73ba2262d817acc3b8f80eb3ebbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga307f73ba2262d817acc3b8f80eb3ebbf">&#9670;&#160;</a></span>nmblas_sger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nmblas_sger </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>M</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>N</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>ALPHA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>INCX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>Y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>INCY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>LDA</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>perform the rank 1 operation A := alpha*x*y' + A, where alpha is a scalar, x is an m element vector, y is an n element vector and A is an m by n matrix. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">M</td><td>M is INTEGER On entry, M specifies the number of rows of the matrix A. M must be at least zero. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>N is INTEGER On entry, N specifies the number of columns of the matrix A. N must be at least zero. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ALPHA</td><td>ALPHA is REAL On entry, ALPHA specifies the scalar alpha. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">X</td><td>X is REAL array, dimension at least ( 1 + ( m - 1 )*abs( INCX ) ). Before entry, the incremented array X must contain the m element vector x. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">INCX</td><td>INCX is INTEGER On entry, INCX specifies the increment for the elements of X. INCX must not be zero. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Y</td><td>Y is REAL array, dimension at least ( 1 + ( n - 1 )*abs( INCY ) ). Before entry, the incremented array Y must contain the n element vector y. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">INCY</td><td>INCY is INTEGER On entry, INCY specifies the increment for the elements of Y. INCY must not be zero. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">INCX</td><td>INCX specifies the increment for the elements of X. INCX must not be zero. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">A</td><td>A is REAL array, dimension ( LDA, N ) Before entry, the leading m by n part of the array A must contain the matrix of coefficients. On exit, A is overwritten by the updated matrix. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">LDA</td><td>LDA is INTEGER On entry, LDA specifies the first dimension of A as declared in the calling (sub) program. LDA must be at least max( 1, m ).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd></dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

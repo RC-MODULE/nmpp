@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: MTR_fpResolve_Gauss</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">MTR_fpResolve_Gauss<div class="ingroups"><a class="el" href="group__float.html">Функции с плавающей точкой</a> &raquo; <a class="el" href="group___m_t_r___group__f.html">Матричные функции</a> &raquo; <a class="el" href="group__m_inverse.html">Обращение матрицы</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Решение системы линейных уравнений методом Гаусса.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga07379a3303751341602fc8ac0b750e94"><td class="memItemLeft" align="right" valign="top"><a id="ga07379a3303751341602fc8ac0b750e94" name="ga07379a3303751341602fc8ac0b750e94"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MTR_fpResolve_Gauss</b> (double *pSrcMtrA, double *pSrcVecB, double *pDstVecX, int nSize)</td></tr>
+<tr class="separator:ga07379a3303751341602fc8ac0b750e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Решение системы линейных уравнений методом Гаусса. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[
+    A \cdot x = b
+\]" src="form_1.png" width="49" height="10"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcMtrA</td><td>Квадтратная матрица уравнения A.</td></tr>
+    <tr><td class="paramname">pSrcVecB</td><td>Свободный вектор.</td></tr>
+    <tr><td class="paramname">nSize</td><td>Размер матрицы.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVecX</td><td>Вектор решения x.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<p><br  />
+ </p><dl class="section user"><dt>Restrictions:</dt><dd>Выбор ведущего элемента не производится - возможно деление на нуль.</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Функция в данный момент не оптимизирована.</dd></dl>
+<dl class="section user"><dt></dt><dd> </dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

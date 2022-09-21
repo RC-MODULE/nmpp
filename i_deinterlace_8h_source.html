@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл g:/nmpp/include/nmpli/iDeinterlace.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_bab557803f526e822ddc5fda6f906b23.html">nmpli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">iDeinterlace.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;nmpp.h&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;nmpli.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>        <span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="group__funcs.html#ga84fb6be0ffd403e4b02dc50269b4aa35">   19</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group__funcs.html#ga84fb6be0ffd403e4b02dc50269b4aa35">nmppiDeinterlaceSplit</a>(<a class="code hl_typedef" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a>* pSrcImg, <span class="keywordtype">int</span> nSrcWidth, <span class="keywordtype">int</span> nSrcHeight, <a class="code hl_typedef" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a>* pDstEven, <a class="code hl_typedef" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a>* pDstOdd);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="group__funcs.html#ga51bc11602a52fbe47fab2a41cbacca2a">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group__funcs.html#ga51bc11602a52fbe47fab2a41cbacca2a">nmppiDeinterlaceBlend</a>(<a class="code hl_typedef" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a>* pSrcEven, <a class="code hl_typedef" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a>* pSrcOdd, <span class="keywordtype">int</span> nSrcWidth, <span class="keywordtype">int</span> nSrcHeight, <a class="code hl_typedef" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a>* pDst);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    };</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="agroup__funcs_html_ga51bc11602a52fbe47fab2a41cbacca2a"><div class="ttname"><a href="group__funcs.html#ga51bc11602a52fbe47fab2a41cbacca2a">nmppiDeinterlaceBlend</a></div><div class="ttdeci">void nmppiDeinterlaceBlend(nm8u *pSrcEven, nm8u *pSrcOdd, int nSrcWidth, int nSrcHeight, nm8u *pDst)</div></div>
+<div class="ttc" id="agroup__funcs_html_ga84fb6be0ffd403e4b02dc50269b4aa35"><div class="ttname"><a href="group__funcs.html#ga84fb6be0ffd403e4b02dc50269b4aa35">nmppiDeinterlaceSplit</a></div><div class="ttdeci">void nmppiDeinterlaceSplit(nm8u *pSrcImg, int nSrcWidth, int nSrcHeight, nm8u *pDstEven, nm8u *pDstOdd)</div></div>
+<div class="ttc" id="agroup__nmvectype_html_ga112cca25519f88ad8aa9950b5545132c"><div class="ttname"><a href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a></div><div class="ttdeci">unsigned char nm8u</div><div class="ttdef"><b>Definition:</b> nmtype.h:448</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

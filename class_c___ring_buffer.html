@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Шаблон класса C_RingBuffer&lt; T &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;структур&#160;данных</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Поля&#160;структур</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Поля данных</a>  </div>
+  <div class="headertitle"><div class="title">Шаблон класса C_RingBuffer&lt; T &gt;</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ad3f5e7a6428f94fae9e6f516b4646236"><td class="memItemLeft" align="right" valign="top"><a id="ad3f5e7a6428f94fae9e6f516b4646236" name="ad3f5e7a6428f94fae9e6f516b4646236"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Sleep</b> (clock_t msec)</td></tr>
+<tr class="separator:ad3f5e7a6428f94fae9e6f516b4646236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44900244c100a0c5a8512c226c0a9f80"><td class="memItemLeft" align="right" valign="top"><a id="a44900244c100a0c5a8512c226c0a9f80" name="a44900244c100a0c5a8512c226c0a9f80"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>C_RingBuffer</b> (T *buffer, size_t count, t_bytecpy pushmemcpy, t_bytecpy popmemcpy)</td></tr>
+<tr class="separator:a44900244c100a0c5a8512c226c0a9f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c2fade74e362ef17fce9652a2f76805"><td class="memItemLeft" align="right" valign="top"><a id="a3c2fade74e362ef17fce9652a2f76805" name="a3c2fade74e362ef17fce9652a2f76805"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (T *buffer, size_t count, t_bytecpy pushmemcpy, t_bytecpy popmemcpy)</td></tr>
+<tr class="separator:a3c2fade74e362ef17fce9652a2f76805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2ecd824cdc98f6d107d22d21cd6c348"><td class="memItemLeft" align="right" valign="top"><a id="ab2ecd824cdc98f6d107d22d21cd6c348" name="ab2ecd824cdc98f6d107d22d21cd6c348"></a>
+__INLINE__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsFull</b> ()</td></tr>
+<tr class="separator:ab2ecd824cdc98f6d107d22d21cd6c348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a858f8c1bb7406047fac9a5cddfc4595f"><td class="memItemLeft" align="right" valign="top"><a id="a858f8c1bb7406047fac9a5cddfc4595f" name="a858f8c1bb7406047fac9a5cddfc4595f"></a>
+__INLINE__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsEmpty</b> ()</td></tr>
+<tr class="separator:a858f8c1bb7406047fac9a5cddfc4595f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a49a7d406ff178f59cd63f293777cf5"><td class="memItemLeft" align="right" valign="top"><a id="a9a49a7d406ff178f59cd63f293777cf5" name="a9a49a7d406ff178f59cd63f293777cf5"></a>
+__INLINE__ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>PushAvail</b> ()</td></tr>
+<tr class="separator:a9a49a7d406ff178f59cd63f293777cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6400e477d5a942ff3a02d8a3849a219"><td class="memItemLeft" align="right" valign="top"><a id="ac6400e477d5a942ff3a02d8a3849a219" name="ac6400e477d5a942ff3a02d8a3849a219"></a>
+__INLINE__ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>PopAvail</b> ()</td></tr>
+<tr class="separator:ac6400e477d5a942ff3a02d8a3849a219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed6c1567f72c28d359c3b408db2bc784"><td class="memItemLeft" align="right" valign="top"><a id="aed6c1567f72c28d359c3b408db2bc784" name="aed6c1567f72c28d359c3b408db2bc784"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><b>Head</b> ()</td></tr>
+<tr class="separator:aed6c1567f72c28d359c3b408db2bc784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f7925608ab1c834a44e81e6781f3082"><td class="memItemLeft" align="right" valign="top"><a id="a0f7925608ab1c834a44e81e6781f3082" name="a0f7925608ab1c834a44e81e6781f3082"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><b>Tail</b> ()</td></tr>
+<tr class="separator:a0f7925608ab1c834a44e81e6781f3082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65819a8e2c94cd59d64f1318cae06583"><td class="memItemLeft" align="right" valign="top"><a id="a65819a8e2c94cd59d64f1318cae06583" name="a65819a8e2c94cd59d64f1318cae06583"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>MoveHead</b> (int numElements)</td></tr>
+<tr class="separator:a65819a8e2c94cd59d64f1318cae06583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9f9e72d3ab3fc7477937488c02643ff"><td class="memItemLeft" align="right" valign="top"><a id="ae9f9e72d3ab3fc7477937488c02643ff" name="ae9f9e72d3ab3fc7477937488c02643ff"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>MoveTail</b> (int numElements)</td></tr>
+<tr class="separator:ae9f9e72d3ab3fc7477937488c02643ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6194a79fc61231f2c039c5f4c3acfb4"><td class="memItemLeft" align="right" valign="top"><a id="ad6194a79fc61231f2c039c5f4c3acfb4" name="ad6194a79fc61231f2c039c5f4c3acfb4"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>Push</b> (T *pSrcElements, size_t numElements, int ExitMode=EXIT_ON_COMPLETED)</td></tr>
+<tr class="separator:ad6194a79fc61231f2c039c5f4c3acfb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb8ffd4b064f1707144b68c53e21d9d9"><td class="memItemLeft" align="right" valign="top"><a id="aeb8ffd4b064f1707144b68c53e21d9d9" name="aeb8ffd4b064f1707144b68c53e21d9d9"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>Push</b> (T pSrcElement)</td></tr>
+<tr class="separator:aeb8ffd4b064f1707144b68c53e21d9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a525fcc5b507a26eefa36e31feb0abe5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___ring_buffer.html#a525fcc5b507a26eefa36e31feb0abe5e">PushRequest</a> (T *pSrcElements, size_t numElements)</td></tr>
+<tr class="separator:a525fcc5b507a26eefa36e31feb0abe5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f2a9123ecd7061738d840e09309c33"><td class="memItemLeft" align="right" valign="top"><a id="ad8f2a9123ecd7061738d840e09309c33" name="ad8f2a9123ecd7061738d840e09309c33"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPushCompleted</b> ()</td></tr>
+<tr class="separator:ad8f2a9123ecd7061738d840e09309c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9612cc98ce2bab93adc85c9ad36f0e33"><td class="memItemLeft" align="right" valign="top"><a id="a9612cc98ce2bab93adc85c9ad36f0e33" name="a9612cc98ce2bab93adc85c9ad36f0e33"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>Pop</b> (T *pDstElements, size_t numElements, int ExitMode=EXIT_ON_COMPLETED)</td></tr>
+<tr class="separator:a9612cc98ce2bab93adc85c9ad36f0e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Поля данных</h2></td></tr>
+<tr class="memitem:ae58d0d7ef255476a7b54a6647ada4415"><td class="memItemLeft" align="right" valign="top"><a id="ae58d0d7ef255476a7b54a6647ada4415" name="ae58d0d7ef255476a7b54a6647ada4415"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
+<tr class="memdesc:ae58d0d7ef255476a7b54a6647ada4415"><td class="mdescLeft">&#160;</td><td class="mdescRight">физический адрес кольцевого буфера входных данных <br /></td></tr>
+<tr class="separator:ae58d0d7ef255476a7b54a6647ada4415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76d6b48a1993832aed9770d9f0855723"><td class="memItemLeft" align="right" valign="top"><a id="a76d6b48a1993832aed9770d9f0855723" name="a76d6b48a1993832aed9770d9f0855723"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b></td></tr>
+<tr class="memdesc:a76d6b48a1993832aed9770d9f0855723"><td class="mdescLeft">&#160;</td><td class="mdescRight">размер кольцевого буфера входных данных (в элементах; гарантируется что это степень двойки) <br /></td></tr>
+<tr class="separator:a76d6b48a1993832aed9770d9f0855723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad05c9a2536137a01e36ce5d91cd346fe"><td class="memItemLeft" align="right" valign="top"><a id="ad05c9a2536137a01e36ce5d91cd346fe" name="ad05c9a2536137a01e36ce5d91cd346fe"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>head</b></td></tr>
+<tr class="memdesc:ad05c9a2536137a01e36ce5d91cd346fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">сколько элементов ОТ НАЧАЛА ПОТОКА код MASTER уже записал в буфер входных данных [заполняется MASTER] <br /></td></tr>
+<tr class="separator:ad05c9a2536137a01e36ce5d91cd346fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2625ed42d691ed3ec8d1b27d666724e"><td class="memItemLeft" align="right" valign="top"><a id="aa2625ed42d691ed3ec8d1b27d666724e" name="aa2625ed42d691ed3ec8d1b27d666724e"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>tail</b></td></tr>
+<tr class="memdesc:aa2625ed42d691ed3ec8d1b27d666724e"><td class="mdescLeft">&#160;</td><td class="mdescRight">сколько элементов ОТ НАЧАЛА ПОТОКА код SLAVE уже прочитал (обработал) [заполняется SLAVE] <br /></td></tr>
+<tr class="separator:aa2625ed42d691ed3ec8d1b27d666724e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d39f2c7af09cfd07a0e3bb9eb0ffd47"><td class="memItemLeft" align="right" valign="top"><a id="a8d39f2c7af09cfd07a0e3bb9eb0ffd47" name="a8d39f2c7af09cfd07a0e3bb9eb0ffd47"></a>
+size_t *&#160;</td><td class="memItemRight" valign="bottom"><b>head_addr</b></td></tr>
+<tr class="separator:a8d39f2c7af09cfd07a0e3bb9eb0ffd47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79667dbd2a497f4ae781ce150a2ad72d"><td class="memItemLeft" align="right" valign="top"><a id="a79667dbd2a497f4ae781ce150a2ad72d" name="a79667dbd2a497f4ae781ce150a2ad72d"></a>
+size_t *&#160;</td><td class="memItemRight" valign="bottom"><b>tail_addr</b></td></tr>
+<tr class="separator:a79667dbd2a497f4ae781ce150a2ad72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafa532995b5e443e400c671026afdc0a"><td class="memItemLeft" align="right" valign="top"><a id="aafa532995b5e443e400c671026afdc0a" name="aafa532995b5e443e400c671026afdc0a"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
+<tr class="separator:aafa532995b5e443e400c671026afdc0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60e2202f4b4e5cd1bc8b1efd80c4d6c7"><td class="memItemLeft" align="right" valign="top"><a id="a60e2202f4b4e5cd1bc8b1efd80c4d6c7" name="a60e2202f4b4e5cd1bc8b1efd80c4d6c7"></a>
+t_bytecpy&#160;</td><td class="memItemRight" valign="bottom"><b>push_memcpy</b></td></tr>
+<tr class="separator:a60e2202f4b4e5cd1bc8b1efd80c4d6c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef3e1b4c51d815760ee11e19eee94297"><td class="memItemLeft" align="right" valign="top"><a id="aef3e1b4c51d815760ee11e19eee94297" name="aef3e1b4c51d815760ee11e19eee94297"></a>
+t_bytecpy&#160;</td><td class="memItemRight" valign="bottom"><b>pop_memcpy</b></td></tr>
+<tr class="separator:aef3e1b4c51d815760ee11e19eee94297"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233130c12692e3aa8c099132c8f8dc28"><td class="memItemLeft" align="right" valign="top"><a id="a233130c12692e3aa8c099132c8f8dc28" name="a233130c12692e3aa8c099132c8f8dc28"></a>
+memcpy_ptr&#160;</td><td class="memItemRight" valign="bottom"><b>dma_init</b></td></tr>
+<tr class="separator:a233130c12692e3aa8c099132c8f8dc28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6e4f3ae0e7f21ced7bdb5ebce90c4c5"><td class="memItemLeft" align="right" valign="top"><a id="ae6e4f3ae0e7f21ced7bdb5ebce90c4c5" name="ae6e4f3ae0e7f21ced7bdb5ebce90c4c5"></a>
+size_t(*&#160;</td><td class="memItemRight" valign="bottom"><b>dma_check</b> )()</td></tr>
+<tr class="separator:ae6e4f3ae0e7f21ced7bdb5ebce90c4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43ff3d28f5ce2f99c16d96f0161d518c"><td class="memItemLeft" align="right" valign="top"><a id="a43ff3d28f5ce2f99c16d96f0161d518c" name="a43ff3d28f5ce2f99c16d96f0161d518c"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><b>dma_ptr</b></td></tr>
+<tr class="separator:a43ff3d28f5ce2f99c16d96f0161d518c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16bbfd35bfaf68fb514ab55ee2943680"><td class="memItemLeft" align="right" valign="top"><a id="a16bbfd35bfaf68fb514ab55ee2943680" name="a16bbfd35bfaf68fb514ab55ee2943680"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>dma_left</b></td></tr>
+<tr class="separator:a16bbfd35bfaf68fb514ab55ee2943680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae2654193e8cced53e44f75046a964e6"><td class="memItemLeft" align="right" valign="top"><a id="aae2654193e8cced53e44f75046a964e6" name="aae2654193e8cced53e44f75046a964e6"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>dma_size</b></td></tr>
+<tr class="separator:aae2654193e8cced53e44f75046a964e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d61686f500c4675b40e1cbcccb0292e"><td class="memItemLeft" align="right" valign="top"><a id="a8d61686f500c4675b40e1cbcccb0292e" name="a8d61686f500c4675b40e1cbcccb0292e"></a>
+unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>timeout</b></td></tr>
+<tr class="separator:a8d61686f500c4675b40e1cbcccb0292e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cfe1ee3c0b871fa4beae94170aa4ef0"><td class="memItemLeft" align="right" valign="top"><a id="a1cfe1ee3c0b871fa4beae94170aa4ef0" name="a1cfe1ee3c0b871fa4beae94170aa4ef0"></a>
+unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>time2sleep</b></td></tr>
+<tr class="separator:a1cfe1ee3c0b871fa4beae94170aa4ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a354f45146e81b8e7102bb8e5f00eae2f"><td class="memItemLeft" align="right" valign="top"><a id="a354f45146e81b8e7102bb8e5f00eae2f" name="a354f45146e81b8e7102bb8e5f00eae2f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>pad</b> [16-3-5 *sizeof(memcpy_ptr)/sizeof(int)]</td></tr>
+<tr class="memdesc:a354f45146e81b8e7102bb8e5f00eae2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">резервные поля <br /></td></tr>
+<tr class="separator:a354f45146e81b8e7102bb8e5f00eae2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Методы</h2>
+<a id="a525fcc5b507a26eefa36e31feb0abe5e" name="a525fcc5b507a26eefa36e31feb0abe5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525fcc5b507a26eefa36e31feb0abe5e">&#9670;&#160;</a></span>PushRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c___ring_buffer.html">C_RingBuffer</a>&lt; T &gt;::PushRequest </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>pSrcElements</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>numElements</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >!!! Head or head ??</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>g:/nmpp/include/<a class="el" href="ringbuffer___8h_source.html">ringbuffer_.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

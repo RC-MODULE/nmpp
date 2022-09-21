@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsConvert_rounding</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">nmppsConvert_rounding<div class="ingroups"><a class="el" href="group__float.html">Функции с плавающей точкой</a> &raquo; <a class="el" href="group__nmpps_group__f.html">Векторные функции</a> &raquo; <a class="el" href="group__v_init__f.html">Инициализация и копирование</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Функции конвертации вектора чисел с плавающей точкой одинарной точности в вектор целых 32-битных чисел с разной степенью округления  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga2c922b97689c11894c07bc786b81a43b"><td class="memItemLeft" align="right" valign="top"><a id="ga2c922b97689c11894c07bc786b81a43b" name="ga2c922b97689c11894c07bc786b81a43b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_32f32s_rounding</b> (const nm32f *pSrcVec, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, int scale, int nSize)</td></tr>
+<tr class="separator:ga2c922b97689c11894c07bc786b81a43b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf430b7ec78092329adc918199c2f5ce5"><td class="memItemLeft" align="right" valign="top"><a id="gaf430b7ec78092329adc918199c2f5ce5" name="gaf430b7ec78092329adc918199c2f5ce5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_32f32f_ceiling</b> (const nm32f *pSrcVec, nm32f *pDstVec, int scale, int nSize)</td></tr>
+<tr class="separator:gaf430b7ec78092329adc918199c2f5ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga950ef1b28bdd3ca1e97fbac926c6ad48"><td class="memItemLeft" align="right" valign="top"><a id="ga950ef1b28bdd3ca1e97fbac926c6ad48" name="ga950ef1b28bdd3ca1e97fbac926c6ad48"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_32f32s_ceiling</b> (const nm32f *pSrcVec, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, int scale, int nSize)</td></tr>
+<tr class="separator:ga950ef1b28bdd3ca1e97fbac926c6ad48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac48e4f6db9d8021c11fde89d37c3cc94"><td class="memItemLeft" align="right" valign="top"><a id="gac48e4f6db9d8021c11fde89d37c3cc94" name="gac48e4f6db9d8021c11fde89d37c3cc94"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_32f32s_floor</b> (const nm32f *pSrcVec, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, int scale, int nSize)</td></tr>
+<tr class="separator:gac48e4f6db9d8021c11fde89d37c3cc94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5e752b76ed84eb32e9953f44d60a5f0"><td class="memItemLeft" align="right" valign="top"><a id="gae5e752b76ed84eb32e9953f44d60a5f0" name="gae5e752b76ed84eb32e9953f44d60a5f0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsConvert_32f32s_truncate</b> (const nm32f *pSrcVec, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDstVec, int scale, int nSize)</td></tr>
+<tr class="separator:gae5e752b76ed84eb32e9953f44d60a5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Функции конвертации вектора чисел с плавающей точкой одинарной точности в вектор целых 32-битных чисел с разной степенью округления </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td>указатель на входной вектор </td></tr>
+    <tr><td class="paramname">pDstVec</td><td>указатель на выходной вектор </td></tr>
+    <tr><td class="paramname">scale</td><td>степень двойки (умножение каждого элемента выходного вектора на 2^scale), может быть отрицательной </td></tr>
+    <tr><td class="paramname">nSize</td><td>число элементов во входном векторе (может быть только четным)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Функция выполняется на сопроцессоре (процессор 1879ВМ6Я) с плавающей точкой с использованием переупаковщика данных</p>
+<p >nmppsConvert_32f32s_rounding округляет все дробные числа из pSrcVec до ближайших целых (например, 1.5 будет округлено до 2, 1.7 до 2, а 1.4 до 1)</p>
+<p >nmppsConvert_32f32s_ceiling округляет все дробные числа из pSrcVec к большему целому (например, 0=&gt;0 , 0.1=&gt;1 , 0.9=&gt;1 , 1=&gt;1 , 1.1=&gt;2 1.5 =&gt;2, 1.7=&gt; 2, а -1.1 =&gt; -1)  </p>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

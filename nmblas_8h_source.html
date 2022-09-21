@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл g:/nmpp/include/nmblas.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">nmblas.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="nmblas_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#ifndef _NMBLAS_H_INCLUDED_</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#define _NMBLAS_H_INCLUDED_</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#endif  </span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#gac0e65520680ba049076b1aa8707d96eb">   54</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#gac0e65520680ba049076b1aa8707d96eb">nmblas_dasum</a>(</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> *X,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">enum</span> nm_trans{nm_n=0,nm_t=1};</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#gaae60f03bdda1224ee3533a7296eadbd6">   89</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#gaae60f03bdda1224ee3533a7296eadbd6">nmblas_daxpy</a>(</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> A,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> *X,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">double</span> *Y,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>); </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>     </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#gaf7e6fe1144d7cf4e3a873734f611dd86">  123</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#gaf7e6fe1144d7cf4e3a873734f611dd86">nmblas_dcopy</a>(</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">const</span> <span class="keywordtype">double</span>* X,</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">double</span>* Y,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga2cf1154b8db277c218dfaad8fc09ed61">  156</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga2cf1154b8db277c218dfaad8fc09ed61">nmblas_ddot</a>(</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keyword">const</span> <span class="keywordtype">double</span>* X,</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keyword">const</span> <span class="keywordtype">double</span>* Y,</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#gad2424456e1ef9c379af8b8f7b96cc250">  184</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#gad2424456e1ef9c379af8b8f7b96cc250">nmblas_dnrm2</a>(</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> *x,</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga2500f51a3842e3d4de3cfaa517fe3f73">  217</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga2500f51a3842e3d4de3cfaa517fe3f73">nmblas_drot</a>(</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keywordtype">double</span> *X,</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keywordtype">double</span> *Y,</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY,</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> C,</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> S</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>); </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga9e714feec2cec88b21672a7c512d8618">  238</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga9e714feec2cec88b21672a7c512d8618">nmblas_drotg</a>(</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keywordtype">double</span> *A, </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordtype">double</span> *B, </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="keywordtype">double</span> *C, </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordtype">double</span> *S</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#gae6eadffd429080770d379fbe5da2e04b">  260</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#gae6eadffd429080770d379fbe5da2e04b">nmblas_drotm</a>(</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="keywordtype">double</span> *X,</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keywordtype">double</span> *Y,</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY,</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keywordtype">double</span> *param</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>);</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga234c0986a80c576bdf124e47811a5606">  290</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga234c0986a80c576bdf124e47811a5606">nmblas_dscal</a>(</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> ALPHA,</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="keywordtype">double</span>*X,</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>); </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga7fb41510d592f5163dbe29b8b567fe54">  325</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga7fb41510d592f5163dbe29b8b567fe54">nmblas_dsdot</a>(</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    <span class="keyword">const</span> <span class="keywordtype">float</span>* X,</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="keyword">const</span> <span class="keywordtype">float</span>* Y,</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>);</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga1a53e921a188cd2e18965c620a3f3dd8">  348</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga1a53e921a188cd2e18965c620a3f3dd8">nmblas_dswap</a>(</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="keywordtype">double</span> *X,</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <span class="keywordtype">double</span> *Y,</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>);</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#gaab151332129ddf252fd947909356cf55">  376</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#gaab151332129ddf252fd947909356cf55">nmblas_dznrm2</a>(</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> *X,</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>);  </div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga081a23706fdf6e923062b20b22cfcc3f">  402</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga081a23706fdf6e923062b20b22cfcc3f">nmblas_idamax</a>(</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    <span class="keyword">const</span> <span class="keywordtype">double</span>* X,</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>);</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span> </div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga5fec217133545a87cf75c10c093d6431">  429</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga5fec217133545a87cf75c10c093d6431">nmblas_isamax</a>(</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>    <span class="keyword">const</span> <span class="keywordtype">float</span>* X,</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>);</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span> </div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga810691baf7642d83c2102fe7553bdb94">  455</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga810691baf7642d83c2102fe7553bdb94">nmblas_sasum</a>(</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> *X,</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>);</div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>    </div>
+<div class="line"><a id="l00486" name="l00486"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#gafa7e082610bf38097dda7b613670799d">  486</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#gafa7e082610bf38097dda7b613670799d">nmblas_saxpy</a>(</div>
+<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>    <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> A,</div>
+<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> *X,</div>
+<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>    <span class="keywordtype">float</span> *Y,</div>
+<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY</div>
+<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>);</div>
+<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span> </div>
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga3401ba39d7898ac3ff9fd4ef7d60c31a">  515</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga3401ba39d7898ac3ff9fd4ef7d60c31a">nmblas_scnrm2</a>(</div>
+<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>    <span class="keyword">const</span> <span class="keywordtype">float</span>* X,</div>
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX</div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>);</div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span> </div>
+<div class="line"><a id="l00544" name="l00544"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga508cbe1c6e07fc32622c60a3882615e0">  544</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga508cbe1c6e07fc32622c60a3882615e0">nmblas_scopy</a>(</div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>    <span class="keyword">const</span> <span class="keywordtype">float</span>* X,</div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>    <span class="keyword">const</span> <span class="keywordtype">int</span>  INCX,</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>    <span class="keywordtype">float</span>* Y,</div>
+<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY</div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>);</div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span> </div>
+<div class="line"><a id="l00576" name="l00576"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga69f0ba320a26105546c3a1b9124fa9d0">  576</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga69f0ba320a26105546c3a1b9124fa9d0">nmblas_sdot</a>(</div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> *X,</div>
+<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> *Y,</div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY</div>
+<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span>);</div>
+<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span> </div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#gaa353ef1c8a2660bf19a8b028d619e828">  603</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#gaa353ef1c8a2660bf19a8b028d619e828">nmblas_sdsdot</a>(</div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> B,</div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>    <span class="keyword">const</span> <span class="keywordtype">float</span>* X,</div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>    <span class="keyword">const</span> <span class="keywordtype">float</span>* Y,</div>
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY</div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>);</div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span> </div>
+<div class="line"><a id="l00632" name="l00632"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga1394f7eb77f9a9651d0c4d38c7de6224">  632</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga1394f7eb77f9a9651d0c4d38c7de6224">nmblas_snrm2</a>(</div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span>    <span class="keyword">const</span> <span class="keywordtype">float</span>* X,</div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX</div>
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>);</div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span> </div>
+<div class="line"><a id="l00653" name="l00653"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga9f0159585ac4720e6856cdd2a35806db">  653</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga9f0159585ac4720e6856cdd2a35806db">nmblas_srot</a>(</div>
+<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>    <span class="keywordtype">float</span> *X,</div>
+<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>    <span class="keywordtype">float</span> *Y,</div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY,</div>
+<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> C,</div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> S</div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>);</div>
+<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span> </div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga4a08635c1395521d20332d3d19db5943">  678</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga4a08635c1395521d20332d3d19db5943">nmblas_srotm</a>(</div>
+<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>    <span class="keywordtype">float</span> *X,</div>
+<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>    <span class="keywordtype">float</span> *Y,</div>
+<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY,</div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>    <span class="keywordtype">float</span> *param</div>
+<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>);</div>
+<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span> </div>
+<div class="line"><a id="l00707" name="l00707"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#gae8357185b97ea6eb63e55d2b5b8e2150">  707</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#gae8357185b97ea6eb63e55d2b5b8e2150">nmblas_sscal</a>(</div>
+<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> A,</div>
+<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> *X,</div>
+<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX</div>
+<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>); </div>
+<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span> </div>
+<div class="line"><a id="l00737" name="l00737"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l1.html#ga692b50b31beebe79029f5e4c33a2c03c">  737</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l1.html#ga692b50b31beebe79029f5e4c33a2c03c">nmblas_sswap</a>(</div>
+<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N,</div>
+<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> *X,</div>
+<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCX,</div>
+<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> *Y,</div>
+<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INCY</div>
+<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>);</div>
+<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span> </div>
+<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span> </div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span><span class="comment">//defgroup sgemv nmblas_sgemv</span></div>
+<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span><span class="comment"></span> </div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l2.html#ga5436e2321440adc5f5946bc289678e99">  789</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l2.html#ga5436e2321440adc5f5946bc289678e99">nmblas_sgemv</a>(</div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>   <span class="keyword">const</span> <span class="keyword">enum</span> nm_trans        TRANS,</div>
+<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  M,</div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  N,</div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>   <span class="keyword">const</span> <span class="keywordtype">float</span>               ALPHA,</div>
+<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>   <span class="keyword">const</span> <span class="keywordtype">float</span>               * A,</div>
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  LDA,</div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>   <span class="keyword">const</span> <span class="keywordtype">float</span>               * X,</div>
+<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  INCX,</div>
+<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>   <span class="keyword">const</span> <span class="keywordtype">float</span>               BETA,</div>
+<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>   <span class="keywordtype">float</span>                     * Y,</div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  INCY</div>
+<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>);</div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span> </div>
+<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span><span class="comment">//defgroup dgemv nmblas_dgemv</span></div>
+<div class="line"><a id="l00844" name="l00844"></a><span class="lineno">  844</span><span class="comment"></span> </div>
+<div class="line"><a id="l00845" name="l00845"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l2.html#ga8233664a47bca47df85be957b7945f8e">  845</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l2.html#ga8233664a47bca47df85be957b7945f8e">nmblas_dgemv</a>(</div>
+<div class="line"><a id="l00846" name="l00846"></a><span class="lineno">  846</span>   <span class="keyword">const</span> <span class="keyword">enum</span> nm_trans        TRANS,</div>
+<div class="line"><a id="l00847" name="l00847"></a><span class="lineno">  847</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  M,</div>
+<div class="line"><a id="l00848" name="l00848"></a><span class="lineno">  848</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  N,</div>
+<div class="line"><a id="l00849" name="l00849"></a><span class="lineno">  849</span>   <span class="keyword">const</span> <span class="keywordtype">double</span>               ALPHA,</div>
+<div class="line"><a id="l00850" name="l00850"></a><span class="lineno">  850</span>   <span class="keyword">const</span> <span class="keywordtype">double</span>               * A,</div>
+<div class="line"><a id="l00851" name="l00851"></a><span class="lineno">  851</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  LDA,</div>
+<div class="line"><a id="l00852" name="l00852"></a><span class="lineno">  852</span>   <span class="keyword">const</span> <span class="keywordtype">double</span>               * X,</div>
+<div class="line"><a id="l00853" name="l00853"></a><span class="lineno">  853</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  INCX,</div>
+<div class="line"><a id="l00854" name="l00854"></a><span class="lineno">  854</span>   <span class="keyword">const</span> <span class="keywordtype">double</span>               BETA,</div>
+<div class="line"><a id="l00855" name="l00855"></a><span class="lineno">  855</span>   <span class="keywordtype">double</span>                     * Y,</div>
+<div class="line"><a id="l00856" name="l00856"></a><span class="lineno">  856</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  INCY</div>
+<div class="line"><a id="l00857" name="l00857"></a><span class="lineno">  857</span>);</div>
+<div class="line"><a id="l00859" name="l00859"></a><span class="lineno">  859</span> </div>
+<div class="line"><a id="l00860" name="l00860"></a><span class="lineno">  860</span><span class="comment">//defgroup sger nmblas_sger</span></div>
+<div class="line"><a id="l00902" name="l00902"></a><span class="lineno">  902</span><span class="comment"></span> </div>
+<div class="line"><a id="l00903" name="l00903"></a><span class="lineno"><a class="line" href="group___l_e_v_e_l2.html#ga307f73ba2262d817acc3b8f80eb3ebbf">  903</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___l_e_v_e_l2.html#ga307f73ba2262d817acc3b8f80eb3ebbf">nmblas_sger</a>( </div>
+<div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span>    <span class="keyword">const</span> <span class="keywordtype">int</span>                  M,<span class="comment">//row</span></div>
+<div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  N,<span class="comment">//coullum</span></div>
+<div class="line"><a id="l00906" name="l00906"></a><span class="lineno">  906</span>   <span class="keyword">const</span> <span class="keywordtype">float</span>                ALPHA,</div>
+<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span>   <span class="keyword">const</span> <span class="keywordtype">float</span>                * X,</div>
+<div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  INCX,</div>
+<div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span>   <span class="keyword">const</span> <span class="keywordtype">float</span>                * Y,</div>
+<div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  INCY,</div>
+<div class="line"><a id="l00911" name="l00911"></a><span class="lineno">  911</span>   <span class="keywordtype">float</span>                      * A,</div>
+<div class="line"><a id="l00912" name="l00912"></a><span class="lineno">  912</span>   <span class="keyword">const</span> <span class="keywordtype">int</span>                  LDA</div>
+<div class="line"><a id="l00913" name="l00913"></a><span class="lineno">  913</span>);</div>
+<div class="line"><a id="l00915" name="l00915"></a><span class="lineno">  915</span><span class="preprocessor">#include&lt;<a class="code" href="nmblas__sgemm_8h.html">nmblas/nmblas_sgemm.h</a>&gt;</span></div>
+<div class="line"><a id="l00916" name="l00916"></a><span class="lineno">  916</span> </div>
+<div class="line"><a id="l00917" name="l00917"></a><span class="lineno">  917</span><span class="keywordtype">void</span> MullMatrix_f( </div>
+<div class="line"><a id="l00918" name="l00918"></a><span class="lineno">  918</span>    <span class="keywordtype">void</span>*   A, </div>
+<div class="line"><a id="l00919" name="l00919"></a><span class="lineno">  919</span>    <span class="keywordtype">int</span>     pI, </div>
+<div class="line"><a id="l00920" name="l00920"></a><span class="lineno">  920</span>    <span class="keywordtype">int</span>     ldA, </div>
+<div class="line"><a id="l00921" name="l00921"></a><span class="lineno">  921</span>    <span class="keywordtype">void</span>*   B,</div>
+<div class="line"><a id="l00922" name="l00922"></a><span class="lineno">  922</span>    <span class="keywordtype">int</span>     pK, </div>
+<div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span>    <span class="keywordtype">int</span>     ldB,</div>
+<div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span>    <span class="keywordtype">void</span>*   C,</div>
+<div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span>    <span class="keywordtype">int</span>     pJ, </div>
+<div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span>    <span class="keywordtype">int</span>     ldC,</div>
+<div class="line"><a id="l00927" name="l00927"></a><span class="lineno">  927</span>    <span class="keywordtype">int</span>     plusC </div>
+<div class="line"><a id="l00928" name="l00928"></a><span class="lineno">  928</span>);</div>
+<div class="line"><a id="l00929" name="l00929"></a><span class="lineno">  929</span> </div>
+<div class="line"><a id="l00930" name="l00930"></a><span class="lineno">  930</span> </div>
+<div class="line"><a id="l00931" name="l00931"></a><span class="lineno">  931</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00932" name="l00932"></a><span class="lineno">  932</span>        };</div>
+<div class="line"><a id="l00933" name="l00933"></a><span class="lineno">  933</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00934" name="l00934"></a><span class="lineno">  934</span>    </div>
+<div class="line"><a id="l00935" name="l00935"></a><span class="lineno">  935</span><span class="preprocessor">#endif </span><span class="comment">// _INIT_H_INCLUDED_</span></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga081a23706fdf6e923062b20b22cfcc3f"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga081a23706fdf6e923062b20b22cfcc3f">nmblas_idamax</a></div><div class="ttdeci">int nmblas_idamax(const int N, const double *X, const int INCX)</div><div class="ttdoc">finds the index of the first element having maximum absolute value.</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga1394f7eb77f9a9651d0c4d38c7de6224"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga1394f7eb77f9a9651d0c4d38c7de6224">nmblas_snrm2</a></div><div class="ttdeci">float nmblas_snrm2(const int N, const float *X, const int INCX)</div><div class="ttdoc">SNRM2 returns the euclidean norm of a vector via the function name, so that SNRM2 := sqrt( x'*x )....</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga1a53e921a188cd2e18965c620a3f3dd8"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga1a53e921a188cd2e18965c620a3f3dd8">nmblas_dswap</a></div><div class="ttdeci">void nmblas_dswap(const int N, double *X, const int INCX, double *Y, const int INCY)</div><div class="ttdoc">interchanges two vectors &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga234c0986a80c576bdf124e47811a5606"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga234c0986a80c576bdf124e47811a5606">nmblas_dscal</a></div><div class="ttdeci">void nmblas_dscal(const int N, const double ALPHA, double *X, const int INCX)</div><div class="ttdoc">scales a vector by a constant &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga2500f51a3842e3d4de3cfaa517fe3f73"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga2500f51a3842e3d4de3cfaa517fe3f73">nmblas_drot</a></div><div class="ttdeci">void nmblas_drot(const int N, double *X, const int INCX, double *Y, const int INCY, const double C, const double S)</div><div class="ttdoc">applies a plane rotation &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga2cf1154b8db277c218dfaad8fc09ed61"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga2cf1154b8db277c218dfaad8fc09ed61">nmblas_ddot</a></div><div class="ttdeci">double nmblas_ddot(const int N, const double *X, const int INCX, const double *Y, const int INCY)</div><div class="ttdoc">forms the dot product of two vectors.</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga3401ba39d7898ac3ff9fd4ef7d60c31a"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga3401ba39d7898ac3ff9fd4ef7d60c31a">nmblas_scnrm2</a></div><div class="ttdeci">float nmblas_scnrm2(const int N, const float *X, const int INCX)</div><div class="ttdoc">returns the euclidean norm of a vector via the function name, so that SCNRM2 := sqrt( x**H*x )</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga4a08635c1395521d20332d3d19db5943"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga4a08635c1395521d20332d3d19db5943">nmblas_srotm</a></div><div class="ttdeci">void nmblas_srotm(const int N, float *X, const int INCX, float *Y, const int INCY, float *param)</div><div class="ttdoc">Apply a Given's rotation constructed by SROTMG. &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga508cbe1c6e07fc32622c60a3882615e0"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga508cbe1c6e07fc32622c60a3882615e0">nmblas_scopy</a></div><div class="ttdeci">void nmblas_scopy(const int N, const float *X, const int INCX, float *Y, const int INCY)</div><div class="ttdoc">copies a vector, X, to a vector, Y</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga5fec217133545a87cf75c10c093d6431"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga5fec217133545a87cf75c10c093d6431">nmblas_isamax</a></div><div class="ttdeci">int nmblas_isamax(const int N, const float *X, const int INCX)</div><div class="ttdoc">finds the index of the first element having maximum absolute value.</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga692b50b31beebe79029f5e4c33a2c03c"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga692b50b31beebe79029f5e4c33a2c03c">nmblas_sswap</a></div><div class="ttdeci">void nmblas_sswap(const int N, const float *X, const int INCX, const float *Y, const int INCY)</div><div class="ttdoc">interchanges two vectors &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga69f0ba320a26105546c3a1b9124fa9d0"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga69f0ba320a26105546c3a1b9124fa9d0">nmblas_sdot</a></div><div class="ttdeci">float nmblas_sdot(const int N, const float *X, const int INCX, const float *Y, const int INCY)</div><div class="ttdoc">SDOT forms the dot product of two vectors.</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga7fb41510d592f5163dbe29b8b567fe54"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga7fb41510d592f5163dbe29b8b567fe54">nmblas_dsdot</a></div><div class="ttdeci">double nmblas_dsdot(const int N, const float *X, const int INCX, const float *Y, const int INCY)</div><div class="ttdoc">Compute the inner product of two vectors with double precision accumulation. &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga810691baf7642d83c2102fe7553bdb94"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga810691baf7642d83c2102fe7553bdb94">nmblas_sasum</a></div><div class="ttdeci">float nmblas_sasum(const int N, const float *X, const int INCX)</div><div class="ttdoc">takes the sum of the absolute values</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga9e714feec2cec88b21672a7c512d8618"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga9e714feec2cec88b21672a7c512d8618">nmblas_drotg</a></div><div class="ttdeci">void nmblas_drotg(double *A, double *B, double *C, double *S)</div><div class="ttdoc">construct givens plane rotation &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_ga9f0159585ac4720e6856cdd2a35806db"><div class="ttname"><a href="group___l_e_v_e_l1.html#ga9f0159585ac4720e6856cdd2a35806db">nmblas_srot</a></div><div class="ttdeci">void nmblas_srot(const int N, float *X, const int INCX, float *Y, const int INCY, const float C, const float S)</div><div class="ttdoc">applies a plane rotation &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_gaa353ef1c8a2660bf19a8b028d619e828"><div class="ttname"><a href="group___l_e_v_e_l1.html#gaa353ef1c8a2660bf19a8b028d619e828">nmblas_sdsdot</a></div><div class="ttdeci">float nmblas_sdsdot(const int N, const float B, const float *X, const int INCX, const float *Y, const int INCY)</div><div class="ttdoc">Compute the inner product of two vectors with double precision accumulation. &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_gaab151332129ddf252fd947909356cf55"><div class="ttname"><a href="group___l_e_v_e_l1.html#gaab151332129ddf252fd947909356cf55">nmblas_dznrm2</a></div><div class="ttdeci">double nmblas_dznrm2(const int N, const double *X, const int INCX)</div><div class="ttdoc">returns the euclidean norm of a vector via the function name, so that DZNRM2 := sqrt( x**H*x ) &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_gaae60f03bdda1224ee3533a7296eadbd6"><div class="ttname"><a href="group___l_e_v_e_l1.html#gaae60f03bdda1224ee3533a7296eadbd6">nmblas_daxpy</a></div><div class="ttdeci">void nmblas_daxpy(const int N, const double A, const double *X, const int INCX, double *Y, const int INCY)</div><div class="ttdoc">constant times a vector plus a vector &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_gac0e65520680ba049076b1aa8707d96eb"><div class="ttname"><a href="group___l_e_v_e_l1.html#gac0e65520680ba049076b1aa8707d96eb">nmblas_dasum</a></div><div class="ttdeci">double nmblas_dasum(const int N, const double *X, const int INCX)</div><div class="ttdoc">takes the sum of the absolute values &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_gad2424456e1ef9c379af8b8f7b96cc250"><div class="ttname"><a href="group___l_e_v_e_l1.html#gad2424456e1ef9c379af8b8f7b96cc250">nmblas_dnrm2</a></div><div class="ttdeci">double nmblas_dnrm2(const int N, const double *x, const int INCX)</div><div class="ttdoc">returns the euclidean norm of a vector via the function name, so that SCNRM2 := sqrt( x**H*x )</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_gae6eadffd429080770d379fbe5da2e04b"><div class="ttname"><a href="group___l_e_v_e_l1.html#gae6eadffd429080770d379fbe5da2e04b">nmblas_drotm</a></div><div class="ttdeci">void nmblas_drotm(const int N, double *X, const int INCX, double *Y, const int INCY, double *param)</div><div class="ttdoc">Apply a Given's rotation constructed by DROTMG. &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_gae8357185b97ea6eb63e55d2b5b8e2150"><div class="ttname"><a href="group___l_e_v_e_l1.html#gae8357185b97ea6eb63e55d2b5b8e2150">nmblas_sscal</a></div><div class="ttdeci">void nmblas_sscal(const int N, const float A, const float *X, const int INCX)</div><div class="ttdoc">scales a vector by a constant &lt;&gt;</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_gaf7e6fe1144d7cf4e3a873734f611dd86"><div class="ttname"><a href="group___l_e_v_e_l1.html#gaf7e6fe1144d7cf4e3a873734f611dd86">nmblas_dcopy</a></div><div class="ttdeci">void nmblas_dcopy(const int N, const double *X, const int INCX, double *Y, const int INCY)</div><div class="ttdoc">copies a vector, X, to a vector, Y</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l1_html_gafa7e082610bf38097dda7b613670799d"><div class="ttname"><a href="group___l_e_v_e_l1.html#gafa7e082610bf38097dda7b613670799d">nmblas_saxpy</a></div><div class="ttdeci">void nmblas_saxpy(int N, const float A, const float *X, const int INCX, float *Y, const int INCY)</div><div class="ttdoc">constant times a vector plus a vector</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l2_html_ga307f73ba2262d817acc3b8f80eb3ebbf"><div class="ttname"><a href="group___l_e_v_e_l2.html#ga307f73ba2262d817acc3b8f80eb3ebbf">nmblas_sger</a></div><div class="ttdeci">void nmblas_sger(const int M, const int N, const float ALPHA, const float *X, const int INCX, const float *Y, const int INCY, float *A, const int LDA)</div><div class="ttdoc">perform the rank 1 operation A := alpha*x*y' + A, where alpha is a scalar, x is an m element vector,...</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l2_html_ga5436e2321440adc5f5946bc289678e99"><div class="ttname"><a href="group___l_e_v_e_l2.html#ga5436e2321440adc5f5946bc289678e99">nmblas_sgemv</a></div><div class="ttdeci">void nmblas_sgemv(const enum nm_trans TRANS, const int M, const int N, const float ALPHA, const float *A, const int LDA, const float *X, const int INCX, const float BETA, float *Y, const int INCY)</div><div class="ttdoc">performs one of the matrix-vector operations y := alpha*A*x + beta*y, or y := alpha*A**T*x + beta*y,...</div></div>
+<div class="ttc" id="agroup___l_e_v_e_l2_html_ga8233664a47bca47df85be957b7945f8e"><div class="ttname"><a href="group___l_e_v_e_l2.html#ga8233664a47bca47df85be957b7945f8e">nmblas_dgemv</a></div><div class="ttdeci">void nmblas_dgemv(const enum nm_trans TRANS, const int M, const int N, const double ALPHA, const double *A, const int LDA, const double *X, const int INCX, const double BETA, double *Y, const int INCY)</div><div class="ttdoc">performs one of the matrix-vector operations y := alpha*A*x + beta*y, or y := alpha*A**T*x + beta*y,...</div></div>
+<div class="ttc" id="anmblas__sgemm_8h_html"><div class="ttname"><a href="nmblas__sgemm_8h.html">nmblas_sgemm.h</a></div><div class="ttdoc">part of nmblas library, sgemm function implementation</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

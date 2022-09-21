@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: IFFT-256</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">IFFT-256<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___s_i_g___group.html">Функции обработки сигналов</a> &raquo; <a class="el" href="group__s_f_f_t.html">Быстрое преобразование Фурье</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga310c4092bb03d98906e1983ca6a03a2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_f_f_t256.html#ga310c4092bb03d98906e1983ca6a03a2b">FFT_Inv256Set6bit</a> ()</td></tr>
+<tr class="memdesc:ga310c4092bb03d98906e1983ca6a03a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает 6-битную точность вычислений  <a href="group___i_f_f_t256.html#ga310c4092bb03d98906e1983ca6a03a2b">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga310c4092bb03d98906e1983ca6a03a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec72e2a67e73c3c0fac4c84756050326"><td class="memItemLeft" align="right" valign="top"><a id="gaec72e2a67e73c3c0fac4c84756050326" name="gaec72e2a67e73c3c0fac4c84756050326"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FFT_Inv256Set7bit</b> ()</td></tr>
+<tr class="memdesc:gaec72e2a67e73c3c0fac4c84756050326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает 7-битную точность вычислений <br /></td></tr>
+<tr class="separator:gaec72e2a67e73c3c0fac4c84756050326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga481de427b4a28ae163fbae32a64cd757"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_f_f_t256.html#ga481de427b4a28ae163fbae32a64cd757">FFT_Inv256</a> (<a class="el" href="structs__nm32sc.html">nm32sc</a> *GSrcBuffer, <a class="el" href="structs__nm32sc.html">nm32sc</a> *GDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=8, int ShiftR2=-1)</td></tr>
+<tr class="memdesc:ga481de427b4a28ae163fbae32a64cd757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обратное быстрое преобразование Фурье. ОБПФ-256.  <a href="group___i_f_f_t256.html#ga481de427b4a28ae163fbae32a64cd757">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga481de427b4a28ae163fbae32a64cd757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<h2 class="groupheader">Функции</h2>
+<a id="ga481de427b4a28ae163fbae32a64cd757" name="ga481de427b4a28ae163fbae32a64cd757"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga481de427b4a28ae163fbae32a64cd757">&#9670;&#160;</a></span>FFT_Inv256()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FFT_Inv256 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__nm32sc.html">nm32sc</a> *&#160;</td>
+          <td class="paramname"><em>GSrcBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structs__nm32sc.html">nm32sc</a> *&#160;</td>
+          <td class="paramname"><em>GDstBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>LBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>GBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ShiftR1</em> = <code>8</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ShiftR2</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Обратное быстрое преобразование Фурье. ОБПФ-256. </p>
+<p >Функция выполняет обратное дискретное комплексное 256-точечное быстрое преобразование Фурье на базе алгоритма ОБПФ по онованию 16-16. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">GSrcBuffer</td><td>Входной массив размером 256 64-р. слов </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">GDstBuffer</td><td>Результирующий массив размером 256 64-р. слов </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">LBuffer</td><td>Временный массив на локальной шине (Local Bus) размером 256*3 64-р. слов </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">GBuffer</td><td>Временный массив на глобальной шине (Global Bus) размером 256*2 64-р. слов </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ShiftR1</td><td>Промежуточный сдвиг результатов на ShiftR1 бит вправо (первая нормализация). Неоходимо для предовтращения переполнения. По умолчанию равен 8 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ShiftR2</td><td>Заключительный сдвиг результатов на ShiftR2 бит вправо (вторая нормализация) в конце вычисления обратного БПФ. По умолчанию ShiftR2 принимается равным 14 при установленной точности 7-бит с помощью функции <a class="el" href="group___i_f_f_t256.html#gaec72e2a67e73c3c0fac4c84756050326" title="Устанавливает 7-битную точность вычислений">FFT_Inv256Set7bit()</a> и 12 - при точности 6-бит, установленной с помощью функции <a class="el" href="group___i_f_f_t256.html#ga310c4092bb03d98906e1983ca6a03a2b" title="Устанавливает 6-битную точность вычислений">FFT_Inv256Set6bit()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>void </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Использование inplace параметров не допускается ( все указатели должны быть разными)</dd></dl>
+<p>\perf </p><pre class="fragment">   GSrcBuffer| GDstBuffer| LBuffer   |  GBuffer  |  ShiftR1  |  ShiftR2  |     clocks
+   ----------------------------------------------------------------------------------
+       L     |     L     |     L     |     L     |     8     |     -1    |     26.76
+       L     |     L     |     L     |     L     |     0     |     -1    |     26.76
+       L     |     L     |     L     |     G     |     8     |     -1    |     19.07
+       L     |     L     |     L     |     G     |     0     |     -1    |     19.07
+       L     |     L     |     G     |     L     |     8     |     -1    |     22.87
+       L     |     L     |     G     |     L     |     0     |     -1    |     22.87
+       L     |     L     |     G     |     G     |     8     |     -1    |     20.77
+       L     |     L     |     G     |     G     |     0     |     -1    |     20.77
+       L     |     G     |     L     |     L     |     8     |     -1    |     25.75
+       L     |     G     |     L     |     L     |     0     |     -1    |     25.75
+       L     |     G     |     L     |     G     |     8     |     -1    |     18.06
+       L     |     G     |     L     |     G     |     0     |     -1    |     18.06
+       L     |     G     |     G     |     L     |     8     |     -1    |     23.82
+       L     |     G     |     G     |     L     |     0     |     -1    |     23.82
+       L     |     G     |     G     |     G     |     8     |     -1    |     21.72
+       L     |     G     |     G     |     G     |     0     |     -1    |     21.72
+       G     |     L     |     L     |     L     |     8     |     -1    |     25.80
+       G     |     L     |     L     |     L     |     0     |     -1    |     25.80
+       G     |     L     |     L     |     G     |     8     |     -1    |     18.10
+       G     |     L     |     L     |     G     |     0     |     -1    |     18.10
+       G     |     L     |     G     |     L     |     8     |     -1    |     21.91
+       G     |     L     |     G     |     L     |     0     |     -1    |     21.91
+       G     |     L     |     G     |     G     |     8     |     -1    |     19.80
+       G     |     L     |     G     |     G     |     0     |     -1    |     19.80
+       G     |     G     |     L     |     L     |     8     |     -1    |     24.79
+       G     |     G     |     L     |     L     |     0     |     -1    |     24.79
+       G     |     G     |     L     |     G     |     8     |     -1    |     17.09
+       G     |     G     |     L     |     G     |     0     |     -1    |     17.09
+       G     |     G     |     G     |     L     |     8     |     -1    |     22.86
+       G     |     G     |     G     |     L     |     0     |     -1    |     22.86
+       G     |     G     |     G     |     G     |     8     |     -1    |     20.76
+       G     |     G     |     G     |     G     |     0     |     -1    |     20.76
+       L     |     L     |     L     |     L     |     8     |     0     |     26.74
+       L     |     L     |     L     |     L     |     0     |     0     |     26.74
+       L     |     L     |     L     |     G     |     8     |     0     |     19.04
+       L     |     L     |     L     |     G     |     0     |     0     |     19.04
+       L     |     L     |     G     |     L     |     8     |     0     |     22.85
+       L     |     L     |     G     |     L     |     0     |     0     |     22.85
+       L     |     L     |     G     |     G     |     8     |     0     |     20.75
+       L     |     L     |     G     |     G     |     0     |     0     |     20.75
+       L     |     G     |     L     |     L     |     8     |     0     |     25.73
+       L     |     G     |     L     |     L     |     0     |     0     |     25.73
+       L     |     G     |     L     |     G     |     8     |     0     |     18.03
+       L     |     G     |     L     |     G     |     0     |     0     |     18.03
+       L     |     G     |     G     |     L     |     8     |     0     |     23.80
+       L     |     G     |     G     |     L     |     0     |     0     |     23.80
+       L     |     G     |     G     |     G     |     8     |     0     |     21.70
+       L     |     G     |     G     |     G     |     0     |     0     |     21.70
+       G     |     L     |     L     |     L     |     8     |     0     |     25.77
+       G     |     L     |     L     |     L     |     0     |     0     |     25.77
+       G     |     L     |     L     |     G     |     8     |     0     |     18.08
+       G     |     L     |     L     |     G     |     0     |     0     |     18.08
+       G     |     L     |     G     |     L     |     8     |     0     |     21.88
+       G     |     L     |     G     |     L     |     0     |     0     |     21.88
+       G     |     L     |     G     |     G     |     8     |     0     |     19.78
+       G     |     L     |     G     |     G     |     0     |     0     |     19.78
+       G     |     G     |     L     |     L     |     8     |     0     |     24.76
+       G     |     G     |     L     |     L     |     0     |     0     |     24.76
+       G     |     G     |     L     |     G     |     8     |     0     |     17.07
+       G     |     G     |     L     |     G     |     0     |     0     |     17.07
+       G     |     G     |     G     |     L     |     8     |     0     |     22.83
+       G     |     G     |     G     |     L     |     0     |     0     |     22.83
+       G     |     G     |     G     |     G     |     8     |     0     |     20.73
+       G     |     G     |     G     |     G     |     0     |     0     |     20.73
+</pre><p > </p>
+
+</div>
+</div>
+<a id="ga310c4092bb03d98906e1983ca6a03a2b" name="ga310c4092bb03d98906e1983ca6a03a2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga310c4092bb03d98906e1983ca6a03a2b">&#9670;&#160;</a></span>FFT_Inv256Set6bit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FFT_Inv256Set6bit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Устанавливает 6-битную точность вычислений </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

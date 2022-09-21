@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл g:/nmpp/include/nmpls/fft_old.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6e6a648b8b7c120130a3d831b9450e3a.html">nmpls</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">fft_old.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//***************************************************************************/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//*                     RC Module Inc., Moscow, Russia                      */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//*                     NeuroMatrix(r) NM6403 Software                      */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//*                                                                         */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//*   Fast Fourie Transform Library                                         */</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//*  (C-callable functions)                                                 */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//*                                                                         */</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//*  $Workfile:: sFFT.h                                                    $*/</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//*  Contents:         Header file of FFT routines                          */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//*                                                                         */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//*                                                                         */</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//*  Author:     S.Mushkaev                                                 */</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//*                                                                         */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//*  Version         1.0                                                    */</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//*  Start    Date:  03.07.2001                                             */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">//*  Release $Date: 2005/07/13 14:19:56 $                                   */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">//*                                                                         */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">//*                                                                         */</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//***************************************************************************/</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">// LIBRARY  nmfft.lib</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#ifndef _SFFT_H_INCLUDED_</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#define _SFFT_H_INCLUDED_</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;<a class="code" href="nmtype_8h.html">nmtype.h</a>&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/* \mainpage Введение</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * \htmlinclude intro.html</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * \section intro_sec Introduction</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> * This is the introduction.</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * \section install_sec Installation</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * \subsection step1 Step 1: Opening the box</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * etc...</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"></span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">//*****************************************************************************</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">//*****************************************************************************</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">#ifndef _NMCMPLX_H_INCLUDED_</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">    struct nm32sc</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">    {</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">        int re;//Real;</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">        int im;//Imag;</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">        nm32sc():</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">            re(0),im(0){}; //Real(0),Imag(0){}</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">        nm32sc(int _Real,int _Imag):</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">            re(_Real),im(_Imag){};//Real(_Real),Imag(_Imag){}</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">    };</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">#endif //_NMCMPLX_H_INCLUDED_</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">//#include &quot;nmpp.h&quot;</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">// The functions listed below are forward and inversed FFT routines for</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">// 256,512,1024 or 2048-point compex data, represented as arrays of nm32sc type.</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">// Each complex number is stored in 64-bit word.</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">// The lower  32-bits is real part of complex number.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">// The higher 32-bits is imaginary part of complex number;</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">// The admissible input range of data depends on dimension of array,</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">// mode of calculation accuracy and on/off mode of intermediate and final scaling down (shift normalization) of results.</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">// This range guarantee against overflow during calculation process.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">// The table of ranges you may find in &quot;FFT Library Programmer&#39;s manual&quot;</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">//</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">// The mode of calculation accuracy tells how sine-cosine coeffecients are represented if fixed-point format.</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">// When the 7-bit accuracy mode is used, output shape accuracy approaches of the maximum,</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">// but output is reduced by around 2%.</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">// If the 6-bit accuracy mode is used, then output range corresponds to result of Fourie transform</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">// based on floating-point arithmetic, but output is less precise.</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">// The mode of calulation accuracy may be set or switched by appropriate ***Set6bit() or ***Set7bit() function</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">// NOTE: At least on time the accuracy setting function must be called before FFT routine executing.</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#include &quot;malloc32.h&quot;</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">//=============================  Forward FFT 256 =====================================</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="group___f_f_t256.html#gae596ac7611b0355299eecf9821a3b361">  126</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___f_f_t256.html#gae596ac7611b0355299eecf9821a3b361">FFT_Fwd256Set6bit</a>();   <span class="comment">// Sets 6-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="group___f_f_t256.html#ga78dbfcd2134bfb7052025a155c3212ce">  134</a></span><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___f_f_t256.html#ga78dbfcd2134bfb7052025a155c3212ce">FFT_Fwd256Set7bit</a>();   <span class="comment">// Sets 7-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">//                  The performance of the FFT_Fwd256 routine depends on memory allocation for</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">//                      input,output and temporary buffers.</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">//                      For the maximum speed performance it is recommended</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">//                      to use the following configuration:</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">//                          GSrcBuffer: Global SRAM</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">//                          LDstBuffer: Local  SRAM</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">//                          LBuffer   : Local  SRAM</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">//                          GBuffer   : Global SRAM</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">//</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">//                      For this configuration the following results were achieved:</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">//                          3994 clocks - full operation (0.1 ms at 40MHz CPU)</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">//                          3662 clocks - without final normalization (0.092ms at 40MHz CPU)</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">//</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">//                      If you are not going to use this routine as a C callable function,</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">//                      you can reduce the number of instructions removing all stack operations. In this case</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">//                      the total execution time can be reduced by around 50 clocks.</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="group___f_f_t256.html#ga1347e436142ede2e5e70e6b7add61911">  251</a></span><span class="keywordtype">void</span>  <a class="code hl_function" href="group___f_f_t256.html#ga1347e436142ede2e5e70e6b7add61911">FFT_Fwd256</a>(</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GSrcBuffer,     <span class="comment">// Source buffer :long[256]</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* LDstBuffer,     <span class="comment">// Result FFT    :long[256]</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[256*3]</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            <span class="keywordtype">void</span>*       GBuffer,    <span class="comment">// Temp buffer   :long[256*2]</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            <span class="keywordtype">int</span>         ShiftR=-1   <span class="comment">// Shift normalization  by default it means ShiftR=14 at 7 bit precision and   ShiftR=12 at 6 bit precision</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            );</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="preprocessor">#include &quot;time.h&quot;</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="preprocessor">#include &quot;malloc32.h&quot;</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="comment">//  int  nmppsFFT256FwdInitAlloc(Malloc32Func* allocate,  Free32Func* free, NmppsFFTSpec* spec);</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="comment">//  void nmppsFFT256FwdOptimize(void* src, void* dst, uint64* allocOrder);</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="comment">//  void nmppsFFT256Fwd(nm32sc* src, nm32sc* dst, NmppsFFTSpec* spec);</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="comment">//</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment">//  void nmppsFFTFree(NmppsFFTSpec* spec );</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>   <span class="comment">/*</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="comment">struct s_fft_fwd256_settings {</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="comment">    int8x8* dataSinCos0;</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="comment">    int     sizeSinCos0; // in int64</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="comment">    int     bitsSinCos0;</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="comment">    int     shift0;</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="comment">    int8x8* dataSinCos1;</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="comment">    int     sizeSinCos1; // in int64</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="comment">    int     bitsSinCos1;</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="comment">    int     shift1;</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="comment">};*/</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> <span class="comment">/*</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="comment"></span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="comment">s_fft_fwd256_settings s_fft256_default={0,1,1,1,0,1,1,1};</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="comment"></span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="comment">void FFT_Fwd256_ (</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="comment">    int32x2* pSrc,</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="comment">    int32x2* pDst,</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="comment">    int64* tmp0,</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="comment">    int64* tmp1,</span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="comment">    s_fft_fwd256_settings* s=&amp;s_fft256_default</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment">);</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno"><a class="line" href="group___i_f_f_t256.html#ga310c4092bb03d98906e1983ca6a03a2b">  312</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___i_f_f_t256.html#ga310c4092bb03d98906e1983ca6a03a2b">FFT_Inv256Set6bit</a>();   <span class="comment">// Sets 6-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno"><a class="line" href="group___i_f_f_t256.html#gaec72e2a67e73c3c0fac4c84756050326">  321</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___i_f_f_t256.html#gaec72e2a67e73c3c0fac4c84756050326">FFT_Inv256Set7bit</a>();   <span class="comment">// Sets 7-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno"><a class="line" href="group___i_f_f_t256.html#ga481de427b4a28ae163fbae32a64cd757">  446</a></span><span class="keywordtype">void</span>  <a class="code hl_function" href="group___i_f_f_t256.html#ga481de427b4a28ae163fbae32a64cd757">FFT_Inv256</a>(</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GSrcBuffer, <span class="comment">// Source buffer :long[256]</span></div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GDstBuffer, <span class="comment">// Result FFT    :long[256]</span></div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[256*3]</span></div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>            <span class="keywordtype">void</span>*       GBuffer,    <span class="comment">// Temp buffer   :long[256*3]</span></div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>            <span class="keywordtype">int</span>         ShiftR1=8,  <span class="comment">// Intermediate shift normalization</span></div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>            <span class="keywordtype">int</span>         ShiftR2=-1  <span class="comment">// Final shift normalization</span></div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>                                    <span class="comment">// by default it means ShiftR2=14 at 7 bit precision</span></div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>                                    <span class="comment">//               and   ShiftR2=12 at 6 bit precision</span></div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>            );</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span> </div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span> </div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span><span class="comment">//================================= FFT 512 =================================================</span></div>
+<div class="line"><a id="l00472" name="l00472"></a><span class="lineno"><a class="line" href="group___f_f_t512.html#gaf5f01bd5b3379dccc3ce47e429d2a21d">  472</a></span><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___f_f_t512.html#gaf5f01bd5b3379dccc3ce47e429d2a21d">FFT_Fwd512Set6bit</a>();<span class="comment">// Sets 6-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00480" name="l00480"></a><span class="lineno"><a class="line" href="group___f_f_t512.html#gab03810a3a24efd8b029a2068c219890b">  480</a></span><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___f_f_t512.html#gab03810a3a24efd8b029a2068c219890b">FFT_Fwd512Set7bit</a>();<span class="comment">// Sets 7-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00481" name="l00481"></a><span class="lineno">  481</span> </div>
+<div class="line"><a id="l00482" name="l00482"></a><span class="lineno">  482</span> </div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno"><a class="line" href="group___f_f_t512.html#gad8b3eae1a559f745242b8cb9ed8fe750">  577</a></span><span class="keywordtype">void</span>  <a class="code hl_function" href="group___f_f_t512.html#gad8b3eae1a559f745242b8cb9ed8fe750">FFT_Fwd512</a>(</div>
+<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GSrcBuffer, <span class="comment">// Source buffer :long[512]</span></div>
+<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GDstBuffer, <span class="comment">// Result FFT    :long[512]</span></div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[512*3]</span></div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>            <span class="keywordtype">void</span>*       GBuffer,    <span class="comment">// Temp buffer   :long[512*3]</span></div>
+<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span>            <span class="keywordtype">int</span>         ShiftR=-1   <span class="comment">// Right shift normalization</span></div>
+<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>            );</div>
+<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span><span class="comment">//                  \en The performance of the FFT_Fwd512 routine depends on memory allocation for</span></div>
+<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span><span class="comment">//                      input,output and temporary buffers.</span></div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span><span class="comment">//                      For the maximum speed performance it is recommended</span></div>
+<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span><span class="comment">//                      to use the following configuration:</span></div>
+<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span><span class="comment">//                          GSrcBuffer: Global SRAM</span></div>
+<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span><span class="comment">//                          GDstBuffer: Local  SRAM</span></div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span><span class="comment">//                          LBuffer   : Local  SRAM</span></div>
+<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span><span class="comment">//                          GBuffer   : Global SRAM</span></div>
+<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span><span class="comment">//</span></div>
+<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span><span class="comment">//                      For this configuration the following results were achieved:</span></div>
+<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span><span class="comment">//                          8766 clocks - full operation        (0.22 ms at 40MHz CPU)</span></div>
+<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span><span class="comment">//                          8180 clocks - without normalization (0.2 ms at 40MHz CPU)</span></div>
+<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span><span class="comment">//</span></div>
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span><span class="comment">//                      If you are not going to use this routine as a C callable function,</span></div>
+<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span><span class="comment">//                      you can reduce the number of instructions removing all stack operations. In this case</span></div>
+<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span><span class="comment">//                      the total execution time can be reduced by around 50 clocks.</span></div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span> </div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span><span class="comment">//======================================= Inversed FFT 512 ============================================</span></div>
+<div class="line"><a id="l00614" name="l00614"></a><span class="lineno"><a class="line" href="group___i_f_f_t512.html#ga12e3c44dc820f39dc1ba92c3e511d46f">  614</a></span><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___i_f_f_t512.html#ga12e3c44dc820f39dc1ba92c3e511d46f">FFT_Inv512Set6bit</a>();<span class="comment">// Sets 6-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno"><a class="line" href="group___i_f_f_t512.html#ga7378a47a50f6fa5e84e4a322b8f09718">  622</a></span><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___i_f_f_t512.html#ga7378a47a50f6fa5e84e4a322b8f09718">FFT_Inv512Set7bit</a>();<span class="comment">// Sets 7-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span> </div>
+<div class="line"><a id="l00745" name="l00745"></a><span class="lineno"><a class="line" href="group___i_f_f_t512.html#ga5dd564b0de9aded29f945159476390d6">  745</a></span><span class="keywordtype">void</span>  <a class="code hl_function" href="group___i_f_f_t512.html#ga5dd564b0de9aded29f945159476390d6">FFT_Inv512</a>(</div>
+<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GSrcBuffer, <span class="comment">// Source buffer :long[512]</span></div>
+<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* LDstBuffer, <span class="comment">// Result FFT    :long[512]</span></div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[512*3]</span></div>
+<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>            <span class="keywordtype">void</span>*       GBuffer,    <span class="comment">// Temp buffer   :long[512*3]</span></div>
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>            <span class="keywordtype">int</span>         ShiftR1=9,  <span class="comment">// First shift normalization</span></div>
+<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>            <span class="keywordtype">int</span>         ShiftR2=-1  <span class="comment">// Final shift normalization</span></div>
+<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>            );</div>
+<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span><span class="comment">//          \en The performance of the FFT_Fwd256 routine depends on memory allocation for</span></div>
+<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span><span class="comment">//                  input,output and temporary buffers.</span></div>
+<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span><span class="comment">//                  For the maximum speed performance it is recommended</span></div>
+<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span><span class="comment">//                  to use the following configuration:</span></div>
+<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span><span class="comment">//                      GSrcBuffer: Global SRAM</span></div>
+<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span><span class="comment">//                      LDstBuffer: Local  SRAM</span></div>
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span><span class="comment">//                      LBuffer   : Local  SRAM</span></div>
+<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span><span class="comment">//                      GBuffer   : Global SRAM</span></div>
+<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span><span class="comment">//</span></div>
+<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span><span class="comment">//                  For this configuration the following results were achieved:</span></div>
+<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span><span class="comment">//                      9407 clocks - full operation (0.24ms at 40MHz CPU)</span></div>
+<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span><span class="comment">//                      8199 clocks - without normalization (0.2ms at 40Mhz CPU)</span></div>
+<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span><span class="comment">//</span></div>
+<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span><span class="comment">//                  If you are not going to use this routine as a C callable function,</span></div>
+<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span><span class="comment">//                  you can reduce the number of instructions removing all stack operations. In this case</span></div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span><span class="comment">//                  the total execution time can be reduced by around 50 clocks.</span></div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span> </div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span> </div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span><span class="comment">//========================================= FFT1024 ==================================================</span></div>
+<div class="line"><a id="l00784" name="l00784"></a><span class="lineno"><a class="line" href="group___f_f_t1024.html#ga03b032067cfccbebbd7b6929f157b168">  784</a></span><span class="comment"></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="group___f_f_t1024.html#ga03b032067cfccbebbd7b6929f157b168">FFT_Fwd1024Set6bit</a>();<span class="comment">// Sets 6-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno"><a class="line" href="group___f_f_t1024.html#gaa88c7a0af1ebbdd1fb691784df7be770">  793</a></span><span class="comment"></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="group___f_f_t1024.html#gaa88c7a0af1ebbdd1fb691784df7be770">FFT_Fwd1024Set7bit</a>();<span class="comment">// Sets 7-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span> </div>
+<div class="line"><a id="l00886" name="l00886"></a><span class="lineno"><a class="line" href="group___f_f_t1024.html#gaacb11df7725ef91399c6e9d1ae70bca5">  886</a></span><span class="keywordtype">void</span>  <a class="code hl_function" href="group___f_f_t1024.html#gaacb11df7725ef91399c6e9d1ae70bca5">FFT_Fwd1024</a>(</div>
+<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GSrcBuffer, <span class="comment">// Source buffer :long[1024]</span></div>
+<div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* LDstBuffer, <span class="comment">// Result FFT    :long[1024]</span></div>
+<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[1024*3]</span></div>
+<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span>            <span class="keywordtype">void</span>*       GBuffer,    <span class="comment">// Temp buffer   :long[1024]</span></div>
+<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span>            <span class="keywordtype">int</span>         ShiftR=-1   <span class="comment">// Right shift normalization</span></div>
+<div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span>            );</div>
+<div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span><span class="comment">//          \en The performance of the FFT_Fwd1024 routine depends on memory allocation for</span></div>
+<div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span><span class="comment">//                  input,output and temporary buffers.</span></div>
+<div class="line"><a id="l00895" name="l00895"></a><span class="lineno">  895</span><span class="comment">//                  For the maximum speed performance it is recommended</span></div>
+<div class="line"><a id="l00896" name="l00896"></a><span class="lineno">  896</span><span class="comment">//                  to use the following configuration:</span></div>
+<div class="line"><a id="l00897" name="l00897"></a><span class="lineno">  897</span><span class="comment">//                      GSrcBuffer: Global SRAM</span></div>
+<div class="line"><a id="l00898" name="l00898"></a><span class="lineno">  898</span><span class="comment">//                      LDstBuffer: Local  SRAM</span></div>
+<div class="line"><a id="l00899" name="l00899"></a><span class="lineno">  899</span><span class="comment">//                      LBuffer   : Local  SRAM</span></div>
+<div class="line"><a id="l00900" name="l00900"></a><span class="lineno">  900</span><span class="comment">//                      GBuffer   : Global SRAM</span></div>
+<div class="line"><a id="l00901" name="l00901"></a><span class="lineno">  901</span><span class="comment">//</span></div>
+<div class="line"><a id="l00902" name="l00902"></a><span class="lineno">  902</span><span class="comment">//                  For this configuration the following results were achieved:</span></div>
+<div class="line"><a id="l00903" name="l00903"></a><span class="lineno">  903</span><span class="comment">//                      20041 clocks - full operation       (0.5ms at 40MHz CPU)</span></div>
+<div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span><span class="comment">//                      18900 clocks - without normalization (0.47ms at 40MHz CPU)</span></div>
+<div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span><span class="comment">//</span></div>
+<div class="line"><a id="l00906" name="l00906"></a><span class="lineno">  906</span><span class="comment">//                  If you are not going to use this routine as a C callable function,</span></div>
+<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span><span class="comment">//                  you can reduce the number of instructions removing all stack operations. In this case</span></div>
+<div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span><span class="comment">//                  the total execution time can be reduced by around 50 clocks.</span></div>
+<div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span> </div>
+<div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span><span class="comment">//============================================= Inversed FFT 1024 =======================================</span></div>
+<div class="line"><a id="l00923" name="l00923"></a><span class="lineno"><a class="line" href="group___i_f_f_t1024.html#ga21057138195e8e833d5a59778747c98d">  923</a></span><span class="comment"></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="group___i_f_f_t1024.html#ga21057138195e8e833d5a59778747c98d">FFT_Inv1024Set6bit</a>();<span class="comment">// Sets 6-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00931" name="l00931"></a><span class="lineno"><a class="line" href="group___i_f_f_t1024.html#gaf50d48bd2d5838575c3741462e674d6a">  931</a></span><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___i_f_f_t1024.html#gaf50d48bd2d5838575c3741462e674d6a">FFT_Inv1024Set7bit</a>();<span class="comment">// Sets 7-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l00932" name="l00932"></a><span class="lineno">  932</span> </div>
+<div class="line"><a id="l01056" name="l01056"></a><span class="lineno"><a class="line" href="group___i_f_f_t1024.html#gabce0ff3f2f0792567de41b147544a845"> 1056</a></span><span class="keywordtype">void</span>  <a class="code hl_function" href="group___i_f_f_t1024.html#gabce0ff3f2f0792567de41b147544a845">FFT_Inv1024</a>(</div>
+<div class="line"><a id="l01057" name="l01057"></a><span class="lineno"> 1057</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GSrcBuffer, <span class="comment">// Source buffer :long[1024]</span></div>
+<div class="line"><a id="l01058" name="l01058"></a><span class="lineno"> 1058</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GDstBuffer, <span class="comment">// Result FFT    :long[1024]</span></div>
+<div class="line"><a id="l01059" name="l01059"></a><span class="lineno"> 1059</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[1024*3]</span></div>
+<div class="line"><a id="l01060" name="l01060"></a><span class="lineno"> 1060</span>            <span class="keywordtype">void</span>*       GBuffer,    <span class="comment">// Temp buffer   :long[1024*3]</span></div>
+<div class="line"><a id="l01061" name="l01061"></a><span class="lineno"> 1061</span>            <span class="keywordtype">int</span>         ShiftR1=10, <span class="comment">// First Right shift normalization</span></div>
+<div class="line"><a id="l01062" name="l01062"></a><span class="lineno"> 1062</span>            <span class="keywordtype">int</span>         ShiftR2=-1  <span class="comment">// Final Right shift normalization</span></div>
+<div class="line"><a id="l01063" name="l01063"></a><span class="lineno"> 1063</span>            );</div>
+<div class="line"><a id="l01064" name="l01064"></a><span class="lineno"> 1064</span> </div>
+<div class="line"><a id="l01065" name="l01065"></a><span class="lineno"> 1065</span><span class="comment">//          \en The performance of the FFT_Fwd2048 routine depends on memory allocation for</span></div>
+<div class="line"><a id="l01066" name="l01066"></a><span class="lineno"> 1066</span><span class="comment">//                  input,output and temporary buffers.</span></div>
+<div class="line"><a id="l01067" name="l01067"></a><span class="lineno"> 1067</span><span class="comment">//                  For the maximum speed performance it is recommended</span></div>
+<div class="line"><a id="l01068" name="l01068"></a><span class="lineno"> 1068</span><span class="comment">//                  to use the following configuration:</span></div>
+<div class="line"><a id="l01069" name="l01069"></a><span class="lineno"> 1069</span><span class="comment">//                      GSrcBuffer: Global SRAM</span></div>
+<div class="line"><a id="l01070" name="l01070"></a><span class="lineno"> 1070</span><span class="comment">//                      LDstBuffer: Local  SRAM</span></div>
+<div class="line"><a id="l01071" name="l01071"></a><span class="lineno"> 1071</span><span class="comment">//                      LBuffer   : Local  SRAM</span></div>
+<div class="line"><a id="l01072" name="l01072"></a><span class="lineno"> 1072</span><span class="comment">//</span></div>
+<div class="line"><a id="l01073" name="l01073"></a><span class="lineno"> 1073</span><span class="comment">//                  For this configuration the following results were achieved:</span></div>
+<div class="line"><a id="l01074" name="l01074"></a><span class="lineno"> 1074</span><span class="comment">//                      49800 clocks - full operation (1.25ms at 40 MHz CPU)</span></div>
+<div class="line"><a id="l01075" name="l01075"></a><span class="lineno"> 1075</span><span class="comment">//                      47624 clocks - without normalization (1.2ms at 40 MHz CPU)</span></div>
+<div class="line"><a id="l01076" name="l01076"></a><span class="lineno"> 1076</span><span class="comment">//</span></div>
+<div class="line"><a id="l01077" name="l01077"></a><span class="lineno"> 1077</span><span class="comment">//                  If you are not going to use this routine as a C callable function,</span></div>
+<div class="line"><a id="l01078" name="l01078"></a><span class="lineno"> 1078</span><span class="comment">//                  you can reduce the number of instructions removing all stack operations. In this case</span></div>
+<div class="line"><a id="l01079" name="l01079"></a><span class="lineno"> 1079</span><span class="comment">//                  the total execution time can be reduced by around 50 clocks.</span></div>
+<div class="line"><a id="l01080" name="l01080"></a><span class="lineno"> 1080</span> </div>
+<div class="line"><a id="l01081" name="l01081"></a><span class="lineno"> 1081</span><span class="comment">//============================================ FFT2048 ============================================</span></div>
+<div class="line"><a id="l01087" name="l01087"></a><span class="lineno"> 1087</span><span class="comment"></span>    <span class="comment">// Forward FFT 2048</span></div>
+<div class="line"><a id="l01095" name="l01095"></a><span class="lineno"><a class="line" href="group___f_f_t2048.html#ga6573079a7df2d302814dfd68cb7234ab"> 1095</a></span><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___f_f_t2048.html#ga6573079a7df2d302814dfd68cb7234ab">FFT_Fwd2048Set6bit</a>();<span class="comment">// Sets 6-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l01103" name="l01103"></a><span class="lineno"><a class="line" href="group___f_f_t2048.html#ga34f87327c4b6f472ed18166fb9d9bb84"> 1103</a></span><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___f_f_t2048.html#ga34f87327c4b6f472ed18166fb9d9bb84">FFT_Fwd2048Set7bit</a>();<span class="comment">// Sets 7-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l01104" name="l01104"></a><span class="lineno"> 1104</span> </div>
+<div class="line"><a id="l01177" name="l01177"></a><span class="lineno"><a class="line" href="group___f_f_t2048.html#gadea88f164eacfc9381f49886f16c7779"> 1177</a></span><span class="keywordtype">void</span>  <a class="code hl_function" href="group___f_f_t2048.html#gadea88f164eacfc9381f49886f16c7779">FFT_Fwd2048</a>(</div>
+<div class="line"><a id="l01178" name="l01178"></a><span class="lineno"> 1178</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GSrcBuffer, <span class="comment">// Source buffer :long[2048]</span></div>
+<div class="line"><a id="l01179" name="l01179"></a><span class="lineno"> 1179</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GDstBuffer, <span class="comment">// Result FFT    :long[2048]</span></div>
+<div class="line"><a id="l01180" name="l01180"></a><span class="lineno"> 1180</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[2048*4]</span></div>
+<div class="line"><a id="l01181" name="l01181"></a><span class="lineno"> 1181</span>            <span class="keywordtype">int</span>         ShiftR=-1   <span class="comment">// Right shift normalization</span></div>
+<div class="line"><a id="l01182" name="l01182"></a><span class="lineno"> 1182</span>            );</div>
+<div class="line"><a id="l01183" name="l01183"></a><span class="lineno"> 1183</span><span class="comment">//          \en The performance of the FFT_Fwd2048 routine depends on memory allocation for</span></div>
+<div class="line"><a id="l01184" name="l01184"></a><span class="lineno"> 1184</span><span class="comment">//                  input,output and temporary buffers.</span></div>
+<div class="line"><a id="l01185" name="l01185"></a><span class="lineno"> 1185</span><span class="comment">//                  For the maximum speed performance it is recommended</span></div>
+<div class="line"><a id="l01186" name="l01186"></a><span class="lineno"> 1186</span><span class="comment">//                  to use the following configuration:</span></div>
+<div class="line"><a id="l01187" name="l01187"></a><span class="lineno"> 1187</span><span class="comment">//                      GSrcBuffer: Global SRAM</span></div>
+<div class="line"><a id="l01188" name="l01188"></a><span class="lineno"> 1188</span><span class="comment">//                      LDstBuffer: Local  SRAM</span></div>
+<div class="line"><a id="l01189" name="l01189"></a><span class="lineno"> 1189</span><span class="comment">//                      LBuffer   : Local  SRAM</span></div>
+<div class="line"><a id="l01190" name="l01190"></a><span class="lineno"> 1190</span><span class="comment">//</span></div>
+<div class="line"><a id="l01191" name="l01191"></a><span class="lineno"> 1191</span><span class="comment">//                  For this configuration the following results were achieved:</span></div>
+<div class="line"><a id="l01192" name="l01192"></a><span class="lineno"> 1192</span><span class="comment">//                      49800 clocks - full operation (1.25ms at 40 MHz CPU)</span></div>
+<div class="line"><a id="l01193" name="l01193"></a><span class="lineno"> 1193</span><span class="comment">//                      47624 clocks - without normalization (1.2ms at 40 MHz CPU)</span></div>
+<div class="line"><a id="l01194" name="l01194"></a><span class="lineno"> 1194</span><span class="comment">//</span></div>
+<div class="line"><a id="l01195" name="l01195"></a><span class="lineno"> 1195</span><span class="comment">//                  If you are not going to use this routine as a C callable function,</span></div>
+<div class="line"><a id="l01196" name="l01196"></a><span class="lineno"> 1196</span><span class="comment">//                  you can reduce the number of instructions removing all stack operations. In this case</span></div>
+<div class="line"><a id="l01197" name="l01197"></a><span class="lineno"> 1197</span><span class="comment">//                  the total execution time can be reduced by around 50 clocks.</span></div>
+<div class="line"><a id="l01198" name="l01198"></a><span class="lineno"> 1198</span> </div>
+<div class="line"><a id="l01199" name="l01199"></a><span class="lineno"> 1199</span><span class="comment">//=========================================== Inversed FFT 2048 ==================================</span></div>
+<div class="line"><a id="l01212" name="l01212"></a><span class="lineno"><a class="line" href="group___i_f_f_t2048.html#ga81ce19cd0589ba1e8d68754a740c028e"> 1212</a></span><span class="comment"></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="group___i_f_f_t2048.html#ga81ce19cd0589ba1e8d68754a740c028e">FFT_Inv2048Set6bit</a>();<span class="comment">// Sets 6-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l01220" name="l01220"></a><span class="lineno"><a class="line" href="group___i_f_f_t2048.html#ga387e03ce2cd2acdca47219e5177ee761"> 1220</a></span><span class="comment"></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="group___i_f_f_t2048.html#ga387e03ce2cd2acdca47219e5177ee761">FFT_Inv2048Set7bit</a>();<span class="comment">// Sets 7-bit accuracy of sin-cosine coefficients</span></div>
+<div class="line"><a id="l01221" name="l01221"></a><span class="lineno"> 1221</span> </div>
+<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"><a class="line" href="group___i_f_f_t2048.html#ga3c6033d1a353f0e9236492bf68880803"> 1344</a></span><span class="keywordtype">void</span>  <a class="code hl_function" href="group___i_f_f_t2048.html#ga3c6033d1a353f0e9236492bf68880803">FFT_Inv2048</a>(</div>
+<div class="line"><a id="l01345" name="l01345"></a><span class="lineno"> 1345</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GSrcBuffer, <span class="comment">// Source buffer :long[2048]</span></div>
+<div class="line"><a id="l01346" name="l01346"></a><span class="lineno"> 1346</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* LDstBuffer, <span class="comment">// Result FFT    :long[2048]</span></div>
+<div class="line"><a id="l01347" name="l01347"></a><span class="lineno"> 1347</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[2048*4]</span></div>
+<div class="line"><a id="l01348" name="l01348"></a><span class="lineno"> 1348</span>            <span class="keywordtype">void</span>*       GBuffer,    <span class="comment">// Temp buffer   :long[2048*4]</span></div>
+<div class="line"><a id="l01349" name="l01349"></a><span class="lineno"> 1349</span>            <span class="keywordtype">int</span>         ShiftR1=11, <span class="comment">// First Right shift normalization</span></div>
+<div class="line"><a id="l01350" name="l01350"></a><span class="lineno"> 1350</span>            <span class="keywordtype">int</span>         ShiftR2=-1  <span class="comment">// Final Right shift normalization</span></div>
+<div class="line"><a id="l01351" name="l01351"></a><span class="lineno"> 1351</span>            );</div>
+<div class="line"><a id="l01352" name="l01352"></a><span class="lineno"> 1352</span><span class="comment">//          \en The performance of the FFT_Fwd256 routine depends on memory allocation for</span></div>
+<div class="line"><a id="l01353" name="l01353"></a><span class="lineno"> 1353</span><span class="comment">//                  input,output and temporary buffers.</span></div>
+<div class="line"><a id="l01354" name="l01354"></a><span class="lineno"> 1354</span><span class="comment">//                  For the maximum speed performance it is recommended</span></div>
+<div class="line"><a id="l01355" name="l01355"></a><span class="lineno"> 1355</span><span class="comment">//                  to use the following configuration:</span></div>
+<div class="line"><a id="l01356" name="l01356"></a><span class="lineno"> 1356</span><span class="comment">//                      GSrcBuffer: Global SRAM</span></div>
+<div class="line"><a id="l01357" name="l01357"></a><span class="lineno"> 1357</span><span class="comment">//                      LDstBuffer: Local SRAM</span></div>
+<div class="line"><a id="l01358" name="l01358"></a><span class="lineno"> 1358</span><span class="comment">//                      LBuffer   : Local  SRAM</span></div>
+<div class="line"><a id="l01359" name="l01359"></a><span class="lineno"> 1359</span><span class="comment">//                      GBuffer   : Global SRAM</span></div>
+<div class="line"><a id="l01360" name="l01360"></a><span class="lineno"> 1360</span><span class="comment">//</span></div>
+<div class="line"><a id="l01361" name="l01361"></a><span class="lineno"> 1361</span><span class="comment">//                  For this configuration the following results were achieved:</span></div>
+<div class="line"><a id="l01362" name="l01362"></a><span class="lineno"> 1362</span><span class="comment">//                      52160 clocks - full operation (1.3 ms at 40MHz CPU)</span></div>
+<div class="line"><a id="l01363" name="l01363"></a><span class="lineno"> 1363</span><span class="comment">//                      47780 clocks - without both normalizations (1.2ms at 40MHz CPU)</span></div>
+<div class="line"><a id="l01364" name="l01364"></a><span class="lineno"> 1364</span><span class="comment">//</span></div>
+<div class="line"><a id="l01365" name="l01365"></a><span class="lineno"> 1365</span><span class="comment">//                  If you are not going to use this routine as a C callable function,</span></div>
+<div class="line"><a id="l01366" name="l01366"></a><span class="lineno"> 1366</span><span class="comment">//                  you can reduce the number of instructions removing all stack operations. In this case</span></div>
+<div class="line"><a id="l01367" name="l01367"></a><span class="lineno"> 1367</span><span class="comment">//                  the total execution time can be reduced by around 50 clocks.#include &quot;nmfft.h&quot;</span></div>
+<div class="line"><a id="l01368" name="l01368"></a><span class="lineno"> 1368</span> </div>
+<div class="line"><a id="l01369" name="l01369"></a><span class="lineno"> 1369</span><span class="comment">//============================================ FFT4096 ============================================</span></div>
+<div class="line"><a id="l01375" name="l01375"></a><span class="lineno"> 1375</span><span class="comment"></span>    <span class="comment">// Forward FFT 4096</span></div>
+<div class="line"><a id="l01376" name="l01376"></a><span class="lineno"> 1376</span> </div>
+<div class="line"><a id="l01429" name="l01429"></a><span class="lineno"><a class="line" href="group___f_f_t4096.html#gaba3d24530b39fb448ed54494d98691c8"> 1429</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___f_f_t4096.html#gaba3d24530b39fb448ed54494d98691c8">FFT_Fwd4096</a>(</div>
+<div class="line"><a id="l01430" name="l01430"></a><span class="lineno"> 1430</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GSrcBuffer,     <span class="comment">// Source buffer :long[4096]</span></div>
+<div class="line"><a id="l01431" name="l01431"></a><span class="lineno"> 1431</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GDstBuffer,     <span class="comment">// Result FFT    :long[4096]</span></div>
+<div class="line"><a id="l01432" name="l01432"></a><span class="lineno"> 1432</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[4096*2]</span></div>
+<div class="line"><a id="l01433" name="l01433"></a><span class="lineno"> 1433</span>            <span class="keywordtype">void</span>*       GBuffer     <span class="comment">// Temp buffer   :long[4096*3]</span></div>
+<div class="line"><a id="l01434" name="l01434"></a><span class="lineno"> 1434</span>            );</div>
+<div class="line"><a id="l01435" name="l01435"></a><span class="lineno"> 1435</span> </div>
+<div class="line"><a id="l01436" name="l01436"></a><span class="lineno"> 1436</span><span class="comment">//=========================================== Inversed FFT 4096 ==================================</span></div>
+<div class="line"><a id="l01494" name="l01494"></a><span class="lineno"><a class="line" href="group___i_f_f_t4096.html#ga51f06ae88b08ccf7dcf5b69c4c69e2fd"> 1494</a></span><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___i_f_f_t4096.html#ga51f06ae88b08ccf7dcf5b69c4c69e2fd">FFT_Inv4096</a>(</div>
+<div class="line"><a id="l01495" name="l01495"></a><span class="lineno"> 1495</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GSrcBuffer,     <span class="comment">// Source buffer :long[4096]</span></div>
+<div class="line"><a id="l01496" name="l01496"></a><span class="lineno"> 1496</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GDstBuffer,     <span class="comment">// Result FFT    :long[4096]</span></div>
+<div class="line"><a id="l01497" name="l01497"></a><span class="lineno"> 1497</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[4096*2]</span></div>
+<div class="line"><a id="l01498" name="l01498"></a><span class="lineno"> 1498</span>            <span class="keywordtype">void</span>*       GBuffer     <span class="comment">// Temp buffer   :long[4096*3]</span></div>
+<div class="line"><a id="l01499" name="l01499"></a><span class="lineno"> 1499</span>            );</div>
+<div class="line"><a id="l01500" name="l01500"></a><span class="lineno"> 1500</span> </div>
+<div class="line"><a id="l01501" name="l01501"></a><span class="lineno"> 1501</span><span class="comment">//============================================ FFT8192 ============================================</span></div>
+<div class="line"><a id="l01507" name="l01507"></a><span class="lineno"> 1507</span><span class="comment"></span>    <span class="comment">// Forward FFT 8192</span></div>
+<div class="line"><a id="l01508" name="l01508"></a><span class="lineno"> 1508</span> </div>
+<div class="line"><a id="l01563" name="l01563"></a><span class="lineno"><a class="line" href="group___f_f_t8192.html#ga5276bdce146878baf9f752509a8e85c7"> 1563</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___f_f_t8192.html#ga5276bdce146878baf9f752509a8e85c7">FFT_Fwd8192</a>(</div>
+<div class="line"><a id="l01564" name="l01564"></a><span class="lineno"> 1564</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* LSrcBuffer,     <span class="comment">// Source buffer :long[8192]</span></div>
+<div class="line"><a id="l01565" name="l01565"></a><span class="lineno"> 1565</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GDstBuffer,     <span class="comment">// Result FFT    :long[8192]</span></div>
+<div class="line"><a id="l01566" name="l01566"></a><span class="lineno"> 1566</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[8192]</span></div>
+<div class="line"><a id="l01567" name="l01567"></a><span class="lineno"> 1567</span>            <span class="keywordtype">void</span>*       GBuffer     <span class="comment">// Temp buffer   :long[8192*3]</span></div>
+<div class="line"><a id="l01568" name="l01568"></a><span class="lineno"> 1568</span>            );</div>
+<div class="line"><a id="l01569" name="l01569"></a><span class="lineno"> 1569</span> </div>
+<div class="line"><a id="l01570" name="l01570"></a><span class="lineno"> 1570</span><span class="comment">//=========================================== Inversed FFT 8192 ==================================</span></div>
+<div class="line"><a id="l01629" name="l01629"></a><span class="lineno"><a class="line" href="group___i_f_f_t8192.html#gab0b3af41c728e390736c298e1e4e8c81"> 1629</a></span><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___i_f_f_t8192.html#gab0b3af41c728e390736c298e1e4e8c81">FFT_Inv8192</a>(</div>
+<div class="line"><a id="l01630" name="l01630"></a><span class="lineno"> 1630</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* LSrcBuffer,     <span class="comment">// Source buffer :long[8192]</span></div>
+<div class="line"><a id="l01631" name="l01631"></a><span class="lineno"> 1631</span>            <a class="code hl_struct" href="structs__nm32sc.html">nm32sc</a>* GDstBuffer,     <span class="comment">// Result FFT    :long[8192]</span></div>
+<div class="line"><a id="l01632" name="l01632"></a><span class="lineno"> 1632</span>            <span class="keywordtype">void</span>*       LBuffer,    <span class="comment">// Temp buffer   :long[8192]</span></div>
+<div class="line"><a id="l01633" name="l01633"></a><span class="lineno"> 1633</span>            <span class="keywordtype">void</span>*       GBuffer     <span class="comment">// Temp buffer   :long[8192*3]</span></div>
+<div class="line"><a id="l01634" name="l01634"></a><span class="lineno"> 1634</span>            );</div>
+<div class="line"><a id="l01635" name="l01635"></a><span class="lineno"> 1635</span> </div>
+<div class="line"><a id="l01636" name="l01636"></a><span class="lineno"> 1636</span> </div>
+<div class="line"><a id="l01637" name="l01637"></a><span class="lineno"> 1637</span> </div>
+<div class="line"><a id="l01638" name="l01638"></a><span class="lineno"> 1638</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l01639" name="l01639"></a><span class="lineno"> 1639</span>        };</div>
+<div class="line"><a id="l01640" name="l01640"></a><span class="lineno"> 1640</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l01641" name="l01641"></a><span class="lineno"> 1641</span> </div>
+<div class="line"><a id="l01642" name="l01642"></a><span class="lineno"> 1642</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="agroup___f_f_t1024_html_ga03b032067cfccbebbd7b6929f157b168"><div class="ttname"><a href="group___f_f_t1024.html#ga03b032067cfccbebbd7b6929f157b168">FFT_Fwd1024Set6bit</a></div><div class="ttdeci">void FFT_Fwd1024Set6bit()</div><div class="ttdoc">Устанавливает 6-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___f_f_t1024_html_gaa88c7a0af1ebbdd1fb691784df7be770"><div class="ttname"><a href="group___f_f_t1024.html#gaa88c7a0af1ebbdd1fb691784df7be770">FFT_Fwd1024Set7bit</a></div><div class="ttdeci">void FFT_Fwd1024Set7bit()</div><div class="ttdoc">Устанавливает 7-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___f_f_t1024_html_gaacb11df7725ef91399c6e9d1ae70bca5"><div class="ttname"><a href="group___f_f_t1024.html#gaacb11df7725ef91399c6e9d1ae70bca5">FFT_Fwd1024</a></div><div class="ttdeci">void FFT_Fwd1024(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR=-1)</div><div class="ttdoc">Прямое быстрое преобразование Фурье-1024.</div></div>
+<div class="ttc" id="agroup___f_f_t2048_html_ga34f87327c4b6f472ed18166fb9d9bb84"><div class="ttname"><a href="group___f_f_t2048.html#ga34f87327c4b6f472ed18166fb9d9bb84">FFT_Fwd2048Set7bit</a></div><div class="ttdeci">void FFT_Fwd2048Set7bit()</div><div class="ttdoc">Устанавливает 7-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___f_f_t2048_html_ga6573079a7df2d302814dfd68cb7234ab"><div class="ttname"><a href="group___f_f_t2048.html#ga6573079a7df2d302814dfd68cb7234ab">FFT_Fwd2048Set6bit</a></div><div class="ttdeci">void FFT_Fwd2048Set6bit()</div><div class="ttdoc">Устанавливает 6-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___f_f_t2048_html_gadea88f164eacfc9381f49886f16c7779"><div class="ttname"><a href="group___f_f_t2048.html#gadea88f164eacfc9381f49886f16c7779">FFT_Fwd2048</a></div><div class="ttdeci">void FFT_Fwd2048(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, int ShiftR=-1)</div><div class="ttdoc">Прямое быстрое преобразование Фурье-2048.</div></div>
+<div class="ttc" id="agroup___f_f_t256_html_ga1347e436142ede2e5e70e6b7add61911"><div class="ttname"><a href="group___f_f_t256.html#ga1347e436142ede2e5e70e6b7add61911">FFT_Fwd256</a></div><div class="ttdeci">void FFT_Fwd256(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR=-1)</div><div class="ttdoc">Прямое быстрое преобразование Фурье-256.</div></div>
+<div class="ttc" id="agroup___f_f_t256_html_ga78dbfcd2134bfb7052025a155c3212ce"><div class="ttname"><a href="group___f_f_t256.html#ga78dbfcd2134bfb7052025a155c3212ce">FFT_Fwd256Set7bit</a></div><div class="ttdeci">void FFT_Fwd256Set7bit()</div><div class="ttdoc">Устанавливает 7-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___f_f_t256_html_gae596ac7611b0355299eecf9821a3b361"><div class="ttname"><a href="group___f_f_t256.html#gae596ac7611b0355299eecf9821a3b361">FFT_Fwd256Set6bit</a></div><div class="ttdeci">void FFT_Fwd256Set6bit()</div><div class="ttdoc">Устанавливает 6-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___f_f_t4096_html_gaba3d24530b39fb448ed54494d98691c8"><div class="ttname"><a href="group___f_f_t4096.html#gaba3d24530b39fb448ed54494d98691c8">FFT_Fwd4096</a></div><div class="ttdeci">void FFT_Fwd4096(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer)</div><div class="ttdoc">Прямое быстрое преобразование Фурье-4096.</div></div>
+<div class="ttc" id="agroup___f_f_t512_html_gab03810a3a24efd8b029a2068c219890b"><div class="ttname"><a href="group___f_f_t512.html#gab03810a3a24efd8b029a2068c219890b">FFT_Fwd512Set7bit</a></div><div class="ttdeci">void FFT_Fwd512Set7bit()</div><div class="ttdoc">Устанавливает 7-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___f_f_t512_html_gad8b3eae1a559f745242b8cb9ed8fe750"><div class="ttname"><a href="group___f_f_t512.html#gad8b3eae1a559f745242b8cb9ed8fe750">FFT_Fwd512</a></div><div class="ttdeci">void FFT_Fwd512(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer, int ShiftR=-1)</div><div class="ttdoc">Прямое быстрое преобразование Фурье-512.</div></div>
+<div class="ttc" id="agroup___f_f_t512_html_gaf5f01bd5b3379dccc3ce47e429d2a21d"><div class="ttname"><a href="group___f_f_t512.html#gaf5f01bd5b3379dccc3ce47e429d2a21d">FFT_Fwd512Set6bit</a></div><div class="ttdeci">void FFT_Fwd512Set6bit()</div><div class="ttdoc">Устанавливает 6-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___f_f_t8192_html_ga5276bdce146878baf9f752509a8e85c7"><div class="ttname"><a href="group___f_f_t8192.html#ga5276bdce146878baf9f752509a8e85c7">FFT_Fwd8192</a></div><div class="ttdeci">void FFT_Fwd8192(nm32sc *LSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer)</div><div class="ttdoc">Прямое быстрое преобразование Фурье-8192.</div></div>
+<div class="ttc" id="agroup___i_f_f_t1024_html_ga21057138195e8e833d5a59778747c98d"><div class="ttname"><a href="group___i_f_f_t1024.html#ga21057138195e8e833d5a59778747c98d">FFT_Inv1024Set6bit</a></div><div class="ttdeci">void FFT_Inv1024Set6bit()</div><div class="ttdoc">Устанавливает 6-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___i_f_f_t1024_html_gabce0ff3f2f0792567de41b147544a845"><div class="ttname"><a href="group___i_f_f_t1024.html#gabce0ff3f2f0792567de41b147544a845">FFT_Inv1024</a></div><div class="ttdeci">void FFT_Inv1024(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=10, int ShiftR2=-1)</div><div class="ttdoc">Обратное быстрое преобразование Фурье. ОБПФ-1024.</div></div>
+<div class="ttc" id="agroup___i_f_f_t1024_html_gaf50d48bd2d5838575c3741462e674d6a"><div class="ttname"><a href="group___i_f_f_t1024.html#gaf50d48bd2d5838575c3741462e674d6a">FFT_Inv1024Set7bit</a></div><div class="ttdeci">void FFT_Inv1024Set7bit()</div><div class="ttdoc">Устанавливает 7-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___i_f_f_t2048_html_ga387e03ce2cd2acdca47219e5177ee761"><div class="ttname"><a href="group___i_f_f_t2048.html#ga387e03ce2cd2acdca47219e5177ee761">FFT_Inv2048Set7bit</a></div><div class="ttdeci">void FFT_Inv2048Set7bit()</div><div class="ttdoc">Устанавливает 7-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___i_f_f_t2048_html_ga3c6033d1a353f0e9236492bf68880803"><div class="ttname"><a href="group___i_f_f_t2048.html#ga3c6033d1a353f0e9236492bf68880803">FFT_Inv2048</a></div><div class="ttdeci">void FFT_Inv2048(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=11, int ShiftR2=-1)</div><div class="ttdoc">Обратное быстрое преобразование Фурье. ОБПФ-2048.</div></div>
+<div class="ttc" id="agroup___i_f_f_t2048_html_ga81ce19cd0589ba1e8d68754a740c028e"><div class="ttname"><a href="group___i_f_f_t2048.html#ga81ce19cd0589ba1e8d68754a740c028e">FFT_Inv2048Set6bit</a></div><div class="ttdeci">void FFT_Inv2048Set6bit()</div><div class="ttdoc">Устанавливает 6-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___i_f_f_t256_html_ga310c4092bb03d98906e1983ca6a03a2b"><div class="ttname"><a href="group___i_f_f_t256.html#ga310c4092bb03d98906e1983ca6a03a2b">FFT_Inv256Set6bit</a></div><div class="ttdeci">void FFT_Inv256Set6bit()</div><div class="ttdoc">Устанавливает 6-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___i_f_f_t256_html_ga481de427b4a28ae163fbae32a64cd757"><div class="ttname"><a href="group___i_f_f_t256.html#ga481de427b4a28ae163fbae32a64cd757">FFT_Inv256</a></div><div class="ttdeci">void FFT_Inv256(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=8, int ShiftR2=-1)</div><div class="ttdoc">Обратное быстрое преобразование Фурье. ОБПФ-256.</div></div>
+<div class="ttc" id="agroup___i_f_f_t256_html_gaec72e2a67e73c3c0fac4c84756050326"><div class="ttname"><a href="group___i_f_f_t256.html#gaec72e2a67e73c3c0fac4c84756050326">FFT_Inv256Set7bit</a></div><div class="ttdeci">void FFT_Inv256Set7bit()</div><div class="ttdoc">Устанавливает 7-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___i_f_f_t4096_html_ga51f06ae88b08ccf7dcf5b69c4c69e2fd"><div class="ttname"><a href="group___i_f_f_t4096.html#ga51f06ae88b08ccf7dcf5b69c4c69e2fd">FFT_Inv4096</a></div><div class="ttdeci">void FFT_Inv4096(nm32sc *GSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer)</div><div class="ttdoc">Обратное быстрое преобразование Фурье. ОБПФ-4096.</div></div>
+<div class="ttc" id="agroup___i_f_f_t512_html_ga12e3c44dc820f39dc1ba92c3e511d46f"><div class="ttname"><a href="group___i_f_f_t512.html#ga12e3c44dc820f39dc1ba92c3e511d46f">FFT_Inv512Set6bit</a></div><div class="ttdeci">void FFT_Inv512Set6bit()</div><div class="ttdoc">Устанавливает 6-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___i_f_f_t512_html_ga5dd564b0de9aded29f945159476390d6"><div class="ttname"><a href="group___i_f_f_t512.html#ga5dd564b0de9aded29f945159476390d6">FFT_Inv512</a></div><div class="ttdeci">void FFT_Inv512(nm32sc *GSrcBuffer, nm32sc *LDstBuffer, void *LBuffer, void *GBuffer, int ShiftR1=9, int ShiftR2=-1)</div><div class="ttdoc">Обратное быстрое преобразование Фурье. ОБПФ-512.</div></div>
+<div class="ttc" id="agroup___i_f_f_t512_html_ga7378a47a50f6fa5e84e4a322b8f09718"><div class="ttname"><a href="group___i_f_f_t512.html#ga7378a47a50f6fa5e84e4a322b8f09718">FFT_Inv512Set7bit</a></div><div class="ttdeci">void FFT_Inv512Set7bit()</div><div class="ttdoc">Устанавливает 7-битную точность вычислений</div></div>
+<div class="ttc" id="agroup___i_f_f_t8192_html_gab0b3af41c728e390736c298e1e4e8c81"><div class="ttname"><a href="group___i_f_f_t8192.html#gab0b3af41c728e390736c298e1e4e8c81">FFT_Inv8192</a></div><div class="ttdeci">void FFT_Inv8192(nm32sc *LSrcBuffer, nm32sc *GDstBuffer, void *LBuffer, void *GBuffer)</div><div class="ttdoc">Обратное быстрое преобразование Фурье. ОБПФ-8192.</div></div>
+<div class="ttc" id="anmtype_8h_html"><div class="ttname"><a href="nmtype_8h.html">nmtype.h</a></div></div>
+<div class="ttc" id="astructs__nm32sc_html"><div class="ttname"><a href="structs__nm32sc.html">s_nm32sc</a></div><div class="ttdef"><b>Definition:</b> nmtype.h:1301</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл g:/nmpp/include/nmpli/iFilter.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_bab557803f526e822ddc5fda6f906b23.html">nmpli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">iFilter.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//  $Workfile:: iFiltration.h                $</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//  Векторно-матричная библиотека</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//  Copyright (c) RC Module Inc.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//  $Revision: 1.1 $      $Date: 2005/02/10 12:36:38 $</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span><span class="comment">//------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#ifndef _IFILTER_H_INCLUDED_</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define _IFILTER_H_INCLUDED_</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define NmppiFilterState nm64s</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="nmtype_8h.html">nmtype.h</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct_s__nmppi_filter_kernel.html">   32</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_s__nmppi_filter_kernel.html">S_nmppiFilterKernel</a>  {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#ifdef __NM__</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pDispArray;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pWeightMatrix;   </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#else </span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>*  pDispArray;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>*  pWeightMatrix;  </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span>     nKerWidth;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">int</span>     nKerHeight;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="struct_s__nmppi_filter_kernel__32s32s.html">   45</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_s__nmppi_filter_kernel__32s32s.html">S_nmppiFilterKernel_32s32s</a> {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#ifdef __NM__</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pDispArray;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pWeightMatrix;   </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">int</span> nKerWidth;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">int</span> nKerHeight;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#else </span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pDispArray;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pWeightMatrix;   </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">int</span> nKerWidth;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">int</span> nKerHeight;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">//*****************************************************************************</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"></span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keywordtype">int</span> nmppiSetFilter_8s8s  (<span class="keywordtype">int</span>* pWeights, <span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight, <span class="keywordtype">int</span> nImgWidth, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keywordtype">int</span> nmppiSetFilter_8s16s (<span class="keywordtype">int</span>* pWeights, <span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight, <span class="keywordtype">int</span> nImgWidth, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keywordtype">int</span> nmppiSetFilter_8s32s (<span class="keywordtype">int</span>* pWeights, <span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight, <span class="keywordtype">int</span> nImgWidth, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keywordtype">int</span> nmppiSetFilter_16s16s(<span class="keywordtype">int</span>* pWeights, <span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight, <span class="keywordtype">int</span> nImgWidth, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keywordtype">int</span> nmppiSetFilter_16s32s(<span class="keywordtype">int</span>* pWeights, <span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight, <span class="keywordtype">int</span> nImgWidth, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="keywordtype">int</span> nmppiSetFilter_32s32s(<span class="keywordtype">int</span>* pWeights, <span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight, <span class="keywordtype">int</span> nImgWidth, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keywordtype">int</span> nmppiGetFilterKernelSize32_8s8s(<span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keywordtype">int</span> nmppiGetFilterKernelSize32_8s16s(<span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keywordtype">int</span> nmppiGetFilterKernelSize32_8s32s(<span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keywordtype">int</span> nmppiGetFilterKernelSize32_16s16s(<span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keywordtype">int</span> nmppiGetFilterKernelSize32_16s32s(<span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keywordtype">int</span> nmppiGetFilterKernelSize32_32s32s(<span class="keywordtype">int</span> nKerWidth, <span class="keywordtype">int</span> nKerHeight);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">//*****************************************************************************</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="keywordtype">void</span> nmppiFilter_8s8s( <a class="code hl_typedef" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> * pSrcImg, <a class="code hl_typedef" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a>* pDstImg, <span class="keywordtype">int</span> nWidth, <span class="keywordtype">int</span> nHeight, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="keywordtype">void</span> nmppiFilter_8s16s( <a class="code hl_typedef" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> * pSrcImg, <a class="code hl_typedef" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a>* pDstImg, <span class="keywordtype">int</span> nWidth, <span class="keywordtype">int</span> nHeight, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="keywordtype">void</span> nmppiFilter_8s32s( <a class="code hl_typedef" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a> * pSrcImg, <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pDstImg, <span class="keywordtype">int</span> nWidth, <span class="keywordtype">int</span> nHeight, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="keywordtype">void</span> nmppiFilter_16s16s( <a class="code hl_typedef" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> * pSrcImg, <a class="code hl_typedef" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a>* pDstImg, <span class="keywordtype">int</span> nWidth, <span class="keywordtype">int</span> nHeight, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="keywordtype">void</span> nmppiFilter_16s32s( <a class="code hl_typedef" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> * pSrcImg, <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pDstImg, <span class="keywordtype">int</span> nWidth, <span class="keywordtype">int</span> nHeight, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="keywordtype">void</span> nmppiFilter_32s32s( <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> * pSrcImg, <a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>* pDstImg, <span class="keywordtype">int</span> nWidth, <span class="keywordtype">int</span> nHeight, <a class="code hl_typedef" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a>* pKernel);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment">//*****************************************************************************</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="comment">//void nmppiFilter_perf(int* pWeights, int nKerWidth, int nKerHeight, nm8s*  pSrcImg, nm8s*  pDstImg, int nImgWidth, int nImgHeight, nm64s* pKernel);</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="comment">//void nmppiFilter_perf(int* pWeights, int nKerWidth, int nKerHeight, nm8s*  pSrcImg, nm16s* pDstImg, int nImgWidth, int nImgHeight, nm64s* pKernel);</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="comment">//void nmppiFilter_perf(int* pWeights, int nKerWidth, int nKerHeight, nm8s*  pSrcImg, nm32s* pDstImg, int nImgWidth, int nImgHeight, nm64s* pKernel);</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="comment">//void nmppiFilter_perf(int* pWeights, int nKerWidth, int nKerHeight, nm16s* pSrcImg, nm16s* pDstImg, int nImgWidth, int nImgHeight, nm64s* pKernel);</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="comment">//void nmppiFilter_perf(int* pWeights, int nKerWidth, int nKerHeight, nm16s* pSrcImg, nm32s* pDstImg, int nImgWidth, int nImgHeight, nm64s* pKernel);</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="comment">//void nmppiFilter_perf(int* pWeights, int nKerWidth, int nKerHeight, nm32s* pSrcImg, nm32s* pDstImg, int nImgWidth, int nImgHeight, nm64s* pKernel);</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="comment"></span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="comment">//template &lt;class nmbits_in, class nmbits_out&gt; class CnmppiFIR</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="comment">//{</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment">//public:</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="comment">//  void (*pfFree32)(void*);    ///&lt; Указатель на функции освобождения памяти (pKernel)</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="comment">//  int nKerWidth;              ///&lt; Ширина окна коэффицентов КИХ фильтра </span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span><span class="comment">//  int nKerHeight;             ///&lt; Высота окна коэффицентов КИХ фильтра </span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="comment">//  nm64s* pKernel;             ///&lt; Указатель на внутреннюю структуру коэффициентов</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="comment">//  int nKernelSize;            ///&lt; Размер памяти необходимый для хранения внутренней структуру коэффициентов</span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="comment">//</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="comment">//  //! Конструктор КИХ фильтра </span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="comment">//  /*!</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="comment">//     Выделяет область памяти под внутреннюю структуру коэффицентов </span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span><span class="comment">//      \param nKerWidth  Ширина окна фильтра. nKerWidth=[3,5,7,...]</span></div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span><span class="comment">//      \param nKerHeight Высота окна фильтра. nKerHeight=[1,3,5,7,...]</span></div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="comment">//      \param malloc32_func  указатель на функцию  выделения динамической памяти 32-разрядными словами.</span></div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="comment">//      \param free32_func  указатель на функцию динамического особождения памяти</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="comment">//    */</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span><span class="comment">//  CnmppiFIR(int nKerWidth, int nKerHeight, void* (*malloc32_func)(unsigned),void (*free32_func)(void*));</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span><span class="comment">//  </span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="comment">//</span></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span><span class="comment">//  //! Загружает коэффиценты фильтра и инициализирует внутреннюю структуру хранениния коэффициентов в pKernel</span></div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="comment">//  /*!</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span><span class="comment">//      \param pWeights   коэффициенты фильтра </span></div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="comment">//    \param nImgWidth  Ширина изображения к которому данный фильтр будет применен. Кратность согласно входному типу.</span></div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span><span class="comment">//    \return указатель на внутреннюю стуктуру коэффициентов. 0- Если память под структуру не была выделена.  </span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="comment">//    */</span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="comment">//  void* SetWeights(int* pWeights, int nImgWidth);</span></div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span><span class="comment">//  </span></div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="comment">//  //! Функция одномерной фильтрации</span></div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span><span class="comment">//  /*!</span></div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span><span class="comment">//  \f[</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span><span class="comment">//        pDstImg[y][x]  =  \sum\limits_{i = 0}^{nKerHeight-1} \sum\limits_{j = 0}^{nKerWidth-1} {pSrcImg[y+i-nKerHeight/2][x+j-nKerWidth/2] \cdot pWeights[i][j]}   ,x=0 \ldots  nImgWidth-1,y=0 \ldots  nImgHeight-1</span></div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span><span class="comment">//    \f]</span></div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span><span class="comment">//</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span><span class="comment">//</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="comment">//      \param pSrcImg входное изображение</span></div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="comment">//    \param pDstImg выходное изображение</span></div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="comment">//    \param nImgWidth  Ширина изображения к которому данный фильтр будет применен. Кратность согласно входному типу.</span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span><span class="comment">//    \param nImgHeight   Высота изображения (измеряется в пикселях). </span></div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="comment">//  </span></div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span><span class="comment">//    \warning При вычислении первых и последних nKerHeight/2 сторк проивзодится выход за границы входного массива pSrcImg . </span></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span><span class="comment">//          Для коректного поведения функции необходимо дополнительные резервировать поля размером не менее *nImgWidth*(nKernHeight/2+1) нулевых элементов перед началом и в конце массива pSrcImg.</span></div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="comment">//    */</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="comment">//  void  Filter(nmbits_in* pSrcImg, nmbits_out* pDstImg, int nImgWidth,int nImgHeight);</span></div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span><span class="comment">//  </span></div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span><span class="comment">//  //! Освобождает динамическую область памяти pKernel</span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="comment">//  ~CnmppiFIR();</span></div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="comment">//  </span></div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span><span class="comment">//</span></div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span><span class="comment">//};</span></div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span><span class="comment">//</span></div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span><span class="comment"></span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>        };</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span> </div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span><span class="preprocessor">#endif </span><span class="comment">// _IFILTER_H_INCLUDED_</span></div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span> </div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
+<div class="ttc" id="agroup__nmvectype_html_ga340133c964d0ae670f3bd3ff3a6b172a"><div class="ttname"><a href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a></div><div class="ttdeci">int nm32s</div><div class="ttdef"><b>Definition:</b> nmtype.h:292</div></div>
+<div class="ttc" id="agroup__nmvectype_html_ga4e59c2dc9731ba8592b0991bf71c7af3"><div class="ttname"><a href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a></div><div class="ttdeci">long long nm64s</div><div class="ttdef"><b>Definition:</b> nmtype.h:375</div></div>
+<div class="ttc" id="agroup__nmvectype_html_gac7e3460b4b4f074cf4a75a3071bf04c8"><div class="ttname"><a href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a></div><div class="ttdeci">short nm16s</div><div class="ttdef"><b>Definition:</b> nmtype.h:243</div></div>
+<div class="ttc" id="agroup__nmvectype_html_gae72f2b9432062ccd3940ddea7c7e98df"><div class="ttname"><a href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a></div><div class="ttdeci">char nm8s</div><div class="ttdef"><b>Definition:</b> nmtype.h:167</div></div>
+<div class="ttc" id="anmtype_8h_html"><div class="ttname"><a href="nmtype_8h.html">nmtype.h</a></div></div>
+<div class="ttc" id="astruct_s__nmppi_filter_kernel__32s32s_html"><div class="ttname"><a href="struct_s__nmppi_filter_kernel__32s32s.html">S_nmppiFilterKernel_32s32s</a></div><div class="ttdef"><b>Definition:</b> iFilter.h:45</div></div>
+<div class="ttc" id="astruct_s__nmppi_filter_kernel_html"><div class="ttname"><a href="struct_s__nmppi_filter_kernel.html">S_nmppiFilterKernel</a></div><div class="ttdef"><b>Definition:</b> iFilter.h:32</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

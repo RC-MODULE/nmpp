@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Vec_CompareMinV</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Vec_CompareMinV<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___c_o_r_e___group.html">Базовые регистровые функции библиотеки</a> &raquo; <a class="el" href="group__vcomplex.html">Целевые функции</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Поэлементный поиск минимальногоДействие функции эквивалентно следующим псевдоинструкциям:  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga4ffc532d697b6f801d96e4a91c175442"><td class="memItemLeft" align="right" valign="top"><a id="ga4ffc532d697b6f801d96e4a91c175442" name="ga4ffc532d697b6f801d96e4a91c175442"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>vec_CompareMinV</b> (<a class="el" href="structnmreg.html">nmreg</a> nb1, <a class="el" href="structnmreg.html">nmreg</a> f1cr, <a class="el" href="structnmreg.html">nmreg</a> ar0, <a class="el" href="structnmreg.html">nmreg</a> gr0, <a class="el" href="structnmreg.html">nmreg</a> ar1, <a class="el" href="structnmreg.html">nmreg</a> gr1, <a class="el" href="structnmreg.html">nmreg</a> ar3, <a class="el" href="structnmreg.html">nmreg</a> gr3, <a class="el" href="structnmreg.html">nmreg</a> gr5, <a class="el" href="structnmreg.html">nmreg</a> ar6, <a class="el" href="structnmreg.html">nmreg</a> gr6)</td></tr>
+<tr class="separator:ga4ffc532d697b6f801d96e4a91c175442"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Поэлементный поиск минимального</p>
+<p >Действие функции эквивалентно следующим псевдоинструкциям: </p>
+<pre class="fragment">\~
+</pre><div class="fragment"><div class="line">rep N ram=[ar0++gr0]; </div>
+<div class="line">rep N data=[ar1++gr1] with ram-data;</div>
+<div class="line">rep N                 with activate afifo;</div>
+<div class="line">rep N data=[ar3++gr3] with mask afifo, ram, data;</div>
+<div class="line">rep N [ar6++gr6]=afifo;</div>
+</div><!-- fragment --><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb1</td><td>задает разбиение на колонки (необходимо wtw)</td></tr>
+    <tr><td class="paramname">f1cr</td><td>задает функцию активации</td></tr>
+    <tr><td class="paramname">ar0</td><td>указатель на столбец SrcMtr1</td></tr>
+    <tr><td class="paramname">gr0</td><td>SrcMtr1 stride</td></tr>
+    <tr><td class="paramname">ar1,ar3</td><td>указатель на столбец SrcMtr2</td></tr>
+    <tr><td class="paramname">gr1,gr3</td><td>SrcMtr2 stride</td></tr>
+    <tr><td class="paramname">gr5</td><td>Высота матриц N = [0,1,2...31,32,33,...]</td></tr>
+    <tr><td class="paramname">ar6</td><td>указатель на столбец DstMtr</td></tr>
+    <tr><td class="paramname">gr6</td><td>DstMtr stride <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section user"><dt>Restrictions: &lt;br&gt;</dt><dd>При выходе из функции изменяется содержимое регистров: ar0,ar1,ar3,ar6. </dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

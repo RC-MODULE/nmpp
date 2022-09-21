@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsRemap_</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">nmppsRemap_<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_transform.html">Переупорядочивание и сортировка</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Переупорядочивание элементов вектора по таблице.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gaeddeb200f1beaf913e24ae598d88fc5c"><td class="memItemLeft" align="right" valign="top"><a id="gaeddeb200f1beaf913e24ae598d88fc5c" name="gaeddeb200f1beaf913e24ae598d88fc5c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsRemap_32u</b> (<a class="el" href="group__nmvectype.html#gacb8af4747a1a1b39683e44fb7caff5b2">nm32u</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gacb8af4747a1a1b39683e44fb7caff5b2">nm32u</a> *pDstVec, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pRemapTable, int nDstVecSize)</td></tr>
+<tr class="separator:gaeddeb200f1beaf913e24ae598d88fc5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d5b4915fd7ce41479574e06d3b2900d"><td class="memItemLeft" align="right" valign="top"><a id="ga4d5b4915fd7ce41479574e06d3b2900d" name="ga4d5b4915fd7ce41479574e06d3b2900d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsRemap_8u</b> (<a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a> *pDstVec, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pRemapTable, int nSrcVecSize, int nDstVecSize, void *pTmpBuf1, void *pTmpBuf2)</td></tr>
+<tr class="separator:ga4d5b4915fd7ce41479574e06d3b2900d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Переупорядочивание элементов вектора по таблице. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[
+    pDstVec[i]=pSrcVec[pRemapTable[i]],
+\]" src="form_85.png" width="223" height="14"/>
+</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ i = \overline{0 \ldots nSize-1} \]" src="form_12.png" width="100" height="11"/>
+</p>
+ <pre class="fragment">\~
+</pre> <dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td>Входной вектор.</td></tr>
+    <tr><td class="paramname">pRemapTable</td><td>Таблица новых индексов для переупорядочивания.</td></tr>
+    <tr><td class="paramname">nDstVecSize</td><td>Размер результирующего вектора в элементах.</td></tr>
+    <tr><td class="paramname">pTmpBuf1</td><td>Временный массив nm32u pTmpBuf1[nSrcVecSize].</td></tr>
+    <tr><td class="paramname">pTmpBuf2</td><td>Временный массив nm32u pTmpBuf2[nDstVecSize]. Результирующий вектор nm8u pDstVec[nDstVecSize].</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><em>void</em> </dd></dl>
+<div class="fragment"><div class="line"><span class="comment">// Функция</span></div>
+<div class="line"><span class="comment">// void nmppsRemap_8u(nm8u* pSrcVec, nm8u* pDstVec, nm32s* pRemapTable, int nSrcVecSize, int nDstVecSize, void* pTmpBuf1, void* pTmpBuf2);</span></div>
+<div class="line"><span class="comment">// выполняет следющие действия:</span></div>
+<div class="line">nmppsConvert_8u((<a class="code hl_typedef" href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a>*) pSrcVec, (<a class="code hl_typedef" href="group__nmvectype.html#gacb8af4747a1a1b39683e44fb7caff5b2">nm32u</a>*)pTmpBuf1,nSrcVecSize);</div>
+<div class="line">nmppsRemap_32u((<a class="code hl_typedef" href="group__nmvectype.html#gacb8af4747a1a1b39683e44fb7caff5b2">nm32u</a>*)pTmpBuf1,(<a class="code hl_typedef" href="group__nmvectype.html#gacb8af4747a1a1b39683e44fb7caff5b2">nm32u</a>*)pTmpBuf2,RemapTable,DstVecSize);</div>
+<div class="line">nmppsConvert_32s((<a class="code hl_typedef" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a>*)pTmpBuf2,(<a class="code hl_typedef" href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a>*) pDstVec, DstVecSize);</div>
+<div class="ttc" id="agroup__nmvectype_html_ga112cca25519f88ad8aa9950b5545132c"><div class="ttname"><a href="group__nmvectype.html#ga112cca25519f88ad8aa9950b5545132c">nm8u</a></div><div class="ttdeci">unsigned char nm8u</div><div class="ttdef"><b>Definition:</b> nmtype.h:448</div></div>
+<div class="ttc" id="agroup__nmvectype_html_ga340133c964d0ae670f3bd3ff3a6b172a"><div class="ttname"><a href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a></div><div class="ttdeci">int nm32s</div><div class="ttdef"><b>Definition:</b> nmtype.h:292</div></div>
+<div class="ttc" id="agroup__nmvectype_html_gacb8af4747a1a1b39683e44fb7caff5b2"><div class="ttname"><a href="group__nmvectype.html#gacb8af4747a1a1b39683e44fb7caff5b2">nm32u</a></div><div class="ttdeci">unsigned int nm32u</div><div class="ttdef"><b>Definition:</b> nmtype.h:509</div></div>
+<div class="ttc" id="agroup__nmvectype_html_gae72f2b9432062ccd3940ddea7c7e98df"><div class="ttname"><a href="group__nmvectype.html#gae72f2b9432062ccd3940ddea7c7e98df">nm8s</a></div><div class="ttdeci">char nm8s</div><div class="ttdef"><b>Definition:</b> nmtype.h:167</div></div>
+</div><!-- fragment --><dl class="section note"><dt>Заметки</dt><dd>Возможность использования inplace параметров определяется исходя из последовательности процессов чтения/записи: <br  />
+ the folowing sequence of actions : <br  />
+<ul>
+<li>pSrcVec =&gt; pTmpBuf1 - inplace запрещен; <br  />
+</li>
+<li>pTmpBuf1=&gt;pTmpBuf2 - inplace запрещен; <br  />
+</li>
+<li>pTmpBuf2=&gt;pDstVec - inplace разрешен; <br  />
+</li>
+</ul>
+</dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

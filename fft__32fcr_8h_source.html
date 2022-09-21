@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл g:/nmpp/include/fft_32fcr.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">fft_32fcr.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef _FFT_32FCR_H_INCLUDED_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define _FFT_32FCR_H_INCLUDED_</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>        <span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="nmtype_8h.html">nmtype.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define     NUMBUFF1        21</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define     NUMBUFF2        4</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define         pSrcVecFFTFwdInitAlloc_32fcr(SPEC, SIZE)                nmppsFFT##SIZE##FwdInitAlloc_32fcr(SPEC)</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define         FFTFwdInitAlloc_32fcr(SPEC, SIZE)               pSrcVecFFTFwdInitAlloc_32fcr(SPEC, SIZE)</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define         pSrcVecFFTInvInitAlloc_32fcr(SPEC, SIZE)                nmppsFFT##SIZE##InvInitAlloc_32fcr(SPEC)</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define         FFTInvInitAlloc_32fcr(SPEC, SIZE)               pSrcVecFFTInvInitAlloc_32fcr(SPEC, SIZE)</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define         pSrcVecFFTFwd_32fcr(SRC, DST, SPEC, SIZE)               nmppsFFT##SIZE##Fwd_32fcr(SRC, DST, SPEC)</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define         FFTFwd_32fcr(SRC, DST, SPEC, SIZE)              pSrcVecFFTFwd_32fcr(SRC, DST, SPEC, SIZE)</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define         pSrcVecFFTInv_32fcr(SRC, DST, SPEC, SIZE)               nmppsFFT##SIZE##Inv_32fcr(SRC, DST, SPEC)</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define         FFTInv_32fcr(SRC, DST, SPEC, SIZE)              pSrcVecFFTInv_32fcr(SRC, DST, SPEC, SIZE)</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_nmpps_f_f_t_spec__32fcr.html">   25</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* Buffers[NUMBUFF1];</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* Buffs[NUMBUFF2];</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">int</span> order;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>} <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// sFFT_32fcr</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">int</span> nmppsFFT16FwdInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keywordtype">int</span> nmppsFFT32FwdInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">int</span> nmppsFFT64FwdInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keywordtype">int</span> nmppsFFT128FwdInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">int</span> nmppsFFT256FwdInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">int</span> nmppsFFT512FwdInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">int</span> nmppsFFT1024FwdInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">int</span> nmppsFFT2048FwdInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">int</span> nmppsFFT4096FwdInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">int</span> nmppsFFT16InvInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">int</span> nmppsFFT32InvInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">int</span> nmppsFFT64InvInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keywordtype">int</span> nmppsFFT128InvInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordtype">int</span> nmppsFFT256InvInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keywordtype">int</span> nmppsFFT512InvInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">int</span> nmppsFFT1024InvInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">int</span> nmppsFFT2048InvInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keywordtype">int</span> nmppsFFT4096InvInitAlloc_32fcr(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>** addr);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="group__s_d_f_t-8.html#ga51f618a9eee4f03aaf27425fe8771428">   92</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group__s_d_f_t-8.html#ga51f618a9eee4f03aaf27425fe8771428">nmppsDFT8Fwd_32fcr</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keywordtype">void</span> nmppsFFT16Fwd_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="keywordtype">void</span> nmppsFFT32Fwd_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="keywordtype">void</span> nmppsFFT64Fwd_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="keywordtype">void</span> nmppsFFT128Fwd_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="keywordtype">void</span> nmppsFFT256Fwd_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="keywordtype">void</span> nmppsFFT512Fwd_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="keywordtype">void</span> nmppsFFT1024Fwd_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="keywordtype">void</span> nmppsFFT2048Fwd_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="keywordtype">void</span> nmppsFFT4096Fwd_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="keywordtype">void</span> nmppsDFT8Inv_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="keywordtype">void</span> nmppsFFT16Inv_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span><span class="keywordtype">void</span> nmppsFFT32Inv_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span> </div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span><span class="keywordtype">void</span> nmppsFFT64Inv_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span><span class="keywordtype">void</span> nmppsFFT128Inv_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span> </div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span><span class="keywordtype">void</span> nmppsFFT256Inv_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span> </div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span> </div>
+<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span><span class="keywordtype">void</span> nmppsFFT512Inv_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span> </div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno"><a class="line" href="group__s_i_f_f_t-1024.html#ga34c7acc07e1788235b51e9cb1cc73dde">  519</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group__s_i_f_f_t-1024.html#ga34c7acc07e1788235b51e9cb1cc73dde">nmppsFFT1024Inv_32fcr</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span> </div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span><span class="keywordtype">void</span> nmppsFFT2048Inv_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span> </div>
+<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span><span class="keywordtype">void</span> nmppsFFT4096Inv_32fcr(<span class="keyword">const</span> <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pSrcVec, <a class="code hl_struct" href="structs__nm32fcr.html">nm32fcr</a>* pDstVec, <a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span> </div>
+<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span><span class="comment">//int nmppsFFTFwd_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec, NmppsFFTSpec_32fcr *Spc);</span></div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span> </div>
+<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span> </div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span><span class="comment">//int nmppsFFTFwdInitAlloc_32fcr(NmppsFFTSpec_32fcr** spec, int order);</span></div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span> </div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span> </div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span> </div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span> </div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span> </div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span><span class="comment">//int nmppsFFTInv_32fcr(const nm32fcr* pSrcVec, nm32fcr* pDstVec, NmppsFFTSpec_32fcr* spec);</span></div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span> </div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span> </div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span><span class="comment">//int nmppsFFTInvInitAlloc_32fcr(NmppsFFTSpec_32fcr** spec, int order);</span></div>
+<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span> </div>
+<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span> </div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span> </div>
+<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span> </div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span> </div>
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span> </div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span> </div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno"><a class="line" href="group__s_f_f_t__32fcr.html#ga8cce9ff7d28f7bcd32d8cc28a07e5a7c">  646</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="group__s_f_f_t__32fcr.html#ga8cce9ff7d28f7bcd32d8cc28a07e5a7c">nmppsFFTFree_32fcr</a>(<a class="code hl_struct" href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a>* spec);</div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span> </div>
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>        };</div>
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span> </div>
+<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span><span class="preprocessor">#endif </span><span class="comment">// _FFT_32FCR_H_INCLUDED_</span></div>
+<div class="ttc" id="agroup__s_d_f_t-8_html_ga51f618a9eee4f03aaf27425fe8771428"><div class="ttname"><a href="group__s_d_f_t-8.html#ga51f618a9eee4f03aaf27425fe8771428">nmppsDFT8Fwd_32fcr</a></div><div class="ttdeci">void nmppsDFT8Fwd_32fcr(const nm32fcr *pSrcVec, nm32fcr *pDstVec, NmppsFFTSpec_32fcr *spec)</div><div class="ttdoc">Функция для вычисления прямого ДПФ с плавающей точкой над вектором, состоящим из 8 комплексных чисел</div></div>
+<div class="ttc" id="agroup__s_f_f_t__32fcr_html_ga8cce9ff7d28f7bcd32d8cc28a07e5a7c"><div class="ttname"><a href="group__s_f_f_t__32fcr.html#ga8cce9ff7d28f7bcd32d8cc28a07e5a7c">nmppsFFTFree_32fcr</a></div><div class="ttdeci">int nmppsFFTFree_32fcr(NmppsFFTSpec_32fcr *spec)</div><div class="ttdoc">Функция инициализации структуры коэффициентов, необходимых для вычисления обратного БПФ с плавающей т...</div></div>
+<div class="ttc" id="agroup__s_i_f_f_t-1024_html_ga34c7acc07e1788235b51e9cb1cc73dde"><div class="ttname"><a href="group__s_i_f_f_t-1024.html#ga34c7acc07e1788235b51e9cb1cc73dde">nmppsFFT1024Inv_32fcr</a></div><div class="ttdeci">void nmppsFFT1024Inv_32fcr(const nm32fcr *pSrcVec, nm32fcr *pDstVec, NmppsFFTSpec_32fcr *spec)</div><div class="ttdoc">Функция для вычисления обратного БПФ с плавающей точкой над вектором, состоящим из 1024 комплексных ч...</div></div>
+<div class="ttc" id="anmtype_8h_html"><div class="ttname"><a href="nmtype_8h.html">nmtype.h</a></div></div>
+<div class="ttc" id="astruct_nmpps_f_f_t_spec__32fcr_html"><div class="ttname"><a href="struct_nmpps_f_f_t_spec__32fcr.html">NmppsFFTSpec_32fcr</a></div><div class="ttdef"><b>Definition:</b> fft_32fcr.h:26</div></div>
+<div class="ttc" id="astructs__nm32fcr_html"><div class="ttname"><a href="structs__nm32fcr.html">s_nm32fcr</a></div><div class="ttdef"><b>Definition:</b> nmtype.h:1335</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

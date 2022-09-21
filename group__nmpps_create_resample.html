@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsCreateResample</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">nmppsCreateResample<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___s_i_g___group.html">Функции обработки сигналов</a> &raquo; <a class="el" href="group__s_resample.html">Изменение размеров</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Создание ядра для функции передискретизации nmppsResample().Функции выделяют память и инициализируют таблицы весовых коэффициентов для использования в функциях передискретизации.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga66562432811cf8817bf52b91297b9907"><td class="memItemLeft" align="right" valign="top"><a id="ga66562432811cf8817bf52b91297b9907" name="ga66562432811cf8817bf52b91297b9907"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsCreateResampleUp3Down2_8s16s</b> (<a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> **pKernel, int nHint)</td></tr>
+<tr class="separator:ga66562432811cf8817bf52b91297b9907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7693719e5a744a03068dc7efc9b4cf9"><td class="memItemLeft" align="right" valign="top"><a id="gad7693719e5a744a03068dc7efc9b4cf9" name="gad7693719e5a744a03068dc7efc9b4cf9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsCreateResampleDown2_8u8u</b> (<a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> **pKernel, int nHint)</td></tr>
+<tr class="separator:gad7693719e5a744a03068dc7efc9b4cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8489710a4fb413a4135db2ad8edfcb7"><td class="memItemLeft" align="right" valign="top"><a id="gae8489710a4fb413a4135db2ad8edfcb7" name="gae8489710a4fb413a4135db2ad8edfcb7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsCreateResampleDown2_16u16u</b> (<a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> **pKernel, int nHint)</td></tr>
+<tr class="separator:gae8489710a4fb413a4135db2ad8edfcb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Создание ядра для функции передискретизации nmppsResample().</p>
+<p >Функции выделяют память и инициализируют таблицы весовых коэффициентов для использования в функциях передискретизации. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nHint</td><td><br  />
+ Определяет память(Local или Global) в которой создается служебная структура. nHint=[MEM_LOCAL,MEM_GLOBAL].</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pKernel</td><td>Указатель на служебную структуру, содержащую весовые коэффиценты фильтра во внутреннем формате.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Используется перед вызовом функции nmppsFilter. </dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

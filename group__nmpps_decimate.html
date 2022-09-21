@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsDecimate</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">nmppsDecimate<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group__nmpps_group__.html">Векторные функции</a> &raquo; <a class="el" href="group__v_transform.html">Переупорядочивание и сортировка</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Делает выборку элементов из массива c некоторым шагом  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga33c5e98731434db06b0859f0c3f40102"><td class="memItemLeft" align="right" valign="top"><a id="ga33c5e98731434db06b0859f0c3f40102" name="ga33c5e98731434db06b0859f0c3f40102"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsDecimate_16s</b> (<a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pSrc, int startPos, int step, <a class="el" href="group__nmvectype.html#gac7e3460b4b4f074cf4a75a3071bf04c8">nm16s</a> *pDst, int nSizeDst)</td></tr>
+<tr class="separator:ga33c5e98731434db06b0859f0c3f40102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24c4b195fcd37f66b8c9d28db12f0c36"><td class="memItemLeft" align="right" valign="top"><a id="ga24c4b195fcd37f66b8c9d28db12f0c36" name="ga24c4b195fcd37f66b8c9d28db12f0c36"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsDecimate_32s</b> (<a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pSrc, int startPos, int step, <a class="el" href="group__nmvectype.html#ga340133c964d0ae670f3bd3ff3a6b172a">nm32s</a> *pDst, int nSizeDst)</td></tr>
+<tr class="separator:ga24c4b195fcd37f66b8c9d28db12f0c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Делает выборку элементов из массива c некоторым шагом </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pSrc</td><td>Входной массив </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">startPos</td><td>Положение элемента в 64-р. слове </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">step</td><td>Шаг выборки. Кратность параметра step должна соответствовать длинному 64-р. слову. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pDst</td><td>Выходной массив </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nSizeDst</td><td>Размер результирующего массива в элементах. Кратность параметра size должна соответствовать длинному 64-р. слову. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd></dd></dl>
+<p>Details Максимальная производительность достигается при размещении входных, выходных массивов в разных банках памяти. </p>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

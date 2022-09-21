@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: IFFT-4096</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">IFFT-4096<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___s_i_g___group.html">Функции обработки сигналов</a> &raquo; <a class="el" href="group__s_f_f_t.html">Быстрое преобразование Фурье</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga51f06ae88b08ccf7dcf5b69c4c69e2fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_f_f_t4096.html#ga51f06ae88b08ccf7dcf5b69c4c69e2fd">FFT_Inv4096</a> (<a class="el" href="structs__nm32sc.html">nm32sc</a> *GSrcBuffer, <a class="el" href="structs__nm32sc.html">nm32sc</a> *GDstBuffer, void *LBuffer, void *GBuffer)</td></tr>
+<tr class="memdesc:ga51f06ae88b08ccf7dcf5b69c4c69e2fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обратное быстрое преобразование Фурье. ОБПФ-4096.  <a href="group___i_f_f_t4096.html#ga51f06ae88b08ccf7dcf5b69c4c69e2fd">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga51f06ae88b08ccf7dcf5b69c4c69e2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<h2 class="groupheader">Функции</h2>
+<a id="ga51f06ae88b08ccf7dcf5b69c4c69e2fd" name="ga51f06ae88b08ccf7dcf5b69c4c69e2fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga51f06ae88b08ccf7dcf5b69c4c69e2fd">&#9670;&#160;</a></span>FFT_Inv4096()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FFT_Inv4096 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__nm32sc.html">nm32sc</a> *&#160;</td>
+          <td class="paramname"><em>GSrcBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structs__nm32sc.html">nm32sc</a> *&#160;</td>
+          <td class="paramname"><em>GDstBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>LBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>GBuffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Обратное быстрое преобразование Фурье. ОБПФ-4096. </p>
+<p >Функция выполняет обратное дискретное комплексное 4096-точечное быстрое преобразование Фурье на базе алгоритма ОБПФ по онованию 16-16-16. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">GSrcBuffer</td><td>Входной массив размером 4096 64-р. слов </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">GDstBuffer</td><td>Результирующий массив размером 4096 64-р. слов </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">LBuffer</td><td>Временный массив на локальной шине (Local Bus) размером 4096*2 64-р. слов </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">GBuffer</td><td>Временный массив на глобальной шине (Global Bus) размером 4096*3 64-р. слов </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>void </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Использование inplace параметров не допускается (все указатели должны быть разными) Диапазон входных данных: -4096..4096</dd></dl>
+<p>\perf </p><pre class="fragment">GSrcBuffer | GDstBuffer | LBuffer | GBuffer | Clocks
+----------------------------------------------------
+     L     |     L      |    L    |    L    | 38.25
+     L     |     L      |    L    |    G    | 26.82
+     L     |     L      |    G    |    L    | 32.21
+     L     |     L      |    G    |    G    | 30.74
+     L     |     G      |    L    |    L    | 37.22
+     L     |     G      |    L    |    G    | 25.79
+     L     |     G      |    G    |    L    | 33.17
+     L     |     G      |    G    |    G    | 31.71
+     G     |     L      |    L    |    L    | 37.26
+     G     |     L      |    L    |    G    | 25.83
+     G     |     L      |    G    |    L    | 31.21
+     G     |     L      |    G    |    G    | 29.75
+     G     |     G      |    L    |    L    | 36.23
+     G     |     G      |    L    |    G    | 24.80
+     G     |     G      |    G    |    L    | 32.18
+     G     |     G      |    G    |    G    | 30.71</pre> 
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

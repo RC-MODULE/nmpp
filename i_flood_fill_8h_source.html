@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: Исходный файл g:/nmpp/include/nmpli/iFloodFill.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_bab557803f526e822ddc5fda6f906b23.html">nmpli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">iFloodFill.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/******************************************************************************</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">*    RC Module</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">*    NeuroMatrix(r) NM6403 Software</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">*</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">*    Image Processing Library</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">*    (C-callable functions)</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">*</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">*    File:               FldFill.h</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">*    Contents:           FloodFill routines</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">*    Software design:    Alex Ruzavin</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">*</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">*    Start date:          9may99</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">*    Release date:       23jun99</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">*</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">*</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">******************************************************************************/</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef __FLOODFILL_HEADER</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define __FLOODFILL_HEADER</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structtag_segment_info.html">   22</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structtag_segment_info.html">tagSegmentInfo</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">int</span> xMin;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">int</span> yMin;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">int</span> xMax;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">int</span> yMax;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">int</span> N;                              <span class="comment">/* number of points */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>} <a class="code hl_struct" href="structtag_segment_info.html">SegmentInfo</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordtype">int</span> nmppiFloodFill( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> * pSrcImage,<a class="code hl_struct" href="structtag_segment_info.html">SegmentInfo</a> * pSegmentInfo,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> * pSegmentImage, <span class="keywordtype">int</span> nWidth,<span class="keywordtype">int</span> nHeight , <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> * pTmpBuff) ;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="structspot__struct.html">   84</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structspot__struct.html">spot_struct</a>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="structspot__struct.html#af03ae88338880269e1f795f63f171ad2">   85</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structspot__struct.html#af03ae88338880269e1f795f63f171ad2">Xmin</a>;     </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="structspot__struct.html#a1d48e782d2899e61508624a89917606b">   86</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structspot__struct.html#a1d48e782d2899e61508624a89917606b">Ymin</a>;     </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="structspot__struct.html#ab72e823cfd1f7644c06cd00777f97919">   87</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structspot__struct.html#ab72e823cfd1f7644c06cd00777f97919">Xmax</a>;     </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="structspot__struct.html#a528d61a11d61aeab591d16e55554a27a">   88</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structspot__struct.html#a528d61a11d61aeab591d16e55554a27a">Ymax</a>;     </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="structspot__struct.html#a40fc05a079d585e64e77cdcb73634b9d">   89</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structspot__struct.html#a40fc05a079d585e64e77cdcb73634b9d">noPxl</a>;    </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="structspot__struct.html#a5652eb38de95fe7c71d40dd93218b121">   90</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structspot__struct.html#a5652eb38de95fe7c71d40dd93218b121">dtSpot</a>;   </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>} <a class="code hl_struct" href="structspot__struct.html">spot_struct</a>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="structds__struct.html">   94</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structds__struct.html">ds_struct</a>{</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="structds__struct.html#a7ff7e992c94061b569fabcf1f3412d40">   95</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structds__struct.html#a7ff7e992c94061b569fabcf1f3412d40">nnSpot</a>;     </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="structds__struct.html#a410a64378555a8cb8a85b705a00b140d">   96</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structds__struct.html#a410a64378555a8cb8a85b705a00b140d">nnPxl</a>;      </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="structds__struct.html#ad67e6509494fc88446f12cd09cde0603">   97</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structds__struct.html#ad67e6509494fc88446f12cd09cde0603">dttSpot</a>;    </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        } <a class="code hl_struct" href="structds__struct.html">ds_struct</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">//extern &quot;C&quot; {</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="comment"></span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="comment">// extern &quot;C&quot; {</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno"><a class="line" href="group___floodfill.html#gab02c1bdd32988608717cb98073928894">  293</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="group___floodfill.html#gab02c1bdd32988608717cb98073928894">FloodFill8</a>(</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="keywordtype">void</span>* src,</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <span class="keywordtype">void</span>* dst,</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <span class="keywordtype">int</span> nWidth,</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <span class="keywordtype">int</span> nHeight,</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <a class="code hl_struct" href="structspot__struct.html">spot_struct</a>* spot,</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keywordtype">int</span> lenSpot,</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    <span class="keywordtype">unsigned</span>* pixels,</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="keywordtype">int</span> mSpot,</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <span class="keywordtype">int</span> dtFull,</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <span class="keywordtype">int</span> dtSpot,</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keywordtype">int</span> lDiag,</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <span class="keywordtype">int</span> lDropSpot,</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <a class="code hl_struct" href="structds__struct.html">ds_struct</a>* dropSpot,</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keywordtype">int</span> nPxlMin,</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="keywordtype">int</span> nPxlMax,</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <span class="keywordtype">int</span> dXYmin,</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keywordtype">int</span> dXYmax</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>);</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment">//};</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="comment"></span> </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="preprocessor">#endif                                  </span><span class="comment">/* __FLOODFILL_HEADER */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="agroup___floodfill_html_gab02c1bdd32988608717cb98073928894"><div class="ttname"><a href="group___floodfill.html#gab02c1bdd32988608717cb98073928894">FloodFill8</a></div><div class="ttdeci">int FloodFill8(void *src, void *dst, int nWidth, int nHeight, spot_struct *spot, int lenSpot, unsigned *pixels, int mSpot, int dtFull, int dtSpot, int lDiag, int lDropSpot, ds_struct *dropSpot, int nPxlMin, int nPxlMax, int dXYmin, int dXYmax)</div><div class="ttdoc">Функция FloodFill8 выполняет поиск пятен (сегментов, односвязных областей) во входной 8-битной матриц...</div></div>
+<div class="ttc" id="astructds__struct_html"><div class="ttname"><a href="structds__struct.html">ds_struct</a></div><div class="ttdef"><b>Definition:</b> iFloodFill.h:94</div></div>
+<div class="ttc" id="astructds__struct_html_a410a64378555a8cb8a85b705a00b140d"><div class="ttname"><a href="structds__struct.html#a410a64378555a8cb8a85b705a00b140d">ds_struct::nnPxl</a></div><div class="ttdeci">int nnPxl</div><div class="ttdoc">суммарное число пикселов в отбракованных пятнах</div><div class="ttdef"><b>Definition:</b> iFloodFill.h:96</div></div>
+<div class="ttc" id="astructds__struct_html_a7ff7e992c94061b569fabcf1f3412d40"><div class="ttname"><a href="structds__struct.html#a7ff7e992c94061b569fabcf1f3412d40">ds_struct::nnSpot</a></div><div class="ttdeci">int nnSpot</div><div class="ttdoc">общее число отбракованных пятен (по данному признаку)</div><div class="ttdef"><b>Definition:</b> iFloodFill.h:95</div></div>
+<div class="ttc" id="astructds__struct_html_ad67e6509494fc88446f12cd09cde0603"><div class="ttname"><a href="structds__struct.html#ad67e6509494fc88446f12cd09cde0603">ds_struct::dttSpot</a></div><div class="ttdeci">int dttSpot</div><div class="ttdoc">общее время обработки отбракованных пятен (в тактах процессора)</div><div class="ttdef"><b>Definition:</b> iFloodFill.h:97</div></div>
+<div class="ttc" id="astructspot__struct_html"><div class="ttname"><a href="structspot__struct.html">spot_struct</a></div><div class="ttdef"><b>Definition:</b> iFloodFill.h:84</div></div>
+<div class="ttc" id="astructspot__struct_html_a1d48e782d2899e61508624a89917606b"><div class="ttname"><a href="structspot__struct.html#a1d48e782d2899e61508624a89917606b">spot_struct::Ymin</a></div><div class="ttdeci">int Ymin</div><div class="ttdoc">коородинаты минимального прямоугольника, содержащего пятно</div><div class="ttdef"><b>Definition:</b> iFloodFill.h:86</div></div>
+<div class="ttc" id="astructspot__struct_html_a40fc05a079d585e64e77cdcb73634b9d"><div class="ttname"><a href="structspot__struct.html#a40fc05a079d585e64e77cdcb73634b9d">spot_struct::noPxl</a></div><div class="ttdeci">int noPxl</div><div class="ttdoc">номер начального пиксела следующего пятна в массиве pixels</div><div class="ttdef"><b>Definition:</b> iFloodFill.h:89</div></div>
+<div class="ttc" id="astructspot__struct_html_a528d61a11d61aeab591d16e55554a27a"><div class="ttname"><a href="structspot__struct.html#a528d61a11d61aeab591d16e55554a27a">spot_struct::Ymax</a></div><div class="ttdeci">int Ymax</div><div class="ttdoc">коородинаты минимального прямоугольника, содержащего пятно</div><div class="ttdef"><b>Definition:</b> iFloodFill.h:88</div></div>
+<div class="ttc" id="astructspot__struct_html_a5652eb38de95fe7c71d40dd93218b121"><div class="ttname"><a href="structspot__struct.html#a5652eb38de95fe7c71d40dd93218b121">spot_struct::dtSpot</a></div><div class="ttdeci">int dtSpot</div><div class="ttdoc">время обработки пятна (в тактах процессора)</div><div class="ttdef"><b>Definition:</b> iFloodFill.h:90</div></div>
+<div class="ttc" id="astructspot__struct_html_ab72e823cfd1f7644c06cd00777f97919"><div class="ttname"><a href="structspot__struct.html#ab72e823cfd1f7644c06cd00777f97919">spot_struct::Xmax</a></div><div class="ttdeci">int Xmax</div><div class="ttdoc">коородинаты минимального прямоугольника, содержащего пятно</div><div class="ttdef"><b>Definition:</b> iFloodFill.h:87</div></div>
+<div class="ttc" id="astructspot__struct_html_af03ae88338880269e1f795f63f171ad2"><div class="ttname"><a href="structspot__struct.html#af03ae88338880269e1f795f63f171ad2">spot_struct::Xmin</a></div><div class="ttdeci">int Xmin</div><div class="ttdoc">коородинаты минимального прямоугольника, содержащего пятно</div><div class="ttdef"><b>Definition:</b> iFloodFill.h:85</div></div>
+<div class="ttc" id="astructtag_segment_info_html"><div class="ttname"><a href="structtag_segment_info.html">tagSegmentInfo</a></div><div class="ttdef"><b>Definition:</b> iFloodFill.h:23</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

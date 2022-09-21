@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>nmpp: nmppsResampleDown2</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">nmpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="modules.html"><span>nmpp</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">nmppsResampleDown2<div class="ingroups"><a class="el" href="group__integer.html">Целочисленные функции</a> &raquo; <a class="el" href="group___s_i_g___group.html">Функции обработки сигналов</a> &raquo; <a class="el" href="group__s_resample.html">Изменение размеров</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Уменьшение числа отсчетов в двое.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gad07d07353b02a8cba2e44e6215555152"><td class="memItemLeft" align="right" valign="top"><a id="gad07d07353b02a8cba2e44e6215555152" name="gad07d07353b02a8cba2e44e6215555152"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsResampleDown2_8u8u</b> (<a class="el" href="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5">nm8u7b</a> *pSrcVec, <a class="el" href="group__nmvectype.html#ga455936568bcda359ddb91a8c058748f5">nm8u7b</a> *pDstVec, int nSrcVecSize, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pKernel)</td></tr>
+<tr class="separator:gad07d07353b02a8cba2e44e6215555152"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2849eba97e9d7bd5e080f2c88f48e8e6"><td class="memItemLeft" align="right" valign="top"><a id="ga2849eba97e9d7bd5e080f2c88f48e8e6" name="ga2849eba97e9d7bd5e080f2c88f48e8e6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nmppsResampleDown2_16u16u</b> (<a class="el" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a> *pSrcVec, <a class="el" href="group__nmvectype.html#gaea982edb835e53315b10fae6a12e53b5">nm16u15b</a> *pDstVec, int nSrcVecSize, <a class="el" href="group__nmvectype.html#ga4e59c2dc9731ba8592b0991bf71c7af3">nm64s</a> *pKernel)</td></tr>
+<tr class="separator:ga2849eba97e9d7bd5e080f2c88f48e8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p >Уменьшение числа отсчетов в двое. </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[
+    pDstVec  = \frac{1}{2} \left( pSrcVec(2*x) + pSrcVec(2*x+1) \right)
+\]" src="form_8.png" width="288" height="26"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pSrcVec</td><td><br  />
+ Входной сигнал.</td></tr>
+    <tr><td class="paramname">nSize</td><td><br  />
+ Размер массива входных данных.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pDstVec</td><td><br  />
+ Результирующий сигнал.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Для того чтобы избежать переполнения при усреднении, динамический диапазон исходного изображения должен принадлежать диапазону, определенному типом. <br  />
+ </dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

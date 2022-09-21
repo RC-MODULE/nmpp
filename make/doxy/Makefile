@@ -11,10 +11,11 @@ doxy:
 
 chm:
 	doxygen
-	utf2win.bat
-	taskkill /FI "windowtitle eq nmpp"
-	-cd html && hhc index.hhp
 	copy html\*.chm .
+	
+#	utf2win.bat
+#	taskkill /FI "windowtitle eq nmpp"
+#	-cd html && hhc index.hhp
 
 html:
 	doxygen
@@ -25,7 +26,9 @@ pdf:
 	copy .\latex\refman.pdf .\nmpp.pdf
 
 clean:
-	-rm -f -r -v html xml latex nmpp.chm nmpp.pdf *.html .*
+	-rm -f -r -v html xml latex nmpp.chm nmpp.pdf 
+	
+#*.html .*
 
 open:
 	www.bat

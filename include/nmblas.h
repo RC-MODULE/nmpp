@@ -4,7 +4,6 @@
  *  \author    Alexandr Bolotnikov 
  *  \version   1.0
  *  \date      2017-05-23T15:13:13
- *  \bug       
  *  \warning   
  *  \copyright (c) RC Module Inc.
  *  \file nmblas.h
@@ -12,6 +11,12 @@
  
  
  //! \defgroup LEVEL1 BLASS-LEVEL1
+ //! \ingroup NMBLAS
+ //! \{
+ 
+ //! \}
+
+ //! \defgroup LEVEL2 BLASS-LEVEL2
  //! \ingroup NMBLAS
  //! \{
  
@@ -28,7 +33,6 @@
 
 	/**
 	 *  
-	 *  \defgroup dasum nmblas_dasum
 	 *  \brief takes the sum of the absolute values
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -58,7 +62,7 @@ enum nm_trans{nm_n=0,nm_t=1};
 
 
 	/**
-	 *  \defgroup daxpy nmblas_daxpy
+	 *  
 	 *  \brief constant times a vector plus a vector
 	 *  \ingroup LEVEL1	 	 
 	 *  
@@ -92,8 +96,8 @@ void nmblas_daxpy(
 ); 
 //! \}
 
+	 
 	/**
-	 *  \defgroup dcopy nmblas_dcopy
 	 *  \brief copies a vector, X, to a vector, Y
 	 *  \ingroup LEVEL1
 	 *  
@@ -126,7 +130,6 @@ void nmblas_dcopy(
 //! \}
 
 	/**
-	 *  \defgroup ddot nmblas_ddot
 	 *  \brief  forms the dot product of two vectors.
 	 *  \ingroup LEVEL1
 	 *  
@@ -160,7 +163,6 @@ double nmblas_ddot(
 //! \}
 
 	/**
-	 *  \defgroup dnrm2 nmblas_dnrm2
 	 *  \brief returns the euclidean norm of a vector via the function name, so that  SCNRM2 := sqrt( x**H*x )
 	 *  \ingroup LEVEL1
 	 *  
@@ -187,7 +189,6 @@ double nmblas_dnrm2(
 //! \}
 
 	/**
-	 *  \defgroup drot nmblas_drot
 	 *  \brief applies a plane rotation
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -225,7 +226,6 @@ void nmblas_drot(
 //! \}
 
 	/**
-	 *  \defgroup drotg nmblas_drotg
 	 *  \brief construct givens plane rotation
 	 *  \ingroup LEVEL1	 	 
 	 *  
@@ -244,7 +244,6 @@ void nmblas_drotg(
 //! \}
 
 	/**
-	 *  \defgroup drotm nmblas_drotm
 	 *  \brief  Apply a Given's rotation constructed by DROTMG.
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -269,7 +268,6 @@ void nmblas_drotm(
 //! \} 
 
 	/**
-	 *  \defgroup dscal nmblas_dscal
 	 *  \brief scales a vector by a constant
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -298,7 +296,6 @@ void nmblas_dscal(
 //! \}
 
 	/**
-	 *  \defgroup dsdot nmblas_dsdot
 	 *  \brief Compute the inner product of two vectors with double precision accumulation.
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -335,7 +332,6 @@ double nmblas_dsdot(
 //! \}
 
 	/**
-	 *  \defgroup dswap nmblas_dswap
 	 *  \brief interchanges two vectors
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -359,7 +355,6 @@ void nmblas_dswap(
 //! \}
 
 	/**
-	 *  \defgroup dznrm2 nmblas_dznrm2
 	 *  \brief  returns the euclidean norm of a vector via the function name, so that   DZNRM2 := sqrt( x**H*x )
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -386,7 +381,6 @@ double nmblas_dznrm2(
 //! \}
 
 	/**
-	 *  \defgroup idamax nmblas_idamax
 	 *  \brief finds the index of the first element having maximum absolute value.
 	 *  \ingroup LEVEL1
 	 *  
@@ -414,7 +408,6 @@ int nmblas_idamax(
 //////////////////////////////////////////////////////level 1 single precition
 
 	/**
-	 *  \defgroup isamax nmblas_isamax
 	 *  \brief finds the index of the first element having maximum absolute value.
 	 *  \ingroup LEVEL1
 	 *  
@@ -441,7 +434,6 @@ int nmblas_isamax(
 //! \}
 
 	/**
-	 *  \defgroup sasum nmblas_sasum
 	 *  \brief takes the sum of the absolute values
 	 *  \ingroup LEVEL1
 	 *  
@@ -468,7 +460,6 @@ float nmblas_sasum(
 //! \}
 	
 	/**
-	 *  \defgroup saxpy nmblas_saxpy	
 	 *  \brief  constant times a vector plus a vector
 	 *  \ingroup LEVEL1
 	 *  
@@ -503,7 +494,6 @@ void nmblas_saxpy(
 //! \}
 
 	/**
-	 *  \defgroup scnrm2 nmblas_scnrm2
 	 *  \brief returns the euclidean norm of a vector via the function name, so that  SCNRM2 := sqrt( x**H*x )
 	 *  \ingroup LEVEL1
 	 *  
@@ -530,7 +520,6 @@ float nmblas_scnrm2(
 //! \}
 
 	/**
-	 *  \defgroup scopy nmblas_scopy
 	 *  \brief copies a vector, X, to a vector, Y
 	 *  \ingroup LEVEL1
 	 *  
@@ -562,7 +551,6 @@ void nmblas_scopy(
 //! \}
 
 	/**
-	 *  \defgroup sdot nmblas_sdot
 	 *  \brief SDOT forms the dot product of two vectors.
 	 *  \ingroup LEVEL1
 	 *  
@@ -595,7 +583,6 @@ float nmblas_sdot(
 //! \}
 
 	/**
-	 *  \defgroup sdsdot nmblas_sdsdot
 	 *  \brief Compute the inner product of two vectors with double precision accumulation.
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -624,7 +611,6 @@ float nmblas_sdsdot(
 //! \}
 
 	/**
-	 *  \defgroup snrm2 nmblas_snrm2
 	 *  \brief SNRM2 returns the euclidean norm of a vector via the function name, so that SNRM2 := sqrt( x'*x ).
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -650,7 +636,6 @@ float nmblas_snrm2(
 );
 //! \}
 	/**
-	 *  \defgroup srot nmblas_srot
 	 *  \brief applies a plane rotation
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -677,7 +662,6 @@ void nmblas_srot(
 //! \}
 
 	/**
-	 *  \defgroup srotm nmblas_srotm
 	 *  \brief  Apply a Given's rotation constructed by SROTMG.
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -701,7 +685,6 @@ void nmblas_srotm(
 );
 //! \}
 	/**
-	 *  \defgroup sscal nmblas_sscal
 	 *  \brief scales a vector by a constant
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -730,7 +713,6 @@ void nmblas_sscal(
 //! \}
 
 	/**
-	 *  \defgroup sswap nmblas_sswap
 	 *  \brief interchanges two vectors
 	 *  \ingroup LEVEL1	 
 	 *  
@@ -763,8 +745,10 @@ void nmblas_sswap(
 
 /////////////////LEVEL 2 
 
+//defgroup sgemv nmblas_sgemv
    /**
-	*  \defgroup sgemv nmblas_sgemv
+	*  
+	*  \ingroup LEVEL2
     *  \brief performs one of the matrix-vector operations   y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y, where alpha and beta are scalars, x and y are vectors and A is an  m by n matrix.
     *  
     *  \param [in] TRANS is CHARACTER*1
@@ -817,8 +801,10 @@ void nmblas_sgemv(
 );
 //! \}
 
+//defgroup dgemv nmblas_dgemv
    /**
-	*  \defgroup dgemv nmblas_dgemv
+	*  
+	*  \ingroup LEVEL2
     *  \brief performs one of the matrix-vector operations   y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y, where alpha and beta are scalars, x and y are vectors and A is an  m by n matrix.
     *  
     *  \param [in] TRANS is CHARACTER*1
@@ -871,11 +857,11 @@ void nmblas_dgemv(
 );
 //! \}
 
-
+//defgroup sger nmblas_sger
    /**
-	*  \defgroup sger nmblas_sger
-    *  \brief perform the rank 1 operation   A := alpha*x*y' + A, where alpha is a scalar, x is an m element vector, y is an n element
- vector and A is an m by n matrix.
+	*  
+	*  \ingroup LEVEL2
+    *  \brief perform the rank 1 operation   A := alpha*x*y' + A, where alpha is a scalar, x is an m element vector, y is an n element vector and A is an m by n matrix.
     *  
     *  \param [in] M  M is INTEGER
            On entry, M specifies the number of rows of the matrix A.

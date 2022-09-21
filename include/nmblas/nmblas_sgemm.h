@@ -24,7 +24,6 @@
  *  \param [in] beta specifies the scalar beta
  *  \param [in,out] C pointer to accumulator matrix
  *  \param [in] ldc C stride, first dimension of C holder
- *  \bug
  *  \warning
  *  \copyright (c) RC Module Inc.
  *  \file nmblas_sgemm.h

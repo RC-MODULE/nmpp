@@ -48,11 +48,13 @@ int main()
 	
 	for(int size=0; size<maxSize; size+=4){
 		for(int kernelSize=3; kernelSize<33; kernelSize+=2){
+			#ifdef NEURO
 			if (nmppsFIRInitAlloc_16s(&state,pWeights,kernelSize))
 				return -1;
 			nmppsFIR_16s(src,dst,size,state);
-			nmppsCrcAcc_16s(dst,size,&crc);
 			nmppsFIRFree(state);
+			#endif
+			nmppsCrcAcc_16s(dst,size,&crc);
 		}
 	}
 	

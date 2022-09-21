@@ -4,7 +4,7 @@
     "_exclude_dirs": ["d"],
     "include_dirs_": ["arithmetic_","conditional_","matrix"],
     "target_index": "make_",
-    "targets"  : ["x64","mc12101_nmpu0"],
+    "targets"  : ["x64","mc12101_nmpu0","mc11101"],
     "test": ["x64","mc12101_nmpu0"],
     "_log": "nmcmake.log"
 }

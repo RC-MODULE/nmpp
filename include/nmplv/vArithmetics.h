@@ -577,13 +577,7 @@ void nmppsAdd4V_16s(
 
 		\~
 
-	\f[
-        pDstVec[i]  =  pSrcVec1[i]  +  pSrcVec2[i]  +  nVal,
-    \f]
-
-	\f[
-        i = \overline{0 \ldots nSize-1}
-    \f]
+	
 
     \param pSrcVec1
         \ru Первый входной вектор.
@@ -624,6 +618,15 @@ void nmppsAdd4V_16s(
              <param name="nSize"> 8 128 1024 2048 </param>
         </testperf>
     \endxmlonly
+	
+	\f[
+        pDstVec[i]  =  pSrcVec1[i]  +  pSrcVec2[i]  +  nVal,
+    \f]
+
+	\f[
+        i = \overline{0 \ldots nSize-1}
+    \f]
+	
     */
     //! \{
 void nmppsAdd_AddC_32s(nm32s* pSrcVec1, nm32s* pSrcVec2, int nVal, nm32s* pDstVec, int nSize);
